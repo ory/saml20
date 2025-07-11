@@ -10,6 +10,21 @@ import saml20 from './saml20';
 import { parseFromString, isMultiRootedXMLError, multiRootedXMLError } from './utils';
 import { sign } from './sign';
 
+const nameFormatBasic = [
+  'urn:oid:0.9.2342.19200300.100.1.1',
+  'urn:oid:0.9.2342.19200300.100.1.3',
+  'urn:oid:2.5.4.42',
+  'urn:oid:2.5.4.4',
+  'urn:oid:2.5.4.12',
+  'urn:oid:0.9.2342.19200300.100.1.60',
+  'urn:mace:dir:attribute-def:uid',
+  'urn:mace:dir:attribute-def:mail',
+  'urn:mace:dir:attribute-def:givenName',
+  'urn:mace:dir:attribute-def:sn',
+  'urn:mace:dir:attribute-def:title',
+  'urn:mace:dir:attribute-def:jpegPhoto',
+];
+
 const tokenHandlers = {
   '2.0': saml20,
 };
@@ -293,6 +308,13 @@ const flattenedArray = (arr: string[]) => {
   return [escArr.join(',')];
 };
 
+const nameFormat = (attributeName: string) => {
+  if (nameFormatBasic.includes(attributeName)) {
+    return 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic';
+  }
+
+  return 'urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified';
+};
 // Create SAML Response and sign it
 const createSAMLResponse = async ({
   audience,
@@ -400,7 +422,7 @@ const createSAMLResponse = async ({
 
             return {
               '@Name': attributeName,
-              '@NameFormat': 'urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified',
+              '@NameFormat': nameFormat(attributeName),
               'saml:AttributeValue': attributeValueArray.map((value) => {
                 return {
                   '@xmlns:xs': 'http://www.w3.org/2001/XMLSchema',
