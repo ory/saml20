@@ -10,7 +10,7 @@ import saml20 from './saml20';
 import { parseFromString, isMultiRootedXMLError, multiRootedXMLError } from './utils';
 import { sign } from './sign';
 
-const nameFormatBasic = [
+const nameFormatUri = [
   'urn:oid:0.9.2342.19200300.100.1.1',
   'urn:oid:0.9.2342.19200300.100.1.3',
   'urn:oid:2.5.4.42',
@@ -309,8 +309,8 @@ const flattenedArray = (arr: string[]) => {
 };
 
 const nameFormat = (attributeName: string) => {
-  if (nameFormatBasic.includes(attributeName)) {
-    return 'urn:oasis:names:tc:SAML:2.0:attrname-format:basic';
+  if (nameFormatUri.includes(attributeName)) {
+    return 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri';
   }
 
   return 'urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified';
