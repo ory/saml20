@@ -1,6 +1,6 @@
 {
   "name": "@boxyhq/saml20",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "SAML 2.0 token parser for Node.js",
   "keywords": [
     "SAML 2.0",
