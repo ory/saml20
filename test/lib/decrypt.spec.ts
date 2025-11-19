@@ -46,4 +46,18 @@ describe('decrypt.ts', function () {
       assert.strictEqual((error as Error).message, 'Exception of Assertion Decryption.');
     }
   });
+
+  it('multiple assertions', function () {
+    const multipleAssertionsXml = `
+      <samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+        <saml:EncryptedAssertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">Assertion1</saml:EncryptedAssertion>
+        <saml:EncryptedAssertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">Assertion2</saml:EncryptedAssertion>
+      </samlp:Response>
+    `;
+    try {
+      decryptXml(multipleAssertionsXml, options);
+    } catch (error) {
+      assert.strictEqual((error as Error).message, 'Multiple Assertion.');
+    }
+  });
 });
