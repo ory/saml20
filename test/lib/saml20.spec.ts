@@ -129,4 +129,32 @@ describe('saml20.ts', function () {
       assert(error);
     }
   });
+  it('getClaims with friendly names', function () {
+    const attributes = [
+      {
+        '@': { Name: 'name', FriendlyName: 'email' },
+        'AttributeValue': { _: 'test@example.com' }
+      },
+      {
+        '@': { Name: 'givenName', FriendlyName: 'givenName' },
+        'AttributeValue': { _: 'John' }
+      },
+      {
+        '@': { Name: 'surname', FriendlyName: 'sn' },
+        'AttributeValue': { _: 'Doe' }
+      }
+    ];
+    
+    const assertionWithFriendlyNames = {
+      AttributeStatement: {
+        Attribute: attributes
+      }
+    };
+    
+    const result = saml20.parse(assertionWithFriendlyNames);
+    const claims = result.claims as any;
+    assert.strictEqual(claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'], 'test@example.com');
+    assert.strictEqual(claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname'], 'John');
+    assert.strictEqual(claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname'], 'Doe');
+  });
 });
