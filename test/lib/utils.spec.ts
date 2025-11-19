@@ -1,11 +1,5 @@
 import assert from 'assert';
-import {
-  parseFromString,
-  thumbprint,
-  getAttribute,
-  isMultiRootedXMLError,
-  multiRootedXMLError,
-} from '../../lib/utils';
+import { parseFromString, thumbprint, getAttribute, isMultiRootedXMLError } from '../../lib/utils';
 
 describe('utils.ts', function () {
   describe('parseFromString', function () {
