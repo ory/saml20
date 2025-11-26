@@ -209,4 +209,67 @@ describe('metadata.ts', function () {
 
     assert.strictEqual(!!res, true);
   });
+  it(`createSPMetadataXML ok with encryption`, async () => {
+    const res = createSPMetadataXML({
+      acsUrl: 'http://localhost:4000/api/saml/sso',
+      entityId: 'https://saml.example.com/entityid',
+      publicKeyString: 'x509cert',
+      encryption: true,
+    });
+
+    assert.strictEqual(!!res, true);
+    assert(res.includes('md:EncryptionMethod'));
+  });
+
+  it('saml MetaData validateNameIDFormat not ok', async function () {
+    try {
+      await parseMetadata(samlMetadata, {
+        validateNameIDFormat: 'invalid:format',
+      });
+    } catch (error) {
+      assert.strictEqual(
+        (error as Error).message,
+        "Invalid nameIDFormat. Please set 'Name ID Format' to undefined"
+      );
+    }
+  });
+
+  it('saml MetaData with SLO services', async function () {
+    const sloMetadata = `
+      <EntityDescriptor entityID="https://saml.example.com/entityid" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+          <KeyDescriptor use="signing">
+            <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+              <X509Data>
+                <X509Certificate>MIICajCCAdOgAwIBAgIBADANBgkqhkiG9w0BAQ0FADBSMQswCQYDVQQGEwJ1czETMBEGA1UECAwKQ2FsaWZvcm5pYTEVMBMGA1UECgwMT25lbG9naW4gSW5jMRcwFQYDVQQDDA5zcC5leGFtcGxlLmNvbTAeFw0xNDA3MTcxNDEyNTZaFw0xNTA3MTcxNDEyNTZaMFIxCzAJBgNVBAYTAnVzMRMwEQYDVQQIDApDYWxpZm9ybmlhMRUwEwYDVQQKDAxPbmVsb2dpbiBJbmMxFzAVBgNVBAMMDnNwLmV4YW1wbGUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZx+ON4IUoIWxgukTb1tOiX3bMYzYQiwWPUNMp+Fq82xoNogso2bykZG0yiJm5o8zv/sd6pGouayMgkx/2FSOdc36T0jGbCHuRSbtia0PEzNIRtmViMrt3AeoWBidRXmZsxCNLwgIV6dn2WpuE5Az0bHgpZnQxTKFek0BMKU/d8wIDAQABo1AwTjAdBgNVHQ4EFgQUGHxYqZYyX7cTxKVODVgZwSTdCnwwHwYDVR0jBBgwFoAUGHxYqZYyX7cTxKVODVgZwSTdCnwwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQ0FAAOBgQByFOl+hMFICbd3DJfnp2Rgd/dqttsZG/tyhILWvErbio/DEe98mXpowhTkC04ENprOyXi7ZbUqiicF89uAGyt1oqgTUCD1VsLahqIcmrzgumNyTwLGWo17WDAa1/usDhetWAMhgzF/Cnf5ek0nK00m0YZGyc4LzgD0CROMASTWNg==</X509Certificate>
+              </X509Data>
+            </KeyInfo>
+          </KeyDescriptor>
+          <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://localhost:4000/api/saml/slo/redirect"/>
+          <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:4000/api/saml/slo/post"/>
+        </IDPSSODescriptor>
+      </EntityDescriptor>
+    `;
+    const value = await parseMetadata(sloMetadata, {});
+    assert.strictEqual(value.slo.redirectUrl, 'http://localhost:4000/api/saml/slo/redirect');
+    assert.strictEqual(value.slo.postUrl, 'http://localhost:4000/api/saml/slo/post');
+  });
+
+  it('saml MetaData with SP descriptor', async function () {
+    const spMetadata = `
+      <EntityDescriptor entityID="https://saml.example.com/entityid" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+        <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+          <KeyDescriptor use="signing">
+            <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+              <X509Data>
+                <X509Certificate>MIICajCCAdOgAwIBAgIBADANBgkqhkiG9w0BAQ0FADBSMQswCQYDVQQGEwJ1czETMBEGA1UECAwKQ2FsaWZvcm5pYTEVMBMGA1UECgwMT25lbG9naW4gSW5jMRcwFQYDVQQDDA5zcC5leGFtcGxlLmNvbTAeFw0xNDA3MTcxNDEyNTZaFw0xNTA3MTcxNDEyNTZaMFIxCzAJBgNVBAYTAnVzMRMwEQYDVQQIDApDYWxpZm9ybmlhMRUwEwYDVQQKDAxPbmVsb2dpbiBJbmMxFzAVBgNVBAMMDnNwLmV4YW1wbGUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZx+ON4IUoIWxgukTb1tOiX3bMYzYQiwWPUNMp+Fq82xoNogso2bykZG0yiJm5o8zv/sd6pGouayMgkx/2FSOdc36T0jGbCHuRSbtia0PEzNIRtmViMrt3AeoWBidRXmZsxCNLwgIV6dn2WpuE5Az0bHgpZnQxTKFek0BMKU/d8wIDAQABo1AwTjAdBgNVHQ4EFgQUGHxYqZYyX7cTxKVODVgZwSTdCnwwHwYDVR0jBBgwFoAUGHxYqZYyX7cTxKVODVgZwSTdCnwwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQ0FAAOBgQByFOl+hMFICbd3DJfnp2Rgd/dqttsZG/tyhILWvErbio/DEe98mXpowhTkC04ENprOyXi7ZbUqiicF89uAGyt1oqgTUCD1VsLahqIcmrzgumNyTwLGWo17WDAa1/usDhetWAMhgzF/Cnf5ek0nK00m0YZGyc4LzgD0CROMASTWNg==</X509Certificate>
+              </X509Data>
+            </KeyInfo>
+          </KeyDescriptor>
+        </SPSSODescriptor>
+      </EntityDescriptor>
+    `;
+    const value = await parseMetadata(spMetadata, {});
+    assert.strictEqual(value.loginType, 'sp');
+  });
 });

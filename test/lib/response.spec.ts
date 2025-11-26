@@ -362,3 +362,33 @@ it('Should create a SAML response with nameFormat basic', async function () {
     true
   );
 });
+
+it('validate should throw error if both publicKey and thumbprint are provided', async function () {
+  try {
+    await validate(validResponse, {
+      publicKey: certificate,
+      thumbprint: 'thumbprint',
+    });
+  } catch (error) {
+    assert.strictEqual(
+      (error as Error).message,
+      'You should provide either cert or certThumbprint, not both'
+    );
+  }
+});
+
+it('validate should throw error if rawAssertion is empty', async function () {
+  try {
+    await validate('', { publicKey: certificate });
+  } catch (error) {
+    assert.strictEqual((error as Error).message, 'rawAssertion is required.');
+  }
+});
+
+it('parse should throw error if rawAssertion is empty', async function () {
+  try {
+    await parse('');
+  } catch (error) {
+    assert.strictEqual((error as Error).message, 'rawAssertion is required.');
+  }
+});
