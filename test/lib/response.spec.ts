@@ -392,3 +392,71 @@ it('parse should throw error if rawAssertion is empty', async function () {
     assert.strictEqual((error as Error).message, 'rawAssertion is required.');
   }
 });
+
+it('Should create a SAML response with default ttlInMinutes', async function () {
+  const json = {
+    audience: 'http://sp.example.com/demo1/metadata.php',
+    issuer: 'http://idp.example.com/metadata.php',
+    acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+    claims: {
+      raw: {
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier':
+          '_ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7',
+      },
+    },
+    requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+    privateKey: oktaPrivateKey,
+    publicKey: oktaPublicKey,
+  };
+
+  const response = await createSAMLResponse(json);
+
+  // Extract NotOnOrAfter and NotBefore from the Conditions element
+  const notOnOrAfterMatch = response.match(/NotOnOrAfter="([^"]+)"/);
+  const notBeforeMatch = response.match(/NotBefore="([^"]+)"/);
+
+  assert.ok(notOnOrAfterMatch, 'NotOnOrAfter attribute should exist');
+  assert.ok(notBeforeMatch, 'NotBefore attribute should exist');
+
+  const notOnOrAfter = new Date(notOnOrAfterMatch[1]);
+  const notBefore = new Date(notBeforeMatch[1]);
+
+  // The difference should be exactly ttlInMinutes
+  const diffInMinutes = (notOnOrAfter.getTime() - notBefore.getTime()) / (1000 * 60);
+  assert.strictEqual(diffInMinutes, 10);
+});
+
+it('Should create a SAML response with custom ttlInMinutes', async function () {
+  const ttlInMinutes = 30;
+  const json = {
+    audience: 'http://sp.example.com/demo1/metadata.php',
+    issuer: 'http://idp.example.com/metadata.php',
+    acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+    claims: {
+      raw: {
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier':
+          '_ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7',
+      },
+    },
+    requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+    privateKey: oktaPrivateKey,
+    publicKey: oktaPublicKey,
+    ttlInMinutes,
+  };
+
+  const response = await createSAMLResponse(json);
+
+  // Extract NotOnOrAfter and NotBefore from the Conditions element
+  const notOnOrAfterMatch = response.match(/NotOnOrAfter="([^"]+)"/);
+  const notBeforeMatch = response.match(/NotBefore="([^"]+)"/);
+
+  assert.ok(notOnOrAfterMatch, 'NotOnOrAfter attribute should exist');
+  assert.ok(notBeforeMatch, 'NotBefore attribute should exist');
+
+  const notOnOrAfter = new Date(notOnOrAfterMatch[1]);
+  const notBefore = new Date(notBeforeMatch[1]);
+
+  // The difference should be exactly ttlInMinutes
+  const diffInMinutes = (notOnOrAfter.getTime() - notBefore.getTime()) / (1000 * 60);
+  assert.strictEqual(diffInMinutes, ttlInMinutes);
+});
