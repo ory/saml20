@@ -421,7 +421,7 @@ it('Should create a SAML response with default ttlInMinutes', async function () 
   const notOnOrAfter = new Date(notOnOrAfterMatch[1]);
   const notBefore = new Date(notBeforeMatch[1]);
 
-  // The difference should be exactly ttlInMinutes
+  // The difference should be exactly 10 minutes
   const diffInMinutes = (notOnOrAfter.getTime() - notBefore.getTime()) / (1000 * 60);
   assert.strictEqual(diffInMinutes, 10);
 });
