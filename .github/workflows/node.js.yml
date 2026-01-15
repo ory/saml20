@@ -11,6 +11,10 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  id-token: write # Required for npm publish OIDC
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -56,5 +60,3 @@ jobs:
             mv package.json.new package.json
           fi
           npm publish --tag $publishTag --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
