@@ -325,6 +325,7 @@ const createSAMLResponse = async ({
   privateKey,
   publicKey,
   flattenArray = false,
+  ttlInMinutes,
 }: {
   audience: string;
   issuer: string;
@@ -334,6 +335,7 @@ const createSAMLResponse = async ({
   privateKey: string;
   publicKey: string;
   flattenArray?: boolean;
+  ttlInMinutes?: number;
 }): Promise<string> => {
   const authDate = new Date();
   const authTimestamp = authDate.toISOString();
@@ -341,7 +343,7 @@ const createSAMLResponse = async ({
   authDate.setMinutes(authDate.getMinutes() - 5);
   const notBefore = authDate.toISOString();
 
-  authDate.setMinutes(authDate.getMinutes() + 10);
+  authDate.setMinutes(authDate.getMinutes() + (ttlInMinutes || 10));
   const notAfter = authDate.toISOString();
 
   const nodes = {
