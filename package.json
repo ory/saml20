@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/boxyhq/saml20.git"
+    "url": "git+ssh://git@github.com/ory/saml20.git"
   },
   "license": "MIT",
   "author": "Leandro Boffi (me@leandrob.com)",
