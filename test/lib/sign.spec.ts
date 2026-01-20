@@ -9,16 +9,16 @@ const publicKey = fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt'
 
 describe('sign.ts', function () {
   it('should sign valid XML', function () {
-    const signed = sign(validXml, signingKey, publicKey, '/*[local-name(.)="Assertion"]');
+    const signed = sign(validXml, {privateKey: signingKey, publicKey, sigLocation: '/*[local-name(.)="Assertion"]'});
     assert(signed);
     assert(signed.includes('Signature'));
   });
 
   it('should throw error if xml is missing', function () {
-    assert.throws(() => sign('', signingKey, publicKey, ''), /Please specify xml/);
+    assert.throws(() => sign('', {privateKey: signingKey, publicKey, sigLocation: ''}), /Please specify xml/);
   });
 
   it('should throw error if signingKey is missing', function () {
-    assert.throws(() => sign(validXml, '', publicKey, ''), /Please specify signingKey/);
+    assert.throws(() => sign(validXml, {privateKey: '', publicKey, sigLocation: ''}), /Please specify signingKey/);
   });
 });

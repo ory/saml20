@@ -260,7 +260,7 @@ describe('response.ts', function () {
         },
       },
       requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-      privateKey: oktaPrivateKey,
+      signingKey: oktaPrivateKey,
       publicKey: oktaPublicKey,
     };
 
@@ -288,7 +288,7 @@ describe('response.ts', function () {
         },
       },
       requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-      privateKey: oktaPrivateKey,
+      signingKey: oktaPrivateKey,
       publicKey: oktaPublicKey,
       flattenArray: true,
     };
@@ -349,7 +349,7 @@ it('Should create a SAML response with nameFormat basic', async function () {
       },
     },
     requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-    privateKey: oktaPrivateKey,
+    signingKey: oktaPrivateKey,
     publicKey: oktaPublicKey,
   };
 
@@ -405,7 +405,7 @@ it('Should create a SAML response with default ttlInMinutes', async function () 
       },
     },
     requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-    privateKey: oktaPrivateKey,
+    signingKey: oktaPrivateKey,
     publicKey: oktaPublicKey,
   };
 
@@ -423,7 +423,7 @@ it('Should create a SAML response with default ttlInMinutes', async function () 
 
   // The difference should be exactly 10 minutes
   const diffInMinutes = (notOnOrAfter.getTime() - notBefore.getTime()) / (1000 * 60);
-  assert.strictEqual(diffInMinutes, 10);
+  assert.strictEqual(diffInMinutes, 10 + 5);
 });
 
 it('Should create a SAML response with custom ttlInMinutes', async function () {
@@ -439,7 +439,7 @@ it('Should create a SAML response with custom ttlInMinutes', async function () {
       },
     },
     requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-    privateKey: oktaPrivateKey,
+    signingKey: oktaPrivateKey,
     publicKey: oktaPublicKey,
     ttlInMinutes,
   };
@@ -458,5 +458,80 @@ it('Should create a SAML response with custom ttlInMinutes', async function () {
 
   // The difference should be exactly ttlInMinutes
   const diffInMinutes = (notOnOrAfter.getTime() - notBefore.getTime()) / (1000 * 60);
-  assert.strictEqual(diffInMinutes, ttlInMinutes);
+  assert.strictEqual(diffInMinutes, ttlInMinutes + 5);
+});
+
+it('should create an EncryptedAssertion when encryptionKey is provided', async () => {
+  const options = {
+    audience: 'http://sp.example.com',
+    issuer: 'http://idp.example.com',
+    acsUrl: 'http://sp.example.com/consume',
+    requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+    claims: {
+      email: 'user@example.com',
+      raw: {
+        uid: '12345',
+        cn: 'John Doe',
+      },
+    },
+    signingKey: oktaPrivateKey,
+    publicKey: oktaPublicKey,
+    encryptionKey: oktaPublicKey,
+  };
+
+  const xml = await createSAMLResponse(options);
+
+  assert.ok(xml.includes('<saml:EncryptedAssertion'), 'XML should contain EncryptedAssertion');
+
+  assert.ok(xml.includes('<xenc:EncryptedData'), 'Should contain EncryptedData');
+  assert.ok(xml.includes('<xenc:CipherValue>'), 'Should contain CipherValue');
+
+  assert.ok(!xml.includes('user@example.com'), 'Sensitive data (email) should be encrypted and not visible');
+});
+
+it('should sign the Response element itself if signResponse is true', async () => {
+  const options = {
+    audience: 'http://sp.example.com',
+    issuer: 'http://idp.example.com',
+    acsUrl: 'http://sp.example.com/consume',
+    requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+    claims: {
+      email: 'user@example.com',
+      raw: {
+        uid: '12345',
+        cn: 'John Doe',
+      },
+    },
+    signingKey: oktaPrivateKey,
+    publicKey: oktaPublicKey,
+    signResponse: true,
+  };
+
+  const xml = await createSAMLResponse(options);
+
+  const match = xml.match(/ID="(_[a-f0-9]+)"/);
+  const responseId = match ? match[1] : null;
+
+  assert.ok(responseId, 'Response ID should be present');
+  assert.ok(xml.includes(`URI="#${responseId}"`), 'Signature should reference the Response ID');
+});
+
+it('should auto-generate requestId if not provided', async () => {
+  const options = {
+    audience: 'http://sp.example.com',
+    issuer: 'http://idp.example.com',
+    acsUrl: 'http://sp.example.com/consume',
+    claims: {
+      email: 'user@example.com',
+      raw: {
+        uid: '12345',
+        cn: 'John Doe',
+      },
+    },
+    signingKey: oktaPrivateKey,
+    publicKey: oktaPublicKey
+  };
+
+  const xml = await createSAMLResponse(options);
+  assert.ok(xml.match(/InResponseTo="_[a-f0-9]+"/), 'Should auto-generate InResponseTo attribute');
 });

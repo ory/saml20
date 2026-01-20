@@ -10,6 +10,8 @@ import { createPostForm } from './post';
 import { sign } from './sign';
 import { decryptXml } from './decrypt';
 import { parseLogoutResponse, createLogoutRequest } from './logout';
+import { encryptAssertion, EncryptionAlgorithms } from './encrypt';
+import {EncryptOptions, SpMetadataOptions, IdpMetadataOptions, SAMLResponseOptions, SAMLReq, SAMLProfile, SignOptions} from './typings';
 
 export default {
   parseMetadata,
@@ -32,4 +34,16 @@ export default {
   WrapError,
   parseLogoutResponse,
   createLogoutRequest,
+  encryptAssertion: encryptAssertion,
+  EncryptionAlgorithms,
+};
+
+export type {
+  EncryptOptions,
+  SpMetadataOptions,
+  IdpMetadataOptions,
+  SAMLResponseOptions,
+  SAMLReq,
+  SAMLProfile,
+  SignOptions
 };

@@ -11,6 +11,8 @@ const samlMetadata5 = fs.readFileSync('./test/assets/mock-saml-metadata5.xml').t
 const samlMetadata6 = fs.readFileSync('./test/assets/mock-saml-metadata6.xml').toString();
 const samlMetadata7 = fs.readFileSync('./test/assets/mock-saml-metadata7.xml').toString();
 
+const publicCert = fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt').toString();
+
 describe('metadata.ts', function () {
   it('saml MetaData ok without BEGIN & END notations', async function () {
     const value = await parseMetadata(samlMetadata, {});
@@ -191,9 +193,8 @@ describe('metadata.ts', function () {
   it(`createIdPMetadataXML ok`, async () => {
     const res = createIdPMetadataXML({
       ssoUrl: 'http://localhost:4000/api/saml/sso',
-      entityId: 'https://saml.example.com/entityid',
-      x509cert: 'x509cert',
-      wantAuthnRequestsSigned: false,
+      entityID: 'https://saml.example.com/entityid',
+      signingCert: 'x509cert'
     });
 
     assert.strictEqual(!!res, true);
@@ -202,8 +203,8 @@ describe('metadata.ts', function () {
   it(`createSPMetadataXML ok`, async () => {
     const res = createSPMetadataXML({
       acsUrl: 'http://localhost:4000/api/saml/sso',
-      entityId: 'https://saml.example.com/entityid',
-      publicKeyString: 'x509cert',
+      entityID: 'https://saml.example.com/entityid',
+      publicKey: 'x509cert',
       encryption: false,
     });
 
@@ -212,8 +213,8 @@ describe('metadata.ts', function () {
   it(`createSPMetadataXML ok with encryption`, async () => {
     const res = createSPMetadataXML({
       acsUrl: 'http://localhost:4000/api/saml/sso',
-      entityId: 'https://saml.example.com/entityid',
-      publicKeyString: 'x509cert',
+      entityID: 'https://saml.example.com/entityid',
+      publicKey: 'x509cert',
       encryption: true,
     });
 
@@ -271,5 +272,42 @@ describe('metadata.ts', function () {
     `;
     const value = await parseMetadata(spMetadata, {});
     assert.strictEqual(value.loginType, 'sp');
+  });
+
+  it('should include Encryption KeyDescriptor when encryptionCert is provided', () => {
+    const xml = createIdPMetadataXML({
+      entityID: 'http://idp.example.com',
+      ssoUrl: 'http://idp.example.com/sso',
+      signingCert: publicCert,
+      encryptionCert: publicCert,
+      encryption: true
+    });
+
+    assert.ok(xml.includes('<KeyDescriptor use="encryption">'), 'Should contain Encryption KeyDescriptor');
+
+    assert.ok(
+      xml.includes('Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"'),
+      'Should list AES256-CBC'
+    );
+    assert.ok(
+      xml.includes('Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"'),
+      'Should list RSA-OAEP'
+    );
+  });
+
+  it('should add validUntil attribute when provided', () => {
+    const expireDate = new Date('2030-01-01T00:00:00.000Z');
+
+    const xml = createIdPMetadataXML({
+      entityID: 'http://idp.example.com',
+      ssoUrl: 'http://idp.example.com/sso',
+      signingCert: publicCert,
+      validUntil: expireDate,
+    });
+
+    assert.ok(
+      xml.includes('validUntil="2030-01-01T00:00:00.000Z"'),
+      'Should contain validUntil attribute with ISO date'
+    );
   });
 });

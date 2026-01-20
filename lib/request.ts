@@ -62,7 +62,7 @@ const request = ({
 
   let xml = xmlbuilder.create(samlReq).end({});
   if (signingKey) {
-    xml = sign(xml, signingKey, publicKey, authnXPath);
+    xml = sign(xml, {privateKey: signingKey, publicKey, sigLocation: authnXPath});
   }
 
   return {

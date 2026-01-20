@@ -81,4 +81,21 @@ const isMultiRootedXMLError = (err: any) => {
   return false;
 };
 
-export { parseFromString, thumbprint, getAttribute, isMultiRootedXMLError, multiRootedXMLError };
+/**
+ * Generates a cryptographically strong unique identifier.
+ * This is used to create unique IDs for SAML Assertions and Responses.
+ *
+ * @returns {string} A random hex string (e.g., "_a1b2c3d4...").
+ */
+const generateUniqueID = (prefix?: string): string => {
+  return (prefix ?  prefix + '_' : '_') + crypto.randomBytes(10).toString('hex');
+};
+
+export {
+  parseFromString,
+  thumbprint,
+  getAttribute,
+  isMultiRootedXMLError,
+  multiRootedXMLError,
+  generateUniqueID
+};

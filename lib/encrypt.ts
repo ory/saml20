@@ -1,4 +1,6 @@
 import * as xmlenc from 'xml-encryption';
+import { certToPEM } from './validateSignature';
+import { EncryptOptions } from './typings';
 
 /**
  * Enumeration of standard XML Encryption algorithms used in SAML 2.0.
@@ -30,66 +32,16 @@ export const EncryptionAlgorithms = {
 };
 
 /**
- * Configuration options for the encryption process.
- */
-export interface IEncryptOptions {
-  /**
-   * The Service Provider's (SP) Public Key or Certificate content.
-   * This can be the raw Base64 string found in SAML Metadata <ds:X509Certificate>.
-   * It does not need to be in PEM format (headers will be added automatically if missing).
-   */
-  publicKey: string;
-
-  /**
-   * (Optional) The algorithm used to encrypt the assertion data.
-   * @default EncryptionAlgorithms.AES256_CBC
-   */
-  encryptionAlgorithm?: string;
-
-  /**
-   * (Optional) The algorithm used to encrypt the key.
-   * @default EncryptionAlgorithms.RSA_OAEP_MGF1P
-   */
-  keyEncryptionAlgorithm?: string;
-
-  /**
-   * Allow additional options to be passed directly to the xml-encryption library.
-   */
-  [key: string]: any;
-}
-
-/**
- * Helper function to ensure the key is in valid PEM format.
- * SAML Metadata usually provides keys as raw Base64 strings without headers.
- * This function adds the standard BEGIN/END CERTIFICATE headers if they are missing.
- *
- * @param key - The raw key string or already formatted PEM.
- * @returns A properly formatted PEM string.
- */
-const formatAsPem = (key: string): string => {
-  const raw = key.trim();
-  if (raw.startsWith('-----BEGIN')) {
-    return raw;
-  }
-
-  const cleanKey = raw.replace(/\s+/g, '');
-
-  const chunked = cleanKey.match(/.{1,64}/g)?.join('\n');
-
-  return `-----BEGIN CERTIFICATE-----\n${chunked}\n-----END CERTIFICATE-----`;
-};
-
-/**
  * Encrypts a raw SAML Assertion XML string according to SAML 2.0 standards.
  * * @param {string} rawAssertion - The signed or raw XML Assertion string to be encrypted.
- * @param {IEncryptOptions} options - Configuration object containing the public key (raw string) and algorithms.
+ * @param {EncryptOptions} options - Configuration object containing the public key (raw string) and algorithms.
  * @returns {Promise<string>} A promise that resolves to the fully encrypted XML string wrapped in <saml:EncryptedAssertion>.
  */
-export const encryptAssertion = (rawAssertion: string, options: IEncryptOptions): Promise<string> => {
+export const encryptAssertion = (rawAssertion: string, options: EncryptOptions): Promise<string> => {
   return new Promise((resolve, reject) => {
     try {
       // Ensure the public key is in valid PEM format before passing to the library
-      const validPemKey = formatAsPem(options.publicKey);
+      const validPemKey = certToPEM(options.publicKey);
 
       const encAlgo = options.encryptionAlgorithm || EncryptionAlgorithms.AES256_CBC;
       const keyAlgo = options.keyEncryptionAlgorithm || EncryptionAlgorithms.RSA_OAEP_MGF1P;
@@ -123,10 +75,7 @@ export const encryptAssertion = (rawAssertion: string, options: IEncryptOptions)
          * </xenc:EncryptedData>
          * </saml:EncryptedAssertion>
          */
-        const wrappedAssertion = `
-<saml:EncryptedAssertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
-${result}
-</saml:EncryptedAssertion>`;
+        const wrappedAssertion = `<saml:EncryptedAssertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">${result}</saml:EncryptedAssertion>`;
 
         resolve(wrappedAssertion.trim());
       });

@@ -1,10 +1,12 @@
 import { getAttribute } from './utils';
 import { thumbprint } from './utils';
 import { stripCertHeaderAndFooter } from './cert';
+import { EncryptionAlgorithms } from './encrypt';
 
 import crypto from 'crypto';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
+import { IdpMetadataOptions, SpMetadataOptions } from './typings';
 
 const BEGIN = '-----BEGIN CERTIFICATE-----';
 const END = '-----END CERTIFICATE-----';
@@ -186,70 +188,83 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
   });
 };
 
-const createIdPMetadataXML = ({
-  ssoUrl,
-  entityId,
-  x509cert,
-  wantAuthnRequestsSigned,
-}: {
-  ssoUrl: string;
-  entityId: string;
-  x509cert: string;
-  wantAuthnRequestsSigned: boolean;
-}): string => {
-  x509cert = stripCertHeaderAndFooter(x509cert);
+const createIdPMetadataXML = (options: IdpMetadataOptions): string => {
+  const validSigningCert = stripCertHeaderAndFooter(options.signingCert);
+  const validEncryptionCert = options.encryption
+    ? options.encryptionCert
+      ? stripCertHeaderAndFooter(options.encryptionCert)
+      : stripCertHeaderAndFooter(options.signingCert)
+    : null;
 
-  const today = new Date();
+  const keyDescriptors: any[] = [];
+
+  keyDescriptors.push({
+    '@use': 'signing',
+    'ds:KeyInfo': {
+      'ds:X509Data': {
+        'ds:X509Certificate': validSigningCert,
+      },
+    },
+  });
+
+  if (validEncryptionCert) {
+    keyDescriptors.push({
+      '@use': 'encryption',
+      'ds:KeyInfo': {
+        'ds:X509Data': {
+          'ds:X509Certificate': validEncryptionCert,
+        },
+      },
+      EncryptionMethod: [
+        { '@Algorithm': EncryptionAlgorithms.AES256_CBC },
+        { '@Algorithm': EncryptionAlgorithms.AES128_CBC },
+        { '@Algorithm': EncryptionAlgorithms.AES256_GCM },
+        { '@Algorithm': EncryptionAlgorithms.RSA_OAEP_MGF1P },
+      ],
+    });
+  }
+
+  const nameIDFormats = options.nameIDFormat || [
+    'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
+  ];
+
   const nodes = {
-    'md:EntityDescriptor': {
-      '@xmlns:md': 'urn:oasis:names:tc:SAML:2.0:metadata',
-      '@entityID': entityId,
-      '@validUntil': new Date(today.setFullYear(today.getFullYear() + 10)).toISOString(),
-      'md:IDPSSODescriptor': {
-        '@WantAuthnRequestsSigned': wantAuthnRequestsSigned,
+    EntityDescriptor: {
+      '@xmlns': 'urn:oasis:names:tc:SAML:2.0:metadata',
+      '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
+      '@EntityID': options.entityID,
+      ...(options.validUntil && { '@validUntil': options.validUntil.toISOString() }),
+
+      IDPSSODescriptor: {
         '@protocolSupportEnumeration': 'urn:oasis:names:tc:SAML:2.0:protocol',
-        'md:KeyDescriptor': {
-          '@use': 'signing',
-          'ds:KeyInfo': {
-            '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
-            'ds:X509Data': {
-              'ds:X509Certificate': {
-                '#text': x509cert,
-              },
-            },
-          },
-        },
-        'md:NameIDFormat': {
-          '#text': 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-        },
-        'md:SingleSignOnService': [
+        KeyDescriptor: keyDescriptors,
+        NameIDFormat: nameIDFormats,
+        SingleSignOnService: [
           {
             '@Binding': 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
-            '@Location': ssoUrl,
+            '@Location': options.ssoUrl,
           },
           {
             '@Binding': 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
-            '@Location': ssoUrl,
+            '@Location': options.ssoUrl,
           },
         ],
       },
     },
   };
 
+  if (options.sloUrl) {
+    (nodes.EntityDescriptor.IDPSSODescriptor as any).SingleLogoutService = {
+      '@Binding': 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
+      '@Location': options.sloUrl,
+    };
+  }
+
   return xmlbuilder.create(nodes, { encoding: 'UTF-8', standalone: false }).end({ pretty: true });
 };
 
-const createSPMetadataXML = ({
-  entityId,
-  publicKeyString,
-  acsUrl,
-  encryption,
-}: {
-  entityId: string;
-  publicKeyString: string;
-  acsUrl: string;
-  encryption: boolean;
-}): string => {
+const createSPMetadataXML = (options: SpMetadataOptions): string => {
+  const {entityID, publicKey, acsUrl, encryption} = options;
   const today = new Date();
 
   const keyDescriptor: any[] = [
@@ -259,7 +274,7 @@ const createSPMetadataXML = ({
         '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
         'ds:X509Data': {
           'ds:X509Certificate': {
-            '#text': publicKeyString,
+            '#text': publicKey,
           },
         },
       },
@@ -273,7 +288,7 @@ const createSPMetadataXML = ({
         '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
         'ds:X509Data': {
           'ds:X509Certificate': {
-            '#text': publicKeyString,
+            '#text': publicKey,
           },
         },
       },
@@ -286,7 +301,7 @@ const createSPMetadataXML = ({
   const nodes = {
     'md:EntityDescriptor': {
       '@xmlns:md': 'urn:oasis:names:tc:SAML:2.0:metadata',
-      '@entityID': entityId,
+      '@entityID': entityID,
       '@validUntil': new Date(today.setFullYear(today.getFullYear() + 10)).toISOString(),
       'md:SPSSODescriptor': {
         //'@WantAuthnRequestsSigned': true,
