@@ -34,7 +34,7 @@ export default {
   WrapError,
   parseLogoutResponse,
   createLogoutRequest,
-  encryptAssertion: encryptAssertion,
+  encryptAssertion,
   EncryptionAlgorithms,
 };
 

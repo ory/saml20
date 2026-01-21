@@ -1,13 +1,12 @@
 import { SAMLProfile, SAMLResponseOptions } from './typings';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
-import crypto from 'crypto';
 import { getVersion } from './getVersion';
-import { validateSignature, sanitizeXML } from './validateSignature';
+import { sanitizeXML, validateSignature } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
-import { parseFromString, isMultiRootedXMLError, multiRootedXMLError, generateUniqueID } from './utils';
+import { generateUniqueID, isMultiRootedXMLError, multiRootedXMLError, parseFromString } from './utils';
 import { sign } from './sign';
 import { encryptAssertion, EncryptionAlgorithms } from './encrypt';
 
@@ -418,6 +417,7 @@ const createSAMLResponse = async (options: SAMLResponseOptions): Promise<string>
   };
 
   let assertionXml = xmlbuilder.create(assertionNodes, { encoding: 'UTF-8' }).end();
+  assertionXml = stripXmlDeclaration(assertionXml);
 
   if (signingKey) {
     assertionXml = sign(assertionXml, {
@@ -431,7 +431,7 @@ const createSAMLResponse = async (options: SAMLResponseOptions): Promise<string>
     try {
       assertionXml = await encryptAssertion(assertionXml, {
         publicKey: encryptionKey,
-        encryptionAlgorithm: encryptionAlgorithm || EncryptionAlgorithms.AES256_CBC
+        encryptionAlgorithm: encryptionAlgorithm || EncryptionAlgorithms.AES256_CBC,
       });
     } catch (error: any) {
       throw new Error(`SAML Assertion encryption failed: ${error.message}`);
@@ -476,6 +476,10 @@ const createSAMLResponse = async (options: SAMLResponseOptions): Promise<string>
   }
 
   return finalResponseXml;
+};
+
+const stripXmlDeclaration = (xml: string) => {
+  return xml.substring(xml.indexOf('?>') + 2).trim();
 };
 
 export { createSAMLResponse, parse, validate, parseIssuer, WrapError };

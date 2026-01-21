@@ -2,6 +2,7 @@ const stripCertHeaderAndFooter = (cert: string): string => {
   cert = cert.replace(/-+BEGIN CERTIFICATE-+\r?\n?/, '');
   cert = cert.replace(/-+END CERTIFICATE-+\r?\n?/, '');
   cert = cert.replace(/\r\n/g, '\n');
+  cert = cert.trim().replace(/\s+/g, '');
   return cert.trimEnd();
 };
 
