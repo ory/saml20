@@ -112,6 +112,7 @@ const validateInternal = async (rawAssertion, options, cb) => {
     return;
   }
 
+  // eslint-disable-next-line no-useless-assignment
   let decAssertion = false;
   try {
     const { assertion, decrypted } = decryptXml(rawAssertion, options);
@@ -282,10 +283,9 @@ function flattenObject(obj) {
 }
 
 function parseAttributes(assertion, tokenHandler, cb) {
-  let profile = null;
-
   try {
-    profile = tokenHandler.parse(assertion);
+    const profile = tokenHandler.parse(assertion);
+    cb(null, profile);
   } catch (e) {
     const error = new WrapError('An error occurred trying to parse assertion.');
     error.inner = e;
@@ -293,8 +293,6 @@ function parseAttributes(assertion, tokenHandler, cb) {
     cb(error);
     return;
   }
-
-  cb(null, profile);
 }
 
 const randomId = () => {
