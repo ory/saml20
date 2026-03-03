@@ -421,9 +421,9 @@ it('Should create a SAML response with default ttlInMinutes', async function () 
   const notOnOrAfter = new Date(notOnOrAfterMatch[1]);
   const notBefore = new Date(notBeforeMatch[1]);
 
-  // The difference should be exactly 10 minutes
+  // The difference should be exactly 10 minutes + 5 minutes for clock skew tolerance
   const diffInMinutes = (notOnOrAfter.getTime() - notBefore.getTime()) / (1000 * 60);
-  assert.strictEqual(diffInMinutes, 10);
+  assert.strictEqual(diffInMinutes, 10 + 5); // Adding 5 minutes for clock skew tolerance
 });
 
 it('Should create a SAML response with custom ttlInMinutes', async function () {
@@ -458,5 +458,5 @@ it('Should create a SAML response with custom ttlInMinutes', async function () {
 
   // The difference should be exactly ttlInMinutes
   const diffInMinutes = (notOnOrAfter.getTime() - notBefore.getTime()) / (1000 * 60);
-  assert.strictEqual(diffInMinutes, ttlInMinutes);
+  assert.strictEqual(diffInMinutes, ttlInMinutes + 5); // Adding 5 minutes for clock skew tolerance
 });
