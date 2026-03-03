@@ -335,13 +335,14 @@ const createSAMLResponse = async ({
   flattenArray?: boolean;
   ttlInMinutes?: number;
 }): Promise<string> => {
+  const clockSkewToleranceMinutes = 5;
   const authDate = new Date();
   const authTimestamp = authDate.toISOString();
 
-  authDate.setMinutes(authDate.getMinutes() - 5);
+  authDate.setMinutes(authDate.getMinutes() - clockSkewToleranceMinutes);
   const notBefore = authDate.toISOString();
 
-  authDate.setMinutes(authDate.getMinutes() + (ttlInMinutes || 10));
+  authDate.setMinutes(authDate.getMinutes() + clockSkewToleranceMinutes + (ttlInMinutes || 10));
   const notAfter = authDate.toISOString();
 
   const nodes = {
