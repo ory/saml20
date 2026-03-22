@@ -53,7 +53,7 @@
     "@types/xml2js": "0.4.14",
     "@typescript-eslint/eslint-plugin": "8.57.1",
     "@typescript-eslint/parser": "8.57.1",
-    "eslint": "10.0.3",
+    "eslint": "10.1.0",
     "eslint-config-prettier": "10.1.8",
     "globals": "17.4.0",
     "mocha": "11.7.5",
@@ -63,6 +63,11 @@
     "ts-node": "10.9.2",
     "tsconfig-paths": "4.2.0",
     "typescript": "5.9.3"
+  },
+  "overrides": {
+    "release-it": {
+      "undici": ">=6.24.0"
+    }
   },
   "readmeFilename": "README.md"
 }

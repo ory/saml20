@@ -180,7 +180,10 @@ const validateInternal = async (rawAssertion, options, cb) => {
       return;
     }
 
-    if (options.audience && !tokenHandler.validateAudience(assertion, options.audience)) {
+    if (
+      options.audience &&
+      !tokenHandler.validateAudience(assertion, options.audience, options.strictAudienceValidation)
+    ) {
       cb(new Error('Invalid audience.'));
       return;
     }
