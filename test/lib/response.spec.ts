@@ -1,7 +1,6 @@
 import assert from 'assert';
 import { parse, parseIssuer, validate, createSAMLResponse } from '../../lib/response';
 import fs from 'fs';
-import strict from 'assert/strict';
 
 const rawResponse = fs.readFileSync('./test/assets/saml20.validResponseSignedMessage.xml').toString();
 const rawResponseAuthnFailed = fs
