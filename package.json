@@ -64,5 +64,10 @@
     "tsconfig-paths": "4.2.0",
     "typescript": "5.9.3"
   },
+  "overrides": {
+    "release-it": {
+      "undici": ">=6.24.0"
+    }
+  },
   "readmeFilename": "README.md"
 }

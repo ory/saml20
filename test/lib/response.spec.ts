@@ -18,6 +18,7 @@ const certificate =
 const inResponseTo = 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685';
 const issuerName = 'https://identity.kidozen.com/';
 const audience = 'http://demoscope.com';
+const suffixAudience = 'http://demoscope';
 const validToken = fs.readFileSync('./test/assets/saml20.validToken.xml').toString();
 const invalidToken = fs.readFileSync('./test/assets/saml20.invalidToken.xml').toString();
 const invalidWrappedToken = fs.readFileSync('./test/assets/saml20.invalidWrappedToken.xml').toString();
@@ -170,6 +171,29 @@ describe('response.ts', function () {
       bypassExpiration: true,
     });
     assert.strictEqual(response.audience, audience);
+  });
+
+  it('Should validate saml 2.0 token and check audience with suffix', async function () {
+    const response = await validate(validToken, {
+      publicKey: certificate,
+      audience: suffixAudience,
+      bypassExpiration: true,
+    });
+    assert.strictEqual(response.audience, audience);
+  });
+
+  it('Should validate saml 2.0 token and check strict audience with suffix', async function () {
+    try {
+      await validate(validToken, {
+        publicKey: certificate,
+        audience: suffixAudience,
+        bypassExpiration: true,
+        strictAudienceValidation: true,
+      });
+    } catch (error) {
+      const result = (error as Error).message;
+      assert.strictEqual(result, 'Invalid audience.');
+    }
   });
 
   it('Should fail with invalid audience', async function () {

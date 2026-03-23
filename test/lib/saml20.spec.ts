@@ -88,10 +88,32 @@ describe('saml20.ts', function () {
     }
   });
 
+  it('validateAudience with Suffix not ok with strict check', async function () {
+    try {
+      const value = saml20.validateAudience(assertion1, 'https://saml.boxyhq.com', true);
+      assert.strictEqual(value, false);
+    } catch (error) {
+      assert(error);
+    }
+  });
+
   it('validateAudience with Suffix Array ok', async function () {
     try {
       const value = saml20.validateAudience(assertion1, [...validateOptsArray, 'https://saml.boxyhq.com']);
       assert.strictEqual(value, true);
+    } catch (error) {
+      assert(error);
+    }
+  });
+
+  it('validateAudience with Suffix Array not ok with strict check', async function () {
+    try {
+      const value = saml20.validateAudience(
+        assertion1,
+        [...validateOptsArray, 'https://saml.boxyhq.com'],
+        true
+      );
+      assert.strictEqual(value, false);
     } catch (error) {
       assert(error);
     }
