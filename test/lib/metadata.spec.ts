@@ -197,6 +197,25 @@ describe('metadata.ts', function () {
     });
 
     assert.strictEqual(!!res, true);
+    assert(res.includes('md:SingleSignOnService'));
+    assert(res.includes('http://localhost:4000/api/saml/sso'));
+    assert(!res.includes('md:SingleLogoutService'));
+  });
+
+  it(`createIdPMetadataXML with slo ok`, async () => {
+    const res = createIdPMetadataXML({
+      ssoUrl: 'http://localhost:4000/api/saml/sso',
+      sloUrl: 'http://localhost:4000/api/saml/slo',
+      entityId: 'https://saml.example.com/entityid',
+      x509cert: 'x509cert',
+      wantAuthnRequestsSigned: false,
+    });
+
+    assert.strictEqual(!!res, true);
+    assert(res.includes('md:SingleSignOnService'));
+    assert(res.includes('http://localhost:4000/api/saml/sso'));
+    assert(res.includes('md:SingleLogoutService'));
+    assert(res.includes('http://localhost:4000/api/saml/slo'));
   });
 
   it(`createSPMetadataXML ok`, async () => {
