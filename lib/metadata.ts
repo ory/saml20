@@ -288,7 +288,7 @@ const createSPMetadataXML = ({
       '@entityID': entityId,
       '@validUntil': new Date(today.setFullYear(today.getFullYear() + 10)).toISOString(),
       'md:SPSSODescriptor': {
-        '@AuthnRequestsSigned': authnRequestsSigned,
+        ...(authnRequestsSigned ? { '@AuthnRequestsSigned': true } : {}),
         '@protocolSupportEnumeration': 'urn:oasis:names:tc:SAML:2.0:protocol',
         'md:KeyDescriptor': keyDescriptor,
         'md:NameIDFormat': {
