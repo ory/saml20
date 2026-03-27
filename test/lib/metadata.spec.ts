@@ -198,7 +198,7 @@ describe('metadata.ts', function () {
 
     assert.strictEqual(!!res, true);
     assert(res.includes('md:SingleSignOnService'));
-    assert(res.includes('http://localhost:4000/api/saml/sso'));
+    assert(res.includes('Location="http://localhost:4000/api/saml/sso"'));
     assert(!res.includes('md:SingleLogoutService'));
   });
 
@@ -213,9 +213,9 @@ describe('metadata.ts', function () {
 
     assert.strictEqual(!!res, true);
     assert(res.includes('md:SingleSignOnService'));
-    assert(res.includes('http://localhost:4000/api/saml/sso'));
+    assert(res.includes('Location="http://localhost:4000/api/saml/sso"'));
     assert(res.includes('md:SingleLogoutService'));
-    assert(res.includes('http://localhost:4000/api/saml/slo'));
+    assert(res.includes('Location="http://localhost:4000/api/saml/slo"'));
   });
 
   it(`createSPMetadataXML ok`, async () => {
