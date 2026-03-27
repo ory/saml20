@@ -2,20 +2,26 @@ import crypto from 'crypto';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 
-const parseLogoutResponse = async (
-  rawResponse: string
-): Promise<{
+type ParsedLogoutResponse = {
   id: string;
   issuer: string;
   status: string;
   destination: string;
   inResponseTo: string;
-}> => {
+};
+
+type LogoutRequestParams = {
+  nameId: string;
+  providerName: string;
+  sloUrl: string;
+};
+
+const parseLogoutResponse = async (rawResponse: string): Promise<ParsedLogoutResponse> => {
   return new Promise((resolve, reject) => {
     xml2js.parseString(
       rawResponse,
       { tagNameProcessors: [xml2js.processors.stripPrefix] },
-      (err: Error | null, parsedData: { LogoutResponse: any }) => {
+      (err: Error | null, parsedData) => {
         if (err) {
           reject(err);
           return;
@@ -38,14 +44,10 @@ const createLogoutRequest = ({
   nameId,
   providerName,
   sloUrl,
-}: {
-  nameId: string;
-  providerName: string;
-  sloUrl: string;
-}): { id: string; xml: string } => {
+}: LogoutRequestParams): { id: string; xml: string } => {
   const id = '_' + crypto.randomBytes(10).toString('hex');
 
-  const xml: Record<string, any> = {
+  const xml = {
     'samlp:LogoutRequest': {
       '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
       '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
@@ -86,9 +88,6 @@ type LogoutResponseParams = {
   status?: string;
 };
 
-/**
- * Parse a SAML 2.0 LogoutRequest XML and extract key fields.
- */
 const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutRequest> => {
   return new Promise((resolve, reject) => {
     xml2js.parseString(
@@ -177,9 +176,6 @@ const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutReque
   });
 };
 
-/**
- * Create a SAML 2.0 LogoutResponse XML string.
- */
 const createLogoutResponse = ({
   requestId,
   issuer,
@@ -216,4 +212,4 @@ const createLogoutResponse = ({
 
 export { parseLogoutResponse, createLogoutRequest, parseLogoutRequest, createLogoutResponse };
 
-export type { ParsedLogoutRequest, LogoutResponseParams };
+export type { ParsedLogoutResponse, LogoutRequestParams, ParsedLogoutRequest, LogoutResponseParams };
