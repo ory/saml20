@@ -221,6 +221,29 @@ describe('metadata.ts', function () {
     assert(res.includes('md:EncryptionMethod'));
   });
 
+  it(`createSPMetadataXML with authnRequestsSigned true`, async () => {
+    const res = createSPMetadataXML({
+      acsUrl: 'http://localhost:4000/api/saml/sso',
+      entityId: 'https://saml.example.com/entityid',
+      publicKeyString: 'x509cert',
+      encryption: false,
+      authnRequestsSigned: true,
+    });
+
+    assert(res.includes('AuthnRequestsSigned="true"'));
+  });
+
+  it(`createSPMetadataXML without authnRequestsSigned defaults to false`, async () => {
+    const res = createSPMetadataXML({
+      acsUrl: 'http://localhost:4000/api/saml/sso',
+      entityId: 'https://saml.example.com/entityid',
+      publicKeyString: 'x509cert',
+      encryption: false,
+    });
+
+    assert(!res.includes('AuthnRequestsSigned'));
+  });
+
   it('saml MetaData validateNameIDFormat not ok', async function () {
     try {
       await parseMetadata(samlMetadata, {

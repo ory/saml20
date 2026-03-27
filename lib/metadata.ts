@@ -241,11 +241,13 @@ const createSPMetadataXML = ({
   publicKeyString,
   acsUrl,
   encryption,
+  authnRequestsSigned = false,
 }: {
   entityId: string;
   publicKeyString: string;
   acsUrl: string;
   encryption: boolean;
+  authnRequestsSigned?: boolean;
 }): string => {
   const today = new Date();
 
@@ -286,7 +288,7 @@ const createSPMetadataXML = ({
       '@entityID': entityId,
       '@validUntil': new Date(today.setFullYear(today.getFullYear() + 10)).toISOString(),
       'md:SPSSODescriptor': {
-        //'@WantAuthnRequestsSigned': true,
+        ...(authnRequestsSigned ? { '@AuthnRequestsSigned': true } : {}),
         '@protocolSupportEnumeration': 'urn:oasis:names:tc:SAML:2.0:protocol',
         'md:KeyDescriptor': keyDescriptor,
         'md:NameIDFormat': {
