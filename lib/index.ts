@@ -9,7 +9,13 @@ import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from './meta
 import { createPostForm } from './post';
 import { sign } from './sign';
 import { decryptXml } from './decrypt';
-import { parseLogoutResponse, createLogoutRequest } from './logout';
+import { parseLogoutResponse, createLogoutRequest, parseLogoutRequest, createLogoutResponse } from './logout';
+import type {
+  ParsedLogoutResponse,
+  LogoutRequestParams,
+  ParsedLogoutRequest,
+  LogoutResponseParams,
+} from './logout';
 
 export default {
   parseMetadata,
@@ -32,4 +38,8 @@ export default {
   WrapError,
   parseLogoutResponse,
   createLogoutRequest,
+  parseLogoutRequest,
+  createLogoutResponse,
 };
+
+export type { ParsedLogoutResponse, LogoutRequestParams, ParsedLogoutRequest, LogoutResponseParams };
