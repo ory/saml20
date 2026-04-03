@@ -30,7 +30,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "sort": "npx sort-package-json",
-    "test": "nyc mocha --check-leaks  -r tsconfig-paths/register -r ts-node/register test/lib/**/*.spec.ts",
+    "test": "nyc tsx node_modules/mocha/bin/mocha --check-leaks \"test/lib/**/*.spec.ts\"",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prepublishOnly": "npm run build",
@@ -50,6 +50,7 @@
     "@eslint/js": "10.0.1",
     "@types/mocha": "10.0.10",
     "@types/node": "25.5.0",
+    "@types/xml-encryption": "1.2.4",
     "@types/xml2js": "0.4.14",
     "@typescript-eslint/eslint-plugin": "8.58.0",
     "@typescript-eslint/parser": "8.58.0",
@@ -60,9 +61,9 @@
     "nyc": "18.0.0",
     "prettier": "3.8.1",
     "release-it": "19.2.4",
-    "ts-node": "10.9.2",
     "tsconfig-paths": "4.2.0",
-    "typescript": "5.9.3"
+    "tsx": "4.21.0",
+    "typescript": "6.0.2"
   },
   "overrides": {
     "release-it": {
