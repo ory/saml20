@@ -10,21 +10,25 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options) => {
     throw new Error('Multiple Assertion.');
   }
 
-  return xmlenc.decrypt(encryptedAssertions[0] as any, { key: options.privateKey }, (err, res) => {
-    if (err) {
-      throw new Error('Exception of Assertion Decryption.');
-    }
-    if (!res) {
-      throw new Error('Undefined Encryption Assertion.');
-    }
+  return xmlenc.decrypt(
+    encryptedAssertions[0].toString(),
+    { key: options.privateKey, disallowDecryptionWithInsecureAlgorithm: false },
+    (err, res) => {
+      if (err) {
+        throw new Error('Exception of Assertion Decryption.');
+      }
+      if (!res) {
+        throw new Error('Undefined Encryption Assertion.');
+      }
 
-    const assertionNode = parseFromString(res);
-    xml.documentElement.removeChild(encryptedAssertions[0]);
-    // @ts-expect-error missing Node properties are not needed
-    xml.documentElement.appendChild(assertionNode!.childNodes[0]);
+      const assertionNode = parseFromString(res);
+      xml.documentElement.removeChild(encryptedAssertions[0]);
+      // @ts-expect-error missing Node properties are not needed
+      xml.documentElement.appendChild(assertionNode!.childNodes[0]);
 
-    return { assertion: xml.toString(), decrypted: true };
-  });
+      return { assertion: xml.toString(), decrypted: true };
+    }
+  );
 };
 const decryptXml = (entireXML: string, options): { assertion: string; decrypted: boolean } => {
   if (!entireXML) {
