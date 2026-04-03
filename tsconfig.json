@@ -1,28 +1,26 @@
 {
   "compilerOptions": {
+    "rootDir": "./lib",
     "outDir": "./dist",
-    "allowJs": true,
-    "skipLibCheck": true,
+
     "module": "CommonJS",
-    "target": "es6", //same as es2015
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false,
-    "strict": true,
-    "noImplicitThis": false,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "target": "ES2019",
+    "lib": ["ES2019"],
+
     "declaration": true,
-    "noEmitOnError": false,
+    "sourceMap": true,
+
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    "forceConsistentCasingInFileNames": true,
     "noUnusedParameters": true,
-    "removeComments": false,
-    "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true,
+
     "experimentalDecorators": true,
-    "downlevelIteration": true,
+    "noImplicitAny": false,
   },
   "include": ["./lib/**/*"],
   "exclude": ["node_modules", "test/**/*"],
-  "ts-node": {
-    "files": true,
-  },
 }

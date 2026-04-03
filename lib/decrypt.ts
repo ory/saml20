@@ -10,7 +10,7 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options) => {
     throw new Error('Multiple Assertion.');
   }
 
-  return xmlenc.decrypt(encryptedAssertions[0], { key: options.privateKey }, (err, res) => {
+  return xmlenc.decrypt(encryptedAssertions[0] as any, { key: options.privateKey }, (err, res) => {
     if (err) {
       throw new Error('Exception of Assertion Decryption.');
     }
