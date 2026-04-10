@@ -155,7 +155,8 @@ const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutReque
           try {
             const idTokenElement = extensions[0]?.Attribute?.[0];
             if (idTokenElement && idTokenElement.$ && idTokenElement.$.Name === 'id_token') {
-              idToken = idTokenElement.AttributeValue[0]._;
+              const attrVal = idTokenElement.AttributeValue[0];
+              idToken = typeof attrVal === 'string' ? attrVal : attrVal._;
             }
           } catch {
             // Extensions parsing is best-effort
