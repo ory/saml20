@@ -63,7 +63,7 @@
     "release-it": "20.0.0",
     "tsconfig-paths": "4.2.0",
     "tsx": "4.21.0",
-    "typescript": "6.0.2"
+    "typescript": "6.0.3"
   },
   "overrides": {
     "release-it": {
