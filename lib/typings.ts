@@ -27,6 +27,12 @@ export interface SAMLProfile {
 export interface AssertionReplayInfo {
   assertionId?: string;
   sessionIndex?: string;
+  // The assertion's effective NotOnOrAfter (the absolute Conditions bound when
+  // present, otherwise the latest bearer SubjectConfirmationData bound). This is
+  // the raw value from the assertion. validateExpiration accepts up to a
+  // 10-minute clock-skew tolerance beyond it, so a replay cache should keep the
+  // entry until at least notOnOrAfter + 10 minutes to cover the full window in
+  // which the assertion can still validate.
   notOnOrAfter?: string;
   inResponseTo?: string;
 }

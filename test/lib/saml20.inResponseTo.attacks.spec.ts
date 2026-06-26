@@ -158,6 +158,52 @@ describe('saml20: one-time assertion replay protection', () => {
     );
   });
 
+  it('passes the Conditions NotOnOrAfter to the replay validator for TTL sizing', async () => {
+    const signed = buildAssertionOnlySigned({
+      subjectInResponseTo: VICTIM_REQ_ID,
+      withConditionsWindow: true,
+    });
+    let captured: { assertionId?: string; notOnOrAfter?: string } | undefined;
+    const profile = await validate(signed, {
+      audience: AUDIENCE,
+      publicKey: cert,
+      inResponseTo: VICTIM_REQ_ID,
+      assertionReplayValidator: async (info: { assertionId?: string; notOnOrAfter?: string }) => {
+        captured = info;
+        return false;
+      },
+    });
+    assert.ok(captured, 'replay validator was called');
+    assert.strictEqual(captured!.assertionId, '_assert1');
+    assert.ok(captured!.notOnOrAfter, 'notOnOrAfter is provided');
+    assert.strictEqual(captured!.notOnOrAfter, profile.notOnOrAfter);
+    assert.ok(new Date(captured!.notOnOrAfter!).getTime() > Date.now());
+  });
+
+  it('falls back to SubjectConfirmationData NotOnOrAfter when there is no Conditions window', async () => {
+    // The assertion is bearer-bounded only; the replay validator must still get
+    // a concrete expiry so it does not have to guess a TTL.
+    const signed = buildAssertionOnlySigned({
+      responseInResponseTo: null,
+      subjectInResponseTo: VICTIM_REQ_ID,
+      withConditionsWindow: false,
+      withSubjectNotOnOrAfter: true,
+    });
+    let captured: { notOnOrAfter?: string } | undefined;
+    const profile = await validate(signed, {
+      audience: AUDIENCE,
+      publicKey: cert,
+      inResponseTo: VICTIM_REQ_ID,
+      assertionReplayValidator: async (info: { notOnOrAfter?: string }) => {
+        captured = info;
+        return false;
+      },
+    });
+    assert.ok(captured!.notOnOrAfter, 'notOnOrAfter is provided from SubjectConfirmationData');
+    assert.strictEqual(captured!.notOnOrAfter, profile.notOnOrAfter);
+    assert.ok(new Date(captured!.notOnOrAfter!).getTime() > Date.now());
+  });
+
   it('surfaces errors thrown by the replay validator without leaking a valid profile', async () => {
     const signed = buildAssertionOnlySigned({ subjectInResponseTo: VICTIM_REQ_ID });
     await assert.rejects(
@@ -215,17 +261,45 @@ describe('saml20.validateExpiration: at least one enforceable upper bound requir
     );
   });
 
-  it('rejects when any SubjectConfirmationData upper bound is in the past', () => {
+  it('accepts when one SubjectConfirmation is stale but another is still valid (alternatives, OR)', () => {
+    // SAML 2.0 core 2.4.1.1: multiple SubjectConfirmations are alternatives;
+    // satisfying any one is sufficient.
     assert.strictEqual(
       saml20.validateExpiration({
         Subject: {
           SubjectConfirmation: [
-            { SubjectConfirmationData: { '@': { NotOnOrAfter: future() } } },
             { SubjectConfirmationData: { '@': { NotOnOrAfter: '2000-01-01T00:00:00Z' } } },
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: future() } } },
+          ],
+        },
+      }),
+      true
+    );
+  });
+
+  it('rejects when every SubjectConfirmation upper bound is in the past', () => {
+    assert.strictEqual(
+      saml20.validateExpiration({
+        Subject: {
+          SubjectConfirmation: [
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: '2000-01-01T00:00:00Z' } } },
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: '2010-01-01T00:00:00Z' } } },
           ],
         },
       }),
       false
+    );
+  });
+
+  it('honors a valid Conditions window even if a bearer confirmation has lapsed', () => {
+    assert.strictEqual(
+      saml20.validateExpiration({
+        Conditions: { '@': { NotBefore: past(), NotOnOrAfter: future() } },
+        Subject: {
+          SubjectConfirmation: { SubjectConfirmationData: { '@': { NotOnOrAfter: '2000-01-01T00:00:00Z' } } },
+        },
+      }),
+      true
     );
   });
 

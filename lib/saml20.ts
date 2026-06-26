@@ -102,7 +102,7 @@ const parse = (assertion) => {
     issuer: getProp(assertion, 'Issuer'),
     sessionIndex: getProp(assertion, 'AuthnStatement.@.SessionIndex'),
     assertionId: getAssertionId(assertion),
-    notOnOrAfter: getAttribute(assertion, 'Conditions.@.NotOnOrAfter'),
+    notOnOrAfter: getNotOnOrAfter(assertion),
   };
 };
 
@@ -163,50 +163,61 @@ const getSubjectConfirmationData = (assertion): Record<string, unknown>[] => {
   return data;
 };
 
-const validateExpiration = (assertion) => {
+// Check a [NotBefore, NotOnOrAfter] window against now, applying clock skew.
+// Returns 'unbounded' when no NotOnOrAfter is present (the window has no upper
+// limit), 'valid' when now is inside the window, and 'invalid' when a bound is
+// present but unparseable or now falls outside it.
+type WindowResult = 'valid' | 'invalid' | 'unbounded';
+const checkWindow = (notBefore?: string, notOnOrAfter?: string): WindowResult => {
   const now = Date.now();
 
-  // A SAML assertion need not carry a Conditions window: a bearer assertion is
-  // time-boxed by SubjectConfirmationData/@NotOnOrAfter instead. Gather every
-  // NotBefore (lower) and NotOnOrAfter (upper) bound from both places and
-  // enforce each one. An assertion with no upper bound anywhere is rejected
-  // rather than treated as "never expires" — that was the original NaN defect,
-  // where new Date(undefined) made `!(now < NaN || now > NaN)` evaluate to true.
-  const lowerBounds: string[] = [];
-  const upperBounds: string[] = [];
-
-  const conditionsNotBefore = getAttribute<string | undefined>(assertion, 'Conditions.@.NotBefore');
-  const conditionsNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
-  if (conditionsNotBefore) lowerBounds.push(conditionsNotBefore);
-  if (conditionsNotOnOrAfter) upperBounds.push(conditionsNotOnOrAfter);
-
-  for (const scd of getSubjectConfirmationData(assertion)) {
-    const attrs = (scd['@'] as Record<string, string> | undefined) ?? {};
-    if (attrs.NotBefore) lowerBounds.push(attrs.NotBefore);
-    if (attrs.NotOnOrAfter) upperBounds.push(attrs.NotOnOrAfter);
+  if (notBefore) {
+    const ms = new Date(notBefore).getTime();
+    if (Number.isNaN(ms) || now < ms - clockSkewMs) {
+      return 'invalid';
+    }
   }
 
-  // Require at least one enforceable expiration.
-  if (upperBounds.length === 0) {
+  if (!notOnOrAfter) {
+    return 'unbounded';
+  }
+  const ms = new Date(notOnOrAfter).getTime();
+  if (Number.isNaN(ms) || now > ms + clockSkewMs) {
+    return 'invalid';
+  }
+  return 'valid';
+};
+
+const validateExpiration = (assertion) => {
+  // The <Conditions> window is an absolute constraint on the assertion: when
+  // present it must be satisfied. A present-but-unparseable bound is invalid.
+  const conditionsNotBefore = getAttribute<string | undefined>(assertion, 'Conditions.@.NotBefore');
+  const conditionsNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
+  const conditionsResult = checkWindow(conditionsNotBefore, conditionsNotOnOrAfter);
+  if (conditionsResult === 'invalid') {
     return false;
   }
 
-  // Every present bound must be parseable and currently satisfied. A bound that
-  // is present but unparseable is treated as invalid.
-  for (const value of lowerBounds) {
-    const ms = new Date(value).getTime();
-    if (Number.isNaN(ms) || now < ms - clockSkewMs) {
-      return false;
-    }
+  // When <Conditions> supplies a satisfied upper bound, the assertion is
+  // time-boxed and currently within its validity window.
+  if (conditionsResult === 'valid') {
+    return true;
   }
-  for (const value of upperBounds) {
-    const ms = new Date(value).getTime();
-    if (Number.isNaN(ms) || now > ms + clockSkewMs) {
-      return false;
+
+  // Otherwise fall back to the bearer SubjectConfirmationData. Per SAML 2.0
+  // core (2.4.1.1) multiple SubjectConfirmation elements are alternatives:
+  // satisfying any one is sufficient. The assertion is valid if at least one
+  // confirmation is currently within its window AND carries an upper bound.
+  // If no satisfied upper bound exists anywhere, the assertion is rejected
+  // rather than treated as "never expires" (the original NaN defect).
+  for (const scd of getSubjectConfirmationData(assertion)) {
+    const attrs = (scd['@'] as Record<string, string> | undefined) ?? {};
+    if (checkWindow(attrs.NotBefore, attrs.NotOnOrAfter) === 'valid') {
+      return true;
     }
   }
 
-  return true;
+  return false;
 };
 
 // InResponseTo read from the outer <Response> wrapper. Only trust this when the
@@ -233,10 +244,39 @@ const getAssertionId = (assertion): string | undefined => {
   return getAttribute<string | undefined>(assertion, '@.ID');
 };
 
+// The effective NotOnOrAfter after which the assertion can no longer validate,
+// mirroring validateExpiration: the absolute Conditions/@NotOnOrAfter when
+// present, otherwise the latest bearer SubjectConfirmationData/@NotOnOrAfter
+// (SubjectConfirmations are alternatives, so the assertion remains usable until
+// the last of them lapses). Callers key replay-cache TTLs off this value, so it
+// must reflect the real upper bound rather than only the Conditions window.
+const getNotOnOrAfter = (assertion): string | undefined => {
+  const conditionsNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
+  if (conditionsNotOnOrAfter) {
+    return conditionsNotOnOrAfter;
+  }
+
+  let latest: string | undefined;
+  let latestMs = -Infinity;
+  for (const scd of getSubjectConfirmationData(assertion)) {
+    const value = (scd['@'] as Record<string, string> | undefined)?.NotOnOrAfter;
+    if (!value) {
+      continue;
+    }
+    const ms = new Date(value).getTime();
+    if (!Number.isNaN(ms) && ms > latestMs) {
+      latestMs = ms;
+      latest = value;
+    }
+  }
+  return latest;
+};
+
 const saml20 = {
   getInResponseTo,
   getSubjectConfirmationInResponseTo,
   getAssertionId,
+  getNotOnOrAfter,
   validateExpiration,
   validateAudience,
   parse,
