@@ -101,6 +101,8 @@ const parse = (assertion) => {
     claims: claims,
     issuer: getProp(assertion, 'Issuer'),
     sessionIndex: getProp(assertion, 'AuthnStatement.@.SessionIndex'),
+    assertionId: getAssertionId(assertion),
+    notOnOrAfter: getAttribute(assertion, 'Conditions.@.NotOnOrAfter'),
   };
 };
 
@@ -134,23 +136,72 @@ const validateAudience = (assertion, realm, strictValidation = false) => {
   }
 };
 
+const clockSkewMs = 10 * 60 * 1000; // 10 minutes clock skew.
+
 const validateExpiration = (assertion) => {
-  const dteNotBefore = getProp(assertion, 'Conditions.@.NotBefore');
-  let notBefore: any = new Date(dteNotBefore);
-  notBefore = notBefore.setMinutes(notBefore.getMinutes() - 10); // 10 minutes clock skew
+  const dteNotBefore = getAttribute<string | undefined>(assertion, 'Conditions.@.NotBefore');
+  const dteNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
 
-  const dteNotOnOrAfter = getProp(assertion, 'Conditions.@.NotOnOrAfter');
-  let notOnOrAfter: any = new Date(dteNotOnOrAfter);
-  notOnOrAfter = notOnOrAfter.setMinutes(notOnOrAfter.getMinutes() + 10); // 10 minutes clock skew
+  // A bounded validity window is required. A missing or unparseable
+  // NotBefore/NotOnOrAfter must be treated as invalid (expired) rather than
+  // "never expires": new Date(undefined) yields NaN, and NaN comparisons are
+  // always false, so the original `!(now < NaN || now > NaN)` evaluated to true.
+  if (!dteNotBefore || !dteNotOnOrAfter) {
+    return false;
+  }
 
-  const now = new Date();
+  const notBeforeMs = new Date(dteNotBefore).getTime();
+  const notOnOrAfterMs = new Date(dteNotOnOrAfter).getTime();
+  if (Number.isNaN(notBeforeMs) || Number.isNaN(notOnOrAfterMs)) {
+    return false;
+  }
+
+  const notBefore = notBeforeMs - clockSkewMs;
+  const notOnOrAfter = notOnOrAfterMs + clockSkewMs;
+  const now = Date.now();
   return !(now < notBefore || now > notOnOrAfter);
 };
 
+// InResponseTo read from the outer <Response> wrapper. Only trust this when the
+// whole Response is signed; the wrapper is unsigned in the common
+// assertion-only-signed case.
 const getInResponseTo = (xml) => {
   return getProp(xml, 'Response.@.InResponseTo');
 };
 
-const saml20 = { getInResponseTo, validateExpiration, validateAudience, parse };
+// InResponseTo carried inside the bearer SubjectConfirmationData. This element
+// lives inside the <Assertion> and is therefore covered by the assertion
+// signature even when the outer <Response> wrapper is not signed.
+const getSubjectConfirmationInResponseTo = (assertion): string | undefined => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let confirmations = getAttribute<any>(assertion, 'Subject.SubjectConfirmation');
+  if (!confirmations) {
+    return undefined;
+  }
+  confirmations = Array.isArray(confirmations) ? confirmations : [confirmations];
+  for (const confirmation of confirmations) {
+    const inResponseTo = getAttribute<string | undefined>(
+      confirmation,
+      'SubjectConfirmationData.@.InResponseTo'
+    );
+    if (inResponseTo) {
+      return inResponseTo;
+    }
+  }
+  return undefined;
+};
+
+const getAssertionId = (assertion): string | undefined => {
+  return getAttribute<string | undefined>(assertion, '@.ID');
+};
+
+const saml20 = {
+  getInResponseTo,
+  getSubjectConfirmationInResponseTo,
+  getAssertionId,
+  validateExpiration,
+  validateAudience,
+  parse,
+};
 
 export default saml20;

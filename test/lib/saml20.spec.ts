@@ -138,18 +138,23 @@ describe('saml20.ts', function () {
   });
 
   it('validateExpiration ok', function () {
-    const value = saml20.validateExpiration(assertion);
-    assert.strictEqual(value, true);
-    assert(saml20.validateExpiration(assertion));
+    // A parsed assertion with a current, bounded validity window is valid.
+    const assertionWithWindow = {
+      Conditions: {
+        '@': {
+          NotBefore: new Date(Date.now() - 3600_000).toISOString(),
+          NotOnOrAfter: new Date(Date.now() + 3600_000).toISOString(),
+        },
+      },
+    };
+    assert.strictEqual(saml20.validateExpiration(assertionWithWindow), true);
   });
 
   it('validateExpiration not ok', function () {
-    try {
-      const value = saml20.validateExpiration('assertion');
-      assert.strictEqual(value, true);
-    } catch (error) {
-      assert(error);
-    }
+    // A missing validity window must be treated as invalid (expired), not as
+    // "never expires".
+    assert.strictEqual(saml20.validateExpiration('assertion'), false);
+    assert.strictEqual(saml20.validateExpiration({}), false);
   });
   it('getClaims with friendly names', function () {
     const attributes = [
