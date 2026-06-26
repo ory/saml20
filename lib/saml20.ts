@@ -138,28 +138,75 @@ const validateAudience = (assertion, realm, strictValidation = false) => {
 
 const clockSkewMs = 10 * 60 * 1000; // 10 minutes clock skew.
 
+// Collect every SubjectConfirmationData element across all SubjectConfirmation
+// entries. Bearer assertions carry their expiration here rather than (or in
+// addition to) Conditions.
+const getSubjectConfirmationData = (assertion): Record<string, unknown>[] => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let confirmations = getAttribute<any>(assertion, 'Subject.SubjectConfirmation');
+  if (!confirmations) {
+    return [];
+  }
+  confirmations = Array.isArray(confirmations) ? confirmations : [confirmations];
+  const data: Record<string, unknown>[] = [];
+  for (const confirmation of confirmations) {
+    let scd = getAttribute<Record<string, unknown> | Record<string, unknown>[]>(
+      confirmation,
+      'SubjectConfirmationData'
+    );
+    if (!scd) {
+      continue;
+    }
+    scd = Array.isArray(scd) ? scd : [scd];
+    data.push(...scd);
+  }
+  return data;
+};
+
 const validateExpiration = (assertion) => {
-  const dteNotBefore = getAttribute<string | undefined>(assertion, 'Conditions.@.NotBefore');
-  const dteNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
-
-  // A bounded validity window is required. A missing or unparseable
-  // NotBefore/NotOnOrAfter must be treated as invalid (expired) rather than
-  // "never expires": new Date(undefined) yields NaN, and NaN comparisons are
-  // always false, so the original `!(now < NaN || now > NaN)` evaluated to true.
-  if (!dteNotBefore || !dteNotOnOrAfter) {
-    return false;
-  }
-
-  const notBeforeMs = new Date(dteNotBefore).getTime();
-  const notOnOrAfterMs = new Date(dteNotOnOrAfter).getTime();
-  if (Number.isNaN(notBeforeMs) || Number.isNaN(notOnOrAfterMs)) {
-    return false;
-  }
-
-  const notBefore = notBeforeMs - clockSkewMs;
-  const notOnOrAfter = notOnOrAfterMs + clockSkewMs;
   const now = Date.now();
-  return !(now < notBefore || now > notOnOrAfter);
+
+  // A SAML assertion need not carry a Conditions window: a bearer assertion is
+  // time-boxed by SubjectConfirmationData/@NotOnOrAfter instead. Gather every
+  // NotBefore (lower) and NotOnOrAfter (upper) bound from both places and
+  // enforce each one. An assertion with no upper bound anywhere is rejected
+  // rather than treated as "never expires" — that was the original NaN defect,
+  // where new Date(undefined) made `!(now < NaN || now > NaN)` evaluate to true.
+  const lowerBounds: string[] = [];
+  const upperBounds: string[] = [];
+
+  const conditionsNotBefore = getAttribute<string | undefined>(assertion, 'Conditions.@.NotBefore');
+  const conditionsNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
+  if (conditionsNotBefore) lowerBounds.push(conditionsNotBefore);
+  if (conditionsNotOnOrAfter) upperBounds.push(conditionsNotOnOrAfter);
+
+  for (const scd of getSubjectConfirmationData(assertion)) {
+    const attrs = (scd['@'] as Record<string, string> | undefined) ?? {};
+    if (attrs.NotBefore) lowerBounds.push(attrs.NotBefore);
+    if (attrs.NotOnOrAfter) upperBounds.push(attrs.NotOnOrAfter);
+  }
+
+  // Require at least one enforceable expiration.
+  if (upperBounds.length === 0) {
+    return false;
+  }
+
+  // Every present bound must be parseable and currently satisfied. A bound that
+  // is present but unparseable is treated as invalid.
+  for (const value of lowerBounds) {
+    const ms = new Date(value).getTime();
+    if (Number.isNaN(ms) || now < ms - clockSkewMs) {
+      return false;
+    }
+  }
+  for (const value of upperBounds) {
+    const ms = new Date(value).getTime();
+    if (Number.isNaN(ms) || now > ms + clockSkewMs) {
+      return false;
+    }
+  }
+
+  return true;
 };
 
 // InResponseTo read from the outer <Response> wrapper. Only trust this when the
@@ -173,17 +220,8 @@ const getInResponseTo = (xml) => {
 // lives inside the <Assertion> and is therefore covered by the assertion
 // signature even when the outer <Response> wrapper is not signed.
 const getSubjectConfirmationInResponseTo = (assertion): string | undefined => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let confirmations = getAttribute<any>(assertion, 'Subject.SubjectConfirmation');
-  if (!confirmations) {
-    return undefined;
-  }
-  confirmations = Array.isArray(confirmations) ? confirmations : [confirmations];
-  for (const confirmation of confirmations) {
-    const inResponseTo = getAttribute<string | undefined>(
-      confirmation,
-      'SubjectConfirmationData.@.InResponseTo'
-    );
+  for (const scd of getSubjectConfirmationData(assertion)) {
+    const inResponseTo = (scd['@'] as Record<string, string> | undefined)?.InResponseTo;
     if (inResponseTo) {
       return inResponseTo;
     }

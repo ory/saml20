@@ -27,6 +27,8 @@ interface BuildOpts {
   subjectInResponseTo?: string | null;
   // Emit a Conditions validity window.
   withConditionsWindow?: boolean;
+  // Emit NotOnOrAfter on the bearer SubjectConfirmationData.
+  withSubjectNotOnOrAfter?: boolean;
 }
 
 // Build an assertion-only-signed SAML Response. Only the <Assertion> is signed,
@@ -35,6 +37,7 @@ function buildAssertionOnlySigned({
   responseInResponseTo = VICTIM_REQ_ID,
   subjectInResponseTo = null,
   withConditionsWindow = true,
+  withSubjectNotOnOrAfter = true,
 }: BuildOpts = {}): string {
   const now = new Date();
   const past = new Date(now.getTime() - 3600_000).toISOString();
@@ -43,6 +46,7 @@ function buildAssertionOnlySigned({
 
   const responseIrtAttr = responseInResponseTo ? ` InResponseTo="${responseInResponseTo}"` : '';
   const subjectIrtAttr = subjectInResponseTo ? ` InResponseTo="${subjectInResponseTo}"` : '';
+  const subjectNotOnOrAfterAttr = withSubjectNotOnOrAfter ? ` NotOnOrAfter="${future}"` : '';
   const conditions = withConditionsWindow
     ? `<saml:Conditions NotBefore="${past}" NotOnOrAfter="${future}"><saml:AudienceRestriction><saml:Audience>${AUDIENCE}</saml:Audience></saml:AudienceRestriction></saml:Conditions>`
     : `<saml:Conditions><saml:AudienceRestriction><saml:Audience>${AUDIENCE}</saml:Audience></saml:AudienceRestriction></saml:Conditions>`;
@@ -54,7 +58,7 @@ function buildAssertionOnlySigned({
     `<saml:Assertion ID="_assert1" Version="2.0" IssueInstant="${t}">` +
     `<saml:Issuer>https://idp</saml:Issuer>` +
     `<saml:Subject><saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">victim@target.com</saml:NameID>` +
-    `<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"><saml:SubjectConfirmationData${subjectIrtAttr} NotOnOrAfter="${future}" Recipient="${AUDIENCE}"/></saml:SubjectConfirmation></saml:Subject>` +
+    `<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"><saml:SubjectConfirmationData${subjectIrtAttr}${subjectNotOnOrAfterAttr} Recipient="${AUDIENCE}"/></saml:SubjectConfirmation></saml:Subject>` +
     conditions +
     `<saml:AuthnStatement AuthnInstant="${t}" SessionIndex="_idx1"><saml:AuthnContext><saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef></saml:AuthnContext></saml:AuthnStatement>` +
     `<saml:AttributeStatement><saml:Attribute Name="email" FriendlyName="email"><saml:AttributeValue>victim@target.com</saml:AttributeValue></saml:Attribute></saml:AttributeStatement>` +
@@ -174,40 +178,77 @@ describe('saml20: one-time assertion replay protection', () => {
   });
 });
 
-describe('saml20.validateExpiration: bounded validity window required', () => {
-  it('treats a missing Conditions window as expired (was "never expires")', () => {
+describe('saml20.validateExpiration: at least one enforceable upper bound required', () => {
+  const past = () => new Date(Date.now() - 3600_000).toISOString();
+  const future = () => new Date(Date.now() + 3600_000).toISOString();
+
+  it('treats an assertion with no expiration anywhere as expired (was "never expires")', () => {
     assert.strictEqual(saml20.validateExpiration({}), false);
   });
 
-  it('treats a missing NotOnOrAfter as expired', () => {
+  it('treats a NotBefore-only Conditions (no upper bound) as expired', () => {
+    assert.strictEqual(saml20.validateExpiration({ Conditions: { '@': { NotBefore: past() } } }), false);
+  });
+
+  it('treats a present-but-unparseable bound as expired', () => {
     assert.strictEqual(
-      saml20.validateExpiration({ Conditions: { '@': { NotBefore: '2020-01-01T00:00:00Z' } } }),
+      saml20.validateExpiration({ Conditions: { '@': { NotBefore: past(), NotOnOrAfter: 'not-a-date' } } }),
       false
     );
   });
 
-  it('treats an unparseable date as expired', () => {
+  it('accepts a current Conditions validity window', () => {
+    assert.strictEqual(
+      saml20.validateExpiration({ Conditions: { '@': { NotBefore: past(), NotOnOrAfter: future() } } }),
+      true
+    );
+  });
+
+  it('accepts a bearer assertion bounded only by SubjectConfirmationData/@NotOnOrAfter', () => {
+    // No Conditions window, but a signed bearer expiration is present. This is a
+    // spec-valid bearer assertion and must not be rejected.
     assert.strictEqual(
       saml20.validateExpiration({
-        Conditions: { '@': { NotBefore: 'not-a-date', NotOnOrAfter: 'also-bad' } },
+        Subject: { SubjectConfirmation: { SubjectConfirmationData: { '@': { NotOnOrAfter: future() } } } },
+      }),
+      true
+    );
+  });
+
+  it('rejects when any SubjectConfirmationData upper bound is in the past', () => {
+    assert.strictEqual(
+      saml20.validateExpiration({
+        Subject: {
+          SubjectConfirmation: [
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: future() } } },
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: '2000-01-01T00:00:00Z' } } },
+          ],
+        },
       }),
       false
     );
   });
 
-  it('accepts a current, bounded validity window', () => {
-    const past = new Date(Date.now() - 3600_000).toISOString();
-    const future = new Date(Date.now() + 3600_000).toISOString();
-    assert.strictEqual(
-      saml20.validateExpiration({ Conditions: { '@': { NotBefore: past, NotOnOrAfter: future } } }),
-      true
-    );
+  it('accepts a bearer login (no Conditions window) end-to-end via validate()', async () => {
+    const signed = buildAssertionOnlySigned({
+      responseInResponseTo: null,
+      subjectInResponseTo: VICTIM_REQ_ID,
+      withConditionsWindow: false,
+      withSubjectNotOnOrAfter: true,
+    });
+    const profile = await validate(signed, {
+      audience: AUDIENCE,
+      publicKey: cert,
+      inResponseTo: VICTIM_REQ_ID,
+    });
+    assert.strictEqual(profile.claims[NAME_ID_CLAIM], 'victim@target.com');
   });
 
-  it('rejects an assertion whose signed Conditions carry no window during validate()', async () => {
+  it('rejects an assertion with no expiration bound anywhere end-to-end via validate()', async () => {
     const signed = buildAssertionOnlySigned({
       subjectInResponseTo: VICTIM_REQ_ID,
       withConditionsWindow: false,
+      withSubjectNotOnOrAfter: false,
     });
     await expectReject(signed, 'Assertion is expired.', { inResponseTo: VICTIM_REQ_ID });
   });
