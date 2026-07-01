@@ -29,6 +29,9 @@ interface BuildOpts {
   withConditionsWindow?: boolean;
   // Emit NotOnOrAfter on the bearer SubjectConfirmationData.
   withSubjectNotOnOrAfter?: boolean;
+  // Override the bearer SubjectConfirmationData NotOnOrAfter with an explicit
+  // (signed) value, e.g. to build a lapsed bearer window.
+  subjectNotOnOrAfter?: string;
 }
 
 // Build an assertion-only-signed SAML Response. Only the <Assertion> is signed,
@@ -38,6 +41,7 @@ function buildAssertionOnlySigned({
   subjectInResponseTo = null,
   withConditionsWindow = true,
   withSubjectNotOnOrAfter = true,
+  subjectNotOnOrAfter,
 }: BuildOpts = {}): string {
   const now = new Date();
   const past = new Date(now.getTime() - 3600_000).toISOString();
@@ -46,7 +50,8 @@ function buildAssertionOnlySigned({
 
   const responseIrtAttr = responseInResponseTo ? ` InResponseTo="${responseInResponseTo}"` : '';
   const subjectIrtAttr = subjectInResponseTo ? ` InResponseTo="${subjectInResponseTo}"` : '';
-  const subjectNotOnOrAfterAttr = withSubjectNotOnOrAfter ? ` NotOnOrAfter="${future}"` : '';
+  const bearerNotOnOrAfter = subjectNotOnOrAfter ?? (withSubjectNotOnOrAfter ? future : undefined);
+  const subjectNotOnOrAfterAttr = bearerNotOnOrAfter ? ` NotOnOrAfter="${bearerNotOnOrAfter}"` : '';
   const conditions = withConditionsWindow
     ? `<saml:Conditions NotBefore="${past}" NotOnOrAfter="${future}"><saml:AudienceRestriction><saml:Audience>${AUDIENCE}</saml:Audience></saml:AudienceRestriction></saml:Conditions>`
     : `<saml:Conditions><saml:AudienceRestriction><saml:Audience>${AUDIENCE}</saml:Audience></saml:AudienceRestriction></saml:Conditions>`;
@@ -291,12 +296,30 @@ describe('saml20.validateExpiration: at least one enforceable upper bound requir
     );
   });
 
-  it('honors a valid Conditions window even if a bearer confirmation has lapsed', () => {
+  it('rejects a lapsed bearer confirmation even when Conditions is still valid (profile 4.1.4.3)', () => {
+    // The bearer SubjectConfirmationData NotOnOrAfter must be verified
+    // independently of Conditions; a still-open Conditions window does not
+    // rescue an expired bearer confirmation.
     assert.strictEqual(
       saml20.validateExpiration({
         Conditions: { '@': { NotBefore: past(), NotOnOrAfter: future() } },
         Subject: {
           SubjectConfirmation: { SubjectConfirmationData: { '@': { NotOnOrAfter: '2000-01-01T00:00:00Z' } } },
+        },
+      }),
+      false
+    );
+  });
+
+  it('accepts when Conditions is valid and at least one bearer confirmation is still valid', () => {
+    assert.strictEqual(
+      saml20.validateExpiration({
+        Conditions: { '@': { NotBefore: past(), NotOnOrAfter: future() } },
+        Subject: {
+          SubjectConfirmation: [
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: '2000-01-01T00:00:00Z' } } },
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: future() } } },
+          ],
         },
       }),
       true
@@ -323,6 +346,18 @@ describe('saml20.validateExpiration: at least one enforceable upper bound requir
       subjectInResponseTo: VICTIM_REQ_ID,
       withConditionsWindow: false,
       withSubjectNotOnOrAfter: false,
+    });
+    await expectReject(signed, 'Assertion is expired.', { inResponseTo: VICTIM_REQ_ID });
+  });
+
+  it('rejects a signed lapsed bearer window even when Conditions is still valid end-to-end (profile 4.1.4.3)', async () => {
+    // The bearer NotOnOrAfter is inside the signed assertion, so an attacker
+    // cannot extend it; a captured assertion whose bearer window closed must be
+    // rejected even though its Conditions window remains open.
+    const signed = buildAssertionOnlySigned({
+      subjectInResponseTo: VICTIM_REQ_ID,
+      withConditionsWindow: true,
+      subjectNotOnOrAfter: '2000-01-01T00:00:00Z',
     });
     await expectReject(signed, 'Assertion is expired.', { inResponseTo: VICTIM_REQ_ID });
   });
