@@ -129,6 +129,11 @@ const validateInternal = async (rawAssertion, options, cb) => {
 
   // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention
   const responseObj = await xmlToJs(rawAssertion, cb);
+  // xmlToJs already invoked cb with the parse error; stop so we do not call cb
+  // twice or dereference an undefined object below.
+  if (!responseObj) {
+    return;
+  }
   checkStatusCode(responseObj, cb);
 
   let signedXml: string | null;
@@ -150,6 +155,7 @@ const validateInternal = async (rawAssertion, options, cb) => {
       const error = new WrapError('Invalid assertion.');
       error.inner = e;
       cb(error);
+      return;
     }
   }
 
@@ -166,34 +172,81 @@ const validateInternal = async (rawAssertion, options, cb) => {
 
   // Save the js object derived from xml and check status code
   const assertionObj = await xmlToJs(decryptedSignedXml, cb); // this is our assertion object
+  // xmlToJs already invoked cb with the parse error; stop before
+  // parseResponseAndVersion dereferences an undefined object.
+  if (!assertionObj) {
+    return;
+  }
 
-  parseResponseAndVersion(assertionObj, responseObj, function onParse(err, assertion, version) {
+  parseResponseAndVersion(assertionObj, responseObj, async function onParse(err, assertion, version) {
     if (err) {
       cb(err);
       return;
     }
 
-    const tokenHandler = tokenHandlers[version];
+    // onParse is async (the replay validator may be), so any synchronous throw
+    // here would become an unhandled rejection and leave validate() pending.
+    // Convert unexpected failures into a clean rejection.
+    try {
+      const tokenHandler = tokenHandlers[version];
 
-    if (!options.bypassExpiration && !tokenHandler.validateExpiration(assertion)) {
-      cb(new Error('Assertion is expired.'));
-      return;
+      if (!options.bypassExpiration && !tokenHandler.validateExpiration(assertion)) {
+        cb(new Error('Assertion is expired.'));
+        return;
+      }
+
+      if (
+        options.audience &&
+        !tokenHandler.validateAudience(assertion, options.audience, options.strictAudienceValidation)
+      ) {
+        cb(new Error('Invalid audience.'));
+        return;
+      }
+
+      // Fail closed: when the caller supplies an expected InResponseTo (an
+      // SP-initiated flow), the assertion must carry a matching, signed
+      // InResponseTo. A missing value is a mismatch, not a reason to skip the
+      // check, otherwise a captured assertion can be replayed into a different
+      // login by stripping InResponseTo from the unsigned <Response> wrapper.
+      if (options.inResponseTo && assertion.inResponseTo !== options.inResponseTo) {
+        cb(new Error('Invalid InResponseTo.'));
+        return;
+      }
+
+      // Optional one-time replay protection. The library is stateless, so the
+      // caller supplies the store. The callback receives the signed assertion
+      // identifiers and must return true when the assertion has already been
+      // seen (a replay), keying entries by assertion ID until NotOnOrAfter.
+      if (typeof options.assertionReplayValidator === 'function') {
+        let alreadyUsed: boolean;
+        try {
+          alreadyUsed = await options.assertionReplayValidator({
+            assertionId: tokenHandler.getAssertionId(assertion),
+            sessionIndex: assertion.AuthnStatement?.['@']?.SessionIndex,
+            // Effective expiry (Conditions or the latest bearer confirmation), so
+            // the caller can size the replay-cache TTL to cover the whole window
+            // an assertion can still validate.
+            notOnOrAfter: tokenHandler.getNotOnOrAfter(assertion),
+            inResponseTo: assertion.inResponseTo,
+          });
+        } catch (e) {
+          const error = new WrapError('An error occurred during assertion replay validation.');
+          error.inner = e;
+          cb(error);
+          return;
+        }
+        if (alreadyUsed) {
+          cb(new Error('Assertion has already been used (replay detected).'));
+          return;
+        }
+      }
+
+      parseAttributes(assertion, tokenHandler, cb);
+    } catch (e) {
+      const error = new WrapError('An error occurred trying to validate the assertion.');
+      error.inner = e;
+      cb(error);
     }
-
-    if (
-      options.audience &&
-      !tokenHandler.validateAudience(assertion, options.audience, options.strictAudienceValidation)
-    ) {
-      cb(new Error('Invalid audience.'));
-      return;
-    }
-
-    if (options.inResponseTo && assertion.inResponseTo && assertion.inResponseTo !== options.inResponseTo) {
-      cb(new Error('Invalid InResponseTo.'));
-      return;
-    }
-
-    parseAttributes(assertion, tokenHandler, cb);
   });
 };
 
@@ -266,7 +319,18 @@ function parseResponseAndVersion(assertionObj, responseObj, cb) {
   }
 
   const tokenHandler = tokenHandlers[version];
-  assertion.inResponseTo = tokenHandler.getInResponseTo(responseObj);
+
+  // Derive InResponseTo only from signed content so it cannot be forged by
+  // tampering with the unsigned <Response> wrapper. When the whole Response is
+  // signed, `assertionObj` is the Response subtree and Response/@InResponseTo is
+  // trustworthy. In the common assertion-only-signed case, fall back to the
+  // bearer SubjectConfirmationData/@InResponseTo, which is inside the signed
+  // assertion. The outer `responseObj` wrapper is never trusted here.
+  const signedResponseInResponseTo = assertionObj.Response
+    ? tokenHandler.getInResponseTo(assertionObj)
+    : undefined;
+  assertion.inResponseTo =
+    signedResponseInResponseTo || tokenHandler.getSubjectConfirmationInResponseTo(assertion);
 
   cb(null, assertion, version, response);
 }

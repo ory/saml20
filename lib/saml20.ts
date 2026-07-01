@@ -101,6 +101,8 @@ const parse = (assertion) => {
     claims: claims,
     issuer: getProp(assertion, 'Issuer'),
     sessionIndex: getProp(assertion, 'AuthnStatement.@.SessionIndex'),
+    assertionId: getAssertionId(assertion),
+    notOnOrAfter: getNotOnOrAfter(assertion),
   };
 };
 
@@ -134,23 +136,166 @@ const validateAudience = (assertion, realm, strictValidation = false) => {
   }
 };
 
-const validateExpiration = (assertion) => {
-  const dteNotBefore = getProp(assertion, 'Conditions.@.NotBefore');
-  let notBefore: any = new Date(dteNotBefore);
-  notBefore = notBefore.setMinutes(notBefore.getMinutes() - 10); // 10 minutes clock skew
+const clockSkewMs = 10 * 60 * 1000; // 10 minutes clock skew.
 
-  const dteNotOnOrAfter = getProp(assertion, 'Conditions.@.NotOnOrAfter');
-  let notOnOrAfter: any = new Date(dteNotOnOrAfter);
-  notOnOrAfter = notOnOrAfter.setMinutes(notOnOrAfter.getMinutes() + 10); // 10 minutes clock skew
-
-  const now = new Date();
-  return !(now < notBefore || now > notOnOrAfter);
+// Collect every SubjectConfirmationData element across all SubjectConfirmation
+// entries. Bearer assertions carry their expiration here rather than (or in
+// addition to) Conditions.
+const getSubjectConfirmationData = (assertion): Record<string, unknown>[] => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let confirmations = getAttribute<any>(assertion, 'Subject.SubjectConfirmation');
+  if (!confirmations) {
+    return [];
+  }
+  confirmations = Array.isArray(confirmations) ? confirmations : [confirmations];
+  const data: Record<string, unknown>[] = [];
+  for (const confirmation of confirmations) {
+    let scd = getAttribute<Record<string, unknown> | Record<string, unknown>[]>(
+      confirmation,
+      'SubjectConfirmationData'
+    );
+    if (!scd) {
+      continue;
+    }
+    scd = Array.isArray(scd) ? scd : [scd];
+    data.push(...scd);
+  }
+  return data;
 };
 
+// Check a [NotBefore, NotOnOrAfter] window against now, applying clock skew.
+// Returns 'unbounded' when no NotOnOrAfter is present (the window has no upper
+// limit), 'valid' when now is inside the window, and 'invalid' when a bound is
+// present but unparseable or now falls outside it.
+type WindowResult = 'valid' | 'invalid' | 'unbounded';
+const checkWindow = (notBefore?: string, notOnOrAfter?: string): WindowResult => {
+  const now = Date.now();
+
+  if (notBefore) {
+    const ms = new Date(notBefore).getTime();
+    if (Number.isNaN(ms) || now < ms - clockSkewMs) {
+      return 'invalid';
+    }
+  }
+
+  if (!notOnOrAfter) {
+    return 'unbounded';
+  }
+  const ms = new Date(notOnOrAfter).getTime();
+  if (Number.isNaN(ms) || now > ms + clockSkewMs) {
+    return 'invalid';
+  }
+  return 'valid';
+};
+
+const validateExpiration = (assertion) => {
+  // The <Conditions> window is an absolute constraint on the assertion (SAML
+  // core 2.5.1): when present it must be satisfied. A present-but-unparseable
+  // bound is treated as invalid.
+  const conditionsNotBefore = getAttribute<string | undefined>(assertion, 'Conditions.@.NotBefore');
+  const conditionsNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
+  const conditionsResult = checkWindow(conditionsNotBefore, conditionsNotOnOrAfter);
+  if (conditionsResult === 'invalid') {
+    return false;
+  }
+
+  // The Web Browser SSO profile (4.1.4.3) requires verifying the NotOnOrAfter on
+  // the bearer SubjectConfirmationData, independently of Conditions. Multiple
+  // SubjectConfirmation elements are alternatives (core 2.4.1.1), so when any
+  // bearer confirmation carries a NotOnOrAfter, at least one such confirmation
+  // must still be within its window — even if Conditions is otherwise valid.
+  const bearerBounds = getSubjectConfirmationData(assertion).filter(
+    (scd) => (scd['@'] as Record<string, string> | undefined)?.NotOnOrAfter
+  );
+  if (bearerBounds.length > 0) {
+    return bearerBounds.some((scd) => {
+      const attrs = scd['@'] as Record<string, string>;
+      return checkWindow(attrs.NotBefore, attrs.NotOnOrAfter) === 'valid';
+    });
+  }
+
+  // No bearer expiration is present: rely on a satisfied Conditions upper bound.
+  // An assertion with no enforceable upper bound anywhere is rejected rather
+  // than treated as "never expires" (the original NaN defect).
+  return conditionsResult === 'valid';
+};
+
+// InResponseTo read from the outer <Response> wrapper. Only trust this when the
+// whole Response is signed; the wrapper is unsigned in the common
+// assertion-only-signed case.
 const getInResponseTo = (xml) => {
   return getProp(xml, 'Response.@.InResponseTo');
 };
 
-const saml20 = { getInResponseTo, validateExpiration, validateAudience, parse };
+// InResponseTo carried inside the bearer SubjectConfirmationData. This element
+// lives inside the <Assertion> and is therefore covered by the assertion
+// signature even when the outer <Response> wrapper is not signed.
+const getSubjectConfirmationInResponseTo = (assertion): string | undefined => {
+  for (const scd of getSubjectConfirmationData(assertion)) {
+    const inResponseTo = (scd['@'] as Record<string, string> | undefined)?.InResponseTo;
+    if (inResponseTo) {
+      return inResponseTo;
+    }
+  }
+  return undefined;
+};
+
+const getAssertionId = (assertion): string | undefined => {
+  return getAttribute<string | undefined>(assertion, '@.ID');
+};
+
+// The effective NotOnOrAfter after which the assertion can no longer validate,
+// mirroring validateExpiration. Both gates must hold, so the assertion stops
+// validating at the EARLIEST of the enforced upper bounds: the absolute
+// Conditions/@NotOnOrAfter and the bearer confirmation. Because bearer
+// confirmations are alternatives, the bearer side is governed by the LATEST
+// SubjectConfirmationData/@NotOnOrAfter. Callers key replay-cache TTLs off this
+// value, so it must reflect the real window in which the assertion can validate.
+const getNotOnOrAfter = (assertion): string | undefined => {
+  const upperBounds: string[] = [];
+
+  const conditionsNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
+  if (conditionsNotOnOrAfter) {
+    upperBounds.push(conditionsNotOnOrAfter);
+  }
+
+  let latestBearer: string | undefined;
+  let latestBearerMs = -Infinity;
+  for (const scd of getSubjectConfirmationData(assertion)) {
+    const value = (scd['@'] as Record<string, string> | undefined)?.NotOnOrAfter;
+    if (!value) {
+      continue;
+    }
+    const ms = new Date(value).getTime();
+    if (!Number.isNaN(ms) && ms > latestBearerMs) {
+      latestBearerMs = ms;
+      latestBearer = value;
+    }
+  }
+  if (latestBearer) {
+    upperBounds.push(latestBearer);
+  }
+
+  let earliest: string | undefined;
+  let earliestMs = Infinity;
+  for (const value of upperBounds) {
+    const ms = new Date(value).getTime();
+    if (!Number.isNaN(ms) && ms < earliestMs) {
+      earliestMs = ms;
+      earliest = value;
+    }
+  }
+  return earliest;
+};
+
+const saml20 = {
+  getInResponseTo,
+  getSubjectConfirmationInResponseTo,
+  getAssertionId,
+  getNotOnOrAfter,
+  validateExpiration,
+  validateAudience,
+  parse,
+};
 
 export default saml20;
