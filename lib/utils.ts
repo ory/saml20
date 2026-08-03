@@ -2,6 +2,7 @@ import { DOMParser, MIME_TYPE } from '@xmldom/xmldom';
 import crypto from 'crypto';
 
 const multiRootedXMLError = new Error('multirooted xml not allowed.');
+const doctypeNotAllowedError = new Error('doctype not allowed.');
 
 const countRootNodes = (xmlDoc: Document) => {
   const rootNodes = Array.from(xmlDoc.childNodes as NodeListOf<Element>).filter(
@@ -27,6 +28,16 @@ const parseFromString = (xmlString: string) => {
   };
   try {
     const xml = new DOMParser({ onError }).parseFromString(xmlString, MIME_TYPE.XML_APPLICATION);
+
+    // SAML XML never legitimately declares a document type definition (DTD).
+    // Accepting one exposes the parser to XXE-class attacks: a DTD can declare
+    // entities and its handling makes parser behaviour observable as an oracle.
+    // Reject any document that declares a DOCTYPE. See
+    // https://github.com/ory/polis/issues/4071.
+    if (xml.doctype) {
+      throw doctypeNotAllowedError;
+    }
+
     if (multiRootErrFound) {
       throw multiRootedXMLError;
     } else if (errors.length > 0) {
@@ -81,4 +92,11 @@ const isMultiRootedXMLError = (err: any) => {
   return false;
 };
 
-export { parseFromString, thumbprint, getAttribute, isMultiRootedXMLError, multiRootedXMLError };
+export {
+  parseFromString,
+  thumbprint,
+  getAttribute,
+  isMultiRootedXMLError,
+  multiRootedXMLError,
+  doctypeNotAllowedError,
+};

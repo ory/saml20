@@ -1,5 +1,11 @@
 import assert from 'assert';
-import { parseFromString, thumbprint, getAttribute, isMultiRootedXMLError } from '../../lib/utils';
+import {
+  parseFromString,
+  thumbprint,
+  getAttribute,
+  isMultiRootedXMLError,
+  doctypeNotAllowedError,
+} from '../../lib/utils';
 
 describe('utils.ts', function () {
   describe('parseFromString', function () {
@@ -21,6 +27,27 @@ describe('utils.ts', function () {
 
     it('should throw error for empty XML', function () {
       assert.throws(() => parseFromString(''), /missing root element/);
+    });
+
+    // A DTD has no legitimate place in SAML XML and enables XXE-class attacks.
+    // See https://github.com/ory/polis/issues/4071.
+    it('should reject XML that declares a DOCTYPE', function () {
+      const xml = '<?xml version="1.0"?>\n<!DOCTYPE foo>\n<root>test</root>';
+      assert.throws(() => parseFromString(xml), doctypeNotAllowedError);
+    });
+
+    it('should reject a DOCTYPE with an internal entity subset (XXE payload)', function () {
+      const xml =
+        '<?xml version="1.0"?>\n' +
+        '<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>\n' +
+        '<root>&x;</root>';
+      assert.throws(() => parseFromString(xml), doctypeNotAllowedError);
+    });
+
+    it('should accept valid XML that does not declare a DOCTYPE', function () {
+      const doc = parseFromString('<?xml version="1.0"?><root><a>hi</a></root>');
+      assert(doc);
+      assert.strictEqual(doc.documentElement?.nodeName, 'root');
     });
   });
 
