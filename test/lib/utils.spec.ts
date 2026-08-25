@@ -73,6 +73,21 @@ describe('utils.ts', function () {
     it('should return false for XML without a DOCTYPE', function () {
       assert.strictEqual(containsDoctype('<?xml version="1.0"?><root><a>hi</a></root>'), false);
     });
+
+    it('should ignore <!DOCTYPE inside a comment', function () {
+      assert.strictEqual(containsDoctype('<root><!-- <!DOCTYPE example> --><a>hi</a></root>'), false);
+    });
+
+    it('should ignore <!DOCTYPE inside a CDATA section', function () {
+      assert.strictEqual(
+        containsDoctype('<root><AttributeValue><![CDATA[<!DOCTYPE example>]]></AttributeValue></root>'),
+        false
+      );
+    });
+
+    it('should still detect a real DOCTYPE that follows a comment', function () {
+      assert.strictEqual(containsDoctype('<!-- a comment --><!DOCTYPE r><r/>'), true);
+    });
   });
 
   describe('thumbprint', function () {
