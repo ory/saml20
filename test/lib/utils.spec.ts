@@ -5,6 +5,7 @@ import {
   getAttribute,
   isMultiRootedXMLError,
   doctypeNotAllowedError,
+  containsDoctype,
 } from '../../lib/utils';
 
 describe('utils.ts', function () {
@@ -48,6 +49,29 @@ describe('utils.ts', function () {
       const doc = parseFromString('<?xml version="1.0"?><root><a>hi</a></root>');
       assert(doc);
       assert.strictEqual(doc.documentElement?.nodeName, 'root');
+    });
+  });
+
+  // xml2js/sax does not expose a parsed doctype node, so its callers screen the
+  // raw string with containsDoctype. See https://github.com/ory/polis/issues/4071.
+  describe('containsDoctype', function () {
+    it('should detect a DOCTYPE declaration', function () {
+      assert.strictEqual(containsDoctype('<?xml version="1.0"?><!DOCTYPE r><r/>'), true);
+    });
+
+    it('should detect a DOCTYPE with an internal subset', function () {
+      assert.strictEqual(
+        containsDoctype('<!DOCTYPE r [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><r>&x;</r>'),
+        true
+      );
+    });
+
+    it('should be case-insensitive', function () {
+      assert.strictEqual(containsDoctype('<!doctype html>'), true);
+    });
+
+    it('should return false for XML without a DOCTYPE', function () {
+      assert.strictEqual(containsDoctype('<?xml version="1.0"?><root><a>hi</a></root>'), false);
     });
   });
 

@@ -4,6 +4,13 @@ import crypto from 'crypto';
 const multiRootedXMLError = new Error('multirooted xml not allowed.');
 const doctypeNotAllowedError = new Error('doctype not allowed.');
 
+// Detects a document type definition (DTD) declaration in a raw XML string.
+// `parseFromString` rejects a DTD via the parsed `doctype` node, but xml2js/sax
+// does not expose one, so its callers screen the raw string with this instead.
+// A DOCTYPE has no legitimate place in SAML XML and accepting one is an
+// XXE-class risk. See https://github.com/ory/polis/issues/4071.
+const containsDoctype = (xml: string): boolean => /<!DOCTYPE/i.test(xml);
+
 const countRootNodes = (xmlDoc: Document) => {
   const rootNodes = Array.from(xmlDoc.childNodes as NodeListOf<Element>).filter(
     (n) => n.tagName != null && n.childNodes != null
@@ -99,4 +106,5 @@ export {
   isMultiRootedXMLError,
   multiRootedXMLError,
   doctypeNotAllowedError,
+  containsDoctype,
 };

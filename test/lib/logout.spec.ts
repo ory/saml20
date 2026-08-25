@@ -6,6 +6,7 @@ import {
   parseLogoutRequest,
   createLogoutResponse,
 } from '../../lib/logout';
+import { doctypeNotAllowedError } from '../../lib/utils';
 
 const response = fs.readFileSync('./test/assets/logout-response.xml').toString();
 const responseFailed = fs.readFileSync('./test/assets/logout-response-failed.xml').toString();
@@ -16,6 +17,21 @@ const requestWithIdToken = fs.readFileSync('./test/assets/logout-request-with-id
 const requestInvalid = 'invalid_data';
 
 describe('logout.ts', function () {
+  // See https://github.com/ory/polis/issues/4071.
+  it('should reject a logout response that declares a DTD', async function () {
+    const dtd =
+      '<?xml version="1.0"?><!DOCTYPE LogoutResponse [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>' +
+      '<LogoutResponse>&x;</LogoutResponse>';
+    await assert.rejects(parseLogoutResponse(dtd), doctypeNotAllowedError);
+  });
+
+  it('should reject a logout request that declares a DTD', async function () {
+    const dtd =
+      '<?xml version="1.0"?><!DOCTYPE LogoutRequest [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>' +
+      '<LogoutRequest>&x;</LogoutRequest>';
+    await assert.rejects(parseLogoutRequest(dtd), doctypeNotAllowedError);
+  });
+
   it('response ok', async function () {
     const res = await parseLogoutResponse(response);
     assert.strictEqual(res.id, '_716cfa40a953610d9d68');

@@ -7,7 +7,13 @@ import { validateSignature, sanitizeXML } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
-import { parseFromString, isMultiRootedXMLError, multiRootedXMLError } from './utils';
+import {
+  parseFromString,
+  isMultiRootedXMLError,
+  multiRootedXMLError,
+  containsDoctype,
+  doctypeNotAllowedError,
+} from './utils';
 import { sign } from './sign';
 
 const nameFormatUri = [
@@ -253,6 +259,9 @@ const validateInternal = async (rawAssertion, options, cb) => {
 const xmlToJs = async (rawAssertion, cb) => {
   try {
     rawAssertion = sanitizeXML(rawAssertion);
+    if (containsDoctype(rawAssertion)) {
+      throw doctypeNotAllowedError;
+    }
     const parser = new xml2js.Parser({
       attrkey: '@',
       charkey: '_',

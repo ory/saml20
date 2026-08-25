@@ -1,5 +1,6 @@
 import { getAttribute } from './utils';
 import { thumbprint } from './utils';
+import { containsDoctype, doctypeNotAllowedError } from './utils';
 import { stripCertHeaderAndFooter } from './cert';
 
 import crypto from 'crypto';
@@ -13,6 +14,10 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
   return new Promise((resolve, reject) => {
     // Some Providers do not escape the & character in the metadata, for now these have been encountered in errorURL
     idpMeta = idpMeta.replace(/errorURL=".*?"/g, '');
+    if (containsDoctype(idpMeta)) {
+      reject(doctypeNotAllowedError);
+      return;
+    }
     xml2js.parseString(
       idpMeta,
       {

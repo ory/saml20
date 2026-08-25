@@ -1,5 +1,6 @@
 import assert from 'assert';
 import { parse, parseIssuer, validate, createSAMLResponse } from '../../lib/response';
+import { doctypeNotAllowedError } from '../../lib/utils';
 import fs from 'fs';
 
 const rawResponse = fs.readFileSync('./test/assets/saml20.validResponseSignedMessage.xml').toString();
@@ -54,6 +55,19 @@ describe('response.ts', function () {
       const result = (error as Error).message;
       assert.strictEqual(result, 'An error occurred trying to parse XML assertion.');
     }
+  });
+
+  // xml2js runs on the assertion after xmldom, so it needs its own DTD guard.
+  // See https://github.com/ory/polis/issues/4071.
+  it('RAW response with a DTD is rejected before xml2js', async function () {
+    const dtdResponse =
+      '<?xml version="1.0"?>\n' +
+      '<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>\n' +
+      '<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">&x;</samlp:Response>';
+    await assert.rejects(parse(dtdResponse), (err: Error & { inner?: unknown }) => {
+      assert.strictEqual(err.inner, doctypeNotAllowedError);
+      return true;
+    });
   });
 
   it('Should not parse saml 2.0 token which has no assertion', async function () {

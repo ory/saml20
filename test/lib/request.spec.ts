@@ -1,6 +1,7 @@
 import assert from 'assert';
 import fs from 'fs';
 import { decodeBase64, parseSAMLRequest, request } from '../../lib/request';
+import { doctypeNotAllowedError } from '../../lib/utils';
 
 const request1 = fs.readFileSync('./test/assets/request1.xml').toString();
 const request2 = fs.readFileSync('./test/assets/request2.xml').toString();
@@ -17,6 +18,14 @@ const publicKey =
   '-----BEGIN CERTIFICATE-----\nMIIC6jCCAdKgAwIBAgIBATANBgkqhkiG9w0BAQsFADAZMRcwFQYDVQQDEw5Cb3h5SFEgSmFja3NvbjAcFw0yMjA0MDcxOTEyMTBaFwsxMjMxMTgzMDAwWjAZMRcwFQYDVQQDEw5Cb3h5SFEgSmFja3NvbjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL45bTZRh2sDxoeWBxWYZPnnUW3dnze5E0Iw0ccobNU4BGGbTFjhGEvJr+j6wzPoj6vC+GTTRk2/2pAdepeI/S06fyB2O0v0jDY4fsml7pVG+GZar/S2zRisMvfdWOOgrAmBuUWBXSzRchvnypBrYt6J/Yq5wUe1GQQxZoBoHOtQLs+k1WhXvnMHMuRDQfsRGbeFqhsTyF0VRH6kj42fpaIVu2up521Xi+iyl3ebcvCYshgI92gw2X3+jnvzCMbTeosc7H17C9HYZlr3VPvPq2HRhvariDegZa07j4+I6JNXM21wjK6ca9uQJIUTm5NaiFyWRkU26kd4H0PAse+vDK0CAwEAAaM/MD0wDAYDVR0TAQH/BAIwADAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0OBBYEFI0tLXGuzcZi2eXNI3epHYJwreXQMA0GCSqGSIb3DQEBCwUAA4IBAQAEre2GfP/haRoQo0JYFKqXNsogR1++kFIebn9FTnb64+bDd5DRhV2pOAtAFIWUbm5+YeQIkBbAQmfPFX5OG6WgBSqgJCMpU7ekVwU/tExhxXFaTCRL39pMwLnsJ9R6NIy/WUKrTDW9VtyINE5OIL7lDZbejKbidIuOtdyJtlJrLtnVuhiLmNaZJo+kDKvHYKVmwdEXRMQ5OyR0f53MV4Kq/28dSeUQPe+qKovrcVk3F0J8h+aj/+1bU6VsBfrNSRq1dO/jQM6oIOUI68q3GNBeOCEcDGXpytX5C0HxVmNTz5/ybqB14hEhp343GIZ0/gbdAGmt90uJHoS9Xp4dI77j\n-----END CERTIFICATE-----';
 
 describe('request.ts', function () {
+  // See https://github.com/ory/polis/issues/4071.
+  it('parseSAMLRequest rejects a request that declares a DTD', async function () {
+    const dtd =
+      '<?xml version="1.0"?><!DOCTYPE AuthnRequest [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>' +
+      '<AuthnRequest>&x;</AuthnRequest>';
+    await assert.rejects(parseSAMLRequest(dtd, false), doctypeNotAllowedError);
+  });
+
   it('request ok', function () {
     assert(
       request({

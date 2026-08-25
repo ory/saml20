@@ -4,6 +4,7 @@ import { inflateRaw } from 'zlib';
 import xmlbuilder from 'xmlbuilder';
 import { SAMLReq } from './typings';
 import crypto from 'crypto';
+import { containsDoctype, doctypeNotAllowedError } from './utils';
 import { sign } from './sign';
 
 const inflateRawAsync = promisify(inflateRaw);
@@ -74,6 +75,10 @@ const request = ({
 // Parse XML
 const parseXML = (xml: string): Promise<Record<string, any>> => {
   return new Promise((resolve, reject) => {
+    if (containsDoctype(xml)) {
+      reject(doctypeNotAllowedError);
+      return;
+    }
     xml2js.parseString(
       xml,
       {

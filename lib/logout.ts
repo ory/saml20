@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
+import { containsDoctype, doctypeNotAllowedError } from './utils';
 
 type ParsedLogoutResponse = {
   id: string;
@@ -18,6 +19,10 @@ type LogoutRequestParams = {
 
 const parseLogoutResponse = async (rawResponse: string): Promise<ParsedLogoutResponse> => {
   return new Promise((resolve, reject) => {
+    if (containsDoctype(rawResponse)) {
+      reject(doctypeNotAllowedError);
+      return;
+    }
     xml2js.parseString(
       rawResponse,
       { tagNameProcessors: [xml2js.processors.stripPrefix] },
@@ -90,6 +95,10 @@ type LogoutResponseParams = {
 
 const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutRequest> => {
   return new Promise((resolve, reject) => {
+    if (containsDoctype(rawRequest)) {
+      reject(doctypeNotAllowedError);
+      return;
+    }
     xml2js.parseString(
       rawRequest,
       { tagNameProcessors: [xml2js.processors.stripPrefix] },
