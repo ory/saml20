@@ -10,18 +10,22 @@ const doctypeNotAllowedError = new Error('doctype not allowed.');
 // A DOCTYPE has no legitimate place in SAML XML and accepting one is an
 // XXE-class risk. See https://github.com/ory/polis/issues/4071.
 //
-// Comments, CDATA sections and processing instructions are removed first so
-// that a `<!DOCTYPE` appearing as text inside them (e.g. in an AttributeValue or
-// a `<?pi ...?>`) is not mistaken for a real declaration. A genuine DOCTYPE only
-// appears in the prolog and never inside those regions, so stripping them never
-// hides a real one. The trailing `\s` matches the whitespace the XML grammar
-// requires after `<!DOCTYPE` (`'<!DOCTYPE' S Name`).
+// Detects a DTD: a `<!DOCTYPE` declaration or an `<!ENTITY`/`<!ELEMENT`
+// declaration, which can only appear inside one. Comments, CDATA sections and
+// processing instructions are removed first so that such text appearing inside
+// them (e.g. in an AttributeValue or a `<?pi ...?>`) is not mistaken for a real
+// declaration. A genuine DTD only appears in the prolog and never inside those
+// regions, so stripping them never hides a real one. The trailing `\s` matches
+// the whitespace the XML grammar requires after each keyword
+// (`'<!DOCTYPE' S Name`, etc.).
+const dtdDeclaration = /<!DOCTYPE\s|<!ENTITY\s|<!ELEMENT\s/i;
+
 const containsDoctype = (xml: string): boolean => {
   const withoutInertRegions = xml
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, '')
     .replace(/<\?[\s\S]*?\?>/g, '');
-  return /<!DOCTYPE\s/i.test(withoutInertRegions);
+  return dtdDeclaration.test(withoutInertRegions);
 };
 
 const countRootNodes = (xmlDoc: Document) => {

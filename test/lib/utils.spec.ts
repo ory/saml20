@@ -66,6 +66,14 @@ describe('utils.ts', function () {
       );
     });
 
+    it('should detect a standalone ENTITY declaration', function () {
+      assert.strictEqual(containsDoctype('<!ENTITY x SYSTEM "file:///etc/passwd">'), true);
+    });
+
+    it('should detect an ELEMENT declaration', function () {
+      assert.strictEqual(containsDoctype('<!ELEMENT r (#PCDATA)>'), true);
+    });
+
     it('should be case-insensitive', function () {
       assert.strictEqual(containsDoctype('<!doctype html>'), true);
     });
