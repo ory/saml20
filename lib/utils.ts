@@ -10,15 +10,18 @@ const doctypeNotAllowedError = new Error('doctype not allowed.');
 // A DOCTYPE has no legitimate place in SAML XML and accepting one is an
 // XXE-class risk. See https://github.com/ory/polis/issues/4071.
 //
-// Comments and CDATA sections are removed first so that a `<!DOCTYPE` appearing
-// as text inside them (e.g. in an AttributeValue) is not mistaken for a real
-// declaration. A genuine DOCTYPE only appears in the prolog and never inside a
-// comment or CDATA, so stripping those regions never hides a real one.
+// Comments, CDATA sections and processing instructions are removed first so
+// that a `<!DOCTYPE` appearing as text inside them (e.g. in an AttributeValue or
+// a `<?pi ...?>`) is not mistaken for a real declaration. A genuine DOCTYPE only
+// appears in the prolog and never inside those regions, so stripping them never
+// hides a real one. The trailing `\s` matches the whitespace the XML grammar
+// requires after `<!DOCTYPE` (`'<!DOCTYPE' S Name`).
 const containsDoctype = (xml: string): boolean => {
-  const withoutCommentsAndCData = xml
+  const withoutInertRegions = xml
     .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, '');
-  return /<!DOCTYPE/i.test(withoutCommentsAndCData);
+    .replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, '')
+    .replace(/<\?[\s\S]*?\?>/g, '');
+  return /<!DOCTYPE\s/i.test(withoutInertRegions);
 };
 
 const countRootNodes = (xmlDoc: Document) => {

@@ -88,6 +88,14 @@ describe('utils.ts', function () {
     it('should still detect a real DOCTYPE that follows a comment', function () {
       assert.strictEqual(containsDoctype('<!-- a comment --><!DOCTYPE r><r/>'), true);
     });
+
+    it('should ignore <!DOCTYPE inside a processing instruction', function () {
+      assert.strictEqual(containsDoctype('<?pi <!DOCTYPE foo?><root/>'), false);
+    });
+
+    it('should still detect a real DOCTYPE that follows the XML declaration', function () {
+      assert.strictEqual(containsDoctype('<?xml version="1.0"?><!DOCTYPE r><r/>'), true);
+    });
   });
 
   describe('thumbprint', function () {
