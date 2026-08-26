@@ -11,21 +11,53 @@ const doctypeNotAllowedError = new Error('doctype not allowed.');
 // XXE-class risk. See https://github.com/ory/polis/issues/4071.
 //
 // Detects a DTD: a `<!DOCTYPE` declaration or an `<!ENTITY`/`<!ELEMENT`
-// declaration, which can only appear inside one. Comments, CDATA sections and
-// processing instructions are removed first so that such text appearing inside
-// them (e.g. in an AttributeValue or a `<?pi ...?>`) is not mistaken for a real
-// declaration. A genuine DTD only appears in the prolog and never inside those
-// regions, so stripping them never hides a real one. The trailing `\s` matches
-// the whitespace the XML grammar requires after each keyword
-// (`'<!DOCTYPE' S Name`, etc.).
-const dtdDeclaration = /<!DOCTYPE\s|<!ENTITY\s|<!ELEMENT\s/i;
+// declaration, which can only appear inside one. A single linear pass skips
+// comments, CDATA sections and processing instructions so that such text
+// appearing inside them (e.g. in an AttributeValue or a `<?pi ...?>`) is not
+// mistaken for a real declaration. Jumping straight to each closing delimiter
+// keeps the scan linear, so adversarial input with many unterminated openers
+// cannot force quadratic rescans. An unterminated region leaves the rest of the
+// document malformed, which the XML parser rejects anyway, so treating it as
+// inert is safe. The trailing `\s` matches the whitespace the XML grammar
+// requires after each keyword (`'<!DOCTYPE' S Name`, etc.).
+// See https://github.com/ory/polis/issues/4071.
+const dtdDeclaration = /<!DOCTYPE\s|<!ENTITY\s|<!ELEMENT\s/iy;
 
 const containsDoctype = (xml: string): boolean => {
-  const withoutInertRegions = xml
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/<!\[CDATA\[[\s\S]*?\]\]>/g, '')
-    .replace(/<\?[\s\S]*?\?>/g, '');
-  return dtdDeclaration.test(withoutInertRegions);
+  const length = xml.length;
+  let i = 0;
+  while (i < length) {
+    const lt = xml.indexOf('<', i);
+    if (lt === -1) {
+      return false;
+    }
+    if (xml.startsWith('<!--', lt)) {
+      const end = xml.indexOf('-->', lt + 4);
+      if (end === -1) {
+        return false;
+      }
+      i = end + 3;
+    } else if (xml.startsWith('<![CDATA[', lt)) {
+      const end = xml.indexOf(']]>', lt + 9);
+      if (end === -1) {
+        return false;
+      }
+      i = end + 3;
+    } else if (xml.startsWith('<?', lt)) {
+      const end = xml.indexOf('?>', lt + 2);
+      if (end === -1) {
+        return false;
+      }
+      i = end + 2;
+    } else {
+      dtdDeclaration.lastIndex = lt;
+      if (dtdDeclaration.test(xml)) {
+        return true;
+      }
+      i = lt + 1;
+    }
+  }
+  return false;
 };
 
 const countRootNodes = (xmlDoc: Document) => {

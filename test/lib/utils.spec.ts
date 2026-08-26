@@ -104,6 +104,27 @@ describe('utils.ts', function () {
     it('should still detect a real DOCTYPE that follows the XML declaration', function () {
       assert.strictEqual(containsDoctype('<?xml version="1.0"?><!DOCTYPE r><r/>'), true);
     });
+
+    it('should treat an unterminated comment as inert', function () {
+      assert.strictEqual(containsDoctype('<root><!-- <!DOCTYPE x> unterminated'), false);
+    });
+
+    it('should treat an unterminated CDATA section as inert', function () {
+      assert.strictEqual(containsDoctype('<root><![CDATA[ <!DOCTYPE x> unterminated'), false);
+    });
+
+    it('should treat an unterminated processing instruction as inert', function () {
+      assert.strictEqual(containsDoctype('<?pi <!DOCTYPE x> unterminated'), false);
+    });
+
+    it('should scan large adversarial input without quadratic blow-up', function () {
+      // Many unterminated comment openers would force lazy regexes to rescan.
+      // The linear scanner returns at the first unterminated region.
+      const hostile = '<!--'.repeat(200000);
+      const start = Date.now();
+      assert.strictEqual(containsDoctype(hostile), false);
+      assert.ok(Date.now() - start < 1000, 'completed well under a second');
+    });
   });
 
   describe('thumbprint', function () {
