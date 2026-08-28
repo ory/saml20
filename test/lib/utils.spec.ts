@@ -50,6 +50,16 @@ describe('utils.ts', function () {
       assert(doc);
       assert.strictEqual(doc.documentElement?.nodeName, 'root');
     });
+
+    // A malformed DTD must yield the fixed error, not raw @xmldom/xmldom text
+    // from the parser (which the doctype-only check let through before parsing).
+    it('should reject a malformed/unterminated DTD with the fixed error', function () {
+      assert.throws(
+        () => parseFromString('<!DOCTYPE foo SYSTEM "file:///nope" <Root/>'),
+        doctypeNotAllowedError
+      );
+      assert.throws(() => parseFromString('<!DOCTYPE foo'), doctypeNotAllowedError);
+    });
   });
 
   // xml2js/sax does not expose a parsed doctype node, so its callers screen the
@@ -72,6 +82,20 @@ describe('utils.ts', function () {
 
     it('should detect an ELEMENT declaration', function () {
       assert.strictEqual(containsDoctype('<!ELEMENT r (#PCDATA)>'), true);
+    });
+
+    // sax enters its doctype state on the bare keyword, without the whitespace
+    // the XML grammar requires, so the guard must too.
+    it('should detect a whitespace-free DOCTYPE declaration', function () {
+      assert.strictEqual(containsDoctype('<!DOCTYPERoot SYSTEM "file:///x"><Root/>'), true);
+    });
+
+    it('should detect a whitespace-free ENTITY declaration', function () {
+      assert.strictEqual(containsDoctype('<!ENTITYx SYSTEM "file:///x">'), true);
+    });
+
+    it('should detect a whitespace-free ELEMENT declaration', function () {
+      assert.strictEqual(containsDoctype('<!ELEMENTr (#PCDATA)>'), true);
     });
 
     it('should be case-insensitive', function () {

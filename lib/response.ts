@@ -71,6 +71,12 @@ const parseInternal = async (rawAssertion, cb) => {
   }
   // Save the js object derived from xml and check status code
   const assertionObj = await xmlToJs(rawAssertion, cb);
+  // xmlToJs already invoked cb with the parse error; stop so we do not
+  // dereference an undefined object and throw a detached error that would crash
+  // the process. Mirrors validateInternal.
+  if (!assertionObj) {
+    return;
+  }
 
   checkStatusCode(assertionObj, cb);
 

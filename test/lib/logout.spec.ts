@@ -32,6 +32,13 @@ describe('logout.ts', function () {
     await assert.rejects(parseLogoutRequest(dtd), doctypeNotAllowedError);
   });
 
+  it('should reject a whitespace-free DOCTYPE in a logout message', async function () {
+    await assert.rejects(
+      parseLogoutResponse('<!DOCTYPELogoutResponse SYSTEM "file:///x"><LogoutResponse/>'),
+      doctypeNotAllowedError
+    );
+  });
+
   it('response ok', async function () {
     const res = await parseLogoutResponse(response);
     assert.strictEqual(res.id, '_716cfa40a953610d9d68');

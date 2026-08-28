@@ -20,10 +20,12 @@ const doctypeNotAllowedError = new Error('doctype not allowed.');
 // so the scan must keep looking for one (e.g. `<!<!--><!DOCTYPE ...>`). To stay
 // linear, once a closing delimiter is absent from the remaining input it is
 // absent for every later position too, so that region type is marked exhausted
-// and no longer rescanned. The trailing `\s` matches the whitespace the XML
-// grammar requires after each keyword (`'<!DOCTYPE' S Name`, etc.).
+// and no longer rescanned. The keyword is matched without requiring trailing
+// whitespace because sax enters its doctype state on the bare keyword (e.g.
+// `<!DOCTYPERoot ...>`), so demanding the XML-grammar whitespace would let such
+// input slip past the guard.
 // See https://github.com/ory/polis/issues/4071.
-const dtdDeclaration = /<!DOCTYPE\s|<!ENTITY\s|<!ELEMENT\s/iy;
+const dtdDeclaration = /<!DOCTYPE|<!ENTITY|<!ELEMENT/iy;
 
 const containsDoctype = (xml: string): boolean => {
   const length = xml.length;
@@ -79,6 +81,14 @@ const countRootNodes = (xmlDoc: Document) => {
 };
 
 const parseFromString = (xmlString: string) => {
+  // Reject a DTD before the parser processes it. Checking only the parsed
+  // `doctype` node (below) lets a malformed DTD make @xmldom/xmldom throw first,
+  // leaking raw parser text (e.g. "doctype not terminated with > at position N")
+  // instead of the fixed error. See https://github.com/ory/polis/issues/4071.
+  if (containsDoctype(xmlString)) {
+    throw doctypeNotAllowedError;
+  }
+
   const errors: string[] = [];
   let multiRootErrFound = false;
   const onError = (level, msg) => {

@@ -22,6 +22,13 @@ describe('metadata.ts', function () {
     await assert.rejects(parseMetadata(dtdMetadata, {}), doctypeNotAllowedError);
   });
 
+  it('should reject metadata with a whitespace-free DOCTYPE', async function () {
+    await assert.rejects(
+      parseMetadata('<!DOCTYPEEntityDescriptor SYSTEM "file:///x"><EntityDescriptor/>', {}),
+      doctypeNotAllowedError
+    );
+  });
+
   it('saml MetaData ok without BEGIN & END notations', async function () {
     const value = await parseMetadata(samlMetadata, {});
     assert.strictEqual(value.entityID, 'https://saml.example.com/entityid');

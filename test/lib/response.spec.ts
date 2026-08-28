@@ -70,6 +70,25 @@ describe('response.ts', function () {
     });
   });
 
+  // Rejecting the DTD must not leave a detached async continuation that
+  // dereferences undefined and crashes the process. See ory/polis#4071.
+  it('should not emit an unhandled rejection when parse() rejects a DTD', async function () {
+    const unhandled: unknown[] = [];
+    const onUnhandled = (reason: unknown) => unhandled.push(reason);
+    process.on('unhandledRejection', onUnhandled);
+    try {
+      await assert.rejects(
+        parse('<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root>')
+      );
+      // Let any detached continuation settle before asserting.
+      await new Promise((resolve) => setImmediate(resolve));
+      await new Promise((resolve) => setImmediate(resolve));
+      assert.deepStrictEqual(unhandled, [], 'no detached unhandled rejection');
+    } finally {
+      process.removeListener('unhandledRejection', onUnhandled);
+    }
+  });
+
   it('Should not parse saml 2.0 token which has no assertion', async function () {
     try {
       await parse(errorResponse);

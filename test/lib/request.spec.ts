@@ -26,6 +26,13 @@ describe('request.ts', function () {
     await assert.rejects(parseSAMLRequest(dtd, false), doctypeNotAllowedError);
   });
 
+  it('parseSAMLRequest rejects a whitespace-free DOCTYPE', async function () {
+    await assert.rejects(
+      parseSAMLRequest('<!DOCTYPEAuthnRequest SYSTEM "file:///x"><AuthnRequest/>', false),
+      doctypeNotAllowedError
+    );
+  });
+
   it('request ok', function () {
     assert(
       request({
