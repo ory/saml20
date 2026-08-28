@@ -105,21 +105,35 @@ describe('utils.ts', function () {
       assert.strictEqual(containsDoctype('<?xml version="1.0"?><!DOCTYPE r><r/>'), true);
     });
 
-    it('should treat an unterminated comment as inert', function () {
-      assert.strictEqual(containsDoctype('<root><!-- <!DOCTYPE x> unterminated'), false);
+    // An unterminated opener must NOT hide a following declaration: lenient
+    // parsers recover from the malformed markup and still process the DTD.
+    it('should detect a DOCTYPE after an unterminated comment', function () {
+      assert.strictEqual(containsDoctype('<root><!-- unterminated <!DOCTYPE x>'), true);
     });
 
-    it('should treat an unterminated CDATA section as inert', function () {
-      assert.strictEqual(containsDoctype('<root><![CDATA[ <!DOCTYPE x> unterminated'), false);
+    it('should detect a DOCTYPE after an unterminated CDATA section', function () {
+      assert.strictEqual(containsDoctype('<root><![CDATA[ unterminated <!DOCTYPE x>'), true);
     });
 
-    it('should treat an unterminated processing instruction as inert', function () {
-      assert.strictEqual(containsDoctype('<?pi <!DOCTYPE x> unterminated'), false);
+    it('should detect a DOCTYPE after an unterminated processing instruction', function () {
+      assert.strictEqual(containsDoctype('<?pi unterminated <!DOCTYPE x>'), true);
+    });
+
+    // Maintainer-reported bypass: a bogus `<!<!-->` prefix must not mask the DTD.
+    it('should detect a DOCTYPE hidden behind a bogus comment prefix', function () {
+      assert.strictEqual(
+        containsDoctype('<!<!--><!DOCTYPE evil [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root>'),
+        true
+      );
+    });
+
+    it('should return false for an unterminated comment with no declaration', function () {
+      assert.strictEqual(containsDoctype('<root><!-- just an unterminated comment'), false);
     });
 
     it('should scan large adversarial input without quadratic blow-up', function () {
-      // Many unterminated comment openers would force lazy regexes to rescan.
-      // The linear scanner returns at the first unterminated region.
+      // Many unterminated comment openers must not force per-opener rescans; the
+      // exhausted-closer flag keeps the pass linear.
       const hostile = '<!--'.repeat(200000);
       const start = Date.now();
       assert.strictEqual(containsDoctype(hostile), false);

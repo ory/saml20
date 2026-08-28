@@ -12,43 +12,54 @@ const doctypeNotAllowedError = new Error('doctype not allowed.');
 //
 // Detects a DTD: a `<!DOCTYPE` declaration or an `<!ENTITY`/`<!ELEMENT`
 // declaration, which can only appear inside one. A single linear pass skips
-// comments, CDATA sections and processing instructions so that such text
-// appearing inside them (e.g. in an AttributeValue or a `<?pi ...?>`) is not
-// mistaken for a real declaration. Jumping straight to each closing delimiter
-// keeps the scan linear, so adversarial input with many unterminated openers
-// cannot force quadratic rescans. An unterminated region leaves the rest of the
-// document malformed, which the XML parser rejects anyway, so treating it as
-// inert is safe. The trailing `\s` matches the whitespace the XML grammar
-// requires after each keyword (`'<!DOCTYPE' S Name`, etc.).
+// only *terminated* comments, CDATA sections and processing instructions so that
+// such text appearing inside them (e.g. in an AttributeValue or a `<?pi ...?>`)
+// is not mistaken for a real declaration. An unterminated opener is NOT treated
+// as swallowing the rest of the document: a lenient parser (xml2js/sax) can
+// recover from the malformed markup and still process a following declaration,
+// so the scan must keep looking for one (e.g. `<!<!--><!DOCTYPE ...>`). To stay
+// linear, once a closing delimiter is absent from the remaining input it is
+// absent for every later position too, so that region type is marked exhausted
+// and no longer rescanned. The trailing `\s` matches the whitespace the XML
+// grammar requires after each keyword (`'<!DOCTYPE' S Name`, etc.).
 // See https://github.com/ory/polis/issues/4071.
 const dtdDeclaration = /<!DOCTYPE\s|<!ENTITY\s|<!ELEMENT\s/iy;
 
 const containsDoctype = (xml: string): boolean => {
   const length = xml.length;
   let i = 0;
+  let commentCloserExhausted = false;
+  let cdataCloserExhausted = false;
+  let piCloserExhausted = false;
   while (i < length) {
     const lt = xml.indexOf('<', i);
     if (lt === -1) {
       return false;
     }
-    if (xml.startsWith('<!--', lt)) {
+    if (!commentCloserExhausted && xml.startsWith('<!--', lt)) {
       const end = xml.indexOf('-->', lt + 4);
       if (end === -1) {
-        return false;
+        commentCloserExhausted = true;
+        i = lt + 1;
+      } else {
+        i = end + 3;
       }
-      i = end + 3;
-    } else if (xml.startsWith('<![CDATA[', lt)) {
+    } else if (!cdataCloserExhausted && xml.startsWith('<![CDATA[', lt)) {
       const end = xml.indexOf(']]>', lt + 9);
       if (end === -1) {
-        return false;
+        cdataCloserExhausted = true;
+        i = lt + 1;
+      } else {
+        i = end + 3;
       }
-      i = end + 3;
-    } else if (xml.startsWith('<?', lt)) {
+    } else if (!piCloserExhausted && xml.startsWith('<?', lt)) {
       const end = xml.indexOf('?>', lt + 2);
       if (end === -1) {
-        return false;
+        piCloserExhausted = true;
+        i = lt + 1;
+      } else {
+        i = end + 2;
       }
-      i = end + 2;
     } else {
       dtdDeclaration.lastIndex = lt;
       if (dtdDeclaration.test(xml)) {
