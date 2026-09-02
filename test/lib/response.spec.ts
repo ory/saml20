@@ -1,5 +1,6 @@
 import assert from 'assert';
 import { parse, parseIssuer, validate, createSAMLResponse } from '../../lib/response';
+import { doctypeNotAllowedError } from '../../lib/utils';
 import fs from 'fs';
 
 const rawResponse = fs.readFileSync('./test/assets/saml20.validResponseSignedMessage.xml').toString();
@@ -53,6 +54,38 @@ describe('response.ts', function () {
     } catch (error) {
       const result = (error as Error).message;
       assert.strictEqual(result, 'An error occurred trying to parse XML assertion.');
+    }
+  });
+
+  // xml2js runs on the assertion after xmldom, so it needs its own DTD guard.
+  // See https://github.com/ory/polis/issues/4071.
+  it('RAW response with a DTD is rejected before xml2js', async function () {
+    const dtdResponse =
+      '<?xml version="1.0"?>\n' +
+      '<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>\n' +
+      '<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">&x;</samlp:Response>';
+    await assert.rejects(parse(dtdResponse), (err: Error & { inner?: unknown }) => {
+      assert.strictEqual(err.inner, doctypeNotAllowedError);
+      return true;
+    });
+  });
+
+  // Rejecting the DTD must not leave a detached async continuation that
+  // dereferences undefined and crashes the process. See ory/polis#4071.
+  it('should not emit an unhandled rejection when parse() rejects a DTD', async function () {
+    const unhandled: unknown[] = [];
+    const onUnhandled = (reason: unknown) => unhandled.push(reason);
+    process.on('unhandledRejection', onUnhandled);
+    try {
+      await assert.rejects(
+        parse('<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root>')
+      );
+      // Let any detached continuation settle before asserting.
+      await new Promise((resolve) => setImmediate(resolve));
+      await new Promise((resolve) => setImmediate(resolve));
+      assert.deepStrictEqual(unhandled, [], 'no detached unhandled rejection');
+    } finally {
+      process.removeListener('unhandledRejection', onUnhandled);
     }
   });
 

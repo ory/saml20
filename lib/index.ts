@@ -9,6 +9,7 @@ import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from './meta
 import { createPostForm } from './post';
 import { sign } from './sign';
 import { decryptXml } from './decrypt';
+import { containsDoctype } from './utils';
 import { parseLogoutResponse, createLogoutRequest, parseLogoutRequest, createLogoutResponse } from './logout';
 import type {
   ParsedLogoutResponse,
@@ -36,6 +37,7 @@ export default {
   decryptXml,
   parseIssuer,
   WrapError,
+  containsDoctype,
   parseLogoutResponse,
   createLogoutRequest,
   parseLogoutRequest,

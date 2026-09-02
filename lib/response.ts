@@ -7,7 +7,13 @@ import { validateSignature, sanitizeXML } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
-import { parseFromString, isMultiRootedXMLError, multiRootedXMLError } from './utils';
+import {
+  parseFromString,
+  isMultiRootedXMLError,
+  multiRootedXMLError,
+  containsDoctype,
+  doctypeNotAllowedError,
+} from './utils';
 import { sign } from './sign';
 
 const nameFormatUri = [
@@ -65,6 +71,12 @@ const parseInternal = async (rawAssertion, cb) => {
   }
   // Save the js object derived from xml and check status code
   const assertionObj = await xmlToJs(rawAssertion, cb);
+  // xmlToJs already invoked cb with the parse error; stop so we do not
+  // dereference an undefined object and throw a detached error that would crash
+  // the process. Mirrors validateInternal.
+  if (!assertionObj) {
+    return;
+  }
 
   checkStatusCode(assertionObj, cb);
 
@@ -253,6 +265,9 @@ const validateInternal = async (rawAssertion, options, cb) => {
 const xmlToJs = async (rawAssertion, cb) => {
   try {
     rawAssertion = sanitizeXML(rawAssertion);
+    if (containsDoctype(rawAssertion)) {
+      throw doctypeNotAllowedError;
+    }
     const parser = new xml2js.Parser({
       attrkey: '@',
       charkey: '_',

@@ -1,5 +1,6 @@
 import assert from 'assert';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from '../../lib/metadata';
+import { doctypeNotAllowedError } from '../../lib/utils';
 import fs from 'fs';
 
 const samlMetadata = fs.readFileSync('./test/assets/mock-saml-metadata.xml').toString();
@@ -12,6 +13,22 @@ const samlMetadata6 = fs.readFileSync('./test/assets/mock-saml-metadata6.xml').t
 const samlMetadata7 = fs.readFileSync('./test/assets/mock-saml-metadata7.xml').toString();
 
 describe('metadata.ts', function () {
+  // See https://github.com/ory/polis/issues/4071.
+  it('should reject metadata that declares a DTD', async function () {
+    const dtdMetadata =
+      '<?xml version="1.0"?>\n' +
+      '<!DOCTYPE EntityDescriptor [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>\n' +
+      '<EntityDescriptor entityID="https://saml.example.com/entityid"/>';
+    await assert.rejects(parseMetadata(dtdMetadata, {}), doctypeNotAllowedError);
+  });
+
+  it('should reject metadata with a whitespace-free DOCTYPE', async function () {
+    await assert.rejects(
+      parseMetadata('<!DOCTYPEEntityDescriptor SYSTEM "file:///x"><EntityDescriptor/>', {}),
+      doctypeNotAllowedError
+    );
+  });
+
   it('saml MetaData ok without BEGIN & END notations', async function () {
     const value = await parseMetadata(samlMetadata, {});
     assert.strictEqual(value.entityID, 'https://saml.example.com/entityid');

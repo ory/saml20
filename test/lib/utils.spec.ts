@@ -1,5 +1,12 @@
 import assert from 'assert';
-import { parseFromString, thumbprint, getAttribute, isMultiRootedXMLError } from '../../lib/utils';
+import {
+  parseFromString,
+  thumbprint,
+  getAttribute,
+  isMultiRootedXMLError,
+  doctypeNotAllowedError,
+  containsDoctype,
+} from '../../lib/utils';
 
 describe('utils.ts', function () {
   describe('parseFromString', function () {
@@ -21,6 +28,132 @@ describe('utils.ts', function () {
 
     it('should throw error for empty XML', function () {
       assert.throws(() => parseFromString(''), /missing root element/);
+    });
+
+    // A DTD has no legitimate place in SAML XML and enables XXE-class attacks.
+    // See https://github.com/ory/polis/issues/4071.
+    it('should reject XML that declares a DOCTYPE', function () {
+      const xml = '<?xml version="1.0"?>\n<!DOCTYPE foo>\n<root>test</root>';
+      assert.throws(() => parseFromString(xml), doctypeNotAllowedError);
+    });
+
+    it('should reject a DOCTYPE with an internal entity subset (XXE payload)', function () {
+      const xml =
+        '<?xml version="1.0"?>\n' +
+        '<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>\n' +
+        '<root>&x;</root>';
+      assert.throws(() => parseFromString(xml), doctypeNotAllowedError);
+    });
+
+    it('should accept valid XML that does not declare a DOCTYPE', function () {
+      const doc = parseFromString('<?xml version="1.0"?><root><a>hi</a></root>');
+      assert(doc);
+      assert.strictEqual(doc.documentElement?.nodeName, 'root');
+    });
+
+    // A malformed DTD must yield the fixed error, not raw @xmldom/xmldom text
+    // from the parser (which the doctype-only check let through before parsing).
+    it('should reject a malformed/unterminated DTD with the fixed error', function () {
+      assert.throws(
+        () => parseFromString('<!DOCTYPE foo SYSTEM "file:///nope" <Root/>'),
+        doctypeNotAllowedError
+      );
+      assert.throws(() => parseFromString('<!DOCTYPE foo'), doctypeNotAllowedError);
+    });
+  });
+
+  // xml2js/sax does not expose a parsed doctype node, so its callers screen the
+  // raw string with containsDoctype. See https://github.com/ory/polis/issues/4071.
+  describe('containsDoctype', function () {
+    it('should detect a DOCTYPE declaration', function () {
+      assert.strictEqual(containsDoctype('<?xml version="1.0"?><!DOCTYPE r><r/>'), true);
+    });
+
+    it('should detect a DOCTYPE with an internal subset', function () {
+      assert.strictEqual(
+        containsDoctype('<!DOCTYPE r [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><r>&x;</r>'),
+        true
+      );
+    });
+
+    it('should detect a standalone ENTITY declaration', function () {
+      assert.strictEqual(containsDoctype('<!ENTITY x SYSTEM "file:///etc/passwd">'), true);
+    });
+
+    it('should detect an ELEMENT declaration', function () {
+      assert.strictEqual(containsDoctype('<!ELEMENT r (#PCDATA)>'), true);
+    });
+
+    // sax enters its doctype state on the bare keyword, without the whitespace
+    // the XML grammar requires, so the guard must too.
+    it('should detect a whitespace-free DOCTYPE declaration', function () {
+      assert.strictEqual(containsDoctype('<!DOCTYPERoot SYSTEM "file:///x"><Root/>'), true);
+    });
+
+    it('should detect a whitespace-free ENTITY declaration', function () {
+      assert.strictEqual(containsDoctype('<!ENTITYx SYSTEM "file:///x">'), true);
+    });
+
+    it('should detect a whitespace-free ELEMENT declaration', function () {
+      assert.strictEqual(containsDoctype('<!ELEMENTr (#PCDATA)>'), true);
+    });
+
+    it('should be case-insensitive', function () {
+      assert.strictEqual(containsDoctype('<!doctype html>'), true);
+    });
+
+    it('should return false for XML that contains no DTD keyword', function () {
+      assert.strictEqual(containsDoctype('<?xml version="1.0"?><root><a>hi</a></root>'), false);
+      assert.strictEqual(containsDoctype('<root><!-- just an ordinary comment --><a>hi</a></root>'), false);
+    });
+
+    it('should detect a real DOCTYPE that follows a comment', function () {
+      assert.strictEqual(containsDoctype('<!-- a comment --><!DOCTYPE r><r/>'), true);
+    });
+
+    it('should detect a real DOCTYPE that follows the XML declaration', function () {
+      assert.strictEqual(containsDoctype('<?xml version="1.0"?><!DOCTYPE r><r/>'), true);
+    });
+
+    // The keyword is matched anywhere: attempting to ignore it inside comments,
+    // CDATA or PIs is bypassable, so detection is deliberately conservative and
+    // fails safe. See https://github.com/ory/polis/issues/4071.
+    it('should reject a DTD keyword even inside a comment (fail-safe)', function () {
+      assert.strictEqual(containsDoctype('<root><!-- <!DOCTYPE example> --><a>hi</a></root>'), true);
+    });
+
+    it('should reject a DTD keyword even inside a CDATA section (fail-safe)', function () {
+      assert.strictEqual(
+        containsDoctype('<root><AttributeValue><![CDATA[<!DOCTYPE example>]]></AttributeValue></root>'),
+        true
+      );
+    });
+
+    // Maintainer-reported bypasses: a bogus `<!<!-->` prefix must not mask the
+    // DTD, including when the attacker appends a trailing `-->`.
+    it('should detect a DOCTYPE hidden behind a bogus comment prefix', function () {
+      assert.strictEqual(
+        containsDoctype('<!<!--><!DOCTYPE evil [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root>'),
+        true
+      );
+    });
+
+    it('should detect a DOCTYPE behind a bogus prefix with a trailing comment closer', function () {
+      assert.strictEqual(
+        containsDoctype(
+          '<!<!--><!DOCTYPE evil [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root><!-- -->'
+        ),
+        true
+      );
+    });
+
+    it('should scan large adversarial input in linear time', function () {
+      // A fixed-alternation keyword search has no backtracking, so many
+      // comment-like openers with no DTD keyword stay linear and return false.
+      const hostile = '<!--'.repeat(200000);
+      const start = Date.now();
+      assert.strictEqual(containsDoctype(hostile), false);
+      assert.ok(Date.now() - start < 1000, 'completed well under a second');
     });
   });
 
