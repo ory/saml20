@@ -10,68 +10,25 @@ const doctypeNotAllowedError = new Error('doctype not allowed.');
 // A DOCTYPE has no legitimate place in SAML XML and accepting one is an
 // XXE-class risk. See https://github.com/ory/polis/issues/4071.
 //
-// Detects a DTD: a `<!DOCTYPE` declaration or an `<!ENTITY`/`<!ELEMENT`
-// declaration, which can only appear inside one. A single linear pass skips
-// only *terminated* comments, CDATA sections and processing instructions so that
-// such text appearing inside them (e.g. in an AttributeValue or a `<?pi ...?>`)
-// is not mistaken for a real declaration. An unterminated opener is NOT treated
-// as swallowing the rest of the document: a lenient parser (xml2js/sax) can
-// recover from the malformed markup and still process a following declaration,
-// so the scan must keep looking for one (e.g. `<!<!--><!DOCTYPE ...>`). To stay
-// linear, once a closing delimiter is absent from the remaining input it is
-// absent for every later position too, so that region type is marked exhausted
-// and no longer rescanned. The keyword is matched without requiring trailing
-// whitespace because sax enters its doctype state on the bare keyword (e.g.
-// `<!DOCTYPERoot ...>`), so demanding the XML-grammar whitespace would let such
-// input slip past the guard.
+// A DTD is introduced by `<!DOCTYPE` and may only contain `<!ENTITY`/`<!ELEMENT`
+// declarations, so the presence of any of these keywords means the document
+// carries a DTD. Detection is a single keyword search anywhere in the raw
+// string: it is linear (a fixed alternation with no backtracking) and cannot be
+// evaded. We deliberately do NOT try to ignore the keyword when it appears
+// inside a comment, CDATA section or processing instruction. Doing so requires
+// reproducing the parser's lenient error-recovery tokenizer, and every attempt
+// has been bypassable: a malformed prefix such as `<!<!-->` makes a hand-rolled
+// scanner treat the real `<!DOCTYPE` as comment content (optionally closed by an
+// attacker-supplied trailing `-->`), while sax still processes the DTD. The keyword
+// is matched without requiring trailing whitespace because sax enters its doctype
+// state on the bare keyword (e.g. `<!DOCTYPERoot ...>`). The only cost is
+// rejecting the rare, malformed document that embeds the literal keyword as data;
+// that fails safe, and well-formed XML cannot carry a raw `<` as text (it must be
+// escaped), so a false positive is only possible inside a comment or CDATA.
 // See https://github.com/ory/polis/issues/4071.
-const dtdDeclaration = /<!DOCTYPE|<!ENTITY|<!ELEMENT/iy;
+const dtdDeclaration = /<!DOCTYPE|<!ENTITY|<!ELEMENT/i;
 
-const containsDoctype = (xml: string): boolean => {
-  const length = xml.length;
-  let i = 0;
-  let commentCloserExhausted = false;
-  let cdataCloserExhausted = false;
-  let piCloserExhausted = false;
-  while (i < length) {
-    const lt = xml.indexOf('<', i);
-    if (lt === -1) {
-      return false;
-    }
-    if (!commentCloserExhausted && xml.startsWith('<!--', lt)) {
-      const end = xml.indexOf('-->', lt + 4);
-      if (end === -1) {
-        commentCloserExhausted = true;
-        i = lt + 1;
-      } else {
-        i = end + 3;
-      }
-    } else if (!cdataCloserExhausted && xml.startsWith('<![CDATA[', lt)) {
-      const end = xml.indexOf(']]>', lt + 9);
-      if (end === -1) {
-        cdataCloserExhausted = true;
-        i = lt + 1;
-      } else {
-        i = end + 3;
-      }
-    } else if (!piCloserExhausted && xml.startsWith('<?', lt)) {
-      const end = xml.indexOf('?>', lt + 2);
-      if (end === -1) {
-        piCloserExhausted = true;
-        i = lt + 1;
-      } else {
-        i = end + 2;
-      }
-    } else {
-      dtdDeclaration.lastIndex = lt;
-      if (dtdDeclaration.test(xml)) {
-        return true;
-      }
-      i = lt + 1;
-    }
-  }
-  return false;
-};
+const containsDoctype = (xml: string): boolean => dtdDeclaration.test(xml);
 
 const countRootNodes = (xmlDoc: Document) => {
   const rootNodes = Array.from(xmlDoc.childNodes as NodeListOf<Element>).filter(

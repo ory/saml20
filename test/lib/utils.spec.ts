@@ -102,48 +102,35 @@ describe('utils.ts', function () {
       assert.strictEqual(containsDoctype('<!doctype html>'), true);
     });
 
-    it('should return false for XML without a DOCTYPE', function () {
+    it('should return false for XML that contains no DTD keyword', function () {
       assert.strictEqual(containsDoctype('<?xml version="1.0"?><root><a>hi</a></root>'), false);
+      assert.strictEqual(containsDoctype('<root><!-- just an ordinary comment --><a>hi</a></root>'), false);
     });
 
-    it('should ignore <!DOCTYPE inside a comment', function () {
-      assert.strictEqual(containsDoctype('<root><!-- <!DOCTYPE example> --><a>hi</a></root>'), false);
-    });
-
-    it('should ignore <!DOCTYPE inside a CDATA section', function () {
-      assert.strictEqual(
-        containsDoctype('<root><AttributeValue><![CDATA[<!DOCTYPE example>]]></AttributeValue></root>'),
-        false
-      );
-    });
-
-    it('should still detect a real DOCTYPE that follows a comment', function () {
+    it('should detect a real DOCTYPE that follows a comment', function () {
       assert.strictEqual(containsDoctype('<!-- a comment --><!DOCTYPE r><r/>'), true);
     });
 
-    it('should ignore <!DOCTYPE inside a processing instruction', function () {
-      assert.strictEqual(containsDoctype('<?pi <!DOCTYPE foo?><root/>'), false);
-    });
-
-    it('should still detect a real DOCTYPE that follows the XML declaration', function () {
+    it('should detect a real DOCTYPE that follows the XML declaration', function () {
       assert.strictEqual(containsDoctype('<?xml version="1.0"?><!DOCTYPE r><r/>'), true);
     });
 
-    // An unterminated opener must NOT hide a following declaration: lenient
-    // parsers recover from the malformed markup and still process the DTD.
-    it('should detect a DOCTYPE after an unterminated comment', function () {
-      assert.strictEqual(containsDoctype('<root><!-- unterminated <!DOCTYPE x>'), true);
+    // The keyword is matched anywhere: attempting to ignore it inside comments,
+    // CDATA or PIs is bypassable, so detection is deliberately conservative and
+    // fails safe. See https://github.com/ory/polis/issues/4071.
+    it('should reject a DTD keyword even inside a comment (fail-safe)', function () {
+      assert.strictEqual(containsDoctype('<root><!-- <!DOCTYPE example> --><a>hi</a></root>'), true);
     });
 
-    it('should detect a DOCTYPE after an unterminated CDATA section', function () {
-      assert.strictEqual(containsDoctype('<root><![CDATA[ unterminated <!DOCTYPE x>'), true);
+    it('should reject a DTD keyword even inside a CDATA section (fail-safe)', function () {
+      assert.strictEqual(
+        containsDoctype('<root><AttributeValue><![CDATA[<!DOCTYPE example>]]></AttributeValue></root>'),
+        true
+      );
     });
 
-    it('should detect a DOCTYPE after an unterminated processing instruction', function () {
-      assert.strictEqual(containsDoctype('<?pi unterminated <!DOCTYPE x>'), true);
-    });
-
-    // Maintainer-reported bypass: a bogus `<!<!-->` prefix must not mask the DTD.
+    // Maintainer-reported bypasses: a bogus `<!<!-->` prefix must not mask the
+    // DTD, including when the attacker appends a trailing `-->`.
     it('should detect a DOCTYPE hidden behind a bogus comment prefix', function () {
       assert.strictEqual(
         containsDoctype('<!<!--><!DOCTYPE evil [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root>'),
@@ -151,13 +138,18 @@ describe('utils.ts', function () {
       );
     });
 
-    it('should return false for an unterminated comment with no declaration', function () {
-      assert.strictEqual(containsDoctype('<root><!-- just an unterminated comment'), false);
+    it('should detect a DOCTYPE behind a bogus prefix with a trailing comment closer', function () {
+      assert.strictEqual(
+        containsDoctype(
+          '<!<!--><!DOCTYPE evil [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root><!-- -->'
+        ),
+        true
+      );
     });
 
-    it('should scan large adversarial input without quadratic blow-up', function () {
-      // Many unterminated comment openers must not force per-opener rescans; the
-      // exhausted-closer flag keeps the pass linear.
+    it('should scan large adversarial input in linear time', function () {
+      // A fixed-alternation keyword search has no backtracking, so many
+      // comment-like openers with no DTD keyword stay linear and return false.
       const hostile = '<!--'.repeat(200000);
       const start = Date.now();
       assert.strictEqual(containsDoctype(hostile), false);

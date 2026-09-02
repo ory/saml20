@@ -9,8 +9,8 @@ describe('index.ts', function () {
     assert.strictEqual(typeof saml.containsDoctype, 'function');
   });
 
-  it('containsDoctype should detect a real DOCTYPE and ignore inert regions', function () {
+  it('containsDoctype should detect a DTD and be false for clean XML', function () {
     assert.strictEqual(saml.containsDoctype('<!DOCTYPE r><r/>'), true);
-    assert.strictEqual(saml.containsDoctype('<root><![CDATA[<!DOCTYPE x>]]></root>'), false);
+    assert.strictEqual(saml.containsDoctype('<?xml version="1.0"?><root><a>hi</a></root>'), false);
   });
 });
