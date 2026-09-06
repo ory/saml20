@@ -2,6 +2,31 @@ import { SignedXml } from 'xml-crypto';
 import { select } from 'xpath';
 import { parseFromString, thumbprint } from './utils';
 
+/**
+ * Optional constraints applied while verifying an XML signature.
+ *
+ * When an allowlist is provided, only the listed algorithm URIs are accepted
+ * for that role; a document signed (or digested) with anything else is
+ * rejected. When an allowlist is omitted, the permissive defaults from
+ * xml-crypto apply (which currently include SHA-1), so existing callers are
+ * unaffected.
+ *
+ * An empty allowlist, or one that names only algorithms xml-crypto does not
+ * implement, accepts nothing.
+ */
+export interface ValidateSignatureOptions {
+  /**
+   * Accepted `SignatureMethod` algorithm URIs, e.g.
+   * `http://www.w3.org/2001/04/xmldsig-more#rsa-sha256`.
+   */
+  allowedSignatureAlgorithms?: string[];
+  /**
+   * Accepted `DigestMethod` algorithm URIs, e.g.
+   * `http://www.w3.org/2001/04/xmlenc#sha256`.
+   */
+  allowedHashAlgorithms?: string[];
+}
+
 const isMultiCert = (cert) => {
   return cert.indexOf(',') !== -1;
 };
@@ -17,17 +42,77 @@ const certToPEM = (cert) => {
   }
 };
 
+// Keep only the entries of an xml-crypto algorithm registry that are named in
+// the allowlist. Any lookup for an algorithm outside the result makes
+// xml-crypto throw "<kind> algorithm '<uri>' is not supported", so nothing
+// outside the allowlist can verify.
+const restrictRegistry = <T extends Record<string, unknown>>(registry: T, allowed: string[]): T => {
+  const restricted = {} as T;
+  for (const uri of allowed) {
+    if (Object.prototype.hasOwnProperty.call(registry, uri)) {
+      restricted[uri as keyof T] = registry[uri as keyof T];
+    }
+  }
+  return restricted;
+};
+
+// Narrow the algorithm registries on a SignedXml instance according to the
+// options. The instance is shared by every verification attempt (including
+// the multi-certificate loop), so narrowing it once after construction is
+// sufficient.
+const applyAlgorithmAllowlists = (signed: SignedXml, options?: ValidateSignatureOptions) => {
+  if (!options) {
+    return;
+  }
+  if (options.allowedSignatureAlgorithms !== undefined) {
+    signed.SignatureAlgorithms = restrictRegistry(
+      signed.SignatureAlgorithms,
+      options.allowedSignatureAlgorithms
+    );
+  }
+  if (options.allowedHashAlgorithms !== undefined) {
+    signed.HashAlgorithms = restrictRegistry(signed.HashAlgorithms, options.allowedHashAlgorithms);
+  }
+};
+
+// Fail early, with a specific error, when the document declares an algorithm
+// outside the allowlists. The narrowed registries above are the actual
+// enforcement; this only turns the generic "not supported" (which the
+// multi-certificate loop would otherwise swallow) into a clear message.
+const assertAllowedAlgorithms = (signed: SignedXml, signature, options?: ValidateSignatureOptions) => {
+  if (!options) {
+    return;
+  }
+  if (options.allowedSignatureAlgorithms !== undefined) {
+    const signatureAlgorithm = signed.signatureAlgorithm;
+    if (!signatureAlgorithm || !signed.SignatureAlgorithms[signatureAlgorithm]) {
+      throw new Error(`invalid signature: signature algorithm '${signatureAlgorithm}' is not allowed`);
+    }
+  }
+  if (options.allowedHashAlgorithms !== undefined) {
+    const digestMethods = select(".//*[local-name(.)='DigestMethod']/@Algorithm", signature) as Attr[];
+    if (digestMethods.length === 0) {
+      throw new Error('invalid signature: no DigestMethod found in signature');
+    }
+    for (const digestMethod of digestMethods) {
+      if (!signed.HashAlgorithms[digestMethod.value]) {
+        throw new Error(`invalid signature: digest algorithm '${digestMethod.value}' is not allowed`);
+      }
+    }
+  }
+};
+
 // Breaking Change: hasValidSignature now returns:
 // if signature is valid: the raw signed xml string
 // if signature is invalid: throws error or returns null
 // clients are to use the resultant raw xml string to parse their SAML Assertion
 // should be internal
-const hasValidSignature = (xml, cert, certThumbprint): string | null => {
+const hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string | null => {
   xml = sanitizeXML(xml);
-  return _hasValidSignature(xml, cert, certThumbprint);
+  return _hasValidSignature(xml, cert, certThumbprint, options);
 };
 
-const _hasValidSignature = (xml, cert, certThumbprint): string | null => {
+const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string | null => {
   const doc = parseFromString(xml);
   let signature =
     select(
@@ -55,7 +140,11 @@ const _hasValidSignature = (xml, cert, certThumbprint): string | null => {
     idAttribute: 'AssertionID',
   });
 
+  applyAlgorithmAllowlists(signed, options);
+
   signed.loadSignature(signature);
+
+  assertAllowedAlgorithms(signed, signature, options);
 
   let valid;
   // Check if cert contains multiple
@@ -121,12 +210,12 @@ const _hasValidSignature = (xml, cert, certThumbprint): string | null => {
 // if signature is invalid: throws error or returns null
 // clients are to use the resultant raw xml string to parse their SAML Assertion
 
-const validateSignature = (xml, cert, certThumbprint) => {
+const validateSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions) => {
   if (cert && certThumbprint) {
     throw new Error('You should provide either cert or certThumbprint, not both');
   }
 
-  return hasValidSignature(xml, cert, certThumbprint);
+  return hasValidSignature(xml, cert, certThumbprint, options);
 };
 
 const sanitizeXML = (xml) => {

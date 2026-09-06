@@ -4,6 +4,9 @@ import xmlbuilder from 'xmlbuilder';
 import crypto from 'crypto';
 import fs from 'fs';
 import { sign } from '../../lib/sign';
+import { SignedXml } from 'xml-crypto';
+import { PubKeyInfo } from '../../lib/cert';
+import { thumbprint } from '../../lib/utils';
 import assert from 'assert';
 
 const ssoUrl =
@@ -179,7 +182,42 @@ NDvfSxFNmjcEuabxM9VGdsX6xOiClZBJwJBixj74EYPeeVOPbOEQfQZchX8xB3u5
 2knHSNiamr0NJ4GA44hIoCADW2G6W2+A4gFNnA6UYFlaijMWqb/XSNlbkYZD6OkG
 9Xa5bTycscrxF6+S3n5z2yGft52wBe4=`;
 
-function generateXML() {
+const RSA_SHA1 = 'http://www.w3.org/2000/09/xmldsig#rsa-sha1';
+const RSA_SHA256 = 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256';
+const SHA1 = 'http://www.w3.org/2000/09/xmldsig#sha1';
+const SHA256 = 'http://www.w3.org/2001/04/xmlenc#sha256';
+
+// Build the same AuthnRequest as generateXML() but sign it with RSA-SHA1 and a
+// SHA-1 digest, so the SHA-1 fixture carries a genuine signature rather than a
+// SHA-256 document with its algorithm URIs edited.
+function generateSha1SignedXML() {
+  const unsigned = generateXML({ sign: false });
+  const sig = new SignedXml({
+    privateKey: signingKey,
+    signatureAlgorithm: RSA_SHA1,
+    getKeyInfoContent: PubKeyInfo(publicKey),
+    canonicalizationAlgorithm: 'http://www.w3.org/2001/10/xml-exc-c14n#',
+  });
+  sig.addReference({
+    xpath: authnXPath,
+    transforms: [
+      'http://www.w3.org/2000/09/xmldsig#enveloped-signature',
+      'http://www.w3.org/2001/10/xml-exc-c14n#',
+    ],
+    digestAlgorithm: SHA1,
+  });
+  sig.computeSignature(unsigned, {
+    location: {
+      reference:
+        authnXPath +
+        '/*[local-name(.)="Issuer" and namespace-uri(.)="urn:oasis:names:tc:SAML:2.0:assertion"]',
+      action: 'after',
+    },
+  });
+  return sig.getSignedXml();
+}
+
+function generateXML({ sign: shouldSign = true } = {}) {
   const id = idPrefix + crypto.randomBytes(10).toString('hex');
   const date = new Date().toISOString();
 
@@ -218,7 +256,7 @@ function generateXML() {
   }
 
   let xml = xmlbuilder.create(samlReq).end({});
-  if (signingKey) {
+  if (shouldSign && signingKey) {
     xml = sign(xml, signingKey, publicKey, authnXPath);
   }
   return xml;
@@ -358,5 +396,131 @@ sT/txBnVJGziyO8DPYdu2fPMER8ajJfl</X509Certificate>
     } catch (error) {
       assert(error);
     }
+  });
+});
+
+describe('validateSignature.ts - algorithm allowlists', function () {
+  const sha2Only = { allowedSignatureAlgorithms: [RSA_SHA256], allowedHashAlgorithms: [SHA256] };
+
+  it('fixtures use the algorithms the tests assume', function () {
+    const sha256Doc = generateXML();
+    assert(sha256Doc.includes(`SignatureMethod Algorithm="${RSA_SHA256}"`));
+    assert(sha256Doc.includes(`DigestMethod Algorithm="${SHA256}"`));
+    const sha1Doc = generateSha1SignedXML();
+    assert(sha1Doc.includes(`SignatureMethod Algorithm="${RSA_SHA1}"`));
+    assert(sha1Doc.includes(`DigestMethod Algorithm="${SHA1}"`));
+  });
+
+  it('accepts a SHA-256 signed document when the allowlist includes SHA-256', function () {
+    assert(validateSignature(generateXML(), publicKey, null, sha2Only));
+    assert(hasValidSignature(generateXML(), publicKey, null, sha2Only));
+  });
+
+  it('accepts a SHA-256 signed document with a wider allowlist', function () {
+    assert(
+      validateSignature(generateXML(), publicKey, null, {
+        allowedSignatureAlgorithms: [RSA_SHA1, RSA_SHA256],
+        allowedHashAlgorithms: [SHA1, SHA256],
+      })
+    );
+  });
+
+  it('rejects a SHA-256 signed document when the signature algorithm allowlist excludes it', function () {
+    assert.throws(
+      () => validateSignature(generateXML(), publicKey, null, { allowedSignatureAlgorithms: [RSA_SHA1] }),
+      /signature algorithm '.*rsa-sha256' is not allowed/
+    );
+  });
+
+  it('rejects a SHA-256 signed document when the digest algorithm allowlist excludes it', function () {
+    assert.throws(
+      () => validateSignature(generateXML(), publicKey, null, { allowedHashAlgorithms: [SHA1] }),
+      /digest algorithm '.*sha256' is not allowed/
+    );
+  });
+
+  it('accepts a SHA-1 signed document when no options are passed (compatibility)', function () {
+    assert(validateSignature(generateSha1SignedXML(), publicKey, null));
+    assert(validateSignature(generateSha1SignedXML(), publicKey, null, {}));
+    assert(
+      validateSignature(generateSha1SignedXML(), publicKey, null, { allowedSignatureAlgorithms: [RSA_SHA1] })
+    );
+  });
+
+  it('rejects a SHA-1 signed document under a SHA-2-only allowlist', function () {
+    assert.throws(
+      () => validateSignature(generateSha1SignedXML(), publicKey, null, sha2Only),
+      /signature algorithm '.*rsa-sha1' is not allowed/
+    );
+    // digest constrained on its own: signature method passes, digest does not
+    assert.throws(
+      () => validateSignature(generateSha1SignedXML(), publicKey, null, { allowedHashAlgorithms: [SHA256] }),
+      /digest algorithm '.*sha1' is not allowed/
+    );
+  });
+
+  it('fails closed on an empty allowlist', function () {
+    assert.throws(
+      () => validateSignature(generateXML(), publicKey, null, { allowedSignatureAlgorithms: [] }),
+      /signature algorithm .* is not allowed/
+    );
+    assert.throws(
+      () => validateSignature(generateXML(), publicKey, null, { allowedHashAlgorithms: [] }),
+      /digest algorithm .* is not allowed/
+    );
+  });
+
+  it('fails closed on an allowlist naming only unknown algorithms', function () {
+    assert.throws(
+      () =>
+        validateSignature(generateXML(), publicKey, null, {
+          allowedSignatureAlgorithms: ['http://example.com/not-an-algorithm'],
+        }),
+      /signature algorithm .* is not allowed/
+    );
+  });
+
+  it('narrowed registries enforce the allowlist independently of the early check', function () {
+    // Sanity check on the mechanism itself: a SignedXml whose registry has been
+    // reduced the way validateSignature reduces it refuses to verify, so an
+    // excluded algorithm can never verify even without the explicit pre-check.
+    const doc = generateXML();
+    const signed = new SignedXml({ publicCert: publicKey });
+    signed.loadSignature(doc.match(/<Signature[\s\S]*<\/Signature>/)![0]);
+    signed.SignatureAlgorithms = {} as typeof signed.SignatureAlgorithms;
+    assert.throws(() => signed.checkSignature(doc), /signature algorithm .* is not supported/);
+  });
+
+  it('multi-certificate rotation: SHA-256 document accepted under a SHA-2-only allowlist', function () {
+    const rotated = `${singlePublicKeyNotUsedToSign},${publicKey}`;
+    assert(validateSignature(generateXML(), rotated, null, sha2Only));
+    assert(validateSignature(validResponseSigned_noX509, multiPublicKey, null, sha2Only));
+    assert(validateSignature(validResponseSigned_noX509, multiPublicKeyOrderChanged, null, sha2Only));
+  });
+
+  it('multi-certificate rotation: SHA-1 document rejected under a SHA-2-only allowlist', function () {
+    const rotated = `${singlePublicKeyNotUsedToSign},${publicKey}`;
+    // no options: still accepted through the rotation path
+    assert(validateSignature(generateSha1SignedXML(), rotated, null));
+    assert.throws(
+      () => validateSignature(generateSha1SignedXML(), rotated, null, sha2Only),
+      /signature algorithm '.*rsa-sha1' is not allowed/
+    );
+  });
+
+  it('multi-certificate rotation: wrong certificates still fail with the existing error', function () {
+    assert.throws(
+      () => validateSignature(validResponseSigned_noX509, wrongMultiPublicKey, null, sha2Only),
+      /Failed to verify signature against all the certificates provided/
+    );
+  });
+
+  it('thumbprint branch honours the allowlist', function () {
+    const sha1Doc = generateSha1SignedXML();
+    const embedded = sha1Doc.match(/<X509Certificate>([^<]+)<\/X509Certificate>/)![1];
+    const fp = thumbprint(embedded);
+    assert(validateSignature(sha1Doc, null, fp));
+    assert.throws(() => validateSignature(sha1Doc, null, fp, sha2Only), /rsa-sha1' is not allowed/);
+    assert(validateSignature(generateXML(), null, fp, sha2Only));
   });
 });
