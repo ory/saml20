@@ -90,7 +90,14 @@ const assertAllowedAlgorithms = (signed: SignedXml, signature, options?: Validat
     }
   }
   if (options.allowedHashAlgorithms !== undefined) {
-    const digestMethods = select(".//*[local-name(.)='DigestMethod']/@Algorithm", signature) as Attr[];
+    // Only SignedInfo's direct Reference children are validated by xml-crypto,
+    // so only those DigestMethods are checked here. Scanning the whole
+    // Signature subtree would let an unsigned ds:Object/Manifest carrying a
+    // disallowed DigestMethod reject an otherwise valid document.
+    const digestMethods = select(
+      "./*[local-name(.)='SignedInfo']/*[local-name(.)='Reference']/*[local-name(.)='DigestMethod']/@Algorithm",
+      signature
+    ) as Attr[];
     if (digestMethods.length === 0) {
       throw new Error('invalid signature: no DigestMethod found in signature');
     }

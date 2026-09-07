@@ -491,6 +491,25 @@ describe('validateSignature.ts - algorithm allowlists', function () {
     assert.throws(() => signed.checkSignature(doc), /signature algorithm .* is not supported/);
   });
 
+  it('digest allowlist ignores DigestMethods outside SignedInfo (unsigned ds:Object/Manifest)', function () {
+    // A ds:Object is not covered by the enveloped signature, so anyone can
+    // append one. Its Manifest DigestMethod must not be able to reject a valid
+    // SHA-256 document under a SHA-2-only allowlist.
+    const doc = generateXML();
+    const manifest =
+      '<Object xmlns="http://www.w3.org/2000/09/xmldsig#"><Manifest><Reference URI="#nothing">' +
+      `<DigestMethod Algorithm="${SHA1}"/><DigestValue>AAAAAAAAAAAAAAAAAAAAAAAAAAA=</DigestValue>` +
+      '</Reference></Manifest></Object>';
+    const tampered = doc.replace('</Signature>', manifest + '</Signature>');
+    assert.notStrictEqual(tampered, doc);
+    assert(validateSignature(tampered, publicKey, null, sha2Only));
+    // and the real SignedInfo digest is still enforced on the same document
+    assert.throws(
+      () => validateSignature(tampered, publicKey, null, { allowedHashAlgorithms: [SHA1] }),
+      /digest algorithm '.*sha256' is not allowed/
+    );
+  });
+
   it('multi-certificate rotation: SHA-256 document accepted under a SHA-2-only allowlist', function () {
     const rotated = `${singlePublicKeyNotUsedToSign},${publicKey}`;
     assert(validateSignature(generateXML(), rotated, null, sha2Only));
