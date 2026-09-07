@@ -4,6 +4,7 @@ import xmlbuilder from 'xmlbuilder';
 import crypto from 'crypto';
 import { getVersion } from './getVersion';
 import { validateSignature, sanitizeXML } from './validateSignature';
+import type { ValidateSignatureOptions } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
@@ -124,6 +125,13 @@ const validateInternal = async (rawAssertion, options, cb) => {
     return;
   }
 
+  // Optional algorithm allowlists, forwarded to validateSignature. Leaving
+  // them out keeps the permissive defaults.
+  const signatureOptions: ValidateSignatureOptions = {
+    allowedSignatureAlgorithms: options.allowedSignatureAlgorithms,
+    allowedHashAlgorithms: options.allowedHashAlgorithms,
+  };
+
   // eslint-disable-next-line no-useless-assignment
   let decAssertion = false;
   try {
@@ -151,7 +159,7 @@ const validateInternal = async (rawAssertion, options, cb) => {
   let signedXml: string | null;
 
   try {
-    signedXml = validateSignature(rawAssertion, options.publicKey, options.thumbprint);
+    signedXml = validateSignature(rawAssertion, options.publicKey, options.thumbprint, signatureOptions);
   } catch (e) {
     const error = new WrapError('Invalid assertion.');
     error.inner = e;
@@ -162,7 +170,12 @@ const validateInternal = async (rawAssertion, options, cb) => {
   if (decAssertion && !signedXml) {
     // try the fallback verification where signature has been generated on the encrypted SAML by some IdPs (like OpenAthens)
     try {
-      signedXml = validateSignature(originalAssertion, options.publicKey, options.thumbprint);
+      signedXml = validateSignature(
+        originalAssertion,
+        options.publicKey,
+        options.thumbprint,
+        signatureOptions
+      );
     } catch (e) {
       const error = new WrapError('Invalid assertion.');
       error.inner = e;

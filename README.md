@@ -51,6 +51,7 @@ const issuer = saml.parseIssuer(rawResponse);
 - `publicKey` is the trusted public key.
 - `audience` (optional). If it is included audience validation will take place.
 - `bypassExpiration` (optional). This flag indicates expiration validation bypass (useful for testing, not recommended in production environments);
+- `allowedSignatureAlgorithms` / `allowedHashAlgorithms` (optional). Algorithm allowlists forwarded to `validateSignature`, see below.
 
 You can use either `thumbprint` or `publicKey` but you should use at least one.
 
