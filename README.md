@@ -51,6 +51,7 @@ const issuer = saml.parseIssuer(rawResponse);
 - `publicKey` is the trusted public key.
 - `audience` (optional). If it is included audience validation will take place.
 - `bypassExpiration` (optional). This flag indicates expiration validation bypass (useful for testing, not recommended in production environments);
+- `allowedSignatureAlgorithms` / `allowedHashAlgorithms` (optional). Algorithm allowlists forwarded to `validateSignature`, see below.
 
 You can use either `thumbprint` or `publicKey` but you should use at least one.
 
@@ -85,6 +86,32 @@ saml.validate(rawAssertion, options, function (err, profile) {
 
   var claims = profile.claims; // Array of user attributes;
   var issuer = profile.issuer; // String Issuer name.
+});
+```
+
+### saml.validateSignature(xml, publicKey, thumbprint, options?)
+
+Verifies the XML signature on `xml` and returns the signed XML, or throws / returns `null` when the signature is invalid. Pass either `publicKey` (one certificate, or several separated by commas for key rotation) or `thumbprint`, not both.
+
+`options` (optional) restricts which algorithms are accepted:
+
+- `allowedSignatureAlgorithms` — accepted `SignatureMethod` URIs.
+- `allowedHashAlgorithms` — accepted `DigestMethod` URIs.
+
+When an allowlist is omitted, the default set from `xml-crypto` applies (RSA-SHA1, RSA-SHA256, RSA-SHA512 and SHA-1, SHA-256, SHA-512 digests). When one is given, a document using any other algorithm is rejected; an empty list rejects everything.
+
+```javascript
+var saml = require('@boxyhq/saml20').default;
+
+var signedXml = saml.validateSignature(xml, publicKey, null, {
+  allowedSignatureAlgorithms: [
+    'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+    'http://www.w3.org/2001/04/xmldsig-more#rsa-sha512',
+  ],
+  allowedHashAlgorithms: [
+    'http://www.w3.org/2001/04/xmlenc#sha256',
+    'http://www.w3.org/2001/04/xmlenc#sha512',
+  ],
 });
 ```
 

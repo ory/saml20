@@ -44,6 +44,54 @@ describe('lib.saml20.response', function () {
     );
   });
 
+  it('Should honour algorithm allowlists passed to validate()', async function () {
+    // saml20.validResponse.xml is signed with RSA-SHA1 / SHA-1
+    const sha1Options = {
+      allowedSignatureAlgorithms: ['http://www.w3.org/2000/09/xmldsig#rsa-sha1'],
+      allowedHashAlgorithms: ['http://www.w3.org/2000/09/xmldsig#sha1'],
+    };
+    const sha2Options = {
+      allowedSignatureAlgorithms: ['http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'],
+      allowedHashAlgorithms: ['http://www.w3.org/2001/04/xmlenc#sha256'],
+    };
+
+    const response = await validate(validResponse, {
+      publicKey: certificate,
+      bypassExpiration: true,
+      inResponseTo: inResponseTo,
+      ...sha1Options,
+    });
+    assert.strictEqual(response.issuer, issuerName);
+
+    await assert.rejects(
+      validate(validResponse, {
+        publicKey: certificate,
+        bypassExpiration: true,
+        inResponseTo: inResponseTo,
+        ...sha2Options,
+      }),
+      (err: any) => {
+        assert.strictEqual(err.message, 'Invalid assertion.');
+        assert.match(err.inner.message, /signature algorithm '.*rsa-sha1' is not allowed/);
+        return true;
+      }
+    );
+
+    // thumbprint path
+    await assert.rejects(
+      validate(validResponse, {
+        thumbprint: thumbprint,
+        bypassExpiration: true,
+        inResponseTo: inResponseTo,
+        allowedHashAlgorithms: sha2Options.allowedHashAlgorithms,
+      }),
+      (err: any) => {
+        assert.match(err.inner.message, /digest algorithm '.*sha1' is not allowed/);
+        return true;
+      }
+    );
+  });
+
   it('Should validate saml 2.0 token and check audience', async function () {
     const response = await validate(validResponse, {
       publicKey: certificate,
