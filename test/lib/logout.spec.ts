@@ -95,6 +95,22 @@ describe('logout.ts', function () {
       'http://localhost:5225/api/identity-federation/slo',
       'Should extract the destination'
     );
+    assert.strictEqual(parsed.issueInstant, '2024-01-15T09:30:00Z', 'Should extract the IssueInstant');
+  });
+
+  it('should leave issueInstant undefined when the request omits it', async function () {
+    const withoutIssueInstant = request.replace(' IssueInstant="2024-01-15T09:30:00Z"', '');
+
+    assert.notStrictEqual(withoutIssueInstant, request, 'The fixture should have lost its IssueInstant');
+
+    const parsed = await parseLogoutRequest(withoutIssueInstant);
+
+    assert.strictEqual(parsed.issueInstant, undefined, 'Should report a missing IssueInstant as undefined');
+    assert.strictEqual(
+      parsed.id,
+      'ONELOGIN_21df91a89767879fc0f7df6a1490c6000c81644d',
+      'Should still parse the rest of the request'
+    );
   });
 
   it('should parse a valid LogoutRequest with id_token', async function () {

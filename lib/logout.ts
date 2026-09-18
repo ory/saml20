@@ -82,6 +82,12 @@ type ParsedLogoutRequest = {
   nameId: string;
   sessionIndex?: string;
   destination?: string;
+  /**
+   * The request's IssueInstant, as the sender wrote it. A relying party needs it
+   * to reject a request that is too old to act on, which a signature alone
+   * cannot tell it.
+   */
+  issueInstant?: string;
   publicKey?: string;
   idToken?: string;
 };
@@ -117,6 +123,7 @@ const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutReque
 
         const id = LogoutRequest.$.ID;
         const destination = LogoutRequest.$.Destination;
+        const issueInstant = LogoutRequest.$.IssueInstant;
 
         const issuerElement = LogoutRequest.Issuer;
         const issuer = issuerElement
@@ -178,6 +185,7 @@ const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutReque
           nameId,
           sessionIndex,
           destination,
+          issueInstant,
           publicKey,
           idToken,
         });
