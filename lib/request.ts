@@ -9,6 +9,25 @@ import { sign } from './sign';
 
 const inflateRawAsync = promisify(inflateRaw);
 
+// Ceilings for decoding a SAMLRequest, which on the HTTP-Redirect binding
+// arrives as an unauthenticated query parameter. A legitimate deflated, base64
+// request is a few KB; both limits sit far above real traffic yet bound the
+// memory a caller can be made to allocate for one. DEFLATE reaches roughly
+// 1000:1 on repetitive input, so without the output bound a few hundred
+// compressed bytes expand to hundreds of megabytes.
+const MAX_ENCODED_REQUEST_LENGTH = 1024 * 1024;
+const MAX_INFLATED_REQUEST_BYTES = 10 * 1024 * 1024;
+
+const samlRequestTooLargeError = new Error('saml request is too large.');
+const samlRequestDecodeError = new Error('saml request could not be decoded.');
+
+type DecodeBase64Options = {
+  /** Maximum length of the encoded input, in characters. */
+  maxEncodedLength?: number;
+  /** Maximum size of the inflated output, in bytes. */
+  maxOutputLength?: number;
+};
+
 const idPrefix = '_';
 const authnXPath =
   '/*[local-name(.)="AuthnRequest" and namespace-uri(.)="urn:oasis:names:tc:SAML:2.0:protocol"]';
@@ -97,10 +116,28 @@ const parseXML = (xml: string): Promise<Record<string, any>> => {
 };
 
 // Decode the base64 string
-const decodeBase64 = async (string: string, isDeflated: boolean) => {
-  return isDeflated
-    ? (await inflateRawAsync(Buffer.from(string, 'base64'))).toString()
-    : Buffer.from(string, 'base64').toString();
+const decodeBase64 = async (string: string, isDeflated: boolean, options: DecodeBase64Options = {}) => {
+  const maxEncodedLength = options.maxEncodedLength ?? MAX_ENCODED_REQUEST_LENGTH;
+  const maxOutputLength = options.maxOutputLength ?? MAX_INFLATED_REQUEST_BYTES;
+
+  if (string.length > maxEncodedLength) {
+    throw samlRequestTooLargeError;
+  }
+
+  const buffer = Buffer.from(string, 'base64');
+
+  if (!isDeflated) {
+    return buffer.toString();
+  }
+
+  try {
+    return (await inflateRawAsync(buffer, { maxOutputLength })).toString();
+  } catch {
+    // zlib throws ERR_BUFFER_TOO_LARGE once the output passes maxOutputLength,
+    // and other errors on malformed input. Neither is relayed verbatim, so the
+    // raw zlib text cannot be used to probe how the input was handled.
+    throw samlRequestDecodeError;
+  }
 };
 
 // Parse SAMLRequest attributes
@@ -131,4 +168,13 @@ const parseSAMLRequest = async (rawRequest: string, isPost = true) => {
   };
 };
 
-export { request, parseSAMLRequest, decodeBase64 };
+export {
+  request,
+  parseSAMLRequest,
+  decodeBase64,
+  samlRequestTooLargeError,
+  samlRequestDecodeError,
+  MAX_ENCODED_REQUEST_LENGTH,
+  MAX_INFLATED_REQUEST_BYTES,
+};
+export type { DecodeBase64Options };

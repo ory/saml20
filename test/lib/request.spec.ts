@@ -1,6 +1,18 @@
 import assert from 'assert';
 import fs from 'fs';
-import { decodeBase64, parseSAMLRequest, request } from '../../lib/request';
+import { promisify } from 'util';
+import { deflateRaw } from 'zlib';
+import {
+  decodeBase64,
+  parseSAMLRequest,
+  request,
+  samlRequestDecodeError,
+  samlRequestTooLargeError,
+  MAX_ENCODED_REQUEST_LENGTH,
+  MAX_INFLATED_REQUEST_BYTES,
+} from '../../lib/request';
+
+const deflateRawAsync = promisify(deflateRaw);
 import { doctypeNotAllowedError } from '../../lib/utils';
 
 const request1 = fs.readFileSync('./test/assets/request1.xml').toString();
@@ -43,6 +55,42 @@ describe('request.ts', function () {
         publicKey: publicKey,
       })
     );
+  });
+
+  it('decodeBase64 rejects input that inflates past the output bound', async function () {
+    const bomb = Buffer.from(await deflateRawAsync(Buffer.alloc(MAX_INFLATED_REQUEST_BYTES * 4))).toString(
+      'base64'
+    );
+    assert(bomb.length < MAX_ENCODED_REQUEST_LENGTH);
+    await assert.rejects(decodeBase64(bomb, true), samlRequestDecodeError);
+  });
+
+  it('decodeBase64 rejects encoded input over the length bound', async function () {
+    await assert.rejects(
+      decodeBase64('A'.repeat(MAX_ENCODED_REQUEST_LENGTH + 1), true),
+      samlRequestTooLargeError
+    );
+    await assert.rejects(
+      decodeBase64('A'.repeat(MAX_ENCODED_REQUEST_LENGTH + 1), false),
+      samlRequestTooLargeError
+    );
+  });
+
+  it('decodeBase64 rejects malformed deflate input without relaying the zlib error', async function () {
+    const notDeflate = Buffer.from('this is not a deflate stream').toString('base64');
+    await assert.rejects(decodeBase64(notDeflate, true), samlRequestDecodeError);
+  });
+
+  it('decodeBase64 honours caller-supplied bounds', async function () {
+    const xml = '<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"/>';
+    const encoded = Buffer.from(await deflateRawAsync(xml)).toString('base64');
+
+    assert.strictEqual(await decodeBase64(encoded, true, { maxOutputLength: xml.length }), xml);
+    await assert.rejects(
+      decodeBase64(encoded, true, { maxOutputLength: xml.length - 1 }),
+      samlRequestDecodeError
+    );
+    await assert.rejects(decodeBase64(encoded, true, { maxEncodedLength: 1 }), samlRequestTooLargeError);
   });
 
   it('parseSAMLRequest sample 1 ok', async function () {
