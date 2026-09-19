@@ -3,7 +3,16 @@
 import { validateSignature, certToPEM } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 
-import { request, parseSAMLRequest, decodeBase64 } from './request';
+import {
+  request,
+  parseSAMLRequest,
+  decodeBase64,
+  samlRequestTooLargeError,
+  samlRequestDecodeError,
+  MAX_ENCODED_REQUEST_LENGTH,
+  MAX_INFLATED_REQUEST_BYTES,
+} from './request';
+import type { DecodeBase64Options } from './request';
 import { stripCertHeaderAndFooter, PubKeyInfo } from './cert';
 import { createSAMLResponse, parse, validate, parseIssuer, WrapError } from './response';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from './metadata';
@@ -27,6 +36,10 @@ export default {
   request,
   parseSAMLRequest,
   decodeBase64,
+  samlRequestTooLargeError,
+  samlRequestDecodeError,
+  MAX_ENCODED_REQUEST_LENGTH,
+  MAX_INFLATED_REQUEST_BYTES,
   parse,
   validate,
   PubKeyInfo,
@@ -51,4 +64,5 @@ export type {
   ParsedLogoutRequest,
   LogoutResponseParams,
   ValidateSignatureOptions,
+  DecodeBase64Options,
 };
