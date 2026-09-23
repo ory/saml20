@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { validate } from '../../lib/response';
+import { validate, WrapError } from '../../lib/response';
 import fs from 'fs';
 
 // Tests Configuration
@@ -43,30 +43,38 @@ const certificate =
 const audience = 'http://sp.example.com/demo1/metadata.php';
 
 describe('saml20.attacks.wrapping', function () {
-  it('wrappedInvalidResponse1: Should fail with invalid assertion possible assertion wrapping', async function () {
-    try {
-      await validate(wrappedInvalidResponse1, {
+  it('wrappedInvalidResponse1: Should reject as a signature wrapping attack', async function () {
+    // xml-crypto (>= 6.2) refuses documents carrying duplicate SignatureValues;
+    // validate() surfaces that as 'Invalid assertion.' with the cause on .inner.
+    await assert.rejects(
+      validate(wrappedInvalidResponse1, {
         publicKey: certificate,
         audience,
         bypassExpiration: true,
-      });
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Invalid assertion. Possible assertion wrapping.');
-    }
+      }),
+      (error: WrapError) => {
+        assert.strictEqual(error.message, 'Invalid assertion.');
+        assert.match(error.inner?.message, /signature wrapping attack/);
+        return true;
+      }
+    );
   });
 
-  it('wrappedInvalidResponse2: Should fail with invalid assertion possible assertion wrapping', async function () {
-    try {
-      await validate(wrappedInvalidResponse2, {
+  it('wrappedInvalidResponse2: Should reject as a signature wrapping attack', async function () {
+    // xml-crypto (>= 6.2) refuses documents carrying duplicate SignatureValues;
+    // validate() surfaces that as 'Invalid assertion.' with the cause on .inner.
+    await assert.rejects(
+      validate(wrappedInvalidResponse2, {
         publicKey: certificate,
         audience,
         bypassExpiration: true,
-      });
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Invalid assertion. Possible assertion wrapping.');
-    }
+      }),
+      (error: WrapError) => {
+        assert.strictEqual(error.message, 'Invalid assertion.');
+        assert.match(error.inner?.message, /signature wrapping attack/);
+        return true;
+      }
+    );
   });
 
   it('wrappedInvalidAssertion1: Should fail with invalid assertion possible assertion wrapping', async function () {
