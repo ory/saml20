@@ -246,7 +246,9 @@ const validateInternal = async (rawAssertion, options, cb) => {
       // editing its Destination cannot satisfy the check.
       if (
         options.recipient &&
-        !tokenHandler.validateRecipient(assertion, assertion.signedDestination, options.recipient)
+        !tokenHandler.validateRecipient(assertion, assertion.signedDestination, options.recipient, {
+          bypassExpiration: options.bypassExpiration,
+        })
       ) {
         cb(new Error('Invalid Recipient.'));
         return;

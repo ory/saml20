@@ -287,20 +287,33 @@ const getBearerSubjectConfirmationData = (assertion): Record<string, string>[] =
 //   own [NotBefore, NotOnOrAfter] window is currently valid. Confirmations are
 //   alternatives, so a matching Recipient on a lapsed confirmation cannot be
 //   combined with the valid window of a confirmation for another endpoint.
+// - A Recipient attribute counts as present even when it is empty: an empty
+//   Recipient never matches, so it cannot fall back to the Destination.
 // - When no bearer confirmation carries a Recipient, only a signed
 //   Destination can name the endpoint, so it must be present.
-const validateRecipient = (assertion, signedDestination: string | undefined, recipient: string): boolean => {
+// - `bypassExpiration` skips the window part only, matching the option of the
+//   same name on validate(); the Recipient still has to match.
+const validateRecipient = (
+  assertion,
+  signedDestination: string | undefined,
+  recipient: string,
+  { bypassExpiration = false }: { bypassExpiration?: boolean } = {}
+): boolean => {
   if (signedDestination !== undefined && signedDestination !== recipient) {
     return false;
   }
 
-  const withRecipient = getBearerSubjectConfirmationData(assertion).filter((attrs) => attrs.Recipient);
+  const withRecipient = getBearerSubjectConfirmationData(assertion).filter(
+    (attrs) => attrs.Recipient !== undefined
+  );
   if (withRecipient.length === 0) {
     return signedDestination !== undefined;
   }
 
   return withRecipient.some(
-    (attrs) => attrs.Recipient === recipient && checkWindow(attrs.NotBefore, attrs.NotOnOrAfter) === 'valid'
+    (attrs) =>
+      attrs.Recipient === recipient &&
+      (bypassExpiration || checkWindow(attrs.NotBefore, attrs.NotOnOrAfter) === 'valid')
   );
 };
 

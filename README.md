@@ -50,7 +50,7 @@ const issuer = saml.parseIssuer(rawResponse);
 - `thumbprint` is the thumbprint of the trusted public key (uses the public key that comes in the assertion).
 - `publicKey` is the trusted public key.
 - `audience` (optional). If it is included audience validation will take place.
-- `recipient` (optional). The ACS URL the response was posted to. When set, the signed content must name it: a signed `Response/@Destination` must equal it, when any bearer `SubjectConfirmationData` carries a `Recipient`, one bearer confirmation must both name it and be within its own `NotBefore`/`NotOnOrAfter` window (so `NotOnOrAfter` is required on it), and at least one of the two must be present. The unsigned `Response` wrapper is never used. Fails with `Invalid Recipient.`
+- `recipient` (optional). The ACS URL the response was posted to. When set, the signed content must name it: a signed `Response/@Destination` must equal it, when any bearer `SubjectConfirmationData` carries a `Recipient`, one bearer confirmation must both name it and be within its own `NotBefore`/`NotOnOrAfter` window (so `NotOnOrAfter` is required on it; `bypassExpiration` skips this window check but not the `Recipient` match), and at least one of the two must be present. An empty `Recipient` counts as present and never matches. The unsigned `Response` wrapper is never used. Fails with `Invalid Recipient.`
 - `bypassExpiration` (optional). This flag indicates expiration validation bypass (useful for testing, not recommended in production environments);
 - `allowedSignatureAlgorithms` / `allowedHashAlgorithms` (optional). Algorithm allowlists forwarded to `validateSignature`, see below.
 

@@ -53,7 +53,7 @@ function build({ destination = ACS_A, recipients = [ACS_A], signResponse = false
   const confirmations = recipients
     .map((entry) => {
       const c: Confirmation = entry === null || typeof entry === 'string' ? { recipient: entry } : entry;
-      const recipientAttr = c.recipient ? ` Recipient="${c.recipient}"` : '';
+      const recipientAttr = c.recipient !== null ? ` Recipient="${c.recipient}"` : '';
       const window = c.window ?? 'valid';
       const notOnOrAfterAttr =
         window === 'none' ? '' : ` NotOnOrAfter="${window === 'expired' ? expired : future}"`;
@@ -89,8 +89,8 @@ async function expectInvalidRecipient(xml: string, recipient: string) {
   );
 }
 
-async function expectAccepted(xml: string, recipient?: string) {
-  const profile = await validate(xml, { audience: AUDIENCE, publicKey: cert, recipient });
+async function expectAccepted(xml: string, recipient?: string, extra: Record<string, unknown> = {}) {
+  const profile = await validate(xml, { audience: AUDIENCE, publicKey: cert, recipient, ...extra });
   assert.strictEqual(profile.issuer, 'https://idp');
 }
 
@@ -192,6 +192,36 @@ describe('saml20: recipient binding', () => {
       await expectInvalidRecipient(
         build({ signResponse: true, destination: ACS_A, recipients: [ACS_B] }),
         ACS_A
+      );
+    });
+  });
+
+  describe('edge cases', () => {
+    it('rejects an empty Recipient even when the signed Destination matches', async () => {
+      // An empty attribute is present, not absent: it must not fall back to
+      // the Destination.
+      await expectInvalidRecipient(build({ signResponse: true, recipients: [''] }), ACS_A);
+    });
+
+    it('bypassExpiration skips the confirmation window but still requires the Recipient', async () => {
+      const lapsed = build({ recipients: [{ recipient: ACS_A, window: 'expired' }] });
+      // Without the bypass the expiry check rejects it first.
+      await assert.rejects(
+        () => validate(lapsed, { audience: AUDIENCE, publicKey: cert, recipient: ACS_A }),
+        (err: Error) => {
+          assert.strictEqual(err.message, 'Assertion is expired.');
+          return true;
+        }
+      );
+      // With it, the lapsed window no longer fails the recipient check either.
+      await expectAccepted(lapsed, ACS_A, { bypassExpiration: true });
+      await assert.rejects(
+        () =>
+          validate(lapsed, { audience: AUDIENCE, publicKey: cert, recipient: ACS_B, bypassExpiration: true }),
+        (err: Error) => {
+          assert.strictEqual(err.message, 'Invalid Recipient.');
+          return true;
+        }
       );
     });
   });
