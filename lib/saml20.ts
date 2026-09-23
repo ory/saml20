@@ -240,6 +240,27 @@ const getSubjectConfirmationInResponseTo = (assertion): string | undefined => {
   return undefined;
 };
 
+// Destination read from the outer <Response> wrapper. Like getInResponseTo,
+// only trust this when the whole Response is signed.
+const getDestination = (xml): string | undefined => {
+  return getProp(xml, 'Response.@.Destination');
+};
+
+// Every Recipient carried by a SubjectConfirmationData. These live inside the
+// <Assertion> and are covered by the assertion signature even when the outer
+// <Response> wrapper is not signed. SubjectConfirmation elements are
+// alternatives (core 2.4.1.1), so all values are returned.
+const getSubjectConfirmationRecipients = (assertion): string[] => {
+  const recipients: string[] = [];
+  for (const scd of getSubjectConfirmationData(assertion)) {
+    const recipient = (scd['@'] as Record<string, string> | undefined)?.Recipient;
+    if (recipient) {
+      recipients.push(recipient);
+    }
+  }
+  return recipients;
+};
+
 const getAssertionId = (assertion): string | undefined => {
   return getAttribute<string | undefined>(assertion, '@.ID');
 };
@@ -291,6 +312,8 @@ const getNotOnOrAfter = (assertion): string | undefined => {
 const saml20 = {
   getInResponseTo,
   getSubjectConfirmationInResponseTo,
+  getDestination,
+  getSubjectConfirmationRecipients,
   getAssertionId,
   getNotOnOrAfter,
   validateExpiration,
