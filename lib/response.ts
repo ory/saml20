@@ -239,21 +239,17 @@ const validateInternal = async (rawAssertion, options, cb) => {
       }
 
       // Fail closed: when the caller supplies the ACS URL the response was
-      // posted to, the signed content must name it. A signed Destination must
-      // match, at least one Recipient must match when any is present, and at
-      // least one of the two must be present. Without this, an assertion issued
-      // for one SP endpoint can be posted to another that shares the IdP
-      // signing key and the audience. The unsigned <Response> wrapper is never
-      // consulted, so editing its Destination cannot satisfy the check.
-      if (options.recipient) {
-        const destination: string | undefined = assertion.signedDestination;
-        const recipients: string[] = assertion.recipients || [];
-        const destinationOk = destination === undefined || destination === options.recipient;
-        const recipientOk = recipients.length === 0 || recipients.includes(options.recipient);
-        if (!destinationOk || !recipientOk || (destination === undefined && recipients.length === 0)) {
-          cb(new Error('Invalid Recipient.'));
-          return;
-        }
+      // posted to, the signed content must name it (see validateRecipient for
+      // the exact rule). Without this, an assertion issued for one SP endpoint
+      // can be posted to another that shares the IdP signing key and the
+      // audience. The unsigned <Response> wrapper is never consulted, so
+      // editing its Destination cannot satisfy the check.
+      if (
+        options.recipient &&
+        !tokenHandler.validateRecipient(assertion, assertion.signedDestination, options.recipient)
+      ) {
+        cb(new Error('Invalid Recipient.'));
+        return;
       }
 
       // Optional one-time replay protection. The library is stateless, so the
@@ -378,12 +374,10 @@ function parseResponseAndVersion(assertionObj, responseObj, cb) {
   assertion.inResponseTo =
     signedResponseInResponseTo || tokenHandler.getSubjectConfirmationInResponseTo(assertion);
 
-  // Same rule for where the message was addressed: Response/@Destination only
-  // when the whole Response is signed, and the bearer
-  // SubjectConfirmationData/@Recipient values, which the assertion signature
-  // always covers.
+  // Same rule for where the message was addressed: Response/@Destination is
+  // only used when the whole Response is signed. The bearer Recipients are read
+  // from the signed assertion by validateRecipient.
   assertion.signedDestination = assertionObj.Response ? tokenHandler.getDestination(assertionObj) : undefined;
-  assertion.recipients = tokenHandler.getSubjectConfirmationRecipients(assertion);
 
   cb(null, assertion, version, response);
 }

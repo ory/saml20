@@ -19,14 +19,28 @@ const AUDIENCE = 'https://sp.jackson.example/saml';
 const ACS_A = 'https://sp.jackson.example/api/oauth/saml/provider-a';
 const ACS_B = 'https://sp.jackson.example/api/oauth/saml/provider-b';
 
+interface Confirmation {
+  // Recipient attribute; null omits it.
+  recipient: string | null;
+  // NotOnOrAfter on this confirmation: 'valid' (default), 'expired' (beyond
+  // clock skew) or 'none' to omit it.
+  window?: 'valid' | 'expired' | 'none';
+  // SubjectConfirmation Method; bearer by default.
+  method?: string;
+}
+
 interface BuildOpts {
   // Response/@Destination; null omits it.
   destination?: string | null;
-  // One entry per bearer SubjectConfirmation; null omits its Recipient.
-  recipients?: (string | null)[];
+  // One entry per SubjectConfirmation. A bare string or null is a bearer
+  // confirmation with a valid window.
+  recipients?: (string | null | Confirmation)[];
   // Sign the whole Response instead of only the Assertion.
   signResponse?: boolean;
 }
+
+const BEARER = 'urn:oasis:names:tc:SAML:2.0:cm:bearer';
+const HOLDER_OF_KEY = 'urn:oasis:names:tc:SAML:2.0:cm:holder-of-key';
 
 function build({ destination = ACS_A, recipients = [ACS_A], signResponse = false }: BuildOpts = {}): string {
   const now = new Date();
@@ -35,10 +49,15 @@ function build({ destination = ACS_A, recipients = [ACS_A], signResponse = false
   const t = now.toISOString();
 
   const destinationAttr = destination ? ` Destination="${destination}"` : '';
+  const expired = new Date(now.getTime() - 3 * 3600_000).toISOString();
   const confirmations = recipients
-    .map((recipient) => {
-      const recipientAttr = recipient ? ` Recipient="${recipient}"` : '';
-      return `<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"><saml:SubjectConfirmationData NotOnOrAfter="${future}"${recipientAttr}/></saml:SubjectConfirmation>`;
+    .map((entry) => {
+      const c: Confirmation = entry === null || typeof entry === 'string' ? { recipient: entry } : entry;
+      const recipientAttr = c.recipient ? ` Recipient="${c.recipient}"` : '';
+      const window = c.window ?? 'valid';
+      const notOnOrAfterAttr =
+        window === 'none' ? '' : ` NotOnOrAfter="${window === 'expired' ? expired : future}"`;
+      return `<saml:SubjectConfirmation Method="${c.method ?? BEARER}"><saml:SubjectConfirmationData${notOnOrAfterAttr}${recipientAttr}/></saml:SubjectConfirmation>`;
     })
     .join('');
 
@@ -108,6 +127,48 @@ describe('saml20: recipient binding', () => {
 
     it('matches exactly, without normalizing', async () => {
       await expectInvalidRecipient(build(), `${ACS_A}/`);
+    });
+
+    it('rejects a matching Recipient whose own window lapsed while another confirmation is valid', async () => {
+      // The expiry check is satisfied by B and the Recipient by A, but no single
+      // bearer confirmation satisfies both.
+      const signed = build({
+        recipients: [
+          { recipient: ACS_A, window: 'expired' },
+          { recipient: ACS_B, window: 'valid' },
+        ],
+      });
+      await expectInvalidRecipient(signed, ACS_A);
+    });
+
+    it('rejects a matching Recipient on a confirmation without NotOnOrAfter', async () => {
+      const signed = build({
+        recipients: [
+          { recipient: ACS_A, window: 'none' },
+          { recipient: ACS_B, window: 'valid' },
+        ],
+      });
+      await expectInvalidRecipient(signed, ACS_A);
+    });
+
+    it('accepts when the matching confirmation is valid and another one lapsed', async () => {
+      const signed = build({
+        recipients: [
+          { recipient: ACS_B, window: 'expired' },
+          { recipient: ACS_A, window: 'valid' },
+        ],
+      });
+      await expectAccepted(signed, ACS_A);
+    });
+
+    it('ignores the Recipient of a non-bearer confirmation', async () => {
+      const signed = build({
+        recipients: [
+          { recipient: ACS_A, method: HOLDER_OF_KEY },
+          { recipient: ACS_B, window: 'valid' },
+        ],
+      });
+      await expectInvalidRecipient(signed, ACS_A);
     });
   });
 

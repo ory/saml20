@@ -246,19 +246,62 @@ const getDestination = (xml): string | undefined => {
   return getProp(xml, 'Response.@.Destination');
 };
 
-// Every Recipient carried by a SubjectConfirmationData. These live inside the
-// <Assertion> and are covered by the assertion signature even when the outer
-// <Response> wrapper is not signed. SubjectConfirmation elements are
-// alternatives (core 2.4.1.1), so all values are returned.
-const getSubjectConfirmationRecipients = (assertion): string[] => {
-  const recipients: string[] = [];
-  for (const scd of getSubjectConfirmationData(assertion)) {
-    const recipient = (scd['@'] as Record<string, string> | undefined)?.Recipient;
-    if (recipient) {
-      recipients.push(recipient);
+const BEARER_METHOD = 'urn:oasis:names:tc:SAML:2.0:cm:bearer';
+
+// SubjectConfirmationData of the bearer SubjectConfirmation elements only.
+// These live inside the <Assertion> and are covered by the assertion signature
+// even when the outer <Response> wrapper is not signed.
+const getBearerSubjectConfirmationData = (assertion): Record<string, string>[] => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let confirmations = getAttribute<any>(assertion, 'Subject.SubjectConfirmation');
+  if (!confirmations) {
+    return [];
+  }
+  confirmations = Array.isArray(confirmations) ? confirmations : [confirmations];
+  const data: Record<string, string>[] = [];
+  for (const confirmation of confirmations) {
+    if (confirmation?.['@']?.Method !== BEARER_METHOD) {
+      continue;
+    }
+    let scd = getAttribute<Record<string, unknown> | Record<string, unknown>[]>(
+      confirmation,
+      'SubjectConfirmationData'
+    );
+    if (!scd) {
+      continue;
+    }
+    scd = Array.isArray(scd) ? scd : [scd];
+    for (const item of scd) {
+      data.push((item['@'] as Record<string, string> | undefined) || {});
     }
   }
-  return recipients;
+  return data;
+};
+
+// Whether the signed content addresses the assertion to `recipient`.
+//
+// - A signed Response/@Destination, when present, must equal it.
+// - When any bearer SubjectConfirmationData carries a Recipient, ONE bearer
+//   confirmation must satisfy the Web Browser SSO profile checks together
+//   (profiles 4.1.4.2 and 4.1.4.3): its Recipient equals `recipient` AND its
+//   own [NotBefore, NotOnOrAfter] window is currently valid. Confirmations are
+//   alternatives, so a matching Recipient on a lapsed confirmation cannot be
+//   combined with the valid window of a confirmation for another endpoint.
+// - When no bearer confirmation carries a Recipient, only a signed
+//   Destination can name the endpoint, so it must be present.
+const validateRecipient = (assertion, signedDestination: string | undefined, recipient: string): boolean => {
+  if (signedDestination !== undefined && signedDestination !== recipient) {
+    return false;
+  }
+
+  const withRecipient = getBearerSubjectConfirmationData(assertion).filter((attrs) => attrs.Recipient);
+  if (withRecipient.length === 0) {
+    return signedDestination !== undefined;
+  }
+
+  return withRecipient.some(
+    (attrs) => attrs.Recipient === recipient && checkWindow(attrs.NotBefore, attrs.NotOnOrAfter) === 'valid'
+  );
 };
 
 const getAssertionId = (assertion): string | undefined => {
@@ -313,7 +356,7 @@ const saml20 = {
   getInResponseTo,
   getSubjectConfirmationInResponseTo,
   getDestination,
-  getSubjectConfirmationRecipients,
+  validateRecipient,
   getAssertionId,
   getNotOnOrAfter,
   validateExpiration,
