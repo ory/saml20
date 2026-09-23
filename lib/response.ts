@@ -238,6 +238,22 @@ const validateInternal = async (rawAssertion, options, cb) => {
         return;
       }
 
+      // Fail closed: when the caller supplies the ACS URL the response was
+      // posted to, the signed content must name it (see validateRecipient for
+      // the exact rule). Without this, an assertion issued for one SP endpoint
+      // can be posted to another that shares the IdP signing key and the
+      // audience. The unsigned <Response> wrapper is never consulted, so
+      // editing its Destination cannot satisfy the check.
+      if (
+        options.recipient &&
+        !tokenHandler.validateRecipient(assertion, assertion.signedDestination, options.recipient, {
+          bypassExpiration: options.bypassExpiration,
+        })
+      ) {
+        cb(new Error('Invalid Recipient.'));
+        return;
+      }
+
       // Optional one-time replay protection. The library is stateless, so the
       // caller supplies the store. The callback receives the signed assertion
       // identifiers and must return true when the assertion has already been
@@ -359,6 +375,11 @@ function parseResponseAndVersion(assertionObj, responseObj, cb) {
     : undefined;
   assertion.inResponseTo =
     signedResponseInResponseTo || tokenHandler.getSubjectConfirmationInResponseTo(assertion);
+
+  // Same rule for where the message was addressed: Response/@Destination is
+  // only used when the whole Response is signed. The bearer Recipients are read
+  // from the signed assertion by validateRecipient.
+  assertion.signedDestination = assertionObj.Response ? tokenHandler.getDestination(assertionObj) : undefined;
 
   cb(null, assertion, version, response);
 }
