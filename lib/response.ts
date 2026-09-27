@@ -125,11 +125,12 @@ const validateInternal = async (rawAssertion, options, cb) => {
     return;
   }
 
-  // Optional algorithm allowlists, forwarded to validateSignature. Leaving
-  // them out keeps the permissive defaults.
+  // Optional algorithm allowlists and the Reference ceiling, forwarded to
+  // validateSignature. Leaving them out keeps the defaults.
   const signatureOptions: ValidateSignatureOptions = {
     allowedSignatureAlgorithms: options.allowedSignatureAlgorithms,
     allowedHashAlgorithms: options.allowedHashAlgorithms,
+    maxSignatureReferences: options.maxSignatureReferences,
   };
 
   // eslint-disable-next-line no-useless-assignment

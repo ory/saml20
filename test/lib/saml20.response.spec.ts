@@ -92,6 +92,39 @@ describe('lib.saml20.response', function () {
     );
   });
 
+  it('Should reject an inflated SignedInfo/Reference list before verifying the signature', async function () {
+    // Duplicate the response's single Reference 1500 times (ory-corp/cloud#15136).
+    const match = validResponse.match(/<(?:[\w.-]+:)?Reference\b[\s\S]*?<\/(?:[\w.-]+:)?Reference>/);
+    assert(match, 'fixture carries a Reference to duplicate');
+    const inflated = validResponse.replace(match![0], match![0].repeat(1500));
+
+    await assert.rejects(
+      validate(inflated, { publicKey: certificate, bypassExpiration: true, inResponseTo: inResponseTo }),
+      (err: any) => {
+        assert.strictEqual(err.message, 'Invalid assertion.');
+        assert.match(err.inner.message, /SignedInfo declares 1500 References; at most 16 are allowed/);
+        return true;
+      }
+    );
+
+    // maxSignatureReferences is forwarded from validate() options. Kept small:
+    // every Reference under the ceiling is canonicalized, which is the cost the
+    // ceiling exists to bound.
+    const seventeen = validResponse.replace(match![0], match![0].repeat(17));
+    await assert.rejects(
+      validate(seventeen, {
+        thumbprint: thumbprint,
+        bypassExpiration: true,
+        inResponseTo: inResponseTo,
+        maxSignatureReferences: 20,
+      }),
+      (err: any) => {
+        assert.match(err.inner.message, /signature value .* is incorrect/);
+        return true;
+      }
+    );
+  });
+
   it('Should validate saml 2.0 token and check audience', async function () {
     const response = await validate(validResponse, {
       publicKey: certificate,

@@ -53,6 +53,7 @@ const issuer = saml.parseIssuer(rawResponse);
 - `recipient` (optional). The ACS URL the response was posted to. When set, the signed content must name it: a signed `Response/@Destination` must equal it, when any bearer `SubjectConfirmationData` carries a `Recipient`, one bearer confirmation must both name it and be within its own `NotBefore`/`NotOnOrAfter` window (so `NotOnOrAfter` is required on it; `bypassExpiration` skips this window check but not the `Recipient` match), and at least one of the two must be present. An empty `Recipient` counts as present and never matches. The unsigned `Response` wrapper is never used. Fails with `Invalid Recipient.`
 - `bypassExpiration` (optional). This flag indicates expiration validation bypass (useful for testing, not recommended in production environments);
 - `allowedSignatureAlgorithms` / `allowedHashAlgorithms` (optional). Algorithm allowlists forwarded to `validateSignature`, see below.
+- `maxSignatureReferences` (optional). Ceiling on `SignedInfo/Reference` elements, forwarded to `validateSignature`, see below.
 
 You can use either `thumbprint` or `publicKey` but you should use at least one.
 
@@ -100,6 +101,8 @@ Verifies the XML signature on `xml` and returns the signed XML, or throws / retu
 - `allowedHashAlgorithms` — accepted `DigestMethod` URIs.
 
 When an allowlist is omitted, the default set from `xml-crypto` applies (RSA-SHA1, RSA-SHA256, RSA-SHA512 and SHA-1, SHA-256, SHA-512 digests). When one is given, a document using any other algorithm is rejected; an empty list rejects everything.
+
+- `maxSignatureReferences` — maximum number of `Reference` elements accepted in the signature's `SignedInfo` (default 16). A SAML signature carries exactly one. The ceiling bounds the work `xml-crypto` does before it verifies `SignatureValue`: every Reference is canonicalized first, so an unbounded list is an unauthenticated CPU denial of service. A document over the ceiling is rejected with `invalid signature: SignedInfo declares N References; at most M are allowed`, before any canonicalization.
 
 ```javascript
 var saml = require('@boxyhq/saml20').default;

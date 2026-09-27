@@ -25,7 +25,24 @@ export interface ValidateSignatureOptions {
    * `http://www.w3.org/2001/04/xmlenc#sha256`.
    */
   allowedHashAlgorithms?: string[];
+  /**
+   * Maximum number of `Reference` elements accepted in the signature's
+   * `SignedInfo`. Defaults to {@link DEFAULT_MAX_SIGNATURE_REFERENCES}. A SAML
+   * Response or Assertion signature carries exactly one; the ceiling exists
+   * because xml-crypto canonicalizes every Reference (a deep clone of the
+   * referenced node, the whole document for `URI=""`) before it verifies
+   * `SignatureValue`, so an unbounded, attacker-supplied list costs quadratic
+   * CPU before any key is consulted (CWE-407).
+   */
+  maxSignatureReferences?: number;
 }
+
+/**
+ * Default ceiling on `SignedInfo/Reference` elements. Generous next to the
+ * single Reference a SAML signature carries, while bounding the pre-verification
+ * work to a trivial amount.
+ */
+export const DEFAULT_MAX_SIGNATURE_REFERENCES = 16;
 
 const isMultiCert = (cert) => {
   return cert.indexOf(',') !== -1;
@@ -109,6 +126,29 @@ const assertAllowedAlgorithms = (signed: SignedXml, signature, options?: Validat
   }
 };
 
+// Refuse a signature whose SignedInfo lists more References than the ceiling.
+// Runs before loadSignature/checkSignature, so it costs one XPath count and
+// nothing gets canonicalized. Only SignedInfo's direct Reference children are
+// counted: that is exactly the set xml-crypto iterates, so a Manifest inside an
+// unsigned ds:Object neither inflates the count nor gets a document rejected.
+const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) => {
+  if (!signature) {
+    // No Signature element at all: leave the error to loadSignature, as before.
+    return;
+  }
+  const max = options?.maxSignatureReferences ?? DEFAULT_MAX_SIGNATURE_REFERENCES;
+  // `count > NaN` and `count > Infinity` are both false, so a malformed
+  // ceiling would silently switch the guard off. Refuse it instead.
+  if (typeof max !== 'number' || !Number.isInteger(max) || max < 0) {
+    throw new TypeError(`maxSignatureReferences must be a non-negative integer, got ${String(max)}`);
+  }
+  const references = select("./*[local-name(.)='SignedInfo']/*[local-name(.)='Reference']", signature);
+  const count = Array.isArray(references) ? references.length : 0;
+  if (count > max) {
+    throw new Error(`invalid signature: SignedInfo declares ${count} References; at most ${max} are allowed`);
+  }
+};
+
 // Breaking Change: hasValidSignature now returns:
 // if signature is valid: the raw signed xml string
 // if signature is invalid: throws error or returns null
@@ -148,6 +188,8 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
   });
 
   applyAlgorithmAllowlists(signed, options);
+
+  assertBoundedReferences(signature, options);
 
   signed.loadSignature(signature);
 
