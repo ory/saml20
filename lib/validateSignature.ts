@@ -137,6 +137,11 @@ const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) 
     return;
   }
   const max = options?.maxSignatureReferences ?? DEFAULT_MAX_SIGNATURE_REFERENCES;
+  // `count > NaN` and `count > Infinity` are both false, so a malformed
+  // ceiling would silently switch the guard off. Refuse it instead.
+  if (typeof max !== 'number' || !Number.isInteger(max) || max < 0) {
+    throw new TypeError(`maxSignatureReferences must be a non-negative integer, got ${String(max)}`);
+  }
   const references = select("./*[local-name(.)='SignedInfo']/*[local-name(.)='Reference']", signature);
   const count = Array.isArray(references) ? references.length : 0;
   if (count > max) {

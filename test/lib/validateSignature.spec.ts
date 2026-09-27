@@ -623,6 +623,21 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
     }
   });
 
+  it('refuses a malformed maxSignatureReferences instead of disabling the ceiling', function () {
+    for (const bad of [NaN, Infinity, -1, 1.5, '16' as unknown as number]) {
+      assert.throws(
+        () => validateSignature(withReferences(17), publicKey, null, { maxSignatureReferences: bad }),
+        /maxSignatureReferences must be a non-negative integer/,
+        `value ${String(bad)}`
+      );
+    }
+    // 0 is a valid (if useless) ceiling: every signed document has a Reference.
+    assert.throws(
+      () => validateSignature(generateXML(), publicKey, null, { maxSignatureReferences: 0 }),
+      /SignedInfo declares 1 References; at most 0 are allowed/
+    );
+  });
+
   it('honours maxSignatureReferences', function () {
     assert.throws(
       () => validateSignature(withReferences(3), publicKey, null, { maxSignatureReferences: 2 }),
