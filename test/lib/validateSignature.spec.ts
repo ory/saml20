@@ -1,4 +1,9 @@
-import { certToPEM, hasValidSignature, validateSignature } from '../../lib/validateSignature';
+import {
+  certToPEM,
+  hasValidSignature,
+  validateSignature,
+  DEFAULT_MAX_SIGNATURE_REFERENCES,
+} from '../../lib/validateSignature';
 import xmlbuilder from 'xmlbuilder';
 
 import crypto from 'crypto';
@@ -541,5 +546,91 @@ describe('validateSignature.ts - algorithm allowlists', function () {
     assert(validateSignature(sha1Doc, null, fp));
     assert.throws(() => validateSignature(sha1Doc, null, fp, sha2Only), /rsa-sha1' is not allowed/);
     assert(validateSignature(generateXML(), null, fp, sha2Only));
+  });
+});
+
+describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
+  // Duplicate the single SignedInfo/Reference of a validly signed document n
+  // times by string surgery. Every copy digests the same content, so each one
+  // passes xml-crypto's digest check; only SignatureValue (computed over the
+  // original one-Reference SignedInfo) fails. That is the attack shape: all the
+  // per-Reference canonicalization happens before the signature is rejected.
+  const withReferences = (n: number) => {
+    const xml = generateXML();
+    const match = xml.match(/<(?:[\w.-]+:)?Reference\b[\s\S]*?<\/(?:[\w.-]+:)?Reference>/);
+    assert(match, 'fixture carries a Reference to duplicate');
+    return xml.replace(match![0], match![0].repeat(n));
+  };
+
+  const spyCanon = () => {
+    const proto = SignedXml.prototype as any;
+    const original = proto.getCanonReferenceXml;
+    let calls = 0;
+    proto.getCanonReferenceXml = function (...args: unknown[]) {
+      calls++;
+      return original.apply(this, args);
+    };
+    return { count: () => calls, restore: () => (proto.getCanonReferenceXml = original) };
+  };
+
+  it('exports a default ceiling of 16', function () {
+    assert.strictEqual(DEFAULT_MAX_SIGNATURE_REFERENCES, 16);
+  });
+
+  it('still accepts a normally signed document', function () {
+    assert(validateSignature(generateXML(), publicKey, null));
+    assert(validateSignature(generateXML(), publicKey, null, { maxSignatureReferences: 1 }));
+  });
+
+  it('rejects a document over the default ceiling before canonicalizing any Reference', function () {
+    const spy = spyCanon();
+    try {
+      assert.throws(
+        () => validateSignature(withReferences(1500), publicKey, null),
+        /invalid signature: SignedInfo declares 1500 References; at most 16 are allowed/
+      );
+      assert.strictEqual(spy.count(), 0, 'no Reference was canonicalized');
+    } finally {
+      spy.restore();
+    }
+  });
+
+  it('applies the ceiling in the multi-certificate path too', function () {
+    const spy = spyCanon();
+    try {
+      // The multi-cert loop swallows per-cert errors and reports a generic
+      // failure, but the ceiling check runs before that loop and surfaces as is.
+      assert.throws(
+        () => validateSignature(withReferences(17), `${publicKey},${publicKey}`, null),
+        /SignedInfo declares 17 References/
+      );
+      assert.strictEqual(spy.count(), 0);
+    } finally {
+      spy.restore();
+    }
+  });
+
+  it('treats the ceiling as inclusive: 16 References reach signature verification and fail there', function () {
+    const spy = spyCanon();
+    try {
+      assert.throws(
+        () => validateSignature(withReferences(16), publicKey, null),
+        /invalid signature: the signature value .* is incorrect/
+      );
+      assert.strictEqual(spy.count(), 16, 'each Reference was canonicalized once');
+    } finally {
+      spy.restore();
+    }
+  });
+
+  it('honours maxSignatureReferences', function () {
+    assert.throws(
+      () => validateSignature(withReferences(3), publicKey, null, { maxSignatureReferences: 2 }),
+      /SignedInfo declares 3 References; at most 2 are allowed/
+    );
+    assert.throws(
+      () => validateSignature(withReferences(3), publicKey, null, { maxSignatureReferences: 3 }),
+      /signature value .* is incorrect/
+    );
   });
 });
