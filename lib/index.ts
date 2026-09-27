@@ -1,6 +1,6 @@
 'use strict';
 
-import { validateSignature, certToPEM } from './validateSignature';
+import { validateSignature, certToPEM, DEFAULT_MAX_SIGNATURE_REFERENCES } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 
 import {
@@ -48,6 +48,7 @@ export default {
   createPostForm,
   sign,
   validateSignature,
+  DEFAULT_MAX_SIGNATURE_REFERENCES,
   decryptXml,
   parseIssuer,
   WrapError,
