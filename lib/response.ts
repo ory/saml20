@@ -441,6 +441,7 @@ const createSAMLResponse = async ({
   publicKey,
   flattenArray = false,
   ttlInMinutes,
+  sessionIndex,
 }: {
   audience: string;
   issuer: string;
@@ -451,6 +452,9 @@ const createSAMLResponse = async ({
   publicKey: string;
   flattenArray?: boolean;
   ttlInMinutes?: number;
+  // The AuthnStatement SessionIndex, which an SP sends back in its LogoutRequest
+  // to name the session to end. Defaults to requestId.
+  sessionIndex?: string;
 }): Promise<string> => {
   const clockSkewToleranceMinutes = 5;
   const authDate = new Date();
@@ -520,7 +524,7 @@ const createSAMLResponse = async ({
         },
         'saml:AuthnStatement': {
           '@AuthnInstant': authTimestamp,
-          '@SessionIndex': requestId,
+          '@SessionIndex': sessionIndex || requestId,
           '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
           'saml:AuthnContext': {
             'saml:AuthnContextClassRef': {
