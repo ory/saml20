@@ -359,6 +359,27 @@ describe('response.ts', function () {
     assert.strictEqual(parsed.sessionIndex, json.requestId);
     assert.deepStrictEqual(parsed.claims, { ...json.claims.raw, groups: 'admin%2Cowner,user' });
   });
+
+  it('Should create a SAML response with the given SessionIndex', async function () {
+    const json = {
+      audience: 'http://sp.example.com/demo1/metadata.php',
+      issuer: 'http://idp.example.com/metadata.php',
+      acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+      claims: {
+        raw: {
+          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress': 'jackson@example.com',
+        },
+      },
+      requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+      privateKey: oktaPrivateKey,
+      publicKey: oktaPublicKey,
+      sessionIndex: '_session-index-from-the-idp',
+    };
+
+    const parsed = await parse(await createSAMLResponse(json));
+
+    assert.strictEqual(parsed.sessionIndex, json.sessionIndex);
+  });
 });
 it('parseIssuer should return the correct issuer value', async function () {
   const rawAssertion = fs.readFileSync('./test/assets/saml20.validResponse.xml').toString();
