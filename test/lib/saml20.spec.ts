@@ -358,3 +358,32 @@ describe('saml20 time windows, recipients and expiry edges', function () {
     });
   });
 });
+
+describe('saml20.parse leaves its input untouched', function () {
+  it('does not rewrite attribute value arrays in the parsed assertion', function () {
+    const assertion = {
+      Subject: {
+        NameID: {
+          _: 'jo@example.com',
+          '@': { Format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' },
+        },
+      },
+      AttributeStatement: {
+        Attribute: [
+          { '@': { Name: 'groups' }, AttributeValue: [{ _: ' admins ' }, { _: 'users' }] },
+          { '@': { Name: 'email', FriendlyName: 'email' }, AttributeValue: 'jo@example.com' },
+        ],
+      },
+      Conditions: { AudienceRestriction: { Audience: ['https://a', 'https://b'] } },
+    };
+    const before = JSON.parse(JSON.stringify(assertion));
+
+    const profile = saml20.parse(assertion);
+
+    assert.deepStrictEqual((profile.claims as Record<string, unknown>).groups, ['admins', 'users']);
+    assert.deepStrictEqual(profile.audience, ['https://a', 'https://b']);
+    assert.deepStrictEqual(assertion, before);
+    // Parsing twice gives the same result.
+    assert.deepStrictEqual(saml20.parse(assertion), profile);
+  });
+});

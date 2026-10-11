@@ -59,12 +59,9 @@ function getExtendedProp(obj, prop?: string, extraProp?: string) {
       result: trimWords(result),
       format,
     };
-  } else if (result instanceof Array) {
-    result.forEach(function parseArrayItem(i, ix) {
-      result[ix] = getProp(i);
-    });
-
-    return { result, format };
+  } else if (Array.isArray(result)) {
+    // Build a new array rather than overwriting the parsed object in place.
+    return { result: result.map((item) => getProp(item)), format };
   } else if (extraProp && result && result[extraProp!]) {
     return getExtendedProp(result[extraProp!]);
   }

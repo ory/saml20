@@ -137,13 +137,13 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
 
   const assertionObj = await xmlToJs(decryptedSignedXml); // this is our assertion object
 
-  const { assertion } = parseResponseAndVersion(assertionObj);
+  const { assertion, signed } = parseResponseAndVersion(assertionObj);
 
   // checkAssertion returns the error for an assertion that fails a check.
   // Anything it throws is unexpected and is wrapped instead.
   let failure: Error | undefined;
   try {
-    failure = await checkAssertion(assertion, options);
+    failure = await checkAssertion(assertion, signed, options);
   } catch (e) {
     const error = new WrapError('An error occurred trying to validate the assertion.');
     error.inner = e;
@@ -175,7 +175,14 @@ const checkSignature = (
 
 // The checks on a signed assertion, in order. Returns the error to reject
 // with, or undefined when every check passes.
-const checkAssertion = async (assertion, options: ValidateOptions): Promise<Error | undefined> => {
+// Values read from the signed content only (see parseResponseAndVersion).
+type SignedValues = { inResponseTo?: string; signedDestination?: string };
+
+const checkAssertion = async (
+  assertion,
+  signed: SignedValues,
+  options: ValidateOptions
+): Promise<Error | undefined> => {
   if (!options.bypassExpiration && !saml20.validateExpiration(assertion)) {
     return new Error('Assertion is expired.');
   }
@@ -192,7 +199,7 @@ const checkAssertion = async (assertion, options: ValidateOptions): Promise<Erro
   // InResponseTo. A missing value is a mismatch, not a reason to skip the
   // check, otherwise a captured assertion can be replayed into a different
   // login by stripping InResponseTo from the unsigned <Response> wrapper.
-  if (options.inResponseTo && assertion.inResponseTo !== options.inResponseTo) {
+  if (options.inResponseTo && signed.inResponseTo !== options.inResponseTo) {
     return new Error('Invalid InResponseTo.');
   }
 
@@ -204,7 +211,7 @@ const checkAssertion = async (assertion, options: ValidateOptions): Promise<Erro
   // editing its Destination cannot satisfy the check.
   if (
     options.recipient &&
-    !saml20.validateRecipient(assertion, assertion.signedDestination, options.recipient, {
+    !saml20.validateRecipient(assertion, signed.signedDestination, options.recipient, {
       bypassExpiration: options.bypassExpiration,
     })
   ) {
@@ -225,7 +232,7 @@ const checkAssertion = async (assertion, options: ValidateOptions): Promise<Erro
         // the caller can size the replay-cache TTL to cover the whole window
         // an assertion can still validate.
         notOnOrAfter: saml20.getNotOnOrAfter(assertion),
-        inResponseTo: assertion.inResponseTo,
+        inResponseTo: signed.inResponseTo,
       });
     } catch (e) {
       const error = new WrapError('An error occurred during assertion replay validation.');
@@ -304,16 +311,19 @@ function parseResponseAndVersion(assertionObj) {
   // signed, `assertionObj` is the Response subtree and Response/@InResponseTo is
   // trustworthy. In the common assertion-only-signed case, fall back to the
   // bearer SubjectConfirmationData/@InResponseTo, which is inside the signed
-  // assertion. The outer `responseObj` wrapper is never trusted here.
+  // assertion. The unsigned wrapper around a signed Assertion is never read.
   const signedResponseInResponseTo = assertionObj.Response ? saml20.getInResponseTo(assertionObj) : undefined;
-  assertion.inResponseTo = signedResponseInResponseTo || saml20.getSubjectConfirmationInResponseTo(assertion);
+  const inResponseTo: string | undefined =
+    signedResponseInResponseTo || saml20.getSubjectConfirmationInResponseTo(assertion);
 
   // Same rule for where the message was addressed: Response/@Destination is
   // only used when the whole Response is signed. The bearer Recipients are read
   // from the signed assertion by validateRecipient.
-  assertion.signedDestination = assertionObj.Response ? saml20.getDestination(assertionObj) : undefined;
+  const signedDestination: string | undefined = assertionObj.Response
+    ? saml20.getDestination(assertionObj)
+    : undefined;
 
-  return { assertion };
+  return { assertion, signed: { inResponseTo, signedDestination } };
 }
 
 function flattenObject(obj) {
