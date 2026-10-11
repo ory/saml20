@@ -37,7 +37,15 @@ const tokenHandlers = {
   '2.0': saml20,
 };
 
-/**@deprecated Use parseIssuer instead */
+/**
+ * Parses a SAML Response or Assertion into a profile WITHOUT checking its
+ * signature, expiry, audience or anything else. Its output can be forged by
+ * whoever sends the document.
+ *
+ * @deprecated Use validate() to authenticate a response. To read the Issuer
+ * before validating (for example, to choose which IdP certificate to pass to
+ * validate()), use parseIssuer().
+ */
 const parse = async (rawAssertion: string): Promise<SAMLProfile> => {
   if (!rawAssertion) {
     throw new Error('rawAssertion is required.');
