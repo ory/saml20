@@ -13,7 +13,10 @@ export interface SAMLReq {
 }
 
 export interface SAMLProfile {
-  audience: string;
+  // The first <Audience> in document order, or undefined when there is none.
+  audience?: string;
+  // Every <Audience> of every <AudienceRestriction>, in document order.
+  audiences: string[];
   claims: Record<string, any>;
   issuer: string;
   sessionIndex: string;

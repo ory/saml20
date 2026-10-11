@@ -93,8 +93,13 @@ const parse = (assertion) => {
     claims[emailAddressClaimType] = subjectName;
   }
 
+  const audiences = getAudienceRestrictions(assertion)
+    .flat()
+    .filter((audience): audience is string => typeof audience === 'string');
+
   return {
-    audience: getProp(assertion, 'Conditions.AudienceRestriction.Audience'),
+    audience: audiences[0],
+    audiences,
     claims: claims,
     issuer: getProp(assertion, 'Issuer'),
     sessionIndex: getProp(assertion, 'AuthnStatement.@.SessionIndex'),
@@ -122,6 +127,13 @@ const toArray = <T>(value: T | T[] | undefined | null): T[] => {
   return Array.isArray(value) ? value : [value];
 };
 
+// The <Audience> values of each <AudienceRestriction>, in document order.
+const getAudienceRestrictions = (assertion): unknown[][] =>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  toArray<any>(getAttribute<any>(assertion, 'Conditions.AudienceRestriction')).map((restriction) =>
+    toArray(getAttribute(restriction, 'Audience')).map((audience) => getProp(audience))
+  );
+
 // SAML core 2.5.1.4: an assertion may carry several <AudienceRestriction>
 // elements, and each must be satisfied; within one <AudienceRestriction> the
 // <Audience> values are alternatives, so any one of them may name the relying
@@ -129,14 +141,12 @@ const toArray = <T>(value: T | T[] | undefined | null): T[] => {
 const validateAudience = (assertion, realm, strictValidation = false) => {
   try {
     const expected = toArray(realm);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const restrictions = toArray<any>(getAttribute<any>(assertion, 'Conditions.AudienceRestriction'));
+    const restrictions = getAudienceRestrictions(assertion);
     if (restrictions.length === 0 || expected.length === 0) {
       return false;
     }
 
-    return restrictions.every((restriction) => {
-      const audiences = toArray(getAttribute(restriction, 'Audience')).map((audience) => getProp(audience));
+    return restrictions.every((audiences) => {
       return audiences.some((audience) =>
         expected.some((expectedAudience) => audienceCheck(audience, expectedAudience, strictValidation))
       );

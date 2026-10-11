@@ -42,7 +42,13 @@ describe('exported types', function () {
     };
     // @ts-expect-error audience must be a string or a list of strings
     const invalid: ValidateOptions = { publicKey: 'MIIC...', audience: 42 };
-    const profile: SAMLProfile = { audience: 'a', claims: {}, issuer: 'i', sessionIndex: 's' };
+    const profile: SAMLProfile = {
+      audience: 'a',
+      audiences: ['a'],
+      claims: {},
+      issuer: 'i',
+      sessionIndex: 's',
+    };
     const request: SAMLReq = { entityID: 'e', callbackUrl: 'c', signingKey: 'k', publicKey: 'p' };
 
     assert.strictEqual(await options.assertionReplayValidator!({ assertionId: '_a' }), false);
