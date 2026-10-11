@@ -27,6 +27,8 @@ const validAssertion = fs.readFileSync('./test/assets/saml20.validAssertion.xml'
 
 const oktaPublicKey = fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt').toString();
 const oktaPrivateKey = fs.readFileSync('./test/assets/certificates/oktaPrivateKey.pem').toString();
+const testIdpPublicKey = fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString();
+const testIdpPrivateKey = fs.readFileSync('./test/assets/certificates/testIdpKey.pem').toString();
 
 describe('response.ts', function () {
   it('RAW response ok', async function () {
@@ -40,12 +42,7 @@ describe('response.ts', function () {
   });
 
   it('RAW response with invalid StatusCode', async function () {
-    try {
-      await parse(rawResponseAuthnFailed);
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Invalid Status Code (AuthnFailed).');
-    }
+    await assert.rejects(parse(rawResponseAuthnFailed), { message: 'Invalid Status Code (AuthnFailed).' });
   });
 
   it('RAW response not ok', async function () {
@@ -133,12 +130,45 @@ describe('response.ts', function () {
   });
 
   it('validate raw response with invalid StatusCode', async function () {
-    try {
-      await validate(rawResponseAuthnFailed, validateOpts);
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Invalid Status Code (AuthnFailed).');
-    }
+    await assert.rejects(validate(rawResponseAuthnFailed, validateOpts), {
+      message: 'Invalid Status Code (AuthnFailed).',
+    });
+  });
+
+  it('validate stops at a non-Success StatusCode before running the replay validator', async function () {
+    const samlResponse = await createSAMLResponse({
+      audience: 'http://sp.example.com/demo1/metadata.php',
+      issuer: 'http://idp.example.com/metadata.php',
+      acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+      claims: { email: 'jackson@example.com', raw: {} },
+      requestId: inResponseTo,
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
+    });
+    // The assertion keeps its valid signature (it is verified first); only the
+    // Response status changes.
+    const failedResponse = samlResponse.replace(
+      'urn:oasis:names:tc:SAML:2.0:status:Success',
+      'urn:oasis:names:tc:SAML:2.0:status:Responder'
+    );
+    assert.notStrictEqual(failedResponse, samlResponse);
+
+    let replayValidatorCalls = 0;
+    await assert.rejects(
+      validate(failedResponse, {
+        publicKey: testIdpPublicKey,
+        audience: 'http://sp.example.com/demo1/metadata.php',
+        assertionReplayValidator: () => {
+          replayValidatorCalls++;
+          return false;
+        },
+      }),
+      { message: 'Invalid Status Code (Responder).' }
+    );
+    // Before the fix, validation kept running after the rejection and reached the
+    // replay validator a few event-loop turns later; give it time to do so.
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    assert.strictEqual(replayValidatorCalls, 0);
   });
 
   it('validate raw response not ok', async function () {
