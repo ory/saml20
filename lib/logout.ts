@@ -27,42 +27,30 @@ const textOf = (elements: any): string | undefined => {
 };
 
 const parseLogoutResponse = async (rawResponse: string): Promise<ParsedLogoutResponse> => {
-  return new Promise((resolve, reject) => {
-    if (containsDoctype(rawResponse)) {
-      reject(doctypeNotAllowedError);
-      return;
-    }
-    xml2js.parseString(
-      rawResponse,
-      { tagNameProcessors: [xml2js.processors.stripPrefix] },
-      (err: Error | null, parsedData) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-        const LogoutResponse = parsedData?.LogoutResponse;
-
-        if (!LogoutResponse) {
-          reject(new Error('Invalid SAML LogoutResponse: missing LogoutResponse element.'));
-          return;
-        }
-
-        const status = LogoutResponse.Status?.[0]?.StatusCode?.[0]?.$?.Value;
-        if (!status) {
-          reject(new Error('Invalid SAML LogoutResponse: missing StatusCode.'));
-          return;
-        }
-
-        resolve({
-          issuer: textOf(LogoutResponse.Issuer) as string,
-          id: LogoutResponse.$?.ID,
-          status,
-          destination: LogoutResponse.$?.Destination,
-          inResponseTo: LogoutResponse.$?.InResponseTo,
-        });
-      }
-    );
+  if (containsDoctype(rawResponse)) {
+    throw doctypeNotAllowedError;
+  }
+  const parsedData = await xml2js.parseStringPromise(rawResponse, {
+    tagNameProcessors: [xml2js.processors.stripPrefix],
   });
+  const LogoutResponse = parsedData?.LogoutResponse;
+
+  if (!LogoutResponse) {
+    throw new Error('Invalid SAML LogoutResponse: missing LogoutResponse element.');
+  }
+
+  const status = LogoutResponse.Status?.[0]?.StatusCode?.[0]?.$?.Value;
+  if (!status) {
+    throw new Error('Invalid SAML LogoutResponse: missing StatusCode.');
+  }
+
+  return {
+    issuer: textOf(LogoutResponse.Issuer) as string,
+    id: LogoutResponse.$?.ID,
+    status,
+    destination: LogoutResponse.$?.Destination,
+    inResponseTo: LogoutResponse.$?.InResponseTo,
+  };
 };
 
 const createLogoutRequest = ({
@@ -120,81 +108,69 @@ type LogoutResponseParams = {
 };
 
 const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutRequest> => {
-  return new Promise((resolve, reject) => {
-    if (containsDoctype(rawRequest)) {
-      reject(doctypeNotAllowedError);
-      return;
-    }
-    xml2js.parseString(
-      rawRequest,
-      { tagNameProcessors: [xml2js.processors.stripPrefix] },
-      (err, parsedData) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-
-        const { LogoutRequest } = parsedData;
-
-        if (!LogoutRequest) {
-          reject(new Error('Invalid SAML LogoutRequest: missing LogoutRequest element.'));
-          return;
-        }
-
-        const id = LogoutRequest.$.ID;
-        const destination = LogoutRequest.$.Destination;
-        const issueInstant = LogoutRequest.$.IssueInstant;
-
-        const issuer = textOf(LogoutRequest.Issuer) ?? '';
-        const nameId = textOf(LogoutRequest.NameID) ?? '';
-        const sessionIndex = textOf(LogoutRequest.SessionIndex);
-
-        // Extract public key from Signature > KeyInfo > X509Data > X509Certificate if present
-        let publicKey: string | undefined;
-        const signature = LogoutRequest.Signature;
-        if (signature) {
-          try {
-            const keyInfo = signature[0]?.KeyInfo?.[0];
-            const x509Data = keyInfo?.X509Data?.[0];
-            const x509Cert = x509Data?.X509Certificate?.[0];
-            if (x509Cert) {
-              publicKey = typeof x509Cert === 'string' ? x509Cert : x509Cert._;
-            }
-          } catch {
-            // Signature parsing is best-effort
-          }
-        }
-
-        // Extract id_token from Extensions > IdToken if present
-        // The SP can embed the OIDC id_token inside the LogoutRequest so it is
-        // covered by the XML signature.
-        let idToken: string | undefined;
-        const extensions = LogoutRequest.Extensions;
-        if (extensions) {
-          try {
-            const idTokenElement = extensions[0]?.Attribute?.[0];
-            if (idTokenElement && idTokenElement.$ && idTokenElement.$.Name === 'id_token') {
-              const attrVal = idTokenElement.AttributeValue[0];
-              idToken = typeof attrVal === 'string' ? attrVal : attrVal._;
-            }
-          } catch {
-            // Extensions parsing is best-effort
-          }
-        }
-
-        resolve({
-          id,
-          issuer,
-          nameId,
-          sessionIndex,
-          destination,
-          issueInstant,
-          publicKey,
-          idToken,
-        });
-      }
-    );
+  if (containsDoctype(rawRequest)) {
+    throw doctypeNotAllowedError;
+  }
+  const parsedData = await xml2js.parseStringPromise(rawRequest, {
+    tagNameProcessors: [xml2js.processors.stripPrefix],
   });
+  const { LogoutRequest } = parsedData;
+
+  if (!LogoutRequest) {
+    throw new Error('Invalid SAML LogoutRequest: missing LogoutRequest element.');
+  }
+
+  const id = LogoutRequest.$.ID;
+  const destination = LogoutRequest.$.Destination;
+  const issueInstant = LogoutRequest.$.IssueInstant;
+
+  const issuer = textOf(LogoutRequest.Issuer) ?? '';
+  const nameId = textOf(LogoutRequest.NameID) ?? '';
+  const sessionIndex = textOf(LogoutRequest.SessionIndex);
+
+  // Extract public key from Signature > KeyInfo > X509Data > X509Certificate if present
+  let publicKey: string | undefined;
+  const signature = LogoutRequest.Signature;
+  if (signature) {
+    try {
+      const keyInfo = signature[0]?.KeyInfo?.[0];
+      const x509Data = keyInfo?.X509Data?.[0];
+      const x509Cert = x509Data?.X509Certificate?.[0];
+      if (x509Cert) {
+        publicKey = typeof x509Cert === 'string' ? x509Cert : x509Cert._;
+      }
+    } catch {
+      // Signature parsing is best-effort
+    }
+  }
+
+  // Extract id_token from Extensions > IdToken if present
+  // The SP can embed the OIDC id_token inside the LogoutRequest so it is
+  // covered by the XML signature.
+  let idToken: string | undefined;
+  const extensions = LogoutRequest.Extensions;
+  if (extensions) {
+    try {
+      const idTokenElement = extensions[0]?.Attribute?.[0];
+      if (idTokenElement && idTokenElement.$ && idTokenElement.$.Name === 'id_token') {
+        const attrVal = idTokenElement.AttributeValue[0];
+        idToken = typeof attrVal === 'string' ? attrVal : attrVal._;
+      }
+    } catch {
+      // Extensions parsing is best-effort
+    }
+  }
+
+  return {
+    id,
+    issuer,
+    nameId,
+    sessionIndex,
+    destination,
+    issueInstant,
+    publicKey,
+    idToken,
+  };
 };
 
 const createLogoutResponse = ({
