@@ -114,15 +114,17 @@ const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutReque
   const parsedData = await xml2js.parseStringPromise(rawRequest, {
     tagNameProcessors: [xml2js.processors.stripPrefix],
   });
-  const { LogoutRequest } = parsedData;
+  // xml2js yields null for an empty document and '' for an element with no
+  // attributes and no children; neither is a usable LogoutRequest.
+  const LogoutRequest = parsedData?.LogoutRequest;
 
   if (!LogoutRequest) {
     throw new Error('Invalid SAML LogoutRequest: missing LogoutRequest element.');
   }
 
-  const id = LogoutRequest.$.ID;
-  const destination = LogoutRequest.$.Destination;
-  const issueInstant = LogoutRequest.$.IssueInstant;
+  const id = LogoutRequest.$?.ID;
+  const destination = LogoutRequest.$?.Destination;
+  const issueInstant = LogoutRequest.$?.IssueInstant;
 
   const issuer = textOf(LogoutRequest.Issuer) ?? '';
   const nameId = textOf(LogoutRequest.NameID) ?? '';

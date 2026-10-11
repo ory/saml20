@@ -315,3 +315,22 @@ describe('logout round trips', function () {
     });
   });
 });
+
+describe('parseLogoutRequest on empty or bare input', function () {
+  for (const input of ['', '   ', '<LogoutRequest/>']) {
+    it(`rejects ${JSON.stringify(input)} with a clear error`, async function () {
+      await assert.rejects(parseLogoutRequest(input), {
+        message: 'Invalid SAML LogoutRequest: missing LogoutRequest element.',
+      });
+    });
+  }
+
+  it('reads a LogoutRequest whose element has no attributes', async function () {
+    const parsed = await parseLogoutRequest(
+      '<LogoutRequest><Issuer>https://sp</Issuer><NameID>jo@example.com</NameID></LogoutRequest>'
+    );
+    assert.strictEqual(parsed.id, undefined);
+    assert.strictEqual(parsed.issuer, 'https://sp');
+    assert.strictEqual(parsed.nameId, 'jo@example.com');
+  });
+});
