@@ -58,3 +58,52 @@ describe('createPostForm escaping and structure', function () {
     assert(form.includes('<input type="hidden" name="RelayState" value=""/>'));
   });
 });
+
+describe('createPostForm only posts to http(s) URLs', function () {
+  const params = [{ name: 'SAMLResponse', value: 'PHNhbWw+' }];
+
+  for (const postUrl of [
+    'javascript:alert(document.domain)',
+    'JavaScript:alert(1)',
+    '  javascript:alert(1)',
+    'java\tscript:alert(1)',
+    'java\nscript:alert(1)',
+    'data:text/html,<script>alert(1)</script>',
+    'vbscript:msgbox(1)',
+    'file:///etc/passwd',
+  ]) {
+    it(`rejects ${JSON.stringify(postUrl)}`, function () {
+      assert.throws(() => saml.createPostForm(postUrl, params), {
+        message: 'Invalid postUrl: only http and https URLs are allowed.',
+      });
+    });
+  }
+
+  for (const postUrl of [
+    'https://sp.example.com/acs',
+    'http://localhost:5225/api/oauth/saml',
+    'HTTPS://SP.EXAMPLE.COM/acs?x=1',
+    '/api/oauth/saml',
+    '//sp.example.com/acs',
+  ]) {
+    it(`accepts ${JSON.stringify(postUrl)}`, function () {
+      assert(saml.createPostForm(postUrl, params).includes(`action="${encodeURI(postUrl)}"`));
+    });
+  }
+
+  it('rejects a postUrl that is not a URL at all', function () {
+    assert.throws(() => saml.createPostForm('http://[invalid', params), {
+      message: 'Invalid postUrl: not a valid URL.',
+    });
+  });
+});
+
+describe('createPostForm escapes field names', function () {
+  it('HTML-escapes the name attribute', function () {
+    const form = saml.createPostForm('https://sp.example.com/acs', [
+      { name: '"><script>alert(1)</script>', value: 'v' },
+    ]);
+    assert(form.includes('name="&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;"'));
+    assert(!form.includes('<script>alert(1)'));
+  });
+});
