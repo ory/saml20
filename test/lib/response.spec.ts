@@ -661,3 +661,31 @@ describe('parse() edge cases', function () {
     });
   });
 });
+
+describe('validate() audience checks on signed responses', function () {
+  const signedWith = (audienceRestrictions: string[][]) =>
+    signXml(buildResponse(buildAssertion({ audienceRestrictions })), RESPONSE_XPATH);
+  const options = { publicKey: testIdpCert, audience: SP, strictAudienceValidation: true };
+
+  it('accepts an assertion that lists the SP among several audiences', async function () {
+    const profile = await validate(signedWith([['https://other.example.com', SP]]), options);
+    assert.strictEqual(profile.issuer, IDP);
+  });
+
+  it('rejects an assertion whose audiences do not include the SP', async function () {
+    await assert.rejects(
+      validate(signedWith([['https://a.example.com', 'https://b.example.com']]), options),
+      {
+        message: 'Invalid audience.',
+      }
+    );
+  });
+
+  it('requires every AudienceRestriction to name the SP', async function () {
+    const profile = await validate(signedWith([[SP], ['https://other.example.com', SP]]), options);
+    assert.strictEqual(profile.issuer, IDP);
+    await assert.rejects(validate(signedWith([[SP], ['https://other.example.com']]), options), {
+      message: 'Invalid audience.',
+    });
+  });
+});
