@@ -1,7 +1,6 @@
-import crypto from 'crypto';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
-import { containsDoctype, doctypeNotAllowedError } from './utils';
+import { containsDoctype, doctypeNotAllowedError, generateId } from './utils';
 
 type ParsedLogoutResponse = {
   id: string;
@@ -58,7 +57,7 @@ const createLogoutRequest = ({
   providerName,
   sloUrl,
 }: LogoutRequestParams): { id: string; xml: string } => {
-  const id = '_' + crypto.randomBytes(10).toString('hex');
+  const id = generateId();
 
   const xml = {
     'samlp:LogoutRequest': {
@@ -179,7 +178,7 @@ const createLogoutResponse = ({
   destination,
   status = 'urn:oasis:names:tc:SAML:2.0:status:Success',
 }: LogoutResponseParams): { id: string; xml: string } => {
-  const id = '_' + crypto.randomBytes(10).toString('hex');
+  const id = generateId();
 
   const xml = {
     'samlp:LogoutResponse': {

@@ -6,6 +6,7 @@ import {
   isMultiRootedXMLError,
   doctypeNotAllowedError,
   containsDoctype,
+  generateId,
 } from '../../lib/utils';
 
 describe('utils.ts', function () {
@@ -218,5 +219,15 @@ describe('parseFromString non-fatal parser errors', function () {
   it('accepts comments and whitespace around a single root', function () {
     const doc = parseFromString('<?xml version="1.0"?>\n<!-- note -->\n<root/>\n<!-- end -->\n');
     assert.strictEqual(doc.documentElement?.nodeName, 'root');
+  });
+});
+
+describe('generateId', function () {
+  it('returns a unique, valid xs:ID of 80 random bits', function () {
+    const ids = new Set(Array.from({ length: 1000 }, () => generateId()));
+    assert.strictEqual(ids.size, 1000);
+    for (const id of ids) {
+      assert.match(id, /^_[0-9a-f]{20}$/);
+    }
   });
 });

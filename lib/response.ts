@@ -1,7 +1,6 @@
 import type { SAMLProfile, ValidateOptions } from './typings';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
-import crypto from 'crypto';
 import { getVersion } from './getVersion';
 import { validateSignature, sanitizeXML } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
@@ -15,6 +14,7 @@ import {
   containsDoctype,
   doctypeNotAllowedError,
   WrapError,
+  generateId,
 } from './utils';
 import { sign } from './sign';
 
@@ -352,10 +352,6 @@ function parseAttributes(assertion, tokenHandler): SAMLProfile {
   }
 }
 
-const randomId = () => {
-  return '_' + crypto.randomBytes(10).toString('hex');
-};
-
 const flattenedArray = (arr: string[]) => {
   const escArr = arr.map((val) => {
     return val.replace(/,/g, '%2C');
@@ -409,7 +405,7 @@ const createSAMLResponse = async ({
   const nodes = {
     'samlp:Response': {
       '@Destination': acsUrl,
-      '@ID': randomId(),
+      '@ID': generateId(),
       '@InResponseTo': requestId,
       '@IssueInstant': authTimestamp,
       '@Version': '2.0',
@@ -427,7 +423,7 @@ const createSAMLResponse = async ({
         },
       },
       'saml:Assertion': {
-        '@ID': randomId(),
+        '@ID': generateId(),
         '@IssueInstant': authTimestamp,
         '@Version': '2.0',
         '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',

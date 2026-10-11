@@ -3,8 +3,7 @@ import xml2js from 'xml2js';
 import { inflateRaw } from 'zlib';
 import xmlbuilder from 'xmlbuilder';
 import { SAMLReq } from './typings';
-import crypto from 'crypto';
-import { containsDoctype, doctypeNotAllowedError } from './utils';
+import { containsDoctype, doctypeNotAllowedError, generateId } from './utils';
 import { sign } from './sign';
 
 const inflateRawAsync = promisify(inflateRaw);
@@ -28,7 +27,6 @@ type DecodeBase64Options = {
   maxOutputLength?: number;
 };
 
-const idPrefix = '_';
 const authnXPath =
   '/*[local-name(.)="AuthnRequest" and namespace-uri(.)="urn:oasis:names:tc:SAML:2.0:protocol"]';
 
@@ -43,7 +41,7 @@ const request = ({
   signingKey,
   publicKey,
 }: SAMLReq): { id: string; request: string } => {
-  const id = idPrefix + crypto.randomBytes(10).toString('hex');
+  const id = generateId();
   const date = new Date().toISOString();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

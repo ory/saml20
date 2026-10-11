@@ -105,6 +105,10 @@ const parseFromString = (xmlString: string) => {
   }
 };
 
+// A SAML message or assertion ID: '_' (an xs:ID must not start with a digit)
+// followed by 80 random bits as hex.
+const generateId = () => '_' + crypto.randomBytes(10).toString('hex');
+
 const thumbprint = (cert: string) => {
   const shasum = crypto.createHash('sha1');
   const bin = Buffer.from(cert, 'base64').toString('binary');
@@ -135,6 +139,7 @@ const isMultiRootedXMLError = (err: any) => {
 
 export {
   WrapError,
+  generateId,
   parseFromString,
   thumbprint,
   getAttribute,
