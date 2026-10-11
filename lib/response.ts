@@ -14,6 +14,7 @@ import {
   multiRootedXMLError,
   containsDoctype,
   doctypeNotAllowedError,
+  WrapError,
 } from './utils';
 import { sign } from './sign';
 
@@ -35,10 +36,6 @@ const nameFormatUri = [
 const tokenHandlers = {
   '2.0': saml20,
 };
-
-class WrapError extends Error {
-  inner?: any;
-}
 
 /**@deprecated Use parseIssuer instead */
 const parse = async (rawAssertion: string): Promise<SAMLProfile> => {

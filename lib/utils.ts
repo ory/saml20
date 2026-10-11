@@ -1,6 +1,13 @@
 import { DOMParser, MIME_TYPE } from '@xmldom/xmldom';
 import crypto from 'crypto';
 
+// An error that keeps the underlying failure in `inner` while presenting a
+// fixed, caller-safe message.
+class WrapError extends Error {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  inner?: any;
+}
+
 const multiRootedXMLError = new Error('multirooted xml not allowed.');
 const doctypeNotAllowedError = new Error('doctype not allowed.');
 
@@ -127,6 +134,7 @@ const isMultiRootedXMLError = (err: any) => {
 };
 
 export {
+  WrapError,
   parseFromString,
   thumbprint,
   getAttribute,
