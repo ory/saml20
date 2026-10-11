@@ -201,3 +201,22 @@ describe('utils.ts', function () {
     });
   });
 });
+
+describe('parseFromString non-fatal parser errors', function () {
+  it('rejects text after the root element with the fixed message', function () {
+    assert.throws(() => parseFromString('<root/>trailing text'), { message: 'Invalid XML.' });
+  });
+
+  it('rejects an undeclared entity reference with the fixed message', function () {
+    assert.throws(() => parseFromString('<root>&undeclared;</root>'), { message: 'Invalid XML.' });
+  });
+
+  it('rejects a document with only text and no element', function () {
+    assert.throws(() => parseFromString('just text'));
+  });
+
+  it('accepts comments and whitespace around a single root', function () {
+    const doc = parseFromString('<?xml version="1.0"?>\n<!-- note -->\n<root/>\n<!-- end -->\n');
+    assert.strictEqual(doc.documentElement?.nodeName, 'root');
+  });
+});

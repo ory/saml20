@@ -234,3 +234,127 @@ describe('validateAudience with several Audience values', function () {
     assert.strictEqual(saml20.validateAudience(withAudiences({}), sp, true), false);
   });
 });
+
+describe('saml20 time windows, recipients and expiry edges', function () {
+  const minutes = (n: number) => new Date(Date.now() + n * 60 * 1000).toISOString();
+  const BEARER = 'urn:oasis:names:tc:SAML:2.0:cm:bearer';
+  const ACS = 'https://sp.example.com/acs';
+
+  describe('validateExpiration', function () {
+    it('rejects an unparseable Conditions NotBefore', function () {
+      assert.strictEqual(
+        saml20.validateExpiration({
+          Conditions: { '@': { NotBefore: 'not-a-date', NotOnOrAfter: minutes(10) } },
+        }),
+        false
+      );
+    });
+
+    it('rejects a Conditions NotBefore beyond the clock-skew allowance', function () {
+      assert.strictEqual(
+        saml20.validateExpiration({
+          Conditions: { '@': { NotBefore: minutes(11), NotOnOrAfter: minutes(30) } },
+        }),
+        false
+      );
+    });
+
+    it('accepts a Conditions NotBefore within the clock-skew allowance', function () {
+      assert.strictEqual(
+        saml20.validateExpiration({
+          Conditions: { '@': { NotBefore: minutes(9), NotOnOrAfter: minutes(30) } },
+        }),
+        true
+      );
+    });
+
+    it('rejects when the only bearer window has not started yet', function () {
+      assert.strictEqual(
+        saml20.validateExpiration({
+          Subject: {
+            SubjectConfirmation: {
+              '@': { Method: BEARER },
+              SubjectConfirmationData: { '@': { NotBefore: minutes(11), NotOnOrAfter: minutes(30) } },
+            },
+          },
+        }),
+        false
+      );
+    });
+  });
+
+  describe('validateRecipient', function () {
+    it('relies on a signed Destination when there is no SubjectConfirmation', function () {
+      assert.strictEqual(saml20.validateRecipient({}, ACS, ACS), true);
+      assert.strictEqual(saml20.validateRecipient({}, undefined, ACS), false);
+      assert.strictEqual(saml20.validateRecipient({}, 'https://other/acs', ACS), false);
+    });
+
+    it('ignores the Recipient of a non-bearer confirmation', function () {
+      const assertion = {
+        Subject: {
+          SubjectConfirmation: {
+            '@': { Method: 'urn:oasis:names:tc:SAML:2.0:cm:holder-of-key' },
+            SubjectConfirmationData: { '@': { Recipient: ACS, NotOnOrAfter: minutes(10) } },
+          },
+        },
+      };
+      assert.strictEqual(saml20.validateRecipient(assertion, undefined, ACS), false);
+      assert.strictEqual(saml20.validateRecipient(assertion, ACS, ACS), true);
+    });
+
+    it('skips a bearer confirmation without SubjectConfirmationData', function () {
+      const assertion = {
+        Subject: {
+          SubjectConfirmation: [
+            { '@': { Method: BEARER } },
+            {
+              '@': { Method: BEARER },
+              SubjectConfirmationData: { '@': { Recipient: ACS, NotOnOrAfter: minutes(10) } },
+            },
+          ],
+        },
+      };
+      assert.strictEqual(saml20.validateRecipient(assertion, undefined, ACS), true);
+    });
+  });
+
+  describe('getNotOnOrAfter', function () {
+    it('ignores SubjectConfirmationData without a NotOnOrAfter', function () {
+      const conditionsBound = minutes(5);
+      const assertion = {
+        Conditions: { '@': { NotOnOrAfter: conditionsBound } },
+        Subject: { SubjectConfirmation: { SubjectConfirmationData: { '@': { Recipient: ACS } } } },
+      };
+      assert.strictEqual(saml20.getNotOnOrAfter(assertion), conditionsBound);
+    });
+
+    it('returns the earlier of Conditions and the latest bearer bound', function () {
+      const early = minutes(3);
+      const middle = minutes(6);
+      const late = minutes(9);
+      const assertion = {
+        Conditions: { '@': { NotOnOrAfter: late } },
+        Subject: {
+          SubjectConfirmation: [
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: early } } },
+            { SubjectConfirmationData: { '@': { NotOnOrAfter: middle } } },
+          ],
+        },
+      };
+      assert.strictEqual(saml20.getNotOnOrAfter(assertion), middle);
+    });
+
+    it('returns undefined when there is no bound at all', function () {
+      assert.strictEqual(saml20.getNotOnOrAfter({}), undefined);
+    });
+  });
+
+  describe('validateAudience', function () {
+    it('returns false for an expected audience that is not a string', function () {
+      const assertion = { Conditions: { AudienceRestriction: { Audience: 'https://sp' } } };
+      assert.strictEqual(saml20.validateAudience(assertion, 42, true), false);
+      assert.strictEqual(saml20.validateAudience(assertion, { url: 'https://sp' }, false), false);
+    });
+  });
+});
