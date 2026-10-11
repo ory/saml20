@@ -246,28 +246,30 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
     }
   } else {
     signed.getCertFromKeyInfo = function getKey(keyInfo) {
-      // Case A: Let's use the thumbprint
+      // Case B: use a certificate embedded in this signature's KeyInfo, but
+      // only one whose thumbprint is trusted.
       if (certThumbprint) {
-        const embeddedCert = keyInfo!.childNodes[0].ownerDocument!.getElementsByTagNameNS(
+        if (!keyInfo) {
+          return null;
+        }
+        // Look only inside the KeyInfo of the signature being verified. The
+        // first X509Certificate anywhere in the document may belong to another
+        // signature or to unsigned content.
+        const embeddedCerts = (keyInfo as Element).getElementsByTagNameNS(
           'http://www.w3.org/2000/09/xmldsig#',
           'X509Certificate'
         );
-
-        if (embeddedCert.length > 0) {
-          const base64cer = embeddedCert[0].firstChild!.toString();
-          // authenticate base64der with trusted fingerprint
-          const calculatedThumbprint = thumbprint(base64cer);
-          const thumbprints = certThumbprint.split(',');
-
-          if (thumbprints.includes(calculatedThumbprint)) {
-            // now we can use it
+        const thumbprints = certThumbprint.split(',');
+        for (let i = 0; i < embeddedCerts.length; i++) {
+          const base64cer = (embeddedCerts[i].textContent || '').trim();
+          if (base64cer && thumbprints.includes(thumbprint(base64cer))) {
             return certToPEM(base64cer);
           }
         }
-      } else {
-        // use pre-configured trusted certificates
-        return certToPEM(cert);
+        return null;
       }
+      // Case A: use the pre-configured trusted certificate
+      return certToPEM(cert);
     };
 
     valid = signed.checkSignature(xml);

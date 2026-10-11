@@ -10,7 +10,7 @@ import crypto from 'crypto';
 import fs from 'fs';
 import { sign } from '../../lib/sign';
 import { SignedXml } from 'xml-crypto';
-import { PubKeyInfo } from '../../lib/cert';
+import { PubKeyInfo, stripCertHeaderAndFooter } from '../../lib/cert';
 import { thumbprint } from '../../lib/utils';
 import assert from 'assert';
 import {
@@ -18,6 +18,7 @@ import {
   ASSERTION_XPATH,
   IDP,
   buildAssertion,
+  buildResponse,
   signXml,
   testIdpCert,
 } from '../helpers/fixtures';
@@ -739,5 +740,52 @@ describe('validateSignature.ts - unusual documents', function () {
       assert.notStrictEqual(tampered, signedDeep);
       assert.strictEqual(validateSignature(tampered, testIdpCert, null), null);
     });
+  });
+});
+
+describe('validateSignature.ts - thumbprint uses the KeyInfo of the signature being verified', function () {
+  const trustedThumbprint = thumbprint(stripCertHeaderAndFooter(testIdpCert));
+  const otherCert = stripCertHeaderAndFooter(
+    fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt').toString()
+  );
+  const signedAssertion = () => signXml(buildAssertion(), ASSERTION_XPATH);
+
+  it('ignores an unrelated X509Certificate earlier in the document', function () {
+    // Before, the first X509Certificate anywhere in the document was checked
+    // against the thumbprint, so this validly signed assertion was rejected.
+    const response = buildResponse(
+      '<samlp:Extensions><ds:X509Certificate xmlns:ds="http://www.w3.org/2000/09/xmldsig#">' +
+        otherCert +
+        '</ds:X509Certificate></samlp:Extensions>' +
+        signedAssertion()
+    );
+    const signedReference = validateSignature(response, null, trustedThumbprint);
+    assert(signedReference);
+    assert(signedReference.includes('ID="_assertion-1"'));
+  });
+
+  it('accepts a trusted certificate that is not the first one in KeyInfo', function () {
+    const signed = signedAssertion();
+    const withChain = signed.replace(
+      '<X509Data>',
+      `<X509Data><X509Certificate>${otherCert}</X509Certificate>`
+    );
+    assert.notStrictEqual(withChain, signed);
+    assert(validateSignature(withChain, null, trustedThumbprint));
+  });
+
+  it('rejects when no certificate in KeyInfo has a trusted thumbprint', function () {
+    assert.throws(
+      () => validateSignature(signedAssertion(), null, thumbprint(otherCert)),
+      /KeyInfo or publicCert or privateKey is required/
+    );
+  });
+
+  it('rejects a signature without KeyInfo when only a thumbprint is configured', function () {
+    const withoutKeyInfo = signedAssertion().replace(/<KeyInfo>[\s\S]*?<\/KeyInfo>/, '');
+    assert.throws(
+      () => validateSignature(withoutKeyInfo, null, trustedThumbprint),
+      /KeyInfo or publicCert or privateKey is required/
+    );
   });
 });
