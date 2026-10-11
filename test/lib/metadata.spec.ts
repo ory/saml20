@@ -1,6 +1,7 @@
 import assert from 'assert';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from '../../lib/metadata';
-import { doctypeNotAllowedError } from '../../lib/utils';
+import { doctypeNotAllowedError, thumbprint } from '../../lib/utils';
+import { stripCertHeaderAndFooter } from '../../lib/cert';
 import fs from 'fs';
 
 const samlMetadata = fs.readFileSync('./test/assets/mock-saml-metadata.xml').toString();
@@ -253,6 +254,23 @@ describe('metadata.ts', function () {
 
     assert.strictEqual(!!res, true);
   });
+  it(`createSPMetadataXML strips the PEM header and footer from the certificate`, async () => {
+    const pem = fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString();
+    const body = stripCertHeaderAndFooter(pem);
+    const res = createSPMetadataXML({
+      acsUrl: 'http://localhost:4000/api/saml/sso',
+      entityId: 'https://saml.example.com/entityid',
+      publicKeyString: pem,
+      encryption: true,
+    });
+
+    assert(!res.includes('CERTIFICATE-----'));
+    const parsed = await parseMetadata(res, {});
+    assert.strictEqual(parsed.loginType, 'sp');
+    assert.strictEqual(parsed.publicKey, body);
+    assert.strictEqual(parsed.thumbprint, thumbprint(body));
+  });
+
   it(`createSPMetadataXML ok with encryption`, async () => {
     const res = createSPMetadataXML({
       acsUrl: 'http://localhost:4000/api/saml/sso',

@@ -269,6 +269,9 @@ const createSPMetadataXML = ({
   encryption: boolean;
   authnRequestsSigned?: boolean;
 }): string => {
+  // Like createIdPMetadataXML, accept a PEM string: X509Certificate must carry
+  // only the base64 body, not the BEGIN/END lines.
+  const x509cert = stripCertHeaderAndFooter(publicKeyString);
   const today = new Date();
 
   const keyDescriptor: any[] = [
@@ -278,7 +281,7 @@ const createSPMetadataXML = ({
         '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
         'ds:X509Data': {
           'ds:X509Certificate': {
-            '#text': publicKeyString,
+            '#text': x509cert,
           },
         },
       },
@@ -292,7 +295,7 @@ const createSPMetadataXML = ({
         '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
         'ds:X509Data': {
           'ds:X509Certificate': {
-            '#text': publicKeyString,
+            '#text': x509cert,
           },
         },
       },
