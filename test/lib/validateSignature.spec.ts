@@ -690,10 +690,16 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
 describe('validateSignature.ts - unusual documents', function () {
   const sha256 = 'http://www.w3.org/2001/04/xmlenc#sha256';
 
-  it('rejects a document that has no Signature', function () {
+  it('rejects a document that has no Signature with a clear error', function () {
     const unsigned = buildAssertion();
-    assert.throws(() => validateSignature(unsigned, testIdpCert, null));
-    assert.throws(() => validateSignature(unsigned, testIdpCert, null, { maxSignatureReferences: 1 }));
+    const noSignature = { message: 'invalid signature: no Signature element found' };
+    assert.throws(() => validateSignature(unsigned, testIdpCert, null), noSignature);
+    assert.throws(
+      () => validateSignature(unsigned, testIdpCert, null, { maxSignatureReferences: 1 }),
+      noSignature
+    );
+    assert.throws(() => validateSignature(unsigned, `${testIdpCert},${testIdpCert}`, null), noSignature);
+    assert.throws(() => validateSignature(unsigned, null, 'deadbeef'), noSignature);
   });
 
   it('rejects a Reference without a DigestMethod', function () {

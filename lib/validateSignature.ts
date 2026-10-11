@@ -156,10 +156,6 @@ const countSignedInfoReferences = (signature: Node): number =>
 // counted: that is exactly the set xml-crypto iterates, so a Manifest inside an
 // unsigned ds:Object neither inflates the count nor gets a document rejected.
 const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) => {
-  if (!signature) {
-    // No Signature element at all: leave the error to loadSignature, as before.
-    return;
-  }
   const max = options?.maxSignatureReferences ?? DEFAULT_MAX_SIGNATURE_REFERENCES;
   // `count > NaN` and `count > Infinity` are both false, so a malformed
   // ceiling would silently switch the guard off. Refuse it instead.
@@ -204,6 +200,12 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
   if (!signature) {
     // @ts-expect-error missing Node properties are not needed
     signature = select("//*[local-name(.)='Signature']", doc!)?.[0];
+  }
+
+  if (!signature) {
+    // Without this, xml-crypto's loadSignature(undefined) fails with a raw
+    // "Cannot read properties of undefined" TypeError.
+    throw new Error('invalid signature: no Signature element found');
   }
 
   const signed = new SignedXml({

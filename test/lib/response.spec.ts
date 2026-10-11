@@ -689,3 +689,16 @@ describe('validate() audience checks on signed responses', function () {
     });
   });
 });
+
+describe('validate() on an unsigned response', function () {
+  it('rejects it and keeps the reason in inner', async function () {
+    await assert.rejects(
+      validate(buildResponse(buildAssertion()), { publicKey: testIdpCert }),
+      (error: WrapError) => {
+        assert.strictEqual(error.message, 'Invalid assertion.');
+        assert.strictEqual(error.inner.message, 'invalid signature: no Signature element found');
+        return true;
+      }
+    );
+  });
+});
