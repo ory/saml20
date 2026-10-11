@@ -3,7 +3,6 @@ import {
   parseFromString,
   thumbprint,
   getAttribute,
-  isMultiRootedXMLError,
   doctypeNotAllowedError,
   containsDoctype,
   generateId,
@@ -187,18 +186,6 @@ describe('utils.ts', function () {
 
     it('should return default value if path is invalid', function () {
       assert.strictEqual(getAttribute(obj, 'x.y.z', 'default'), 'default');
-    });
-  });
-
-  describe('isMultiRootedXMLError', function () {
-    it('should return true for multi-rooted error message', function () {
-      const err = { message: 'Only one element can be added and only after doctype' };
-      assert.strictEqual(isMultiRootedXMLError(err), true);
-    });
-
-    it('should return false for other errors', function () {
-      const err = { message: 'Other error' };
-      assert.strictEqual(isMultiRootedXMLError(err), false);
     });
   });
 });

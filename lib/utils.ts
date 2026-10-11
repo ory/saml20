@@ -149,7 +149,6 @@ export {
   parseFromString,
   thumbprint,
   getAttribute,
-  isMultiRootedXMLError,
   multiRootedXMLError,
   doctypeNotAllowedError,
   containsDoctype,
