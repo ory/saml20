@@ -17,6 +17,15 @@ type LogoutRequestParams = {
   sloUrl: string;
 };
 
+// Text content of the first element in an xml2js child list. xml2js yields a
+// plain string for an element without attributes and `{ _: text, $: attrs }`
+// for one with attributes (a namespace declaration counts as an attribute).
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const textOf = (elements: any): string | undefined => {
+  const first = elements?.[0];
+  return typeof first === 'string' ? first : first?._;
+};
+
 const parseLogoutResponse = async (rawResponse: string): Promise<ParsedLogoutResponse> => {
   return new Promise((resolve, reject) => {
     if (containsDoctype(rawResponse)) {
@@ -31,14 +40,25 @@ const parseLogoutResponse = async (rawResponse: string): Promise<ParsedLogoutRes
           reject(err);
           return;
         }
-        const { LogoutResponse } = parsedData;
+        const LogoutResponse = parsedData?.LogoutResponse;
+
+        if (!LogoutResponse) {
+          reject(new Error('Invalid SAML LogoutResponse: missing LogoutResponse element.'));
+          return;
+        }
+
+        const status = LogoutResponse.Status?.[0]?.StatusCode?.[0]?.$?.Value;
+        if (!status) {
+          reject(new Error('Invalid SAML LogoutResponse: missing StatusCode.'));
+          return;
+        }
 
         resolve({
-          issuer: LogoutResponse.Issuer[0]._,
-          id: LogoutResponse.$.ID,
-          status: LogoutResponse.Status[0].StatusCode[0].$.Value,
-          destination: LogoutResponse.$.Destination,
-          inResponseTo: LogoutResponse.$.InResponseTo,
+          issuer: textOf(LogoutResponse.Issuer) as string,
+          id: LogoutResponse.$?.ID,
+          status,
+          destination: LogoutResponse.$?.Destination,
+          inResponseTo: LogoutResponse.$?.InResponseTo,
         });
       }
     );
@@ -125,26 +145,9 @@ const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutReque
         const destination = LogoutRequest.$.Destination;
         const issueInstant = LogoutRequest.$.IssueInstant;
 
-        const issuerElement = LogoutRequest.Issuer;
-        const issuer = issuerElement
-          ? typeof issuerElement[0] === 'string'
-            ? issuerElement[0]
-            : issuerElement[0]._
-          : '';
-
-        const nameIdElement = LogoutRequest.NameID;
-        const nameId = nameIdElement
-          ? typeof nameIdElement[0] === 'string'
-            ? nameIdElement[0]
-            : nameIdElement[0]._
-          : '';
-
-        const sessionIndexElement = LogoutRequest.SessionIndex;
-        const sessionIndex = sessionIndexElement
-          ? typeof sessionIndexElement[0] === 'string'
-            ? sessionIndexElement[0]
-            : sessionIndexElement[0]._
-          : undefined;
+        const issuer = textOf(LogoutRequest.Issuer) ?? '';
+        const nameId = textOf(LogoutRequest.NameID) ?? '';
+        const sessionIndex = textOf(LogoutRequest.SessionIndex);
 
         // Extract public key from Signature > KeyInfo > X509Data > X509Certificate if present
         let publicKey: string | undefined;

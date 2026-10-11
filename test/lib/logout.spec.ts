@@ -185,3 +185,41 @@ describe('logout.ts', function () {
     );
   });
 });
+
+describe('parseLogoutResponse edge cases', function () {
+  const wrap = (inner: string, attrs = 'ID="_1" InResponseTo="_req" Destination="https://sp/slo"') =>
+    `<samlp:LogoutResponse xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ` +
+    `xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ${attrs}>${inner}</samlp:LogoutResponse>`;
+  const success =
+    '<samlp:Status><samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/></samlp:Status>';
+
+  it('reads an Issuer that has no attributes of its own', async function () {
+    const parsed = await parseLogoutResponse(wrap(`<saml:Issuer>https://idp</saml:Issuer>${success}`));
+    assert.strictEqual(parsed.issuer, 'https://idp');
+    assert.strictEqual(parsed.id, '_1');
+    assert.strictEqual(parsed.inResponseTo, '_req');
+    assert.strictEqual(parsed.destination, 'https://sp/slo');
+    assert.strictEqual(parsed.status, 'urn:oasis:names:tc:SAML:2.0:status:Success');
+  });
+
+  it('reads an Issuer that carries attributes', async function () {
+    const parsed = await parseLogoutResponse(
+      wrap(
+        `<saml:Issuer Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">https://idp</saml:Issuer>${success}`
+      )
+    );
+    assert.strictEqual(parsed.issuer, 'https://idp');
+  });
+
+  it('rejects a document whose root is not LogoutResponse', async function () {
+    await assert.rejects(parseLogoutResponse('<LogoutRequest ID="_1"/>'), {
+      message: 'Invalid SAML LogoutResponse: missing LogoutResponse element.',
+    });
+  });
+
+  it('rejects a LogoutResponse without a StatusCode', async function () {
+    await assert.rejects(parseLogoutResponse(wrap('<saml:Issuer>https://idp</saml:Issuer>')), {
+      message: 'Invalid SAML LogoutResponse: missing StatusCode.',
+    });
+  });
+});
