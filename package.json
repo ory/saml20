@@ -71,5 +71,8 @@
       "undici": ">=6.24.0"
     },
     "unicorn-magic": "0.2.0"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }
