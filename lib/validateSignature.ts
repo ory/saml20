@@ -1,6 +1,7 @@
 import { SignedXml } from 'xml-crypto';
 import { select } from 'xpath';
 import { parseFromString, thumbprint } from './utils';
+import { XMLDSIG_NS } from './constants';
 
 /**
  * Optional constraints applied while verifying an XML signature.
@@ -182,17 +183,17 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
   const doc = parseFromString(xml);
   let signature =
     select(
-      "/*/*/*[local-name(.)='Signature' and namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#']",
+      `/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
       // @ts-expect-error missing Node properties are not needed
       doc!
     )?.[0] ||
     select(
-      "/*/*[local-name(.)='Signature' and namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#']",
+      `/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
       // @ts-expect-error missing Node properties are not needed
       doc!
     )?.[0] ||
     select(
-      "/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#']",
+      `/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
       // @ts-expect-error missing Node properties are not needed
       doc!
     )?.[0];
@@ -255,10 +256,7 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
         // Look only inside the KeyInfo of the signature being verified. The
         // first X509Certificate anywhere in the document may belong to another
         // signature or to unsigned content.
-        const embeddedCerts = (keyInfo as Element).getElementsByTagNameNS(
-          'http://www.w3.org/2000/09/xmldsig#',
-          'X509Certificate'
-        );
+        const embeddedCerts = (keyInfo as Element).getElementsByTagNameNS(XMLDSIG_NS, 'X509Certificate');
         const thumbprints = certThumbprint.split(',');
         for (let i = 0; i < embeddedCerts.length; i++) {
           const base64cer = (embeddedCerts[i].textContent || '').trim();

@@ -4,6 +4,7 @@ import { stripCertHeaderAndFooter } from './cert';
 import crypto from 'crypto';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
+import { METADATA_NS, PROTOCOL_NS, XMLDSIG_NS } from './constants';
 
 const BEGIN = '-----BEGIN CERTIFICATE-----';
 const END = '-----END CERTIFICATE-----';
@@ -188,16 +189,16 @@ const createIdPMetadataXML = ({
   const today = new Date();
   const nodes = {
     'md:EntityDescriptor': {
-      '@xmlns:md': 'urn:oasis:names:tc:SAML:2.0:metadata',
+      '@xmlns:md': METADATA_NS,
       '@entityID': entityId,
       '@validUntil': new Date(today.setFullYear(today.getFullYear() + 10)).toISOString(),
       'md:IDPSSODescriptor': {
         '@WantAuthnRequestsSigned': wantAuthnRequestsSigned,
-        '@protocolSupportEnumeration': 'urn:oasis:names:tc:SAML:2.0:protocol',
+        '@protocolSupportEnumeration': PROTOCOL_NS,
         'md:KeyDescriptor': {
           '@use': 'signing',
           'ds:KeyInfo': {
-            '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
+            '@xmlns:ds': XMLDSIG_NS,
             'ds:X509Data': {
               'ds:X509Certificate': {
                 '#text': x509cert,
@@ -261,7 +262,7 @@ const createSPMetadataXML = ({
     {
       '@use': 'signing',
       'ds:KeyInfo': {
-        '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
+        '@xmlns:ds': XMLDSIG_NS,
         'ds:X509Data': {
           'ds:X509Certificate': {
             '#text': x509cert,
@@ -275,7 +276,7 @@ const createSPMetadataXML = ({
     keyDescriptor.push({
       '@use': 'encryption',
       'ds:KeyInfo': {
-        '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
+        '@xmlns:ds': XMLDSIG_NS,
         'ds:X509Data': {
           'ds:X509Certificate': {
             '#text': x509cert,
@@ -290,12 +291,12 @@ const createSPMetadataXML = ({
 
   const nodes = {
     'md:EntityDescriptor': {
-      '@xmlns:md': 'urn:oasis:names:tc:SAML:2.0:metadata',
+      '@xmlns:md': METADATA_NS,
       '@entityID': entityId,
       '@validUntil': new Date(today.setFullYear(today.getFullYear() + 10)).toISOString(),
       'md:SPSSODescriptor': {
         ...(authnRequestsSigned ? { '@AuthnRequestsSigned': true } : {}),
-        '@protocolSupportEnumeration': 'urn:oasis:names:tc:SAML:2.0:protocol',
+        '@protocolSupportEnumeration': PROTOCOL_NS,
         'md:KeyDescriptor': keyDescriptor,
         'md:NameIDFormat': {
           '#text': 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',

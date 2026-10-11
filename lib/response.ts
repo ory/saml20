@@ -17,6 +17,7 @@ import {
   generateId,
 } from './utils';
 import { sign } from './sign';
+import { ASSERTION_NS, PROTOCOL_NS, XML_SCHEMA_INSTANCE_NS, XML_SCHEMA_NS } from './constants';
 
 const nameFormatUri = [
   'urn:oid:0.9.2342.19200300.100.1.1',
@@ -409,15 +410,15 @@ const createSAMLResponse = async ({
       '@InResponseTo': requestId,
       '@IssueInstant': authTimestamp,
       '@Version': '2.0',
-      '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
-      '@xmlns:xs': 'http://www.w3.org/2001/XMLSchema',
+      '@xmlns:samlp': PROTOCOL_NS,
+      '@xmlns:xs': XML_SCHEMA_NS,
       'saml:Issuer': {
         '@Format': 'urn:oasis:names:tc:SAML:2.0:nameid-format:entity',
-        '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+        '@xmlns:saml': ASSERTION_NS,
         '#text': issuer,
       },
       'samlp:Status': {
-        '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
+        '@xmlns:samlp': PROTOCOL_NS,
         'samlp:StatusCode': {
           '@Value': 'urn:oasis:names:tc:SAML:2.0:status:Success',
         },
@@ -426,15 +427,15 @@ const createSAMLResponse = async ({
         '@ID': generateId(),
         '@IssueInstant': authTimestamp,
         '@Version': '2.0',
-        '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
-        '@xmlns:xs': 'http://www.w3.org/2001/XMLSchema',
+        '@xmlns:saml': ASSERTION_NS,
+        '@xmlns:xs': XML_SCHEMA_NS,
         'saml:Issuer': {
           '@Format': 'urn:oasis:names:tc:SAML:2.0:nameid-format:entity',
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           '#text': issuer,
         },
         'saml:Subject': {
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           'saml:NameID': {
             '@Format': 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
             '#text': claims.email,
@@ -451,7 +452,7 @@ const createSAMLResponse = async ({
         'saml:Conditions': {
           '@NotBefore': notBefore,
           '@NotOnOrAfter': notAfter,
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           'saml:AudienceRestriction': {
             'saml:Audience': {
               '#text': audience,
@@ -461,7 +462,7 @@ const createSAMLResponse = async ({
         'saml:AuthnStatement': {
           '@AuthnInstant': authTimestamp,
           '@SessionIndex': sessionIndex || requestId,
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           'saml:AuthnContext': {
             'saml:AuthnContextClassRef': {
               '#text': 'urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport',
@@ -469,7 +470,7 @@ const createSAMLResponse = async ({
           },
         },
         'saml:AttributeStatement': {
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           'saml:Attribute': Object.keys(claims.raw || []).map((attributeName) => {
             const attributeValue = claims.raw[attributeName];
             const attributeValueArray = Array.isArray(attributeValue)
@@ -483,8 +484,8 @@ const createSAMLResponse = async ({
               '@NameFormat': nameFormat(attributeName),
               'saml:AttributeValue': attributeValueArray.map((value) => {
                 return {
-                  '@xmlns:xs': 'http://www.w3.org/2001/XMLSchema',
-                  '@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+                  '@xmlns:xs': XML_SCHEMA_NS,
+                  '@xmlns:xsi': XML_SCHEMA_INSTANCE_NS,
                   '@xsi:type': 'xs:string',
                   '#text': value,
                 };
@@ -504,7 +505,7 @@ const createSAMLResponse = async ({
     signedAssertionXml,
     privateKey,
     publicKey,
-    '/*[local-name(.)="Response" and namespace-uri(.)="urn:oasis:names:tc:SAML:2.0:protocol"]'
+    `/*[local-name(.)="Response" and namespace-uri(.)="${PROTOCOL_NS}"]`
   );
 
   return signedXml;

@@ -1,6 +1,7 @@
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import { containsDoctype, doctypeNotAllowedError, generateId } from './utils';
+import { ASSERTION_NS, PROTOCOL_NS } from './constants';
 
 type ParsedLogoutResponse = {
   id: string;
@@ -61,8 +62,8 @@ const createLogoutRequest = ({
 
   const xml = {
     'samlp:LogoutRequest': {
-      '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
-      '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+      '@xmlns:samlp': PROTOCOL_NS,
+      '@xmlns:saml': ASSERTION_NS,
       '@ID': id,
       '@Version': '2.0',
       '@IssueInstant': new Date().toISOString(),
@@ -182,8 +183,8 @@ const createLogoutResponse = ({
 
   const xml = {
     'samlp:LogoutResponse': {
-      '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
-      '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+      '@xmlns:samlp': PROTOCOL_NS,
+      '@xmlns:saml': ASSERTION_NS,
       '@ID': id,
       '@Version': '2.0',
       '@IssueInstant': new Date().toISOString(),

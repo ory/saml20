@@ -5,6 +5,7 @@ import xmlbuilder from 'xmlbuilder';
 import { SAMLReq } from './typings';
 import { containsDoctype, doctypeNotAllowedError, generateId } from './utils';
 import { sign } from './sign';
+import { ASSERTION_NS, PROTOCOL_NS } from './constants';
 
 const inflateRawAsync = promisify(inflateRaw);
 
@@ -27,8 +28,7 @@ type DecodeBase64Options = {
   maxOutputLength?: number;
 };
 
-const authnXPath =
-  '/*[local-name(.)="AuthnRequest" and namespace-uri(.)="urn:oasis:names:tc:SAML:2.0:protocol"]';
+const authnXPath = `/*[local-name(.)="AuthnRequest" and namespace-uri(.)="${PROTOCOL_NS}"]`;
 
 const request = ({
   ssoUrl,
@@ -47,14 +47,14 @@ const request = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const samlReq: Record<string, any> = {
     'samlp:AuthnRequest': {
-      '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
+      '@xmlns:samlp': PROTOCOL_NS,
       '@ID': id,
       '@Version': '2.0',
       '@IssueInstant': date,
       '@ProtocolBinding': 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
       '@Destination': ssoUrl,
       'saml:Issuer': {
-        '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+        '@xmlns:saml': ASSERTION_NS,
         '#text': entityID,
       },
     },
@@ -69,7 +69,7 @@ const request = ({
   samlReq['samlp:AuthnRequest']['@AssertionConsumerServiceURL'] = callbackUrl;
 
   samlReq['samlp:AuthnRequest']['samlp:NameIDPolicy'] = {
-    '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
+    '@xmlns:samlp': PROTOCOL_NS,
     '@Format': identifierFormat,
     '@AllowCreate': 'true',
   };
