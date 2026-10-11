@@ -223,3 +223,95 @@ describe('parseLogoutResponse edge cases', function () {
     });
   });
 });
+
+describe('parseLogoutRequest edge cases', function () {
+  const wrap = (inner: string) =>
+    '<samlp:LogoutRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ' +
+    'xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" ' +
+    `ID="_logout-1" Destination="https://idp/slo" IssueInstant="2026-01-01T00:00:00Z">${inner}</samlp:LogoutRequest>`;
+  const issuerAndNameId = '<saml:Issuer>https://sp</saml:Issuer><saml:NameID>jo@example.com</saml:NameID>';
+  const signatureWith = (certificate: string) =>
+    `<ds:Signature><ds:SignedInfo/><ds:KeyInfo><ds:X509Data>${certificate}</ds:X509Data></ds:KeyInfo></ds:Signature>`;
+
+  it('rejects a document whose root is not LogoutRequest', async function () {
+    await assert.rejects(parseLogoutRequest('<LogoutResponse ID="_1"/>'), {
+      message: 'Invalid SAML LogoutRequest: missing LogoutRequest element.',
+    });
+  });
+
+  it('returns the certificate embedded in the Signature', async function () {
+    const parsed = await parseLogoutRequest(
+      wrap(issuerAndNameId + signatureWith('<ds:X509Certificate>MIIC</ds:X509Certificate>'))
+    );
+    assert.strictEqual(parsed.publicKey, 'MIIC');
+  });
+
+  it('returns the text of a certificate element that carries attributes', async function () {
+    const parsed = await parseLogoutRequest(
+      wrap(issuerAndNameId + signatureWith('<ds:X509Certificate Id="c1">MIIC</ds:X509Certificate>'))
+    );
+    assert.strictEqual(parsed.publicKey, 'MIIC');
+  });
+
+  it('leaves publicKey undefined for a Signature without a certificate', async function () {
+    const parsed = await parseLogoutRequest(
+      wrap(`${issuerAndNameId}<ds:Signature><ds:SignedInfo/></ds:Signature>`)
+    );
+    assert.strictEqual(parsed.publicKey, undefined);
+  });
+
+  it('reads the optional fields and defaults the missing ones', async function () {
+    const parsed = await parseLogoutRequest(wrap(''));
+    assert.deepStrictEqual(parsed, {
+      id: '_logout-1',
+      issuer: '',
+      nameId: '',
+      sessionIndex: undefined,
+      destination: 'https://idp/slo',
+      issueInstant: '2026-01-01T00:00:00Z',
+      publicKey: undefined,
+      idToken: undefined,
+    });
+  });
+
+  it('ignores an Extensions Attribute that is not id_token', async function () {
+    const parsed = await parseLogoutRequest(
+      wrap(
+        issuerAndNameId +
+          '<samlp:Extensions><saml:Attribute Name="other"><saml:AttributeValue>x</saml:AttributeValue></saml:Attribute></samlp:Extensions>'
+      )
+    );
+    assert.strictEqual(parsed.idToken, undefined);
+  });
+});
+
+describe('logout round trips', function () {
+  it('createLogoutRequest output parses back to the same values', async function () {
+    const { id, xml } = createLogoutRequest({
+      nameId: 'jo@example.com',
+      providerName: 'https://sp',
+      sloUrl: 'https://idp/slo',
+    });
+    const parsed = await parseLogoutRequest(xml);
+    assert.strictEqual(parsed.id, id);
+    assert.strictEqual(parsed.issuer, 'https://sp');
+    assert.strictEqual(parsed.nameId, 'jo@example.com');
+    assert.strictEqual(parsed.destination, 'https://idp/slo');
+  });
+
+  it('createLogoutResponse output parses back to the same values', async function () {
+    const { id, xml } = createLogoutResponse({
+      requestId: '_logout-1',
+      issuer: 'https://idp',
+      destination: 'https://sp/slo',
+      status: 'urn:oasis:names:tc:SAML:2.0:status:Requester',
+    });
+    assert.deepStrictEqual(await parseLogoutResponse(xml), {
+      id,
+      issuer: 'https://idp',
+      status: 'urn:oasis:names:tc:SAML:2.0:status:Requester',
+      destination: 'https://sp/slo',
+      inResponseTo: '_logout-1',
+    });
+  });
+});
