@@ -358,3 +358,34 @@ describe('saml20 time windows, recipients and expiry edges', function () {
     });
   });
 });
+
+describe('saml20.parse audience fields', function () {
+  const parseWith = (Conditions: unknown) => saml20.parse({ Conditions });
+  const sp = 'https://sp.example.com/metadata';
+
+  it('returns a single Audience as a string', function () {
+    const profile = parseWith({ AudienceRestriction: { Audience: { _: ` ${sp} ` } } });
+    assert.strictEqual(profile.audience, sp);
+    assert.deepStrictEqual(profile.audiences, [sp]);
+  });
+
+  it('returns the first of several Audience values as audience, never an array', function () {
+    const profile = parseWith({ AudienceRestriction: { Audience: ['https://a', sp] } });
+    assert.strictEqual(profile.audience, 'https://a');
+    assert.deepStrictEqual(profile.audiences, ['https://a', sp]);
+  });
+
+  it('reads every AudienceRestriction', function () {
+    const profile = parseWith({ AudienceRestriction: [{ Audience: sp }, { Audience: ['https://b', sp] }] });
+    assert.strictEqual(profile.audience, sp);
+    assert.deepStrictEqual(profile.audiences, [sp, 'https://b', sp]);
+  });
+
+  it('has no audience when the assertion names none', function () {
+    for (const Conditions of [undefined, {}, { AudienceRestriction: {} }, { AudienceRestriction: '' }]) {
+      const profile = parseWith(Conditions);
+      assert.strictEqual(profile.audience, undefined);
+      assert.deepStrictEqual(profile.audiences, []);
+    }
+  });
+});
