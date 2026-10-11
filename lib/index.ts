@@ -59,6 +59,8 @@ export default {
   createLogoutResponse,
 };
 
+export type { SAMLProfile, SAMLReq, AssertionReplayInfo, ValidateOptions } from './typings';
+
 export type {
   ParsedLogoutResponse,
   LogoutRequestParams,

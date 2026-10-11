@@ -1,4 +1,4 @@
-import { SAMLProfile } from './typings';
+import type { SAMLProfile, ValidateOptions } from './typings';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import crypto from 'crypto';
@@ -71,7 +71,7 @@ const parseIssuer = (rawAssertion) => {
   }
 };
 
-const validate = async (rawAssertion: string, options): Promise<SAMLProfile> => {
+const validate = async (rawAssertion: string, options: ValidateOptions): Promise<SAMLProfile> => {
   const originalAssertion = rawAssertion;
   if (!rawAssertion) {
     throw new Error('rawAssertion is required.');
@@ -154,7 +154,11 @@ const validate = async (rawAssertion: string, options): Promise<SAMLProfile> => 
 // Verify the signature; a thrown verification error becomes "Invalid
 // assertion." with the cause in `inner`. Returns the signed XML, or null when
 // the signature does not verify.
-const checkSignature = (xml: string, options, signatureOptions: ValidateSignatureOptions): string | null => {
+const checkSignature = (
+  xml: string,
+  options: ValidateOptions,
+  signatureOptions: ValidateSignatureOptions
+): string | null => {
   try {
     return validateSignature(xml, options.publicKey, options.thumbprint, signatureOptions);
   } catch (e) {
@@ -166,7 +170,11 @@ const checkSignature = (xml: string, options, signatureOptions: ValidateSignatur
 
 // The checks on a signed assertion, in order. Returns the error to reject
 // with, or undefined when every check passes.
-const checkAssertion = async (assertion, tokenHandler, options): Promise<Error | undefined> => {
+const checkAssertion = async (
+  assertion,
+  tokenHandler,
+  options: ValidateOptions
+): Promise<Error | undefined> => {
   if (!options.bypassExpiration && !tokenHandler.validateExpiration(assertion)) {
     return new Error('Assertion is expired.');
   }

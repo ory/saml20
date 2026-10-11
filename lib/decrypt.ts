@@ -2,7 +2,9 @@ import { select } from 'xpath';
 import * as xmlenc from 'xml-encryption';
 import { parseFromString, WrapError } from './utils';
 
-const assertion = (xml: Document, encryptedAssertions: Node[], options) => {
+type DecryptOptions = { privateKey?: string };
+
+const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptOptions) => {
   if (!Array.isArray(encryptedAssertions)) {
     throw new Error('Undefined Encrypted Assertion.');
   }
@@ -19,7 +21,9 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options) => {
   let called = false;
   xmlenc.decrypt(
     encryptedAssertions[0].toString(),
-    { key: options.privateKey, disallowDecryptionWithInsecureAlgorithm: false },
+    // A missing key is passed through on purpose: xml-encryption rejects it
+    // with "key option is mandatory ...", which becomes the WrapError's inner.
+    { key: options.privateKey as string, disallowDecryptionWithInsecureAlgorithm: false },
     (err, res) => {
       called = true;
       decryptError = err;
@@ -46,7 +50,10 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options) => {
 
   return { assertion: xml.toString(), decrypted: true };
 };
-const decryptXml = (entireXML: string, options): { assertion: string; decrypted: boolean } => {
+const decryptXml = (
+  entireXML: string,
+  options: DecryptOptions
+): { assertion: string; decrypted: boolean } => {
   if (!entireXML) {
     throw new Error('Undefined Assertion.');
   }
