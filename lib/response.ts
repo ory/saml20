@@ -34,10 +34,6 @@ const nameFormatUri = [
   'urn:mace:dir:attribute-def:jpegPhoto',
 ];
 
-const tokenHandlers = {
-  '2.0': saml20,
-};
-
 /**
  * Parses a SAML Response or Assertion into a profile WITHOUT checking its
  * signature, expiry, audience or anything else. Its output can be forged by
@@ -59,8 +55,8 @@ const parse = async (rawAssertion: string): Promise<SAMLProfile> => {
     throw statusError;
   }
 
-  const { assertion, tokenHandler } = parseResponseAndVersion(assertionObj);
-  return parseAttributes(assertion, tokenHandler);
+  const { assertion } = parseResponseAndVersion(assertionObj);
+  return parseAttributes(assertion);
 };
 
 const parseIssuer = (rawAssertion) => {
@@ -141,13 +137,13 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
 
   const assertionObj = await xmlToJs(decryptedSignedXml); // this is our assertion object
 
-  const { assertion, tokenHandler } = parseResponseAndVersion(assertionObj);
+  const { assertion } = parseResponseAndVersion(assertionObj);
 
   // checkAssertion returns the error for an assertion that fails a check.
   // Anything it throws is unexpected and is wrapped instead.
   let failure: Error | undefined;
   try {
-    failure = await checkAssertion(assertion, tokenHandler, options);
+    failure = await checkAssertion(assertion, options);
   } catch (e) {
     const error = new WrapError('An error occurred trying to validate the assertion.');
     error.inner = e;
@@ -157,7 +153,7 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     throw failure;
   }
 
-  return parseAttributes(assertion, tokenHandler);
+  return parseAttributes(assertion);
 };
 
 // Verify the signature; a thrown verification error becomes "Invalid
@@ -179,18 +175,14 @@ const checkSignature = (
 
 // The checks on a signed assertion, in order. Returns the error to reject
 // with, or undefined when every check passes.
-const checkAssertion = async (
-  assertion,
-  tokenHandler,
-  options: ValidateOptions
-): Promise<Error | undefined> => {
-  if (!options.bypassExpiration && !tokenHandler.validateExpiration(assertion)) {
+const checkAssertion = async (assertion, options: ValidateOptions): Promise<Error | undefined> => {
+  if (!options.bypassExpiration && !saml20.validateExpiration(assertion)) {
     return new Error('Assertion is expired.');
   }
 
   if (
     options.audience &&
-    !tokenHandler.validateAudience(assertion, options.audience, options.strictAudienceValidation)
+    !saml20.validateAudience(assertion, options.audience, options.strictAudienceValidation)
   ) {
     return new Error('Invalid audience.');
   }
@@ -212,7 +204,7 @@ const checkAssertion = async (
   // editing its Destination cannot satisfy the check.
   if (
     options.recipient &&
-    !tokenHandler.validateRecipient(assertion, assertion.signedDestination, options.recipient, {
+    !saml20.validateRecipient(assertion, assertion.signedDestination, options.recipient, {
       bypassExpiration: options.bypassExpiration,
     })
   ) {
@@ -227,12 +219,12 @@ const checkAssertion = async (
     let alreadyUsed: boolean;
     try {
       alreadyUsed = await options.assertionReplayValidator({
-        assertionId: tokenHandler.getAssertionId(assertion),
+        assertionId: saml20.getAssertionId(assertion),
         sessionIndex: assertion.AuthnStatement?.['@']?.SessionIndex,
         // Effective expiry (Conditions or the latest bearer confirmation), so
         // the caller can size the replay-cache TTL to cover the whole window
         // an assertion can still validate.
-        notOnOrAfter: tokenHandler.getNotOnOrAfter(assertion),
+        notOnOrAfter: saml20.getNotOnOrAfter(assertion),
         inResponseTo: assertion.inResponseTo,
       });
     } catch (e) {
@@ -307,26 +299,21 @@ function parseResponseAndVersion(assertionObj) {
     throw new Error('SAML Assertion version not supported.');
   }
 
-  const tokenHandler = tokenHandlers[version];
-
   // Derive InResponseTo only from signed content so it cannot be forged by
   // tampering with the unsigned <Response> wrapper. When the whole Response is
   // signed, `assertionObj` is the Response subtree and Response/@InResponseTo is
   // trustworthy. In the common assertion-only-signed case, fall back to the
   // bearer SubjectConfirmationData/@InResponseTo, which is inside the signed
   // assertion. The outer `responseObj` wrapper is never trusted here.
-  const signedResponseInResponseTo = assertionObj.Response
-    ? tokenHandler.getInResponseTo(assertionObj)
-    : undefined;
-  assertion.inResponseTo =
-    signedResponseInResponseTo || tokenHandler.getSubjectConfirmationInResponseTo(assertion);
+  const signedResponseInResponseTo = assertionObj.Response ? saml20.getInResponseTo(assertionObj) : undefined;
+  assertion.inResponseTo = signedResponseInResponseTo || saml20.getSubjectConfirmationInResponseTo(assertion);
 
   // Same rule for where the message was addressed: Response/@Destination is
   // only used when the whole Response is signed. The bearer Recipients are read
   // from the signed assertion by validateRecipient.
-  assertion.signedDestination = assertionObj.Response ? tokenHandler.getDestination(assertionObj) : undefined;
+  assertion.signedDestination = assertionObj.Response ? saml20.getDestination(assertionObj) : undefined;
 
-  return { assertion, tokenHandler };
+  return { assertion };
 }
 
 function flattenObject(obj) {
@@ -343,9 +330,9 @@ function flattenObject(obj) {
   return obj;
 }
 
-function parseAttributes(assertion, tokenHandler): SAMLProfile {
+function parseAttributes(assertion): SAMLProfile {
   try {
-    return tokenHandler.parse(assertion);
+    return saml20.parse(assertion);
   } catch (e) {
     const error = new WrapError('An error occurred trying to parse assertion.');
     error.inner = e;
