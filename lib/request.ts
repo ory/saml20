@@ -129,8 +129,10 @@ const decodeBase64 = async (string: string, isDeflated: boolean, options: Decode
 const parseSAMLRequest = async (rawRequest: string, isPost = true) => {
   const result = await parseXML(rawRequest);
 
+  // xml2js yields '' for an AuthnRequest with no attributes and no children.
+  // The element is there, so report what is missing from it instead.
   const authnRequest = result?.['AuthnRequest'];
-  if (!authnRequest) {
+  if (authnRequest === undefined || authnRequest === null) {
     throw new Error('Invalid SAML Request: missing AuthnRequest element.');
   }
 

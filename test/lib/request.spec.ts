@@ -259,3 +259,14 @@ describe('parseSAMLRequest invalid input', function () {
     await assert.rejects(parseSAMLRequest('<a><b></a>', false), /Unexpected close tag/);
   });
 });
+
+describe('parseSAMLRequest on an empty AuthnRequest element', function () {
+  it('reports the missing Issuer rather than a missing AuthnRequest', async function () {
+    for (const xml of [
+      '<AuthnRequest/>',
+      '<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"/>',
+    ]) {
+      await assert.rejects(parseSAMLRequest(xml, false), { message: "Missing 'Issuer' in SAML Request." });
+    }
+  });
+});
