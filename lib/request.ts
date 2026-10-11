@@ -92,27 +92,13 @@ const request = ({
 };
 
 // Parse XML
-const parseXML = (xml: string): Promise<Record<string, any>> => {
-  return new Promise((resolve, reject) => {
-    if (containsDoctype(xml)) {
-      reject(doctypeNotAllowedError);
-      return;
-    }
-    xml2js.parseString(
-      xml,
-      {
-        tagNameProcessors: [xml2js.processors.stripPrefix],
-        strict: true,
-      },
-      (err: Error | null, result: any) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-
-        resolve(result);
-      }
-    );
+const parseXML = async (xml: string): Promise<Record<string, any>> => {
+  if (containsDoctype(xml)) {
+    throw doctypeNotAllowedError;
+  }
+  return xml2js.parseStringPromise(xml, {
+    tagNameProcessors: [xml2js.processors.stripPrefix],
+    strict: true,
   });
 };
 
