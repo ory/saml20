@@ -671,6 +671,14 @@ describe('validate() audience checks on signed responses', function () {
   it('accepts an assertion that lists the SP among several audiences', async function () {
     const profile = await validate(signedWith([['https://other.example.com', SP]]), options);
     assert.strictEqual(profile.issuer, IDP);
+    assert.strictEqual(profile.audience, 'https://other.example.com');
+    assert.deepStrictEqual(profile.audiences, ['https://other.example.com', SP]);
+  });
+
+  it('returns the audience of an assertion with a single Audience', async function () {
+    const profile = await validate(signedWith([[SP]]), options);
+    assert.strictEqual(profile.audience, SP);
+    assert.deepStrictEqual(profile.audiences, [SP]);
   });
 
   it('rejects an assertion whose audiences do not include the SP', async function () {
@@ -685,6 +693,8 @@ describe('validate() audience checks on signed responses', function () {
   it('requires every AudienceRestriction to name the SP', async function () {
     const profile = await validate(signedWith([[SP], ['https://other.example.com', SP]]), options);
     assert.strictEqual(profile.issuer, IDP);
+    assert.strictEqual(profile.audience, SP);
+    assert.deepStrictEqual(profile.audiences, [SP, 'https://other.example.com', SP]);
     await assert.rejects(validate(signedWith([[SP], ['https://other.example.com']]), options), {
       message: 'Invalid audience.',
     });
