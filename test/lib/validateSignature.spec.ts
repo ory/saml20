@@ -603,6 +603,35 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
     }
   });
 
+  it('counts References in linear time', function () {
+    // The count used to be an XPath query that was quadratic in the number of
+    // References: about 14 s for 4000 of them, enough for one POST to pin a
+    // CPU. Walking the DOM rejects the same document in a fraction of a
+    // second; the bound below leaves a wide margin for slow CI machines.
+    this.timeout(20000);
+    const inflated = withReferences(4000);
+    const started = Date.now();
+    assert.throws(
+      () => validateSignature(inflated, publicKey, null),
+      /SignedInfo declares 4000 References; at most 16 are allowed/
+    );
+    const elapsed = Date.now() - started;
+    assert(elapsed < 3000, `rejecting 4000 References took ${elapsed} ms`);
+  });
+
+  it('counts References only directly under SignedInfo', function () {
+    // References inside an unsigned ds:Object/Manifest are never processed by
+    // xml-crypto, so they must not count toward the ceiling either.
+    const signed = generateXML();
+    const reference = signed.match(/<(?:[\w.-]+:)?Reference\b[\s\S]*?<\/(?:[\w.-]+:)?Reference>/)![0];
+    const withManifest = signed.replace(
+      /(<\/(?:[\w.-]+:)?SignatureValue>)/,
+      `$1<Object xmlns="http://www.w3.org/2000/09/xmldsig#"><Manifest>${reference.repeat(50)}</Manifest></Object>`
+    );
+    assert.notStrictEqual(withManifest, signed);
+    assert(validateSignature(withManifest, publicKey, null, { maxSignatureReferences: 1 }));
+  });
+
   it('applies the ceiling in the multi-certificate path too', function () {
     const spy = spyCanon();
     try {

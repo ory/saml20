@@ -126,6 +126,30 @@ const assertAllowedAlgorithms = (signed: SignedXml, signature, options?: Validat
   }
 };
 
+const ELEMENT_NODE = 1;
+
+const childElements = (node: Node, localName: string): Element[] => {
+  const matches: Element[] = [];
+  for (let child = node.firstChild; child; child = child.nextSibling) {
+    if (child.nodeType === ELEMENT_NODE && (child as Element).localName === localName) {
+      matches.push(child as Element);
+    }
+  }
+  return matches;
+};
+
+// Count the Reference children of the signature's SignedInfo children by
+// walking the DOM. Equivalent to the XPath
+// "./*[local-name(.)='SignedInfo']/*[local-name(.)='Reference']", but linear:
+// that XPath takes quadratic time in the number of References in the xpath
+// library (about 14 s for 4000), which turned this guard into the very
+// CPU cost it exists to prevent.
+const countSignedInfoReferences = (signature: Node): number =>
+  childElements(signature, 'SignedInfo').reduce(
+    (total, signedInfo) => total + childElements(signedInfo, 'Reference').length,
+    0
+  );
+
 // Refuse a signature whose SignedInfo lists more References than the ceiling.
 // Runs before loadSignature/checkSignature, so it costs one XPath count and
 // nothing gets canonicalized. Only SignedInfo's direct Reference children are
@@ -142,8 +166,7 @@ const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) 
   if (typeof max !== 'number' || !Number.isInteger(max) || max < 0) {
     throw new TypeError(`maxSignatureReferences must be a non-negative integer, got ${String(max)}`);
   }
-  const references = select("./*[local-name(.)='SignedInfo']/*[local-name(.)='Reference']", signature);
-  const count = Array.isArray(references) ? references.length : 0;
+  const count = countSignedInfoReferences(signature);
   if (count > max) {
     throw new Error(`invalid signature: SignedInfo declares ${count} References; at most ${max} are allowed`);
   }
