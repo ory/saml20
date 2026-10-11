@@ -1,13 +1,10 @@
 import { getAttribute, thumbprint, containsDoctype, doctypeNotAllowedError } from './utils';
-import { stripCertHeaderAndFooter } from './cert';
+import { ensurePemArmor, stripCertHeaderAndFooter } from './cert';
 
 import crypto from 'crypto';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import { METADATA_NS, PROTOCOL_NS, XMLDSIG_NS } from './constants';
-
-const BEGIN = '-----BEGIN CERTIFICATE-----';
-const END = '-----END CERTIFICATE-----';
 
 const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<string, any>> => {
   // Some Providers do not escape the & character in the metadata, for now these have been encountered in errorURL
@@ -109,34 +106,7 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
   const validTos: string[] = [];
   for (const X509Certificate of X509Certificates) {
     tPrints.push(thumbprint(X509Certificate));
-    /**
-     * new crypto.X509Certificate fails with the X509Certificate cert without
-     * -----BEGIN CERTIFICATE-----
-     * and
-     * -----END CERTIFICATE-----
-     */
-    if (X509Certificate.indexOf(BEGIN) != -1 && X509Certificate.indexOf(END) != -1) {
-      const { validTo } = new crypto.X509Certificate(X509Certificate.trim());
-      validTos.push(validTo);
-    } else if (X509Certificate.indexOf(BEGIN) == -1 && X509Certificate.indexOf(END) != -1) {
-      /**
-       * Prefixing -----BEGIN CERTIFICATE-----
-       */
-      const { validTo } = new crypto.X509Certificate(`${BEGIN}\n${X509Certificate.trim()}`);
-      validTos.push(validTo);
-    } else if (X509Certificate.indexOf(BEGIN) != -1 && X509Certificate.indexOf(END) == -1) {
-      /**
-       * Suffixing -----END CERTIFICATE-----
-       */
-      const { validTo } = new crypto.X509Certificate(`${X509Certificate.trim()}\n${END}`);
-      validTos.push(validTo);
-    } else {
-      /**
-       * Prefixing -----BEGIN CERTIFICATE----- and suffixing -----END CERTIFICATE-----
-       */
-      const { validTo } = new crypto.X509Certificate(`${BEGIN}\n${X509Certificate.trim()}\n${END}`);
-      validTos.push(validTo);
-    }
+    validTos.push(new crypto.X509Certificate(ensurePemArmor(X509Certificate)).validTo);
   }
 
   if (X509Certificates.length > 0) {

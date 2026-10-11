@@ -1,6 +1,7 @@
 import { SignedXml } from 'xml-crypto';
 import { select } from 'xpath';
 import { parseFromString, thumbprint } from './utils';
+import { certToPEM } from './cert';
 import { XMLDSIG_NS } from './constants';
 
 /**
@@ -47,17 +48,6 @@ export const DEFAULT_MAX_SIGNATURE_REFERENCES = 16;
 
 const isMultiCert = (cert) => {
   return cert.indexOf(',') !== -1;
-};
-
-const certToPEM = (cert) => {
-  if (cert.indexOf('BEGIN CERTIFICATE') === -1 && cert.indexOf('END CERTIFICATE') === -1) {
-    cert = cert.match(/.{1,64}/g).join('\n');
-    cert = '-----BEGIN CERTIFICATE-----\n' + cert;
-    cert = cert + '\n-----END CERTIFICATE-----\n';
-    return cert;
-  } else {
-    return cert;
-  }
 };
 
 // Keep only the entries of an xml-crypto algorithm registry that are named in
@@ -296,4 +286,5 @@ const sanitizeXML = (xml) => {
   return xml.replace(/&#x(d|D);/gi, '');
 };
 
+// certToPEM is re-exported for callers that import it from this module.
 export { hasValidSignature, validateSignature, certToPEM, sanitizeXML };
