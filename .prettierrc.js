@@ -9,7 +9,7 @@ module.exports = {
   arrowParens: 'always',
   overrides: [
     {
-      files: ['tsconfig.json', 'jsconfig.json'],
+      files: ['tsconfig.json', 'tsconfig.test.json', 'jsconfig.json'],
       options: {
         parser: 'jsonc',
       },

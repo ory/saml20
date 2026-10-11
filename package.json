@@ -31,6 +31,7 @@
     "build": "tsc -p tsconfig.json",
     "sort": "npx sort-package-json",
     "test": "nyc tsx node_modules/mocha/bin/mocha --check-leaks \"test/lib/**/*.spec.ts\"",
+    "typecheck": "tsc -p tsconfig.test.json",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prepublishOnly": "npm run build",

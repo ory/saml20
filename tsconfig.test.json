@@ -1,0 +1,13 @@
+{
+  // Type-checks the tests together with the library. tsconfig.json builds
+  // dist/ from lib/ only, so on its own it never looks at test/.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+    // TypeScript 6 no longer loads every @types package by default.
+    "types": ["mocha", "node"],
+  },
+  "include": ["./lib/**/*", "./test/**/*"],
+  "exclude": ["node_modules"],
+}
