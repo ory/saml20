@@ -85,6 +85,12 @@ const parseFromString = (xmlString: string) => {
       throw new Error('Invalid XML.');
     }
 
+    // Defence in depth: with the current @xmldom/xmldom, a second root element
+    // or a missing root is already rejected while parsing (and a DOCTYPE by
+    // containsDoctype), so neither these root-count checks nor the parsed
+    // `doctype` check above fire today. They stay so that a parser change
+    // cannot quietly let such a document through: multiple roots are a
+    // signature-wrapping vector.
     // @ts-expect-error missing Node properties are not needed
     const rootNodeCount = countRootNodes(xml);
     if (rootNodeCount > 1) {

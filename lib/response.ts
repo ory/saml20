@@ -7,15 +7,7 @@ import type { ValidateSignatureOptions } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
-import {
-  parseFromString,
-  isMultiRootedXMLError,
-  multiRootedXMLError,
-  containsDoctype,
-  doctypeNotAllowedError,
-  WrapError,
-  generateId,
-} from './utils';
+import { parseFromString, containsDoctype, doctypeNotAllowedError, WrapError, generateId } from './utils';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS, XML_SCHEMA_INSTANCE_NS, XML_SCHEMA_NS } from './constants';
 
@@ -98,14 +90,10 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     maxSignatureReferences: options.maxSignatureReferences,
   };
 
-  let decAssertion: boolean;
-  try {
-    const { assertion, decrypted } = decryptXml(rawAssertion, options);
-    rawAssertion = assertion;
-    decAssertion = decrypted;
-  } catch (err) {
-    throw isMultiRootedXMLError(err) ? multiRootedXMLError : err;
-  }
+  // decryptXml parses with parseFromString, which already reports any
+  // multi-rooted document as multiRootedXMLError.
+  const { assertion: decryptedResponse, decrypted: decAssertion } = decryptXml(rawAssertion, options);
+  rawAssertion = decryptedResponse;
 
   // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention
   const responseObj = await xmlToJs(rawAssertion);
