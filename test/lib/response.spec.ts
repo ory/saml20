@@ -1,7 +1,20 @@
 import assert from 'assert';
-import { parse, parseIssuer, validate, createSAMLResponse } from '../../lib/response';
+import { parse, parseIssuer, validate, createSAMLResponse, WrapError } from '../../lib/response';
 import { doctypeNotAllowedError } from '../../lib/utils';
 import fs from 'fs';
+import {
+  ACS,
+  IDP,
+  REQUEST_ID,
+  RESPONSE_XPATH,
+  SP,
+  buildAssertion,
+  buildResponse,
+  encryptAssertion,
+  signXml,
+  testIdpCert,
+  testIdpKey,
+} from '../helpers/fixtures';
 
 const rawResponse = fs.readFileSync('./test/assets/saml20.validResponseSignedMessage.xml').toString();
 const rawResponseAuthnFailed = fs
@@ -567,4 +580,84 @@ it('Should create a SAML response with custom ttlInMinutes', async function () {
   // The difference should be exactly ttlInMinutes
   const diffInMinutes = (notOnOrAfter.getTime() - notBefore.getTime()) / (1000 * 60);
   assert.strictEqual(diffInMinutes, ttlInMinutes + 5); // Adding 5 minutes for clock skew tolerance
+});
+
+describe('validate() with an assertion encrypted before the Response was signed', function () {
+  // Some IdPs (OpenAthens, for one) sign the Response over the
+  // <EncryptedAssertion>, so the signature only verifies against the original,
+  // still-encrypted document. validate() falls back to that check.
+  let signedEncrypted: string;
+
+  before(async function () {
+    signedEncrypted = signXml(buildResponse(await encryptAssertion(buildAssertion())), RESPONSE_XPATH);
+  });
+
+  const options = (extra: Record<string, unknown> = {}) => ({
+    privateKey: testIdpKey,
+    publicKey: testIdpCert,
+    audience: SP,
+    inResponseTo: REQUEST_ID,
+    recipient: ACS,
+    ...extra,
+  });
+
+  it('accepts it and returns the decrypted profile', async function () {
+    const profile = await validate(signedEncrypted, options());
+    assert.strictEqual(profile.issuer, IDP);
+    assert.strictEqual(profile.audience, SP);
+    assert.strictEqual(profile.sessionIndex, '_session-1');
+    assert.strictEqual(profile.assertionId, '_assertion-1');
+    assert.strictEqual(
+      profile.claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'],
+      'jo@example.com'
+    );
+  });
+
+  it('rejects it when the signed Response was tampered with', async function () {
+    const tampered = signedEncrypted.replace(
+      `Destination="${ACS}"`,
+      'Destination="https://evil.example.com/acs"'
+    );
+    assert.notStrictEqual(tampered, signedEncrypted);
+    await assert.rejects(validate(tampered, options()), { message: 'Invalid assertion signature.' });
+  });
+
+  it('rejects it when the signing certificate is not trusted', async function () {
+    await assert.rejects(validate(signedEncrypted, options({ publicKey: certificate })), /Invalid assertion/);
+  });
+
+  it('rejects it when no decryption key is supplied', async function () {
+    await assert.rejects(validate(signedEncrypted, options({ privateKey: undefined })), {
+      message: 'Exception of Assertion Decryption.',
+    });
+  });
+});
+
+describe('parse() edge cases', function () {
+  it('rejects a Response without an Assertion', async function () {
+    await assert.rejects(parse(buildResponse('')), { message: 'Invalid assertion.' });
+  });
+
+  it('uses the first Assertion when a Response carries several', async function () {
+    const response = buildResponse(buildAssertion({ id: '_first' }) + buildAssertion({ id: '_second' }));
+    const profile = await parse(response);
+    assert.strictEqual(profile.assertionId, '_first');
+  });
+
+  it('wraps a failure while reading attributes', async function () {
+    // An <Attribute> without a Name has no attributes at all, so reading its
+    // Name throws inside the claims parser.
+    const response = buildResponse(
+      buildAssertion({
+        attributes:
+          '<saml:AttributeStatement><saml:Attribute><saml:AttributeValue>x</saml:AttributeValue></saml:Attribute></saml:AttributeStatement>',
+      })
+    );
+    await assert.rejects(parse(response), (error: WrapError) => {
+      assert(error instanceof WrapError);
+      assert.strictEqual(error.message, 'An error occurred trying to parse assertion.');
+      assert(error.inner instanceof Error);
+      return true;
+    });
+  });
 });
