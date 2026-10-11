@@ -62,7 +62,6 @@
     "nyc": "18.0.0",
     "prettier": "3.9.9",
     "release-it": "21.1.0",
-    "tsconfig-paths": "4.2.0",
     "tsx": "4.23.15",
     "typescript": "6.0.3"
   },
@@ -71,6 +70,5 @@
       "undici": ">=6.24.0"
     },
     "unicorn-magic": "0.2.0"
-  },
-  "readmeFilename": "README.md"
+  }
 }
