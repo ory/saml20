@@ -11,7 +11,7 @@ function PubKeyInfo(pubKey: string) {
   return function ({ prefix }) {
     prefix = prefix || '';
     prefix = prefix ? prefix + ':' : prefix;
-    return `<${prefix}X509Data><${prefix}X509Certificate>${pubKeyTrimmed}</${prefix}X509Certificate</${prefix}X509Data>`;
+    return `<${prefix}X509Data><${prefix}X509Certificate>${pubKeyTrimmed}</${prefix}X509Certificate></${prefix}X509Data>`;
   };
 }
 
