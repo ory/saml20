@@ -29,6 +29,16 @@ const assertHttpUrl = (postUrl: string) => {
 
 const createPostForm = (postUrl: string, params: { name: string; value: string }[]) => {
   assertHttpUrl(postUrl);
+  let action: string;
+  try {
+    action = encodeURI(postUrl);
+  } catch {
+    throw new Error('Invalid postUrl: not a valid URL.');
+  }
+  // The browser reads the action after HTML decoding, which turns character
+  // references such as `&#58;` into `:`. Escaping makes it decode back to
+  // exactly `action`, so the URL checked here is the URL the form submits to.
+  assertHttpUrl(action);
 
   const parr = (params || []).map(({ name, value }) => {
     return `<input type="hidden" name="${escapeHtml(name)}" value="${escapeHtml(value)}"/>`;
@@ -45,7 +55,7 @@ const createPostForm = (postUrl: string, params: { name: string; value: string }
     '<noscript>',
     '<p>Note: Since your browser does not support JavaScript, you must press the Continue button once to proceed.</p>',
     '</noscript>',
-    `<form method="post" action="${encodeURI(postUrl)}">`,
+    `<form method="post" action="${escapeHtml(action)}">`,
   ]
     .concat(...parr)
     .concat(
