@@ -6,7 +6,32 @@ import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import { METADATA_NS, PROTOCOL_NS, XMLDSIG_NS } from './constants';
 
-const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<string, any>> => {
+type ParseMetadataOptions = {
+  // Reject the metadata unless every SSO descriptor lists this NameIDFormat.
+  validateNameIDFormat?: string;
+};
+
+type MetadataEndpoints = { postUrl?: string; redirectUrl?: string };
+
+type ParsedMetadata = {
+  // HTTP-POST and HTTP-Redirect SingleSignOnService (or, for SP metadata,
+  // AssertionConsumerService) locations.
+  sso: MetadataEndpoints;
+  slo: MetadataEndpoints;
+  entityID?: string;
+  // Signing certificates, comma-separated, with their SHA-1 thumbprints and
+  // expiry dates in the same order.
+  publicKey?: string;
+  thumbprint?: string;
+  validTo?: string;
+  // 'idp' for an IDPSSODescriptor, 'sp' for an SPSSODescriptor.
+  loginType: 'idp' | 'sp';
+};
+
+const parseMetadata = async (
+  idpMeta: string,
+  validateOpts: ParseMetadataOptions = {}
+): Promise<ParsedMetadata> => {
   // Some Providers do not escape the & character in the metadata, for now these have been encountered in errorURL
   idpMeta = idpMeta.replace(/errorURL=".*?"/g, '');
   if (containsDoctype(idpMeta)) {
@@ -16,14 +41,14 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
     tagNameProcessors: [xml2js.processors.stripPrefix],
     strict: true,
   });
-  const entityID = getAttribute(res, 'EntityDescriptor.$.entityID');
+  const entityID = getAttribute<string | undefined>(res, 'EntityDescriptor.$.entityID');
   let X509Certificates: string[] = [];
   const X509CertificatesWithoutSigningAttr: string[] = [];
-  let ssoPostUrl: null | undefined = null;
-  let ssoRedirectUrl: null | undefined = null;
-  let loginType = 'idp';
-  let sloRedirectUrl: null | undefined = null;
-  let sloPostUrl: null | undefined = null;
+  let ssoPostUrl: string | undefined;
+  let ssoRedirectUrl: string | undefined;
+  let loginType: ParsedMetadata['loginType'] = 'idp';
+  let sloRedirectUrl: string | undefined;
+  let sloPostUrl: string | undefined;
 
   let ssoDes: any = getAttribute(res, 'EntityDescriptor.IDPSSODescriptor', null);
   if (!ssoDes) {
@@ -53,18 +78,18 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
     const ssoSvc = ssoDesRec['SingleSignOnService'] || ssoDesRec['AssertionConsumerService'] || [];
     for (const ssoSvcRec of ssoSvc) {
       if (getAttribute(ssoSvcRec, '$.Binding', '').endsWith('HTTP-POST')) {
-        ssoPostUrl = getAttribute(ssoSvcRec, '$.Location');
+        ssoPostUrl = getAttribute<string>(ssoSvcRec, '$.Location');
       } else if (getAttribute(ssoSvcRec, '$.Binding', '').endsWith('HTTP-Redirect')) {
-        ssoRedirectUrl = getAttribute(ssoSvcRec, '$.Location');
+        ssoRedirectUrl = getAttribute<string>(ssoSvcRec, '$.Location');
       }
     }
 
     const sloSvc = ssoDesRec['SingleLogoutService'] || [];
     for (const sloSvcRec of sloSvc) {
       if (getAttribute(sloSvcRec, '$.Binding', '').endsWith('HTTP-Redirect')) {
-        sloRedirectUrl = getAttribute(sloSvcRec, '$.Location');
+        sloRedirectUrl = getAttribute<string>(sloSvcRec, '$.Location');
       } else if (getAttribute(sloSvcRec, '$.Binding', '').endsWith('HTTP-POST')) {
-        sloPostUrl = getAttribute(sloSvcRec, '$.Location');
+        sloPostUrl = getAttribute<string>(sloSvcRec, '$.Location');
       }
     }
 
@@ -93,10 +118,11 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
     }
   }
 
-  const ret: Record<string, any> = {
+  // Built field by field so that only the fields that were found are set.
+  const ret = {
     sso: {},
     slo: {},
-  };
+  } as ParsedMetadata;
 
   if (entityID) {
     ret.entityID = entityID;
@@ -284,3 +310,4 @@ const createSPMetadataXML = ({
 };
 
 export { parseMetadata, createIdPMetadataXML, createSPMetadataXML };
+export type { ParseMetadataOptions, ParsedMetadata, MetadataEndpoints };

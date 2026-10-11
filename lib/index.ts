@@ -58,6 +58,7 @@ export default {
 };
 
 export type { SAMLProfile, SAMLReq, AssertionReplayInfo, ValidateOptions } from './typings';
+export type { ParseMetadataOptions, ParsedMetadata, MetadataEndpoints } from './metadata';
 
 export type {
   ParsedLogoutResponse,
