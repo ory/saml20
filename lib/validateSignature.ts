@@ -159,11 +159,6 @@ const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) 
   }
 };
 
-// Breaking Change: hasValidSignature now returns:
-// if signature is valid: the raw signed xml string
-// if signature is invalid: throws error or returns null
-// clients are to use the resultant raw xml string to parse their SAML Assertion
-// should be internal
 const hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string | null => {
   xml = sanitizeXML(xml);
   return _hasValidSignature(xml, cert, certThumbprint, options);
@@ -287,4 +282,4 @@ const sanitizeXML = (xml) => {
 };
 
 // certToPEM is re-exported for callers that import it from this module.
-export { hasValidSignature, validateSignature, certToPEM, sanitizeXML };
+export { validateSignature, certToPEM, sanitizeXML };
