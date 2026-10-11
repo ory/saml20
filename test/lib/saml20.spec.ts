@@ -188,3 +188,49 @@ describe('saml20.ts', function () {
     assert.strictEqual(claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname'], 'Doe');
   });
 });
+
+describe('validateAudience with several Audience values', function () {
+  const sp = 'https://sp.example.com/metadata';
+  const withAudiences = (...restrictions: unknown[]) => ({
+    Conditions: { AudienceRestriction: restrictions },
+  });
+
+  it('accepts when any Audience in an AudienceRestriction matches', function () {
+    const assertion = {
+      Conditions: { AudienceRestriction: { Audience: [{ _: 'https://other' }, { _: sp }] } },
+    };
+    assert.strictEqual(saml20.validateAudience(assertion, sp, true), true);
+    assert.strictEqual(saml20.validateAudience(assertion, sp, false), true);
+  });
+
+  it('accepts several plain-string Audience values', function () {
+    const assertion = { Conditions: { AudienceRestriction: { Audience: ['https://other', sp] } } };
+    assert.strictEqual(saml20.validateAudience(assertion, sp, true), true);
+  });
+
+  it('rejects when no Audience in the AudienceRestriction matches', function () {
+    const assertion = { Conditions: { AudienceRestriction: { Audience: ['https://a', 'https://b'] } } };
+    assert.strictEqual(saml20.validateAudience(assertion, sp, true), false);
+  });
+
+  it('requires every AudienceRestriction to be satisfied', function () {
+    assert.strictEqual(
+      saml20.validateAudience(withAudiences({ Audience: sp }, { Audience: ['https://x', sp] }), sp, true),
+      true
+    );
+    assert.strictEqual(
+      saml20.validateAudience(withAudiences({ Audience: sp }, { Audience: 'https://x' }), sp, true),
+      false
+    );
+  });
+
+  it('matches against any of several expected audiences', function () {
+    const assertion = { Conditions: { AudienceRestriction: { Audience: ['https://a', sp] } } };
+    assert.strictEqual(saml20.validateAudience(assertion, ['https://z', sp], true), true);
+    assert.strictEqual(saml20.validateAudience(assertion, ['https://z'], true), false);
+  });
+
+  it('rejects an AudienceRestriction with no Audience', function () {
+    assert.strictEqual(saml20.validateAudience(withAudiences({}), sp, true), false);
+  });
+});

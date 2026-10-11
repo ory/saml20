@@ -107,6 +107,10 @@ const parse = (assertion) => {
 };
 
 const audienceCheck = (audience, expectedAudience, strictValidation) => {
+  if (typeof audience !== 'string' || typeof expectedAudience !== 'string') {
+    return false;
+  }
+
   if (strictValidation) {
     return audience === expectedAudience;
   }
@@ -114,24 +118,34 @@ const audienceCheck = (audience, expectedAudience, strictValidation) => {
   return audience.startsWith(expectedAudience);
 };
 
+const toArray = <T>(value: T | T[] | undefined | null): T[] => {
+  if (value === undefined || value === null) {
+    return [];
+  }
+  return Array.isArray(value) ? value : [value];
+};
+
+// SAML core 2.5.1.4: an assertion may carry several <AudienceRestriction>
+// elements, and each must be satisfied; within one <AudienceRestriction> the
+// <Audience> values are alternatives, so any one of them may name the relying
+// party. `realm` is the relying party's own identifier, or a list of them.
 const validateAudience = (assertion, realm, strictValidation = false) => {
-  const audience = getProp(assertion, 'Conditions.AudienceRestriction.Audience');
-  if (audience) {
-    try {
-      if (Array.isArray(realm)) {
-        for (let i = 0; i < realm.length; i++) {
-          if (audienceCheck(audience, realm[i], strictValidation)) {
-            return true;
-          }
-        }
-        return false;
-      }
-      return audienceCheck(audience, realm, strictValidation);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (err) {
+  try {
+    const expected = toArray(realm);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const restrictions = toArray<any>(getAttribute<any>(assertion, 'Conditions.AudienceRestriction'));
+    if (restrictions.length === 0 || expected.length === 0) {
       return false;
     }
-  } else {
+
+    return restrictions.every((restriction) => {
+      const audiences = toArray(getAttribute(restriction, 'Audience')).map((audience) => getProp(audience));
+      return audiences.some((audience) =>
+        expected.some((expectedAudience) => audienceCheck(audience, expectedAudience, strictValidation))
+      );
+    });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (err) {
     return false;
   }
 };
