@@ -152,10 +152,16 @@ const validateAudience = (assertion, realm, strictValidation = false) => {
 
 const clockSkewMs = 10 * 60 * 1000; // 10 minutes clock skew.
 
-// Collect every SubjectConfirmationData element across all SubjectConfirmation
-// entries. Bearer assertions carry their expiration here rather than (or in
-// addition to) Conditions.
-const getSubjectConfirmationData = (assertion): Record<string, unknown>[] => {
+const BEARER_METHOD = 'urn:oasis:names:tc:SAML:2.0:cm:bearer';
+
+// Collect the SubjectConfirmationData elements across the SubjectConfirmation
+// entries: all of them, or with `bearerOnly` only those of bearer
+// confirmations. Bearer assertions carry their expiration here rather than
+// (or in addition to) Conditions.
+const getSubjectConfirmationData = (
+  assertion,
+  { bearerOnly = false }: { bearerOnly?: boolean } = {}
+): Record<string, unknown>[] => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let confirmations = getAttribute<any>(assertion, 'Subject.SubjectConfirmation');
   if (!confirmations) {
@@ -164,6 +170,9 @@ const getSubjectConfirmationData = (assertion): Record<string, unknown>[] => {
   confirmations = Array.isArray(confirmations) ? confirmations : [confirmations];
   const data: Record<string, unknown>[] = [];
   for (const confirmation of confirmations) {
+    if (bearerOnly && confirmation?.['@']?.Method !== BEARER_METHOD) {
+      continue;
+    }
     let scd = getAttribute<Record<string, unknown> | Record<string, unknown>[]>(
       confirmation,
       'SubjectConfirmationData'
@@ -260,37 +269,13 @@ const getDestination = (xml): string | undefined => {
   return getProp(xml, 'Response.@.Destination');
 };
 
-const BEARER_METHOD = 'urn:oasis:names:tc:SAML:2.0:cm:bearer';
-
-// SubjectConfirmationData of the bearer SubjectConfirmation elements only.
-// These live inside the <Assertion> and are covered by the assertion signature
-// even when the outer <Response> wrapper is not signed.
-const getBearerSubjectConfirmationData = (assertion): Record<string, string>[] => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let confirmations = getAttribute<any>(assertion, 'Subject.SubjectConfirmation');
-  if (!confirmations) {
-    return [];
-  }
-  confirmations = Array.isArray(confirmations) ? confirmations : [confirmations];
-  const data: Record<string, string>[] = [];
-  for (const confirmation of confirmations) {
-    if (confirmation?.['@']?.Method !== BEARER_METHOD) {
-      continue;
-    }
-    let scd = getAttribute<Record<string, unknown> | Record<string, unknown>[]>(
-      confirmation,
-      'SubjectConfirmationData'
-    );
-    if (!scd) {
-      continue;
-    }
-    scd = Array.isArray(scd) ? scd : [scd];
-    for (const item of scd) {
-      data.push((item['@'] as Record<string, string> | undefined) || {});
-    }
-  }
-  return data;
-};
+// Attributes of the bearer SubjectConfirmationData elements only. These live
+// inside the <Assertion> and are covered by the assertion signature even when
+// the outer <Response> wrapper is not signed.
+const getBearerSubjectConfirmationData = (assertion): Record<string, string>[] =>
+  getSubjectConfirmationData(assertion, { bearerOnly: true }).map(
+    (item) => (item['@'] as Record<string, string> | undefined) || {}
+  );
 
 // Whether the signed content addresses the assertion to `recipient`.
 //
