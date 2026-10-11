@@ -197,12 +197,20 @@ describe('metadata.ts', function () {
   });
 
   it(`metadata with missing KeyDescriptor should throw an error`, async () => {
-    try {
-      await parseMetadata(samlMetadata6, {});
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Could not find X509Certificate in the IdP metadata.');
-    }
+    await assert.rejects(parseMetadata(samlMetadata6, {}), {
+      message: 'Could not find X509Certificate in the IdP metadata.',
+    });
+  });
+
+  it('metadata whose descriptor has no KeyDescriptor element is rejected cleanly', async () => {
+    const metadata =
+      '<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp">' +
+      '<md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">' +
+      '<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp/sso"/>' +
+      '</md:IDPSSODescriptor></md:EntityDescriptor>';
+    await assert.rejects(parseMetadata(metadata, {}), {
+      message: 'Could not find X509Certificate in the IdP metadata.',
+    });
   });
 
   it(`createIdPMetadataXML ok`, async () => {
@@ -281,16 +289,9 @@ describe('metadata.ts', function () {
   });
 
   it('saml MetaData validateNameIDFormat not ok', async function () {
-    try {
-      await parseMetadata(samlMetadata, {
-        validateNameIDFormat: 'invalid:format',
-      });
-    } catch (error) {
-      assert.strictEqual(
-        (error as Error).message,
-        "Invalid nameIDFormat. Please set 'Name ID Format' to undefined"
-      );
-    }
+    await assert.rejects(parseMetadata(samlMetadata, { validateNameIDFormat: 'invalid:format' }), {
+      message: "Invalid nameIDFormat. Please set 'Name ID Format' to invalid:format",
+    });
   });
 
   it('saml MetaData with SLO services', async function () {
