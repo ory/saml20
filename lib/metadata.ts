@@ -41,6 +41,13 @@ const parseMetadata = async (
     tagNameProcessors: [xml2js.processors.stripPrefix],
     strict: true,
   });
+  // Without this, a document that is not metadata at all (an empty one, a
+  // SAML Response, an EntitiesDescriptor aggregate) was reported as missing
+  // its certificate. xml2js yields '' for an empty element, which still counts
+  // as present.
+  if (res?.EntityDescriptor === undefined || res?.EntityDescriptor === null) {
+    throw new Error('Invalid metadata: missing EntityDescriptor element.');
+  }
   const entityID = getAttribute<string | undefined>(res, 'EntityDescriptor.$.entityID');
   let X509Certificates: string[] = [];
   const X509CertificatesWithoutSigningAttr: string[] = [];

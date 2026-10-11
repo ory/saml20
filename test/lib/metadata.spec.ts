@@ -423,3 +423,30 @@ describe('parseMetadata typing and defaults', function () {
     assert(options);
   });
 });
+
+describe('parseMetadata on documents that are not metadata', function () {
+  const notMetadata = { message: 'Invalid metadata: missing EntityDescriptor element.' };
+
+  for (const [name, xml] of [
+    ['empty input', ''],
+    ['whitespace', '   '],
+    ['a SAML Response', fs.readFileSync('./test/assets/saml20.validResponse.xml').toString()],
+    [
+      'an EntitiesDescriptor aggregate',
+      '<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"/>',
+    ],
+  ]) {
+    it(`rejects ${name}`, async () => {
+      await assert.rejects(parseMetadata(xml), notMetadata);
+    });
+  }
+
+  it('still reports a missing certificate for real metadata', async () => {
+    await assert.rejects(parseMetadata(samlMetadata6), {
+      message: 'Could not find X509Certificate in the IdP metadata.',
+    });
+    await assert.rejects(parseMetadata('<EntityDescriptor/>'), {
+      message: 'Could not find X509Certificate in the IdP metadata.',
+    });
+  });
+});
