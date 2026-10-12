@@ -82,12 +82,7 @@ const published: Record<string, { named: string[]; defaultKeys?: string[] }> = {
     ],
   },
   validateSignature: {
-    named: [
-      'DEFAULT_MAX_SIGNATURE_REFERENCES',
-      'certToPEM',
-      'sanitizeXML',
-      'validateSignature',
-    ],
+    named: ['DEFAULT_MAX_SIGNATURE_REFERENCES', 'certToPEM', 'sanitizeXML', 'validateSignature'],
   },
 };
 
