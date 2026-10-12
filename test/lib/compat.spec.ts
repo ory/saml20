@@ -1,5 +1,4 @@
 import assert from 'assert';
-import { isMultiRootedXMLError } from '../../lib/utils';
 
 // Everything each module exported in 1.21.0. Consumers can import any built
 // module directly (dist/<module>), so removing one of these is a breaking change.
@@ -75,7 +74,6 @@ const published: Record<string, { named: string[]; defaultKeys?: string[] }> = {
       'containsDoctype',
       'doctypeNotAllowedError',
       'getAttribute',
-      'isMultiRootedXMLError',
       'multiRootedXMLError',
       'parseFromString',
       'thumbprint',
@@ -105,14 +103,4 @@ describe('published module exports', function () {
       }
     });
   }
-});
-
-describe('deprecated module exports keep working', function () {
-  it('utils.isMultiRootedXMLError recognises the parser message', function () {
-    assert.strictEqual(
-      isMultiRootedXMLError({ message: 'Only one element can be added and only after doctype' }),
-      true
-    );
-    assert.strictEqual(isMultiRootedXMLError({ message: 'Other error' }), false);
-  });
 });
