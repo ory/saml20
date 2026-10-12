@@ -276,5 +276,4 @@ const sanitizeXML = (xml) => {
   return xml.replace(/&#x(d|D);/gi, '');
 };
 
-// certToPEM is re-exported for callers that import it from this module.
-export { validateSignature, certToPEM, sanitizeXML };
+export { validateSignature, sanitizeXML };

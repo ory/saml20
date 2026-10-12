@@ -1,4 +1,4 @@
-import { validateSignature, certToPEM, DEFAULT_MAX_SIGNATURE_REFERENCES } from './validateSignature';
+import { validateSignature, DEFAULT_MAX_SIGNATURE_REFERENCES } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 
 import {
@@ -11,7 +11,7 @@ import {
   MAX_INFLATED_REQUEST_BYTES,
 } from './request';
 import type { DecodeBase64Options } from './request';
-import { stripCertHeaderAndFooter } from './cert';
+import { stripCertHeaderAndFooter, certToPEM } from './cert';
 import { createSAMLResponse, validate, parseIssuer, WrapError } from './response';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from './metadata';
 import { createPostForm } from './post';

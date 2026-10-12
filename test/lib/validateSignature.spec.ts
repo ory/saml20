@@ -1,11 +1,11 @@
-import { certToPEM, validateSignature, DEFAULT_MAX_SIGNATURE_REFERENCES } from '../../lib/validateSignature';
+import { validateSignature, DEFAULT_MAX_SIGNATURE_REFERENCES } from '../../lib/validateSignature';
 import xmlbuilder from 'xmlbuilder';
 
 import crypto from 'crypto';
 import fs from 'fs';
 import { sign } from '../../lib/sign';
 import { SignedXml } from 'xml-crypto';
-import { PubKeyInfo, stripCertHeaderAndFooter } from '../../lib/cert';
+import { certToPEM, PubKeyInfo, stripCertHeaderAndFooter } from '../../lib/cert';
 import { thumbprint } from '../../lib/utils';
 import assert from 'assert';
 import {
