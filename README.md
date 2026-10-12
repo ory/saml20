@@ -94,6 +94,7 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 
 - `parse()` is gone. It returned a profile without checking the signature, expiry, audience or anything else, so its output could be forged. Use `validate()` to authenticate a response, and `parseIssuer()` to read the Issuer before validating (for example, to pick the IdP certificate).
 - `decryptXml` and `PubKeyInfo` are no longer exported from the package root. They were internal helpers for `validate()` and `sign()`.
+- `hasValidSignature` is no longer exported from `dist/validateSignature`. Use `validateSignature()`, which also rejects being given both a certificate and a thumbprint.
 
 ## Tests
 

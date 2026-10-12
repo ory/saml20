@@ -1,7 +1,5 @@
 import assert from 'assert';
 import { isMultiRootedXMLError } from '../../lib/utils';
-import { hasValidSignature } from '../../lib/validateSignature';
-import { ASSERTION_XPATH, buildAssertion, signXml, testIdpCert } from '../helpers/fixtures';
 
 // Everything each module exported in 1.21.0. Consumers can import any built
 // module directly (dist/<module>), so removing one of these is a breaking change.
@@ -87,7 +85,6 @@ const published: Record<string, { named: string[]; defaultKeys?: string[] }> = {
     named: [
       'DEFAULT_MAX_SIGNATURE_REFERENCES',
       'certToPEM',
-      'hasValidSignature',
       'sanitizeXML',
       'validateSignature',
     ],
@@ -122,14 +119,5 @@ describe('deprecated module exports keep working', function () {
       true
     );
     assert.strictEqual(isMultiRootedXMLError({ message: 'Other error' }), false);
-  });
-
-  it('validateSignature.hasValidSignature verifies a signature', function () {
-    const signed = signXml(buildAssertion(), ASSERTION_XPATH);
-    assert(hasValidSignature(signed, testIdpCert, null));
-    assert.strictEqual(
-      hasValidSignature(signed.replace('jo@example.com', 'eve@example.com'), testIdpCert, null),
-      null
-    );
   });
 });
