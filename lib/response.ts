@@ -26,31 +26,6 @@ const nameFormatUri = [
   'urn:mace:dir:attribute-def:jpegPhoto',
 ];
 
-/**
- * Parses a SAML Response or Assertion into a profile WITHOUT checking its
- * signature, expiry, audience or anything else. Its output can be forged by
- * whoever sends the document.
- *
- * @deprecated Use validate() to authenticate a response. To read the Issuer
- * before validating (for example, to choose which IdP certificate to pass to
- * validate()), use parseIssuer().
- */
-const parse = async (rawAssertion: string): Promise<SAMLProfile> => {
-  if (!rawAssertion) {
-    throw new Error('rawAssertion is required.');
-  }
-
-  const assertionObj = await xmlToJs(rawAssertion);
-
-  const statusError = getStatusCodeError(assertionObj);
-  if (statusError) {
-    throw statusError;
-  }
-
-  const { assertion } = parseResponseAndVersion(assertionObj);
-  return parseAttributes(assertion);
-};
-
 const parseIssuer = (rawAssertion) => {
   if (!rawAssertion) {
     throw new Error('rawAssertion is required.');
@@ -496,4 +471,4 @@ const createSAMLResponse = async ({
   return signedXml;
 };
 
-export { createSAMLResponse, parse, validate, parseIssuer, WrapError };
+export { createSAMLResponse, validate, parseIssuer, WrapError };

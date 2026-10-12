@@ -14,7 +14,7 @@ $ npm install @boxyhq/saml20
 
 ## Usage
 
-`parse()` and `validate()` return promises. Before 1.6.0 they took a callback as their last argument; since 1.6.0 a callback is ignored and is never called, so `await` the result or use `.then()`/`.catch()` instead.
+`validate()` returns a promise. Before 1.6.0 it took a callback as its last argument; since 1.6.0 a callback is ignored and is never called, so `await` the result or use `.then()`/`.catch()` instead.
 
 ### saml.validate(rawResponse, options)
 
@@ -60,10 +60,6 @@ Returns the `Issuer` of a SAML Response without validating anything. Use it to f
 const issuer = saml.parseIssuer(rawResponse);
 ```
 
-### [DEPRECATED] saml.parse(rawResponse)
-
-Resolves with the same profile as `validate()`, but checks nothing: not the signature, expiry, audience or anything else. Anyone can forge its output, so never use it to authenticate a user. Use `validate()` for that, and `parseIssuer()` to read the Issuer before validating.
-
 ### saml.validateSignature(xml, publicKey, thumbprint, options?)
 
 Verifies the XML signature on `xml` and returns the signed XML, or throws / returns `null` when the signature is invalid. Pass either `publicKey` (one certificate, or several separated by commas for key rotation) or `thumbprint`, not both.
@@ -91,6 +87,12 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
   ],
 });
 ```
+
+## Upgrading to 2.0
+
+2.0 removes APIs that were deprecated or that Polis no longer uses:
+
+- `parse()` is gone. It returned a profile without checking the signature, expiry, audience or anything else, so its output could be forged. Use `validate()` to authenticate a response, and `parseIssuer()` to read the Issuer before validating (for example, to pick the IdP certificate).
 
 ## Tests
 

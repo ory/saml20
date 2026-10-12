@@ -12,7 +12,7 @@ import {
 } from './request';
 import type { DecodeBase64Options } from './request';
 import { stripCertHeaderAndFooter, PubKeyInfo } from './cert';
-import { createSAMLResponse, parse, validate, parseIssuer, WrapError } from './response';
+import { createSAMLResponse, validate, parseIssuer, WrapError } from './response';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from './metadata';
 import { createPostForm } from './post';
 import { sign } from './sign';
@@ -38,7 +38,6 @@ export default {
   samlRequestDecodeError,
   MAX_ENCODED_REQUEST_LENGTH,
   MAX_INFLATED_REQUEST_BYTES,
-  parse,
   validate,
   PubKeyInfo,
   certToPEM,
@@ -71,7 +70,6 @@ export {
   samlRequestDecodeError,
   MAX_ENCODED_REQUEST_LENGTH,
   MAX_INFLATED_REQUEST_BYTES,
-  parse,
   validate,
   PubKeyInfo,
   certToPEM,

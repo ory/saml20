@@ -1,11 +1,13 @@
 import assert from 'assert';
-import { parse, parseIssuer, validate, createSAMLResponse, WrapError } from '../../lib/response';
+import { parseIssuer, validate, createSAMLResponse, WrapError } from '../../lib/response';
 import { doctypeNotAllowedError } from '../../lib/utils';
 import saml20 from '../../lib/saml20';
 import fs from 'fs';
 import {
   ACS,
+  ASSERTION_NS,
   IDP,
+  PROTOCOL_NS,
   REQUEST_ID,
   RESPONSE_XPATH,
   SP,
@@ -37,7 +39,6 @@ const suffixAudience = 'http://demoscope';
 const validToken = fs.readFileSync('./test/assets/saml20.validToken.xml').toString();
 const invalidToken = fs.readFileSync('./test/assets/saml20.invalidToken.xml').toString();
 const invalidWrappedToken = fs.readFileSync('./test/assets/saml20.invalidWrappedToken.xml').toString();
-const validAssertion = fs.readFileSync('./test/assets/saml20.validAssertion.xml').toString();
 
 const oktaPublicKey = fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt').toString();
 const oktaPrivateKey = fs.readFileSync('./test/assets/certificates/oktaPrivateKey.pem').toString();
@@ -45,51 +46,34 @@ const testIdpPublicKey = fs.readFileSync('./test/assets/certificates/testIdpCert
 const testIdpPrivateKey = fs.readFileSync('./test/assets/certificates/testIdpKey.pem').toString();
 
 describe('response.ts', function () {
-  it('RAW response ok', async function () {
-    const response = await parse(rawResponse);
-    assert.strictEqual(response.audience, 'http://sp.example.com/demo1/metadata.php');
-    assert.strictEqual(
-      response.claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'],
-      '_ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7'
-    );
-    assert.strictEqual(response.issuer, 'http://idp.example.com/metadata.php');
+  it('rejects a response with an unsuccessful StatusCode', async function () {
+    await assert.rejects(validate(rawResponseAuthnFailed, validateOpts), {
+      message: 'Invalid Status Code (AuthnFailed).',
+    });
   });
 
-  it('RAW response with invalid StatusCode', async function () {
-    await assert.rejects(parse(rawResponseAuthnFailed), { message: 'Invalid Status Code (AuthnFailed).' });
+  it('rejects a response that is not XML', async function () {
+    await assert.rejects(validate('rawResponse', validateOpts), { message: 'missing root element' });
   });
 
-  it('RAW response not ok', async function () {
-    try {
-      await parse('rawResponse');
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'An error occurred trying to parse XML assertion.');
-    }
-  });
-
-  // xml2js runs on the assertion after xmldom, so it needs its own DTD guard.
   // See https://github.com/ory/polis/issues/4071.
-  it('RAW response with a DTD is rejected before xml2js', async function () {
+  it('rejects a response with a DTD', async function () {
     const dtdResponse =
       '<?xml version="1.0"?>\n' +
       '<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]>\n' +
       '<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">&x;</samlp:Response>';
-    await assert.rejects(parse(dtdResponse), (err: Error & { inner?: unknown }) => {
-      assert.strictEqual(err.inner, doctypeNotAllowedError);
-      return true;
-    });
+    await assert.rejects(validate(dtdResponse, validateOpts), doctypeNotAllowedError);
   });
 
   // Rejecting the DTD must not leave a detached async continuation that
   // dereferences undefined and crashes the process. See ory/polis#4071.
-  it('should not emit an unhandled rejection when parse() rejects a DTD', async function () {
+  it('should not emit an unhandled rejection when validate() rejects a DTD', async function () {
     const unhandled: unknown[] = [];
     const onUnhandled = (reason: unknown) => unhandled.push(reason);
     process.on('unhandledRejection', onUnhandled);
     try {
       await assert.rejects(
-        parse('<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root>')
+        validate('<!DOCTYPE foo [ <!ENTITY x SYSTEM "file:///etc/passwd"> ]><root>ok</root>', validateOpts)
       );
       // Let any detached continuation settle before asserting.
       await new Promise((resolve) => setImmediate(resolve));
@@ -100,37 +84,10 @@ describe('response.ts', function () {
     }
   });
 
-  it('Should not parse saml 2.0 token which has no assertion', async function () {
-    try {
-      await parse(errorResponse);
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Invalid Status Code (AuthnFailed).');
-    }
-  });
-
-  it('An error occurred trying to parse XML assertion.', async function () {
-    try {
-      await parse('undefined');
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'An error occurred trying to parse XML assertion.');
-    }
-  });
-
-  it('An error occurred trying to parse assertion', async function () {
-    try {
-      const response = await parse(validResponse);
-      assert.strictEqual(response.audience, 'http://sp.example.com/demo1/metadata.php');
-      assert.strictEqual(
-        response.claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'],
-        '_ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7'
-      );
-      assert.strictEqual(response.issuer, 'http://idp.example.com/metadata.php');
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'An error occurred trying to parse assertion.');
-    }
+  it('rejects an error response that has no assertion', async function () {
+    await assert.rejects(validate(errorResponse, { publicKey: testIdpCert }), {
+      message: 'Invalid Status Code (AuthnFailed).',
+    });
   });
 
   it('validate ok', async function () {
@@ -321,11 +278,6 @@ describe('response.ts', function () {
     }
   });
 
-  it('Should parse saml 2.0 without signature validation', async function () {
-    const response = await parse(invalidToken);
-    assert.strictEqual(response.issuer, issuerName);
-  });
-
   it('parseIssuer response ok', async function () {
     const issuer = await parseIssuer(validResponse);
     assert.strictEqual(issuer, 'http://idp.example.com/metadata.php');
@@ -339,10 +291,21 @@ describe('response.ts', function () {
     }
   });
 
-  it('Should parse saml 2.0 assertion and check nameidentifier picks up nameid-permanent', async function () {
-    const response = await parse(validAssertion);
+  it('maps a persistent NameID attribute value to the nameidentifier claim', async function () {
+    const response = signXml(
+      buildResponse(
+        buildAssertion({
+          attributes:
+            '<saml:AttributeStatement><saml:Attribute Name="urn:oid:abcd.3"><saml:AttributeValue>' +
+            '<saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">permanent-id</saml:NameID>' +
+            '</saml:AttributeValue></saml:Attribute></saml:AttributeStatement>',
+        })
+      ),
+      RESPONSE_XPATH
+    );
+    const profile = await validate(response, { publicKey: testIdpCert });
     assert.strictEqual(
-      response.claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'],
+      profile.claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'],
       'permanent-id'
     );
   });
@@ -361,13 +324,13 @@ describe('response.ts', function () {
         },
       },
       requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-      privateKey: oktaPrivateKey,
-      publicKey: oktaPublicKey,
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
     };
 
     const response = await createSAMLResponse(json);
 
-    const parsed = await parse(response);
+    const parsed = await validate(response, { publicKey: testIdpPublicKey });
 
     assert.strictEqual(parsed.issuer, json.issuer);
     assert.strictEqual(parsed.audience, json.audience);
@@ -389,14 +352,14 @@ describe('response.ts', function () {
         },
       },
       requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-      privateKey: oktaPrivateKey,
-      publicKey: oktaPublicKey,
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
       flattenArray: true,
     };
 
     const response = await createSAMLResponse(json);
 
-    const parsed = await parse(response);
+    const parsed = await validate(response, { publicKey: testIdpPublicKey });
 
     assert.strictEqual(parsed.issuer, json.issuer);
     assert.strictEqual(parsed.audience, json.audience);
@@ -415,12 +378,12 @@ describe('response.ts', function () {
         },
       },
       requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-      privateKey: oktaPrivateKey,
-      publicKey: oktaPublicKey,
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
       sessionIndex: '_session-index-from-the-idp',
     };
 
-    const parsed = await parse(await createSAMLResponse(json));
+    const parsed = await validate(await createSAMLResponse(json), { publicKey: testIdpPublicKey });
 
     assert.strictEqual(parsed.sessionIndex, json.sessionIndex);
   });
@@ -502,14 +465,6 @@ it('validate should throw error if both publicKey and thumbprint are provided', 
 it('validate should throw error if rawAssertion is empty', async function () {
   try {
     await validate('', { publicKey: certificate });
-  } catch (error) {
-    assert.strictEqual((error as Error).message, 'rawAssertion is required.');
-  }
-});
-
-it('parse should throw error if rawAssertion is empty', async function () {
-  try {
-    await parse('');
   } catch (error) {
     assert.strictEqual((error as Error).message, 'rawAssertion is required.');
   }
@@ -634,27 +589,38 @@ describe('validate() with an assertion encrypted before the Response was signed'
   });
 });
 
-describe('parse() edge cases', function () {
-  it('rejects a Response without an Assertion', async function () {
-    await assert.rejects(parse(buildResponse('')), { message: 'Invalid assertion.' });
+describe('validate() edge cases', function () {
+  it('rejects a signed Response without an Assertion', async function () {
+    await assert.rejects(validate(signXml(buildResponse(''), RESPONSE_XPATH), { publicKey: testIdpCert }), {
+      message: 'Invalid assertion.',
+    });
   });
 
-  it('uses the first Assertion when a Response carries several', async function () {
-    const response = buildResponse(buildAssertion({ id: '_first' }) + buildAssertion({ id: '_second' }));
-    const profile = await parse(response);
-    assert.strictEqual(profile.assertionId, '_first');
+  it('rejects a signed Assertion that has no Version', async function () {
+    const response = signXml(
+      `<samlp:Response xmlns:samlp="${PROTOCOL_NS}" xmlns:saml="${ASSERTION_NS}">` +
+        `<saml:Issuer>${IDP}</saml:Issuer>` +
+        `<saml:Assertion><saml:Issuer>${IDP}</saml:Issuer></saml:Assertion></samlp:Response>`,
+      RESPONSE_XPATH
+    );
+    await assert.rejects(validate(response, { publicKey: testIdpCert }), {
+      message: 'SAML Assertion version not supported.',
+    });
   });
 
   it('wraps a failure while reading attributes', async function () {
     // An <Attribute> without a Name has no attributes at all, so reading its
     // Name throws inside the claims parser.
-    const response = buildResponse(
-      buildAssertion({
-        attributes:
-          '<saml:AttributeStatement><saml:Attribute><saml:AttributeValue>x</saml:AttributeValue></saml:Attribute></saml:AttributeStatement>',
-      })
+    const response = signXml(
+      buildResponse(
+        buildAssertion({
+          attributes:
+            '<saml:AttributeStatement><saml:Attribute><saml:AttributeValue>x</saml:AttributeValue></saml:Attribute></saml:AttributeStatement>',
+        })
+      ),
+      RESPONSE_XPATH
     );
-    await assert.rejects(parse(response), (error: WrapError) => {
+    await assert.rejects(validate(response, { publicKey: testIdpCert }), (error: WrapError) => {
       assert(error instanceof WrapError);
       assert.strictEqual(error.message, 'An error occurred trying to parse assertion.');
       assert(error.inner instanceof Error);

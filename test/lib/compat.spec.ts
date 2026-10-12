@@ -27,7 +27,6 @@ const published: Record<string, { named: string[]; defaultKeys?: string[] }> = {
       'createSPMetadataXML',
       'decodeBase64',
       'decryptXml',
-      'parse',
       'parseIssuer',
       'parseLogoutRequest',
       'parseLogoutResponse',
@@ -58,7 +57,7 @@ const published: Record<string, { named: string[]; defaultKeys?: string[] }> = {
       'samlRequestTooLargeError',
     ],
   },
-  response: { named: ['WrapError', 'createSAMLResponse', 'parse', 'parseIssuer', 'validate'] },
+  response: { named: ['WrapError', 'createSAMLResponse', 'parseIssuer', 'validate'] },
   saml20: {
     named: ['default'],
     defaultKeys: [
