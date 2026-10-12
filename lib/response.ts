@@ -150,10 +150,7 @@ const checkAssertion = async (
     return new Error('Assertion is expired.');
   }
 
-  if (
-    options.audience &&
-    !saml20.validateAudience(assertion, options.audience, options.strictAudienceValidation)
-  ) {
+  if (options.audience && !saml20.validateAudience(assertion, options.audience)) {
     return new Error('Invalid audience.');
   }
 

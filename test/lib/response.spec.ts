@@ -207,27 +207,11 @@ describe('response.ts', function () {
     assert.strictEqual(response.audience, audience);
   });
 
-  it('Should validate saml 2.0 token and check audience with suffix', async function () {
-    const response = await validate(validToken, {
-      publicKey: certificate,
-      audience: suffixAudience,
-      bypassExpiration: true,
-    });
-    assert.strictEqual(response.audience, audience);
-  });
-
-  it('Should validate saml 2.0 token and check strict audience with suffix', async function () {
-    try {
-      await validate(validToken, {
-        publicKey: certificate,
-        audience: suffixAudience,
-        bypassExpiration: true,
-        strictAudienceValidation: true,
-      });
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Invalid audience.');
-    }
+  it('Should reject saml 2.0 token when the expected audience is only a prefix', async function () {
+    await assert.rejects(
+      validate(validToken, { publicKey: certificate, audience: suffixAudience, bypassExpiration: true }),
+      { message: 'Invalid audience.' }
+    );
   });
 
   it('Should fail with invalid audience', async function () {
@@ -629,10 +613,45 @@ describe('validate() edge cases', function () {
   });
 });
 
+describe('validate() matches audiences exactly', function () {
+  const signedFor = (audience: string) =>
+    signXml(buildResponse(buildAssertion({ audienceRestrictions: [[audience]] })), RESPONSE_XPATH);
+
+  it('accepts an assertion whose Audience equals the expected one', async function () {
+    const profile = await validate(signedFor(SP), { publicKey: testIdpCert, audience: SP });
+    assert.strictEqual(profile.audience, SP);
+  });
+
+  // A prefix match let an assertion issued for https://sp.example.com/metadata.evil.example
+  // pass as one for https://sp.example.com/metadata.
+  it('rejects an assertion whose Audience only starts with the expected one', async function () {
+    await assert.rejects(
+      validate(signedFor(`${SP}.evil.example`), { publicKey: testIdpCert, audience: SP }),
+      {
+        message: 'Invalid audience.',
+      }
+    );
+  });
+
+  it('rejects an assertion whose Audience is a prefix of the expected one', async function () {
+    await assert.rejects(
+      validate(signedFor('https://sp.example.com'), { publicKey: testIdpCert, audience: SP }),
+      { message: 'Invalid audience.' }
+    );
+  });
+
+  it('rejects an expected audience that is a prefix of one in a list', async function () {
+    await assert.rejects(
+      validate(signedFor(`${SP}/x`), { publicKey: testIdpCert, audience: ['https://z.example.com', SP] }),
+      { message: 'Invalid audience.' }
+    );
+  });
+});
+
 describe('validate() audience checks on signed responses', function () {
   const signedWith = (audienceRestrictions: string[][]) =>
     signXml(buildResponse(buildAssertion({ audienceRestrictions })), RESPONSE_XPATH);
-  const options = { publicKey: testIdpCert, audience: SP, strictAudienceValidation: true };
+  const options = { publicKey: testIdpCert, audience: SP };
 
   it('accepts an assertion that lists the SP among several audiences', async function () {
     const profile = await validate(signedWith([['https://other.example.com', SP]]), options);

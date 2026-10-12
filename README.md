@@ -27,8 +27,7 @@ Verifies a SAML Response (or a lone Assertion) and resolves with the user's prof
 - `publicKey`: the trusted IdP signing certificate, as base64 DER or PEM. Several certificates (for key rotation) are separated by commas.
 - `thumbprint`: the SHA-1 thumbprint(s) of a trusted certificate, comma-separated. The certificate itself is taken from the `KeyInfo` of the signature being verified. Pass either `publicKey` or `thumbprint`, not both.
 - `privateKey` (optional): decrypts an `EncryptedAssertion`.
-- `audience` (optional): the expected audience, or a list of accepted ones. When set, every `AudienceRestriction` in the assertion must name one of them.
-- `strictAudienceValidation` (optional): require an exact audience match. Without it, an audience that merely starts with the expected value is accepted.
+- `audience` (optional): the expected audience, or a list of accepted ones. When set, every `AudienceRestriction` in the assertion must name one of them exactly. Fails with `Invalid audience.`
 - `inResponseTo` (optional): the ID of the `AuthnRequest` this response answers. When set, the signed content must carry the same `InResponseTo`; a missing value fails. Fails with `Invalid InResponseTo.`
 - `recipient` (optional). The ACS URL the response was posted to. When set, the signed content must name it: a signed `Response/@Destination` must equal it, when any bearer `SubjectConfirmationData` carries a `Recipient`, one bearer confirmation must both name it and be within its own `NotBefore`/`NotOnOrAfter` window (so `NotOnOrAfter` is required on it; `bypassExpiration` skips this window check but not the `Recipient` match), and at least one of the two must be present. An empty `Recipient` counts as present and never matches. The unsigned `Response` wrapper is never used. Fails with `Invalid Recipient.`
 - `assertionReplayValidator` (optional): `(info) => boolean | Promise<boolean>`, called after every other check passes, with `{ assertionId, sessionIndex, notOnOrAfter, inResponseTo }` from the signed assertion. Return `true` if the assertion was already used, and the response is rejected as a replay. Keep each entry until at least `notOnOrAfter` plus 10 minutes, the clock skew `validate()` allows.
@@ -42,7 +41,6 @@ const saml = require('@boxyhq/saml20').default;
 const profile = await saml.validate(rawResponse, {
   publicKey: 'MIICDzCCAXygAwIBAgIQVWXAvbbQyI5Bc...',
   audience: 'https://sp.example.com',
-  strictAudienceValidation: true,
   inResponseTo: requestId,
   recipient: 'https://sp.example.com/acs',
 });
@@ -96,6 +94,7 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 - `decryptXml` and `PubKeyInfo` are no longer exported from the package root. They were internal helpers for `validate()` and `sign()`.
 - `hasValidSignature` is no longer exported from `dist/validateSignature`. Use `validateSignature()`, which also rejects being given both a certificate and a thumbprint.
 - `isMultiRootedXMLError` is no longer exported from `dist/utils`. A multi-rooted document is rejected with the `multiRootedXMLError` error, which is still exported.
+- `strictAudienceValidation` is gone and audiences are always compared exactly. Before 2.0, without that option an `Audience` that merely started with the expected value was accepted (`https://sp.example.com/metadata.evil.example` passed for `https://sp.example.com/metadata`). If you relied on a prefix match, pass every accepted audience in `audience` instead.
 
 ## Tests
 

@@ -29,7 +29,6 @@ describe('exported types', function () {
     const options: ValidateOptions = {
       publicKey: 'MIIC...',
       audience: ['https://sp.example.com', 'https://sp2.example.com'],
-      strictAudienceValidation: true,
       inResponseTo: '_request',
       recipient: 'https://sp.example.com/acs',
       allowedSignatureAlgorithms: ['http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'],
@@ -40,6 +39,8 @@ describe('exported types', function () {
         return used;
       },
     };
+    // @ts-expect-error strictAudienceValidation was removed in 2.0; audiences always match exactly
+    const removed: ValidateOptions = { publicKey: 'MIIC...', strictAudienceValidation: true };
     // @ts-expect-error audience must be a string or a list of strings
     const invalid: ValidateOptions = { publicKey: 'MIIC...', audience: 42 };
     const profile: SAMLProfile = {
@@ -53,7 +54,7 @@ describe('exported types', function () {
 
     assert.strictEqual(await options.assertionReplayValidator!({ assertionId: '_a' }), false);
     assert.strictEqual(await options.assertionReplayValidator!({ assertionId: '_a' }), true);
-    assert(invalid && profile && request);
+    assert(removed && invalid && profile && request);
   });
 });
 

@@ -79,53 +79,33 @@ describe('saml20.ts', function () {
     }
   });
 
-  it('validateAudience with Suffix ok', async function () {
-    try {
-      const value = saml20.validateAudience(assertion1, 'https://saml.boxyhq.com');
-      assert.strictEqual(value, true);
-    } catch (error) {
-      assert(error);
-    }
+  it('validateAudience accepts the exact audience', function () {
+    const value = saml20.validateAudience(
+      assertion1,
+      'https://saml.boxyhq.com/f46e93394c5a51d36715d95d910872ac7372d4d9'
+    );
+    assert.strictEqual(value, true);
   });
 
-  it('validateAudience with Suffix not ok with strict check', async function () {
-    try {
-      const value = saml20.validateAudience(assertion1, 'https://saml.boxyhq.com', true);
-      assert.strictEqual(value, false);
-    } catch (error) {
-      assert(error);
-    }
+  it('validateAudience rejects an expected audience that is only a prefix', function () {
+    assert.strictEqual(saml20.validateAudience(assertion1, 'https://saml.boxyhq.com'), false);
   });
 
-  it('validateAudience with Suffix Array ok', async function () {
-    try {
-      const value = saml20.validateAudience(assertion1, [...validateOptsArray, 'https://saml.boxyhq.com']);
-      assert.strictEqual(value, true);
-    } catch (error) {
-      assert(error);
-    }
+  it('validateAudience accepts the exact audience in a list', function () {
+    const value = saml20.validateAudience(assertion1, [
+      ...validateOptsArray,
+      'https://saml.boxyhq.com/f46e93394c5a51d36715d95d910872ac7372d4d9',
+    ]);
+    assert.strictEqual(value, true);
   });
 
-  it('validateAudience with Suffix Array not ok with strict check', async function () {
-    try {
-      const value = saml20.validateAudience(
-        assertion1,
-        [...validateOptsArray, 'https://saml.boxyhq.com'],
-        true
-      );
-      assert.strictEqual(value, false);
-    } catch (error) {
-      assert(error);
-    }
+  it('validateAudience rejects a prefix in a list', function () {
+    const value = saml20.validateAudience(assertion1, [...validateOptsArray, 'https://saml.boxyhq.com']);
+    assert.strictEqual(value, false);
   });
 
-  it('validateAudience with Suffix Array not ok', async function () {
-    try {
-      const value = saml20.validateAudience(assertion1, validateOptsArray);
-      assert.strictEqual(value, false);
-    } catch (error) {
-      assert(error);
-    }
+  it('validateAudience rejects a list without the audience', function () {
+    assert.strictEqual(saml20.validateAudience(assertion1, validateOptsArray), false);
   });
 
   it('validateAudience not ok', function () {
@@ -199,39 +179,38 @@ describe('validateAudience with several Audience values', function () {
     const assertion = {
       Conditions: { AudienceRestriction: { Audience: [{ _: 'https://other' }, { _: sp }] } },
     };
-    assert.strictEqual(saml20.validateAudience(assertion, sp, true), true);
-    assert.strictEqual(saml20.validateAudience(assertion, sp, false), true);
+    assert.strictEqual(saml20.validateAudience(assertion, sp), true);
   });
 
   it('accepts several plain-string Audience values', function () {
     const assertion = { Conditions: { AudienceRestriction: { Audience: ['https://other', sp] } } };
-    assert.strictEqual(saml20.validateAudience(assertion, sp, true), true);
+    assert.strictEqual(saml20.validateAudience(assertion, sp), true);
   });
 
   it('rejects when no Audience in the AudienceRestriction matches', function () {
     const assertion = { Conditions: { AudienceRestriction: { Audience: ['https://a', 'https://b'] } } };
-    assert.strictEqual(saml20.validateAudience(assertion, sp, true), false);
+    assert.strictEqual(saml20.validateAudience(assertion, sp), false);
   });
 
   it('requires every AudienceRestriction to be satisfied', function () {
     assert.strictEqual(
-      saml20.validateAudience(withAudiences({ Audience: sp }, { Audience: ['https://x', sp] }), sp, true),
+      saml20.validateAudience(withAudiences({ Audience: sp }, { Audience: ['https://x', sp] }), sp),
       true
     );
     assert.strictEqual(
-      saml20.validateAudience(withAudiences({ Audience: sp }, { Audience: 'https://x' }), sp, true),
+      saml20.validateAudience(withAudiences({ Audience: sp }, { Audience: 'https://x' }), sp),
       false
     );
   });
 
   it('matches against any of several expected audiences', function () {
     const assertion = { Conditions: { AudienceRestriction: { Audience: ['https://a', sp] } } };
-    assert.strictEqual(saml20.validateAudience(assertion, ['https://z', sp], true), true);
-    assert.strictEqual(saml20.validateAudience(assertion, ['https://z'], true), false);
+    assert.strictEqual(saml20.validateAudience(assertion, ['https://z', sp]), true);
+    assert.strictEqual(saml20.validateAudience(assertion, ['https://z']), false);
   });
 
   it('rejects an AudienceRestriction with no Audience', function () {
-    assert.strictEqual(saml20.validateAudience(withAudiences({}), sp, true), false);
+    assert.strictEqual(saml20.validateAudience(withAudiences({}), sp), false);
   });
 });
 
@@ -353,8 +332,8 @@ describe('saml20 time windows, recipients and expiry edges', function () {
   describe('validateAudience', function () {
     it('returns false for an expected audience that is not a string', function () {
       const assertion = { Conditions: { AudienceRestriction: { Audience: 'https://sp' } } };
-      assert.strictEqual(saml20.validateAudience(assertion, 42, true), false);
-      assert.strictEqual(saml20.validateAudience(assertion, { url: 'https://sp' }, false), false);
+      assert.strictEqual(saml20.validateAudience(assertion, 42), false);
+      assert.strictEqual(saml20.validateAudience(assertion, { url: 'https://sp' }), false);
     });
   });
 });
