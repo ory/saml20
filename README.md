@@ -60,7 +60,7 @@ const issuer = saml.parseIssuer(rawResponse);
 
 ### saml.validateSignature(xml, publicKey, thumbprint, options?)
 
-Verifies the XML signature on `xml` and returns the signed XML, or throws / returns `null` when the signature is invalid. Pass either `publicKey` (one certificate, or several separated by commas for key rotation) or `thumbprint`, not both.
+Verifies the XML signature on `xml` and returns the signed XML. Read the document from that return value, not from `xml`: only the signed content is covered. It throws when the signature is invalid or cannot be checked; a signature that does not verify fails with `invalid signature: the signature does not verify`. Pass either `publicKey` (one certificate, or several separated by commas for key rotation) or `thumbprint`, not both.
 
 `options` (optional) restricts which algorithms are accepted:
 
@@ -96,6 +96,7 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 - `hasValidSignature` is removed. Use `validateSignature()`, which also rejects being given both a certificate and a thumbprint.
 - `isMultiRootedXMLError` is removed. A multi-rooted document is rejected with the error `multirooted xml not allowed.`
 - `strictAudienceValidation` is gone and audiences are always compared exactly. Before 2.0, without that option an `Audience` that merely started with the expected value was accepted (`https://sp.example.com/metadata.evil.example` passed for `https://sp.example.com/metadata`). If you relied on a prefix match, pass every accepted audience in `audience` instead.
+- `validateSignature()` throws when the signature does not verify, where it used to return `null`. It now either returns the signed XML or throws.
 - `audience` is required. Before 2.0, leaving it out skipped the audience check, so an assertion issued for any other service provider that trusts the same IdP was accepted.
 
 ## Tests

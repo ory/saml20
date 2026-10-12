@@ -403,6 +403,21 @@ sT/txBnVJGziyO8DPYdu2fPMER8ajJfl</X509Certificate>
   });
 });
 
+describe('validateSignature() failure mode', function () {
+  const signed = () => signXml(buildAssertion(), ASSERTION_XPATH);
+
+  it('returns the signed XML for a signature that verifies', function () {
+    assert.match(validateSignature(signed(), testIdpCert, null), /jo@example\.com/);
+  });
+
+  it('throws, never returns null, for a signature that does not verify', function () {
+    const tampered = signed().replace('jo@example.com', 'eve@example.com');
+    assert.throws(() => validateSignature(tampered, testIdpCert, null), {
+      message: 'invalid signature: the signature does not verify',
+    });
+  });
+});
+
 describe('validateSignature.ts - algorithm allowlists', function () {
   const sha2Only = { allowedSignatureAlgorithms: [RSA_SHA256], allowedHashAlgorithms: [SHA256] };
 
@@ -727,7 +742,9 @@ describe('validateSignature.ts - unusual documents', function () {
     it('does not verify after tampering', function () {
       const tampered = signedDeep.replace(`<saml:Issuer>${IDP}<`, '<saml:Issuer>https://evil.example.com<');
       assert.notStrictEqual(tampered, signedDeep);
-      assert.strictEqual(validateSignature(tampered, testIdpCert, null), null);
+      assert.throws(() => validateSignature(tampered, testIdpCert, null), {
+        message: 'invalid signature: the signature does not verify',
+      });
     });
   });
 });

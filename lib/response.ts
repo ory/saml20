@@ -2,7 +2,7 @@ import type { SAMLProfile, ValidateOptions } from './typings';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import { getVersion } from './getVersion';
-import { validateSignature, sanitizeXML } from './validateSignature';
+import { verifySignature, sanitizeXML } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
@@ -136,7 +136,7 @@ const checkSignature = (
   signatureOptions: ValidateSignatureOptions
 ): string | null => {
   try {
-    return validateSignature(xml, options.publicKey, options.thumbprint, signatureOptions);
+    return verifySignature(xml, options.publicKey, options.thumbprint, signatureOptions);
   } catch (e) {
     const error = new WrapError('Invalid assertion.');
     error.inner = e;

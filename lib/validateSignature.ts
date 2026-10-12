@@ -259,12 +259,9 @@ const hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatur
   return null;
 };
 
-// Breaking Change: validateSignature now returns:
-// if signature is valid: the raw signed xml string
-// if signature is invalid: throws error or returns null
-// clients are to use the resultant raw xml string to parse their SAML Assertion
-
-const validateSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions) => {
+// Returns null when the signature does not verify, and throws when the
+// document cannot be checked at all; validate() retries only on null.
+const verifySignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string | null => {
   if (cert && certThumbprint) {
     throw new Error('You should provide either cert or certThumbprint, not both');
   }
@@ -272,8 +269,18 @@ const validateSignature = (xml, cert, certThumbprint, options?: ValidateSignatur
   return hasValidSignature(sanitizeXML(xml), cert, certThumbprint, options);
 };
 
+// Returns the signed XML, which is what callers must read from; throws when
+// the signature does not verify.
+const validateSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string => {
+  const signedXml = verifySignature(xml, cert, certThumbprint, options);
+  if (!signedXml) {
+    throw new Error('invalid signature: the signature does not verify');
+  }
+  return signedXml;
+};
+
 const sanitizeXML = (xml) => {
   return xml.replace(/&#x(d|D);/gi, '');
 };
 
-export { validateSignature, sanitizeXML };
+export { validateSignature, verifySignature, sanitizeXML };

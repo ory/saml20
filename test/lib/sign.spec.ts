@@ -53,6 +53,8 @@ describe('sign.ts output', function () {
 
   it('does not verify after the signed content changes', function () {
     const signed = sign(validXml, key, cert, assertionXPath);
-    assert.strictEqual(validateSignature(signed.replace('>me<', '>you<'), cert, null), null);
+    assert.throws(() => validateSignature(signed.replace('>me<', '>you<'), cert, null), {
+      message: 'invalid signature: the signature does not verify',
+    });
   });
 });
