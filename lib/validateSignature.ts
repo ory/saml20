@@ -159,6 +159,10 @@ const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) 
   }
 };
 
+/**
+ * @deprecated Use validateSignature, which also rejects being given both a
+ * certificate and a thumbprint. It stops being exported in the next major version.
+ */
 const hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string | null => {
   xml = sanitizeXML(xml);
   return _hasValidSignature(xml, cert, certThumbprint, options);
@@ -282,4 +286,4 @@ const sanitizeXML = (xml) => {
 };
 
 // certToPEM is re-exported for callers that import it from this module.
-export { validateSignature, certToPEM, sanitizeXML };
+export { hasValidSignature, validateSignature, certToPEM, sanitizeXML };

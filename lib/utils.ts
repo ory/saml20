@@ -136,6 +136,7 @@ const getAttribute = <TDefault = unknown>(value: any, path: string, defaultValue
   return current;
 };
 
+/** @deprecated An internal helper; it stops being exported in the next major version. */
 const isMultiRootedXMLError = (err: any) => {
   if ((err as any)?.message?.indexOf('Only one element can be added and only after doctype') >= 0) {
     return true;
@@ -149,6 +150,7 @@ export {
   parseFromString,
   thumbprint,
   getAttribute,
+  isMultiRootedXMLError,
   multiRootedXMLError,
   doctypeNotAllowedError,
   containsDoctype,
