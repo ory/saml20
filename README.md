@@ -1,10 +1,8 @@
-SAML 2.0 & 1.1 Assertion Parser & Validator
+# SAML 2.0 parser and validator
 
-![Build Status](https://github.com/boxyhq/saml20/actions/workflows/node.js.yml/badge.svg)
+![Build Status](https://github.com/ory/saml20/actions/workflows/node.js.yml/badge.svg)
 
-=============
-
-boxyhq/saml20 is a fork of a fork of [saml20](https://github.com/leandrob/saml20). It now has extended functionality and diverges from the original unmaintained library. The new package is published here - https://www.npmjs.com/package/@boxyhq/saml20
+A SAML 2.0 library for Node.js: it validates SAML Responses, and creates and parses AuthnRequests, logout messages and metadata. It started as a fork of [saml20](https://github.com/leandrob/saml20) and has since diverged from it. Ory maintains it, and it is published on npm as [`@boxyhq/saml20`](https://www.npmjs.com/package/@boxyhq/saml20).
 
 ## Installation
 
@@ -14,7 +12,7 @@ $ npm install @boxyhq/saml20
 
 ## Usage
 
-`validate()` returns a promise. Before 1.6.0 it took a callback as its last argument; since 1.6.0 a callback is ignored and is never called, so `await` the result or use `.then()`/`.catch()` instead.
+`validate()` returns a promise.
 
 ### saml.validate(rawResponse, options)
 
@@ -113,17 +111,12 @@ Fixtures live in `test/assets`. Tests that need a fresh validity window, or a sh
 
 Thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody and are appreciated.
 
-Please try to create bug reports that are:
+Report bugs in [GitHub issues](https://github.com/ory/saml20/issues). Please try to create bug reports that are:
 
 - _Reproducible._ Include steps to reproduce the problem.
 - _Specific._ Include as much detail as possible: which version, what environment, etc.
 - _Unique._ Do not duplicate existing opened issues.
 - _Scoped to a Single Bug._ One bug per report.
-
-## Community
-
-- [Discord](https://discord.gg/uyb7pYt4Pa) (For live discussion with the Community and BoxyHQ team)
-- [Twitter](https://twitter.com/BoxyHQ) (Get the news fast)
 
 ## Reporting Security Issues
 
