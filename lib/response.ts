@@ -249,12 +249,18 @@ const getStatusCodeError = (responseObj): Error | undefined => {
 };
 
 /*
-  assertionObj: the signed content, either a whole SAML Response or a lone
-  Assertion. Only signed content is read here, never the unsigned <Response>
-  wrapper around a signed Assertion.
+  assertionObj: the signed content: a whole SAML Response, a lone Assertion,
+  or a whole WS-Trust RequestSecurityTokenResponse (ADFS over WS-Federation).
+  Only signed content is read here, never an unsigned wrapper around a signed
+  Assertion.
  */
 function parseResponseAndVersion(assertionObj) {
-  let assertion = assertionObj.Assertion || (assertionObj.Response && assertionObj.Response.Assertion);
+  let assertion =
+    assertionObj.Assertion ||
+    (assertionObj.Response && assertionObj.Response.Assertion) ||
+    (assertionObj.RequestSecurityTokenResponse &&
+      assertionObj.RequestSecurityTokenResponse.RequestedSecurityToken &&
+      assertionObj.RequestSecurityTokenResponse.RequestedSecurityToken.Assertion);
   // if we have an array of assertions then pick first element
   if (assertion && assertion[0]) {
     assertion = assertion[0];

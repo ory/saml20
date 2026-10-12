@@ -4,9 +4,11 @@ import type { ValidateOptions } from '../../lib/typings';
 import { doctypeNotAllowedError } from '../../lib/utils';
 import saml20 from '../../lib/saml20';
 import fs from 'fs';
+import { SignedXml } from 'xml-crypto';
 import {
   ACS,
   ASSERTION_NS,
+  ASSERTION_XPATH,
   IDP,
   PROTOCOL_NS,
   REQUEST_ID,
@@ -576,6 +578,69 @@ describe('validate() with an assertion encrypted before the Response was signed'
     await assert.rejects(validate(signedEncrypted, options({ privateKey: undefined })), {
       message: 'Exception of Assertion Decryption.',
     });
+  });
+});
+
+describe('validate() with a WS-Trust RequestSecurityTokenResponse (ADFS over WS-Federation)', function () {
+  const rstr = (token: string) =>
+    '<t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust" Id="_rstr-1">' +
+    '<t:Lifetime><wsu:Created xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">' +
+    new Date().toISOString() +
+    '</wsu:Created></t:Lifetime>' +
+    `<wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"><wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing"><wsa:Address>${SP}</wsa:Address></wsa:EndpointReference></wsp:AppliesTo>` +
+    `<t:RequestedSecurityToken>${token}</t:RequestedSecurityToken>` +
+    '</t:RequestSecurityTokenResponse>';
+
+  // An enveloped signature over the whole RequestSecurityTokenResponse.
+  const signEnvelope = (xml: string) => {
+    const sig = new SignedXml({
+      privateKey: testIdpKey,
+      signatureAlgorithm: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+      canonicalizationAlgorithm: 'http://www.w3.org/2001/10/xml-exc-c14n#',
+    });
+    sig.addReference({
+      xpath: '/*',
+      transforms: [
+        'http://www.w3.org/2000/09/xmldsig#enveloped-signature',
+        'http://www.w3.org/2001/10/xml-exc-c14n#',
+      ],
+      digestAlgorithm: 'http://www.w3.org/2001/04/xmlenc#sha256',
+    });
+    sig.computeSignature(xml, { location: { reference: '/*', action: 'append' } });
+    return sig.getSignedXml();
+  };
+
+  it('accepts a signed Assertion inside an unsigned RequestSecurityTokenResponse', async function () {
+    const assertion = signXml(buildAssertion(), ASSERTION_XPATH).replace(/^<\?xml[^>]*>/, '');
+    const profile = await validate(rstr(assertion), { publicKey: testIdpCert, audience: SP });
+    assert.strictEqual(profile.issuer, IDP);
+    assert.strictEqual(profile.assertionId, '_assertion-1');
+  });
+
+  it('accepts an Assertion inside a signed RequestSecurityTokenResponse', async function () {
+    const profile = await validate(signEnvelope(rstr(buildAssertion())), {
+      publicKey: testIdpCert,
+      audience: SP,
+    });
+    assert.strictEqual(profile.issuer, IDP);
+    assert.strictEqual(profile.assertionId, '_assertion-1');
+  });
+
+  it('rejects a signed RequestSecurityTokenResponse whose Assertion was changed', async function () {
+    const tampered = signEnvelope(rstr(buildAssertion())).replace('jo@example.com', 'eve@example.com');
+    await assert.rejects(validate(tampered, { publicKey: testIdpCert, audience: SP }), {
+      message: 'Invalid assertion signature.',
+    });
+  });
+
+  it('runs the usual checks on the Assertion inside a signed RequestSecurityTokenResponse', async function () {
+    await assert.rejects(
+      validate(signEnvelope(rstr(buildAssertion())), {
+        publicKey: testIdpCert,
+        audience: 'https://other.example.com',
+      }),
+      { message: 'Invalid audience.' }
+    );
   });
 });
 
