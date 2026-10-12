@@ -14,6 +14,8 @@ $ npm install @boxyhq/saml20
 
 ## Usage
 
+`parse()` and `validate()` return promises. Before 1.6.0 they took a callback as their last argument; since 1.6.0 a callback is ignored and is never called, so `await` the result or use `.then()`/`.catch()` instead.
+
 ### saml.validate(rawResponse, options)
 
 Verifies a SAML Response (or a lone Assertion) and resolves with the user's profile. It rejects when anything fails: an unsuccessful `StatusCode`, a missing or invalid signature, an expired assertion, or a failed audience, `InResponseTo`, `Recipient` or replay check.
