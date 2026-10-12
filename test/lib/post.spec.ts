@@ -51,7 +51,19 @@ describe('createPostForm escaping and structure', function () {
 
   it('percent-encodes characters in the action URL that would break the attribute', function () {
     const form = saml.createPostForm('https://sp.example.com/acs?a="b"&c=<d>', []);
+    assert(form.includes('action="https://sp.example.com/acs?a=%22b%22&amp;c=%3Cd%3E"'));
     assert.strictEqual(parsedAction(form), 'https://sp.example.com/acs?a=%22b%22&c=%3Cd%3E');
+  });
+
+  it('keeps query text that looks like a named character reference', function () {
+    for (const postUrl of [
+      'https://sp.example.com/acs?a=1&copy;b=2',
+      'https://sp.example.com/acs?a=1&copy=2',
+      'https://sp.example.com/acs?a=1&lt;b&gt;',
+    ]) {
+      const form = saml.createPostForm(postUrl, []);
+      assert.strictEqual(parsedAction(form), encodeURI(postUrl), postUrl);
+    }
   });
 
   it('renders a form with only the submit button when there are no params', function () {
