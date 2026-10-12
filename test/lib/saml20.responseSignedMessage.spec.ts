@@ -18,6 +18,7 @@ const inResponseTo = 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685';
 describe('saml20.responseSignedMessage', function () {
   it('Should validate saml 2.0 token using thumbprint', async function () {
     const response = await validate(validResponse, {
+      audience,
       thumbprint: thumbprint,
       bypassExpiration: true,
       inResponseTo: inResponseTo,
@@ -32,6 +33,7 @@ describe('saml20.responseSignedMessage', function () {
 
   it('Should validate saml 2.0 token using certificate', async function () {
     const response = await validate(validResponse, {
+      audience,
       publicKey: certificate,
       bypassExpiration: true,
       inResponseTo: inResponseTo,
@@ -71,6 +73,7 @@ describe('saml20.responseSignedMessage', function () {
   it('Should fail with missing root element', async function () {
     try {
       await validate('invalid-assertion', {
+        audience,
         publicKey: certificate,
         bypassExpiration: true,
         inResponseTo: inResponseTo,
@@ -99,6 +102,7 @@ describe('saml20.responseSignedMessage', function () {
 describe('saml20.validResponseSignedMessageUnsanitized', function () {
   it('Should validate saml 2.0 token using thumbprint', async function () {
     const response = await validate(validResponseUnsanitized, {
+      audience,
       thumbprint: thumbprint,
       bypassExpiration: true,
       inResponseTo: inResponseTo,
@@ -113,6 +117,7 @@ describe('saml20.validResponseSignedMessageUnsanitized', function () {
 
   it('Should validate saml 2.0 token using certificate', async function () {
     const response = await validate(validResponseUnsanitized, {
+      audience,
       publicKey: certificate,
       bypassExpiration: true,
       inResponseTo: inResponseTo,
@@ -152,6 +157,7 @@ describe('saml20.validResponseSignedMessageUnsanitized', function () {
   it('Should fail with missing root element', async function () {
     try {
       await validate('invalid-assertion', {
+        audience,
         publicKey: certificate,
         bypassExpiration: true,
         inResponseTo: inResponseTo,

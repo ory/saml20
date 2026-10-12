@@ -56,7 +56,7 @@ export interface ValidateOptions extends ValidateSignatureOptions {
   privateKey?: string;
   // Expected audience, or several accepted audiences. Every
   // AudienceRestriction must name one of them exactly.
-  audience?: string | string[];
+  audience: string | string[];
   // ID of the AuthnRequest this response answers (SP-initiated flows). When
   // set, the signed content must carry the same InResponseTo.
   inResponseTo?: string;

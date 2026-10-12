@@ -22,9 +22,12 @@ const oktaInResponseTo = '_f81f46f19ccf489ab1a1';
 const oktaIssuerName = 'http://www.okta.com/exkymhf9ve6PI9KfY696';
 const oktaProfileClaims = 'hojit22291@abincol.com';
 
+const samlAudience = 'https://saml.boxyhq.com';
+
 describe('decrypt.response.spec', function () {
   it('One Login Should validate saml 2.0 token using thumbprint', async function () {
     const response = await validate(oneLoginSamlResponseEncrypted, {
+      audience: samlAudience,
       privateKey: oneLoginPrivateKey,
       thumbprint: oneLoginThumbprint,
       bypassExpiration: true,
@@ -40,6 +43,7 @@ describe('decrypt.response.spec', function () {
 
   it('One Login Should validate saml 2.0 token using thumbprint Only', async function () {
     const response = await validate(oneLoginSamlResponseEncrypted, {
+      audience: samlAudience,
       privateKey: oneLoginPrivateKey,
       thumbprint: oneLoginThumbprint,
       bypassExpiration: true,
@@ -54,6 +58,7 @@ describe('decrypt.response.spec', function () {
 
   it('Okta Should validate saml 2.0 token using thumbprint', async function () {
     const response = await validate(oktaSamlResponseEncrypted, {
+      audience: samlAudience,
       privateKey: oktaPrivateKey,
       thumbprint: oktaThumbprint,
       bypassExpiration: true,
@@ -68,6 +73,7 @@ describe('decrypt.response.spec', function () {
 
   it('Okta Should validate saml 2.0 token using thumbprint Only. Also test multiple thumprint validation.', async function () {
     const response = await validate(oktaSamlResponseEncrypted, {
+      audience: samlAudience,
       privateKey: oktaPrivateKey,
       thumbprint: `${oktaThumbprint},somedummythumbprint`,
       bypassExpiration: true,

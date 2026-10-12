@@ -41,6 +41,8 @@ describe('exported types', function () {
     };
     // @ts-expect-error strictAudienceValidation was removed in 2.0; audiences always match exactly
     const removed: ValidateOptions = { publicKey: 'MIIC...', strictAudienceValidation: true };
+    // @ts-expect-error audience is required
+    const noAudience: ValidateOptions = { publicKey: 'MIIC...' };
     // @ts-expect-error audience must be a string or a list of strings
     const invalid: ValidateOptions = { publicKey: 'MIIC...', audience: 42 };
     const profile: SAMLProfile = {
@@ -54,7 +56,7 @@ describe('exported types', function () {
 
     assert.strictEqual(await options.assertionReplayValidator!({ assertionId: '_a' }), false);
     assert.strictEqual(await options.assertionReplayValidator!({ assertionId: '_a' }), true);
-    assert(removed && invalid && profile && request);
+    assert(removed && noAudience && invalid && profile && request);
   });
 });
 

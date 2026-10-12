@@ -105,7 +105,11 @@ describe('decrypt.ts', function () {
       );
       assert.throws(() => decryptXml(response, { privateKey: testIdpPrivateKey }), multiRootedXMLError);
       await assert.rejects(
-        validate(response, { privateKey: testIdpPrivateKey, publicKey: testIdpCert }),
+        validate(response, {
+          audience: 'https://sp.example.com/metadata',
+          privateKey: testIdpPrivateKey,
+          publicKey: testIdpCert,
+        }),
         multiRootedXMLError
       );
     });

@@ -57,6 +57,14 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     throw new Error('You should provide either cert or certThumbprint, not both');
   }
 
+  const audiences: unknown[] = Array.isArray(options.audience) ? options.audience : [options.audience];
+  if (
+    audiences.length === 0 ||
+    !audiences.every((audience) => typeof audience === 'string' && audience !== '')
+  ) {
+    throw new Error('audience is required.');
+  }
+
   // Optional algorithm allowlists and the Reference ceiling, forwarded to
   // validateSignature. Leaving them out keeps the defaults.
   const signatureOptions: ValidateSignatureOptions = {
@@ -150,7 +158,7 @@ const checkAssertion = async (
     return new Error('Assertion is expired.');
   }
 
-  if (options.audience && !saml20.validateAudience(assertion, options.audience)) {
+  if (!saml20.validateAudience(assertion, options.audience)) {
     return new Error('Invalid audience.');
   }
 

@@ -1,5 +1,6 @@
 import assert from 'assert';
 import { parseIssuer, validate, createSAMLResponse, WrapError } from '../../lib/response';
+import type { ValidateOptions } from '../../lib/typings';
 import { doctypeNotAllowedError } from '../../lib/utils';
 import saml20 from '../../lib/saml20';
 import fs from 'fs';
@@ -85,7 +86,7 @@ describe('response.ts', function () {
   });
 
   it('rejects an error response that has no assertion', async function () {
-    await assert.rejects(validate(errorResponse, { publicKey: testIdpCert }), {
+    await assert.rejects(validate(errorResponse, { audience: SP, publicKey: testIdpCert }), {
       message: 'Invalid Status Code (AuthnFailed).',
     });
   });
@@ -154,6 +155,7 @@ describe('response.ts', function () {
   it('Should fail which has no assertion', async function () {
     try {
       await validate(validResponse, {
+        audience: validateOpts.audience,
         publicKey: certificate,
         bypassExpiration: true,
         inResponseTo: inResponseTo,
@@ -167,6 +169,7 @@ describe('response.ts', function () {
   it('Should fail which has no publicKey or thumbprint', async function () {
     try {
       await validate(validResponse, {
+        audience: validateOpts.audience,
         publicKey: undefined,
         bypassExpiration: true,
         inResponseTo: inResponseTo,
@@ -179,6 +182,7 @@ describe('response.ts', function () {
   it('Assertion is expired.', async function () {
     try {
       validate('invalid-assertion', {
+        audience,
         publicKey: certificate,
         bypassExpiration: true,
         inResponseTo: inResponseTo,
@@ -190,7 +194,7 @@ describe('response.ts', function () {
   });
 
   it('Should validate saml 2.0 token using certificate', async function () {
-    const response = await validate(validToken, { publicKey: certificate, bypassExpiration: true });
+    const response = await validate(validToken, { audience, publicKey: certificate, bypassExpiration: true });
     assert.strictEqual(response.issuer, issuerName);
     assert.strictEqual(
       response.claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'],
@@ -228,7 +232,7 @@ describe('response.ts', function () {
   });
   it('Should fail with invalid signature', async function () {
     try {
-      await validate(invalidToken, { publicKey: certificate, bypassExpiration: true });
+      await validate(invalidToken, { audience, publicKey: certificate, bypassExpiration: true });
     } catch (error) {
       const result = (error as Error).message;
       assert.strictEqual(result, 'Invalid assertion signature.');
@@ -237,7 +241,7 @@ describe('response.ts', function () {
 
   it('Should fail with missing root element', async function () {
     try {
-      await validate('invalid-assertion', { publicKey: certificate, bypassExpiration: true });
+      await validate('invalid-assertion', { audience, publicKey: certificate, bypassExpiration: true });
     } catch (error) {
       const result = (error as Error).message;
       assert.strictEqual(result, 'missing root element');
@@ -246,7 +250,7 @@ describe('response.ts', function () {
 
   it('Should fail with invalid assertion and possible assertion wrapping', async function () {
     try {
-      await validate(invalidWrappedToken, { publicKey: certificate, bypassExpiration: true });
+      await validate(invalidWrappedToken, { audience, publicKey: certificate, bypassExpiration: true });
     } catch (error) {
       const result = (error as Error).message;
       assert.strictEqual(result, 'Invalid assertion. Possible assertion wrapping.');
@@ -255,7 +259,7 @@ describe('response.ts', function () {
 
   it('Should fail with expired assertion', async function () {
     try {
-      await validate(validToken, { publicKey: certificate });
+      await validate(validToken, { audience, publicKey: certificate });
     } catch (error) {
       const result = (error as Error).message;
       assert.strictEqual(result, 'Assertion is expired.');
@@ -287,7 +291,7 @@ describe('response.ts', function () {
       ),
       RESPONSE_XPATH
     );
-    const profile = await validate(response, { publicKey: testIdpCert });
+    const profile = await validate(response, { audience: SP, publicKey: testIdpCert });
     assert.strictEqual(
       profile.claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'],
       'permanent-id'
@@ -314,7 +318,7 @@ describe('response.ts', function () {
 
     const response = await createSAMLResponse(json);
 
-    const parsed = await validate(response, { publicKey: testIdpPublicKey });
+    const parsed = await validate(response, { audience: json.audience, publicKey: testIdpPublicKey });
 
     assert.strictEqual(parsed.issuer, json.issuer);
     assert.strictEqual(parsed.audience, json.audience);
@@ -343,7 +347,7 @@ describe('response.ts', function () {
 
     const response = await createSAMLResponse(json);
 
-    const parsed = await validate(response, { publicKey: testIdpPublicKey });
+    const parsed = await validate(response, { audience: json.audience, publicKey: testIdpPublicKey });
 
     assert.strictEqual(parsed.issuer, json.issuer);
     assert.strictEqual(parsed.audience, json.audience);
@@ -367,7 +371,10 @@ describe('response.ts', function () {
       sessionIndex: '_session-index-from-the-idp',
     };
 
-    const parsed = await validate(await createSAMLResponse(json), { publicKey: testIdpPublicKey });
+    const parsed = await validate(await createSAMLResponse(json), {
+      audience: json.audience,
+      publicKey: testIdpPublicKey,
+    });
 
     assert.strictEqual(parsed.sessionIndex, json.sessionIndex);
   });
@@ -435,6 +442,7 @@ it('Should create a SAML response with nameFormat basic', async function () {
 it('validate should throw error if both publicKey and thumbprint are provided', async function () {
   try {
     await validate(validResponse, {
+      audience: validateOpts.audience,
       publicKey: certificate,
       thumbprint: 'thumbprint',
     });
@@ -448,7 +456,7 @@ it('validate should throw error if both publicKey and thumbprint are provided', 
 
 it('validate should throw error if rawAssertion is empty', async function () {
   try {
-    await validate('', { publicKey: certificate });
+    await validate('', { audience: SP, publicKey: certificate });
   } catch (error) {
     assert.strictEqual((error as Error).message, 'rawAssertion is required.');
   }
@@ -575,9 +583,12 @@ describe('validate() with an assertion encrypted before the Response was signed'
 
 describe('validate() edge cases', function () {
   it('rejects a signed Response without an Assertion', async function () {
-    await assert.rejects(validate(signXml(buildResponse(''), RESPONSE_XPATH), { publicKey: testIdpCert }), {
-      message: 'Invalid assertion.',
-    });
+    await assert.rejects(
+      validate(signXml(buildResponse(''), RESPONSE_XPATH), { publicKey: testIdpCert, audience: SP }),
+      {
+        message: 'Invalid assertion.',
+      }
+    );
   });
 
   it('rejects a signed Assertion that has no Version', async function () {
@@ -587,7 +598,7 @@ describe('validate() edge cases', function () {
         `<saml:Assertion><saml:Issuer>${IDP}</saml:Issuer></saml:Assertion></samlp:Response>`,
       RESPONSE_XPATH
     );
-    await assert.rejects(validate(response, { publicKey: testIdpCert }), {
+    await assert.rejects(validate(response, { audience: SP, publicKey: testIdpCert }), {
       message: 'SAML Assertion version not supported.',
     });
   });
@@ -604,13 +615,33 @@ describe('validate() edge cases', function () {
       ),
       RESPONSE_XPATH
     );
-    await assert.rejects(validate(response, { publicKey: testIdpCert }), (error: WrapError) => {
+    await assert.rejects(validate(response, { audience: SP, publicKey: testIdpCert }), (error: WrapError) => {
       assert(error instanceof WrapError);
       assert.strictEqual(error.message, 'An error occurred trying to parse assertion.');
       assert(error.inner instanceof Error);
       return true;
     });
   });
+});
+
+describe('validate() requires an audience', function () {
+  const signed = () => signXml(buildResponse(buildAssertion()), RESPONSE_XPATH);
+  const missing: [string, unknown][] = [
+    ['omitted', undefined],
+    ['an empty string', ''],
+    ['an empty list', []],
+    ['a list with an empty string', [SP, '']],
+    ['not a string', 42],
+  ];
+
+  for (const [name, audience] of missing) {
+    it(`rejects an audience that is ${name}`, async function () {
+      await assert.rejects(
+        validate(signed(), { publicKey: testIdpCert, audience } as unknown as ValidateOptions),
+        { message: 'audience is required.' }
+      );
+    });
+  }
 });
 
 describe('validate() matches audiences exactly', function () {
@@ -689,7 +720,7 @@ describe('validate() audience checks on signed responses', function () {
 describe('validate() on an unsigned response', function () {
   it('rejects it and keeps the reason in inner', async function () {
     await assert.rejects(
-      validate(buildResponse(buildAssertion()), { publicKey: testIdpCert }),
+      validate(buildResponse(buildAssertion()), { audience: SP, publicKey: testIdpCert }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'Invalid assertion.');
         assert.strictEqual(error.inner.message, 'invalid signature: no Signature element found');
@@ -708,12 +739,15 @@ describe('validate() error handling', function () {
       throw new Error('boom');
     };
     try {
-      await assert.rejects(validate(signedResponse(), { publicKey: testIdpCert }), (error: WrapError) => {
-        assert(error instanceof WrapError);
-        assert.strictEqual(error.message, 'An error occurred trying to validate the assertion.');
-        assert.strictEqual(error.inner.message, 'boom');
-        return true;
-      });
+      await assert.rejects(
+        validate(signedResponse(), { audience: SP, publicKey: testIdpCert }),
+        (error: WrapError) => {
+          assert(error instanceof WrapError);
+          assert.strictEqual(error.message, 'An error occurred trying to validate the assertion.');
+          assert.strictEqual(error.inner.message, 'boom');
+          return true;
+        }
+      );
     } finally {
       saml20.validateExpiration = original;
     }
@@ -722,6 +756,7 @@ describe('validate() error handling', function () {
   it('wraps a failing replay validator and keeps its error in inner', async function () {
     await assert.rejects(
       validate(signedResponse(), {
+        audience: SP,
         publicKey: testIdpCert,
         assertionReplayValidator: async () => {
           throw new Error('store unavailable');
@@ -742,21 +777,22 @@ describe('validate() error handling', function () {
     try {
       const signed = signedResponse();
       const attempts: [string, Record<string, unknown>][] = [
-        ['', { publicKey: testIdpCert }],
+        ['', { publicKey: testIdpCert, audience: SP }],
         [signed, {}],
-        [signed, { publicKey: testIdpCert, thumbprint: 'x' }],
-        ['<a><b></a>', { publicKey: testIdpCert }],
-        [buildResponse(''), { publicKey: testIdpCert }],
-        [buildResponse(buildAssertion()), { publicKey: testIdpCert }],
-        [signed.replace('jo@example.com', 'eve@example.com'), { publicKey: testIdpCert }],
-        [signed, { publicKey: certificate }],
+        [signed, { publicKey: testIdpCert }],
+        [signed, { publicKey: testIdpCert, thumbprint: 'x', audience: SP }],
+        ['<a><b></a>', { publicKey: testIdpCert, audience: SP }],
+        [buildResponse(''), { publicKey: testIdpCert, audience: SP }],
+        [buildResponse(buildAssertion()), { publicKey: testIdpCert, audience: SP }],
+        [signed.replace('jo@example.com', 'eve@example.com'), { publicKey: testIdpCert, audience: SP }],
+        [signed, { publicKey: certificate, audience: SP }],
         [signed, { publicKey: testIdpCert, audience: 'https://other.example.com' }],
-        [signed, { publicKey: testIdpCert, inResponseTo: '_other' }],
-        [signed, { publicKey: testIdpCert, recipient: 'https://other.example.com/acs' }],
-        [signed, { publicKey: testIdpCert, assertionReplayValidator: () => true }],
+        [signed, { publicKey: testIdpCert, audience: SP, inResponseTo: '_other' }],
+        [signed, { publicKey: testIdpCert, audience: SP, recipient: 'https://other.example.com/acs' }],
+        [signed, { publicKey: testIdpCert, audience: SP, assertionReplayValidator: () => true }],
       ];
       for (const [xml, options] of attempts) {
-        await assert.rejects(validate(xml, options));
+        await assert.rejects(validate(xml, options as unknown as ValidateOptions));
       }
       await new Promise((resolve) => setTimeout(resolve, 50));
       assert.deepStrictEqual(unhandled, []);
