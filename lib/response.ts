@@ -14,6 +14,7 @@ import {
   multiRootedXMLError,
   containsDoctype,
   doctypeNotAllowedError,
+  WrapError,
 } from './utils';
 import { sign } from './sign';
 
@@ -35,10 +36,6 @@ const nameFormatUri = [
 const tokenHandlers = {
   '2.0': saml20,
 };
-
-class WrapError extends Error {
-  inner?: any;
-}
 
 /**@deprecated Use parseIssuer instead */
 const parse = async (rawAssertion: string): Promise<SAMLProfile> => {
@@ -79,7 +76,11 @@ const parseInternal = async (rawAssertion, cb) => {
     return;
   }
 
-  checkStatusCode(assertionObj, cb);
+  const statusError = getStatusCodeError(assertionObj);
+  if (statusError) {
+    cb(statusError);
+    return;
+  }
 
   parseResponseAndVersion(assertionObj, assertionObj, function onParse(err, assertion, version) {
     if (err) {
@@ -155,7 +156,14 @@ const validateInternal = async (rawAssertion, options, cb) => {
   if (!responseObj) {
     return;
   }
-  checkStatusCode(responseObj, cb);
+  // Stop on a non-Success status. Carrying on would run signature checks and,
+  // worse, the caller's replay validator, which may record the assertion as
+  // used even though the response is rejected here.
+  const statusError = getStatusCodeError(responseObj);
+  if (statusError) {
+    cb(statusError);
+    return;
+  }
 
   let signedXml: string | null;
 
@@ -313,23 +321,16 @@ const xmlToJs = async (rawAssertion, cb) => {
   }
 };
 
-const checkStatusCode = (responseObj, cb) => {
-  const statusValue =
-    responseObj.Response &&
-    responseObj.Response.Status &&
-    responseObj.Response.Status.StatusCode &&
-    responseObj.Response.Status.StatusCode['@'] &&
-    responseObj.Response.Status.StatusCode['@'].Value;
-  const statusParts = statusValue ? statusValue.split(':') : statusValue;
-  const status = statusParts
-    ? statusParts.length > 0
-      ? statusParts[statusParts.length - 1]
-      : undefined
-    : undefined;
+// Returns an error for a top-level StatusCode other than Success, or undefined
+// when the status is Success or absent.
+const getStatusCodeError = (responseObj): Error | undefined => {
+  const statusValue: string | undefined = responseObj?.Response?.Status?.StatusCode?.['@']?.Value;
+  const status = statusValue ? statusValue.split(':').pop() : undefined;
 
   if (status && status !== 'Success') {
-    cb(new Error(`Invalid Status Code (${status}).`));
+    return new Error(`Invalid Status Code (${status}).`);
   }
+  return undefined;
 };
 
 /*

@@ -205,3 +205,57 @@ describe('request.ts', function () {
     assert(result.request.includes('<Signature'));
   });
 });
+
+describe('parseSAMLRequest invalid input', function () {
+  const authnRequest = (inner: string) =>
+    '<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ' +
+    'xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ' +
+    'xmlns:ds="http://www.w3.org/2000/09/xmldsig#" ID="_req1" ' +
+    `AssertionConsumerServiceURL="https://sp/acs">${inner}</samlp:AuthnRequest>`;
+  const issuer = '<saml:Issuer>https://sp</saml:Issuer>';
+
+  it('rejects a document whose root is not AuthnRequest', async function () {
+    await assert.rejects(parseSAMLRequest('<LogoutRequest ID="_1"/>', false), {
+      message: 'Invalid SAML Request: missing AuthnRequest element.',
+    });
+  });
+
+  it('rejects a request without an Issuer', async function () {
+    await assert.rejects(parseSAMLRequest(authnRequest(''), false), {
+      message: "Missing 'Issuer' in SAML Request.",
+    });
+  });
+
+  it('rejects an unsigned request on the POST binding', async function () {
+    await assert.rejects(parseSAMLRequest(authnRequest(issuer), true), { message: 'Missing signature' });
+  });
+
+  it('accepts an unsigned request on the Redirect binding', async function () {
+    const parsed = await parseSAMLRequest(authnRequest(issuer), false);
+    assert.strictEqual(parsed.id, '_req1');
+    assert.strictEqual(parsed.acsUrl, 'https://sp/acs');
+    assert.strictEqual(parsed.audience, 'https://sp');
+    assert.strictEqual(parsed.publicKey, null);
+  });
+
+  it('treats a Signature without a certificate as no signature', async function () {
+    const signedNoCert = authnRequest(`${issuer}<ds:Signature><ds:SignedInfo/></ds:Signature>`);
+    await assert.rejects(parseSAMLRequest(signedNoCert, true), { message: 'Missing signature' });
+    assert.strictEqual((await parseSAMLRequest(signedNoCert, false)).publicKey, null);
+  });
+
+  it('returns the certificate embedded in the Signature', async function () {
+    const parsed = await parseSAMLRequest(
+      authnRequest(
+        `${issuer}<ds:Signature><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIC</ds:X509Certificate>` +
+          '</ds:X509Data></ds:KeyInfo></ds:Signature>'
+      ),
+      true
+    );
+    assert.strictEqual(parsed.publicKey, 'MIIC');
+  });
+
+  it('rejects malformed XML with the parser error', async function () {
+    await assert.rejects(parseSAMLRequest('<a><b></a>', false), /Unexpected close tag/);
+  });
+});

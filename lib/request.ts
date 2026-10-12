@@ -107,6 +107,7 @@ const parseXML = (xml: string): Promise<Record<string, any>> => {
       (err: Error | null, result: any) => {
         if (err) {
           reject(err);
+          return;
         }
 
         resolve(result);
@@ -144,12 +145,21 @@ const decodeBase64 = async (string: string, isDeflated: boolean, options: Decode
 const parseSAMLRequest = async (rawRequest: string, isPost = true) => {
   const result = await parseXML(rawRequest);
 
-  const attributes = result['AuthnRequest']['$'];
-  const issuer = result['AuthnRequest']['Issuer'];
+  const authnRequest = result?.['AuthnRequest'];
+  if (!authnRequest) {
+    throw new Error('Invalid SAML Request: missing AuthnRequest element.');
+  }
 
-  const publicKey = result['AuthnRequest']['Signature']
-    ? result['AuthnRequest']['Signature'][0]['KeyInfo'][0]['X509Data'][0]['X509Certificate'][0]
-    : null;
+  const attributes = authnRequest['$'] || {};
+  const issuer = authnRequest['Issuer'];
+
+  // The embedded certificate is only returned here; verifying the signature
+  // against it (or against a trusted key) is the caller's job. A Signature
+  // without a certificate yields null, the same as no Signature at all.
+  const x509Certificate =
+    authnRequest['Signature']?.[0]?.['KeyInfo']?.[0]?.['X509Data']?.[0]?.['X509Certificate']?.[0];
+  const publicKey: string | null =
+    (typeof x509Certificate === 'string' ? x509Certificate : x509Certificate?._) || null;
 
   if (!issuer) {
     throw new Error("Missing 'Issuer' in SAML Request.");

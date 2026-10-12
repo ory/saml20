@@ -1,6 +1,4 @@
-import { getAttribute } from './utils';
-import { thumbprint } from './utils';
-import { containsDoctype, doctypeNotAllowedError } from './utils';
+import { getAttribute, thumbprint, containsDoctype, doctypeNotAllowedError } from './utils';
 import { stripCertHeaderAndFooter } from './cert';
 
 import crypto from 'crypto';
@@ -48,7 +46,7 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
         }
 
         for (const ssoDesRec of ssoDes) {
-          const keyDes = ssoDesRec['KeyDescriptor'];
+          const keyDes = ssoDesRec['KeyDescriptor'] || [];
           for (const keyDesRec of keyDes) {
             const ki = keyDesRec['KeyInfo']?.[0];
             const cd = ki?.['X509Data']?.[0];
@@ -94,7 +92,7 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
             if (!validNameIDFormat) {
               reject(
                 new Error(
-                  `Invalid nameIDFormat. Please set 'Name ID Format' to ${validateOpts?.nameIDFormat}`
+                  `Invalid nameIDFormat. Please set 'Name ID Format' to ${validateOpts.validateNameIDFormat}`
                 )
               );
               return;
@@ -107,6 +105,7 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
             X509Certificates = X509CertificatesWithoutSigningAttr;
           } else {
             reject(new Error(`Could not find X509Certificate in the IdP metadata.`));
+            return;
           }
         }
 
@@ -270,6 +269,9 @@ const createSPMetadataXML = ({
   encryption: boolean;
   authnRequestsSigned?: boolean;
 }): string => {
+  // Like createIdPMetadataXML, accept a PEM string: X509Certificate must carry
+  // only the base64 body, not the BEGIN/END lines.
+  const x509cert = stripCertHeaderAndFooter(publicKeyString);
   const today = new Date();
 
   const keyDescriptor: any[] = [
@@ -279,7 +281,7 @@ const createSPMetadataXML = ({
         '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
         'ds:X509Data': {
           'ds:X509Certificate': {
-            '#text': publicKeyString,
+            '#text': x509cert,
           },
         },
       },
@@ -293,7 +295,7 @@ const createSPMetadataXML = ({
         '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
         'ds:X509Data': {
           'ds:X509Certificate': {
-            '#text': publicKeyString,
+            '#text': x509cert,
           },
         },
       },

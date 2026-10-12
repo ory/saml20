@@ -13,6 +13,14 @@ import { SignedXml } from 'xml-crypto';
 import { PubKeyInfo } from '../../lib/cert';
 import { thumbprint } from '../../lib/utils';
 import assert from 'assert';
+import {
+  ASSERTION_NS,
+  ASSERTION_XPATH,
+  IDP,
+  buildAssertion,
+  signXml,
+  testIdpCert,
+} from '../helpers/fixtures';
 
 const ssoUrl =
   'https://dev-20901260.okta.com/app/dev-20901260_jacksondemo5225_1/exk3wth7ss1TKnAN15d7/sso/saml';
@@ -647,5 +655,54 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
       () => validateSignature(withReferences(3), publicKey, null, { maxSignatureReferences: 3 }),
       /signature value .* is incorrect/
     );
+  });
+});
+
+describe('validateSignature.ts - unusual documents', function () {
+  const sha256 = 'http://www.w3.org/2001/04/xmlenc#sha256';
+
+  it('rejects a document that has no Signature', function () {
+    const unsigned = buildAssertion();
+    assert.throws(() => validateSignature(unsigned, testIdpCert, null));
+    assert.throws(() => validateSignature(unsigned, testIdpCert, null, { maxSignatureReferences: 1 }));
+  });
+
+  it('rejects a Reference without a DigestMethod', function () {
+    const signed = signXml(buildAssertion(), ASSERTION_XPATH);
+    const noDigestMethod = signed.replace(/<DigestMethod[^>]*\/>/, '');
+    assert.notStrictEqual(noDigestMethod, signed);
+    assert.throws(
+      () => validateSignature(noDigestMethod, testIdpCert, null, { allowedHashAlgorithms: [sha256] }),
+      /DigestMethod/
+    );
+  });
+
+  it('rejects a SignedInfo without any Reference', function () {
+    const signed = signXml(buildAssertion(), ASSERTION_XPATH);
+    const noReference = signed.replace(/<Reference .*?<\/Reference>/s, '');
+    assert.notStrictEqual(noReference, signed);
+    assert.throws(() => validateSignature(noReference, testIdpCert, null), /Reference/);
+  });
+
+  describe('a Signature nested deeper than the usual positions', function () {
+    // The lookup tries the Signature at depth 2, 3 and 4 first, then falls back
+    // to the first Signature anywhere in the document.
+    const deep =
+      '<Root><A><B><C>' +
+      `<saml:Assertion xmlns:saml="${ASSERTION_NS}" ID="_deep" Version="2.0"><saml:Issuer>${IDP}</saml:Issuer></saml:Assertion>` +
+      '</C></B></A></Root>';
+    const signedDeep = signXml(deep, '//*[local-name(.)="Assertion"]');
+
+    it('is found and verified', function () {
+      const signedReference = validateSignature(signedDeep, testIdpCert, null);
+      assert(signedReference);
+      assert(signedReference.includes('ID="_deep"'));
+    });
+
+    it('does not verify after tampering', function () {
+      const tampered = signedDeep.replace(`<saml:Issuer>${IDP}<`, '<saml:Issuer>https://evil.example.com<');
+      assert.notStrictEqual(tampered, signedDeep);
+      assert.strictEqual(validateSignature(tampered, testIdpCert, null), null);
+    });
   });
 });

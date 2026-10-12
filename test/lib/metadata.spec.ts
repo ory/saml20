@@ -1,6 +1,7 @@
 import assert from 'assert';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from '../../lib/metadata';
-import { doctypeNotAllowedError } from '../../lib/utils';
+import { doctypeNotAllowedError, thumbprint } from '../../lib/utils';
+import { stripCertHeaderAndFooter } from '../../lib/cert';
 import fs from 'fs';
 
 const samlMetadata = fs.readFileSync('./test/assets/mock-saml-metadata.xml').toString();
@@ -197,12 +198,20 @@ describe('metadata.ts', function () {
   });
 
   it(`metadata with missing KeyDescriptor should throw an error`, async () => {
-    try {
-      await parseMetadata(samlMetadata6, {});
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Could not find X509Certificate in the IdP metadata.');
-    }
+    await assert.rejects(parseMetadata(samlMetadata6, {}), {
+      message: 'Could not find X509Certificate in the IdP metadata.',
+    });
+  });
+
+  it('metadata whose descriptor has no KeyDescriptor element is rejected cleanly', async () => {
+    const metadata =
+      '<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp">' +
+      '<md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">' +
+      '<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp/sso"/>' +
+      '</md:IDPSSODescriptor></md:EntityDescriptor>';
+    await assert.rejects(parseMetadata(metadata, {}), {
+      message: 'Could not find X509Certificate in the IdP metadata.',
+    });
   });
 
   it(`createIdPMetadataXML ok`, async () => {
@@ -245,6 +254,23 @@ describe('metadata.ts', function () {
 
     assert.strictEqual(!!res, true);
   });
+  it(`createSPMetadataXML strips the PEM header and footer from the certificate`, async () => {
+    const pem = fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString();
+    const body = stripCertHeaderAndFooter(pem);
+    const res = createSPMetadataXML({
+      acsUrl: 'http://localhost:4000/api/saml/sso',
+      entityId: 'https://saml.example.com/entityid',
+      publicKeyString: pem,
+      encryption: true,
+    });
+
+    assert(!res.includes('CERTIFICATE-----'));
+    const parsed = await parseMetadata(res, {});
+    assert.strictEqual(parsed.loginType, 'sp');
+    assert.strictEqual(parsed.publicKey, body);
+    assert.strictEqual(parsed.thumbprint, thumbprint(body));
+  });
+
   it(`createSPMetadataXML ok with encryption`, async () => {
     const res = createSPMetadataXML({
       acsUrl: 'http://localhost:4000/api/saml/sso',
@@ -281,16 +307,9 @@ describe('metadata.ts', function () {
   });
 
   it('saml MetaData validateNameIDFormat not ok', async function () {
-    try {
-      await parseMetadata(samlMetadata, {
-        validateNameIDFormat: 'invalid:format',
-      });
-    } catch (error) {
-      assert.strictEqual(
-        (error as Error).message,
-        "Invalid nameIDFormat. Please set 'Name ID Format' to undefined"
-      );
-    }
+    await assert.rejects(parseMetadata(samlMetadata, { validateNameIDFormat: 'invalid:format' }), {
+      message: "Invalid nameIDFormat. Please set 'Name ID Format' to invalid:format",
+    });
   });
 
   it('saml MetaData with SLO services', async function () {
