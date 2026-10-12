@@ -254,12 +254,7 @@ const getStatusCodeError = (responseObj): Error | undefined => {
   wrapper around a signed Assertion.
  */
 function parseResponseAndVersion(assertionObj) {
-  let assertion =
-    assertionObj.Assertion ||
-    (assertionObj.Response && assertionObj.Response.Assertion) ||
-    (assertionObj.RequestSecurityTokenResponse &&
-      assertionObj.RequestSecurityTokenResponse.RequestedSecurityToken &&
-      assertionObj.RequestSecurityTokenResponse.RequestedSecurityToken.Assertion);
+  let assertion = assertionObj.Assertion || (assertionObj.Response && assertionObj.Response.Assertion);
   // if we have an array of assertions then pick first element
   if (assertion && assertion[0]) {
     assertion = assertion[0];
