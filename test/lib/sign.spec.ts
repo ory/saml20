@@ -7,8 +7,8 @@ import fs from 'fs';
 
 const validXml =
   '<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"><saml:Issuer>me</saml:Issuer></saml:Assertion>';
-const signingKey = fs.readFileSync('./test/assets/certificates/oktaPrivateKey.pem').toString();
-const publicKey = fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt').toString();
+const signingKey = fs.readFileSync('./test/assets/certificates/testIdpKey.pem').toString();
+const publicKey = fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString();
 
 describe('sign.ts', function () {
   it('should sign valid XML', function () {

@@ -41,8 +41,6 @@ const validToken = fs.readFileSync('./test/assets/saml20.validToken.xml').toStri
 const invalidToken = fs.readFileSync('./test/assets/saml20.invalidToken.xml').toString();
 const invalidWrappedToken = fs.readFileSync('./test/assets/saml20.invalidWrappedToken.xml').toString();
 
-const oktaPublicKey = fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt').toString();
-const oktaPrivateKey = fs.readFileSync('./test/assets/certificates/oktaPrivateKey.pem').toString();
 const testIdpPublicKey = fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString();
 const testIdpPrivateKey = fs.readFileSync('./test/assets/certificates/testIdpKey.pem').toString();
 
@@ -425,8 +423,8 @@ it('Should create a SAML response with nameFormat basic', async function () {
       },
     },
     requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-    privateKey: oktaPrivateKey,
-    publicKey: oktaPublicKey,
+    privateKey: testIdpPrivateKey,
+    publicKey: testIdpPublicKey,
   };
 
   const response = await createSAMLResponse(json);
@@ -474,8 +472,8 @@ it('Should create a SAML response with default ttlInMinutes', async function () 
       },
     },
     requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-    privateKey: oktaPrivateKey,
-    publicKey: oktaPublicKey,
+    privateKey: testIdpPrivateKey,
+    publicKey: testIdpPublicKey,
   };
 
   const response = await createSAMLResponse(json);
@@ -508,8 +506,8 @@ it('Should create a SAML response with custom ttlInMinutes', async function () {
       },
     },
     requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
-    privateKey: oktaPrivateKey,
-    publicKey: oktaPublicKey,
+    privateKey: testIdpPrivateKey,
+    publicKey: testIdpPublicKey,
     ttlInMinutes,
   };
 

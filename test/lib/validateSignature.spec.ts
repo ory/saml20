@@ -752,7 +752,7 @@ describe('validateSignature.ts - unusual documents', function () {
 describe('validateSignature.ts - thumbprint uses the KeyInfo of the signature being verified', function () {
   const trustedThumbprint = thumbprint(stripCertHeaderAndFooter(testIdpCert));
   const otherCert = stripCertHeaderAndFooter(
-    fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt').toString()
+    fs.readFileSync('./test/assets/certificates/oneloginPublicKey.crt').toString()
   );
   const signedAssertion = () => signXml(buildAssertion(), ASSERTION_XPATH);
 
