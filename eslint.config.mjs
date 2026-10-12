@@ -26,7 +26,7 @@ export default [
 
     languageOptions: {
       globals: {
-        ...globals.browser,
+        ...globals.node,
       },
 
       parser: tsParser,
@@ -36,6 +36,14 @@ export default [
 
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
+    },
+  },
+  {
+    files: ['test/**/*.ts'],
+    languageOptions: {
+      globals: {
+        ...globals.mocha,
+      },
     },
   },
 ];

@@ -31,6 +31,7 @@
     "build": "tsc -p tsconfig.json",
     "sort": "npx sort-package-json",
     "test": "nyc tsx node_modules/mocha/bin/mocha --check-leaks \"test/lib/**/*.spec.ts\"",
+    "typecheck": "tsc -p tsconfig.test.json",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prepublishOnly": "npm run build",
@@ -62,7 +63,6 @@
     "nyc": "18.0.0",
     "prettier": "3.9.9",
     "release-it": "21.1.1",
-    "tsconfig-paths": "4.2.0",
     "tsx": "4.23.15",
     "typescript": "6.0.3"
   },
@@ -72,5 +72,7 @@
     },
     "unicorn-magic": "0.2.0"
   },
-  "readmeFilename": "README.md"
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
 }
