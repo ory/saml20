@@ -11,12 +11,11 @@ import {
   MAX_INFLATED_REQUEST_BYTES,
 } from './request';
 import type { DecodeBase64Options } from './request';
-import { stripCertHeaderAndFooter, PubKeyInfo } from './cert';
+import { stripCertHeaderAndFooter } from './cert';
 import { createSAMLResponse, validate, parseIssuer, WrapError } from './response';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from './metadata';
 import { createPostForm } from './post';
 import { sign } from './sign';
-import { decryptXml } from './decrypt';
 import { containsDoctype } from './utils';
 import { parseLogoutResponse, createLogoutRequest, parseLogoutRequest, createLogoutResponse } from './logout';
 import type {
@@ -39,14 +38,12 @@ export default {
   MAX_ENCODED_REQUEST_LENGTH,
   MAX_INFLATED_REQUEST_BYTES,
   validate,
-  PubKeyInfo,
   certToPEM,
   stripCertHeaderAndFooter,
   createPostForm,
   sign,
   validateSignature,
   DEFAULT_MAX_SIGNATURE_REFERENCES,
-  decryptXml,
   parseIssuer,
   WrapError,
   containsDoctype,
@@ -71,14 +68,12 @@ export {
   MAX_ENCODED_REQUEST_LENGTH,
   MAX_INFLATED_REQUEST_BYTES,
   validate,
-  PubKeyInfo,
   certToPEM,
   stripCertHeaderAndFooter,
   createPostForm,
   sign,
   validateSignature,
   DEFAULT_MAX_SIGNATURE_REFERENCES,
-  decryptXml,
   parseIssuer,
   WrapError,
   containsDoctype,

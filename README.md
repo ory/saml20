@@ -93,6 +93,7 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 2.0 removes APIs that were deprecated or that Polis no longer uses:
 
 - `parse()` is gone. It returned a profile without checking the signature, expiry, audience or anything else, so its output could be forged. Use `validate()` to authenticate a response, and `parseIssuer()` to read the Issuer before validating (for example, to pick the IdP certificate).
+- `decryptXml` and `PubKeyInfo` are no longer exported from the package root. They were internal helpers for `validate()` and `sign()`.
 
 ## Tests
 
