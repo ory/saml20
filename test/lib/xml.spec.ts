@@ -72,6 +72,20 @@ describe('xmlToObject', function () {
     assert.deepStrictEqual(asDollar('\uFEFF<a>x</a>'), { a: 'x' });
   });
 
+  it('accepts an XML declaration after leading whitespace or comments', function () {
+    assert.deepStrictEqual(asDollar('\n  <?xml version="1.0"?>\n<a>x</a>'), { a: 'x' });
+    assert.deepStrictEqual(asDollar('\uFEFF\n<?xml version="1.0"?><a>x</a>'), { a: 'x' });
+    assert.deepStrictEqual(asDollar('<!-- note -->\n<?xml version="1.0" encoding="UTF-8"?>\n<a>x</a>'), {
+      a: 'x',
+    });
+  });
+
+  it('scans many leading comments without backtracking', function () {
+    // Each comment can only end at its own "-->"; a pattern that let one
+    // comment run on into the next took exponential time here.
+    assert.deepStrictEqual(asDollar('<!--a-->'.repeat(40) + '<a>x</a>'), { a: 'x' });
+  });
+
   it('accepts the xsi and xs prefixes without a declaration', function () {
     assert.deepStrictEqual(asDollar('<a><b xsi:type="xs:string">x</b></a>'), {
       a: { b: [{ $: { 'xsi:type': 'xs:string' }, _: 'x' }] },

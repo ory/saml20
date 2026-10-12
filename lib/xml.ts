@@ -63,12 +63,16 @@ const toObject = (element: Element, options: XmlObjectOptions): unknown => {
   return Object.keys(obj).length === 0 ? text : obj;
 };
 
+// An XML declaration is only allowed as the very first thing in a document,
+// but hand-edited metadata often has a newline or a comment before it.
+const misplacedDeclaration = /^((?:\s|<!--(?:(?!-->)[\s\S])*-->)+)<\?xml(?=\s)[\s\S]*?\?>/;
+
 // Parses XML with parseFromString, which rejects DTDs and multiple roots, into
 // plain objects: tag names without their namespace prefix, attributes under
 // `attrkey`, text under `_`, child elements in lists under their name, and a
 // string for an element that has only text. Returns null for an empty document.
 const xmlToObject = (xml: string, options: XmlObjectOptions): Record<string, unknown> | null => {
-  xml = xml.replace(/^\uFEFF/, '');
+  xml = xml.replace(/^\uFEFF/, '').replace(misplacedDeclaration, '$1');
   if (xml.trim() === '') {
     return null;
   }
