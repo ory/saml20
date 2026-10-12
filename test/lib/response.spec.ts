@@ -582,6 +582,42 @@ describe('validate() with an assertion encrypted before the Response was signed'
 });
 
 describe('validate() edge cases', function () {
+  it('uses the first Assertion when a signed Response carries several', async function () {
+    const response = signXml(
+      buildResponse(buildAssertion({ id: '_first' }) + buildAssertion({ id: '_second' })),
+      RESPONSE_XPATH
+    );
+    const profile = await validate(response, { publicKey: testIdpCert, audience: SP });
+    assert.strictEqual(profile.assertionId, '_first');
+  });
+
+  // sanitizeXML strips &#xd; after the DOM parser's DTD check, so it can
+  // assemble a DTD keyword that only the xml2js guard sees.
+  it('rejects a DTD keyword that sanitizeXML assembles before xml2js', async function () {
+    for (const inner of ['<!-- <!DOC&#xd;TYPE x> -->', '<![CDATA[<!EN&#xD;TITY x>]]>']) {
+      await assert.rejects(
+        validate(buildResponse(inner), { publicKey: testIdpCert, audience: SP }),
+        (error: WrapError) => {
+          assert.strictEqual(error.message, 'An error occurred trying to parse XML assertion.');
+          assert.strictEqual(error.inner, doctypeNotAllowedError);
+          return true;
+        }
+      );
+    }
+  });
+
+  it('wraps a document that the DOM parser accepts but xml2js rejects', async function () {
+    await assert.rejects(
+      validate(buildResponse('<x>a & b</x>'), { publicKey: testIdpCert, audience: SP }),
+      (error: WrapError) => {
+        assert(error instanceof WrapError);
+        assert.strictEqual(error.message, 'An error occurred trying to parse XML assertion.');
+        assert.match((error.inner as Error).message, /Invalid character in entity name/);
+        return true;
+      }
+    );
+  });
+
   it('rejects a signed Response without an Assertion', async function () {
     await assert.rejects(
       validate(signXml(buildResponse(''), RESPONSE_XPATH), { publicKey: testIdpCert, audience: SP }),
