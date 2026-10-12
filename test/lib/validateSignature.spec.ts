@@ -10,7 +10,7 @@ import crypto from 'crypto';
 import fs from 'fs';
 import { sign } from '../../lib/sign';
 import { SignedXml } from 'xml-crypto';
-import { PubKeyInfo } from '../../lib/cert';
+import { PubKeyInfo, stripCertHeaderAndFooter } from '../../lib/cert';
 import { thumbprint } from '../../lib/utils';
 import assert from 'assert';
 import {
@@ -18,6 +18,7 @@ import {
   ASSERTION_XPATH,
   IDP,
   buildAssertion,
+  buildResponse,
   signXml,
   testIdpCert,
 } from '../helpers/fixtures';
@@ -603,6 +604,35 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
     }
   });
 
+  it('counts References in linear time', function () {
+    // The count used to be an XPath query that was quadratic in the number of
+    // References: about 14 s for 4000 of them, enough for one POST to pin a
+    // CPU. Walking the DOM rejects the same document in a fraction of a
+    // second; the bound below leaves a wide margin for slow CI machines.
+    this.timeout(20000);
+    const inflated = withReferences(4000);
+    const started = Date.now();
+    assert.throws(
+      () => validateSignature(inflated, publicKey, null),
+      /SignedInfo declares 4000 References; at most 16 are allowed/
+    );
+    const elapsed = Date.now() - started;
+    assert(elapsed < 3000, `rejecting 4000 References took ${elapsed} ms`);
+  });
+
+  it('counts References only directly under SignedInfo', function () {
+    // References inside an unsigned ds:Object/Manifest are never processed by
+    // xml-crypto, so they must not count toward the ceiling either.
+    const signed = generateXML();
+    const reference = signed.match(/<(?:[\w.-]+:)?Reference\b[\s\S]*?<\/(?:[\w.-]+:)?Reference>/)![0];
+    const withManifest = signed.replace(
+      /(<\/(?:[\w.-]+:)?SignatureValue>)/,
+      `$1<Object xmlns="http://www.w3.org/2000/09/xmldsig#"><Manifest>${reference.repeat(50)}</Manifest></Object>`
+    );
+    assert.notStrictEqual(withManifest, signed);
+    assert(validateSignature(withManifest, publicKey, null, { maxSignatureReferences: 1 }));
+  });
+
   it('applies the ceiling in the multi-certificate path too', function () {
     const spy = spyCanon();
     try {
@@ -661,10 +691,16 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
 describe('validateSignature.ts - unusual documents', function () {
   const sha256 = 'http://www.w3.org/2001/04/xmlenc#sha256';
 
-  it('rejects a document that has no Signature', function () {
+  it('rejects a document that has no Signature with a clear error', function () {
     const unsigned = buildAssertion();
-    assert.throws(() => validateSignature(unsigned, testIdpCert, null));
-    assert.throws(() => validateSignature(unsigned, testIdpCert, null, { maxSignatureReferences: 1 }));
+    const noSignature = { message: 'invalid signature: no Signature element found' };
+    assert.throws(() => validateSignature(unsigned, testIdpCert, null), noSignature);
+    assert.throws(
+      () => validateSignature(unsigned, testIdpCert, null, { maxSignatureReferences: 1 }),
+      noSignature
+    );
+    assert.throws(() => validateSignature(unsigned, `${testIdpCert},${testIdpCert}`, null), noSignature);
+    assert.throws(() => validateSignature(unsigned, null, 'deadbeef'), noSignature);
   });
 
   it('rejects a Reference without a DigestMethod', function () {
@@ -704,5 +740,52 @@ describe('validateSignature.ts - unusual documents', function () {
       assert.notStrictEqual(tampered, signedDeep);
       assert.strictEqual(validateSignature(tampered, testIdpCert, null), null);
     });
+  });
+});
+
+describe('validateSignature.ts - thumbprint uses the KeyInfo of the signature being verified', function () {
+  const trustedThumbprint = thumbprint(stripCertHeaderAndFooter(testIdpCert));
+  const otherCert = stripCertHeaderAndFooter(
+    fs.readFileSync('./test/assets/certificates/oktaPublicKey.crt').toString()
+  );
+  const signedAssertion = () => signXml(buildAssertion(), ASSERTION_XPATH);
+
+  it('ignores an unrelated X509Certificate earlier in the document', function () {
+    // Before, the first X509Certificate anywhere in the document was checked
+    // against the thumbprint, so this validly signed assertion was rejected.
+    const response = buildResponse(
+      '<samlp:Extensions><ds:X509Certificate xmlns:ds="http://www.w3.org/2000/09/xmldsig#">' +
+        otherCert +
+        '</ds:X509Certificate></samlp:Extensions>' +
+        signedAssertion()
+    );
+    const signedReference = validateSignature(response, null, trustedThumbprint);
+    assert(signedReference);
+    assert(signedReference.includes('ID="_assertion-1"'));
+  });
+
+  it('accepts a trusted certificate that is not the first one in KeyInfo', function () {
+    const signed = signedAssertion();
+    const withChain = signed.replace(
+      '<X509Data>',
+      `<X509Data><X509Certificate>${otherCert}</X509Certificate>`
+    );
+    assert.notStrictEqual(withChain, signed);
+    assert(validateSignature(withChain, null, trustedThumbprint));
+  });
+
+  it('rejects when no certificate in KeyInfo has a trusted thumbprint', function () {
+    assert.throws(
+      () => validateSignature(signedAssertion(), null, thumbprint(otherCert)),
+      /KeyInfo or publicCert or privateKey is required/
+    );
+  });
+
+  it('rejects a signature without KeyInfo when only a thumbprint is configured', function () {
+    const withoutKeyInfo = signedAssertion().replace(/<KeyInfo>[\s\S]*?<\/KeyInfo>/, '');
+    assert.throws(
+      () => validateSignature(withoutKeyInfo, null, trustedThumbprint),
+      /KeyInfo or publicCert or privateKey is required/
+    );
   });
 });

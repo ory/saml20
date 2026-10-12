@@ -126,24 +126,43 @@ const assertAllowedAlgorithms = (signed: SignedXml, signature, options?: Validat
   }
 };
 
+const ELEMENT_NODE = 1;
+
+const childElements = (node: Node, localName: string): Element[] => {
+  const matches: Element[] = [];
+  for (let child = node.firstChild; child; child = child.nextSibling) {
+    if (child.nodeType === ELEMENT_NODE && (child as Element).localName === localName) {
+      matches.push(child as Element);
+    }
+  }
+  return matches;
+};
+
+// Count the Reference children of the signature's SignedInfo children by
+// walking the DOM. Equivalent to the XPath
+// "./*[local-name(.)='SignedInfo']/*[local-name(.)='Reference']", but linear:
+// that XPath takes quadratic time in the number of References in the xpath
+// library (about 14 s for 4000), which turned this guard into the very
+// CPU cost it exists to prevent.
+const countSignedInfoReferences = (signature: Node): number =>
+  childElements(signature, 'SignedInfo').reduce(
+    (total, signedInfo) => total + childElements(signedInfo, 'Reference').length,
+    0
+  );
+
 // Refuse a signature whose SignedInfo lists more References than the ceiling.
 // Runs before loadSignature/checkSignature, so it costs one XPath count and
 // nothing gets canonicalized. Only SignedInfo's direct Reference children are
 // counted: that is exactly the set xml-crypto iterates, so a Manifest inside an
 // unsigned ds:Object neither inflates the count nor gets a document rejected.
 const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) => {
-  if (!signature) {
-    // No Signature element at all: leave the error to loadSignature, as before.
-    return;
-  }
   const max = options?.maxSignatureReferences ?? DEFAULT_MAX_SIGNATURE_REFERENCES;
   // `count > NaN` and `count > Infinity` are both false, so a malformed
   // ceiling would silently switch the guard off. Refuse it instead.
   if (typeof max !== 'number' || !Number.isInteger(max) || max < 0) {
     throw new TypeError(`maxSignatureReferences must be a non-negative integer, got ${String(max)}`);
   }
-  const references = select("./*[local-name(.)='SignedInfo']/*[local-name(.)='Reference']", signature);
-  const count = Array.isArray(references) ? references.length : 0;
+  const count = countSignedInfoReferences(signature);
   if (count > max) {
     throw new Error(`invalid signature: SignedInfo declares ${count} References; at most ${max} are allowed`);
   }
@@ -181,6 +200,12 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
   if (!signature) {
     // @ts-expect-error missing Node properties are not needed
     signature = select("//*[local-name(.)='Signature']", doc!)?.[0];
+  }
+
+  if (!signature) {
+    // Without this, xml-crypto's loadSignature(undefined) fails with a raw
+    // "Cannot read properties of undefined" TypeError.
+    throw new Error('invalid signature: no Signature element found');
   }
 
   const signed = new SignedXml({
@@ -221,28 +246,30 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
     }
   } else {
     signed.getCertFromKeyInfo = function getKey(keyInfo) {
-      // Case A: Let's use the thumbprint
+      // Case B: use a certificate embedded in this signature's KeyInfo, but
+      // only one whose thumbprint is trusted.
       if (certThumbprint) {
-        const embeddedCert = keyInfo!.childNodes[0].ownerDocument!.getElementsByTagNameNS(
+        if (!keyInfo) {
+          return null;
+        }
+        // Look only inside the KeyInfo of the signature being verified. The
+        // first X509Certificate anywhere in the document may belong to another
+        // signature or to unsigned content.
+        const embeddedCerts = (keyInfo as Element).getElementsByTagNameNS(
           'http://www.w3.org/2000/09/xmldsig#',
           'X509Certificate'
         );
-
-        if (embeddedCert.length > 0) {
-          const base64cer = embeddedCert[0].firstChild!.toString();
-          // authenticate base64der with trusted fingerprint
-          const calculatedThumbprint = thumbprint(base64cer);
-          const thumbprints = certThumbprint.split(',');
-
-          if (thumbprints.includes(calculatedThumbprint)) {
-            // now we can use it
+        const thumbprints = certThumbprint.split(',');
+        for (let i = 0; i < embeddedCerts.length; i++) {
+          const base64cer = (embeddedCerts[i].textContent || '').trim();
+          if (base64cer && thumbprints.includes(thumbprint(base64cer))) {
             return certToPEM(base64cer);
           }
         }
-      } else {
-        // use pre-configured trusted certificates
-        return certToPEM(cert);
+        return null;
       }
+      // Case A: use the pre-configured trusted certificate
+      return certToPEM(cert);
     };
 
     valid = signed.checkSignature(xml);
