@@ -1,5 +1,4 @@
 import type { SAMLProfile, ValidateOptions } from './typings';
-import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import { getVersion } from './getVersion';
 import { verifySignature, sanitizeXML } from './validateSignature';
@@ -7,7 +6,8 @@ import type { ValidateSignatureOptions } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
-import { parseFromString, containsDoctype, doctypeNotAllowedError, WrapError, generateId } from './utils';
+import { parseFromString, WrapError, generateId } from './utils';
+import { xmlToObject } from './xml';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS, XML_SCHEMA_INSTANCE_NS, XML_SCHEMA_NS } from './constants';
 
@@ -79,7 +79,7 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
   rawAssertion = decryptedResponse;
 
   // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention
-  const responseObj = await xmlToJs(rawAssertion);
+  const responseObj = xmlToJs(rawAssertion);
 
   // Stop on a non-Success status. Carrying on would run signature checks and,
   // worse, the caller's replay validator, which may record the assertion as
@@ -106,7 +106,7 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
   // if no decryption occured, then decryptedSignedXml is just signedXml
   const { assertion: decryptedSignedXml } = decryptXml(signedXml, options);
 
-  const assertionObj = await xmlToJs(decryptedSignedXml); // this is our assertion object
+  const assertionObj = xmlToJs(decryptedSignedXml); // this is our assertion object
 
   const { assertion, signed } = parseResponseAndVersion(assertionObj);
 
@@ -215,20 +215,9 @@ const checkAssertion = async (
   return undefined;
 };
 
-const xmlToJs = async (rawAssertion) => {
+const xmlToJs = (rawAssertion: string) => {
   try {
-    rawAssertion = sanitizeXML(rawAssertion);
-    if (containsDoctype(rawAssertion)) {
-      throw doctypeNotAllowedError;
-    }
-    const parser = new xml2js.Parser({
-      attrkey: '@',
-      charkey: '_',
-      tagNameProcessors: [xml2js.processors.stripPrefix],
-    });
-
-    const jsObj = await parser.parseStringPromise(rawAssertion);
-    return flattenObject(jsObj);
+    return xmlToObject(sanitizeXML(rawAssertion), { attrkey: '@', collapse: true });
   } catch (err) {
     const error = new WrapError('An error occurred trying to parse XML assertion.');
     error.inner = err;
@@ -293,20 +282,6 @@ function parseResponseAndVersion(assertionObj) {
     : undefined;
 
   return { assertion, signed: { inResponseTo, signedDestination } };
-}
-
-function flattenObject(obj) {
-  Object.keys(obj).forEach(function objectForEach(key) {
-    if (obj[key] && obj[key][0] && obj[key].length === 1) {
-      obj[key] = obj[key][0];
-    }
-
-    if (typeof obj[key] === 'object') {
-      return flattenObject(obj[key]);
-    }
-  });
-
-  return obj;
 }
 
 function parseAttributes(assertion): SAMLProfile {

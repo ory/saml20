@@ -1,6 +1,6 @@
-import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
-import { containsDoctype, doctypeNotAllowedError, generateId } from './utils';
+import { generateId } from './utils';
+import { xmlToObject } from './xml';
 import { ASSERTION_NS, PROTOCOL_NS } from './constants';
 
 type ParsedLogoutResponse = {
@@ -17,7 +17,7 @@ type LogoutRequestParams = {
   sloUrl: string;
 };
 
-// Text content of the first element in an xml2js child list. xml2js yields a
+// Text content of the first element in a child list. xmlToObject yields a
 // plain string for an element without attributes and `{ _: text, $: attrs }`
 // for one with attributes (a namespace declaration counts as an attribute).
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,12 +27,8 @@ const textOf = (elements: any): string | undefined => {
 };
 
 const parseLogoutResponse = async (rawResponse: string): Promise<ParsedLogoutResponse> => {
-  if (containsDoctype(rawResponse)) {
-    throw doctypeNotAllowedError;
-  }
-  const parsedData = await xml2js.parseStringPromise(rawResponse, {
-    tagNameProcessors: [xml2js.processors.stripPrefix],
-  });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const parsedData: any = xmlToObject(rawResponse, { attrkey: '$' });
   const LogoutResponse = parsedData?.LogoutResponse;
 
   if (!LogoutResponse) {
@@ -108,13 +104,9 @@ type LogoutResponseParams = {
 };
 
 const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutRequest> => {
-  if (containsDoctype(rawRequest)) {
-    throw doctypeNotAllowedError;
-  }
-  const parsedData = await xml2js.parseStringPromise(rawRequest, {
-    tagNameProcessors: [xml2js.processors.stripPrefix],
-  });
-  // xml2js yields null for an empty document and '' for an element with no
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const parsedData: any = xmlToObject(rawRequest, { attrkey: '$' });
+  // xmlToObject yields null for an empty document and '' for an element with no
   // attributes and no children; neither is a usable LogoutRequest.
   const LogoutRequest = parsedData?.LogoutRequest;
 

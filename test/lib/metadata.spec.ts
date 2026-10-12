@@ -3,6 +3,7 @@ import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from '../../
 import type { ParsedMetadata, ParseMetadataOptions } from '../../lib/metadata';
 import { doctypeNotAllowedError, thumbprint } from '../../lib/utils';
 import { stripCertHeaderAndFooter } from '../../lib/cert';
+import { METADATA_NS } from '../../lib/constants';
 import fs from 'fs';
 
 const samlMetadata = fs.readFileSync('./test/assets/mock-saml-metadata.xml').toString();
@@ -365,8 +366,10 @@ describe('parseMetadata error and tolerance cases', function () {
   );
 
   it('rejects input that is not XML with the parser error', async () => {
-    await assert.rejects(parseMetadata('not xml', {}), /Non-whitespace before first tag/);
-    await assert.rejects(parseMetadata('<md:EntityDescriptor', {}), /Unexpected end/);
+    await assert.rejects(parseMetadata('not xml', {}), { message: 'missing root element' });
+    await assert.rejects(parseMetadata(`<md:EntityDescriptor xmlns:md="${METADATA_NS}"`, {}), {
+      message: 'unclosed xml tag(s): md:EntityDescriptor',
+    });
   });
 
   it('rejects a certificate that cannot be decoded', async () => {

@@ -63,10 +63,10 @@ const toObject = (element: Element, options: XmlObjectOptions): unknown => {
   return Object.keys(obj).length === 0 ? text : obj;
 };
 
-// Parses XML with parseFromString, which rejects DTDs and multiple roots, and
-// returns it in the shape xml2js produced: tag names without their namespace
-// prefix, attributes under `attrkey`, text under `_`, and a string for an
-// element that has only text. Returns null for an empty document.
+// Parses XML with parseFromString, which rejects DTDs and multiple roots, into
+// plain objects: tag names without their namespace prefix, attributes under
+// `attrkey`, text under `_`, child elements in lists under their name, and a
+// string for an element that has only text. Returns null for an empty document.
 const xmlToObject = (xml: string, options: XmlObjectOptions): Record<string, unknown> | null => {
   xml = xml.replace(/^\uFEFF/, '');
   if (xml.trim() === '') {

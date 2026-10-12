@@ -256,7 +256,9 @@ describe('parseSAMLRequest invalid input', function () {
   });
 
   it('rejects malformed XML with the parser error', async function () {
-    await assert.rejects(parseSAMLRequest('<a><b></a>', false), /Unexpected close tag/);
+    await assert.rejects(parseSAMLRequest('<a><b></a>', false), {
+      message: 'Opening and ending tag mismatch: "b" != "a"',
+    });
   });
 });
 

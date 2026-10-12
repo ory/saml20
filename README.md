@@ -96,6 +96,7 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 - `strictAudienceValidation` is gone and audiences are always compared exactly. Before 2.0, without that option an `Audience` that merely started with the expected value was accepted (`https://sp.example.com/metadata.evil.example` passed for `https://sp.example.com/metadata`). If you relied on a prefix match, pass every accepted audience in `audience` instead.
 - `validateSignature()` throws when the signature does not verify, where it used to return `null`. It now either returns the signed XML or throws.
 - `audience` is required. Before 2.0, leaving it out skipped the audience check, so an assertion issued for any other service provider that trusts the same IdP was accepted.
+- `parseMetadata()`, `parseSAMLRequest()`, `parseLogoutRequest()` and `parseLogoutResponse()` parse with the same XML parser as `validate()` (`@xmldom/xmldom`) instead of `xml2js`. They now reject a document with more than one root element, and a namespace prefix that is not declared (other than `xsi` and `xs`). Text and attribute values get the line-ending and whitespace normalization XML requires. A malformed document fails with the parser's message, for example `missing root element` instead of `Non-whitespace before first tag.`
 
 ## Tests
 
