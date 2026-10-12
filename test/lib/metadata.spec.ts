@@ -351,3 +351,57 @@ describe('metadata.ts', function () {
     assert.strictEqual(value.loginType, 'sp');
   });
 });
+
+describe('parseMetadata error and tolerance cases', function () {
+  const idpMetadata = (inner: string) =>
+    '<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp">' +
+    `<md:IDPSSODescriptor>${inner}</md:IDPSSODescriptor></md:EntityDescriptor>`;
+  const signingKey = (certificate: string) =>
+    '<md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data>' +
+    `<ds:X509Certificate>${certificate}</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor>`;
+  const cert = stripCertHeaderAndFooter(
+    fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString()
+  );
+
+  it('rejects input that is not XML with the parser error', async () => {
+    await assert.rejects(parseMetadata('not xml', {}), /Non-whitespace before first tag/);
+    await assert.rejects(parseMetadata('<md:EntityDescriptor', {}), /Unexpected end/);
+  });
+
+  it('rejects a certificate that cannot be decoded', async () => {
+    await assert.rejects(parseMetadata(idpMetadata(signingKey('bm9wZQ==')), {}));
+  });
+
+  it('rejects metadata without any SSO descriptor', async () => {
+    await assert.rejects(
+      parseMetadata(
+        '<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="e"/>',
+        {}
+      ),
+      { message: 'Could not find X509Certificate in the IdP metadata.' }
+    );
+  });
+
+  it('tolerates an unescaped & inside errorURL', async () => {
+    const metadata = idpMetadata(
+      `<md:Extensions errorURL="https://idp/error?a=1&b=2"/>${signingKey(cert)}` +
+        '<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp/sso"/>'
+    );
+    const parsed = await parseMetadata(metadata, {});
+    assert.strictEqual(parsed.entityID, 'https://idp');
+    assert.strictEqual(parsed.sso.postUrl, 'https://idp/sso');
+    assert.strictEqual(parsed.loginType, 'idp');
+  });
+
+  it('checks the NameID format on every descriptor', async () => {
+    const withFormat = (format: string) => `${signingKey(cert)}<md:NameIDFormat>${format}</md:NameIDFormat>`;
+    const metadata =
+      '<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp">' +
+      `<md:IDPSSODescriptor>${withFormat('urn:a')}</md:IDPSSODescriptor>` +
+      `<md:IDPSSODescriptor>${withFormat('urn:b')}</md:IDPSSODescriptor>` +
+      '</md:EntityDescriptor>';
+    await assert.rejects(parseMetadata(metadata, { validateNameIDFormat: 'urn:a' }), {
+      message: "Invalid nameIDFormat. Please set 'Name ID Format' to urn:a",
+    });
+  });
+});

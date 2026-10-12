@@ -42,7 +42,7 @@ describe('decrypt.ts', function () {
   });
   it('empty privateKey ', function () {
     assert.throws(
-      () => decryptXml(samlResponseEncrypted, { encPrivateKey: '' }),
+      () => decryptXml(samlResponseEncrypted, { privateKey: '' }),
       (error: WrapError) => {
         assert(error instanceof WrapError);
         assert.strictEqual(error.message, 'Exception of Assertion Decryption.');

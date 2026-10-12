@@ -1,6 +1,7 @@
 import assert from 'assert';
 import { parse, parseIssuer, validate, createSAMLResponse, WrapError } from '../../lib/response';
 import { doctypeNotAllowedError } from '../../lib/utils';
+import saml20 from '../../lib/saml20';
 import fs from 'fs';
 import {
   ACS,
@@ -710,5 +711,72 @@ describe('validate() on an unsigned response', function () {
         return true;
       }
     );
+  });
+});
+
+describe('validate() error handling', function () {
+  const signedResponse = () => signXml(buildResponse(buildAssertion()), RESPONSE_XPATH);
+
+  it('wraps an unexpected failure inside the assertion checks', async function () {
+    const original = saml20.validateExpiration;
+    saml20.validateExpiration = () => {
+      throw new Error('boom');
+    };
+    try {
+      await assert.rejects(validate(signedResponse(), { publicKey: testIdpCert }), (error: WrapError) => {
+        assert(error instanceof WrapError);
+        assert.strictEqual(error.message, 'An error occurred trying to validate the assertion.');
+        assert.strictEqual(error.inner.message, 'boom');
+        return true;
+      });
+    } finally {
+      saml20.validateExpiration = original;
+    }
+  });
+
+  it('wraps a failing replay validator and keeps its error in inner', async function () {
+    await assert.rejects(
+      validate(signedResponse(), {
+        publicKey: testIdpCert,
+        assertionReplayValidator: async () => {
+          throw new Error('store unavailable');
+        },
+      }),
+      (error: WrapError) => {
+        assert.strictEqual(error.message, 'An error occurred during assertion replay validation.');
+        assert.strictEqual(error.inner.message, 'store unavailable');
+        return true;
+      }
+    );
+  });
+
+  it('settles every failure path without an unhandled rejection', async function () {
+    const unhandled: unknown[] = [];
+    const onUnhandled = (reason: unknown) => unhandled.push(reason);
+    process.on('unhandledRejection', onUnhandled);
+    try {
+      const signed = signedResponse();
+      const attempts: [string, Record<string, unknown>][] = [
+        ['', { publicKey: testIdpCert }],
+        [signed, {}],
+        [signed, { publicKey: testIdpCert, thumbprint: 'x' }],
+        ['<a><b></a>', { publicKey: testIdpCert }],
+        [buildResponse(''), { publicKey: testIdpCert }],
+        [buildResponse(buildAssertion()), { publicKey: testIdpCert }],
+        [signed.replace('jo@example.com', 'eve@example.com'), { publicKey: testIdpCert }],
+        [signed, { publicKey: certificate }],
+        [signed, { publicKey: testIdpCert, audience: 'https://other.example.com' }],
+        [signed, { publicKey: testIdpCert, inResponseTo: '_other' }],
+        [signed, { publicKey: testIdpCert, recipient: 'https://other.example.com/acs' }],
+        [signed, { publicKey: testIdpCert, assertionReplayValidator: () => true }],
+      ];
+      for (const [xml, options] of attempts) {
+        await assert.rejects(validate(xml, options));
+      }
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      assert.deepStrictEqual(unhandled, []);
+    } finally {
+      process.off('unhandledRejection', onUnhandled);
+    }
   });
 });

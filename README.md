@@ -14,82 +14,55 @@ $ npm install @boxyhq/saml20
 
 ## Usage
 
-### [DEPRECATED] saml.parse(rawAssertion, cb)
+`parse()` and `validate()` return promises. Before 1.6.0 they took a callback as their last argument; since 1.6.0 a callback is ignored and is never called, so `await` the result or use `.then()`/`.catch()` instead.
 
-`rawAssertion` is the SAML Assertion in string format.
+### saml.validate(rawResponse, options)
 
-Parses the `rawAssertion` without validating signature, expiration and audience. It allows you to get information from the token like the Issuer name in order to obtain the right public key to validate the token in a multi-providers scenario.
+Verifies a SAML Response (or a lone Assertion) and resolves with the user's profile. It rejects when anything fails: an unsuccessful `StatusCode`, a missing or invalid signature, an expired assertion, or a failed audience, `InResponseTo`, `Recipient` or replay check.
+
+`rawResponse` is the XML as a string (decode the base64 `SAMLResponse` form field first).
+
+`options` (TypeScript: `ValidateOptions`):
+
+- `publicKey`: the trusted IdP signing certificate, as base64 DER or PEM. Several certificates (for key rotation) are separated by commas.
+- `thumbprint`: the SHA-1 thumbprint(s) of a trusted certificate, comma-separated. The certificate itself is taken from the `KeyInfo` of the signature being verified. Pass either `publicKey` or `thumbprint`, not both.
+- `privateKey` (optional): decrypts an `EncryptedAssertion`.
+- `audience` (optional): the expected audience, or a list of accepted ones. When set, every `AudienceRestriction` in the assertion must name one of them.
+- `strictAudienceValidation` (optional): require an exact audience match. Without it, an audience that merely starts with the expected value is accepted.
+- `inResponseTo` (optional): the ID of the `AuthnRequest` this response answers. When set, the signed content must carry the same `InResponseTo`; a missing value fails. Fails with `Invalid InResponseTo.`
+- `recipient` (optional). The ACS URL the response was posted to. When set, the signed content must name it: a signed `Response/@Destination` must equal it, when any bearer `SubjectConfirmationData` carries a `Recipient`, one bearer confirmation must both name it and be within its own `NotBefore`/`NotOnOrAfter` window (so `NotOnOrAfter` is required on it; `bypassExpiration` skips this window check but not the `Recipient` match), and at least one of the two must be present. An empty `Recipient` counts as present and never matches. The unsigned `Response` wrapper is never used. Fails with `Invalid Recipient.`
+- `assertionReplayValidator` (optional): `(info) => boolean | Promise<boolean>`, called after every other check passes, with `{ assertionId, sessionIndex, notOnOrAfter, inResponseTo }` from the signed assertion. Return `true` if the assertion was already used, and the response is rejected as a replay. Keep each entry until at least `notOnOrAfter` plus 10 minutes, the clock skew `validate()` allows.
+- `bypassExpiration` (optional). This flag indicates expiration validation bypass (useful for testing, not recommended in production environments);
+- `allowedSignatureAlgorithms` / `allowedHashAlgorithms` (optional). Algorithm allowlists forwarded to `validateSignature`, see below.
+- `maxSignatureReferences` (optional). Ceiling on `SignedInfo/Reference` elements, forwarded to `validateSignature`, see below.
 
 ```javascript
-var saml = require('@boxyhq/saml20').default;
+const saml = require('@boxyhq/saml20').default;
 
-saml.parse(rawAssertion, function (err, profile) {
-  // err
-
-  var claims = profile.claims; // Array of user attributes;
-  var issuer = profile.issuer; // String Issuer name.
+const profile = await saml.validate(rawResponse, {
+  publicKey: 'MIICDzCCAXygAwIBAgIQVWXAvbbQyI5Bc...',
+  audience: 'https://sp.example.com',
+  strictAudienceValidation: true,
+  inResponseTo: requestId,
+  recipient: 'https://sp.example.com/acs',
 });
+
+const { claims, issuer, sessionIndex, assertionId, notOnOrAfter } = profile;
 ```
 
-### saml.parseIssuer(rawAssertion)
+Errors are `Error`s with a fixed message. When the cause is more specific (for example, why a signature failed), the error is a `WrapError` and the cause is in `error.inner`.
 
-`rawAssertion` is the SAML Assertion in string format.
+### saml.parseIssuer(rawResponse)
 
-Parses the `rawAssertion` without validating signature, expiration and audience. It allows you to get information from the token like the Issuer name.
+Returns the `Issuer` of a SAML Response without validating anything. Use it to find out which IdP a response claims to come from, so you can pick the certificate to pass to `validate()`.
 
 ```javascript
 const issuer = saml.parseIssuer(rawResponse);
 ```
 
-### saml.validate(rawAssertion, options, cb)
+### [DEPRECATED] saml.parse(rawResponse)
 
-`rawAssertion` is the SAML Assertion in string format.
-
-`options`:
-
-- `thumbprint` is the thumbprint of the trusted public key (uses the public key that comes in the assertion).
-- `publicKey` is the trusted public key.
-- `audience` (optional). If it is included audience validation will take place.
-- `recipient` (optional). The ACS URL the response was posted to. When set, the signed content must name it: a signed `Response/@Destination` must equal it, when any bearer `SubjectConfirmationData` carries a `Recipient`, one bearer confirmation must both name it and be within its own `NotBefore`/`NotOnOrAfter` window (so `NotOnOrAfter` is required on it; `bypassExpiration` skips this window check but not the `Recipient` match), and at least one of the two must be present. An empty `Recipient` counts as present and never matches. The unsigned `Response` wrapper is never used. Fails with `Invalid Recipient.`
-- `bypassExpiration` (optional). This flag indicates expiration validation bypass (useful for testing, not recommended in production environments);
-- `allowedSignatureAlgorithms` / `allowedHashAlgorithms` (optional). Algorithm allowlists forwarded to `validateSignature`, see below.
-- `maxSignatureReferences` (optional). Ceiling on `SignedInfo/Reference` elements, forwarded to `validateSignature`, see below.
-
-You can use either `thumbprint` or `publicKey` but you should use at least one.
-
-```javascript
-var saml = require('@boxyhq/saml20').default;
-
-var options = {
-  thumbprint: '1aeabdfa4473ecc7efc5947b18436c575574baf8',
-  audience: 'http://myservice.com/',
-};
-
-saml.validate(rawAssertion, options, function (err, profile) {
-  // err
-
-  var claims = profile.claims; // Array of user attributes;
-  var issuer = profile.issuer; // String Issuer name.
-});
-```
-
-or using publicKey:
-
-```javascript
-var saml = require('@boxyhq/saml20').default;
-
-var options = {
-  publicKey: 'MIICDzCCAXygAwIBAgIQVWXAvbbQyI5Bc...',
-  audience: 'http://myservice.com/',
-};
-
-saml.validate(rawAssertion, options, function (err, profile) {
-  // err
-
-  var claims = profile.claims; // Array of user attributes;
-  var issuer = profile.issuer; // String Issuer name.
-});
-```
+Resolves with the same profile as `validate()`, but checks nothing: not the signature, expiry, audience or anything else. Anyone can forge its output, so never use it to authenticate a user. Use `validate()` for that, and `parseIssuer()` to read the Issuer before validating.
 
 ### saml.validateSignature(xml, publicKey, thumbprint, options?)
 
@@ -121,30 +94,13 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 
 ## Tests
 
-### Configure test/lib.index.js
-
-In order to run the tests you must configure `lib.index.js` with these variables:
-
-```javascript
-var issuerName = 'https://your-issuer.com';
-var thumbprint = '1aeabdfa4473ecc7efc5947b19436c575574baf8';
-var certificate = 'MIICDzCCAXygAwIBAgIQVWXAvbbQyI5BcFe0ssmeKTAJBgU...';
-var audience = 'http://your-service.com/';
-```
-
-You also need to include a valid and an invalid SAML 2.0 token on `test/assets/invalidToken.xml` and test/assets/validToken.xml`
-
-```xml
-
-<Assertion ID="_1308c268-38e2-4849-9957-b7babd4a0659" IssueInstant="2014-03-01T04:04:52.919Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion"><Issuer>https://your-issuer.com/</Issuer><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><ds:Reference URI="#_1308c268-38e2-4849-9957-b7babd4a0659"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>qJQjAuaj7adyLkl6m3T1oRhtYytu4bebq9JcQObZIu8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>amPTOSqkEq5ppbCyUgGgm....</Assertion>
-
-```
-
-To run the tests use:
-
 ```bash
-$ npm test
+$ npm test            # mocha with coverage
+$ npm run typecheck   # type-checks lib/ and test/
+$ npm run lint
 ```
+
+Fixtures live in `test/assets`. Tests that need a fresh validity window, or a shape the fixtures do not have, build and sign their own documents with the helpers in `test/helpers/fixtures.ts`.
 
 ## Contributing
 

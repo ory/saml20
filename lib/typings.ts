@@ -1,3 +1,5 @@
+import type { ValidateSignatureOptions } from './validateSignature';
+
 export interface SAMLReq {
   ssoUrl?: string;
   entityID: string;
@@ -38,4 +40,32 @@ export interface AssertionReplayInfo {
   // which the assertion can still validate.
   notOnOrAfter?: string;
   inResponseTo?: string;
+}
+
+// Options for validate(). Exactly one of publicKey and thumbprint is
+// required. The algorithm allowlists and maxSignatureReferences come from
+// ValidateSignatureOptions and are passed through to signature verification.
+export interface ValidateOptions extends ValidateSignatureOptions {
+  // Trusted IdP signing certificate(s): base64 DER or PEM. Several
+  // certificates, for rotation, are separated by commas.
+  publicKey?: string;
+  // Trusted SHA-1 thumbprint(s) of the certificate embedded in the signature's
+  // KeyInfo, comma-separated.
+  thumbprint?: string;
+  // Private key that decrypts an EncryptedAssertion.
+  privateKey?: string;
+  // Expected audience, or several accepted audiences.
+  audience?: string | string[];
+  // Require an exact audience match instead of a prefix match.
+  strictAudienceValidation?: boolean;
+  // ID of the AuthnRequest this response answers (SP-initiated flows). When
+  // set, the signed content must carry the same InResponseTo.
+  inResponseTo?: string;
+  // ACS URL the response was posted to. When set, the signed content must
+  // name it (see validateRecipient).
+  recipient?: string;
+  // Skip the NotBefore/NotOnOrAfter checks.
+  bypassExpiration?: boolean;
+  // One-time-use check: return true when the assertion was already used.
+  assertionReplayValidator?: (info: AssertionReplayInfo) => boolean | Promise<boolean>;
 }

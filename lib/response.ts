@@ -1,4 +1,4 @@
-import { SAMLProfile } from './typings';
+import type { SAMLProfile, ValidateOptions } from './typings';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import crypto from 'crypto';
@@ -37,59 +37,29 @@ const tokenHandlers = {
   '2.0': saml20,
 };
 
-/**@deprecated Use parseIssuer instead */
+/**
+ * Parses a SAML Response or Assertion into a profile WITHOUT checking its
+ * signature, expiry, audience or anything else. Its output can be forged by
+ * whoever sends the document.
+ *
+ * @deprecated Use validate() to authenticate a response. To read the Issuer
+ * before validating (for example, to choose which IdP certificate to pass to
+ * validate()), use parseIssuer().
+ */
 const parse = async (rawAssertion: string): Promise<SAMLProfile> => {
-  return new Promise((resolve, reject) => {
-    parseInternal(rawAssertion, function onParse(err: Error, profile: SAMLProfile) {
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve(profile);
-    });
-  });
-};
-
-const validate = async (rawAssertion: string, options): Promise<SAMLProfile> => {
-  return new Promise((resolve, reject) => {
-    validateInternal(rawAssertion, options, function onValidate(err, profile: SAMLProfile) {
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve(profile);
-    });
-  });
-};
-
-const parseInternal = async (rawAssertion, cb) => {
   if (!rawAssertion) {
-    cb(new Error('rawAssertion is required.'));
-    return;
+    throw new Error('rawAssertion is required.');
   }
-  // Save the js object derived from xml and check status code
-  const assertionObj = await xmlToJs(rawAssertion, cb);
-  // xmlToJs already invoked cb with the parse error; stop so we do not
-  // dereference an undefined object and throw a detached error that would crash
-  // the process. Mirrors validateInternal.
-  if (!assertionObj) {
-    return;
-  }
+
+  const assertionObj = await xmlToJs(rawAssertion);
 
   const statusError = getStatusCodeError(assertionObj);
   if (statusError) {
-    cb(statusError);
-    return;
+    throw statusError;
   }
 
-  parseResponseAndVersion(assertionObj, assertionObj, function onParse(err, assertion, version) {
-    if (err) {
-      cb(err);
-      return;
-    }
-
-    parseAttributes(assertion, tokenHandlers[version], cb);
-  });
+  const { assertion, tokenHandler } = parseResponseAndVersion(assertionObj);
+  return parseAttributes(assertion, tokenHandler);
 };
 
 const parseIssuer = (rawAssertion) => {
@@ -109,21 +79,18 @@ const parseIssuer = (rawAssertion) => {
   }
 };
 
-const validateInternal = async (rawAssertion, options, cb) => {
+const validate = async (rawAssertion: string, options: ValidateOptions): Promise<SAMLProfile> => {
   const originalAssertion = rawAssertion;
   if (!rawAssertion) {
-    cb(new Error('rawAssertion is required.'));
-    return;
+    throw new Error('rawAssertion is required.');
   }
 
   if (!options || (!options.publicKey && !options.thumbprint)) {
-    cb(new Error('publicKey or thumbprint are options required.'));
-    return;
+    throw new Error('publicKey or thumbprint are options required.');
   }
 
   if (options.publicKey && options.thumbprint) {
-    cb(new Error('You should provide either cert or certThumbprint, not both'));
-    return;
+    throw new Error('You should provide either cert or certThumbprint, not both');
   }
 
   // Optional algorithm allowlists and the Reference ceiling, forwarded to
@@ -134,68 +101,35 @@ const validateInternal = async (rawAssertion, options, cb) => {
     maxSignatureReferences: options.maxSignatureReferences,
   };
 
-  // eslint-disable-next-line no-useless-assignment
-  let decAssertion = false;
+  let decAssertion: boolean;
   try {
     const { assertion, decrypted } = decryptXml(rawAssertion, options);
     rawAssertion = assertion;
     decAssertion = decrypted;
   } catch (err) {
-    if (isMultiRootedXMLError(err)) {
-      cb(multiRootedXMLError);
-      return;
-    }
-    cb(err);
-    return;
+    throw isMultiRootedXMLError(err) ? multiRootedXMLError : err;
   }
 
   // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention
-  const responseObj = await xmlToJs(rawAssertion, cb);
-  // xmlToJs already invoked cb with the parse error; stop so we do not call cb
-  // twice or dereference an undefined object below.
-  if (!responseObj) {
-    return;
-  }
+  const responseObj = await xmlToJs(rawAssertion);
+
   // Stop on a non-Success status. Carrying on would run signature checks and,
   // worse, the caller's replay validator, which may record the assertion as
   // used even though the response is rejected here.
   const statusError = getStatusCodeError(responseObj);
   if (statusError) {
-    cb(statusError);
-    return;
+    throw statusError;
   }
 
-  let signedXml: string | null;
-
-  try {
-    signedXml = validateSignature(rawAssertion, options.publicKey, options.thumbprint, signatureOptions);
-  } catch (e) {
-    const error = new WrapError('Invalid assertion.');
-    error.inner = e;
-    cb(error);
-    return;
-  }
+  let signedXml = checkSignature(rawAssertion, options, signatureOptions);
 
   if (decAssertion && !signedXml) {
     // try the fallback verification where signature has been generated on the encrypted SAML by some IdPs (like OpenAthens)
-    try {
-      signedXml = validateSignature(
-        originalAssertion,
-        options.publicKey,
-        options.thumbprint,
-        signatureOptions
-      );
-    } catch (e) {
-      const error = new WrapError('Invalid assertion.');
-      error.inner = e;
-      cb(error);
-      return;
-    }
+    signedXml = checkSignature(originalAssertion, options, signatureOptions);
   }
 
   if (!signedXml) {
-    cb(new Error('Invalid assertion signature.'));
-    return;
+    throw new Error('Invalid assertion signature.');
   }
 
   // signedXml is either: Assertion or Response XML
@@ -204,103 +138,116 @@ const validateInternal = async (rawAssertion, options, cb) => {
   // if no decryption occured, then decryptedSignedXml is just signedXml
   const { assertion: decryptedSignedXml } = decryptXml(signedXml, options);
 
-  // Save the js object derived from xml and check status code
-  const assertionObj = await xmlToJs(decryptedSignedXml, cb); // this is our assertion object
-  // xmlToJs already invoked cb with the parse error; stop before
-  // parseResponseAndVersion dereferences an undefined object.
-  if (!assertionObj) {
-    return;
+  const assertionObj = await xmlToJs(decryptedSignedXml); // this is our assertion object
+
+  const { assertion, tokenHandler } = parseResponseAndVersion(assertionObj);
+
+  // checkAssertion returns the error for an assertion that fails a check.
+  // Anything it throws is unexpected and is wrapped instead.
+  let failure: Error | undefined;
+  try {
+    failure = await checkAssertion(assertion, tokenHandler, options);
+  } catch (e) {
+    const error = new WrapError('An error occurred trying to validate the assertion.');
+    error.inner = e;
+    throw error;
+  }
+  if (failure) {
+    throw failure;
   }
 
-  parseResponseAndVersion(assertionObj, responseObj, async function onParse(err, assertion, version) {
-    if (err) {
-      cb(err);
-      return;
-    }
-
-    // onParse is async (the replay validator may be), so any synchronous throw
-    // here would become an unhandled rejection and leave validate() pending.
-    // Convert unexpected failures into a clean rejection.
-    try {
-      const tokenHandler = tokenHandlers[version];
-
-      if (!options.bypassExpiration && !tokenHandler.validateExpiration(assertion)) {
-        cb(new Error('Assertion is expired.'));
-        return;
-      }
-
-      if (
-        options.audience &&
-        !tokenHandler.validateAudience(assertion, options.audience, options.strictAudienceValidation)
-      ) {
-        cb(new Error('Invalid audience.'));
-        return;
-      }
-
-      // Fail closed: when the caller supplies an expected InResponseTo (an
-      // SP-initiated flow), the assertion must carry a matching, signed
-      // InResponseTo. A missing value is a mismatch, not a reason to skip the
-      // check, otherwise a captured assertion can be replayed into a different
-      // login by stripping InResponseTo from the unsigned <Response> wrapper.
-      if (options.inResponseTo && assertion.inResponseTo !== options.inResponseTo) {
-        cb(new Error('Invalid InResponseTo.'));
-        return;
-      }
-
-      // Fail closed: when the caller supplies the ACS URL the response was
-      // posted to, the signed content must name it (see validateRecipient for
-      // the exact rule). Without this, an assertion issued for one SP endpoint
-      // can be posted to another that shares the IdP signing key and the
-      // audience. The unsigned <Response> wrapper is never consulted, so
-      // editing its Destination cannot satisfy the check.
-      if (
-        options.recipient &&
-        !tokenHandler.validateRecipient(assertion, assertion.signedDestination, options.recipient, {
-          bypassExpiration: options.bypassExpiration,
-        })
-      ) {
-        cb(new Error('Invalid Recipient.'));
-        return;
-      }
-
-      // Optional one-time replay protection. The library is stateless, so the
-      // caller supplies the store. The callback receives the signed assertion
-      // identifiers and must return true when the assertion has already been
-      // seen (a replay), keying entries by assertion ID until NotOnOrAfter.
-      if (typeof options.assertionReplayValidator === 'function') {
-        let alreadyUsed: boolean;
-        try {
-          alreadyUsed = await options.assertionReplayValidator({
-            assertionId: tokenHandler.getAssertionId(assertion),
-            sessionIndex: assertion.AuthnStatement?.['@']?.SessionIndex,
-            // Effective expiry (Conditions or the latest bearer confirmation), so
-            // the caller can size the replay-cache TTL to cover the whole window
-            // an assertion can still validate.
-            notOnOrAfter: tokenHandler.getNotOnOrAfter(assertion),
-            inResponseTo: assertion.inResponseTo,
-          });
-        } catch (e) {
-          const error = new WrapError('An error occurred during assertion replay validation.');
-          error.inner = e;
-          cb(error);
-          return;
-        }
-        if (alreadyUsed) {
-          cb(new Error('Assertion has already been used (replay detected).'));
-          return;
-        }
-      }
-
-      parseAttributes(assertion, tokenHandler, cb);
-    } catch (e) {
-      const error = new WrapError('An error occurred trying to validate the assertion.');
-      error.inner = e;
-      cb(error);
-    }
-  });
+  return parseAttributes(assertion, tokenHandler);
 };
 
-const xmlToJs = async (rawAssertion, cb) => {
+// Verify the signature; a thrown verification error becomes "Invalid
+// assertion." with the cause in `inner`. Returns the signed XML, or null when
+// the signature does not verify.
+const checkSignature = (
+  xml: string,
+  options: ValidateOptions,
+  signatureOptions: ValidateSignatureOptions
+): string | null => {
+  try {
+    return validateSignature(xml, options.publicKey, options.thumbprint, signatureOptions);
+  } catch (e) {
+    const error = new WrapError('Invalid assertion.');
+    error.inner = e;
+    throw error;
+  }
+};
+
+// The checks on a signed assertion, in order. Returns the error to reject
+// with, or undefined when every check passes.
+const checkAssertion = async (
+  assertion,
+  tokenHandler,
+  options: ValidateOptions
+): Promise<Error | undefined> => {
+  if (!options.bypassExpiration && !tokenHandler.validateExpiration(assertion)) {
+    return new Error('Assertion is expired.');
+  }
+
+  if (
+    options.audience &&
+    !tokenHandler.validateAudience(assertion, options.audience, options.strictAudienceValidation)
+  ) {
+    return new Error('Invalid audience.');
+  }
+
+  // Fail closed: when the caller supplies an expected InResponseTo (an
+  // SP-initiated flow), the assertion must carry a matching, signed
+  // InResponseTo. A missing value is a mismatch, not a reason to skip the
+  // check, otherwise a captured assertion can be replayed into a different
+  // login by stripping InResponseTo from the unsigned <Response> wrapper.
+  if (options.inResponseTo && assertion.inResponseTo !== options.inResponseTo) {
+    return new Error('Invalid InResponseTo.');
+  }
+
+  // Fail closed: when the caller supplies the ACS URL the response was
+  // posted to, the signed content must name it (see validateRecipient for
+  // the exact rule). Without this, an assertion issued for one SP endpoint
+  // can be posted to another that shares the IdP signing key and the
+  // audience. The unsigned <Response> wrapper is never consulted, so
+  // editing its Destination cannot satisfy the check.
+  if (
+    options.recipient &&
+    !tokenHandler.validateRecipient(assertion, assertion.signedDestination, options.recipient, {
+      bypassExpiration: options.bypassExpiration,
+    })
+  ) {
+    return new Error('Invalid Recipient.');
+  }
+
+  // Optional one-time replay protection. The library is stateless, so the
+  // caller supplies the store. The callback receives the signed assertion
+  // identifiers and must return true when the assertion has already been
+  // seen (a replay), keying entries by assertion ID until NotOnOrAfter.
+  if (typeof options.assertionReplayValidator === 'function') {
+    let alreadyUsed: boolean;
+    try {
+      alreadyUsed = await options.assertionReplayValidator({
+        assertionId: tokenHandler.getAssertionId(assertion),
+        sessionIndex: assertion.AuthnStatement?.['@']?.SessionIndex,
+        // Effective expiry (Conditions or the latest bearer confirmation), so
+        // the caller can size the replay-cache TTL to cover the whole window
+        // an assertion can still validate.
+        notOnOrAfter: tokenHandler.getNotOnOrAfter(assertion),
+        inResponseTo: assertion.inResponseTo,
+      });
+    } catch (e) {
+      const error = new WrapError('An error occurred during assertion replay validation.');
+      error.inner = e;
+      return error;
+    }
+    if (alreadyUsed) {
+      return new Error('Assertion has already been used (replay detected).');
+    }
+  }
+
+  return undefined;
+};
+
+const xmlToJs = async (rawAssertion) => {
   try {
     rawAssertion = sanitizeXML(rawAssertion);
     if (containsDoctype(rawAssertion)) {
@@ -317,7 +264,7 @@ const xmlToJs = async (rawAssertion, cb) => {
   } catch (err) {
     const error = new WrapError('An error occurred trying to parse XML assertion.');
     error.inner = err;
-    cb(error);
+    throw error;
   }
 };
 
@@ -334,12 +281,11 @@ const getStatusCodeError = (responseObj): Error | undefined => {
 };
 
 /*
-  Assertion Object: either a SAML Response or a SAML Assertion
-  Response Object: the SAML Response. We want to isolate the two because assertionObj may be signed
-  but the responseObj is unsigned
+  assertionObj: the signed content, either a whole SAML Response or a lone
+  Assertion. Only signed content is read here, never the unsigned <Response>
+  wrapper around a signed Assertion.
  */
-
-function parseResponseAndVersion(assertionObj, responseObj, cb) {
+function parseResponseAndVersion(assertionObj) {
   let assertion =
     assertionObj.Assertion ||
     (assertionObj.Response && assertionObj.Response.Assertion) ||
@@ -352,16 +298,12 @@ function parseResponseAndVersion(assertionObj, responseObj, cb) {
   }
 
   if (!assertion) {
-    cb(new Error('Invalid assertion.'));
-    return;
+    throw new Error('Invalid assertion.');
   }
 
   const version = getVersion(assertion);
-  const response = responseObj;
-
   if (!version) {
-    cb(new Error('SAML Assertion version not supported.'));
-    return;
+    throw new Error('SAML Assertion version not supported.');
   }
 
   const tokenHandler = tokenHandlers[version];
@@ -383,7 +325,7 @@ function parseResponseAndVersion(assertionObj, responseObj, cb) {
   // from the signed assertion by validateRecipient.
   assertion.signedDestination = assertionObj.Response ? tokenHandler.getDestination(assertionObj) : undefined;
 
-  cb(null, assertion, version, response);
+  return { assertion, tokenHandler };
 }
 
 function flattenObject(obj) {
@@ -400,16 +342,13 @@ function flattenObject(obj) {
   return obj;
 }
 
-function parseAttributes(assertion, tokenHandler, cb) {
+function parseAttributes(assertion, tokenHandler): SAMLProfile {
   try {
-    const profile = tokenHandler.parse(assertion);
-    cb(null, profile);
+    return tokenHandler.parse(assertion);
   } catch (e) {
     const error = new WrapError('An error occurred trying to parse assertion.');
     error.inner = e;
-
-    cb(error);
-    return;
+    throw error;
   }
 }
 
