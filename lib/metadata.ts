@@ -1,14 +1,37 @@
 import { getAttribute, thumbprint, containsDoctype, doctypeNotAllowedError } from './utils';
-import { stripCertHeaderAndFooter } from './cert';
+import { ensurePemArmor, stripCertHeaderAndFooter } from './cert';
 
 import crypto from 'crypto';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
+import { METADATA_NS, PROTOCOL_NS, XMLDSIG_NS } from './constants';
 
-const BEGIN = '-----BEGIN CERTIFICATE-----';
-const END = '-----END CERTIFICATE-----';
+type ParseMetadataOptions = {
+  // Reject the metadata unless every SSO descriptor lists this NameIDFormat.
+  validateNameIDFormat?: string;
+};
 
-const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<string, any>> => {
+type MetadataEndpoints = { postUrl?: string; redirectUrl?: string };
+
+type ParsedMetadata = {
+  // HTTP-POST and HTTP-Redirect SingleSignOnService (or, for SP metadata,
+  // AssertionConsumerService) locations.
+  sso: MetadataEndpoints;
+  slo: MetadataEndpoints;
+  entityID?: string;
+  // Signing certificates, comma-separated, with their SHA-1 thumbprints and
+  // expiry dates in the same order.
+  publicKey?: string;
+  thumbprint?: string;
+  validTo?: string;
+  // 'idp' for an IDPSSODescriptor, 'sp' for an SPSSODescriptor.
+  loginType: 'idp' | 'sp';
+};
+
+const parseMetadata = async (
+  idpMeta: string,
+  validateOpts: ParseMetadataOptions = {}
+): Promise<ParsedMetadata> => {
   // Some Providers do not escape the & character in the metadata, for now these have been encountered in errorURL
   idpMeta = idpMeta.replace(/errorURL=".*?"/g, '');
   if (containsDoctype(idpMeta)) {
@@ -18,14 +41,21 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
     tagNameProcessors: [xml2js.processors.stripPrefix],
     strict: true,
   });
-  const entityID = getAttribute(res, 'EntityDescriptor.$.entityID');
+  // Without this, a document that is not metadata at all (an empty one, a
+  // SAML Response, an EntitiesDescriptor aggregate) was reported as missing
+  // its certificate. xml2js yields '' for an empty element, which still counts
+  // as present.
+  if (res?.EntityDescriptor === undefined || res?.EntityDescriptor === null) {
+    throw new Error('Invalid metadata: missing EntityDescriptor element.');
+  }
+  const entityID = getAttribute<string | undefined>(res, 'EntityDescriptor.$.entityID');
   let X509Certificates: string[] = [];
   const X509CertificatesWithoutSigningAttr: string[] = [];
-  let ssoPostUrl: null | undefined = null;
-  let ssoRedirectUrl: null | undefined = null;
-  let loginType = 'idp';
-  let sloRedirectUrl: null | undefined = null;
-  let sloPostUrl: null | undefined = null;
+  let ssoPostUrl: string | undefined;
+  let ssoRedirectUrl: string | undefined;
+  let loginType: ParsedMetadata['loginType'] = 'idp';
+  let sloRedirectUrl: string | undefined;
+  let sloPostUrl: string | undefined;
 
   let ssoDes: any = getAttribute(res, 'EntityDescriptor.IDPSSODescriptor', null);
   if (!ssoDes) {
@@ -55,18 +85,18 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
     const ssoSvc = ssoDesRec['SingleSignOnService'] || ssoDesRec['AssertionConsumerService'] || [];
     for (const ssoSvcRec of ssoSvc) {
       if (getAttribute(ssoSvcRec, '$.Binding', '').endsWith('HTTP-POST')) {
-        ssoPostUrl = getAttribute(ssoSvcRec, '$.Location');
+        ssoPostUrl = getAttribute<string>(ssoSvcRec, '$.Location');
       } else if (getAttribute(ssoSvcRec, '$.Binding', '').endsWith('HTTP-Redirect')) {
-        ssoRedirectUrl = getAttribute(ssoSvcRec, '$.Location');
+        ssoRedirectUrl = getAttribute<string>(ssoSvcRec, '$.Location');
       }
     }
 
     const sloSvc = ssoDesRec['SingleLogoutService'] || [];
     for (const sloSvcRec of sloSvc) {
       if (getAttribute(sloSvcRec, '$.Binding', '').endsWith('HTTP-Redirect')) {
-        sloRedirectUrl = getAttribute(sloSvcRec, '$.Location');
+        sloRedirectUrl = getAttribute<string>(sloSvcRec, '$.Location');
       } else if (getAttribute(sloSvcRec, '$.Binding', '').endsWith('HTTP-POST')) {
-        sloPostUrl = getAttribute(sloSvcRec, '$.Location');
+        sloPostUrl = getAttribute<string>(sloSvcRec, '$.Location');
       }
     }
 
@@ -95,10 +125,11 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
     }
   }
 
-  const ret: Record<string, any> = {
+  // Built field by field so that only the fields that were found are set.
+  const ret = {
     sso: {},
     slo: {},
-  };
+  } as ParsedMetadata;
 
   if (entityID) {
     ret.entityID = entityID;
@@ -108,34 +139,7 @@ const parseMetadata = async (idpMeta: string, validateOpts): Promise<Record<stri
   const validTos: string[] = [];
   for (const X509Certificate of X509Certificates) {
     tPrints.push(thumbprint(X509Certificate));
-    /**
-     * new crypto.X509Certificate fails with the X509Certificate cert without
-     * -----BEGIN CERTIFICATE-----
-     * and
-     * -----END CERTIFICATE-----
-     */
-    if (X509Certificate.indexOf(BEGIN) != -1 && X509Certificate.indexOf(END) != -1) {
-      const { validTo } = new crypto.X509Certificate(X509Certificate.trim());
-      validTos.push(validTo);
-    } else if (X509Certificate.indexOf(BEGIN) == -1 && X509Certificate.indexOf(END) != -1) {
-      /**
-       * Prefixing -----BEGIN CERTIFICATE-----
-       */
-      const { validTo } = new crypto.X509Certificate(`${BEGIN}\n${X509Certificate.trim()}`);
-      validTos.push(validTo);
-    } else if (X509Certificate.indexOf(BEGIN) != -1 && X509Certificate.indexOf(END) == -1) {
-      /**
-       * Suffixing -----END CERTIFICATE-----
-       */
-      const { validTo } = new crypto.X509Certificate(`${X509Certificate.trim()}\n${END}`);
-      validTos.push(validTo);
-    } else {
-      /**
-       * Prefixing -----BEGIN CERTIFICATE----- and suffixing -----END CERTIFICATE-----
-       */
-      const { validTo } = new crypto.X509Certificate(`${BEGIN}\n${X509Certificate.trim()}\n${END}`);
-      validTos.push(validTo);
-    }
+    validTos.push(new crypto.X509Certificate(ensurePemArmor(X509Certificate)).validTo);
   }
 
   if (X509Certificates.length > 0) {
@@ -188,16 +192,16 @@ const createIdPMetadataXML = ({
   const today = new Date();
   const nodes = {
     'md:EntityDescriptor': {
-      '@xmlns:md': 'urn:oasis:names:tc:SAML:2.0:metadata',
+      '@xmlns:md': METADATA_NS,
       '@entityID': entityId,
       '@validUntil': new Date(today.setFullYear(today.getFullYear() + 10)).toISOString(),
       'md:IDPSSODescriptor': {
         '@WantAuthnRequestsSigned': wantAuthnRequestsSigned,
-        '@protocolSupportEnumeration': 'urn:oasis:names:tc:SAML:2.0:protocol',
+        '@protocolSupportEnumeration': PROTOCOL_NS,
         'md:KeyDescriptor': {
           '@use': 'signing',
           'ds:KeyInfo': {
-            '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
+            '@xmlns:ds': XMLDSIG_NS,
             'ds:X509Data': {
               'ds:X509Certificate': {
                 '#text': x509cert,
@@ -261,7 +265,7 @@ const createSPMetadataXML = ({
     {
       '@use': 'signing',
       'ds:KeyInfo': {
-        '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
+        '@xmlns:ds': XMLDSIG_NS,
         'ds:X509Data': {
           'ds:X509Certificate': {
             '#text': x509cert,
@@ -275,7 +279,7 @@ const createSPMetadataXML = ({
     keyDescriptor.push({
       '@use': 'encryption',
       'ds:KeyInfo': {
-        '@xmlns:ds': 'http://www.w3.org/2000/09/xmldsig#',
+        '@xmlns:ds': XMLDSIG_NS,
         'ds:X509Data': {
           'ds:X509Certificate': {
             '#text': x509cert,
@@ -290,12 +294,12 @@ const createSPMetadataXML = ({
 
   const nodes = {
     'md:EntityDescriptor': {
-      '@xmlns:md': 'urn:oasis:names:tc:SAML:2.0:metadata',
+      '@xmlns:md': METADATA_NS,
       '@entityID': entityId,
       '@validUntil': new Date(today.setFullYear(today.getFullYear() + 10)).toISOString(),
       'md:SPSSODescriptor': {
         ...(authnRequestsSigned ? { '@AuthnRequestsSigned': true } : {}),
-        '@protocolSupportEnumeration': 'urn:oasis:names:tc:SAML:2.0:protocol',
+        '@protocolSupportEnumeration': PROTOCOL_NS,
         'md:KeyDescriptor': keyDescriptor,
         'md:NameIDFormat': {
           '#text': 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
@@ -313,3 +317,4 @@ const createSPMetadataXML = ({
 };
 
 export { parseMetadata, createIdPMetadataXML, createSPMetadataXML };
+export type { ParseMetadataOptions, ParsedMetadata, MetadataEndpoints };

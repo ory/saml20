@@ -1,5 +1,6 @@
 import assert from 'assert';
 import { default as saml } from '../../lib/index';
+import * as namedExports from '../../lib/index';
 import type { AssertionReplayInfo, SAMLProfile, SAMLReq, ValidateOptions } from '../../lib/index';
 
 // Locks the public API surface consumers rely on. containsDoctype is exported so
@@ -53,5 +54,22 @@ describe('exported types', function () {
     assert.strictEqual(await options.assertionReplayValidator!({ assertionId: '_a' }), false);
     assert.strictEqual(await options.assertionReplayValidator!({ assertionId: '_a' }), true);
     assert(invalid && profile && request);
+  });
+});
+
+describe('named exports', function () {
+  it('match the default export one for one', function () {
+    const named = { ...namedExports } as Record<string, unknown>;
+    delete named.default;
+    assert.deepStrictEqual(Object.keys(named).sort(), Object.keys(saml).sort());
+    for (const [name, value] of Object.entries(saml)) {
+      assert.strictEqual(named[name], value, name);
+    }
+  });
+
+  it('work with a CommonJS require of the built package shape', function () {
+    // The compiled module keeps `exports.default` for require('...').default.
+    assert.strictEqual(namedExports.default, saml);
+    assert.strictEqual(typeof namedExports.validate, 'function');
   });
 });

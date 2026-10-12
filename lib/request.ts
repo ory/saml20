@@ -3,9 +3,9 @@ import xml2js from 'xml2js';
 import { inflateRaw } from 'zlib';
 import xmlbuilder from 'xmlbuilder';
 import { SAMLReq } from './typings';
-import crypto from 'crypto';
-import { containsDoctype, doctypeNotAllowedError } from './utils';
+import { containsDoctype, doctypeNotAllowedError, generateId } from './utils';
 import { sign } from './sign';
+import { ASSERTION_NS, PROTOCOL_NS } from './constants';
 
 const inflateRawAsync = promisify(inflateRaw);
 
@@ -28,9 +28,7 @@ type DecodeBase64Options = {
   maxOutputLength?: number;
 };
 
-const idPrefix = '_';
-const authnXPath =
-  '/*[local-name(.)="AuthnRequest" and namespace-uri(.)="urn:oasis:names:tc:SAML:2.0:protocol"]';
+const authnXPath = `/*[local-name(.)="AuthnRequest" and namespace-uri(.)="${PROTOCOL_NS}"]`;
 
 const request = ({
   ssoUrl,
@@ -43,20 +41,20 @@ const request = ({
   signingKey,
   publicKey,
 }: SAMLReq): { id: string; request: string } => {
-  const id = idPrefix + crypto.randomBytes(10).toString('hex');
+  const id = generateId();
   const date = new Date().toISOString();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const samlReq: Record<string, any> = {
     'samlp:AuthnRequest': {
-      '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
+      '@xmlns:samlp': PROTOCOL_NS,
       '@ID': id,
       '@Version': '2.0',
       '@IssueInstant': date,
       '@ProtocolBinding': 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
       '@Destination': ssoUrl,
       'saml:Issuer': {
-        '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+        '@xmlns:saml': ASSERTION_NS,
         '#text': entityID,
       },
     },
@@ -71,7 +69,7 @@ const request = ({
   samlReq['samlp:AuthnRequest']['@AssertionConsumerServiceURL'] = callbackUrl;
 
   samlReq['samlp:AuthnRequest']['samlp:NameIDPolicy'] = {
-    '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
+    '@xmlns:samlp': PROTOCOL_NS,
     '@Format': identifierFormat,
     '@AllowCreate': 'true',
   };
@@ -131,8 +129,10 @@ const decodeBase64 = async (string: string, isDeflated: boolean, options: Decode
 const parseSAMLRequest = async (rawRequest: string, isPost = true) => {
   const result = await parseXML(rawRequest);
 
+  // xml2js yields '' for an AuthnRequest with no attributes and no children.
+  // The element is there, so report what is missing from it instead.
   const authnRequest = result?.['AuthnRequest'];
-  if (!authnRequest) {
+  if (authnRequest === undefined || authnRequest === null) {
     throw new Error('Invalid SAML Request: missing AuthnRequest element.');
   }
 

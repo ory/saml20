@@ -85,6 +85,12 @@ const parseFromString = (xmlString: string) => {
       throw new Error('Invalid XML.');
     }
 
+    // Defence in depth: with the current @xmldom/xmldom, a second root element
+    // or a missing root is already rejected while parsing (and a DOCTYPE by
+    // containsDoctype), so neither these root-count checks nor the parsed
+    // `doctype` check above fire today. They stay so that a parser change
+    // cannot quietly let such a document through: multiple roots are a
+    // signature-wrapping vector.
     // @ts-expect-error missing Node properties are not needed
     const rootNodeCount = countRootNodes(xml);
     if (rootNodeCount > 1) {
@@ -104,6 +110,10 @@ const parseFromString = (xmlString: string) => {
     }
   }
 };
+
+// A SAML message or assertion ID: '_' (an xs:ID must not start with a digit)
+// followed by 80 random bits as hex.
+const generateId = () => '_' + crypto.randomBytes(10).toString('hex');
 
 const thumbprint = (cert: string) => {
   const shasum = crypto.createHash('sha1');
@@ -126,6 +136,7 @@ const getAttribute = <TDefault = unknown>(value: any, path: string, defaultValue
   return current;
 };
 
+/** @deprecated An internal helper; it stops being exported in the next major version. */
 const isMultiRootedXMLError = (err: any) => {
   if ((err as any)?.message?.indexOf('Only one element can be added and only after doctype') >= 0) {
     return true;
@@ -135,6 +146,7 @@ const isMultiRootedXMLError = (err: any) => {
 
 export {
   WrapError,
+  generateId,
   parseFromString,
   thumbprint,
   getAttribute,

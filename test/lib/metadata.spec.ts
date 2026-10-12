@@ -1,5 +1,6 @@
 import assert from 'assert';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from '../../lib/metadata';
+import type { ParsedMetadata, ParseMetadataOptions } from '../../lib/metadata';
 import { doctypeNotAllowedError, thumbprint } from '../../lib/utils';
 import { stripCertHeaderAndFooter } from '../../lib/cert';
 import fs from 'fs';
@@ -402,6 +403,50 @@ describe('parseMetadata error and tolerance cases', function () {
       '</md:EntityDescriptor>';
     await assert.rejects(parseMetadata(metadata, { validateNameIDFormat: 'urn:a' }), {
       message: "Invalid nameIDFormat. Please set 'Name ID Format' to urn:a",
+    });
+  });
+});
+
+describe('parseMetadata typing and defaults', function () {
+  it('works without options and returns a typed result', async () => {
+    const parsed: ParsedMetadata = await parseMetadata(samlMetadata);
+    const loginType: 'idp' | 'sp' = parsed.loginType;
+    const postUrl: string | undefined = parsed.sso.postUrl;
+    assert.strictEqual(loginType, 'idp');
+    assert(postUrl);
+    assert.deepStrictEqual(parsed, await parseMetadata(samlMetadata, {}));
+  });
+
+  it('rejects an unknown option at compile time', async () => {
+    // @ts-expect-error validateNameIDFormat is the only option
+    const options: ParseMetadataOptions = { nameIDFormat: 'x' };
+    assert(options);
+  });
+});
+
+describe('parseMetadata on documents that are not metadata', function () {
+  const notMetadata = { message: 'Invalid metadata: missing EntityDescriptor element.' };
+
+  for (const [name, xml] of [
+    ['empty input', ''],
+    ['whitespace', '   '],
+    ['a SAML Response', fs.readFileSync('./test/assets/saml20.validResponse.xml').toString()],
+    [
+      'an EntitiesDescriptor aggregate',
+      '<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"/>',
+    ],
+  ]) {
+    it(`rejects ${name}`, async () => {
+      await assert.rejects(parseMetadata(xml), notMetadata);
+    });
+  }
+
+  it('still reports a missing certificate for real metadata', async () => {
+    await assert.rejects(parseMetadata(samlMetadata6), {
+      message: 'Could not find X509Certificate in the IdP metadata.',
+    });
+    await assert.rejects(parseMetadata('<EntityDescriptor/>'), {
+      message: 'Could not find X509Certificate in the IdP metadata.',
     });
   });
 });

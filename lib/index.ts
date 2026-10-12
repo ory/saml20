@@ -1,5 +1,3 @@
-'use strict';
-
 import { validateSignature, certToPEM, DEFAULT_MAX_SIGNATURE_REFERENCES } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 
@@ -59,7 +57,41 @@ export default {
   createLogoutResponse,
 };
 
+// The same API as named exports, for `import { validate } from '@boxyhq/saml20'`.
+// The default export stays for existing callers.
+export {
+  parseMetadata,
+  createIdPMetadataXML,
+  createSPMetadataXML,
+  createSAMLResponse,
+  request,
+  parseSAMLRequest,
+  decodeBase64,
+  samlRequestTooLargeError,
+  samlRequestDecodeError,
+  MAX_ENCODED_REQUEST_LENGTH,
+  MAX_INFLATED_REQUEST_BYTES,
+  parse,
+  validate,
+  PubKeyInfo,
+  certToPEM,
+  stripCertHeaderAndFooter,
+  createPostForm,
+  sign,
+  validateSignature,
+  DEFAULT_MAX_SIGNATURE_REFERENCES,
+  decryptXml,
+  parseIssuer,
+  WrapError,
+  containsDoctype,
+  parseLogoutResponse,
+  createLogoutRequest,
+  parseLogoutRequest,
+  createLogoutResponse,
+};
+
 export type { SAMLProfile, SAMLReq, AssertionReplayInfo, ValidateOptions } from './typings';
+export type { ParseMetadataOptions, ParsedMetadata, MetadataEndpoints } from './metadata';
 
 export type {
   ParsedLogoutResponse,

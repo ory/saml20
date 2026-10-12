@@ -1,6 +1,8 @@
 import { SignedXml } from 'xml-crypto';
 import { select } from 'xpath';
 import { parseFromString, thumbprint } from './utils';
+import { certToPEM } from './cert';
+import { XMLDSIG_NS } from './constants';
 
 /**
  * Optional constraints applied while verifying an XML signature.
@@ -46,17 +48,6 @@ export const DEFAULT_MAX_SIGNATURE_REFERENCES = 16;
 
 const isMultiCert = (cert) => {
   return cert.indexOf(',') !== -1;
-};
-
-const certToPEM = (cert) => {
-  if (cert.indexOf('BEGIN CERTIFICATE') === -1 && cert.indexOf('END CERTIFICATE') === -1) {
-    cert = cert.match(/.{1,64}/g).join('\n');
-    cert = '-----BEGIN CERTIFICATE-----\n' + cert;
-    cert = cert + '\n-----END CERTIFICATE-----\n';
-    return cert;
-  } else {
-    return cert;
-  }
 };
 
 // Keep only the entries of an xml-crypto algorithm registry that are named in
@@ -168,11 +159,10 @@ const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) 
   }
 };
 
-// Breaking Change: hasValidSignature now returns:
-// if signature is valid: the raw signed xml string
-// if signature is invalid: throws error or returns null
-// clients are to use the resultant raw xml string to parse their SAML Assertion
-// should be internal
+/**
+ * @deprecated Use validateSignature, which also rejects being given both a
+ * certificate and a thumbprint. It stops being exported in the next major version.
+ */
 const hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string | null => {
   xml = sanitizeXML(xml);
   return _hasValidSignature(xml, cert, certThumbprint, options);
@@ -182,17 +172,17 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
   const doc = parseFromString(xml);
   let signature =
     select(
-      "/*/*/*[local-name(.)='Signature' and namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#']",
+      `/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
       // @ts-expect-error missing Node properties are not needed
       doc!
     )?.[0] ||
     select(
-      "/*/*[local-name(.)='Signature' and namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#']",
+      `/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
       // @ts-expect-error missing Node properties are not needed
       doc!
     )?.[0] ||
     select(
-      "/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='http://www.w3.org/2000/09/xmldsig#']",
+      `/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
       // @ts-expect-error missing Node properties are not needed
       doc!
     )?.[0];
@@ -255,10 +245,7 @@ const _hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatu
         // Look only inside the KeyInfo of the signature being verified. The
         // first X509Certificate anywhere in the document may belong to another
         // signature or to unsigned content.
-        const embeddedCerts = (keyInfo as Element).getElementsByTagNameNS(
-          'http://www.w3.org/2000/09/xmldsig#',
-          'X509Certificate'
-        );
+        const embeddedCerts = (keyInfo as Element).getElementsByTagNameNS(XMLDSIG_NS, 'X509Certificate');
         const thumbprints = certThumbprint.split(',');
         for (let i = 0; i < embeddedCerts.length; i++) {
           const base64cer = (embeddedCerts[i].textContent || '').trim();
@@ -298,4 +285,5 @@ const sanitizeXML = (xml) => {
   return xml.replace(/&#x(d|D);/gi, '');
 };
 
+// certToPEM is re-exported for callers that import it from this module.
 export { hasValidSignature, validateSignature, certToPEM, sanitizeXML };

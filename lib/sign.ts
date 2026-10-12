@@ -1,7 +1,8 @@
 import { SignedXml } from 'xml-crypto';
 import { PubKeyInfo } from './cert';
+import { ASSERTION_NS } from './constants';
 
-const issuerXPath = '/*[local-name(.)="Issuer" and namespace-uri(.)="urn:oasis:names:tc:SAML:2.0:assertion"]';
+const issuerXPath = `/*[local-name(.)="Issuer" and namespace-uri(.)="${ASSERTION_NS}"]`;
 
 const sign = (xml: string, signingKey: string, publicKey: string, xPath: string) => {
   if (!xml) {

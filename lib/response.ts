@@ -1,22 +1,15 @@
 import type { SAMLProfile, ValidateOptions } from './typings';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
-import crypto from 'crypto';
 import { getVersion } from './getVersion';
 import { validateSignature, sanitizeXML } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
-import {
-  parseFromString,
-  isMultiRootedXMLError,
-  multiRootedXMLError,
-  containsDoctype,
-  doctypeNotAllowedError,
-  WrapError,
-} from './utils';
+import { parseFromString, containsDoctype, doctypeNotAllowedError, WrapError, generateId } from './utils';
 import { sign } from './sign';
+import { ASSERTION_NS, PROTOCOL_NS, XML_SCHEMA_INSTANCE_NS, XML_SCHEMA_NS } from './constants';
 
 const nameFormatUri = [
   'urn:oid:0.9.2342.19200300.100.1.1',
@@ -32,10 +25,6 @@ const nameFormatUri = [
   'urn:mace:dir:attribute-def:title',
   'urn:mace:dir:attribute-def:jpegPhoto',
 ];
-
-const tokenHandlers = {
-  '2.0': saml20,
-};
 
 /**
  * Parses a SAML Response or Assertion into a profile WITHOUT checking its
@@ -58,8 +47,8 @@ const parse = async (rawAssertion: string): Promise<SAMLProfile> => {
     throw statusError;
   }
 
-  const { assertion, tokenHandler } = parseResponseAndVersion(assertionObj);
-  return parseAttributes(assertion, tokenHandler);
+  const { assertion } = parseResponseAndVersion(assertionObj);
+  return parseAttributes(assertion);
 };
 
 const parseIssuer = (rawAssertion) => {
@@ -101,14 +90,10 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     maxSignatureReferences: options.maxSignatureReferences,
   };
 
-  let decAssertion: boolean;
-  try {
-    const { assertion, decrypted } = decryptXml(rawAssertion, options);
-    rawAssertion = assertion;
-    decAssertion = decrypted;
-  } catch (err) {
-    throw isMultiRootedXMLError(err) ? multiRootedXMLError : err;
-  }
+  // decryptXml parses with parseFromString, which already reports any
+  // multi-rooted document as multiRootedXMLError.
+  const { assertion: decryptedResponse, decrypted: decAssertion } = decryptXml(rawAssertion, options);
+  rawAssertion = decryptedResponse;
 
   // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention
   const responseObj = await xmlToJs(rawAssertion);
@@ -140,13 +125,13 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
 
   const assertionObj = await xmlToJs(decryptedSignedXml); // this is our assertion object
 
-  const { assertion, tokenHandler } = parseResponseAndVersion(assertionObj);
+  const { assertion, signed } = parseResponseAndVersion(assertionObj);
 
   // checkAssertion returns the error for an assertion that fails a check.
   // Anything it throws is unexpected and is wrapped instead.
   let failure: Error | undefined;
   try {
-    failure = await checkAssertion(assertion, tokenHandler, options);
+    failure = await checkAssertion(assertion, signed, options);
   } catch (e) {
     const error = new WrapError('An error occurred trying to validate the assertion.');
     error.inner = e;
@@ -156,7 +141,7 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     throw failure;
   }
 
-  return parseAttributes(assertion, tokenHandler);
+  return parseAttributes(assertion);
 };
 
 // Verify the signature; a thrown verification error becomes "Invalid
@@ -178,18 +163,21 @@ const checkSignature = (
 
 // The checks on a signed assertion, in order. Returns the error to reject
 // with, or undefined when every check passes.
+// Values read from the signed content only (see parseResponseAndVersion).
+type SignedValues = { inResponseTo?: string; signedDestination?: string };
+
 const checkAssertion = async (
   assertion,
-  tokenHandler,
+  signed: SignedValues,
   options: ValidateOptions
 ): Promise<Error | undefined> => {
-  if (!options.bypassExpiration && !tokenHandler.validateExpiration(assertion)) {
+  if (!options.bypassExpiration && !saml20.validateExpiration(assertion)) {
     return new Error('Assertion is expired.');
   }
 
   if (
     options.audience &&
-    !tokenHandler.validateAudience(assertion, options.audience, options.strictAudienceValidation)
+    !saml20.validateAudience(assertion, options.audience, options.strictAudienceValidation)
   ) {
     return new Error('Invalid audience.');
   }
@@ -199,7 +187,7 @@ const checkAssertion = async (
   // InResponseTo. A missing value is a mismatch, not a reason to skip the
   // check, otherwise a captured assertion can be replayed into a different
   // login by stripping InResponseTo from the unsigned <Response> wrapper.
-  if (options.inResponseTo && assertion.inResponseTo !== options.inResponseTo) {
+  if (options.inResponseTo && signed.inResponseTo !== options.inResponseTo) {
     return new Error('Invalid InResponseTo.');
   }
 
@@ -211,7 +199,7 @@ const checkAssertion = async (
   // editing its Destination cannot satisfy the check.
   if (
     options.recipient &&
-    !tokenHandler.validateRecipient(assertion, assertion.signedDestination, options.recipient, {
+    !saml20.validateRecipient(assertion, signed.signedDestination, options.recipient, {
       bypassExpiration: options.bypassExpiration,
     })
   ) {
@@ -226,13 +214,13 @@ const checkAssertion = async (
     let alreadyUsed: boolean;
     try {
       alreadyUsed = await options.assertionReplayValidator({
-        assertionId: tokenHandler.getAssertionId(assertion),
+        assertionId: saml20.getAssertionId(assertion),
         sessionIndex: assertion.AuthnStatement?.['@']?.SessionIndex,
         // Effective expiry (Conditions or the latest bearer confirmation), so
         // the caller can size the replay-cache TTL to cover the whole window
         // an assertion can still validate.
-        notOnOrAfter: tokenHandler.getNotOnOrAfter(assertion),
-        inResponseTo: assertion.inResponseTo,
+        notOnOrAfter: saml20.getNotOnOrAfter(assertion),
+        inResponseTo: signed.inResponseTo,
       });
     } catch (e) {
       const error = new WrapError('An error occurred during assertion replay validation.');
@@ -306,26 +294,24 @@ function parseResponseAndVersion(assertionObj) {
     throw new Error('SAML Assertion version not supported.');
   }
 
-  const tokenHandler = tokenHandlers[version];
-
   // Derive InResponseTo only from signed content so it cannot be forged by
   // tampering with the unsigned <Response> wrapper. When the whole Response is
   // signed, `assertionObj` is the Response subtree and Response/@InResponseTo is
   // trustworthy. In the common assertion-only-signed case, fall back to the
   // bearer SubjectConfirmationData/@InResponseTo, which is inside the signed
-  // assertion. The outer `responseObj` wrapper is never trusted here.
-  const signedResponseInResponseTo = assertionObj.Response
-    ? tokenHandler.getInResponseTo(assertionObj)
-    : undefined;
-  assertion.inResponseTo =
-    signedResponseInResponseTo || tokenHandler.getSubjectConfirmationInResponseTo(assertion);
+  // assertion. The unsigned wrapper around a signed Assertion is never read.
+  const signedResponseInResponseTo = assertionObj.Response ? saml20.getInResponseTo(assertionObj) : undefined;
+  const inResponseTo: string | undefined =
+    signedResponseInResponseTo || saml20.getSubjectConfirmationInResponseTo(assertion);
 
   // Same rule for where the message was addressed: Response/@Destination is
   // only used when the whole Response is signed. The bearer Recipients are read
   // from the signed assertion by validateRecipient.
-  assertion.signedDestination = assertionObj.Response ? tokenHandler.getDestination(assertionObj) : undefined;
+  const signedDestination: string | undefined = assertionObj.Response
+    ? saml20.getDestination(assertionObj)
+    : undefined;
 
-  return { assertion, tokenHandler };
+  return { assertion, signed: { inResponseTo, signedDestination } };
 }
 
 function flattenObject(obj) {
@@ -342,19 +328,15 @@ function flattenObject(obj) {
   return obj;
 }
 
-function parseAttributes(assertion, tokenHandler): SAMLProfile {
+function parseAttributes(assertion): SAMLProfile {
   try {
-    return tokenHandler.parse(assertion);
+    return saml20.parse(assertion);
   } catch (e) {
     const error = new WrapError('An error occurred trying to parse assertion.');
     error.inner = e;
     throw error;
   }
 }
-
-const randomId = () => {
-  return '_' + crypto.randomBytes(10).toString('hex');
-};
 
 const flattenedArray = (arr: string[]) => {
   const escArr = arr.map((val) => {
@@ -409,36 +391,36 @@ const createSAMLResponse = async ({
   const nodes = {
     'samlp:Response': {
       '@Destination': acsUrl,
-      '@ID': randomId(),
+      '@ID': generateId(),
       '@InResponseTo': requestId,
       '@IssueInstant': authTimestamp,
       '@Version': '2.0',
-      '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
-      '@xmlns:xs': 'http://www.w3.org/2001/XMLSchema',
+      '@xmlns:samlp': PROTOCOL_NS,
+      '@xmlns:xs': XML_SCHEMA_NS,
       'saml:Issuer': {
         '@Format': 'urn:oasis:names:tc:SAML:2.0:nameid-format:entity',
-        '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+        '@xmlns:saml': ASSERTION_NS,
         '#text': issuer,
       },
       'samlp:Status': {
-        '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
+        '@xmlns:samlp': PROTOCOL_NS,
         'samlp:StatusCode': {
           '@Value': 'urn:oasis:names:tc:SAML:2.0:status:Success',
         },
       },
       'saml:Assertion': {
-        '@ID': randomId(),
+        '@ID': generateId(),
         '@IssueInstant': authTimestamp,
         '@Version': '2.0',
-        '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
-        '@xmlns:xs': 'http://www.w3.org/2001/XMLSchema',
+        '@xmlns:saml': ASSERTION_NS,
+        '@xmlns:xs': XML_SCHEMA_NS,
         'saml:Issuer': {
           '@Format': 'urn:oasis:names:tc:SAML:2.0:nameid-format:entity',
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           '#text': issuer,
         },
         'saml:Subject': {
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           'saml:NameID': {
             '@Format': 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
             '#text': claims.email,
@@ -455,7 +437,7 @@ const createSAMLResponse = async ({
         'saml:Conditions': {
           '@NotBefore': notBefore,
           '@NotOnOrAfter': notAfter,
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           'saml:AudienceRestriction': {
             'saml:Audience': {
               '#text': audience,
@@ -465,7 +447,7 @@ const createSAMLResponse = async ({
         'saml:AuthnStatement': {
           '@AuthnInstant': authTimestamp,
           '@SessionIndex': sessionIndex || requestId,
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           'saml:AuthnContext': {
             'saml:AuthnContextClassRef': {
               '#text': 'urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport',
@@ -473,7 +455,7 @@ const createSAMLResponse = async ({
           },
         },
         'saml:AttributeStatement': {
-          '@xmlns:saml': 'urn:oasis:names:tc:SAML:2.0:assertion',
+          '@xmlns:saml': ASSERTION_NS,
           'saml:Attribute': Object.keys(claims.raw || []).map((attributeName) => {
             const attributeValue = claims.raw[attributeName];
             const attributeValueArray = Array.isArray(attributeValue)
@@ -487,8 +469,8 @@ const createSAMLResponse = async ({
               '@NameFormat': nameFormat(attributeName),
               'saml:AttributeValue': attributeValueArray.map((value) => {
                 return {
-                  '@xmlns:xs': 'http://www.w3.org/2001/XMLSchema',
-                  '@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+                  '@xmlns:xs': XML_SCHEMA_NS,
+                  '@xmlns:xsi': XML_SCHEMA_INSTANCE_NS,
                   '@xsi:type': 'xs:string',
                   '#text': value,
                 };
@@ -508,7 +490,7 @@ const createSAMLResponse = async ({
     signedAssertionXml,
     privateKey,
     publicKey,
-    '/*[local-name(.)="Response" and namespace-uri(.)="urn:oasis:names:tc:SAML:2.0:protocol"]'
+    `/*[local-name(.)="Response" and namespace-uri(.)="${PROTOCOL_NS}"]`
   );
 
   return signedXml;

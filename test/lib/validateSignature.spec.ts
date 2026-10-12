@@ -1,9 +1,4 @@
-import {
-  certToPEM,
-  hasValidSignature,
-  validateSignature,
-  DEFAULT_MAX_SIGNATURE_REFERENCES,
-} from '../../lib/validateSignature';
+import { certToPEM, validateSignature, DEFAULT_MAX_SIGNATURE_REFERENCES } from '../../lib/validateSignature';
 import xmlbuilder from 'xmlbuilder';
 
 import crypto from 'crypto';
@@ -282,11 +277,6 @@ describe('validateSignature.ts', function () {
     assert.strictEqual(value, publicKey);
   });
 
-  it('hasValidSignature ok ', function () {
-    const value = hasValidSignature(generateXML(), publicKey, null);
-    assert(value);
-  });
-
   it('validateSignature ok ', function () {
     assert(validateSignature(generateXML(), publicKey, null));
   });
@@ -427,7 +417,6 @@ describe('validateSignature.ts - algorithm allowlists', function () {
 
   it('accepts a SHA-256 signed document when the allowlist includes SHA-256', function () {
     assert(validateSignature(generateXML(), publicKey, null, sha2Only));
-    assert(hasValidSignature(generateXML(), publicKey, null, sha2Only));
   });
 
   it('accepts a SHA-256 signed document with a wider allowlist', function () {
