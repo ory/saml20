@@ -90,10 +90,11 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 
 2.0 removes APIs that were deprecated or that Polis no longer uses:
 
+- Only the package root can be imported. `package.json` now has an `exports` map, so paths inside the package such as `@boxyhq/saml20/dist/typings` fail with `ERR_PACKAGE_PATH_NOT_EXPORTED` (and with TS2307 under `moduleResolution` `node16`, `nodenext` or `bundler`). Import from the root instead, for example `import type { SAMLProfile } from '@boxyhq/saml20'`. Everything the root exports is listed in `test/lib/compat.spec.ts`.
 - `parse()` is gone. It returned a profile without checking the signature, expiry, audience or anything else, so its output could be forged. Use `validate()` to authenticate a response, and `parseIssuer()` to read the Issuer before validating (for example, to pick the IdP certificate).
 - `decryptXml` and `PubKeyInfo` are no longer exported from the package root. They were internal helpers for `validate()` and `sign()`.
-- `hasValidSignature` is no longer exported from `dist/validateSignature`. Use `validateSignature()`, which also rejects being given both a certificate and a thumbprint.
-- `isMultiRootedXMLError` is no longer exported from `dist/utils`. A multi-rooted document is rejected with the `multiRootedXMLError` error, which is still exported.
+- `hasValidSignature` is removed. Use `validateSignature()`, which also rejects being given both a certificate and a thumbprint.
+- `isMultiRootedXMLError` is removed. A multi-rooted document is rejected with the error `multirooted xml not allowed.`
 - `strictAudienceValidation` is gone and audiences are always compared exactly. Before 2.0, without that option an `Audience` that merely started with the expected value was accepted (`https://sp.example.com/metadata.evil.example` passed for `https://sp.example.com/metadata`). If you relied on a prefix match, pass every accepted audience in `audience` instead.
 
 ## Tests
