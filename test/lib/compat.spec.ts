@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-// Everything each module exported in 1.21.0. Consumers can import any built
+// Everything each module exports as of 2.0.0. Consumers can import any built
 // module directly (dist/<module>), so removing one of these is a breaking change.
 const published: Record<string, { named: string[]; defaultKeys?: string[] }> = {
   cert: { named: ['PubKeyInfo', 'stripCertHeaderAndFooter'] },
@@ -86,7 +86,7 @@ const published: Record<string, { named: string[]; defaultKeys?: string[] }> = {
 
 describe('published module exports', function () {
   for (const [name, { named, defaultKeys }] of Object.entries(published)) {
-    it(`lib/${name} still exports everything 1.21.0 did`, function () {
+    it(`lib/${name} still exports everything 2.0.0 does`, function () {
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       const mod = require(`../../lib/${name}`);
       assert.deepStrictEqual(
@@ -101,6 +101,36 @@ describe('published module exports', function () {
           'missing keys on the default export'
         );
       }
+    });
+  }
+});
+
+// Removed on purpose in 2.0.0. Bringing one back is a decision, not an accident.
+const removed: Record<string, { named?: string[]; defaultKeys?: string[] }> = {
+  index: {
+    named: ['parse', 'decryptXml', 'PubKeyInfo'],
+    defaultKeys: ['parse', 'decryptXml', 'PubKeyInfo'],
+  },
+  response: { named: ['parse'] },
+  utils: { named: ['isMultiRootedXMLError'] },
+  validateSignature: { named: ['hasValidSignature'] },
+};
+
+describe('exports removed in 2.0.0', function () {
+  for (const [name, { named = [], defaultKeys = [] }] of Object.entries(removed)) {
+    it(`lib/${name} no longer exports them`, function () {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const mod = require(`../../lib/${name}`);
+      assert.deepStrictEqual(
+        named.filter((key) => mod[key] !== undefined),
+        [],
+        'named exports that should be gone'
+      );
+      assert.deepStrictEqual(
+        defaultKeys.filter((key) => mod.default?.[key] !== undefined),
+        [],
+        'default export keys that should be gone'
+      );
     });
   }
 });
