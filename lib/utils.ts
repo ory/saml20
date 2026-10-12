@@ -44,7 +44,8 @@ const countRootNodes = (xmlDoc: Document) => {
   return rootNodes.length;
 };
 
-const parseFromString = (xmlString: string) => {
+// `xmlns` declares namespace prefixes the document may use without declaring.
+const parseFromString = (xmlString: string, xmlns?: Record<string, string>) => {
   // Reject a DTD before the parser processes it. Checking only the parsed
   // `doctype` node (below) lets a malformed DTD make @xmldom/xmldom throw first,
   // leaking raw parser text (e.g. "doctype not terminated with > at position N")
@@ -68,7 +69,7 @@ const parseFromString = (xmlString: string) => {
     }
   };
   try {
-    const xml = new DOMParser({ onError }).parseFromString(xmlString, MIME_TYPE.XML_APPLICATION);
+    const xml = new DOMParser({ onError, xmlns }).parseFromString(xmlString, MIME_TYPE.XML_APPLICATION);
 
     // SAML XML never legitimately declares a document type definition (DTD).
     // Accepting one exposes the parser to XXE-class attacks: a DTD can declare
