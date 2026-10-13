@@ -339,6 +339,36 @@ describe('logout round trips', function () {
     assert.ok(!xml.includes('<x>'), 'markup in the value stays text');
   });
 
+  it('createLogoutRequest names the subject as the IdP asserted it', async function () {
+    const { xml } = createLogoutRequest({
+      nameId: 'jo@example.com',
+      nameIdFormat: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+      nameQualifier: 'https://idp.example.com',
+      spNameQualifier: 'https://sp.example.com',
+      providerName: 'https://sp',
+      sloUrl: 'https://idp/slo',
+    });
+    const nameId = xml.match(/<saml:NameID[^>]*>/)![0];
+    assert.match(nameId, /Format="urn:oasis:names:tc:SAML:2\.0:nameid-format:persistent"/);
+    assert.match(nameId, /NameQualifier="https:\/\/idp\.example\.com"/);
+    assert.match(nameId, /SPNameQualifier="https:\/\/sp\.example\.com"/);
+    assert.strictEqual((await parseLogoutRequest(xml)).nameId, 'jo@example.com');
+  });
+
+  it('createLogoutRequest defaults the NameID format and leaves out unset qualifiers', function () {
+    const { xml } = createLogoutRequest({
+      nameId: 'jo@example.com',
+      nameIdFormat: '',
+      providerName: 'https://sp',
+      sloUrl: 'https://idp/slo',
+    });
+    const nameId = xml.match(/<saml:NameID[^>]*>/)![0];
+    assert.strictEqual(
+      nameId,
+      '<saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">'
+    );
+  });
+
   for (const sessionIndex of [undefined, '', [], ['']]) {
     it(`createLogoutRequest leaves out the SessionIndex for ${JSON.stringify(sessionIndex)}`, async function () {
       const { xml } = createLogoutRequest({
