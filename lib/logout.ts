@@ -15,6 +15,13 @@ type LogoutRequestParams = {
   nameId: string;
   providerName: string;
   sloUrl: string;
+  /**
+   * The SessionIndex of the session to end, as the IdP asserted it in the
+   * AuthnStatement of the sign-in. Without one, the LogoutRequest names only the
+   * user, and the IdP ends every session it holds for them. Several end each of
+   * those sessions.
+   */
+  sessionIndex?: string | string[];
 };
 
 // Text content of the first element in an xml2js child list. xml2js yields a
@@ -57,8 +64,12 @@ const createLogoutRequest = ({
   nameId,
   providerName,
   sloUrl,
+  sessionIndex,
 }: LogoutRequestParams): { id: string; xml: string } => {
   const id = generateId();
+  const sessionIndexes = (Array.isArray(sessionIndex) ? sessionIndex : [sessionIndex]).filter(
+    (value): value is string => typeof value === 'string' && value.length > 0
+  );
 
   const xml = {
     'samlp:LogoutRequest': {
@@ -75,6 +86,10 @@ const createLogoutRequest = ({
         '@Format': 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
         '#text': nameId,
       },
+      // After the NameID, as the schema orders a LogoutRequest's children.
+      ...(sessionIndexes.length > 0 && {
+        'samlp:SessionIndex': sessionIndexes.map((value) => ({ '#text': value })),
+      }),
     },
   };
 

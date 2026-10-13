@@ -299,6 +299,58 @@ describe('logout round trips', function () {
     assert.strictEqual(parsed.destination, 'https://idp/slo');
   });
 
+  it('createLogoutRequest carries the SessionIndex of the session to end', async function () {
+    const { xml } = createLogoutRequest({
+      nameId: 'jo@example.com',
+      providerName: 'https://sp',
+      sloUrl: 'https://idp/slo',
+      sessionIndex: '_session-1',
+    });
+    const parsed = await parseLogoutRequest(xml);
+    assert.strictEqual(parsed.sessionIndex, '_session-1');
+    assert.strictEqual(parsed.nameId, 'jo@example.com');
+    assert.ok(
+      xml.indexOf('<saml:NameID') < xml.indexOf('<samlp:SessionIndex>'),
+      'the SessionIndex follows the NameID, as the schema orders them'
+    );
+  });
+
+  it('createLogoutRequest carries several SessionIndex elements in order', async function () {
+    const { xml } = createLogoutRequest({
+      nameId: 'jo@example.com',
+      providerName: 'https://sp',
+      sloUrl: 'https://idp/slo',
+      sessionIndex: ['_session-1', '_session-2'],
+    });
+    assert.deepStrictEqual(
+      [...xml.matchAll(/<samlp:SessionIndex>([^<]*)<\/samlp:SessionIndex>/g)].map((m) => m[1]),
+      ['_session-1', '_session-2']
+    );
+  });
+
+  it('createLogoutRequest escapes a SessionIndex', async function () {
+    const { xml } = createLogoutRequest({
+      nameId: 'jo@example.com',
+      providerName: 'https://sp',
+      sloUrl: 'https://idp/slo',
+      sessionIndex: '<x>&',
+    });
+    assert.strictEqual((await parseLogoutRequest(xml)).sessionIndex, '<x>&');
+    assert.ok(!xml.includes('<x>'), 'markup in the value stays text');
+  });
+
+  for (const sessionIndex of [undefined, '', [], ['']]) {
+    it(`createLogoutRequest leaves out the SessionIndex for ${JSON.stringify(sessionIndex)}`, async function () {
+      const { xml } = createLogoutRequest({
+        nameId: 'jo@example.com',
+        providerName: 'https://sp',
+        sloUrl: 'https://idp/slo',
+        sessionIndex,
+      });
+      assert.ok(!xml.includes('SessionIndex'));
+    });
+  }
+
   it('createLogoutResponse output parses back to the same values', async function () {
     const { id, xml } = createLogoutResponse({
       requestId: '_logout-1',
