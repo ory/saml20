@@ -77,22 +77,30 @@ function getProp(obj, prop?: string, extraProp?: string) {
 // The Subject NameID with its attributes, its value kept exactly as asserted:
 // a LogoutRequest has to name the subject the IdP issued, whitespace included.
 const assertedNameId = (assertion): AssertedNameID | undefined => {
-  const nameId = getAttribute<any>(assertion, 'Subject.NameID');
-  const value = typeof nameId === 'string' ? nameId : nameId?._;
+  const nameId = getAttribute<unknown>(assertion, 'Subject.NameID');
+  const element =
+    typeof nameId === 'object' && nameId !== null
+      ? (nameId as { _?: unknown; '@'?: Record<string, unknown> })
+      : undefined;
+  const value = typeof nameId === 'string' ? nameId : element?._;
 
   if (typeof value !== 'string' || value === '') {
     return undefined;
   }
 
-  const attributes = (typeof nameId === 'object' && nameId['@']) || {};
-  const text = (name: string): string | undefined =>
-    typeof attributes[name] === 'string' && attributes[name] !== '' ? attributes[name] : undefined;
+  const text = (name: string): string | undefined => {
+    const attribute = element?.['@']?.[name];
+    return typeof attribute === 'string' && attribute !== '' ? attribute : undefined;
+  };
+  const format = text('Format');
+  const nameQualifier = text('NameQualifier');
+  const spNameQualifier = text('SPNameQualifier');
 
   return {
     value,
-    ...(text('Format') && { format: text('Format') }),
-    ...(text('NameQualifier') && { nameQualifier: text('NameQualifier') }),
-    ...(text('SPNameQualifier') && { spNameQualifier: text('SPNameQualifier') }),
+    ...(format && { format }),
+    ...(nameQualifier && { nameQualifier }),
+    ...(spNameQualifier && { spNameQualifier }),
   };
 };
 
