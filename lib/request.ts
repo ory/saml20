@@ -1,9 +1,9 @@
 import { promisify } from 'util';
-import xml2js from 'xml2js';
 import { inflateRaw } from 'zlib';
 import xmlbuilder from 'xmlbuilder';
 import { SAMLReq } from './typings';
-import { containsDoctype, doctypeNotAllowedError, generateId } from './utils';
+import { generateId } from './utils';
+import { xmlToObject } from './xml';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS } from './constants';
 
@@ -89,17 +89,6 @@ const request = ({
   };
 };
 
-// Parse XML
-const parseXML = async (xml: string): Promise<Record<string, any>> => {
-  if (containsDoctype(xml)) {
-    throw doctypeNotAllowedError;
-  }
-  return xml2js.parseStringPromise(xml, {
-    tagNameProcessors: [xml2js.processors.stripPrefix],
-    strict: true,
-  });
-};
-
 // Decode the base64 string
 const decodeBase64 = async (string: string, isDeflated: boolean, options: DecodeBase64Options = {}) => {
   const maxEncodedLength = options.maxEncodedLength ?? MAX_ENCODED_REQUEST_LENGTH;
@@ -127,9 +116,10 @@ const decodeBase64 = async (string: string, isDeflated: boolean, options: Decode
 
 // Parse SAMLRequest attributes
 const parseSAMLRequest = async (rawRequest: string, isPost = true) => {
-  const result = await parseXML(rawRequest);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const result: any = xmlToObject(rawRequest, { attrkey: '$' });
 
-  // xml2js yields '' for an AuthnRequest with no attributes and no children.
+  // xmlToObject yields '' for an AuthnRequest with no attributes and no children.
   // The element is there, so report what is missing from it instead.
   const authnRequest = result?.['AuthnRequest'];
   if (authnRequest === undefined || authnRequest === null) {

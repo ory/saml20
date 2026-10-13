@@ -62,8 +62,8 @@ describe('utils.ts', function () {
     });
   });
 
-  // xml2js/sax does not expose a parsed doctype node, so its callers screen the
-  // raw string with containsDoctype. See https://github.com/ory/polis/issues/4071.
+  // parseFromString screens the raw string with containsDoctype before the
+  // parser sees it. See https://github.com/ory/polis/issues/4071.
   describe('containsDoctype', function () {
     it('should detect a DOCTYPE declaration', function () {
       assert.strictEqual(containsDoctype('<?xml version="1.0"?><!DOCTYPE r><r/>'), true);
@@ -84,8 +84,8 @@ describe('utils.ts', function () {
       assert.strictEqual(containsDoctype('<!ELEMENT r (#PCDATA)>'), true);
     });
 
-    // sax enters its doctype state on the bare keyword, without the whitespace
-    // the XML grammar requires, so the guard must too.
+    // A lenient parser can treat the bare keyword as a DTD even without the
+    // whitespace the XML grammar requires, so the guard matches it too.
     it('should detect a whitespace-free DOCTYPE declaration', function () {
       assert.strictEqual(containsDoctype('<!DOCTYPERoot SYSTEM "file:///x"><Root/>'), true);
     });
