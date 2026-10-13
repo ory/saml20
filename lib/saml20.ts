@@ -1,4 +1,5 @@
 import { getAttribute } from './utils';
+import type { AssertedNameID } from './typings';
 
 const permanentNameIdentifier = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent';
 const nameIdentifierClaimType = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
@@ -73,6 +74,36 @@ function getProp(obj, prop?: string, extraProp?: string) {
   return getExtendedProp(obj, prop, extraProp).result;
 }
 
+// The Subject NameID with its attributes, its value kept exactly as asserted:
+// a LogoutRequest has to name the subject the IdP issued, whitespace included.
+const assertedNameId = (assertion): AssertedNameID | undefined => {
+  const nameId = getAttribute<unknown>(assertion, 'Subject.NameID');
+  const element =
+    typeof nameId === 'object' && nameId !== null
+      ? (nameId as { _?: unknown; '@'?: Record<string, unknown> })
+      : undefined;
+  const value = typeof nameId === 'string' ? nameId : element?._;
+
+  if (typeof value !== 'string' || value === '') {
+    return undefined;
+  }
+
+  const text = (name: string): string | undefined => {
+    const attribute = element?.['@']?.[name];
+    return typeof attribute === 'string' && attribute !== '' ? attribute : undefined;
+  };
+  const format = text('Format');
+  const nameQualifier = text('NameQualifier');
+  const spNameQualifier = text('SPNameQualifier');
+
+  return {
+    value,
+    ...(format && { format }),
+    ...(nameQualifier && { nameQualifier }),
+    ...(spNameQualifier && { spNameQualifier }),
+  };
+};
+
 const parse = (assertion) => {
   let claims = {};
   let attributes = getAttribute(assertion, 'AttributeStatement.Attribute');
@@ -103,6 +134,7 @@ const parse = (assertion) => {
     claims: claims,
     issuer: getProp(assertion, 'Issuer'),
     sessionIndex: getProp(assertion, 'AuthnStatement.@.SessionIndex'),
+    nameId: assertedNameId(assertion),
     assertionId: getAssertionId(assertion),
     notOnOrAfter: getNotOnOrAfter(assertion),
   };

@@ -90,7 +90,7 @@ export {
   createLogoutResponse,
 };
 
-export type { SAMLProfile, SAMLReq, AssertionReplayInfo, ValidateOptions } from './typings';
+export type { SAMLProfile, SAMLReq, AssertionReplayInfo, ValidateOptions, AssertedNameID } from './typings';
 export type { ParseMetadataOptions, ParsedMetadata, MetadataEndpoints } from './metadata';
 
 export type {
