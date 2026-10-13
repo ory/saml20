@@ -20,6 +20,7 @@ const inResponseTo = 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685';
 describe('lib.saml20.response', function () {
   it('Should validate saml 2.0 token using thumbprint', async function () {
     const response = await validate(validResponse, {
+      audience,
       thumbprint: thumbprint,
       bypassExpiration: true,
       inResponseTo: inResponseTo,
@@ -33,6 +34,7 @@ describe('lib.saml20.response', function () {
 
   it('Should validate saml 2.0 token using certificate', async function () {
     const response = await validate(validResponse, {
+      audience,
       publicKey: certificate,
       bypassExpiration: true,
       inResponseTo: inResponseTo,
@@ -47,10 +49,12 @@ describe('lib.saml20.response', function () {
   it('Should honour algorithm allowlists passed to validate()', async function () {
     // saml20.validResponse.xml is signed with RSA-SHA1 / SHA-1
     const sha1Options = {
+      audience,
       allowedSignatureAlgorithms: ['http://www.w3.org/2000/09/xmldsig#rsa-sha1'],
       allowedHashAlgorithms: ['http://www.w3.org/2000/09/xmldsig#sha1'],
     };
     const sha2Options = {
+      audience,
       allowedSignatureAlgorithms: ['http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'],
       allowedHashAlgorithms: ['http://www.w3.org/2001/04/xmlenc#sha256'],
     };
@@ -80,6 +84,7 @@ describe('lib.saml20.response', function () {
     // thumbprint path
     await assert.rejects(
       validate(validResponse, {
+        audience,
         thumbprint: thumbprint,
         bypassExpiration: true,
         inResponseTo: inResponseTo,
@@ -99,7 +104,12 @@ describe('lib.saml20.response', function () {
     const inflated = validResponse.replace(match![0], match![0].repeat(1500));
 
     await assert.rejects(
-      validate(inflated, { publicKey: certificate, bypassExpiration: true, inResponseTo: inResponseTo }),
+      validate(inflated, {
+        audience,
+        publicKey: certificate,
+        bypassExpiration: true,
+        inResponseTo: inResponseTo,
+      }),
       (err: any) => {
         assert.strictEqual(err.message, 'Invalid assertion.');
         assert.match(err.inner.message, /SignedInfo declares 1500 References; at most 16 are allowed/);
@@ -113,6 +123,7 @@ describe('lib.saml20.response', function () {
     const seventeen = validResponse.replace(match![0], match![0].repeat(17));
     await assert.rejects(
       validate(seventeen, {
+        audience,
         thumbprint: thumbprint,
         bypassExpiration: true,
         inResponseTo: inResponseTo,
@@ -147,6 +158,7 @@ describe('lib.saml20.response', function () {
 
   it('Should validate unsanitized saml 2.0 token using thumbprint', async function () {
     const response = await validate(validResponseUnsanitized, {
+      audience,
       thumbprint: thumbprint,
       bypassExpiration: true,
       inResponseTo: inResponseTo,
@@ -160,6 +172,7 @@ describe('lib.saml20.response', function () {
 
   it('Should validate unsanitized saml 2.0 token using certificate', async function () {
     const response = await validate(validResponseUnsanitized, {
+      audience,
       publicKey: certificate,
       bypassExpiration: true,
       inResponseTo: inResponseTo,
@@ -188,6 +201,7 @@ describe('lib.saml20.response', function () {
   it('Should fail with missing root element', async function () {
     try {
       await validate('invalid-assertion', {
+        audience,
         publicKey: certificate,
         bypassExpiration: true,
         inResponseTo: inResponseTo,

@@ -19,9 +19,16 @@
     },
     {
       "name": "Deepak Prabhakara",
-      "email": "deepak@boxyhq.com"
+      "email": "deepak.prabhakara@ory.sh"
     }
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [

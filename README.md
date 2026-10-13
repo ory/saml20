@@ -1,10 +1,8 @@
-SAML 2.0 & 1.1 Assertion Parser & Validator
+# SAML 2.0 parser and validator
 
-![Build Status](https://github.com/boxyhq/saml20/actions/workflows/node.js.yml/badge.svg)
+![Build Status](https://github.com/ory/saml20/actions/workflows/node.js.yml/badge.svg)
 
-=============
-
-boxyhq/saml20 is a fork of a fork of [saml20](https://github.com/leandrob/saml20). It now has extended functionality and diverges from the original unmaintained library. The new package is published here - https://www.npmjs.com/package/@boxyhq/saml20
+A SAML 2.0 library for Node.js: it validates SAML Responses, and creates and parses AuthnRequests, logout messages and metadata. It started as a fork of [saml20](https://github.com/leandrob/saml20) and has since diverged from it. Ory maintains it, and it is published on npm as [`@boxyhq/saml20`](https://www.npmjs.com/package/@boxyhq/saml20).
 
 ## Installation
 
@@ -14,7 +12,7 @@ $ npm install @boxyhq/saml20
 
 ## Usage
 
-`parse()` and `validate()` return promises. Before 1.6.0 they took a callback as their last argument; since 1.6.0 a callback is ignored and is never called, so `await` the result or use `.then()`/`.catch()` instead.
+`validate()` returns a promise.
 
 ### saml.validate(rawResponse, options)
 
@@ -27,8 +25,7 @@ Verifies a SAML Response (or a lone Assertion) and resolves with the user's prof
 - `publicKey`: the trusted IdP signing certificate, as base64 DER or PEM. Several certificates (for key rotation) are separated by commas.
 - `thumbprint`: the SHA-1 thumbprint(s) of a trusted certificate, comma-separated. The certificate itself is taken from the `KeyInfo` of the signature being verified. Pass either `publicKey` or `thumbprint`, not both.
 - `privateKey` (optional): decrypts an `EncryptedAssertion`.
-- `audience` (optional): the expected audience, or a list of accepted ones. When set, every `AudienceRestriction` in the assertion must name one of them.
-- `strictAudienceValidation` (optional): require an exact audience match. Without it, an audience that merely starts with the expected value is accepted.
+- `audience`: the expected audience, or a list of accepted ones. Every `AudienceRestriction` in the assertion must name one of them exactly. Fails with `Invalid audience.` A missing or empty value fails with `audience is required.`
 - `inResponseTo` (optional): the ID of the `AuthnRequest` this response answers. When set, the signed content must carry the same `InResponseTo`; a missing value fails. Fails with `Invalid InResponseTo.`
 - `recipient` (optional). The ACS URL the response was posted to. When set, the signed content must name it: a signed `Response/@Destination` must equal it, when any bearer `SubjectConfirmationData` carries a `Recipient`, one bearer confirmation must both name it and be within its own `NotBefore`/`NotOnOrAfter` window (so `NotOnOrAfter` is required on it; `bypassExpiration` skips this window check but not the `Recipient` match), and at least one of the two must be present. An empty `Recipient` counts as present and never matches. The unsigned `Response` wrapper is never used. Fails with `Invalid Recipient.`
 - `assertionReplayValidator` (optional): `(info) => boolean | Promise<boolean>`, called after every other check passes, with `{ assertionId, sessionIndex, notOnOrAfter, inResponseTo }` from the signed assertion. Return `true` if the assertion was already used, and the response is rejected as a replay. Keep each entry until at least `notOnOrAfter` plus 10 minutes, the clock skew `validate()` allows.
@@ -42,7 +39,6 @@ const saml = require('@boxyhq/saml20').default;
 const profile = await saml.validate(rawResponse, {
   publicKey: 'MIICDzCCAXygAwIBAgIQVWXAvbbQyI5Bc...',
   audience: 'https://sp.example.com',
-  strictAudienceValidation: true,
   inResponseTo: requestId,
   recipient: 'https://sp.example.com/acs',
 });
@@ -60,13 +56,9 @@ Returns the `Issuer` of a SAML Response without validating anything. Use it to f
 const issuer = saml.parseIssuer(rawResponse);
 ```
 
-### [DEPRECATED] saml.parse(rawResponse)
-
-Resolves with the same profile as `validate()`, but checks nothing: not the signature, expiry, audience or anything else. Anyone can forge its output, so never use it to authenticate a user. Use `validate()` for that, and `parseIssuer()` to read the Issuer before validating.
-
 ### saml.validateSignature(xml, publicKey, thumbprint, options?)
 
-Verifies the XML signature on `xml` and returns the signed XML, or throws / returns `null` when the signature is invalid. Pass either `publicKey` (one certificate, or several separated by commas for key rotation) or `thumbprint`, not both.
+Verifies the XML signature on `xml` and returns the signed XML. Read the document from that return value, not from `xml`: only the signed content is covered. It throws when the signature is invalid or cannot be checked; a signature that does not verify fails with `invalid signature: the signature does not verify`. Pass either `publicKey` (one certificate, or several separated by commas for key rotation) or `thumbprint`, not both.
 
 `options` (optional) restricts which algorithms are accepted:
 
@@ -92,6 +84,19 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 });
 ```
 
+## Upgrading to 2.0
+
+2.0 removes APIs that were deprecated or that Polis no longer uses:
+
+- Only the package root can be imported. `package.json` now has an `exports` map, so paths inside the package such as `@boxyhq/saml20/dist/typings` fail with `ERR_PACKAGE_PATH_NOT_EXPORTED` (and with TS2307 under `moduleResolution` `node16`, `nodenext` or `bundler`). Import from the root instead, for example `import type { SAMLProfile } from '@boxyhq/saml20'`. Everything the root exports is listed in `test/lib/compat.spec.ts`.
+- `parse()` is gone. It returned a profile without checking the signature, expiry, audience or anything else, so its output could be forged. Use `validate()` to authenticate a response, and `parseIssuer()` to read the Issuer before validating (for example, to pick the IdP certificate).
+- `decryptXml` and `PubKeyInfo` are no longer exported from the package root. They were internal helpers for `validate()` and `sign()`.
+- `hasValidSignature` is removed. Use `validateSignature()`, which also rejects being given both a certificate and a thumbprint.
+- `isMultiRootedXMLError` is removed. A multi-rooted document is rejected with the error `multirooted xml not allowed.`
+- `strictAudienceValidation` is gone and audiences are always compared exactly. Before 2.0, without that option an `Audience` that merely started with the expected value was accepted (`https://sp.example.com/metadata.evil.example` passed for `https://sp.example.com/metadata`). If you relied on a prefix match, pass every accepted audience in `audience` instead.
+- `validateSignature()` throws when the signature does not verify, where it used to return `null`. It now either returns the signed XML or throws.
+- `audience` is required. Before 2.0, leaving it out skipped the audience check, so an assertion issued for any other service provider that trusts the same IdP was accepted.
+
 ## Tests
 
 ```bash
@@ -106,17 +111,12 @@ Fixtures live in `test/assets`. Tests that need a fresh validity window, or a sh
 
 Thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody and are appreciated.
 
-Please try to create bug reports that are:
+Report bugs in [GitHub issues](https://github.com/ory/saml20/issues). Please try to create bug reports that are:
 
 - _Reproducible._ Include steps to reproduce the problem.
 - _Specific._ Include as much detail as possible: which version, what environment, etc.
 - _Unique._ Do not duplicate existing opened issues.
 - _Scoped to a Single Bug._ One bug per report.
-
-## Community
-
-- [Discord](https://discord.gg/uyb7pYt4Pa) (For live discussion with the Community and BoxyHQ team)
-- [Twitter](https://twitter.com/BoxyHQ) (Get the news fast)
 
 ## Reporting Security Issues
 

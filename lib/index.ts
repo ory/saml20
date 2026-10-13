@@ -1,4 +1,4 @@
-import { validateSignature, certToPEM, DEFAULT_MAX_SIGNATURE_REFERENCES } from './validateSignature';
+import { validateSignature, DEFAULT_MAX_SIGNATURE_REFERENCES } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 
 import {
@@ -11,12 +11,11 @@ import {
   MAX_INFLATED_REQUEST_BYTES,
 } from './request';
 import type { DecodeBase64Options } from './request';
-import { stripCertHeaderAndFooter, PubKeyInfo } from './cert';
-import { createSAMLResponse, parse, validate, parseIssuer, WrapError } from './response';
+import { stripCertHeaderAndFooter, certToPEM } from './cert';
+import { createSAMLResponse, validate, parseIssuer, WrapError } from './response';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from './metadata';
 import { createPostForm } from './post';
 import { sign } from './sign';
-import { decryptXml } from './decrypt';
 import { containsDoctype } from './utils';
 import { parseLogoutResponse, createLogoutRequest, parseLogoutRequest, createLogoutResponse } from './logout';
 import type {
@@ -38,16 +37,13 @@ export default {
   samlRequestDecodeError,
   MAX_ENCODED_REQUEST_LENGTH,
   MAX_INFLATED_REQUEST_BYTES,
-  parse,
   validate,
-  PubKeyInfo,
   certToPEM,
   stripCertHeaderAndFooter,
   createPostForm,
   sign,
   validateSignature,
   DEFAULT_MAX_SIGNATURE_REFERENCES,
-  decryptXml,
   parseIssuer,
   WrapError,
   containsDoctype,
@@ -71,16 +67,13 @@ export {
   samlRequestDecodeError,
   MAX_ENCODED_REQUEST_LENGTH,
   MAX_INFLATED_REQUEST_BYTES,
-  parse,
   validate,
-  PubKeyInfo,
   certToPEM,
   stripCertHeaderAndFooter,
   createPostForm,
   sign,
   validateSignature,
   DEFAULT_MAX_SIGNATURE_REFERENCES,
-  decryptXml,
   parseIssuer,
   WrapError,
   containsDoctype,

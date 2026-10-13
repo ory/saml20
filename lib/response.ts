@@ -2,7 +2,7 @@ import type { SAMLProfile, ValidateOptions } from './typings';
 import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import { getVersion } from './getVersion';
-import { validateSignature, sanitizeXML } from './validateSignature';
+import { verifySignature, sanitizeXML } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
@@ -25,31 +25,6 @@ const nameFormatUri = [
   'urn:mace:dir:attribute-def:title',
   'urn:mace:dir:attribute-def:jpegPhoto',
 ];
-
-/**
- * Parses a SAML Response or Assertion into a profile WITHOUT checking its
- * signature, expiry, audience or anything else. Its output can be forged by
- * whoever sends the document.
- *
- * @deprecated Use validate() to authenticate a response. To read the Issuer
- * before validating (for example, to choose which IdP certificate to pass to
- * validate()), use parseIssuer().
- */
-const parse = async (rawAssertion: string): Promise<SAMLProfile> => {
-  if (!rawAssertion) {
-    throw new Error('rawAssertion is required.');
-  }
-
-  const assertionObj = await xmlToJs(rawAssertion);
-
-  const statusError = getStatusCodeError(assertionObj);
-  if (statusError) {
-    throw statusError;
-  }
-
-  const { assertion } = parseResponseAndVersion(assertionObj);
-  return parseAttributes(assertion);
-};
 
 const parseIssuer = (rawAssertion) => {
   if (!rawAssertion) {
@@ -80,6 +55,14 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
 
   if (options.publicKey && options.thumbprint) {
     throw new Error('You should provide either cert or certThumbprint, not both');
+  }
+
+  const audiences: unknown[] = Array.isArray(options.audience) ? options.audience : [options.audience];
+  if (
+    audiences.length === 0 ||
+    !audiences.every((audience) => typeof audience === 'string' && audience !== '')
+  ) {
+    throw new Error('audience is required.');
   }
 
   // Optional algorithm allowlists and the Reference ceiling, forwarded to
@@ -153,7 +136,7 @@ const checkSignature = (
   signatureOptions: ValidateSignatureOptions
 ): string | null => {
   try {
-    return validateSignature(xml, options.publicKey, options.thumbprint, signatureOptions);
+    return verifySignature(xml, options.publicKey, options.thumbprint, signatureOptions);
   } catch (e) {
     const error = new WrapError('Invalid assertion.');
     error.inner = e;
@@ -175,10 +158,7 @@ const checkAssertion = async (
     return new Error('Assertion is expired.');
   }
 
-  if (
-    options.audience &&
-    !saml20.validateAudience(assertion, options.audience, options.strictAudienceValidation)
-  ) {
+  if (!saml20.validateAudience(assertion, options.audience)) {
     return new Error('Invalid audience.');
   }
 
@@ -269,9 +249,10 @@ const getStatusCodeError = (responseObj): Error | undefined => {
 };
 
 /*
-  assertionObj: the signed content, either a whole SAML Response or a lone
-  Assertion. Only signed content is read here, never the unsigned <Response>
-  wrapper around a signed Assertion.
+  assertionObj: the signed content: a whole SAML Response, a lone Assertion,
+  or a whole WS-Trust RequestSecurityTokenResponse (ADFS over WS-Federation).
+  Only signed content is read here, never an unsigned wrapper around a signed
+  Assertion.
  */
 function parseResponseAndVersion(assertionObj) {
   let assertion =
@@ -496,4 +477,4 @@ const createSAMLResponse = async ({
   return signedXml;
 };
 
-export { createSAMLResponse, parse, validate, parseIssuer, WrapError };
+export { createSAMLResponse, validate, parseIssuer, WrapError };

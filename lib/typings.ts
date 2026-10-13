@@ -65,10 +65,9 @@ export interface ValidateOptions extends ValidateSignatureOptions {
   thumbprint?: string;
   // Private key that decrypts an EncryptedAssertion.
   privateKey?: string;
-  // Expected audience, or several accepted audiences.
-  audience?: string | string[];
-  // Require an exact audience match instead of a prefix match.
-  strictAudienceValidation?: boolean;
+  // Expected audience, or several accepted audiences. Every
+  // AudienceRestriction must name one of them exactly.
+  audience: string | string[];
   // ID of the AuthnRequest this response answers (SP-initiated flows). When
   // set, the signed content must carry the same InResponseTo.
   inResponseTo?: string;
