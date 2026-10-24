@@ -1,6 +1,7 @@
 import assert from 'assert';
 import { validate } from '../../lib/response';
 import fs from 'fs';
+import { SignedXml } from 'xml-crypto';
 
 // Tests Configuration
 const digestValueComment = fs.readFileSync('./test/assets/digestValueComment.xml').toString();
@@ -134,6 +135,35 @@ describe('lib.saml20.response', function () {
         return true;
       }
     );
+  });
+
+  it('Should not canonicalize any Reference of an inflated SignedInfo in validate()', async function () {
+    const match = validResponse.match(/<(?:[\w.-]+:)?Reference\b[\s\S]*?<\/(?:[\w.-]+:)?Reference>/);
+    assert(match, 'fixture carries a Reference to duplicate');
+    const options = { audience, publicKey: certificate, bypassExpiration: true, inResponseTo };
+
+    // getCanonReferenceXml is xml-crypto's per-Reference canonicalization, the
+    // work the Reference ceiling exists to bound.
+    const proto = SignedXml.prototype as unknown as { getCanonReferenceXml: (...args: unknown[]) => unknown };
+    const original = proto.getCanonReferenceXml;
+    let calls = 0;
+    proto.getCanonReferenceXml = function (...args: unknown[]) {
+      calls++;
+      return original.apply(this, args);
+    };
+    try {
+      await assert.rejects(validate(validResponse.replace(match![0], match![0].repeat(1500)), options), {
+        message: 'Invalid assertion.',
+      });
+      assert.strictEqual(calls, 0, 'no Reference was canonicalized before the count check');
+
+      // The same spy sees the single Reference of the unmodified response, so
+      // the zero above is not vacuous.
+      await validate(validResponse, options);
+      assert(calls > 0, 'the spy is wired to the xml-crypto instance validate() uses');
+    } finally {
+      proto.getCanonReferenceXml = original;
+    }
   });
 
   it('Should validate saml 2.0 token and check audience', async function () {
