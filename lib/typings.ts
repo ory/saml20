@@ -12,6 +12,13 @@ export interface SAMLReq {
   publicKey: string;
 }
 
+export interface AssertedNameID {
+  value: string;
+  format?: string;
+  nameQualifier?: string;
+  spNameQualifier?: string;
+}
+
 export interface SAMLProfile {
   // The first <Audience> in document order, or undefined when there is none.
   audience?: string;
@@ -20,6 +27,10 @@ export interface SAMLProfile {
   claims: Record<string, any>;
   issuer: string;
   sessionIndex: string;
+  // The assertion's Subject NameID exactly as asserted (not trimmed), with its
+  // attributes, so a service provider can name the same subject in a
+  // LogoutRequest. Undefined when the assertion has no NameID.
+  nameId?: AssertedNameID;
   // Signed assertion identifier and validity bound, exposed so callers can
   // implement one-time replay protection keyed by assertionId until notOnOrAfter.
   assertionId?: string;

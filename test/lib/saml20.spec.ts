@@ -398,3 +398,40 @@ describe('saml20.parse audience fields', function () {
     }
   });
 });
+
+describe('saml20.parse nameId', function () {
+  it('returns the NameID with its attributes', function () {
+    const profile = saml20.parse({
+      Subject: {
+        NameID: {
+          _: 'jo@example.com',
+          '@': {
+            Format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+            NameQualifier: 'https://idp.example.com',
+            SPNameQualifier: 'https://sp.example.com',
+          },
+        },
+      },
+    });
+    assert.deepStrictEqual(profile.nameId, {
+      value: 'jo@example.com',
+      format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+      nameQualifier: 'https://idp.example.com',
+      spNameQualifier: 'https://sp.example.com',
+    });
+  });
+
+  it('keeps the value exactly as asserted, whitespace included', function () {
+    const profile = saml20.parse({ Subject: { NameID: { _: ' jo  doe ', '@': {} } } });
+    assert.deepStrictEqual(profile.nameId, { value: ' jo  doe ' });
+  });
+
+  it('reads a NameID without attributes', function () {
+    assert.deepStrictEqual(saml20.parse({ Subject: { NameID: 'jo' } }).nameId, { value: 'jo' });
+  });
+
+  it('is undefined without a NameID', function () {
+    assert.strictEqual(saml20.parse({}).nameId, undefined);
+    assert.strictEqual(saml20.parse({ Subject: { NameID: { _: '', '@': {} } } }).nameId, undefined);
+  });
+});
