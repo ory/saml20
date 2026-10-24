@@ -46,6 +46,57 @@ describe('xmlToObject', function () {
     assert.deepStrictEqual(asDollar('<a><b>1</b><c/><b>2</b></a>'), { a: { b: ['1', '2'], c: [''] } });
   });
 
+  describe('names that Object.prototype also defines', function () {
+    // JSON.parse makes "__proto__" an own key; an object literal would set the
+    // prototype instead.
+    const own = (json: string) => JSON.parse(json);
+    const names = ['constructor', 'toString', 'hasOwnProperty', 'valueOf', '__proto__'];
+
+    it('lists child elements with those names as own properties', function () {
+      for (const name of names) {
+        const xml = `<a xmlns:e="urn:e"><e:${name}>x</e:${name}><e:${name}>y</e:${name}></a>`;
+        assert.deepStrictEqual(
+          asDollar(xml),
+          own(`{"a":{"$":{"xmlns:e":"urn:e"},"${name}":["x","y"]}}`),
+          name
+        );
+        assert.deepStrictEqual(
+          collapsed(xml),
+          own(`{"a":{"@":{"xmlns:e":"urn:e"},"${name}":["x","y"]}}`),
+          name
+        );
+      }
+    });
+
+    it('collapses a single child element with one of those names', function () {
+      for (const name of names) {
+        const xml = `<a><${name}>x</${name}></a>`;
+        assert.deepStrictEqual(collapsed(xml), own(`{"a":{"${name}":"x"}}`), name);
+      }
+    });
+
+    it('keeps attributes with those names as own properties', function () {
+      for (const name of names) {
+        assert.deepStrictEqual(asDollar(`<a ${name}="v"/>`), own(`{"a":{"$":{"${name}":"v"}}}`), name);
+      }
+    });
+
+    it('accepts a root element with one of those names', function () {
+      for (const name of names) {
+        assert.deepStrictEqual(asDollar(`<${name}>x</${name}>`), own(`{"${name}":"x"}`), name);
+      }
+    });
+
+    it('never changes the prototype of the objects it returns', function () {
+      const result = asDollar('<a __proto__="v"><__proto__ x="1"/></a>') as Record<
+        string,
+        Record<string, unknown>
+      >;
+      assert.strictEqual(Object.getPrototypeOf(result.a), Object.prototype);
+      assert.strictEqual(Object.getPrototypeOf(result.a.$), Object.prototype);
+    });
+  });
+
   describe('with collapse', function () {
     it('stores a child that occurs once as the value itself', function () {
       assert.deepStrictEqual(collapsed('<a><b c="1"><d>x</d></b></a>'), {

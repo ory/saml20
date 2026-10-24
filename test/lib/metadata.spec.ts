@@ -365,6 +365,23 @@ describe('parseMetadata error and tolerance cases', function () {
     fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString()
   );
 
+  it('parses metadata whose Extensions use names that Object.prototype also defines', async () => {
+    const extensions =
+      '<md:Extensions xmlns:e="urn:example:extension">' +
+      ['constructor', 'toString', 'hasOwnProperty', '__proto__']
+        .map((name) => `<e:${name} ${name}="v">x</e:${name}>`)
+        .join('') +
+      '</md:Extensions>';
+    const expected = await parseMetadata(idpMetadata(signingKey(cert)), {});
+    const value = await parseMetadata(
+      idpMetadata(signingKey(cert)).replace('<md:IDPSSODescriptor>', `${extensions}<md:IDPSSODescriptor>`),
+      {}
+    );
+    assert.deepStrictEqual(value, expected);
+    assert.strictEqual(value.entityID, 'https://idp');
+    assert.strictEqual(value.publicKey, cert);
+  });
+
   it('accepts metadata with a newline or a comment before the XML declaration', async () => {
     const doc = idpMetadata(signingKey(cert));
     for (const prolog of ['\n', '<!-- Pasted from the IdP -->\n']) {

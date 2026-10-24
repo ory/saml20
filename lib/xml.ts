@@ -23,6 +23,12 @@ const undeclaredPrefixes = {
   xs: 'http://www.w3.org/2001/XMLSchema',
 };
 
+// Element and attribute names come from the document, so they can be
+// "__proto__" or "constructor". Assignment would set the prototype or collide
+// with an inherited property; defining an own property does neither.
+const setOwn = (obj: Record<string, unknown>, key: string, value: unknown) =>
+  Object.defineProperty(obj, key, { value, enumerable: true, writable: true, configurable: true });
+
 const toObject = (element: Element, options: XmlObjectOptions): unknown => {
   const obj: Record<string, unknown> = {};
   let text = '';
@@ -32,16 +38,21 @@ const toObject = (element: Element, options: XmlObjectOptions): unknown => {
     const attrs: Record<string, string> = {};
     for (let i = 0; i < element.attributes.length; i++) {
       const attr = element.attributes[i];
-      attrs[attr.name] = attr.value;
+      setOwn(attrs, attr.name, attr.value);
     }
     obj[options.attrkey] = attrs;
   }
 
-  const children: Record<string, unknown[]> = {};
+  const children = new Map<string, unknown[]>();
   for (let node = element.firstChild; node; node = node.nextSibling) {
     if (node.nodeType === ELEMENT_NODE) {
       const name = stripPrefix((node as Element).tagName);
-      (children[name] ??= []).push(toObject(node as Element, options));
+      const values = children.get(name);
+      if (values) {
+        values.push(toObject(node as Element, options));
+      } else {
+        children.set(name, [toObject(node as Element, options)]);
+      }
     } else if (node.nodeType === TEXT_NODE) {
       text += (node as Text).data;
     } else if (node.nodeType === CDATA_SECTION_NODE) {
@@ -51,14 +62,14 @@ const toObject = (element: Element, options: XmlObjectOptions): unknown => {
   }
 
   const keepText = cdata || !/^\s*$/.test(text);
-  if (keepText && Object.keys(obj).length === 0 && Object.keys(children).length === 0) {
+  if (keepText && Object.keys(obj).length === 0 && children.size === 0) {
     return text;
   }
   if (keepText) {
     obj._ = text;
   }
-  for (const [name, values] of Object.entries(children)) {
-    obj[name] = options.collapse && values.length === 1 && values[0] ? values[0] : values;
+  for (const [name, values] of children) {
+    setOwn(obj, name, options.collapse && values.length === 1 && values[0] ? values[0] : values);
   }
   return Object.keys(obj).length === 0 ? text : obj;
 };
@@ -77,7 +88,9 @@ const xmlToObject = (xml: string, options: XmlObjectOptions): Record<string, unk
     return null;
   }
   const root = parseFromString(xml, undeclaredPrefixes).documentElement as unknown as Element;
-  return { [stripPrefix(root.tagName)]: toObject(root, options) };
+  const result: Record<string, unknown> = {};
+  setOwn(result, stripPrefix(root.tagName), toObject(root, options));
+  return result;
 };
 
 export { xmlToObject };
