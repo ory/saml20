@@ -11,28 +11,15 @@ class WrapError extends Error {
 const multiRootedXMLError = new Error('multirooted xml not allowed.');
 const doctypeNotAllowedError = new Error('doctype not allowed.');
 
-// Detects a document type definition (DTD) declaration in a raw XML string.
-// `parseFromString` rejects a DTD via the parsed `doctype` node, but xml2js/sax
-// does not expose one, so its callers screen the raw string with this instead.
-// A DOCTYPE has no legitimate place in SAML XML and accepting one is an
-// XXE-class risk. See https://github.com/ory/polis/issues/4071.
+// Detects a document type definition (DTD) in a raw XML string. A DOCTYPE has
+// no legitimate place in SAML XML and accepting one is an XXE-class risk, so
+// parseFromString rejects any document this matches before parsing it. See
+// https://github.com/ory/polis/issues/4071.
 //
-// A DTD is introduced by `<!DOCTYPE` and may only contain `<!ENTITY`/`<!ELEMENT`
-// declarations, so the presence of any of these keywords means the document
-// carries a DTD. Detection is a single keyword search anywhere in the raw
-// string: it is linear (a fixed alternation with no backtracking) and cannot be
-// evaded. We deliberately do NOT try to ignore the keyword when it appears
-// inside a comment, CDATA section or processing instruction. Doing so requires
-// reproducing the parser's lenient error-recovery tokenizer, and every attempt
-// has been bypassable: a malformed prefix such as `<!<!-->` makes a hand-rolled
-// scanner treat the real `<!DOCTYPE` as comment content (optionally closed by an
-// attacker-supplied trailing `-->`), while sax still processes the DTD. The keyword
-// is matched without requiring trailing whitespace because sax enters its doctype
-// state on the bare keyword (e.g. `<!DOCTYPERoot ...>`). The only cost is
-// rejecting the rare, malformed document that embeds the literal keyword as data;
-// that fails safe, and well-formed XML cannot carry a raw `<` as text (it must be
-// escaped), so a false positive is only possible inside a comment or CDATA.
-// See https://github.com/ory/polis/issues/4071.
+// The keywords are matched anywhere, including inside comments and CDATA:
+// skipping those would mean reproducing a parser's error-recovery tokenizer,
+// and every attempt at that has been bypassable. A false positive can only be
+// a comment or CDATA that mentions a DTD keyword, and rejecting it fails safe.
 const dtdDeclaration = /<!DOCTYPE|<!ENTITY|<!ELEMENT/i;
 
 const containsDoctype = (xml: string): boolean => dtdDeclaration.test(xml);
@@ -44,7 +31,8 @@ const countRootNodes = (xmlDoc: Document) => {
   return rootNodes.length;
 };
 
-const parseFromString = (xmlString: string) => {
+// `xmlns` declares namespace prefixes the document may use without declaring.
+const parseFromString = (xmlString: string, xmlns?: Record<string, string>) => {
   // Reject a DTD before the parser processes it. Checking only the parsed
   // `doctype` node (below) lets a malformed DTD make @xmldom/xmldom throw first,
   // leaking raw parser text (e.g. "doctype not terminated with > at position N")
@@ -68,7 +56,7 @@ const parseFromString = (xmlString: string) => {
     }
   };
   try {
-    const xml = new DOMParser({ onError }).parseFromString(xmlString, MIME_TYPE.XML_APPLICATION);
+    const xml = new DOMParser({ onError, xmlns }).parseFromString(xmlString, MIME_TYPE.XML_APPLICATION);
 
     // SAML XML never legitimately declares a document type definition (DTD).
     // Accepting one exposes the parser to XXE-class attacks: a DTD can declare

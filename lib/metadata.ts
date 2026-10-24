@@ -1,8 +1,8 @@
-import { getAttribute, thumbprint, containsDoctype, doctypeNotAllowedError } from './utils';
+import { getAttribute, thumbprint } from './utils';
+import { xmlToObject } from './xml';
 import { ensurePemArmor, stripCertHeaderAndFooter } from './cert';
 
 import crypto from 'crypto';
-import xml2js from 'xml2js';
 import xmlbuilder from 'xmlbuilder';
 import { METADATA_NS, PROTOCOL_NS, XMLDSIG_NS } from './constants';
 
@@ -34,16 +34,11 @@ const parseMetadata = async (
 ): Promise<ParsedMetadata> => {
   // Some Providers do not escape the & character in the metadata, for now these have been encountered in errorURL
   idpMeta = idpMeta.replace(/errorURL=".*?"/g, '');
-  if (containsDoctype(idpMeta)) {
-    throw doctypeNotAllowedError;
-  }
-  const res = await xml2js.parseStringPromise(idpMeta, {
-    tagNameProcessors: [xml2js.processors.stripPrefix],
-    strict: true,
-  });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const res: any = xmlToObject(idpMeta, { attrkey: '$' });
   // Without this, a document that is not metadata at all (an empty one, a
   // SAML Response, an EntitiesDescriptor aggregate) was reported as missing
-  // its certificate. xml2js yields '' for an empty element, which still counts
+  // its certificate. xmlToObject yields '' for an empty element, which still counts
   // as present.
   if (res?.EntityDescriptor === undefined || res?.EntityDescriptor === null) {
     throw new Error('Invalid metadata: missing EntityDescriptor element.');
