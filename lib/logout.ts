@@ -13,8 +13,25 @@ type ParsedLogoutResponse = {
 
 type LogoutRequestParams = {
   nameId: string;
+  /**
+   * The Format of the NameID, as the IdP asserted it. Defaults to
+   * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. An IdP that
+   * matches the NameID it issued exactly may need the asserted format.
+   */
+  nameIdFormat?: string;
+  /** The NameQualifier of the NameID, as the IdP asserted it. Left out when unset. */
+  nameQualifier?: string;
+  /** The SPNameQualifier of the NameID, as the IdP asserted it. Left out when unset. */
+  spNameQualifier?: string;
   providerName: string;
   sloUrl: string;
+  /**
+   * The SessionIndex of the session to end, as the IdP asserted it in the
+   * AuthnStatement of the sign-in. Without one, the LogoutRequest names only the
+   * user, and the IdP ends every session it holds for them. Several end each of
+   * those sessions.
+   */
+  sessionIndex?: string | string[];
 };
 
 // Text content of the first element in a child list. xmlToObject yields a
@@ -51,10 +68,17 @@ const parseLogoutResponse = async (rawResponse: string): Promise<ParsedLogoutRes
 
 const createLogoutRequest = ({
   nameId,
+  nameIdFormat,
+  nameQualifier,
+  spNameQualifier,
   providerName,
   sloUrl,
+  sessionIndex,
 }: LogoutRequestParams): { id: string; xml: string } => {
   const id = generateId();
+  const sessionIndexes = (Array.isArray(sessionIndex) ? sessionIndex : [sessionIndex]).filter(
+    (value): value is string => typeof value === 'string' && value.length > 0
+  );
 
   const xml = {
     'samlp:LogoutRequest': {
@@ -68,9 +92,15 @@ const createLogoutRequest = ({
         '#text': providerName,
       },
       'saml:NameID': {
-        '@Format': 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
+        ...(nameQualifier && { '@NameQualifier': nameQualifier }),
+        ...(spNameQualifier && { '@SPNameQualifier': spNameQualifier }),
+        '@Format': nameIdFormat || 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
         '#text': nameId,
       },
+      // After the NameID, as the schema orders a LogoutRequest's children.
+      ...(sessionIndexes.length > 0 && {
+        'samlp:SessionIndex': sessionIndexes.map((value) => ({ '#text': value })),
+      }),
     },
   };
 

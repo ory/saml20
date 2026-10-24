@@ -554,6 +554,10 @@ describe('validate() with an assertion encrypted before the Response was signed'
     assert.strictEqual(profile.issuer, IDP);
     assert.strictEqual(profile.audience, SP);
     assert.strictEqual(profile.sessionIndex, '_session-1');
+    assert.deepStrictEqual(profile.nameId, {
+      value: 'jo@example.com',
+      format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    });
     assert.strictEqual(profile.assertionId, '_assertion-1');
     assert.strictEqual(
       profile.claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'],
