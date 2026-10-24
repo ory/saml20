@@ -140,17 +140,10 @@ const parse = (assertion) => {
   };
 };
 
-const audienceCheck = (audience, expectedAudience, strictValidation) => {
-  if (typeof audience !== 'string' || typeof expectedAudience !== 'string') {
-    return false;
-  }
-
-  if (strictValidation) {
-    return audience === expectedAudience;
-  }
-
-  return audience.startsWith(expectedAudience);
-};
+// Audiences are compared exactly. A prefix match would accept an assertion
+// issued for any identifier that merely starts with the relying party's.
+const audienceCheck = (audience, expectedAudience) =>
+  typeof audience === 'string' && typeof expectedAudience === 'string' && audience === expectedAudience;
 
 const toArray = <T>(value: T | T[] | undefined | null): T[] => {
   if (value === undefined || value === null) {
@@ -169,8 +162,9 @@ const getAudienceRestrictions = (assertion): unknown[][] =>
 // SAML core 2.5.1.4: an assertion may carry several <AudienceRestriction>
 // elements, and each must be satisfied; within one <AudienceRestriction> the
 // <Audience> values are alternatives, so any one of them may name the relying
-// party. `realm` is the relying party's own identifier, or a list of them.
-const validateAudience = (assertion, realm, strictValidation = false) => {
+// party. `realm` is the relying party's own identifier, or a list of them;
+// an Audience must equal one of them exactly.
+const validateAudience = (assertion, realm) => {
   try {
     const expected = toArray(realm);
     const restrictions = getAudienceRestrictions(assertion);
@@ -180,7 +174,7 @@ const validateAudience = (assertion, realm, strictValidation = false) => {
 
     return restrictions.every((audiences) => {
       return audiences.some((audience) =>
-        expected.some((expectedAudience) => audienceCheck(audience, expectedAudience, strictValidation))
+        expected.some((expectedAudience) => audienceCheck(audience, expectedAudience))
       );
     });
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
