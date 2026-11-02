@@ -1,4 +1,4 @@
-const getVersion = (assertion) => {
+const getVersion = (assertion: any) => {
   if (!assertion) {
     return null;
   }
