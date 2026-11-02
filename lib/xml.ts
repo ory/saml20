@@ -137,16 +137,23 @@ const illegalChar =
 // return, and a tab or line feed in an attribute value, are written as
 // character references: a receiving parser normalizes the literal characters
 // to a line feed or a space.
+const opaqueOrStartTagOrCR = /<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->|(<[A-Za-z_:][^>]*>)|\r/g;
+
 const buildXml = (nodes: object, { pretty, ...declaration }: BuildOptions = {}): string => {
   const xml = create({ version: '1.0', ...declaration }, nodes).end({ prettyPrint: pretty });
   if (illegalChar.test(xml)) {
     throw new Error('Invalid character in XML.');
   }
-  // Within a tag, whitespace other than the single space between attributes
-  // can only come from an attribute value; xmlbuilder2 escapes > there.
-  return xml
-    .replace(/<[^>]*>/g, (tag) => tag.replace(/\t/g, '&#x9;').replace(/\n/g, '&#xA;'))
-    .replace(/\r/g, '&#xD;');
+  // Within a start tag, whitespace other than the single space between
+  // attributes can only come from an attribute value; xmlbuilder2 escapes
+  // > there and < in text. CDATA sections and comments are left as they are.
+  return xml.replace(opaqueOrStartTagOrCR, (match, tag?: string) =>
+    tag
+      ? tag.replace(/[\t\n\r]/g, (c) => ({ '\t': '&#x9;', '\n': '&#xA;', '\r': '&#xD;' })[c] as string)
+      : match === '\r'
+        ? '&#xD;'
+        : match
+  );
 };
 
 export { xmlToObject, buildXml };

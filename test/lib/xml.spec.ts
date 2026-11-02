@@ -245,6 +245,14 @@ describe('buildXml', function () {
       buildXml({ a: { '@x': 'p\tq', b: { '@y': '>\n' } } }, { pretty: true }),
       '<?xml version="1.0"?>\n<a x="p&#x9;q">\n  <b y="&gt;&#xA;"/>\n</a>'
     );
+    assert.strictEqual(
+      buildXml({ a: { '#text': 'x="', b: { '@y': 'p\tq' } } }),
+      '<?xml version="1.0"?><a>x="<b y="p&#x9;q"/></a>'
+    );
+    assert.strictEqual(
+      buildXml({ a: { $: 'c\td>\r', '!': 'm\nn>', b: { '@y': 'p\tq' } } }),
+      '<?xml version="1.0"?><a><![CDATA[c\td>\r]]><!--m\nn>--><b y="p&#x9;q"/></a>'
+    );
   });
 
   it('rejects a character XML cannot carry', function () {

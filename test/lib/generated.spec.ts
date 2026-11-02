@@ -98,7 +98,7 @@ describe('generated XML', function () {
     it(name, async function () {
       const file = path.join(dir, `${name}.xml`);
       const actual = mask(await generate());
-      if (process.env.UPDATE_GENERATED) {
+      if (process.env.UPDATE_GENERATED === '1') {
         fs.writeFileSync(file, actual + '\n');
       }
       assert.strictEqual(actual, fs.readFileSync(file, 'utf8').trimEnd());
