@@ -168,6 +168,25 @@ describe('saml20.ts', function () {
     assert.strictEqual(claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname'], 'John');
     assert.strictEqual(claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname'], 'Doe');
   });
+
+  it('keeps Attribute names like __proto__ or constructor as own claims', function () {
+    const names = ['__proto__', 'constructor', 'toString', 'hasOwnProperty'];
+    const assertion = {
+      AttributeStatement: {
+        Attribute: names.map((name) => ({ '@': { Name: name }, AttributeValue: { _: `v-${name}` } })),
+      },
+    };
+
+    const { claims } = saml20.parse(assertion);
+
+    assert.strictEqual(Object.getPrototypeOf(claims), Object.prototype);
+    for (const name of names) {
+      assert(Object.prototype.hasOwnProperty.call(claims, name), `${name} is an own claim`);
+      assert.strictEqual(claims[name], `v-${name}`);
+    }
+    assert.deepStrictEqual(Object.keys(claims).sort(), [...names].sort());
+    assert.strictEqual(JSON.parse(JSON.stringify(claims)).constructor, 'v-constructor');
+  });
 });
 
 describe('validateAudience with several Audience values', function () {

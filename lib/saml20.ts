@@ -1,4 +1,4 @@
-import { getAttribute } from './utils';
+import { getAttribute, setOwn } from './utils';
 import type { AssertedNameID } from './typings';
 
 const permanentNameIdentifier = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent';
@@ -17,7 +17,7 @@ function getClaims(attributes: any[]) {
 
     const extProp = getExtendedProp(attribute, 'AttributeValue', 'NameID');
 
-    claims[attributeName] = extProp.result;
+    setOwn(claims, attributeName, extProp.result);
 
     if (friendlyName === 'email') {
       claims[emailAddressClaimType] = extProp.result;

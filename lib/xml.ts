@@ -1,4 +1,4 @@
-import { parseFromString } from './utils';
+import { parseFromString, setOwn } from './utils';
 
 type XmlObjectOptions = {
   // Key that holds an element's attributes.
@@ -22,12 +22,6 @@ const undeclaredPrefixes = {
   xsi: 'http://www.w3.org/2001/XMLSchema-instance',
   xs: 'http://www.w3.org/2001/XMLSchema',
 };
-
-// Element and attribute names come from the document, so they can be
-// "__proto__" or "constructor". Assignment would set the prototype or collide
-// with an inherited property; defining an own property does neither.
-const setOwn = (obj: Record<string, unknown>, key: string, value: unknown) =>
-  Object.defineProperty(obj, key, { value, enumerable: true, writable: true, configurable: true });
 
 const toObject = (element: Element, options: XmlObjectOptions): unknown => {
   const obj: Record<string, unknown> = {};

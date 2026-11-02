@@ -131,8 +131,15 @@ const isMultiRootedXMLError = (err: any) => {
   return false;
 };
 
+// Keys that come from a document (element, attribute or SAML Attribute names)
+// can be "__proto__" or "constructor". Assignment would set the prototype or
+// collide with an inherited property; defining an own property does neither.
+const setOwn = (obj: Record<string, unknown>, key: string, value: unknown) =>
+  Object.defineProperty(obj, key, { value, enumerable: true, writable: true, configurable: true });
+
 export {
   WrapError,
+  setOwn,
   generateId,
   parseFromString,
   thumbprint,
