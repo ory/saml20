@@ -4469,6 +4469,54 @@
       },
       "kind": "entity split out of the file above (re-serialised)",
       "role": "idp"
+    },
+    {
+      "file": "vendor--salesforce-componentspace.xml",
+      "source": {
+        "provider": "Salesforce IdP",
+        "kind": "public-endpoint-snapshot",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://componentspace-dev-ed.my.salesforce.com/.well-known/samlidp.xml",
+        "notes": "Public developer-org IdP metadata. Historical certificate dates may be expired."
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--salesforce-litware.xml",
+      "source": {
+        "provider": "Salesforce IdP",
+        "kind": "public-endpoint-snapshot",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://litware369b2c-dev-ed.my.salesforce.com/.well-known/samlidp.xml",
+        "notes": "Public developer-org IdP metadata linked in a Microsoft B2C training guide."
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--pingfederate-cisco-documentation.xml",
+      "source": {
+        "provider": "PingFederate",
+        "kind": "documentation-example",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://www.cisco.com/c/en/us/td/docs/video/digital_media_systems/5_x/5_4/dmm/user/guide/dmm54x.pdf",
+        "notes": "Transcribed from printed pp. 8-58 and 8-59 (PDF pages 96-97). Page headers removed, XML whitespace normalized. Example hostname; printed certificate data is malformed and cannot be used for X.509 validation. XML parser/negative certificate fixture only."
+      },
+      "kind": "transcribed from published documentation (see notes)",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--jumpcloud-redacted-public-example.xml",
+      "source": {
+        "provider": "JumpCloud",
+        "kind": "redacted-documentation-example",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://upcommons.upc.edu/server/api/core/bitstreams/7f95e891-d3d8-4608-9fd9-c189eeefe739/content",
+        "notes": "Transcribed from author-published thesis Annex 14, printed p.76. Certificate was already redacted in the source. PDF line wrapping in NameIDFormat normalized. Parser/negative certificate fixture only, not a complete cryptographic fixture."
+      },
+      "kind": "transcribed from published documentation (see notes)",
+      "role": "idp"
     }
   ]
 }

@@ -5499,6 +5499,9 @@
       "error": "Could not find X509Certificate in the SP metadata.",
       "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
+    "vendor--jumpcloud-redacted-public-example.xml": {
+      "error": "error:*:PEM routines::bad base64 decode"
+    },
     "vendor--keycloak-client.xml": {
       "result": {
         "sso": {
@@ -5619,6 +5622,9 @@
         "loginType": "idp"
       }
     },
+    "vendor--pingfederate-cisco-documentation.xml": {
+      "error": "error:*:asn1 encoding routines::too long"
+    },
     "vendor--pingone.xml": {
       "result": {
         "sso": {
@@ -5633,6 +5639,40 @@
         "publicKey": "MIIDrjCCApagAwIBAgIGAYqTP6JpMA0GCSqGSIb3DQEBCwUAMIGXMQswCQYDVQQG\n            EwJVUzEWMBQGA1UECgwNUGluZyBJZGVudGl0eTEWMBQGA1UECwwNUGluZyBJZGVu\n            dGl0eTFYMFYGA1UEAwxPUGluZ09uZSBTU08gQ2VydGlmaWNhdGUgZm9yIFdvcmtm\n            b3JjZSBTb2x1dGlvbiBFbnZpcm9ubWVudCBlZTRmNjBjMyBlbnZpcm9ubWVudDAe\n            Fw0yMzA5MTQxMDMyMTVaFw0yNDA5MTMxMDMyMTVaMIGXMQswCQYDVQQGEwJVUzEW\n            MBQGA1UECgwNUGluZyBJZGVudGl0eTEWMBQGA1UECwwNUGluZyBJZGVudGl0eTFY\n            MFYGA1UEAwxPUGluZ09uZSBTU08gQ2VydGlmaWNhdGUgZm9yIFdvcmtmb3JjZSBT\n            b2x1dGlvbiBFbnZpcm9ubWVudCBlZTRmNjBjMyBlbnZpcm9ubWVudDCCASIwDQYJ\n            KoZIhvcNAQEBBQADggEPADCCAQoCggEBAM1i4QO5bil5lpggldWl80bV4RSUuaZi\n            /saDnL5ULwmFk2l2noBIFCasAVhw8N9UdhVouO3gQyexdgDeQeE0XaAPC23QLB/g\n            0E9hxjYJbxOrA7efKnkDHIBCIrtDJfoqX0tmyTxSBg4Ci13NAi9ODjeJ+gG9qynU\n            KTpfPN/rCwifaN+8yKEVsVVnKUBmjIqtRGIf1A6NRE8Mw9NBk1hHE6fi8YHbnCnY\n            0noSygCJLgP4g+NM47u1Ph1NMoepLNJ/lF0ZYTBbjOm0uTHTORkxBBgYFBw1tTEv\n            SCAGiRkgQxNL6Q2ec0ZtXE4h/lMiN5bySvp7BOJcGBsxSKtLODu4LgMCAwEAATAN\n            BgkqhkiG9w0BAQsFAAOCAQEArGRww/reXNEPS31c5PEInD5a/NHbLaGXHxfz058e\n            on5i8QJ/HTV5x8WwAfVMlcccyVgVeLaqUdhC3B1UVAPepkKL4doTqXj/KgAt5bx6\n            GKSRSd0USftLLZFR0ZvVag4V0hHJNqekM+/s/ZPU+2S6PRJS2WwY5qotHpcfHCt0\n            luDMasOQMWcA/2S8O15RF6WQHLlOspfzT8f6/qVZF3A9+O6h9llGXy+zvpCHVD9t\n            ZbahKFXbq2bJoSV+qWxlfOj1j2bivMQg81i00MnjSdzeR9ksem/yizBa142FqQNs\n            n1N0lLDIxLpNtWskwJR+JvP1L1f0hbgrKxavIiSb7N5mpA==",
         "thumbprint": "c0ffb7b521a099ad28276773caadcd05a7a9b919",
         "validTo": "Sep 13 10:32:15 2024 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--salesforce-componentspace.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://componentspace-dev-ed.my.salesforce.com/idp/endpoint/HttpPost",
+          "redirectUrl": "https://componentspace-dev-ed.my.salesforce.com/idp/endpoint/HttpRedirect"
+        },
+        "slo": {
+          "redirectUrl": "https://componentspace-dev-ed.my.salesforce.com/services/auth/idp/saml2/logout",
+          "postUrl": "https://componentspace-dev-ed.my.salesforce.com/services/auth/idp/saml2/logout"
+        },
+        "entityID": "https://componentspace-dev-ed.my.salesforce.com",
+        "publicKey": "MIIEZzCCA0+gAwIBAgIOAYpShVqcAAAAAFfCidwwDQYJKoZIhvcNAQELBQAwezETMBEGA1UEAwwKc2FsZXNmb3JjZTEYMBYGA1UECwwPMDBEOTAwMDAwMDAwWXNpMRcwFQYDVQQKDA5TYWxlc2ZvcmNlLmNvbTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzELMAkGA1UECAwCQ0ExDDAKBgNVBAYTA1VTQTAeFw0yMzA5MDEyMDUzMDVaFw0yNDA5MDExMjAwMDBaMHsxEzARBgNVBAMMCnNhbGVzZm9yY2UxGDAWBgNVBAsMDzAwRDkwMDAwMDAwMFlzaTEXMBUGA1UECgwOU2FsZXNmb3JjZS5jb20xFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xCzAJBgNVBAgMAkNBMQwwCgYDVQQGEwNVU0EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCpnYscBfXwuCR8QkOwad33d8OaVcL1oDJnOTVFUtt7h6XgrzUnnFKwaU2WwEB+dNxA1eZwySxPlKwEjzXKsLlSe7ls3RfvRGCLCwhcSEgDGpTFLnaeEj0kxEksY3JkHC6tuTujwL/hAnBABXydqRH0mRr3h8CfOakxP4BHXC7xSjc6meAtBuc1Gd3Gbb6O4aKSJiUz9Xe+0pDyEuMK8389HvGTNDPTUEnX3b+9ThGCUcNhr+R9rI0qwWnAiduoRrJEIhSSBPqKHS2gbXUrpO3uPqIjlTg9qHG3oGYpwp5cI1qq8s/Yvl3ZL9UFaFtdhqKkRNloSPc+8sQe91/THbSvAgMBAAGjgegwgeUwHQYDVR0OBBYEFLg4mpQ8ER7y3nDIvih5XsBfasnJMA8GA1UdEwEB/wQFMAMBAf8wgbIGA1UdIwSBqjCBp4AUuDialDwRHvLecMi+KHlewF9qycmhf6R9MHsxEzARBgNVBAMMCnNhbGVzZm9yY2UxGDAWBgNVBAsMDzAwRDkwMDAwMDAwMFlzaTEXMBUGA1UECgwOU2FsZXNmb3JjZS5jb20xFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xCzAJBgNVBAgMAkNBMQwwCgYDVQQGEwNVU0GCDgGKUoVanAAAAABXwoncMA0GCSqGSIb3DQEBCwUAA4IBAQB9mY1nWDRZRC2lHFe3A5I0kyADUBQNjJvPyFwg4u+BN/cIMacrLtZXDMaY6fi7n3o0dBKvU/2Jbmd9MtGufUkeLDDSkW1a8CYOJjsvBnYC0s9196Cd7QxEDTalONQULjPrKvIDNZw5rJ7zwc8Rfo2hDCNMZ7ghTPvfsXF6cqGBteKO1o30mDDM68AOz8tiGXo7f7xzY3d69sfmaj3isgwYdu66ccPl2KF99d4yIWceeout98Ypm8TPpmfmQLnJCZuK43Ws+U6YDQOHimdp5U+IbxC6ObFRQLsT0gEDlMWeUBl896RAVC2cvP8xiQ2FeEnZ9MhkzYygzpxR+/N1nqzJ",
+        "thumbprint": "b1939d3871178e41fef231bd73f3b4094112ae3e",
+        "validTo": "Sep  1 12:00:00 2024 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--salesforce-litware.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://litware369b2c-dev-ed.my.salesforce.com/idp/endpoint/HttpPost",
+          "redirectUrl": "https://litware369b2c-dev-ed.my.salesforce.com/idp/endpoint/HttpRedirect"
+        },
+        "slo": {
+          "redirectUrl": "https://litware369b2c-dev-ed.my.salesforce.com/services/auth/idp/saml2/logout",
+          "postUrl": "https://litware369b2c-dev-ed.my.salesforce.com/services/auth/idp/saml2/logout"
+        },
+        "entityID": "https://litware369b2c-dev-ed.my.salesforce.com",
+        "publicKey": "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",
+        "thumbprint": "9437041df03f4ef2e725f95f89c1d9d675bfc62b",
+        "validTo": "Jun 23 12:00:00 2020 GMT",
         "loginType": "idp"
       }
     },
