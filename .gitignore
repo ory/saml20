@@ -18,4 +18,3 @@ dist
 .idea
 .nyc_output
 .DS_Store
-.eslintcache

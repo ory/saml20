@@ -56,17 +56,13 @@ const createPostForm = (postUrl: string, params: { name: string; value: string }
     '<p>Note: Since your browser does not support JavaScript, you must press the Continue button once to proceed.</p>',
     '</noscript>',
     `<form method="post" action="${escapeHtml(action)}">`,
-  ]
-    .concat(...parr)
-    .concat(
-      ...[
-        '<input type="submit" value="Continue" />',
-        '</form>',
-        '<script>document.forms[0].style.display="none";</script>',
-        '</body>',
-        '</html>',
-      ]
-    );
+  ].concat(parr, [
+    '<input type="submit" value="Continue" />',
+    '</form>',
+    '<script>document.forms[0].style.display="none";</script>',
+    '</body>',
+    '</html>',
+  ]);
 
   return formElements.join('\r\n');
 };
