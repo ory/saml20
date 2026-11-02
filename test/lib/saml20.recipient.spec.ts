@@ -272,7 +272,9 @@ describe('saml20: recipient binding', () => {
       await expectInvalidRecipient(build(), [ACS_B]);
     });
 
-    const malformed = ['', [], [ACS_A, ''], [ACS_A, 1]] as unknown as (string | string[])[];
+    const sparse: string[] = [ACS_A];
+    sparse.length = 2;
+    const malformed = ['', [], [ACS_A, ''], [ACS_A, 1], sparse] as unknown as (string | string[])[];
     for (const recipient of malformed) {
       it(`rejects ${JSON.stringify(recipient)} as the option instead of skipping the check`, async () => {
         await assert.rejects(

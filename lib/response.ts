@@ -68,7 +68,9 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
   // An empty list or entry would make the check below pass for nothing, or
   // skip it; neither is what a caller who set the option wants.
   if (options.recipient !== undefined) {
-    const recipients: unknown[] = Array.isArray(options.recipient) ? options.recipient : [options.recipient];
+    const recipients: unknown[] = Array.isArray(options.recipient)
+      ? Array.from(options.recipient)
+      : [options.recipient];
     if (
       recipients.length === 0 ||
       !recipients.every((recipient) => typeof recipient === 'string' && recipient !== '')
