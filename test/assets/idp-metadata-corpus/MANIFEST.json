@@ -1,5 +1,5 @@
 {
-  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's. The edugain-- files are a sample of the eduGAIN interfederation aggregate chosen so that every structural feature seen across its IdPs (elements, namespace prefixes, key layouts, bindings, certificate formatting) appears several times and every registering federation at least once. Files prefixed sp-- are SP metadata (SPSSODescriptor only), sampled from the same sources the same way; parseMetadata reads AssertionConsumerService for those.",
+  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's. The edugain-- files are a sample of the eduGAIN interfederation aggregate chosen so that every structural feature seen across its IdPs (elements, namespace prefixes, key layouts, bindings, certificate formatting) appears several times and every registering federation at least once. Files prefixed sp-- are SP metadata (SPSSODescriptor only), sampled from the same sources the same way; parseMetadata reads AssertionConsumerService for those. Files prefixed vendor-- are snapshots of specific products (Entra ID, AD FS, Auth0, Keycloak, PingOne, OpenSSO, AWS, Citrix ShareFile, Shibboleth/TestShib, SimpleSAMLphp), taken from public endpoints or pinned upstream repositories as recorded; a role of \"aggregate\" marks an EntitiesDescriptor kept as-is to pin the rejection, with its entities split out alongside.",
   "documents": [
     {
       "file": "pysaml2--example_idp2_idp.xml",
@@ -4179,6 +4179,296 @@
       },
       "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
       "role": "sp"
+    },
+    {
+      "file": "vendor--auth0.xml",
+      "source": {
+        "provider": "Auth0",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/DSpace/DSpace/bbb7e27a5f4593f75cbb0a92ad49d40050e9132d/dspace-saml2/src/test/resources/auth0-ap-metadata.xml",
+        "repo": "https://github.com/DSpace/DSpace",
+        "commit": "bbb7e27a5f4593f75cbb0a92ad49d40050e9132d",
+        "path": "dspace-saml2/src/test/resources/auth0-ap-metadata.xml",
+        "license": "BSD-3-Clause"
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--microsoft-entra-tenant.xml",
+      "source": {
+        "provider": "Microsoft Entra ID",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/perl-net-saml2/perl-Net-SAML2/515b5ad6040db90ebf1feacf535252e3687b8b2c/t/data/idp-metadata-multiple-signing-azure.xml",
+        "repo": "https://github.com/perl-net-saml2/perl-Net-SAML2",
+        "commit": "515b5ad6040db90ebf1feacf535252e3687b8b2c",
+        "path": "t/data/idp-metadata-multiple-signing-azure.xml",
+        "license": "Artistic-1.0-Perl OR GPL-1.0-or-later"
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--microsoft-adfs.xml",
+      "source": {
+        "provider": "Microsoft AD FS",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/Sustainsys/Saml2/3e4fd8f5cc36edab1c31bcae98d4a12bd14e743d/src/foss/Tests/Sustainsys.Saml2.Tests/Serialization/SamlXmlReaderTests/ReadEntityDescriptor_ADFS.xml",
+        "repo": "https://github.com/Sustainsys/Saml2",
+        "commit": "3e4fd8f5cc36edab1c31bcae98d4a12bd14e743d",
+        "path": "src/foss/Tests/Sustainsys.Saml2.Tests/Serialization/SamlXmlReaderTests/ReadEntityDescriptor_ADFS.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--shibboleth-testshib.xml",
+      "source": {
+        "provider": "Shibboleth",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/crewjam/saml/346540312f721498fc75e69637d9250dd89f230b/samlsp/testdata/testshib_metadata.xml",
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "346540312f721498fc75e69637d9250dd89f230b",
+        "path": "samlsp/testdata/testshib_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "aggregate"
+    },
+    {
+      "file": "vendor--shibboleth-testshib--entity-1.xml",
+      "source": {
+        "provider": "Shibboleth",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/crewjam/saml/346540312f721498fc75e69637d9250dd89f230b/samlsp/testdata/testshib_metadata.xml",
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "346540312f721498fc75e69637d9250dd89f230b",
+        "path": "samlsp/testdata/testshib_metadata.xml",
+        "license": "BSD-2-Clause",
+        "entity": 1
+      },
+      "kind": "entity split out of the file above (re-serialised)",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--shibboleth-testshib--entity-2.xml",
+      "source": {
+        "provider": "Shibboleth",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/crewjam/saml/346540312f721498fc75e69637d9250dd89f230b/samlsp/testdata/testshib_metadata.xml",
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "346540312f721498fc75e69637d9250dd89f230b",
+        "path": "samlsp/testdata/testshib_metadata.xml",
+        "license": "BSD-2-Clause",
+        "entity": 2
+      },
+      "kind": "entity split out of the file above (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "vendor--simplesamlphp-and-generic-sp.xml",
+      "source": {
+        "provider": "SimpleSAMLphp / generic SP",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/spring-projects/spring-security/00a093fcbcd5ff9382da161f802d4c9c89b58d22/saml2/saml2-service-provider/src/test/resources/test-federated-metadata.xml",
+        "repo": "https://github.com/spring-projects/spring-security",
+        "commit": "00a093fcbcd5ff9382da161f802d4c9c89b58d22",
+        "path": "saml2/saml2-service-provider/src/test/resources/test-federated-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "aggregate"
+    },
+    {
+      "file": "vendor--simplesamlphp-and-generic-sp--entity-1.xml",
+      "source": {
+        "provider": "SimpleSAMLphp / generic SP",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/spring-projects/spring-security/00a093fcbcd5ff9382da161f802d4c9c89b58d22/saml2/saml2-service-provider/src/test/resources/test-federated-metadata.xml",
+        "repo": "https://github.com/spring-projects/spring-security",
+        "commit": "00a093fcbcd5ff9382da161f802d4c9c89b58d22",
+        "path": "saml2/saml2-service-provider/src/test/resources/test-federated-metadata.xml",
+        "license": "Apache-2.0",
+        "entity": 1
+      },
+      "kind": "entity split out of the file above (re-serialised)",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--simplesamlphp-and-generic-sp--entity-2.xml",
+      "source": {
+        "provider": "SimpleSAMLphp / generic SP",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/spring-projects/spring-security/00a093fcbcd5ff9382da161f802d4c9c89b58d22/saml2/saml2-service-provider/src/test/resources/test-federated-metadata.xml",
+        "repo": "https://github.com/spring-projects/spring-security",
+        "commit": "00a093fcbcd5ff9382da161f802d4c9c89b58d22",
+        "path": "saml2/saml2-service-provider/src/test/resources/test-federated-metadata.xml",
+        "license": "Apache-2.0",
+        "entity": 2
+      },
+      "kind": "entity split out of the file above (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "vendor--opensso.xml",
+      "source": {
+        "provider": "OpenSSO",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/perl-net-saml2/perl-Net-SAML2/515b5ad6040db90ebf1feacf535252e3687b8b2c/t/idp-metadata.xml",
+        "repo": "https://github.com/perl-net-saml2/perl-Net-SAML2",
+        "commit": "515b5ad6040db90ebf1feacf535252e3687b8b2c",
+        "path": "t/idp-metadata.xml",
+        "license": "Artistic-1.0-Perl OR GPL-1.0-or-later"
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--keycloak.xml",
+      "source": {
+        "provider": "Keycloak",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/keycloak/keycloak/753cace5c7e6f8a6b065ec3de03b2429b1be1f8c/tests/base/src/test/resources/org/keycloak/tests/admin/identityprovider/saml-idp-metadata.xml",
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace5c7e6f8a6b065ec3de03b2429b1be1f8c",
+        "path": "tests/base/src/test/resources/org/keycloak/tests/admin/identityprovider/saml-idp-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--keycloak-client.xml",
+      "source": {
+        "provider": "Keycloak SAML client",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/keycloak/keycloak/753cace5c7e6f8a6b065ec3de03b2429b1be1f8c/tests/base/src/test/resources/org/keycloak/tests/cli/kcreg/saml-sp-metadata.xml",
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace5c7e6f8a6b065ec3de03b2429b1be1f8c",
+        "path": "tests/base/src/test/resources/org/keycloak/tests/cli/kcreg/saml-sp-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "vendor--citrix-sharefile.xml",
+      "source": {
+        "provider": "Citrix ShareFile",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/keycloak/keycloak/753cace5c7e6f8a6b065ec3de03b2429b1be1f8c/saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-4040-sharefile-metadata.xml",
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace5c7e6f8a6b065ec3de03b2429b1be1f8c",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-4040-sharefile-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "vendor--aws.xml",
+      "source": {
+        "provider": "Amazon Web Services",
+        "kind": "public-endpoint-snapshot",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://signin.aws.amazon.com/static/saml-metadata.xml"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "vendor--microsoft-entra.xml",
+      "source": {
+        "provider": "Microsoft Entra ID / Microsoft 365",
+        "kind": "public-endpoint-snapshot",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "vendor--microsoft-entra-common.xml",
+      "source": {
+        "provider": "Microsoft Entra ID",
+        "kind": "public-endpoint-snapshot",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://login.microsoftonline.com/common/federationmetadata/2007-06/federationmetadata.xml"
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--pingone.xml",
+      "source": {
+        "provider": "PingOne",
+        "kind": "public-endpoint-snapshot",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/metadata/cf476994-17ee-4e65-823b-639532e62f46"
+      },
+      "kind": "file as published",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--multiple-idp-entities-placeholder-certs.xml",
+      "source": {
+        "provider": "OneLogin SAML toolkit generic fixtures",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/SAML-Toolkits/python3-saml/52d2ac8da3f35262755f6e1c32ba7c62a6011fe1/tests/data/metadata/idp_multiple_descriptors.xml",
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8da3f35262755f6e1c32ba7c62a6011fe1",
+        "path": "tests/data/metadata/idp_multiple_descriptors.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "aggregate"
+    },
+    {
+      "file": "vendor--multiple-idp-entities-placeholder-certs--entity-1.xml",
+      "source": {
+        "provider": "OneLogin SAML toolkit generic fixtures",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/SAML-Toolkits/python3-saml/52d2ac8da3f35262755f6e1c32ba7c62a6011fe1/tests/data/metadata/idp_multiple_descriptors.xml",
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8da3f35262755f6e1c32ba7c62a6011fe1",
+        "path": "tests/data/metadata/idp_multiple_descriptors.xml",
+        "license": "MIT",
+        "entity": 1
+      },
+      "kind": "entity split out of the file above (re-serialised)",
+      "role": "idp"
+    },
+    {
+      "file": "vendor--multiple-idp-entities-placeholder-certs--entity-2.xml",
+      "source": {
+        "provider": "OneLogin SAML toolkit generic fixtures",
+        "kind": "repository-fixture",
+        "retrieved": "2026-11-02",
+        "sourceUrl": "https://raw.githubusercontent.com/SAML-Toolkits/python3-saml/52d2ac8da3f35262755f6e1c32ba7c62a6011fe1/tests/data/metadata/idp_multiple_descriptors.xml",
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8da3f35262755f6e1c32ba7c62a6011fe1",
+        "path": "tests/data/metadata/idp_multiple_descriptors.xml",
+        "license": "MIT",
+        "entity": 2
+      },
+      "kind": "entity split out of the file above (re-serialised)",
+      "role": "idp"
     }
   ]
 }

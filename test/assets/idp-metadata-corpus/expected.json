@@ -5464,6 +5464,244 @@
         "validTo": "Jul  4 17:56:47 2018 GMT",
         "loginType": "sp"
       }
+    },
+    "vendor--auth0.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://dev-vynkcnqhac3c0s10.us.auth0.com/samlp/Vn8jWX0iFHtepmXi7rjZa9h5M1kqXNWY",
+          "redirectUrl": "https://dev-vynkcnqhac3c0s10.us.auth0.com/samlp/Vn8jWX0iFHtepmXi7rjZa9h5M1kqXNWY"
+        },
+        "slo": {
+          "redirectUrl": "https://dev-vynkcnqhac3c0s10.us.auth0.com/samlp/Vn8jWX0iFHtepmXi7rjZa9h5M1kqXNWY/logout",
+          "postUrl": "https://dev-vynkcnqhac3c0s10.us.auth0.com/samlp/Vn8jWX0iFHtepmXi7rjZa9h5M1kqXNWY/logout"
+        },
+        "entityID": "urn:dev-vynkcnqhac3c0s10.us.auth0.com",
+        "publicKey": "MIIDHTCCAgWgAwIBAgIJLbX385VIDN0EMA0GCSqGSIb3DQEBCwUAMCwxKjAoBgNVBAMTIWRldi12eW5rY25xaGFjM2MwczEwLnVzLmF1dGgwLmNvbTAeFw0yMzA4MjUwMjUxMjhaFw0zNzA1MDMwMjUxMjhaMCwxKjAoBgNVBAMTIWRldi12eW5rY25xaGFjM2MwczEwLnVzLmF1dGgwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALSK8Ue5flbm3iOphvgWTL5MZHM/BmDURrmAUN3b+Ts6x99o5/klIhgyKeRosb4N29vCM4PVmxvcp2RXYrBlru2KzueY98hvF+NlkPV/tfNkRBMCOempBw0LEJzN6g0GRM4j6LgXU6hYxtkHB7Sze8KzRqVknYNEpma3hw5H4ZzVuZ9q/joYWmCLWWaEv+GhikIlBTJhg1cfIh0JP2kuU4zdWmzS/RKA2IoMxfCNzPD4Qp9J0LxL4ovyj5eNBTIFCrkB+v9UWbFifDI/PwMWdhTUuR3O7k4SFGdBxdQk3cUVYuSN7wZbrgHgCvJ4IEJODRFPgecpPKaOTuhYBHs8ylkCAwEAAaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUD0/pQ2xl6YSDg00WD1U3ZqRDFdowDgYDVR0PAQH/BAQDAgKEMA0GCSqGSIb3DQEBCwUAA4IBAQCCKkxVSQUI38CfdlNoXQvOqZHs+KdlAtTjbqoVYIWYVKV6bcHABnwkzxnFuYUnE454c9Q5JxL+xJ+BcBHzk2Mx5xTihq7D6QmONpJQxM09l7sormRus51DGu+8rTeODWlxAMICsbELLO+l+id8HRPbt9H0M/s/8rY81Ys6W8WUD7xitTKhblzOO9Ei4m+IQDh7pBqY9vg0of6ezJ+P9MCyd5+dNQaiHBUVA0SadtE3ZALzChHd+hLkqpUzntqdNwdEWHZjo18ov0tquQEcGxttbfVK9IFuX5uDOzOaTE+kYEi6le+3D+M1HZHxdDSCeGbAsS0YKp+yHkj6cFU+sQiJ",
+        "thumbprint": "f04f19304ff706adaecd03ec982d5a6c91f3dc96",
+        "validTo": "May  3 02:51:28 2037 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--aws.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://ap-southeast-6.signin.aws.amazon.com/saml"
+        },
+        "slo": {},
+        "entityID": "urn:amazon:webservices",
+        "publicKey": "MIIDcjCCAlqgAwIBAgIJAPw5lVOvFiiiMA0GCSqGSIb3DQEBCwUAMGcxHzAdBgNV\nBAMTFnVybjphbWF6b246d2Vic2VydmljZXMxIjAgBgNVBAoTGUFtYXpvbiBXZWIg\nU2VydmljZXMsIEluYy4xEzARBgNVBAgTCldhc2hpbmd0b24xCzAJBgNVBAYTAlVT\nMB4XDTI2MTAzMDAwMDAwMFoXDTI3MTAzMDAwMDAwMFowZzEfMB0GA1UEAxMWdXJu\nOmFtYXpvbjp3ZWJzZXJ2aWNlczEiMCAGA1UEChMZQW1hem9uIFdlYiBTZXJ2aWNl\ncywgSW5jLjETMBEGA1UECBMKV2FzaGluZ3RvbjELMAkGA1UEBhMCVVMwggEiMA0G\nCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDHEmFLQTQougU/BzPITbccH0lp8ahQ\nhWw3zsiCjVrsyHMIBNA6h0F67x4xqQoADtuFvql9We7+bT59NTwXcV4Kr9kwT86a\nmFA2PHaSmpP/T9O154usj3gVC/ulbG1wZj7nCGQrg0KSW55vOJr10VFfsqy/bZ8U\nKSgeeGCvGkqP46JTRandF3JU/gBwU65DMawSNwN3i5QrJir7R0xrvHmrsrvOnMic\n5octIHx5sAWBjSX9tBHYdMOzQcYz1DvFSHdVosofONfAfE764QJxb8jmnNc7Rr7D\nY44emCMs2jhQeNCpeUcGyP1fwksb+oStz/mZWdWqhJNNFFKRZj/2/8OVAgMBAAGj\nITAfMB0GA1UdDgQWBBSJJ0EiP+eSggkfN89paGnc9Nx+vTANBgkqhkiG9w0BAQsF\nAAOCAQEAH1T2cZhL7aKQdXSXY6WpGLz+liX8PsNnVXK0odsRCjQ0pviEXLXXr1gm\nBnuCT9cYnJadjNexSKY+f+SgxL4Y/LxHHRgNace14lGd/uNCcuJo8NE659xpUWdB\nqYKGcvvf+c5O9SYMa0ZsSTFuxKVqtkCd9SyInmywIO2XuuPiyd7bB/blGR0X9/6x\nTiikg/Uk2mlg85AanwvOGGIVJt+gkEV8Rla+Y13w0gmMf9kLhPQiNNWHE73opuKy\naf4VQ+Sn664zjejJimr8/dAYoq3pTazuI+/37/ewcoVWhcuz5RqRZCvighNqfp/b\njKBAHdAVzTox0xQ1WS0ytl4+wt76Zw==",
+        "thumbprint": "05681070929b6289b0416de0fd7a3accd8ec59bf",
+        "validTo": "Oct 30 00:00:00 2027 GMT",
+        "loginType": "sp"
+      }
+    },
+    "vendor--citrix-sharefile.xml": {
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
+    },
+    "vendor--keycloak-client.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "http://localhost:8081/sales-post-enc/saml"
+        },
+        "slo": {
+          "postUrl": "http://localhost:8081/sales-post-enc/saml"
+        },
+        "entityID": "http://localhost:8080/sales-post-enc/",
+        "publicKey": "MIIDBjCCAe6gAwIBAgIJANPu/mvxOREdMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LWVuYy8wIBcNMjQwNjIxMTkzMTE3WhgPMjEyNDA1MjgxOTMxMTdaMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LWVuYy8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDE5iKDNNW5XxHAF0ITErZcHDYZI68z7u68n7o4dsiywkfOWf7jVnw7PJVnMeDEtLWtTO6f0tRTqJ4OV5HYdJ9+mhPJtn+2UuvrepyYa2IsC1eFPH98ZEtYapsE6ObvhKBQMcu5G/tQrxkCFY2ssDa99unwBH5STLyX78UvqKiYnkPCvIhkiPIHy8ab7DQowc+EE9XhlE3b63A65rp4G9R87rwgJX5VTM3h81WcDuWLPOg7YRYLZoorWz2p38/qL9gXY5NxIRK16EHGfw2W1dPrX3GyMOJbXVyrBNZ6m5IL9Wn7lBEJ/Dl7ZFMFB5W36QkJ+3aaNLT/Tu/Gz+7f24inAgMBAAGjITAfMB0GA1UdDgQWBBSk7RegFbEBruVbt/VFl2gZhZ2IpDANBgkqhkiG9w0BAQsFAAOCAQEAGyH1sXVU3HDMhCzP2k5fsJBGA+1iKLMsyyiGcaD/22anQ1uVU7iWPZH8mSJGWqkvo/4oFb7RjB2KzO/50wP0q/P/tymGsYoznt+MEJKKxYEqAYmIns7SKRIgv3xEfF8yQy2jOuULC9FTq/Pb3gd9Om40jmeJtYccDSICjEC+A2fcGe56ScuRRLt+3WFyIZUFH7Y9FYZQ3EYQ88UZg//5F1ddAzGtdMSeTanMxLKow7rUIm/+Sx6cd+Vkwo/SYdk4hsD8xZCYx8Ln4i3NKh+SzyvbYykyWVI2fwjplqvM5Md/M+SNvPtU9tkOCUxQqVfz/bwtTiqfjdSaUJlasgGByg==",
+        "thumbprint": "0992f433890703d41141c333c6b897ff44a68523",
+        "validTo": "May 28 19:31:17 2124 GMT",
+        "loginType": "sp"
+      }
+    },
+    "vendor--keycloak.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "http://localhost:8080/auth/realms/master/protocol/saml"
+        },
+        "slo": {
+          "postUrl": "http://localhost:8080/auth/realms/master/protocol/saml"
+        },
+        "entityID": "http://localhost:8080/auth/realms/master",
+        "publicKey": "MIICmzCCAYMCBgFUYnC0OjANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMTYwNDI5MTQzMjEzWhcNMjYwNDI5MTQzMzUzWjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCN25AW1poMEZRbuMAHG58AThZmCwMV6/Gcui4mjGacRFyudgqzLjQ2rxpoW41JAtLjbjeAhuWvirUcFVcOeS3gM/ZC27qCpYighAcylZz6MYocnEe1+e8rPPk4JlID6Wv62dgu+pL/vYsQpRhvD3Y2c/ytgr5D32xF+KnzDehUy5BSyzypvu12Wq9mS5vK5tzkN37EjkhpY2ZxaXPubjDIITCAL4Q8M/m5IlacBaUZbzI4AQrHnMP1O1IH2dHSWuMiBe+xSDTco72PmuYPJKTV4wQdeBUIkYbfLc4RxVmXEvgkQgyW86EoMPxlWJpj7+mTIR+l+2thZPr/VgwTs82rAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAA/Ip/Hi8RoVu5ouaFFlc5whT7ltuK8slfLGW4tM4vJXhInYwsqIRQKBNDYW/64xle3eII4u1yAH1OYRRwEs7Em1pr4QuFuTY1at+aE0sE46XDlyESI0txJjWxYoT133vM0We2pj1b2nxgU30rwjKA3whnKEfTEYT/n3JBSqNggy6l8ZGw/oPSgvPaR4+xeB1tfQFC4VrLoYKoqH6hAL530nKxL+qV8AIfL64NDEE8ankIAEDAAFe8x3CPUfXR/p4KOANKkpz8ieQaHDb1eITkAwUwjESj6UF9D1aePlhWls/HX0gujFXtWfWfrJ8CU/ogwlH8y1jgRuLjFQYZk6llc=",
+        "thumbprint": "67cb173ff0e9fbfacc592e94e1be8989f945415e",
+        "validTo": "Apr 29 14:33:53 2026 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--microsoft-adfs.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://adfs.server.url/adfs/ls/",
+          "redirectUrl": "https://adfs.server.url/adfs/ls/"
+        },
+        "slo": {
+          "redirectUrl": "https://adfs.server.url/adfs/ls/",
+          "postUrl": "https://adfs.server.url/adfs/ls/"
+        },
+        "entityID": "http://adfs.server.url/adfs/services/trust",
+        "publicKey": "MIIC3DCCAcSgAwIBAgIQUpAeTBr76KxOOZBzPIhjujANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDEx9BREZTIFNpZ25pbmcgLSBzdHMudW5pbGV2ZXIuY29tMB4XDTE0MDEzMDIzMzIwMFoXDTE1MDEzMDIzMzIwMFowKjEoMCYGA1UEAxMfQURGUyBTaWduaW5nIC0gc3RzLnVuaWxldmVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKrpuk2psb1teCft5zrrBGzWPtiIA3Ts5opVz/bIBIVaSDnysrUi3JPUuDyx/vVf9F7D7yrPO2IfBI/bSs96fKmXFE5Rg1zsHqBJ58mOuKxwuhL2OffqPZQOyxAthJihayISSqR6mP4Z9J4O8cj6N+pWC3j1wx0Fbu1Nfeo15DHB7U+9N63Ycn7KizSdE2XiRn1veBIOG06RdznoQgK4uTpNJ6hyc+cJjsLid/tWGr4VjXa9qUK/zsVj63TalEKgVf2m8kVaD+8qBecSP9v3wIqW5my+MvCOE3EphfDcWZEPydrEZ2d3aOVMvjjGqDZtdJUBIm0Rmz4dQH8x9aB+PPkCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAAXvZ4ZfFlUGU/y4mB2VYEpxdFBPW8JUT5jeCXRVvGGCyTacDUNJ3w3h0TZ0fTc5jJOZCtFhNOKJQtcCUVxhJbwEBQ4HxuZBUFox0ERohYUcitEntdCU1BYvuHOgAyjpLT4nuCQ5ChomZjs5txPbFZhFKI14G/kwq4A5LRbMT0YCEBBtaqlz+C4ad7WKCq5poS6z825DrsbOBLFj8+FLQtqwiiGhHqxNFtAM1mBq/ES8GNxLANlZZ/Xw9DTnNzaM60hqYIxZmKMdGTCMs4Yu32yyCvQ7QkuKx4pL5N6LA8huxSH+EKuSKfpXOHLbE75oPMKKH+qIehWmVqyCXr2A9Ag==",
+        "thumbprint": "9d9baeb1056b1e58c1cc45f05d2517417cf7cd45",
+        "validTo": "Jan 30 23:32:00 2015 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--microsoft-entra-common.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://login.microsoftonline.com/common/saml2",
+          "redirectUrl": "https://login.microsoftonline.com/common/saml2"
+        },
+        "slo": {
+          "redirectUrl": "https://login.microsoftonline.com/common/saml2"
+        },
+        "entityID": "https://sts.windows.net/{tenantid}/",
+        "publicKey": "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",
+        "thumbprint": "549b001420c21db2488190e8789c87a044930891,2e2b15192fbdfae463e67582b675df83384706eb,949253720c93b1abb38e3318d6499868dea6781e,8e92a3c1b5e0ed908cafdc7ee1cede8ac3288c27,f4097ac8198ffffa83d9cbd23d847991e4971490",
+        "validTo": "Sep 26 09:01:58 2031 GMT,Sep 30 16:02:34 2031 GMT,Oct 21 15:02:45 2031 GMT,Oct 26 12:03:43 2031 GMT,Oct 15 16:01:30 2031 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--microsoft-entra-tenant.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://login.microsoftonline.com/239f867f-feea-452e-a800-6859e696161c/saml2",
+          "redirectUrl": "https://login.microsoftonline.com/239f867f-feea-452e-a800-6859e696161c/saml2"
+        },
+        "slo": {
+          "redirectUrl": "https://login.microsoftonline.com/239f867f-feea-452e-a800-6859e696161c/saml2"
+        },
+        "entityID": "https://sts.windows.net/239f867f-feea-452e-a800-6859e696161c/",
+        "publicKey": "MIIDhTCCAm2gAwIBAgIJAJZ1R0cT7w9TMA0GCSqGSIb3DQEBCwUAMFkxCzAJBgNVBAYTAlhYMRUwEwYDVQQHDAxEZWZhdWx0IENpdHkxHDAaBgNVBAoME0RlZmF1bHQgQ29tcGFueSBMdGQxFTATBgNVBAMMDDE3Mi4xOS4zLjEwNTAeFw0yMTAxMjgxMTUzMzhaFw0yMjAxMjMxMTUzMzhaMFkxCzAJBgNVBAYTAlhYMRUwEwYDVQQHDAxEZWZhdWx0IENpdHkxHDAaBgNVBAoME0RlZmF1bHQgQ29tcGFueSBMdGQxFTATBgNVBAMMDDE3Mi4xOS4zLjEwNTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMwNQPIeuOwS6hDOgMA0cpViO/pwCiJyL034E2fN6fpGs2i1Q+jiIww250P2Wa13r36fgtcfeZpzxZttaOLHoXUsjDT58Gjq2wvVnmtdMJJRPpb65RQbUjazXnGlFHzSXEyFIKt29Jn/ZwR0/6L9ZrajwUKWmynOGx+zPd2dsktFLDM7FjnP1cQs//CGc1xUcixSnR1YNihCSbqU5xpVOFFJuaFXYMpMRKqZPL3dUpwEf0ZPixPU0rzw4R8Yl/HDZeI5CKfrSmZv0Q1NUA/V9nPLUArx06FXcSfOmALPVXZUrNNRLr8pTJSYtGRVUol2WkNRpeTwyHqdHcfsUNM+ZFECAwEAAaNQME4wHQYDVR0OBBYEFMY/cY30c1GAiTlfveCWyhRm0aYJMB8GA1UdIwQYMBaAFMY/cY30c1GAiTlfveCWyhRm0aYJMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAKeJoEIze7KMglyzgCoQGwcTfc8gTpHP2pCxo7VB0/kLRTsIaeNU1FA/HZzWHXqQriiYQ7SS7IpPiBca4QL0twm6Ks2hMU6jSXnp23/i8KphqJ/hckX6RrdK5NPbMxwls7poYM97cVnDpo8FDnQvCBY9t3+GmyaA2VWl7tfwRHB6zW60Wr8nFf/w/VRZDuiZ4FUy4oekh0ShtjB7ae6t8tUgWscMp6bnoQ0cY/gzsdPALvR0ggUAPkcYujoPM9T+Gu08P+zgXXWPtFjgQIN5hMKGoaStPM2SRqjRPOsWZmknNOxXxsbvHlam/49ej429TiIB+AbKWTKOaXvo5QgYv6k=",
+        "thumbprint": "203098da0ca35387c908c26836b544c7bcc379bb",
+        "validTo": "Jan 23 11:53:38 2022 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--microsoft-entra.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://login.microsoftonline.com/login.srf"
+        },
+        "slo": {
+          "postUrl": "https://login.microsoftonline.com/login.srf"
+        },
+        "entityID": "urn:federation:MicrosoftOnline",
+        "publicKey": "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",
+        "thumbprint": "08bc080fd2a4f9a2434c49809d22ef3fbae2f694,1f849dc56133494066c442ba19218dd5894078bd",
+        "validTo": "Sep 18 05:04:09 2031 GMT,Oct 13 18:03:26 2031 GMT",
+        "loginType": "sp"
+      }
+    },
+    "vendor--multiple-idp-entities-placeholder-certs--entity-1.xml": {
+      "error": "error:*:asn1 encoding routines::wrong tag"
+    },
+    "vendor--multiple-idp-entities-placeholder-certs--entity-2.xml": {
+      "error": "error:*:asn1 encoding routines::wrong tag"
+    },
+    "vendor--multiple-idp-entities-placeholder-certs.xml": {
+      "error": "Invalid metadata: missing EntityDescriptor element."
+    },
+    "vendor--opensso.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "http://sso.dev.venda.com/opensso/SSOPOST/metaAlias/idp",
+          "redirectUrl": "http://sso.dev.venda.com/opensso/SSORedirect/metaAlias/idp"
+        },
+        "slo": {
+          "redirectUrl": "http://sso.dev.venda.com/opensso/IDPSloRedirect/metaAlias/idp",
+          "postUrl": "http://sso.dev.venda.com/opensso/IDPSloPOST/metaAlias/idp"
+        },
+        "entityID": "http://sso.dev.venda.com/opensso",
+        "publicKey": "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",
+        "thumbprint": "8228898fcc28bacf8db7a32b44ad339294d3aaa7",
+        "validTo": "Jan  6 02:48:48 2022 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--pingone.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/idp/sso",
+          "redirectUrl": "https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/idp/sso"
+        },
+        "slo": {
+          "redirectUrl": "https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/idp/slo",
+          "postUrl": "https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/idp/slo"
+        },
+        "entityID": "https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931",
+        "publicKey": "MIIDrjCCApagAwIBAgIGAYqTP6JpMA0GCSqGSIb3DQEBCwUAMIGXMQswCQYDVQQG\n            EwJVUzEWMBQGA1UECgwNUGluZyBJZGVudGl0eTEWMBQGA1UECwwNUGluZyBJZGVu\n            dGl0eTFYMFYGA1UEAwxPUGluZ09uZSBTU08gQ2VydGlmaWNhdGUgZm9yIFdvcmtm\n            b3JjZSBTb2x1dGlvbiBFbnZpcm9ubWVudCBlZTRmNjBjMyBlbnZpcm9ubWVudDAe\n            Fw0yMzA5MTQxMDMyMTVaFw0yNDA5MTMxMDMyMTVaMIGXMQswCQYDVQQGEwJVUzEW\n            MBQGA1UECgwNUGluZyBJZGVudGl0eTEWMBQGA1UECwwNUGluZyBJZGVudGl0eTFY\n            MFYGA1UEAwxPUGluZ09uZSBTU08gQ2VydGlmaWNhdGUgZm9yIFdvcmtmb3JjZSBT\n            b2x1dGlvbiBFbnZpcm9ubWVudCBlZTRmNjBjMyBlbnZpcm9ubWVudDCCASIwDQYJ\n            KoZIhvcNAQEBBQADggEPADCCAQoCggEBAM1i4QO5bil5lpggldWl80bV4RSUuaZi\n            /saDnL5ULwmFk2l2noBIFCasAVhw8N9UdhVouO3gQyexdgDeQeE0XaAPC23QLB/g\n            0E9hxjYJbxOrA7efKnkDHIBCIrtDJfoqX0tmyTxSBg4Ci13NAi9ODjeJ+gG9qynU\n            KTpfPN/rCwifaN+8yKEVsVVnKUBmjIqtRGIf1A6NRE8Mw9NBk1hHE6fi8YHbnCnY\n            0noSygCJLgP4g+NM47u1Ph1NMoepLNJ/lF0ZYTBbjOm0uTHTORkxBBgYFBw1tTEv\n            SCAGiRkgQxNL6Q2ec0ZtXE4h/lMiN5bySvp7BOJcGBsxSKtLODu4LgMCAwEAATAN\n            BgkqhkiG9w0BAQsFAAOCAQEArGRww/reXNEPS31c5PEInD5a/NHbLaGXHxfz058e\n            on5i8QJ/HTV5x8WwAfVMlcccyVgVeLaqUdhC3B1UVAPepkKL4doTqXj/KgAt5bx6\n            GKSRSd0USftLLZFR0ZvVag4V0hHJNqekM+/s/ZPU+2S6PRJS2WwY5qotHpcfHCt0\n            luDMasOQMWcA/2S8O15RF6WQHLlOspfzT8f6/qVZF3A9+O6h9llGXy+zvpCHVD9t\n            ZbahKFXbq2bJoSV+qWxlfOj1j2bivMQg81i00MnjSdzeR9ksem/yizBa142FqQNs\n            n1N0lLDIxLpNtWskwJR+JvP1L1f0hbgrKxavIiSb7N5mpA==",
+        "thumbprint": "c0ffb7b521a099ad28276773caadcd05a7a9b919",
+        "validTo": "Sep 13 10:32:15 2024 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--shibboleth-testshib--entity-1.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://idp.testshib.org/idp/profile/SAML2/POST/SSO",
+          "redirectUrl": "https://idp.testshib.org/idp/profile/SAML2/Redirect/SSO"
+        },
+        "slo": {},
+        "entityID": "https://idp.testshib.org/idp/shibboleth",
+        "publicKey": "MIIDAzCCAeugAwIBAgIVAPX0G6LuoXnKS0Muei006mVSBXbvMA0GCSqGSIb3DQEB\n                            CwUAMBsxGTAXBgNVBAMMEGlkcC50ZXN0c2hpYi5vcmcwHhcNMTYwODIzMjEyMDU0\n                            WhcNMzYwODIzMjEyMDU0WjAbMRkwFwYDVQQDDBBpZHAudGVzdHNoaWIub3JnMIIB\n                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg9C4J2DiRTEhJAWzPt1S3ryh\n                            m3M2P3hPpwJwvt2q948vdTUxhhvNMuc3M3S4WNh6JYBs53R+YmjqJAII4ShMGNEm\n                            lGnSVfHorex7IxikpuDPKV3SNf28mCAZbQrX+hWA+ann/uifVzqXktOjs6DdzdBn\n                            xoVhniXgC8WCJwKcx6JO/hHsH1rG/0DSDeZFpTTcZHj4S9MlLNUtt5JxRzV/MmmB\n                            3ObaX0CMqsSWUOQeE4nylSlp5RWHCnx70cs9kwz5WrflnbnzCeHU2sdbNotBEeTH\n                            ot6a2cj/pXlRJIgPsrL/4VSicPZcGYMJMPoLTJ8mdy6mpR6nbCmP7dVbCIm/DQID\n                            AQABoz4wPDAdBgNVHQ4EFgQUUfaDa2mPi24x09yWp1OFXmZ2GPswGwYDVR0RBBQw\n                            EoIQaWRwLnRlc3RzaGliLm9yZzANBgkqhkiG9w0BAQsFAAOCAQEASKKgqTxhqBzR\n                            OZ1eVy++si+eTTUQZU4+8UywSKLia2RattaAPMAcXUjO+3cYOQXLVASdlJtt+8QP\n                            dRkfp8SiJemHPXC8BES83pogJPYEGJsKo19l4XFJHPnPy+Dsn3mlJyOfAa8RyWBS\n                            80u5lrvAcr2TJXt9fXgkYs7BOCigxtZoR8flceGRlAZ4p5FPPxQR6NDYb645jtOT\n                            MVr3zgfjP6Wh2dt+2p04LG7ENJn8/gEwtXVuXCsPoSCDx9Y0QmyXTJNdV1aB0AhO\n                            RkWPlFYwp+zOyOIR+3m1+pqWFpn0eT/HrxpdKa74FA3R2kq4R7dXe4G0kUgXTdqX\n                            MLRKhDgdmA==",
+        "thumbprint": "cad3558d05f54fe7ee3c29fddf64321661f2488d",
+        "validTo": "Aug 23 21:20:54 2036 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--shibboleth-testshib--entity-2.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://www.testshib.org/Shibboleth.sso/SAML2/POST"
+        },
+        "slo": {
+          "redirectUrl": "https://sp.testshib.org/Shibboleth.sso/SLO/Redirect",
+          "postUrl": "https://sp.testshib.org/Shibboleth.sso/SLO/POST"
+        },
+        "entityID": "https://sp.testshib.org/shibboleth-sp",
+        "publicKey": "MIIEPjCCAyagAwIBAgIBADANBgkqhkiG9w0BAQUFADB3MQswCQYDVQQGEwJVUzEV\n                            MBMGA1UECBMMUGVubnN5bHZhbmlhMRMwEQYDVQQHEwpQaXR0c2J1cmdoMSIwIAYD\n                            VQQKExlUZXN0U2hpYiBTZXJ2aWNlIFByb3ZpZGVyMRgwFgYDVQQDEw9zcC50ZXN0\n                            c2hpYi5vcmcwHhcNMDYwODMwMjEyNDM5WhcNMTYwODI3MjEyNDM5WjB3MQswCQYD\n                            VQQGEwJVUzEVMBMGA1UECBMMUGVubnN5bHZhbmlhMRMwEQYDVQQHEwpQaXR0c2J1\n                            cmdoMSIwIAYDVQQKExlUZXN0U2hpYiBTZXJ2aWNlIFByb3ZpZGVyMRgwFgYDVQQD\n                            Ew9zcC50ZXN0c2hpYi5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\n                            AQDJyR6ZP6MXkQ9z6RRziT0AuCabDd3x1m7nLO9ZRPbr0v1LsU+nnC363jO8nGEq\n                            sqkgiZ/bSsO5lvjEt4ehff57ERio2Qk9cYw8XCgmYccVXKH9M+QVO1MQwErNobWb\n                            AjiVkuhWcwLWQwTDBowfKXI87SA7KR7sFUymNx5z1aoRvk3GM++tiPY6u4shy8c7\n                            vpWbVfisfTfvef/y+galxjPUQYHmegu7vCbjYP3On0V7/Ivzr+r2aPhp8egxt00Q\n                            XpilNai12LBYV3Nv/lMsUzBeB7+CdXRVjZOHGuQ8mGqEbsj8MBXvcxIKbcpeK5Zi\n                            JCVXPfarzuriM1G5y5QkKW+LAgMBAAGjgdQwgdEwHQYDVR0OBBYEFKB6wPDxwYrY\n                            StNjU5P4b4AjBVQVMIGhBgNVHSMEgZkwgZaAFKB6wPDxwYrYStNjU5P4b4AjBVQV\n                            oXukeTB3MQswCQYDVQQGEwJVUzEVMBMGA1UECBMMUGVubnN5bHZhbmlhMRMwEQYD\n                            VQQHEwpQaXR0c2J1cmdoMSIwIAYDVQQKExlUZXN0U2hpYiBTZXJ2aWNlIFByb3Zp\n                            ZGVyMRgwFgYDVQQDEw9zcC50ZXN0c2hpYi5vcmeCAQAwDAYDVR0TBAUwAwEB/zAN\n                            BgkqhkiG9w0BAQUFAAOCAQEAc06Kgt7ZP6g2TIZgMbFxg6vKwvDL0+2dzF11Onpl\n                            5sbtkPaNIcj24lQ4vajCrrGKdzHXo9m54BzrdRJ7xDYtw0dbu37l1IZVmiZr12eE\n                            Iay/5YMU+aWP1z70h867ZQ7/7Y4HW345rdiS6EW663oH732wSYNt9kr7/0Uer3KD\n                            9CuPuOidBacospDaFyfsaJruE99Kd6Eu/w5KLAGG+m0iqENCziDGzVA47TngKz2v\n                            PVA+aokoOyoz3b53qeti77ijatSEoKjxheBWpO+eoJeGq/e49Um3M2ogIX/JAlMa\n                            Inh+vYSYngQB2sx9LGkR9KHaMKNIGCDehk93Xla4pWJx1w==",
+        "thumbprint": "56879d65f4aed0f97bc9cb3bc8270d50b4a13655",
+        "validTo": "Aug 27 21:24:39 2016 GMT",
+        "loginType": "sp"
+      }
+    },
+    "vendor--shibboleth-testshib.xml": {
+      "error": "Invalid metadata: missing EntityDescriptor element."
+    },
+    "vendor--simplesamlphp-and-generic-sp--entity-1.xml": {
+      "result": {
+        "sso": {
+          "redirectUrl": "https://localhost/simplesaml/saml2/idp/SSOService.php"
+        },
+        "slo": {
+          "redirectUrl": "https://localhost/simplesaml/saml2/idp/SingleLogoutService.php"
+        },
+        "entityID": "https://localhost/simplesaml/saml2/idp/metadata.php",
+        "publicKey": "MIIDXTCCAkWgAwIBAgIJALmVVuDWu4NYMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNVBAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQwHhcNMTYxMjMxMTQzNDQ3WhcNNDgwNjI1MTQzNDQ3WjBFMQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzUCFozgNb1h1M0jzNRSCjhOBnR+uVbVpaWfXYIR+AhWDdEe5ryY+CgavOg8bfLybyzFdehlYdDRgkedEB/GjG8aJw06l0qF4jDOAw0kEygWCu2mcH7XOxRt+YAH3TVHa/Hu1W3WjzkobqqqLQ8gkKWWM27fOgAZ6GieaJBN6VBSMMcPey3HWLBmc+TYJmv1dbaO2jHhKh8pfKw0W12VM8P1PIO8gv4Phu/uuJYieBWKixBEyy0lHjyixYFCR12xdh4CA47q958ZRGnnDUGFVE1QhgRacJCOZ9bd5t9mr8KLaVBYTCJo5ERE8jymab5dPqe5qKfJsCZiqWglbjUo9twIDAQABo1AwTjAdBgNVHQ4EFgQUxpuwcs/CYQOyui+r1G+3KxBNhxkwHwYDVR0jBBgwFoAUxpuwcs/CYQOyui+r1G+3KxBNhxkwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAAiWUKs/2x/viNCKi3Y6blEuCtAGhzOOZ9EjrvJ8+COH3Rag3tVBWrcBZ3/uhhPq5gy9lqw4OkvEws99/5jFsX1FJ6MKBgqfuy7yh5s1YfM0ANHYczMmYpZeAcQf2CGAaVfwTTfSlzNLsF2lW/ly7yapFzlYSJLGoVE+OHEu8g5SlNACUEfkXw+5Eghh+KzlIN7R6Q7r2ixWNFBC/jWf7NKUfJyX8qIG5md1YUeT6GBW9Bm2/1/RiO24JTaYlfLdKK9TYb8sG5B+OLab2DImG99CJ25RkAcSobWNF5zD0O6lgOo3cEdB/ksCq3hmtlC/DlLZ/D8CJ+7VuZnS1rR2naQ==",
+        "thumbprint": "e5c020033a7de8aac80c4067c7fba968076a4a25",
+        "validTo": "Jun 25 14:34:47 2048 GMT",
+        "loginType": "idp"
+      }
+    },
+    "vendor--simplesamlphp-and-generic-sp--entity-2.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://sp.provider.org/saml/SSO"
+        },
+        "slo": {
+          "redirectUrl": "https://sp.provider.org/saml/SingleLogout",
+          "postUrl": "https://sp.provider.org/saml/SingleLogout"
+        },
+        "entityID": "https://service.provider.org",
+        "publicKey": "MIIDhzCCAm+gAwIBAgIEQ4NWOjANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJTRTESMBAGA1UE CBMJU3RvY2tob2xtMRMwEQYDVQQHEwpTdW5kYnliZXJnMRQwEgYDVQQKEwtTZWxlc3NpYSBBQjEN MAsGA1UECxMETk9NUDEXMBUGA1UEAxMOU3RlZmFuIE5vcmJlcmcwHhcNMTgwNzAxMTEzODUwWhcN MzgwNjI2MTEzODUwWjB0MQswCQYDVQQGEwJTRTESMBAGA1UECBMJU3RvY2tob2xtMRMwEQYDVQQH EwpTdW5kYnliZXJnMRQwEgYDVQQKEwtTZWxlc3NpYSBBQjENMAsGA1UECxMETk9NUDEXMBUGA1UE AxMOU3RlZmFuIE5vcmJlcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCxGtC9ZwND QipHu5MslBANi/+k9CQPK4uHrfmVl8porr8pUWDlpVIGnfbJSc/glZQXCy/xbi79RfF/sFsTrmlb acMSSwwA0TYjJPBsx/MUBKdYQaei91b2IhP2yLSCWug+/A4fF3l/kUcqtX3SPhXpAESjbapyrKzp n1KWjDl7anV/kelOYdFGDATQWhUnslMml1hSeOgaaKQIbFzUH5yOw4RQ52zQkYP8wXF3h8BSP3LD tlSjP1Owme+UDjD+517zCaYHqV0RexDMU7h30m5a6YQeDdhJU02Ene86WhFfssqC+4HpL5g8KcbF T8vYY7Phe/7NqxUYXCaQlxTYHWWdAgMBAAGjITAfMB0GA1UdDgQWBBTv2MiZukGzYLRO/UsRUjvW AreSATANBgkqhkiG9w0BAQsFAAOCAQEACPkF8vkFWNEJDYsuNINKo3qUD9351gjHXo8ZNBbPzi23 xvMWHObYtkZb8+CGxEzI41hhZDnUSIu3CrpwVkf26hnKC6TyrdPsURN1CkdBwcUzjFdo3ZkZo4Uu RJtDBcn/DdZ86mMkEArojWzgleZCe37+7hEm5K/sRuxdT9wfqzprw9tOp/b7Y8423yGwW3+E+aef pKxbZyLCkabo1CT54PoCuypfNcQsSRDF0rmA0mQwfcmgVVkiNPkvQFO6VuNJsQjesxMN3QXSJf7v yqB3Y0IzGVC669FHsEF178Re0WJn4GwIR2UronR38dVdGEEMesyMPgwbww7U77qUkQLdug==",
+        "thumbprint": "bf6e3a60fed47e2e8496369b84e66e449252c6ff",
+        "validTo": "Jun 26 11:38:50 2038 GMT",
+        "loginType": "sp"
+      }
+    },
+    "vendor--simplesamlphp-and-generic-sp.xml": {
+      "error": "Invalid metadata: missing EntityDescriptor element."
     }
   }
 }

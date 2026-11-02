@@ -13,7 +13,7 @@ const expected = JSON.parse(fs.readFileSync(path.join(dir, 'expected.json'), 'ut
   documents: Record<string, { result?: unknown; error?: string }>;
 };
 const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'MANIFEST.json'), 'utf8')) as {
-  documents: { file: string; role: 'idp' | 'sp' }[];
+  documents: { file: string; role: 'idp' | 'sp' | 'aggregate' }[];
 };
 const roles = new Map(manifest.documents.map((d) => [d.file, d.role]));
 
@@ -60,6 +60,9 @@ describe('parseMetadata over the public IdP metadata corpus', function () {
         const parsed = await parseMetadata(xml);
         assert.deepStrictEqual(parsed, want.result);
         assert.strictEqual(parsed.loginType, roles.get(file));
+      }
+      if (roles.get(file) === 'aggregate') {
+        assert.strictEqual(want.error, 'Invalid metadata: missing EntityDescriptor element.');
       }
     });
   }
