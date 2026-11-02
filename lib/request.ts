@@ -2,8 +2,9 @@ import { promisify } from 'util';
 import { inflateRaw } from 'zlib';
 import xmlbuilder from 'xmlbuilder';
 import { SAMLReq } from './typings';
-import { generateId } from './utils';
+import { generateId, getAttribute } from './utils';
 import { xmlToObject } from './xml';
+import type { XmlValue } from './xml';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS } from './constants';
 
@@ -44,8 +45,7 @@ const request = ({
   const id = generateId();
   const date = new Date().toISOString();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const samlReq: Record<string, any> = {
+  const samlReq: Record<string, Record<string, unknown>> = {
     'samlp:AuthnRequest': {
       '@xmlns:samlp': PROTOCOL_NS,
       '@ID': id,
@@ -116,26 +116,30 @@ const decodeBase64 = async (string: string, isDeflated: boolean, options: Decode
 
 // Parse SAMLRequest attributes
 const parseSAMLRequest = async (rawRequest: string, isPost = true) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const result: any = xmlToObject(rawRequest, { attrkey: '$' });
+  const result = xmlToObject(rawRequest, { attrkey: '$' });
 
   // xmlToObject yields '' for an AuthnRequest with no attributes and no children.
   // The element is there, so report what is missing from it instead.
-  const authnRequest = result?.['AuthnRequest'];
+  const authnRequest = getAttribute<XmlValue | undefined>(result, 'AuthnRequest');
   if (authnRequest === undefined || authnRequest === null) {
     throw new Error('Invalid SAML Request: missing AuthnRequest element.');
   }
 
-  const attributes = authnRequest['$'] || {};
-  const issuer = authnRequest['Issuer'];
+  // Attributes other than ID are optional on an AuthnRequest.
+  const attributes = getAttribute<Partial<Record<string, string>>>(authnRequest, '$') || {};
+  const issuer = getAttribute<XmlValue | undefined>(authnRequest, 'Issuer');
 
   // The embedded certificate is only returned here; verifying the signature
   // against it (or against a trusted key) is the caller's job. A Signature
   // without a certificate yields null, the same as no Signature at all.
-  const x509Certificate =
-    authnRequest['Signature']?.[0]?.['KeyInfo']?.[0]?.['X509Data']?.[0]?.['X509Certificate']?.[0];
+  const x509Certificate = getAttribute<XmlValue | undefined>(
+    authnRequest,
+    'Signature[0].KeyInfo[0].X509Data[0].X509Certificate[0]'
+  );
   const publicKey: string | null =
-    (typeof x509Certificate === 'string' ? x509Certificate : x509Certificate?._) || null;
+    (typeof x509Certificate === 'string'
+      ? x509Certificate
+      : getAttribute<string | undefined>(x509Certificate, '_')) || null;
 
   if (!issuer) {
     throw new Error("Missing 'Issuer' in SAML Request.");
@@ -146,10 +150,11 @@ const parseSAMLRequest = async (rawRequest: string, isPost = true) => {
   }
 
   return {
-    id: attributes.ID,
+    id: attributes.ID as string,
     acsUrl: attributes.AssertionConsumerServiceURL,
     providerName: attributes.ProviderName,
-    audience: issuer[0]['_'] ?? issuer[0], // also known as entityID
+    audience: (getAttribute<string | undefined>(issuer, '0._') ??
+      getAttribute<string>(issuer, '0')) as string, // also known as entityID
     publicKey,
   };
 };

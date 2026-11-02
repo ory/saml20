@@ -42,7 +42,7 @@ describe('decrypt.ts', function () {
       (error: WrapError) => {
         assert(error instanceof WrapError);
         assert.strictEqual(error.message, 'Exception of Assertion Decryption.');
-        assert.match(error.inner.message, /key option is mandatory/);
+        assert.match(error.inner?.message as string, /key option is mandatory/);
         return true;
       }
     );

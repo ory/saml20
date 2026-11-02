@@ -1,14 +1,16 @@
 import xmlbuilder from 'xmlbuilder';
-import { generateId } from './utils';
+import { generateId, getAttribute } from './utils';
 import { xmlToObject } from './xml';
+import type { XmlValue } from './xml';
 import { ASSERTION_NS, PROTOCOL_NS } from './constants';
 
 type ParsedLogoutResponse = {
   id: string;
   issuer: string;
   status: string;
-  destination: string;
-  inResponseTo: string;
+  // Both are optional on the wire; undefined when the response omits them.
+  destination?: string;
+  inResponseTo?: string;
 };
 
 type LogoutRequestParams = {
@@ -37,32 +39,30 @@ type LogoutRequestParams = {
 // Text content of the first element in a child list. xmlToObject yields a
 // plain string for an element without attributes and `{ _: text, $: attrs }`
 // for one with attributes (a namespace declaration counts as an attribute).
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const textOf = (elements: any): string | undefined => {
-  const first = elements?.[0];
-  return typeof first === 'string' ? first : first?._;
+const textOf = (elements: XmlValue | undefined): string | undefined => {
+  const first = getAttribute<XmlValue | undefined>(elements, '0');
+  return typeof first === 'string' ? first : getAttribute<string | undefined>(first, '_');
 };
 
 const parseLogoutResponse = async (rawResponse: string): Promise<ParsedLogoutResponse> => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const parsedData: any = xmlToObject(rawResponse, { attrkey: '$' });
-  const LogoutResponse = parsedData?.LogoutResponse;
+  const parsedData = xmlToObject(rawResponse, { attrkey: '$' });
+  const LogoutResponse = getAttribute<XmlValue | undefined>(parsedData, 'LogoutResponse');
 
   if (!LogoutResponse) {
     throw new Error('Invalid SAML LogoutResponse: missing LogoutResponse element.');
   }
 
-  const status = LogoutResponse.Status?.[0]?.StatusCode?.[0]?.$?.Value;
+  const status = getAttribute<string | undefined>(LogoutResponse, 'Status[0].StatusCode[0].$.Value');
   if (!status) {
     throw new Error('Invalid SAML LogoutResponse: missing StatusCode.');
   }
 
   return {
-    issuer: textOf(LogoutResponse.Issuer) as string,
-    id: LogoutResponse.$?.ID,
+    issuer: textOf(getAttribute<XmlValue | undefined>(LogoutResponse, 'Issuer')) as string,
+    id: getAttribute<string>(LogoutResponse, '$.ID'),
     status,
-    destination: LogoutResponse.$?.Destination,
-    inResponseTo: LogoutResponse.$?.InResponseTo,
+    destination: getAttribute<string | undefined>(LogoutResponse, '$.Destination'),
+    inResponseTo: getAttribute<string | undefined>(LogoutResponse, '$.InResponseTo'),
   };
 };
 
@@ -134,55 +134,41 @@ type LogoutResponseParams = {
 };
 
 const parseLogoutRequest = async (rawRequest: string): Promise<ParsedLogoutRequest> => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const parsedData: any = xmlToObject(rawRequest, { attrkey: '$' });
+  const parsedData = xmlToObject(rawRequest, { attrkey: '$' });
   // xmlToObject yields null for an empty document and '' for an element with no
   // attributes and no children; neither is a usable LogoutRequest.
-  const LogoutRequest = parsedData?.LogoutRequest;
+  const LogoutRequest = getAttribute<XmlValue | undefined>(parsedData, 'LogoutRequest');
 
   if (!LogoutRequest) {
     throw new Error('Invalid SAML LogoutRequest: missing LogoutRequest element.');
   }
 
-  const id = LogoutRequest.$?.ID;
-  const destination = LogoutRequest.$?.Destination;
-  const issueInstant = LogoutRequest.$?.IssueInstant;
+  const id = getAttribute<string>(LogoutRequest, '$.ID');
+  const destination = getAttribute<string | undefined>(LogoutRequest, '$.Destination');
+  const issueInstant = getAttribute<string | undefined>(LogoutRequest, '$.IssueInstant');
 
-  const issuer = textOf(LogoutRequest.Issuer) ?? '';
-  const nameId = textOf(LogoutRequest.NameID) ?? '';
-  const sessionIndex = textOf(LogoutRequest.SessionIndex);
+  const issuer = textOf(getAttribute<XmlValue | undefined>(LogoutRequest, 'Issuer')) ?? '';
+  const nameId = textOf(getAttribute<XmlValue | undefined>(LogoutRequest, 'NameID')) ?? '';
+  const sessionIndex = textOf(getAttribute<XmlValue | undefined>(LogoutRequest, 'SessionIndex'));
 
   // Extract public key from Signature > KeyInfo > X509Data > X509Certificate if present
   let publicKey: string | undefined;
-  const signature = LogoutRequest.Signature;
-  if (signature) {
-    try {
-      const keyInfo = signature[0]?.KeyInfo?.[0];
-      const x509Data = keyInfo?.X509Data?.[0];
-      const x509Cert = x509Data?.X509Certificate?.[0];
-      if (x509Cert) {
-        publicKey = typeof x509Cert === 'string' ? x509Cert : x509Cert._;
-      }
-    } catch {
-      // Signature parsing is best-effort
-    }
+  const x509Cert = getAttribute<XmlValue | undefined>(
+    LogoutRequest,
+    'Signature[0].KeyInfo[0].X509Data[0].X509Certificate[0]'
+  );
+  if (x509Cert) {
+    publicKey = typeof x509Cert === 'string' ? x509Cert : getAttribute<string | undefined>(x509Cert, '_');
   }
 
   // Extract id_token from Extensions > IdToken if present
   // The SP can embed the OIDC id_token inside the LogoutRequest so it is
   // covered by the XML signature.
   let idToken: string | undefined;
-  const extensions = LogoutRequest.Extensions;
-  if (extensions) {
-    try {
-      const idTokenElement = extensions[0]?.Attribute?.[0];
-      if (idTokenElement && idTokenElement.$ && idTokenElement.$.Name === 'id_token') {
-        const attrVal = idTokenElement.AttributeValue[0];
-        idToken = typeof attrVal === 'string' ? attrVal : attrVal._;
-      }
-    } catch {
-      // Extensions parsing is best-effort
-    }
+  const idTokenElement = getAttribute<XmlValue | undefined>(LogoutRequest, 'Extensions[0].Attribute[0]');
+  if (getAttribute(idTokenElement, '$.Name') === 'id_token') {
+    const attrVal = getAttribute<XmlValue | undefined>(idTokenElement, 'AttributeValue[0]');
+    idToken = typeof attrVal === 'string' ? attrVal : getAttribute<string | undefined>(attrVal, '_');
   }
 
   return {

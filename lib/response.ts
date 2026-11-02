@@ -6,8 +6,9 @@ import type { ValidateSignatureOptions } from './validateSignature';
 import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
-import { parseFromString, WrapError, generateId } from './utils';
+import { parseFromString, WrapError, generateId, getAttribute } from './utils';
 import { xmlToObject } from './xml';
+import type { XmlNode, XmlValue } from './xml';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS, XML_SCHEMA_INSTANCE_NS, XML_SCHEMA_NS } from './constants';
 
@@ -117,7 +118,7 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     failure = await checkAssertion(assertion, signed, options);
   } catch (e) {
     const error = new WrapError('An error occurred trying to validate the assertion.');
-    error.inner = e;
+    error.inner = e as Error;
     throw error;
   }
   if (failure) {
@@ -139,7 +140,7 @@ const checkSignature = (
     return verifySignature(xml, options.publicKey, options.thumbprint, signatureOptions);
   } catch (e) {
     const error = new WrapError('Invalid assertion.');
-    error.inner = e;
+    error.inner = e as Error;
     throw error;
   }
 };
@@ -150,7 +151,7 @@ const checkSignature = (
 type SignedValues = { inResponseTo?: string; signedDestination?: string };
 
 const checkAssertion = async (
-  assertion: any,
+  assertion: XmlNode,
   signed: SignedValues,
   options: ValidateOptions
 ): Promise<Error | undefined> => {
@@ -195,7 +196,7 @@ const checkAssertion = async (
     try {
       alreadyUsed = await options.assertionReplayValidator({
         assertionId: saml20.getAssertionId(assertion),
-        sessionIndex: assertion.AuthnStatement?.['@']?.SessionIndex,
+        sessionIndex: getAttribute<string | undefined>(assertion, 'AuthnStatement.@.SessionIndex'),
         // Effective expiry (Conditions or the latest bearer confirmation), so
         // the caller can size the replay-cache TTL to cover the whole window
         // an assertion can still validate.
@@ -204,7 +205,7 @@ const checkAssertion = async (
       });
     } catch (e) {
       const error = new WrapError('An error occurred during assertion replay validation.');
-      error.inner = e;
+      error.inner = e as Error;
       return error;
     }
     if (alreadyUsed) {
@@ -220,15 +221,15 @@ const xmlToJs = (rawAssertion: string) => {
     return xmlToObject(sanitizeXML(rawAssertion), { attrkey: '@', collapse: true });
   } catch (err) {
     const error = new WrapError('An error occurred trying to parse XML assertion.');
-    error.inner = err;
+    error.inner = err as Error;
     throw error;
   }
 };
 
 // Returns an error for a top-level StatusCode other than Success, or undefined
 // when the status is Success or absent.
-const getStatusCodeError = (responseObj: any): Error | undefined => {
-  const statusValue: string | undefined = responseObj?.Response?.Status?.StatusCode?.['@']?.Value;
+const getStatusCodeError = (responseObj: XmlNode | null): Error | undefined => {
+  const statusValue = getAttribute<string | undefined>(responseObj, 'Response.Status.StatusCode.@.Value');
   const status = statusValue ? statusValue.split(':').pop() : undefined;
 
   if (status && status !== 'Success') {
@@ -243,15 +244,14 @@ const getStatusCodeError = (responseObj: any): Error | undefined => {
   Only signed content is read here, never an unsigned wrapper around a signed
   Assertion.
  */
-function parseResponseAndVersion(assertionObj: any) {
-  let assertion =
-    assertionObj.Assertion ||
-    (assertionObj.Response && assertionObj.Response.Assertion) ||
-    (assertionObj.RequestSecurityTokenResponse &&
-      assertionObj.RequestSecurityTokenResponse.RequestedSecurityToken &&
-      assertionObj.RequestSecurityTokenResponse.RequestedSecurityToken.Assertion);
+function parseResponseAndVersion(assertionObj: XmlNode | null) {
+  const root = assertionObj || {};
+  let assertion: XmlValue | undefined =
+    getAttribute<XmlValue | undefined>(root, 'Assertion') ||
+    getAttribute<XmlValue | undefined>(root, 'Response.Assertion') ||
+    getAttribute<XmlValue | undefined>(root, 'RequestSecurityTokenResponse.RequestedSecurityToken.Assertion');
   // if we have an array of assertions then pick first element
-  if (assertion && assertion[0]) {
+  if (Array.isArray(assertion) && assertion[0]) {
     assertion = assertion[0];
   }
 
@@ -259,8 +259,8 @@ function parseResponseAndVersion(assertionObj: any) {
     throw new Error('Invalid assertion.');
   }
 
-  const version = getVersion(assertion);
-  if (!version) {
+  // Only an element can carry Version; text or a list never does.
+  if (typeof assertion !== 'object' || Array.isArray(assertion) || !getVersion(assertion)) {
     throw new Error('SAML Assertion version not supported.');
   }
 
@@ -270,26 +270,24 @@ function parseResponseAndVersion(assertionObj: any) {
   // trustworthy. In the common assertion-only-signed case, fall back to the
   // bearer SubjectConfirmationData/@InResponseTo, which is inside the signed
   // assertion. The unsigned wrapper around a signed Assertion is never read.
-  const signedResponseInResponseTo = assertionObj.Response ? saml20.getInResponseTo(assertionObj) : undefined;
+  const signedResponseInResponseTo = root.Response ? saml20.getInResponseTo(root) : undefined;
   const inResponseTo: string | undefined =
     signedResponseInResponseTo || saml20.getSubjectConfirmationInResponseTo(assertion);
 
   // Same rule for where the message was addressed: Response/@Destination is
   // only used when the whole Response is signed. The bearer Recipients are read
   // from the signed assertion by validateRecipient.
-  const signedDestination: string | undefined = assertionObj.Response
-    ? saml20.getDestination(assertionObj)
-    : undefined;
+  const signedDestination: string | undefined = root.Response ? saml20.getDestination(root) : undefined;
 
   return { assertion, signed: { inResponseTo, signedDestination } };
 }
 
-function parseAttributes(assertion: any): SAMLProfile {
+function parseAttributes(assertion: XmlNode): SAMLProfile {
   try {
     return saml20.parse(assertion);
   } catch (e) {
     const error = new WrapError('An error occurred trying to parse assertion.');
-    error.inner = e;
+    error.inner = e as Error;
     throw error;
   }
 }

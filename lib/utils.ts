@@ -4,8 +4,7 @@ import crypto from 'crypto';
 // An error that keeps the underlying failure in `inner` while presenting a
 // fixed, caller-safe message.
 class WrapError extends Error {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  inner?: any;
+  inner?: Error;
 }
 
 const multiRootedXMLError = new Error('multirooted xml not allowed.');
@@ -110,22 +109,32 @@ const thumbprint = (cert: string) => {
   return shasum.digest('hex');
 };
 
-const getAttribute = <TDefault = unknown>(value: any, path: string, defaultValue?: TDefault): TDefault => {
-  const segments = path.split(/[\.\[\]]/g); // eslint-disable-line no-useless-escape
-  let current: any = value;
+// Walks a dotted path through a parsed tree (`Conditions.@.NotBefore`,
+// `Subject.NameID`). The caller states what it expects to find there.
+const getAttribute = <TDefault = unknown>(
+  value: unknown,
+  path: string,
+  defaultValue?: TDefault
+): TDefault => {
+  const segments = path.split(/[.[\]]/g);
+  let current: unknown = value;
   for (const key of segments) {
     if (current === null) return defaultValue as TDefault;
     if (current === undefined) return defaultValue as TDefault;
     const dequoted = key.replace(/['"]/g, '');
     if (dequoted.trim() === '') continue;
-    current = current[dequoted];
+    current = (current as Record<string, unknown>)[dequoted];
   }
   if (current === undefined) return defaultValue as TDefault;
-  return current;
+  return current as TDefault;
 };
 
-const isMultiRootedXMLError = (err: any) => {
-  if ((err as any)?.message?.indexOf('Only one element can be added and only after doctype') >= 0) {
+const isMultiRootedXMLError = (err: unknown) => {
+  const message = (err as { message?: unknown } | null)?.message;
+  if (
+    typeof message === 'string' &&
+    message.indexOf('Only one element can be added and only after doctype') >= 0
+  ) {
     return true;
   }
   return false;
@@ -134,7 +143,7 @@ const isMultiRootedXMLError = (err: any) => {
 // Keys that come from a document (element, attribute or SAML Attribute names)
 // can be "__proto__" or "constructor". Assignment would set the prototype or
 // collide with an inherited property; defining an own property does neither.
-const setOwn = (obj: Record<string, unknown>, key: string, value: unknown) =>
+const setOwn = (obj: object, key: string, value: unknown) =>
   Object.defineProperty(obj, key, { value, enumerable: true, writable: true, configurable: true });
 
 export {

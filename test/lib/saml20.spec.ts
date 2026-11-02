@@ -1,9 +1,15 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import { default as saml20 } from '../../lib/saml20';
+import type { XmlNode } from '../../lib/xml';
 import fs from 'fs';
 
-const assertion = fs.readFileSync('./test/assets/saml20.validResponseSignedMessage.xml').toString();
+// Raw XML rather than a parsed tree: these tests pin that the accessors cope
+// with input of the wrong shape.
+const assertion = fs
+  .readFileSync('./test/assets/saml20.validResponseSignedMessage.xml')
+  .toString() as unknown as XmlNode;
+const notATree = 'assertion' as unknown as XmlNode;
 
 const validateOpts = {
   thumbprint: 'e606eced42fa3abd0c5693456384f5931b174707',
@@ -37,7 +43,7 @@ describe('saml20.ts', function () {
 
   it('parse assertion not ok', function () {
     try {
-      const value = saml20.parse('assertion');
+      const value = saml20.parse(notATree);
       assert.strictEqual(value.audience, undefined);
       assert.deepEqual(value.claims, {});
       assert.strictEqual(value.issuer, undefined);
@@ -55,7 +61,7 @@ describe('saml20.ts', function () {
 
   it('validateAudience assertion  not ok', function () {
     try {
-      const value = saml20.validateAudience('assertion', validateOpts);
+      const value = saml20.validateAudience(notATree, validateOpts);
       assert.strictEqual(value, false);
     } catch (error) {
       assert(error);
@@ -111,7 +117,7 @@ describe('saml20.ts', function () {
 
   it('validateAudience not ok', function () {
     try {
-      const value = saml20.validateAudience('assertion', 'validateOpts');
+      const value = saml20.validateAudience(notATree, 'validateOpts');
       assert.strictEqual(value, false);
     } catch (error) {
       assert(error);
@@ -134,7 +140,7 @@ describe('saml20.ts', function () {
   it('validateExpiration not ok', function () {
     // A missing validity window must be treated as invalid (expired), not as
     // "never expires".
-    assert.strictEqual(saml20.validateExpiration('assertion'), false);
+    assert.strictEqual(saml20.validateExpiration(notATree), false);
     assert.strictEqual(saml20.validateExpiration({}), false);
   });
   it('getClaims with friendly names', function () {
@@ -191,9 +197,8 @@ describe('saml20.ts', function () {
 
 describe('validateAudience with several Audience values', function () {
   const sp = 'https://sp.example.com/metadata';
-  const withAudiences = (...restrictions: unknown[]) => ({
-    Conditions: { AudienceRestriction: restrictions },
-  });
+  const withAudiences = (...restrictions: unknown[]) =>
+    ({ Conditions: { AudienceRestriction: restrictions } }) as unknown as XmlNode;
 
   it('accepts when any Audience in an AudienceRestriction matches', function () {
     const assertion = {
@@ -389,7 +394,7 @@ describe('saml20.parse leaves its input untouched', function () {
 });
 
 describe('saml20.parse audience fields', function () {
-  const parseWith = (Conditions: unknown) => saml20.parse({ Conditions });
+  const parseWith = (Conditions: unknown) => saml20.parse({ Conditions } as XmlNode);
   const sp = 'https://sp.example.com/metadata';
 
   it('returns a single Audience as a string', function () {

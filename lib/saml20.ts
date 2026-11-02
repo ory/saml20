@@ -1,5 +1,6 @@
 import { getAttribute, setOwn } from './utils';
 import type { AssertedNameID } from './typings';
+import type { XmlNode, XmlValue } from './xml';
 
 const permanentNameIdentifier = 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent';
 const nameIdentifierClaimType = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier';
@@ -8,12 +9,16 @@ const givenNameClaimType = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claim
 const surnameClaimType = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname';
 const nameidFormatEmailAddress = 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress';
 
-function getClaims(attributes: any[]) {
+function getClaims(attributes: XmlValue[]) {
   const claims: Record<string, unknown> = {};
 
-  attributes.forEach(function attributesForEach(attribute: any) {
-    const attributeName = attribute['@'].Name;
-    const friendlyName = attribute['@'].FriendlyName;
+  attributes.forEach(function attributesForEach(attribute: XmlValue) {
+    const attrs = getAttribute<Record<string, string> | undefined>(attribute, '@');
+    if (!attrs) {
+      throw new Error('Attribute without attributes.');
+    }
+    const attributeName = attrs.Name;
+    const friendlyName = attrs.FriendlyName;
 
     const extProp = getExtendedProp(attribute, 'AttributeValue', 'NameID');
 
@@ -47,16 +52,20 @@ function trimWords(phrase: string) {
     .join(' ');
 }
 
+// The text of an element (trimmed word by word), or of each element of a list,
+// or of the `extraProp` child when the element has no text of its own, with
+// the element's Format attribute.
 function getExtendedProp(
-  obj: any,
+  obj: XmlValue | undefined,
   prop?: string,
   extraProp?: string
-): { result?: any; format?: string | null } {
-  let result = prop ? getAttribute(obj, prop) : obj;
-  const format = result && result['@'] && result['@'].Format ? result['@'].Format : null;
+): { result?: unknown; format?: string | null } {
+  let result: XmlValue | undefined = prop ? getAttribute<XmlValue | undefined>(obj, prop) : obj;
+  const format = getAttribute<string | null>(result, '@.Format', null) || null;
 
-  if (result && result._) {
-    result = result._;
+  const text = getAttribute<XmlValue | undefined>(result, '_');
+  if (text) {
+    result = text;
   }
 
   if (typeof result === 'string') {
@@ -67,20 +76,20 @@ function getExtendedProp(
   } else if (Array.isArray(result)) {
     // Build a new array rather than overwriting the parsed object in place.
     return { result: result.map((item) => getProp(item)), format };
-  } else if (extraProp && result && result[extraProp!]) {
-    return getExtendedProp(result[extraProp!]);
+  } else if (extraProp && result && result[extraProp]) {
+    return getExtendedProp(result[extraProp]);
   }
 
   return {};
 }
 
-function getProp(obj: any, prop?: string, extraProp?: string): any {
+function getProp(obj: XmlValue | undefined, prop?: string, extraProp?: string): unknown {
   return getExtendedProp(obj, prop, extraProp).result;
 }
 
 // The Subject NameID with its attributes, its value kept exactly as asserted:
 // a LogoutRequest has to name the subject the IdP issued, whitespace included.
-const assertedNameId = (assertion: any): AssertedNameID | undefined => {
+const assertedNameId = (assertion: XmlNode): AssertedNameID | undefined => {
   const nameId = getAttribute<unknown>(assertion, 'Subject.NameID');
   const element =
     typeof nameId === 'object' && nameId !== null
@@ -108,13 +117,12 @@ const assertedNameId = (assertion: any): AssertedNameID | undefined => {
   };
 };
 
-const parse = (assertion: any) => {
+const parse = (assertion: XmlNode) => {
   let claims: Record<string, unknown> = {};
-  let attributes = getAttribute<any>(assertion, 'AttributeStatement.Attribute');
+  const attributes = getAttribute<XmlValue | undefined>(assertion, 'AttributeStatement.Attribute');
 
   if (attributes) {
-    attributes = attributes instanceof Array ? attributes : [attributes];
-    claims = getClaims(attributes);
+    claims = getClaims(Array.isArray(attributes) ? attributes : [attributes]);
   }
 
   const subjectNameObj = getExtendedProp(assertion, 'Subject.NameID');
@@ -136,8 +144,8 @@ const parse = (assertion: any) => {
     audience: audiences[0],
     audiences,
     claims: claims,
-    issuer: getProp(assertion, 'Issuer'),
-    sessionIndex: getProp(assertion, 'AuthnStatement.@.SessionIndex'),
+    issuer: getProp(assertion, 'Issuer') as string,
+    sessionIndex: getProp(assertion, 'AuthnStatement.@.SessionIndex') as string,
     nameId: assertedNameId(assertion),
     assertionId: getAssertionId(assertion),
     notOnOrAfter: getNotOnOrAfter(assertion),
@@ -157,10 +165,12 @@ const toArray = <T>(value: T | T[] | undefined | null): T[] => {
 };
 
 // The <Audience> values of each <AudienceRestriction>, in document order.
-const getAudienceRestrictions = (assertion: any): unknown[][] =>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  toArray<any>(getAttribute<any>(assertion, 'Conditions.AudienceRestriction')).map((restriction) =>
-    toArray(getAttribute(restriction, 'Audience')).map((audience) => getProp(audience))
+const getAudienceRestrictions = (assertion: XmlNode): unknown[][] =>
+  toArray(getAttribute<XmlValue | undefined>(assertion, 'Conditions.AudienceRestriction')).map(
+    (restriction) =>
+      toArray(getAttribute<XmlValue | undefined>(restriction, 'Audience')).map((audience) =>
+        getProp(audience)
+      )
   );
 
 // SAML core 2.5.1.4: an assertion may carry several <AudienceRestriction>
@@ -168,7 +178,7 @@ const getAudienceRestrictions = (assertion: any): unknown[][] =>
 // <Audience> values are alternatives, so any one of them may name the relying
 // party. `realm` is the relying party's own identifier, or a list of them;
 // an Audience must equal one of them exactly.
-const validateAudience = (assertion: any, realm: unknown) => {
+const validateAudience = (assertion: XmlNode, realm: unknown) => {
   try {
     const expected = toArray(realm);
     const restrictions = getAudienceRestrictions(assertion);
@@ -187,6 +197,10 @@ const validateAudience = (assertion: any, realm: unknown) => {
   }
 };
 
+// The attribute map of an element in the collapsed tree ('@' key), or {}.
+const attributesOf = (element: XmlNode): Record<string, string> =>
+  getAttribute<Record<string, string>>(element, '@', {}) || {};
+
 const clockSkewMs = 10 * 60 * 1000; // 10 minutes clock skew.
 
 const BEARER_METHOD = 'urn:oasis:names:tc:SAML:2.0:cm:bearer';
@@ -196,29 +210,21 @@ const BEARER_METHOD = 'urn:oasis:names:tc:SAML:2.0:cm:bearer';
 // confirmations. Bearer assertions carry their expiration here rather than
 // (or in addition to) Conditions.
 const getSubjectConfirmationData = (
-  assertion: any,
+  assertion: XmlNode,
   { bearerOnly = false }: { bearerOnly?: boolean } = {}
-): Record<string, unknown>[] => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let confirmations = getAttribute<any>(assertion, 'Subject.SubjectConfirmation');
-  if (!confirmations) {
-    return [];
-  }
-  confirmations = Array.isArray(confirmations) ? confirmations : [confirmations];
-  const data: Record<string, unknown>[] = [];
+): XmlNode[] => {
+  const confirmations = toArray(getAttribute<XmlValue | undefined>(assertion, 'Subject.SubjectConfirmation'));
+  const data: XmlNode[] = [];
   for (const confirmation of confirmations) {
-    if (bearerOnly && confirmation?.['@']?.Method !== BEARER_METHOD) {
+    if (bearerOnly && getAttribute(confirmation, '@.Method') !== BEARER_METHOD) {
       continue;
     }
-    let scd = getAttribute<Record<string, unknown> | Record<string, unknown>[]>(
-      confirmation,
-      'SubjectConfirmationData'
-    );
-    if (!scd) {
-      continue;
+    const scd = getAttribute<XmlValue | undefined>(confirmation, 'SubjectConfirmationData');
+    for (const item of toArray(scd)) {
+      if (typeof item === 'object' && !Array.isArray(item)) {
+        data.push(item);
+      }
     }
-    scd = Array.isArray(scd) ? scd : [scd];
-    data.push(...scd);
   }
   return data;
 };
@@ -248,7 +254,7 @@ const checkWindow = (notBefore?: string, notOnOrAfter?: string): WindowResult =>
   return 'valid';
 };
 
-const validateExpiration = (assertion: any) => {
+const validateExpiration = (assertion: XmlNode) => {
   // The <Conditions> window is an absolute constraint on the assertion (SAML
   // core 2.5.1): when present it must be satisfied. A present-but-unparseable
   // bound is treated as invalid.
@@ -264,12 +270,10 @@ const validateExpiration = (assertion: any) => {
   // SubjectConfirmation elements are alternatives (core 2.4.1.1), so when any
   // bearer confirmation carries a NotOnOrAfter, at least one such confirmation
   // must still be within its window — even if Conditions is otherwise valid.
-  const bearerBounds = getSubjectConfirmationData(assertion).filter(
-    (scd) => (scd['@'] as Record<string, string> | undefined)?.NotOnOrAfter
-  );
+  const bearerBounds = getSubjectConfirmationData(assertion).filter((scd) => attributesOf(scd).NotOnOrAfter);
   if (bearerBounds.length > 0) {
     return bearerBounds.some((scd) => {
-      const attrs = scd['@'] as Record<string, string>;
+      const attrs = attributesOf(scd);
       return checkWindow(attrs.NotBefore, attrs.NotOnOrAfter) === 'valid';
     });
   }
@@ -283,16 +287,16 @@ const validateExpiration = (assertion: any) => {
 // InResponseTo read from the outer <Response> wrapper. Only trust this when the
 // whole Response is signed; the wrapper is unsigned in the common
 // assertion-only-signed case.
-const getInResponseTo = (xml: any) => {
-  return getProp(xml, 'Response.@.InResponseTo');
+const getInResponseTo = (xml: XmlNode): string | undefined => {
+  return getProp(xml, 'Response.@.InResponseTo') as string | undefined;
 };
 
 // InResponseTo carried inside the bearer SubjectConfirmationData. This element
 // lives inside the <Assertion> and is therefore covered by the assertion
 // signature even when the outer <Response> wrapper is not signed.
-const getSubjectConfirmationInResponseTo = (assertion: any): string | undefined => {
+const getSubjectConfirmationInResponseTo = (assertion: XmlNode): string | undefined => {
   for (const scd of getSubjectConfirmationData(assertion)) {
-    const inResponseTo = (scd['@'] as Record<string, string> | undefined)?.InResponseTo;
+    const inResponseTo = attributesOf(scd).InResponseTo;
     if (inResponseTo) {
       return inResponseTo;
     }
@@ -302,17 +306,15 @@ const getSubjectConfirmationInResponseTo = (assertion: any): string | undefined 
 
 // Destination read from the outer <Response> wrapper. Like getInResponseTo,
 // only trust this when the whole Response is signed.
-const getDestination = (xml: any): string | undefined => {
-  return getProp(xml, 'Response.@.Destination');
+const getDestination = (xml: XmlNode): string | undefined => {
+  return getProp(xml, 'Response.@.Destination') as string | undefined;
 };
 
 // Attributes of the bearer SubjectConfirmationData elements only. These live
 // inside the <Assertion> and are covered by the assertion signature even when
 // the outer <Response> wrapper is not signed.
-const getBearerSubjectConfirmationData = (assertion: any): Record<string, string>[] =>
-  getSubjectConfirmationData(assertion, { bearerOnly: true }).map(
-    (item) => (item['@'] as Record<string, string> | undefined) || {}
-  );
+const getBearerSubjectConfirmationData = (assertion: XmlNode): Record<string, string>[] =>
+  getSubjectConfirmationData(assertion, { bearerOnly: true }).map(attributesOf);
 
 // Whether the signed content addresses the assertion to `recipient`.
 //
@@ -330,7 +332,7 @@ const getBearerSubjectConfirmationData = (assertion: any): Record<string, string
 // - `bypassExpiration` skips the window part only, matching the option of the
 //   same name on validate(); the Recipient still has to match.
 const validateRecipient = (
-  assertion: any,
+  assertion: XmlNode,
   signedDestination: string | undefined,
   recipient: string,
   { bypassExpiration = false }: { bypassExpiration?: boolean } = {}
@@ -353,7 +355,7 @@ const validateRecipient = (
   );
 };
 
-const getAssertionId = (assertion: any): string | undefined => {
+const getAssertionId = (assertion: XmlNode): string | undefined => {
   return getAttribute<string | undefined>(assertion, '@.ID');
 };
 
@@ -364,7 +366,7 @@ const getAssertionId = (assertion: any): string | undefined => {
 // confirmations are alternatives, the bearer side is governed by the LATEST
 // SubjectConfirmationData/@NotOnOrAfter. Callers key replay-cache TTLs off this
 // value, so it must reflect the real window in which the assertion can validate.
-const getNotOnOrAfter = (assertion: any): string | undefined => {
+const getNotOnOrAfter = (assertion: XmlNode): string | undefined => {
   const upperBounds: string[] = [];
 
   const conditionsNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
@@ -375,7 +377,7 @@ const getNotOnOrAfter = (assertion: any): string | undefined => {
   let latestBearer: string | undefined;
   let latestBearerMs = -Infinity;
   for (const scd of getSubjectConfirmationData(assertion)) {
-    const value = (scd['@'] as Record<string, string> | undefined)?.NotOnOrAfter;
+    const value = attributesOf(scd).NotOnOrAfter;
     if (!value) {
       continue;
     }

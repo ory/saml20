@@ -1,5 +1,13 @@
 import { parseFromString, setOwn } from './utils';
 
+// What xmlToObject produces: attributes under `attrkey` (a map of strings),
+// text under `_`, and child elements under their names as lists, or as single
+// values with `collapse`. An element that holds only text is the string.
+type XmlValue = string | XmlNode | XmlValue[];
+interface XmlNode {
+  [name: string]: XmlValue | undefined;
+}
+
 type XmlObjectOptions = {
   // Key that holds an element's attributes.
   attrkey: '@' | '$';
@@ -39,8 +47,8 @@ const undeclaredPrefixes = (xml: string): Record<string, string> => {
   return bindings;
 };
 
-const toObject = (element: Element, options: XmlObjectOptions): unknown => {
-  const obj: Record<string, unknown> = {};
+const toObject = (element: Element, options: XmlObjectOptions): XmlValue => {
+  const obj: XmlNode = {};
   let text = '';
   let cdata = false;
 
@@ -53,7 +61,7 @@ const toObject = (element: Element, options: XmlObjectOptions): unknown => {
     obj[options.attrkey] = attrs;
   }
 
-  const children = new Map<string, unknown[]>();
+  const children = new Map<string, XmlValue[]>();
   for (let node = element.firstChild; node; node = node.nextSibling) {
     if (node.nodeType === ELEMENT_NODE) {
       const name = stripPrefix((node as Element).tagName);
@@ -92,16 +100,16 @@ const misplacedDeclaration = /^((?:\s|<!--(?:(?!-->)[\s\S])*-->)+)<\?xml(?=\s)[\
 // plain objects: tag names without their namespace prefix, attributes under
 // `attrkey`, text under `_`, child elements in lists under their name, and a
 // string for an element that has only text. Returns null for an empty document.
-const xmlToObject = (xml: string, options: XmlObjectOptions): Record<string, unknown> | null => {
+const xmlToObject = (xml: string, options: XmlObjectOptions): XmlNode | null => {
   xml = xml.replace(/^\uFEFF/, '').replace(misplacedDeclaration, '$1');
   if (xml.trim() === '') {
     return null;
   }
   const root = parseFromString(xml, undeclaredPrefixes(xml)).documentElement as unknown as Element;
-  const result: Record<string, unknown> = {};
+  const result: XmlNode = {};
   setOwn(result, stripPrefix(root.tagName), toObject(root, options));
   return result;
 };
 
 export { xmlToObject };
-export type { XmlObjectOptions };
+export type { XmlObjectOptions, XmlNode, XmlValue };

@@ -813,7 +813,7 @@ describe('validate() on an unsigned response', function () {
       validate(buildResponse(buildAssertion()), { audience: SP, publicKey: testIdpCert }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'Invalid assertion.');
-        assert.strictEqual(error.inner.message, 'invalid signature: no Signature element found');
+        assert.strictEqual(error.inner?.message, 'invalid signature: no Signature element found');
         return true;
       }
     );
@@ -834,7 +834,7 @@ describe('validate() error handling', function () {
         (error: WrapError) => {
           assert(error instanceof WrapError);
           assert.strictEqual(error.message, 'An error occurred trying to validate the assertion.');
-          assert.strictEqual(error.inner.message, 'boom');
+          assert.strictEqual(error.inner?.message, 'boom');
           return true;
         }
       );
@@ -854,7 +854,7 @@ describe('validate() error handling', function () {
       }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'An error occurred during assertion replay validation.');
-        assert.strictEqual(error.inner.message, 'store unavailable');
+        assert.strictEqual(error.inner?.message, 'store unavailable');
         return true;
       }
     );
