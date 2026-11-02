@@ -13,7 +13,7 @@ const expected = JSON.parse(fs.readFileSync(path.join(dir, 'expected.json'), 'ut
   documents: Record<string, { result?: unknown; error?: string }>;
 };
 const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'MANIFEST.json'), 'utf8')) as {
-  documents: { file: string; role: 'idp' | 'sp' | 'aggregate' }[];
+  documents: { file: string; role: 'idp' | 'sp' | 'aggregate' | 'not-metadata' }[];
 };
 const roles = new Map(manifest.documents.map((d) => [d.file, d.role]));
 
@@ -25,6 +25,11 @@ const intendedDifferences: Record<string, RegExp> = {
   // Deliberately malformed (mismatched end tag): both reject it, with the
   // parser's own wording.
   'sp--python3-saml--tests_data_metadata_unparsed_metadata.xml': /Opening and ending tag mismatch/,
+  // Not XML at all: both parsers reject it, each in its own words.
+  'synthetic--junk-plain-text.xml': /missing root element/,
+  'synthetic--junk-not-xml.xml': /missing root element/,
+  'synthetic--junk-unclosed-root.xml': /unclosed xml tag/,
+  'synthetic--junk-word-and-tag.xml': /unclosed xml tag/,
 };
 
 // OpenSSL error messages carry a version-specific hex code.

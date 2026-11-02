@@ -1,5 +1,5 @@
 {
-  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's. The edugain-- files are a sample of the eduGAIN interfederation aggregate chosen so that every structural feature seen across its IdPs (elements, namespace prefixes, key layouts, bindings, certificate formatting) appears several times and every registering federation at least once. Files prefixed sp-- are SP metadata (SPSSODescriptor only), sampled from the same sources the same way; parseMetadata reads AssertionConsumerService for those. Files prefixed vendor-- are snapshots of specific products (Entra ID, AD FS, Auth0, Keycloak, PingOne, OpenSSO, AWS, Citrix ShareFile, Shibboleth/TestShib, SimpleSAMLphp), taken from public endpoints or pinned upstream repositories as recorded; a role of \"aggregate\" marks an EntitiesDescriptor kept as-is to pin the rejection, with its entities split out alongside. Files prefixed synthetic-- are fabricated after shapes seen in production uploads (no production content): fragments with undeclared md:/ds: prefixes, leading whitespace, RSAKeyValue key info, federation-style Extensions, and junk bodies uploaded as metadata (role \"not-metadata\").",
+  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's. The edugain-- files are a sample of the eduGAIN interfederation aggregate chosen so that every structural feature seen across its IdPs (elements, namespace prefixes, key layouts, bindings, certificate formatting) appears several times and every registering federation at least once. Files prefixed sp-- are SP metadata (SPSSODescriptor only), sampled from the same sources the same way; parseMetadata reads AssertionConsumerService for those. Files prefixed vendor-- are snapshots of specific products (Entra ID, AD FS, Auth0, Keycloak, PingOne, OpenSSO, AWS, Citrix ShareFile, Shibboleth/TestShib, SimpleSAMLphp), taken from public endpoints or pinned upstream repositories as recorded; a role of \"aggregate\" marks an EntitiesDescriptor kept as-is to pin the rejection, with its entities split out alongside. Files prefixed synthetic-- are hand-written: fragments with undeclared md:/ds: prefixes, leading whitespace, RSAKeyValue key info, federation-style Extensions, and bodies that are not XML at all (role \"not-metadata\").",
   "documents": [
     {
       "file": "pysaml2--example_idp2_idp.xml",
@@ -4533,7 +4533,7 @@
       "file": "synthetic--undeclared-prefixes.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "idp"
@@ -4542,7 +4542,7 @@
       "file": "synthetic--leading-whitespace.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "idp"
@@ -4551,7 +4551,7 @@
       "file": "synthetic--rsakeyvalue-only.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "idp"
@@ -4560,7 +4560,7 @@
       "file": "synthetic--rsakeyvalue-and-certificate.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "idp"
@@ -4569,7 +4569,7 @@
       "file": "synthetic--custom-extensions.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "idp"
@@ -4578,7 +4578,7 @@
       "file": "synthetic--junk-plain-text.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "not-metadata"
@@ -4587,7 +4587,7 @@
       "file": "synthetic--junk-unclosed-root.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "not-metadata"
@@ -4596,7 +4596,7 @@
       "file": "synthetic--junk-not-xml.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "not-metadata"
@@ -4605,7 +4605,7 @@
       "file": "synthetic--junk-word-and-tag.xml",
       "source": {
         "kind": "fabricated",
-        "notes": "Written by hand after a shape seen in production metadata; no production content. Uses the test IdP certificate."
+        "notes": "Written by hand. Uses the test IdP certificate."
       },
       "kind": "fabricated",
       "role": "not-metadata"

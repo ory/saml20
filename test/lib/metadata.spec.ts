@@ -366,6 +366,14 @@ describe('parseMetadata error and tolerance cases', function () {
     fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString()
   );
 
+  it('normalises CRLF inside the certificate text', async () => {
+    const wrapped = cert.match(/.{1,64}/g)!.join('\n');
+    const lf = await parseMetadata(idpMetadata(signingKey(wrapped)), {});
+    const crlf = await parseMetadata(idpMetadata(signingKey(wrapped)).replace(/\n/g, '\r\n'), {});
+    assert.deepStrictEqual(crlf, lf);
+    assert.doesNotMatch(crlf.publicKey!, /\r/);
+  });
+
   it('reads a certificate whose element carries attributes (xmlns on every element)', async () => {
     const plain = await parseMetadata(idpMetadata(signingKey(cert)), {});
     const withAttributes = idpMetadata(signingKey(cert)).replace(

@@ -5465,6 +5465,77 @@
         "loginType": "sp"
       }
     },
+    "synthetic--custom-extensions.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://idp.example.com/sso/post",
+          "redirectUrl": "https://idp.example.com/sso/redirect"
+        },
+        "slo": {},
+        "entityID": "https://idp.example.com/metadata",
+        "publicKey": "MIIDBzCCAe+gAwIBAgIUfmiCRt513V6v242KcE4fS3tXnqkwDQYJKoZIhvcNAQEL\n      BQAwEzERMA8GA1UEAwwIdGVzdC1pZHAwHhcNMjYwNjIyMjM1MzI2WhcNNDYwNjE3\n      MjM1MzI2WjATMREwDwYDVQQDDAh0ZXN0LWlkcDCCASIwDQYJKoZIhvcNAQEBBQAD\n      ggEPADCCAQoCggEBAM6XayR93ey62b2EpioV03K2eW4xB3psPUdQQ5cxqUgjUjKy\n      jSVleHcCCfHf/uqVYibxlUc5tfTRARNdCx8lB6Ob+MZLdTI0NS2tso5LBHvgywpe\n      ZqdD3aBHVHczxGVAkTX18XdwR0Ri31gPcZGP+tChKInJeTPo6i/tVbWmON/kP3NJ\n      mWYHrWfZHe+vKuytAE7Oqqn+LKM45FR6KlFjWuW11voshatRRWnGARIBDiQL2477\n      id7d/UnSXZcqYgq34OfpNAy56v25YPFn7t4xtMa/8ZJGfsbKX24JNvlwLXFKT0v5\n      y0KOCiAjVRjuMrOB1pobVwDAnjtxQyn1QAuxfCcCAwEAAaNTMFEwHQYDVR0OBBYE\n      FFhkCT/OWx/bn8P1AQYq8vxSEBH5MB8GA1UdIwQYMBaAFFhkCT/OWx/bn8P1AQYq\n      8vxSEBH5MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAG2r5QR1\n      WRfD25DrjK8zMcm4NxZCmBvrxHO+f1Z9I5pdCazXrRY66jMt+VVayYZ/eZez+tPH\n      PEeFNaHBQLnpQdI7HQsAYU+f79bgctSRMbeT3Mjdx5b8mhp9I256Zs/NyTYeEp8V\n      wk9sjvhrr/pBA+t6oQKJwvfK7+u3pE42eIWxPSYqNQRKrhKPX4Ej7/3EQyMNfIwo\n      KF2WJYnXhe2IyccsOXayHtQkTLXOccIYkLIbgTb6auZKSMo7EvPN+op0Vhvjk49u\n      VfPLI076c1mSFrVL/x0yQ8c0YFf0eAFCl4pcKrNp125gT9MW1QAMgqKV/7tx8RnW\n      zEstp1SkQL9ZCa0=",
+        "thumbprint": "0a271be05d1950a8bd94ceaa1b2a6c4bcf48667c",
+        "validTo": "Jun 17 23:53:26 2046 GMT",
+        "loginType": "idp"
+      }
+    },
+    "synthetic--junk-not-xml.xml": {
+      "error": "Unencoded <\nLine: 0\nColumn: 2\nChar: >"
+    },
+    "synthetic--junk-plain-text.xml": {
+      "error": "Non-whitespace before first tag.\nLine: 0\nColumn: 1\nChar: h"
+    },
+    "synthetic--junk-unclosed-root.xml": {
+      "error": "Unclosed root tag\nLine: 0\nColumn: 6\nChar: "
+    },
+    "synthetic--junk-word-and-tag.xml": {
+      "error": "Non-whitespace before first tag.\nLine: 0\nColumn: 1\nChar: h"
+    },
+    "synthetic--leading-whitespace.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://idp.example.com/sso/post",
+          "redirectUrl": "https://idp.example.com/sso/redirect"
+        },
+        "slo": {},
+        "entityID": "https://idp.example.com/metadata",
+        "publicKey": "MIIDBzCCAe+gAwIBAgIUfmiCRt513V6v242KcE4fS3tXnqkwDQYJKoZIhvcNAQEL\n      BQAwEzERMA8GA1UEAwwIdGVzdC1pZHAwHhcNMjYwNjIyMjM1MzI2WhcNNDYwNjE3\n      MjM1MzI2WjATMREwDwYDVQQDDAh0ZXN0LWlkcDCCASIwDQYJKoZIhvcNAQEBBQAD\n      ggEPADCCAQoCggEBAM6XayR93ey62b2EpioV03K2eW4xB3psPUdQQ5cxqUgjUjKy\n      jSVleHcCCfHf/uqVYibxlUc5tfTRARNdCx8lB6Ob+MZLdTI0NS2tso5LBHvgywpe\n      ZqdD3aBHVHczxGVAkTX18XdwR0Ri31gPcZGP+tChKInJeTPo6i/tVbWmON/kP3NJ\n      mWYHrWfZHe+vKuytAE7Oqqn+LKM45FR6KlFjWuW11voshatRRWnGARIBDiQL2477\n      id7d/UnSXZcqYgq34OfpNAy56v25YPFn7t4xtMa/8ZJGfsbKX24JNvlwLXFKT0v5\n      y0KOCiAjVRjuMrOB1pobVwDAnjtxQyn1QAuxfCcCAwEAAaNTMFEwHQYDVR0OBBYE\n      FFhkCT/OWx/bn8P1AQYq8vxSEBH5MB8GA1UdIwQYMBaAFFhkCT/OWx/bn8P1AQYq\n      8vxSEBH5MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAG2r5QR1\n      WRfD25DrjK8zMcm4NxZCmBvrxHO+f1Z9I5pdCazXrRY66jMt+VVayYZ/eZez+tPH\n      PEeFNaHBQLnpQdI7HQsAYU+f79bgctSRMbeT3Mjdx5b8mhp9I256Zs/NyTYeEp8V\n      wk9sjvhrr/pBA+t6oQKJwvfK7+u3pE42eIWxPSYqNQRKrhKPX4Ej7/3EQyMNfIwo\n      KF2WJYnXhe2IyccsOXayHtQkTLXOccIYkLIbgTb6auZKSMo7EvPN+op0Vhvjk49u\n      VfPLI076c1mSFrVL/x0yQ8c0YFf0eAFCl4pcKrNp125gT9MW1QAMgqKV/7tx8RnW\n      zEstp1SkQL9ZCa0=",
+        "thumbprint": "0a271be05d1950a8bd94ceaa1b2a6c4bcf48667c",
+        "validTo": "Jun 17 23:53:26 2046 GMT",
+        "loginType": "idp"
+      }
+    },
+    "synthetic--rsakeyvalue-and-certificate.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://idp.example.com/sso/post",
+          "redirectUrl": "https://idp.example.com/sso/redirect"
+        },
+        "slo": {},
+        "entityID": "https://idp.example.com/metadata",
+        "publicKey": "MIIDBzCCAe+gAwIBAgIUfmiCRt513V6v242KcE4fS3tXnqkwDQYJKoZIhvcNAQEL\n      BQAwEzERMA8GA1UEAwwIdGVzdC1pZHAwHhcNMjYwNjIyMjM1MzI2WhcNNDYwNjE3\n      MjM1MzI2WjATMREwDwYDVQQDDAh0ZXN0LWlkcDCCASIwDQYJKoZIhvcNAQEBBQAD\n      ggEPADCCAQoCggEBAM6XayR93ey62b2EpioV03K2eW4xB3psPUdQQ5cxqUgjUjKy\n      jSVleHcCCfHf/uqVYibxlUc5tfTRARNdCx8lB6Ob+MZLdTI0NS2tso5LBHvgywpe\n      ZqdD3aBHVHczxGVAkTX18XdwR0Ri31gPcZGP+tChKInJeTPo6i/tVbWmON/kP3NJ\n      mWYHrWfZHe+vKuytAE7Oqqn+LKM45FR6KlFjWuW11voshatRRWnGARIBDiQL2477\n      id7d/UnSXZcqYgq34OfpNAy56v25YPFn7t4xtMa/8ZJGfsbKX24JNvlwLXFKT0v5\n      y0KOCiAjVRjuMrOB1pobVwDAnjtxQyn1QAuxfCcCAwEAAaNTMFEwHQYDVR0OBBYE\n      FFhkCT/OWx/bn8P1AQYq8vxSEBH5MB8GA1UdIwQYMBaAFFhkCT/OWx/bn8P1AQYq\n      8vxSEBH5MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAG2r5QR1\n      WRfD25DrjK8zMcm4NxZCmBvrxHO+f1Z9I5pdCazXrRY66jMt+VVayYZ/eZez+tPH\n      PEeFNaHBQLnpQdI7HQsAYU+f79bgctSRMbeT3Mjdx5b8mhp9I256Zs/NyTYeEp8V\n      wk9sjvhrr/pBA+t6oQKJwvfK7+u3pE42eIWxPSYqNQRKrhKPX4Ej7/3EQyMNfIwo\n      KF2WJYnXhe2IyccsOXayHtQkTLXOccIYkLIbgTb6auZKSMo7EvPN+op0Vhvjk49u\n      VfPLI076c1mSFrVL/x0yQ8c0YFf0eAFCl4pcKrNp125gT9MW1QAMgqKV/7tx8RnW\n      zEstp1SkQL9ZCa0=",
+        "thumbprint": "0a271be05d1950a8bd94ceaa1b2a6c4bcf48667c",
+        "validTo": "Jun 17 23:53:26 2046 GMT",
+        "loginType": "idp"
+      }
+    },
+    "synthetic--rsakeyvalue-only.xml": {
+      "error": "Could not find X509Certificate in the IdP metadata."
+    },
+    "synthetic--undeclared-prefixes.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://idp.example.com/sso/post",
+          "redirectUrl": "https://idp.example.com/sso/redirect"
+        },
+        "slo": {},
+        "entityID": "https://idp.example.com/metadata",
+        "publicKey": "MIIDBzCCAe+gAwIBAgIUfmiCRt513V6v242KcE4fS3tXnqkwDQYJKoZIhvcNAQEL\n      BQAwEzERMA8GA1UEAwwIdGVzdC1pZHAwHhcNMjYwNjIyMjM1MzI2WhcNNDYwNjE3\n      MjM1MzI2WjATMREwDwYDVQQDDAh0ZXN0LWlkcDCCASIwDQYJKoZIhvcNAQEBBQAD\n      ggEPADCCAQoCggEBAM6XayR93ey62b2EpioV03K2eW4xB3psPUdQQ5cxqUgjUjKy\n      jSVleHcCCfHf/uqVYibxlUc5tfTRARNdCx8lB6Ob+MZLdTI0NS2tso5LBHvgywpe\n      ZqdD3aBHVHczxGVAkTX18XdwR0Ri31gPcZGP+tChKInJeTPo6i/tVbWmON/kP3NJ\n      mWYHrWfZHe+vKuytAE7Oqqn+LKM45FR6KlFjWuW11voshatRRWnGARIBDiQL2477\n      id7d/UnSXZcqYgq34OfpNAy56v25YPFn7t4xtMa/8ZJGfsbKX24JNvlwLXFKT0v5\n      y0KOCiAjVRjuMrOB1pobVwDAnjtxQyn1QAuxfCcCAwEAAaNTMFEwHQYDVR0OBBYE\n      FFhkCT/OWx/bn8P1AQYq8vxSEBH5MB8GA1UdIwQYMBaAFFhkCT/OWx/bn8P1AQYq\n      8vxSEBH5MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAG2r5QR1\n      WRfD25DrjK8zMcm4NxZCmBvrxHO+f1Z9I5pdCazXrRY66jMt+VVayYZ/eZez+tPH\n      PEeFNaHBQLnpQdI7HQsAYU+f79bgctSRMbeT3Mjdx5b8mhp9I256Zs/NyTYeEp8V\n      wk9sjvhrr/pBA+t6oQKJwvfK7+u3pE42eIWxPSYqNQRKrhKPX4Ej7/3EQyMNfIwo\n      KF2WJYnXhe2IyccsOXayHtQkTLXOccIYkLIbgTb6auZKSMo7EvPN+op0Vhvjk49u\n      VfPLI076c1mSFrVL/x0yQ8c0YFf0eAFCl4pcKrNp125gT9MW1QAMgqKV/7tx8RnW\n      zEstp1SkQL9ZCa0=",
+        "thumbprint": "0a271be05d1950a8bd94ceaa1b2a6c4bcf48667c",
+        "validTo": "Jun 17 23:53:26 2046 GMT",
+        "loginType": "idp"
+      }
+    },
     "vendor--auth0.xml": {
       "result": {
         "sso": {
