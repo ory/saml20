@@ -30,6 +30,8 @@ const generators: Record<string, () => string | Promise<string>> = {
       isPassive: true,
       forceAuthn: true,
       providerName: 'Example & Co',
+      signingKey: '',
+      publicKey: '',
     }).request,
   'authn-request-signed': () =>
     request({
