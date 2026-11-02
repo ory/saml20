@@ -322,6 +322,7 @@ const createSAMLResponse = async ({
   audience: string;
   issuer: string;
   acsUrl: string;
+  // oxlint-disable-next-line typescript/no-explicit-any -- caller-defined claim values
   claims: Record<string, any>;
   requestId: string;
   privateKey: string;

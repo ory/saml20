@@ -166,7 +166,7 @@ describe('saml20.ts', function () {
     };
 
     const result = saml20.parse(assertionWithFriendlyNames);
-    const claims = result.claims as any;
+    const claims = result.claims;
     assert.strictEqual(
       claims['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'],
       'test@example.com'

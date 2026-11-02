@@ -4,6 +4,7 @@ import fs from 'fs';
 import { sign } from '../../lib/sign';
 import { validate } from '../../lib/response';
 import saml20 from '../../lib/saml20';
+import type { ValidateOptions } from '../../lib/typings';
 
 // Regression tests for the SP-initiated assertion-injection / InResponseTo
 // replay-binding bypass and the validateExpiration NaN defect.
@@ -78,7 +79,7 @@ function stripResponseInResponseTo(xml: string): string {
   return xml.replace(new RegExp(`(<samlp:Response[^>]*?) InResponseTo="${VICTIM_REQ_ID}"`), '$1');
 }
 
-async function expectReject(xml: string, message: string, opts: Record<string, any>) {
+async function expectReject(xml: string, message: string, opts: Partial<ValidateOptions>) {
   await assert.rejects(
     () => validate(xml, { audience: AUDIENCE, publicKey: cert, ...opts }),
     (err: Error) => {

@@ -74,7 +74,7 @@ describe('logout.ts', function () {
       async () => {
         await parseLogoutResponse(responseInvalid);
       },
-      (error: any) => {
+      (error: Error) => {
         assert.strictEqual(error.message, 'missing root element');
         return true;
       }
@@ -136,7 +136,7 @@ describe('logout.ts', function () {
       async () => {
         await parseLogoutRequest(requestInvalid);
       },
-      (error: any) => {
+      (error: Error) => {
         assert.strictEqual(error.message, 'missing root element');
         return true;
       }

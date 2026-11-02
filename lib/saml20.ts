@@ -191,8 +191,7 @@ const validateAudience = (assertion: XmlNode, realm: unknown) => {
         expected.some((expectedAudience) => audienceCheck(audience, expectedAudience))
       );
     });
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (err) {
+  } catch {
     return false;
   }
 };
