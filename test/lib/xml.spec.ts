@@ -192,4 +192,18 @@ describe('xmlToObject', function () {
     assert.throws(() => asDollar('<!DOCTYPE a><a/>'), doctypeNotAllowedError);
     assert.throws(() => asDollar('<a/><b/>'), multiRootedXMLError);
   });
+
+  it('rejects an & that does not start a reference', function () {
+    for (const text of ['a & b', 'a &', 'a&;b', 'a&b', 'a&#;b', 'a&#xg;b', 'a&#X26;b', 'a&-;b']) {
+      assert.throws(() => asDollar(`<a>${text}</a>`), /Invalid XML/, text);
+      assert.throws(() => asDollar(`<a b="${text}"/>`), /Invalid XML/, text);
+    }
+  });
+
+  it('accepts references and an & inside CDATA or a comment', function () {
+    assert.strictEqual(asDollar('<a>x&amp;y&#38;z&#x26;w</a>')!.a, 'x&y&z&w');
+    assert.strictEqual(asDollar('<a>x&lt;&gt;&quot;&apos;</a>')!.a, 'x<>"\'');
+    assert.strictEqual(asDollar('<a><![CDATA[a & b]]></a>')!.a, 'a & b');
+    assert.strictEqual(asDollar('<a><!-- a & b -->c</a>')!.a, 'c');
+  });
 });

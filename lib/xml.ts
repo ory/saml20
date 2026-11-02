@@ -100,10 +100,19 @@ const misplacedDeclaration = /^((?:\s|<!--(?:(?!-->)[\s\S])*-->)+)<\?xml(?=\s)[\
 // plain objects: tag names without their namespace prefix, attributes under
 // `attrkey`, text under `_`, child elements in lists under their name, and a
 // string for an element that has only text. Returns null for an empty document.
+// An & that does not start an entity or character reference, outside CDATA
+// sections and comments. @xmldom/xmldom tolerates most of these; the XML
+// specification does not.
+const cdataOrComment = /<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->/g;
+const bareAmpersand = /&(?!(?:[A-Za-z_:][\w.:-]*|#\d+|#x[0-9A-Fa-f]+);)/;
+
 const xmlToObject = (xml: string, options: XmlObjectOptions): XmlNode | null => {
   xml = xml.replace(/^\uFEFF/, '').replace(misplacedDeclaration, '$1');
   if (xml.trim() === '') {
     return null;
+  }
+  if (bareAmpersand.test(xml.replace(cdataOrComment, ''))) {
+    throw new Error('Invalid XML.');
   }
   const root = parseFromString(xml, undeclaredPrefixes(xml)).documentElement as unknown as Element;
   const result: XmlNode = {};
