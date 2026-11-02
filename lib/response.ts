@@ -26,7 +26,7 @@ const nameFormatUri = [
   'urn:mace:dir:attribute-def:jpegPhoto',
 ];
 
-const parseIssuer = (rawAssertion) => {
+const parseIssuer = (rawAssertion: string) => {
   if (!rawAssertion) {
     throw new Error('rawAssertion is required.');
   }
@@ -150,7 +150,7 @@ const checkSignature = (
 type SignedValues = { inResponseTo?: string; signedDestination?: string };
 
 const checkAssertion = async (
-  assertion,
+  assertion: any,
   signed: SignedValues,
   options: ValidateOptions
 ): Promise<Error | undefined> => {
@@ -215,7 +215,7 @@ const checkAssertion = async (
   return undefined;
 };
 
-const xmlToJs = async (rawAssertion) => {
+const xmlToJs = async (rawAssertion: string) => {
   try {
     rawAssertion = sanitizeXML(rawAssertion);
     if (containsDoctype(rawAssertion)) {
@@ -238,7 +238,7 @@ const xmlToJs = async (rawAssertion) => {
 
 // Returns an error for a top-level StatusCode other than Success, or undefined
 // when the status is Success or absent.
-const getStatusCodeError = (responseObj): Error | undefined => {
+const getStatusCodeError = (responseObj: any): Error | undefined => {
   const statusValue: string | undefined = responseObj?.Response?.Status?.StatusCode?.['@']?.Value;
   const status = statusValue ? statusValue.split(':').pop() : undefined;
 
@@ -254,7 +254,7 @@ const getStatusCodeError = (responseObj): Error | undefined => {
   Only signed content is read here, never an unsigned wrapper around a signed
   Assertion.
  */
-function parseResponseAndVersion(assertionObj) {
+function parseResponseAndVersion(assertionObj: any) {
   let assertion =
     assertionObj.Assertion ||
     (assertionObj.Response && assertionObj.Response.Assertion) ||
@@ -295,7 +295,7 @@ function parseResponseAndVersion(assertionObj) {
   return { assertion, signed: { inResponseTo, signedDestination } };
 }
 
-function flattenObject(obj) {
+function flattenObject(obj: any) {
   Object.keys(obj).forEach(function objectForEach(key) {
     if (obj[key] && obj[key][0] && obj[key].length === 1) {
       obj[key] = obj[key][0];
@@ -309,7 +309,7 @@ function flattenObject(obj) {
   return obj;
 }
 
-function parseAttributes(assertion): SAMLProfile {
+function parseAttributes(assertion: any): SAMLProfile {
   try {
     return saml20.parse(assertion);
   } catch (e) {

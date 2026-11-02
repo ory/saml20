@@ -38,7 +38,7 @@ const ensurePemArmor = (cert: string): string => {
 function PubKeyInfo(pubKey: string) {
   const pubKeyTrimmed = stripCertHeaderAndFooter(pubKey);
 
-  return function ({ prefix }) {
+  return function ({ prefix }: { prefix?: string | null } = {}) {
     prefix = prefix || '';
     prefix = prefix ? prefix + ':' : prefix;
     return `<${prefix}X509Data><${prefix}X509Certificate>${pubKeyTrimmed}</${prefix}X509Certificate></${prefix}X509Data>`;
