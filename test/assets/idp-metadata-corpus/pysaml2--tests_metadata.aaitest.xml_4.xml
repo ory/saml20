@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://test-idp.unine.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test-idp.unine.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Université de Neuchâtel -
+                        test IdP
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Université de Neuchâtel -
+                        test IdP - test-idp.unine.ch
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>test-idp.unine.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDMDCCAhigAwIBAgIVAKIJF09PlilHP3R6QFyMLe786zTbMA0GCSqGSIb3DQEB
+                            BQUAMBwxGjAYBgNVBAMTEXRlc3QtaWRwLnVuaW5lLmNoMB4XDTExMDQxNDE1MDU0
+                            M1oXDTE0MDQxNDE1MDU0M1owHDEaMBgGA1UEAxMRdGVzdC1pZHAudW5pbmUuY2gw
+                            ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCOap9tf4bkZQpG9If5NhUJ
+                            zMOdd6hDbYITOqEcKe112t7Gc2HYhnKzEHNU1V+9rn9iLUZxgtF08rm62+v3Qdt4
+                            mTyT9iOgZkiuo7prCbQVLfgjlATNnmMxS8dshkH5uMSf53MR1UGmluZwUJvavGoC
+                            tLSeuIqESrB9huWhq9vuriQCnol2E6bzIF4IH53MAIozbvo/Ah08itScAzBpxPre
+                            Z+reAPT5XL6lo3ewfhvDGnmv4z2n/b+kp/4+Y8ia6zzx1sJS5x63CwpbzFpmnBq3
+                            jAzZ1GFxtrFg/BnM5TKAzBAxB7pc6i6peIdEgAhetJR+67BSlQvUaWtn7jHMhUEv
+                            AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXRlc3QtaWRwLnVuaW5lLmNohihodHRwczov
+                            L3Rlc3QtaWRwLnVuaW5lLmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBS7MpK6
+                            Izim0Cmg3P4Al8Y5pl7UgTANBgkqhkiG9w0BAQUFAAOCAQEAjZQcSZ0SllBfBXPb
+                            atC8XfRKyUN9KiP6ITi5Fkq8+hYZ50NmK+rTb25grcbg3PkPACiAmrklI4QEsIpf
+                            goGXoowN5cxEWoUCZqxcjrj4XhL/bJ++tz/G6B9izauFZdl8VNivLXSC3V46jlKy
+                            DFB3y5qd24IZFBL9VG+pPWpU/E6bHYmXAlBO1CouiPCNYW4cAhp+TLFIfUmSaPil
+                            uaVPN8YVaCeMW/WAeAp31o6pzQCkrwGFPmGL8sFFvvLZg+u3yh+Xn3A2vI6z4Zkx
+                            ttUHwCbJH+lGUZOMWjhcgZXUSo4talnst/sP9MoGpbwrf0nSEuqeQjq3sfBz/4RA
+                            0D0e9w==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://test-idp.unine.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test-idp.unine.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://test-idp.unine.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test-idp.unine.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test-idp.unine.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://test-idp.unine.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test-idp.unine.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDMDCCAhigAwIBAgIVAKIJF09PlilHP3R6QFyMLe786zTbMA0GCSqGSIb3DQEB
+                            BQUAMBwxGjAYBgNVBAMTEXRlc3QtaWRwLnVuaW5lLmNoMB4XDTExMDQxNDE1MDU0
+                            M1oXDTE0MDQxNDE1MDU0M1owHDEaMBgGA1UEAxMRdGVzdC1pZHAudW5pbmUuY2gw
+                            ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCOap9tf4bkZQpG9If5NhUJ
+                            zMOdd6hDbYITOqEcKe112t7Gc2HYhnKzEHNU1V+9rn9iLUZxgtF08rm62+v3Qdt4
+                            mTyT9iOgZkiuo7prCbQVLfgjlATNnmMxS8dshkH5uMSf53MR1UGmluZwUJvavGoC
+                            tLSeuIqESrB9huWhq9vuriQCnol2E6bzIF4IH53MAIozbvo/Ah08itScAzBpxPre
+                            Z+reAPT5XL6lo3ewfhvDGnmv4z2n/b+kp/4+Y8ia6zzx1sJS5x63CwpbzFpmnBq3
+                            jAzZ1GFxtrFg/BnM5TKAzBAxB7pc6i6peIdEgAhetJR+67BSlQvUaWtn7jHMhUEv
+                            AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXRlc3QtaWRwLnVuaW5lLmNohihodHRwczov
+                            L3Rlc3QtaWRwLnVuaW5lLmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBS7MpK6
+                            Izim0Cmg3P4Al8Y5pl7UgTANBgkqhkiG9w0BAQUFAAOCAQEAjZQcSZ0SllBfBXPb
+                            atC8XfRKyUN9KiP6ITi5Fkq8+hYZ50NmK+rTb25grcbg3PkPACiAmrklI4QEsIpf
+                            goGXoowN5cxEWoUCZqxcjrj4XhL/bJ++tz/G6B9izauFZdl8VNivLXSC3V46jlKy
+                            DFB3y5qd24IZFBL9VG+pPWpU/E6bHYmXAlBO1CouiPCNYW4cAhp+TLFIfUmSaPil
+                            uaVPN8YVaCeMW/WAeAp31o6pzQCkrwGFPmGL8sFFvvLZg+u3yh+Xn3A2vI6z4Zkx
+                            ttUHwCbJH+lGUZOMWjhcgZXUSo4talnst/sP9MoGpbwrf0nSEuqeQjq3sfBz/4RA
+                            0D0e9w==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://test-idp.unine.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test-idp.unine.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">test-idp.unine.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Université de Neuchâtel -
+                test IdP
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.test-idp.unine.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.hkr.se/idp/shibboleth" xml:base="swamid-1.0/idp.hkr.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hkr.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+
+MIIDFDCCAfygAwIBAgIVAJFwJo5KjpvOv/slniklC/Nf19gKMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5oa3Iuc2UwHhcNMTAxMjEwMTExMDM2WhcNMzAx
+MjEwMTExMDM2WjAVMRMwEQYDVQQDEwppZHAuaGtyLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAmLMMJQyBS/1Caas2d1zoAj1jlxYs9axLJPDujiP0
+fJ8F3gjMxtl/A7Y+eVFqnRFzHNuaEKaqZ8S+XGnRi8kw3AdPbPJZB4g+LTRPI8WB
+xDo49uubfZbpyi8zZUqoqOSLeNxMKFqgkq9bd0Yeh4bI7r/bjuvcx4tioOP3UnT4
+CBfTL6uxyCWFW8mP9TbmnQ4lZN5O4elIKrea+8XiumRa2q5qpXVtdqF5h9YI+jYK
+6zj9pMzUlPPvIyOzGFLxLSN0KRM7EgV3FRD65y9hCnTzuQtFrqwktBOVs5fwavyr
+bKht5KrIaVrozMBscr8STgQ8SKEDMCDqxu/hS0IqoweTyQIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAuaGtyLnNlhiFodHRwczovL2lkcC5oa3Iuc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFLIjYPKZGp/Bncfc+KnH8Pdf7FukMA0GCSqGSIb3DQEB
+BQUAA4IBAQCQ3m4eN6leAlXf9v8xcZjrzQhHCg4ceDnixMUINTsFfXktfYsSSonr
+Cdh/mhttMxnk/34Tu1XMfYn8ABPVxvvcaBZ9Brl21BBsvk3MOdbDNO6cB05GXdms
+exr3aJFvRwY6Vy0AWtUgDFXdYPiIVPUrpC7NA+X78fq3IVmPn0WFlQ9KpM8hXNz0
+HwlY06myFNjI7dvt8xjAqJy+ICilu06RTs7oCynE45nkrLaZjpploIn3xcYt0ceK
+qU1LY9aaqaEgKSsNHlPoCW9eH4oUP3f/X8h21pAtgGA8AIt2RegT6HfVqnZPAtUk
+kgLpO4NuqQRRqV5FxbnmTvt25NApGY5k
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hkr.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hkr.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hkr.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hkr.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hkr.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hkr.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hkr.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+
+MIIDFDCCAfygAwIBAgIVAJFwJo5KjpvOv/slniklC/Nf19gKMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5oa3Iuc2UwHhcNMTAxMjEwMTExMDM2WhcNMzAx
+MjEwMTExMDM2WjAVMRMwEQYDVQQDEwppZHAuaGtyLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAmLMMJQyBS/1Caas2d1zoAj1jlxYs9axLJPDujiP0
+fJ8F3gjMxtl/A7Y+eVFqnRFzHNuaEKaqZ8S+XGnRi8kw3AdPbPJZB4g+LTRPI8WB
+xDo49uubfZbpyi8zZUqoqOSLeNxMKFqgkq9bd0Yeh4bI7r/bjuvcx4tioOP3UnT4
+CBfTL6uxyCWFW8mP9TbmnQ4lZN5O4elIKrea+8XiumRa2q5qpXVtdqF5h9YI+jYK
+6zj9pMzUlPPvIyOzGFLxLSN0KRM7EgV3FRD65y9hCnTzuQtFrqwktBOVs5fwavyr
+bKht5KrIaVrozMBscr8STgQ8SKEDMCDqxu/hS0IqoweTyQIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAuaGtyLnNlhiFodHRwczovL2lkcC5oa3Iuc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFLIjYPKZGp/Bncfc+KnH8Pdf7FukMA0GCSqGSIb3DQEB
+BQUAA4IBAQCQ3m4eN6leAlXf9v8xcZjrzQhHCg4ceDnixMUINTsFfXktfYsSSonr
+Cdh/mhttMxnk/34Tu1XMfYn8ABPVxvvcaBZ9Brl21BBsvk3MOdbDNO6cB05GXdms
+exr3aJFvRwY6Vy0AWtUgDFXdYPiIVPUrpC7NA+X78fq3IVmPn0WFlQ9KpM8hXNz0
+HwlY06myFNjI7dvt8xjAqJy+ICilu06RTs7oCynE45nkrLaZjpploIn3xcYt0ceK
+qU1LY9aaqaEgKSsNHlPoCW9eH4oUP3f/X8h21pAtgGA8AIt2RegT6HfVqnZPAtUk
+kgLpO4NuqQRRqV5FxbnmTvt25NApGY5k
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hkr.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hkr.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+    <md:OrganizationName xml:lang="en">HKR</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Högskolan Kristianstad</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.hkr.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Högskolan Kristianstad</md:Company>
+    <md:EmailAddress>roland.svedman@hkr.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

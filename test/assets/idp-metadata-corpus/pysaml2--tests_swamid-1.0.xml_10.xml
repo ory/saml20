@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://identity.mdh.se/idp/shibboleth" xml:base="swamid-1.0/identity.mdh.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">mdh.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIVAIPxTFqNFghYnsNGOQDHDvRnU53tMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMTD2lkZW50aXR5Lm1kaC5zZTAeFw0wOTA5MDIxMzE5MDRa
+Fw0yOTA5MDIxMzE5MDRaMBoxGDAWBgNVBAMTD2lkZW50aXR5Lm1kaC5zZTCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALBpGX8JJ+RvjMMMD3q/j01q58p8
+z0R9tuklMD5smW+Tz0JgiG3KDnynWvcYyg3s9DevNRUMmsQqzDBko771ecyhqkHy
+SoCkfVNJ9k7RaQmoaglSGZlR5N9lgcysHNA8qVqJYpUpsSFuQckr1dzS3RjngcTM
+ICcuBjy/JviV8fKzYzF0v7F9HW+BEuJXHH6lhqhDIuI4R4n7I9/lYYxJWvQZVelJ
+F6/Z+RnbqaSzViq1qcMe5AWcnZgC85i0KiIcnaKiImNRJbVrVUN+eniQSj9ROJyf
+uk7Ldhpg8gvqsaUVd2drDY43XymAu7XFVnBBX340JKgb7F8wxpvIK6Gh6ZMCAwEA
+AaNlMGMwQgYDVR0RBDswOYIPaWRlbnRpdHkubWRoLnNlhiZodHRwczovL2lkZW50
+aXR5Lm1kaC5zZS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU/qdjANz6BbQi/0eQ
+PgsaI1I0V4MwDQYJKoZIhvcNAQEFBQADggEBAG3OEKV7S8aojN/D7UOqURiCRrjC
+Dk6wEnMLX6uIYAFCv6jc5QdkMWaaDBR0tgGhmgzRZOGnl9pvzT1AjMIhvMu2/luI
+b2oawOhycFG1rECJCpDi+gLDGhxzbQY/E9VIz+AcBAxglBFbDqqIynhFs+GZn+fv
+P7nZB2+XoE3sf8xqd2a9xO7vy1r17Q7bx8PzwklL9GdFppuRnimioYoF3atEQM6R
+7UwSK+MqY42FI27aHfIMAN7ccEun9HViAHU9HT/tng0kSydoF9VOvTI657LX7vpb
+0hhoH3UMUkrHgTwtNYpylgL6YEy/GtQHimQGN/O6aAQt1ZIyXKnuQufcnNk=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://identity.mdh.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://identity.mdh.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://identity.mdh.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://identity.mdh.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://identity.mdh.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://identity.mdh.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">mdh.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIVAIPxTFqNFghYnsNGOQDHDvRnU53tMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMTD2lkZW50aXR5Lm1kaC5zZTAeFw0wOTA5MDIxMzE5MDRa
+Fw0yOTA5MDIxMzE5MDRaMBoxGDAWBgNVBAMTD2lkZW50aXR5Lm1kaC5zZTCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALBpGX8JJ+RvjMMMD3q/j01q58p8
+z0R9tuklMD5smW+Tz0JgiG3KDnynWvcYyg3s9DevNRUMmsQqzDBko771ecyhqkHy
+SoCkfVNJ9k7RaQmoaglSGZlR5N9lgcysHNA8qVqJYpUpsSFuQckr1dzS3RjngcTM
+ICcuBjy/JviV8fKzYzF0v7F9HW+BEuJXHH6lhqhDIuI4R4n7I9/lYYxJWvQZVelJ
+F6/Z+RnbqaSzViq1qcMe5AWcnZgC85i0KiIcnaKiImNRJbVrVUN+eniQSj9ROJyf
+uk7Ldhpg8gvqsaUVd2drDY43XymAu7XFVnBBX340JKgb7F8wxpvIK6Gh6ZMCAwEA
+AaNlMGMwQgYDVR0RBDswOYIPaWRlbnRpdHkubWRoLnNlhiZodHRwczovL2lkZW50
+aXR5Lm1kaC5zZS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU/qdjANz6BbQi/0eQ
+PgsaI1I0V4MwDQYJKoZIhvcNAQEFBQADggEBAG3OEKV7S8aojN/D7UOqURiCRrjC
+Dk6wEnMLX6uIYAFCv6jc5QdkMWaaDBR0tgGhmgzRZOGnl9pvzT1AjMIhvMu2/luI
+b2oawOhycFG1rECJCpDi+gLDGhxzbQY/E9VIz+AcBAxglBFbDqqIynhFs+GZn+fv
+P7nZB2+XoE3sf8xqd2a9xO7vy1r17Q7bx8PzwklL9GdFppuRnimioYoF3atEQM6R
+7UwSK+MqY42FI27aHfIMAN7ccEun9HViAHU9HT/tng0kSydoF9VOvTI657LX7vpb
+0hhoH3UMUkrHgTwtNYpylgL6YEy/GtQHimQGN/O6aAQt1ZIyXKnuQufcnNk=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://identity.mdh.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://identity.mdh.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">MDH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Mälardalen University</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.mdh.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Mälardalen University</md:Company>
+    <md:EmailAddress>peter.falck@mdh.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

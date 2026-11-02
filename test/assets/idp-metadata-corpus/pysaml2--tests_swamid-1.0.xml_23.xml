@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibboleth.slu.se/idp/shibboleth" xml:base="swamid-1.0/shibboleth.slu.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">slu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDMDCCAhigAwIBAgIVAJgPjWyV8mnw8Zm9lp8a5mHvQve+MA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNoaWJib2xldGguc2x1LnNlMB4XDTEwMDMxNjExNDAy
+MVoXDTMwMDMxNjExNDAyMVowHDEaMBgGA1UEAxMRc2hpYmJvbGV0aC5zbHUuc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvQU5k1AvEYedH5FYRuklo
+9wfvfTc5yHnA2NE7mFmnLqYyNhacWsb5kl53TCvHhCUh1RmTwPxDtOgAi1YmyF1X
+On/U3SPOOm3FVqDbmGOZIiYD2+R2LhvifGXvVXNvE0rJR4aK02C4cmVaxJCSpVfI
++dGBECEVvzaFy3zQEZmOyeiClFaDKlwLEBj1qWSUWWhMeryYLbNUHiR+5NznHqeB
+RfFPExXbTfjSgUXiq3c7w80AUUC8zAjxo8oQCRoCvmvhT38McCUustziUPzc6/UC
+M2h+eET25OoCCkC5/VPyfTWHfzTOTDasMvny3Jp5fASZ0JxPKAVtU+7arPBf1FmN
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNoaWJib2xldGguc2x1LnNlhihodHRwczov
+L3NoaWJib2xldGguc2x1LnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTDGADa
+Hy53hIGPonu2OOONEh54YDANBgkqhkiG9w0BAQUFAAOCAQEAiDlmcUcHOV/GYog4
+UlB4NsZfcfARpmNeR16jmbfXBX5gmwKAlltqUZhhKB89qPCOv/cKjlBXga3Ypdqd
+nZa7NobQlyVsJgBUB82Nh8RRsGB0jaHpAXC48ey5sKqcpVQnCcKG51svYkQHmNRD
++jza1oyX/wZLjk4whkJm0ef7vToN8xd/cYc0EyfqN7VSDXMdVUtzJDd298CGNx6Q
+Xr7EfTMM2MhwKghEOOn25472fguv+kLwaEpOWKKR5vzYPcH5kpYC29CeHCnnHrJv
+sAvj1/KeSjxuQ71kHH8n7cxIqUc+MeHZXAANL9fqDkfeT4L6RStHNUpNCVS9se5b
+xpmbgA==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.slu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.slu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.slu.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.slu.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.slu.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.slu.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">slu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDMDCCAhigAwIBAgIVAJgPjWyV8mnw8Zm9lp8a5mHvQve+MA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNoaWJib2xldGguc2x1LnNlMB4XDTEwMDMxNjExNDAy
+MVoXDTMwMDMxNjExNDAyMVowHDEaMBgGA1UEAxMRc2hpYmJvbGV0aC5zbHUuc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvQU5k1AvEYedH5FYRuklo
+9wfvfTc5yHnA2NE7mFmnLqYyNhacWsb5kl53TCvHhCUh1RmTwPxDtOgAi1YmyF1X
+On/U3SPOOm3FVqDbmGOZIiYD2+R2LhvifGXvVXNvE0rJR4aK02C4cmVaxJCSpVfI
++dGBECEVvzaFy3zQEZmOyeiClFaDKlwLEBj1qWSUWWhMeryYLbNUHiR+5NznHqeB
+RfFPExXbTfjSgUXiq3c7w80AUUC8zAjxo8oQCRoCvmvhT38McCUustziUPzc6/UC
+M2h+eET25OoCCkC5/VPyfTWHfzTOTDasMvny3Jp5fASZ0JxPKAVtU+7arPBf1FmN
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNoaWJib2xldGguc2x1LnNlhihodHRwczov
+L3NoaWJib2xldGguc2x1LnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTDGADa
+Hy53hIGPonu2OOONEh54YDANBgkqhkiG9w0BAQUFAAOCAQEAiDlmcUcHOV/GYog4
+UlB4NsZfcfARpmNeR16jmbfXBX5gmwKAlltqUZhhKB89qPCOv/cKjlBXga3Ypdqd
+nZa7NobQlyVsJgBUB82Nh8RRsGB0jaHpAXC48ey5sKqcpVQnCcKG51svYkQHmNRD
++jza1oyX/wZLjk4whkJm0ef7vToN8xd/cYc0EyfqN7VSDXMdVUtzJDd298CGNx6Q
+Xr7EfTMM2MhwKghEOOn25472fguv+kLwaEpOWKKR5vzYPcH5kpYC29CeHCnnHrJv
+sAvj1/KeSjxuQ71kHH8n7cxIqUc+MeHZXAANL9fqDkfeT4L6RStHNUpNCVS9se5b
+xpmbgA==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.slu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.slu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+ 
+   <md:Organization>
+    <md:OrganizationName xml:lang="en">SLU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Sveriges Lantbruksuniversitet</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.slu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Yngve</md:GivenName>
+    <md:SurName>Johansson</md:SurName>
+    <md:EmailAddress>yngve.johansson@sogeti.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

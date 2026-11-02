@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-logon.test.fhnw.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.fhnw.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="de">FHNW-TEST - Fachhochschule
+                        Nordwestschweiz
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="en">FHNW-TEST - Fachhochschule
+                        Nordwestschweiz
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="de">TEST-IdP - Fachhochschule
+                        Nordwestschweiz (Shib2.1)
+                    </mdui:Description>
+                    <mdui:Description xml:lang="en">TEST-IdP - Fachhochschule
+                        Nordwestschweiz (Shib2.1)
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>test.fhnw.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDODCCAiCgAwIBAgIJAP29w5JXJPIaMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+                            BAMTFmFhaS1sb2dvbi50ZXN0LmZobncuY2gwHhcNMTMxMDA4MTMwNjExWhcNMTYx
+                            MDA3MTMwNjExWjAhMR8wHQYDVQQDExZhYWktbG9nb24udGVzdC5maG53LmNoMIIB
+                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuVJriklB9Yr6QFtj0jezOdj0
+                            naMtYge/BEjeMTqJyJsGlTeOsMenvhsDCYRnNA3sGq4hTiXcVZ6z/nKTaeGwYaA9
+                            eVmvWEqQiYN7G9keE7hjmt/dYLT333y2ot+aqbHQUh5lSe0q24t2T6URW3DPif4C
+                            pZp1dZ9wdGmUULWZu5PNb9TiaMqhXoPuJxXkb+lN+IVCHYxh2jn9Mk7eDagzVelW
+                            DuQrpEioiSMNDcXrSAfxtpPgGjG79xNXnsw5y80Uoa7eW/fmzMXATa26jhOGYGyC
+                            ggweZGVENn6Uq9DseaGX+HL61qXm1P9dHbLfxoa/lYBtb4DQwhoCrNf7zEdB+QID
+                            AQABo3MwcTBQBgNVHREESTBHghZhYWktbG9nb24udGVzdC5maG53LmNohi1odHRw
+                            czovL2FhaS1sb2dvbi50ZXN0LmZobncuY2gvaWRwL3NoaWJib2xldGgwHQYDVR0O
+                            BBYEFLd+LL3ed9aoQmoVrQaGArsGnAY4MA0GCSqGSIb3DQEBBQUAA4IBAQA+Fy82
+                            vfBNmVjg4iBNc3L11pQVusH8+w2LmQ5/BkEzhdNUQSOcMUi57XlP7AcTl0GAxUJ5
+                            F1OANIeubC2mn+9dhkbOAujkCf4ngZWOfcdMEOQDaQnjg+dK7Kc3b5+Un1lbvMi7
+                            zU8BiFek2Wm4r7o8bHZmgIJJNJ33Ub9yGYiRCKzxKw2HSoU5nhAiBRmu41+bhIEQ
+                            Khnw6ZaTuY8LZXGqDB6qXOJf7uvTs1XAuBLBpeXr2hz9HY2Yz3/A/TcYSHTnhdFb
+                            jC3ejOfg15R+lqXVIIe5pFfwUcfKbGsEYdFYX2UISUvspYY0Tdh7tOFyt5cI1oF7
+                            Xn0n/bVgVJMT3Bv9
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon.test.fhnw.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon.test.fhnw.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-logon.test.fhnw.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-logon.test.fhnw.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-logon.test.fhnw.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-logon.test.fhnw.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.fhnw.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDODCCAiCgAwIBAgIJAP29w5JXJPIaMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+                            BAMTFmFhaS1sb2dvbi50ZXN0LmZobncuY2gwHhcNMTMxMDA4MTMwNjExWhcNMTYx
+                            MDA3MTMwNjExWjAhMR8wHQYDVQQDExZhYWktbG9nb24udGVzdC5maG53LmNoMIIB
+                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuVJriklB9Yr6QFtj0jezOdj0
+                            naMtYge/BEjeMTqJyJsGlTeOsMenvhsDCYRnNA3sGq4hTiXcVZ6z/nKTaeGwYaA9
+                            eVmvWEqQiYN7G9keE7hjmt/dYLT333y2ot+aqbHQUh5lSe0q24t2T6URW3DPif4C
+                            pZp1dZ9wdGmUULWZu5PNb9TiaMqhXoPuJxXkb+lN+IVCHYxh2jn9Mk7eDagzVelW
+                            DuQrpEioiSMNDcXrSAfxtpPgGjG79xNXnsw5y80Uoa7eW/fmzMXATa26jhOGYGyC
+                            ggweZGVENn6Uq9DseaGX+HL61qXm1P9dHbLfxoa/lYBtb4DQwhoCrNf7zEdB+QID
+                            AQABo3MwcTBQBgNVHREESTBHghZhYWktbG9nb24udGVzdC5maG53LmNohi1odHRw
+                            czovL2FhaS1sb2dvbi50ZXN0LmZobncuY2gvaWRwL3NoaWJib2xldGgwHQYDVR0O
+                            BBYEFLd+LL3ed9aoQmoVrQaGArsGnAY4MA0GCSqGSIb3DQEBBQUAA4IBAQA+Fy82
+                            vfBNmVjg4iBNc3L11pQVusH8+w2LmQ5/BkEzhdNUQSOcMUi57XlP7AcTl0GAxUJ5
+                            F1OANIeubC2mn+9dhkbOAujkCf4ngZWOfcdMEOQDaQnjg+dK7Kc3b5+Un1lbvMi7
+                            zU8BiFek2Wm4r7o8bHZmgIJJNJ33Ub9yGYiRCKzxKw2HSoU5nhAiBRmu41+bhIEQ
+                            Khnw6ZaTuY8LZXGqDB6qXOJf7uvTs1XAuBLBpeXr2hz9HY2Yz3/A/TcYSHTnhdFb
+                            jC3ejOfg15R+lqXVIIe5pFfwUcfKbGsEYdFYX2UISUvspYY0Tdh7tOFyt5cI1oF7
+                            Xn0n/bVgVJMT3Bv9
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon.test.fhnw.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon.test.fhnw.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">test.fhnw.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="de">FHNW-TEST - Fachhochschule
+                Nordwestschweiz
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="en">FHNW-TEST - Fachhochschule
+                Nordwestschweiz
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="de">http://www.test.fhnw.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

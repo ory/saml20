@@ -1,0 +1,41 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.hig.se/identity" xml:base="swamid-1.0/idp.hig.se.xml">
+  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+    <md:Extensions>
+      <shibmd:Scope>hig.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEjTCCA3WgAwIBAgILAQAAAAABF3zoubQwDQYJKoZIhvcNAQEFBQAwXzELMAkGA1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlvbmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA4MDExNTEwMDUwMloXDTExMDExNTEwMDUwMlowPjELMAkGA1UEBhMCU0UxGjAYBgNVBAoTEUhvZ3Nrb2xhbiBpIEdhdmxlMRMwEQYDVQQDEwppZHAuaGlnLnNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzVJwkvrkl/JSBQKx95eRku9iUK8odClbfPr4AlDANP+b2mWYiUaSxoXu+SJkUO/HDtBDmcghRvGHYyv6YLXANk17bzV7PemQb4zA0plyKaurqY6M1FLx5RNEXDplElriWQsDA0Tyuhoz6t/uZpHETngtHpu7NlxWsyONUxeR7Cf6r2DjqiRBn76kI+8G1HBfTHf0xCGZmPWYewJzH1dnFT4pUaWu6psqhGMmZ5jgb0cDyVOz+sKcDp7MlMfQG/vziUySepAKfKSer7Dr84bVUIsa8C+ikQF582Q33Zuunpm+hJRDntXTA3ZJdmK38muiVaSBa70oL+ri7ZcnIceVWwIDAQABo4IBaTCCAWUwUAYDVR0gBEkwRzBFBgcqhkixPgEAMDowOAYIKwYBBQUHAgEWLGh0dHA6Ly93d3cuZ2xvYmFsc2lnbi5uZXQvcmVwb3NpdG9yeS9jcHMuY2ZtMA4GA1UdDwEB/wQEAwIFoDAfBgNVHSMEGDAWgBRlZaM91zsRowoHJTfJQkpbdndQ4TAdBgNVHQ4EFgQUc6OwpqVR5fUo66R7/PzCQUtL1mswOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC5nbG9iYWxzaWduLm5ldC9lZHVjYXRpb25hbC5jcmwwTwYIKwYBBQUHAQEEQzBBMD8GCCsGAQUFBzAChjNodHRwOi8vc2VjdXJlLmdsb2JhbHNpZ24ubmV0L2NhY2VydC9lZHVjYXRpb25hbC5jcnQwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBUGA1UdEQQOMAyCCmlkcC5oaWcuc2UwDQYJKoZIhvcNAQEFBQADggEBAGYIiDLBZooLBBfMbHTA/aU6Vf2lD8++0uZ/pDsO0fHT52dhLB/zVOxQoJvs7P8z4VOQYM60N4iC18cOrEmt9//8V+4OzLnkrGKrr7xDuc6JBpHkMTUiYozHCPPOCAgmf/OZmCEnWc+ne0dHx+A+ThJy9PEebN2yvjs307dP/GFgWSjXKKGVVLnJ2G9/bYn/gTi51/etdbbC0oXZ7GnV2fEI2IhU18IacIogt0RODek8hnEEfSBBEvS7Yb+g/NPZsdM3NiKs486221H7eF0MllYb+Z68AKqtOv+bJZyXnmYaoyENgNrEyIHrd5rGeACUjq4u31pt2dlMWuPW1O/xbf0=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hig.se:8443/shibboleth-idp/AA" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+  </md:AttributeAuthorityDescriptor>
+  <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+    <md:Extensions>
+      <shibmd:Scope>hig.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEjTCCA3WgAwIBAgILAQAAAAABF3zoubQwDQYJKoZIhvcNAQEFBQAwXzELMAkGA1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlvbmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA4MDExNTEwMDUwMloXDTExMDExNTEwMDUwMlowPjELMAkGA1UEBhMCU0UxGjAYBgNVBAoTEUhvZ3Nrb2xhbiBpIEdhdmxlMRMwEQYDVQQDEwppZHAuaGlnLnNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzVJwkvrkl/JSBQKx95eRku9iUK8odClbfPr4AlDANP+b2mWYiUaSxoXu+SJkUO/HDtBDmcghRvGHYyv6YLXANk17bzV7PemQb4zA0plyKaurqY6M1FLx5RNEXDplElriWQsDA0Tyuhoz6t/uZpHETngtHpu7NlxWsyONUxeR7Cf6r2DjqiRBn76kI+8G1HBfTHf0xCGZmPWYewJzH1dnFT4pUaWu6psqhGMmZ5jgb0cDyVOz+sKcDp7MlMfQG/vziUySepAKfKSer7Dr84bVUIsa8C+ikQF582Q33Zuunpm+hJRDntXTA3ZJdmK38muiVaSBa70oL+ri7ZcnIceVWwIDAQABo4IBaTCCAWUwUAYDVR0gBEkwRzBFBgcqhkixPgEAMDowOAYIKwYBBQUHAgEWLGh0dHA6Ly93d3cuZ2xvYmFsc2lnbi5uZXQvcmVwb3NpdG9yeS9jcHMuY2ZtMA4GA1UdDwEB/wQEAwIFoDAfBgNVHSMEGDAWgBRlZaM91zsRowoHJTfJQkpbdndQ4TAdBgNVHQ4EFgQUc6OwpqVR5fUo66R7/PzCQUtL1mswOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC5nbG9iYWxzaWduLm5ldC9lZHVjYXRpb25hbC5jcmwwTwYIKwYBBQUHAQEEQzBBMD8GCCsGAQUFBzAChjNodHRwOi8vc2VjdXJlLmdsb2JhbHNpZ24ubmV0L2NhY2VydC9lZHVjYXRpb25hbC5jcnQwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBUGA1UdEQQOMAyCCmlkcC5oaWcuc2UwDQYJKoZIhvcNAQEFBQADggEBAGYIiDLBZooLBBfMbHTA/aU6Vf2lD8++0uZ/pDsO0fHT52dhLB/zVOxQoJvs7P8z4VOQYM60N4iC18cOrEmt9//8V+4OzLnkrGKrr7xDuc6JBpHkMTUiYozHCPPOCAgmf/OZmCEnWc+ne0dHx+A+ThJy9PEebN2yvjs307dP/GFgWSjXKKGVVLnJ2G9/bYn/gTi51/etdbbC0oXZ7GnV2fEI2IhU18IacIogt0RODek8hnEEfSBBEvS7Yb+g/NPZsdM3NiKs486221H7eF0MllYb+Z68AKqtOv+bJZyXnmYaoyENgNrEyIHrd5rGeACUjq4u31pt2dlMWuPW1O/xbf0=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hig.se/shibboleth-idp/Artifact" index="1" isDefault="true" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hig.se/shibboleth-idp/SSO" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">HIG</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Högskolan i Gävle</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.hig.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Högskolan i Gävle</md:Company>
+    <md:EmailAddress>Patrik.Carlsson@hig.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

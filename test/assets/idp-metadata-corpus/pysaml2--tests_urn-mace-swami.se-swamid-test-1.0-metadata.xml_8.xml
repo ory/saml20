@@ -1,0 +1,41 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.secure.su.se/identity" xml:base="swamid-1.0/idp.secure.su.se.xml">
+  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+    <md:Extensions>
+      <shibmd:Scope>su.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEsjCCA5qgAwIBAgILAQAAAAABFxsEM3owDQYJKoZIhvcNAQEFBQAwXzELMAkGA1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlvbmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA3MTIyNzA5NTIxNVoXDTEwMTIyNzA5NTIxNVowXTELMAkGA1UEBhMCU0UxEjAQBgNVBAcTCVN0b2NraG9sbTEfMB0GA1UEChMWU3RvY2tob2xtcyB1bml2ZXJzaXRldDEZMBcGA1UEAxMQaWRwLnNlY3VyZS5zdS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL8J47onJaot9vYgL5d+VXRuBTlwy4quLRkcFDvAhy9YwzdDAZ0bio2qgVpXMK1aP1kvpOn6+Zy9jUKuwaUraJpE8Yp7dCzTXujrCQSS3sfy+pTwS/kcDUM/sBd16gXU4lfub56+Oiuvi9eRISDKTeZebgTskN2O7gZS91nLSo7xz/Fsrinp3oRWcqZ0VWzc0+zLIldU50ASZ/AqDQQ/JLaqI84b6Ft8JjWZKCGUqBBoRURjvDxqr2e19i2+2mu5Cbayq6IJ62yH+dP3pVd9UZntSXABaTnq2+v9dt/unhOXibzMwh87q+fI9w7SyM7Wy/r6V3qk/aes0bYI6Sj8DW0CAwEAAaOCAW8wggFrMFAGA1UdIARJMEcwRQYHKoZIsT4BADA6MDgGCCsGAQUFBwIBFixodHRwOi8vd3d3Lmdsb2JhbHNpZ24ubmV0L3JlcG9zaXRvcnkvY3BzLmNmbTAOBgNVHQ8BAf8EBAMCBaAwHwYDVR0jBBgwFoAUZWWjPdc7EaMKByU3yUJKW3Z3UOEwHQYDVR0OBBYEFMAf54GaLCmlAHIKbGBskYgJ64yTMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwuZ2xvYmFsc2lnbi5uZXQvZWR1Y2F0aW9uYWwuY3JsME8GCCsGAQUFBwEBBEMwQTA/BggrBgEFBQcwAoYzaHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLm5ldC9jYWNlcnQvZWR1Y2F0aW9uYWwuY3J0MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAbBgNVHREEFDASghBpZHAuc2VjdXJlLnN1LnNlMA0GCSqGSIb3DQEBBQUAA4IBAQA2ZODtOolJMQNFz86urE/RM3LIwkaaRHv9WN743WEPVyrQ0s7XjYuHAuJCuLVhwteA0ODpbmYJHaesG1O4Hqilv/tRD+8MahGWqA2lk28T7mkx+/Hb2jsZWBIMGNNOf97sZUK100wbnsFvjvBsOAsznnRX2JKOBeemOnIPZR1EmA+VRxUaIHb2/SD63zSsa/+y8xkSYAo1Pxr9MU6jePNIPnMF7ixwfzTZElyoxKuNNbQAuxfvvbRElGs2YCmC9WBY8zGmyHfNWWblVt5tjeNH0pWu+qg1tVBSB9VZZ4xGuKgoMyoYKul4y3raQRiUCUaUmJCdAiQNqsSMpY3QpA+k</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.secure.su.se:8443/shibboleth-idp/AA" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+  </md:AttributeAuthorityDescriptor>
+  <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+    <md:Extensions>
+      <shibmd:Scope>su.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEsjCCA5qgAwIBAgILAQAAAAABFxsEM3owDQYJKoZIhvcNAQEFBQAwXzELMAkGA1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlvbmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA3MTIyNzA5NTIxNVoXDTEwMTIyNzA5NTIxNVowXTELMAkGA1UEBhMCU0UxEjAQBgNVBAcTCVN0b2NraG9sbTEfMB0GA1UEChMWU3RvY2tob2xtcyB1bml2ZXJzaXRldDEZMBcGA1UEAxMQaWRwLnNlY3VyZS5zdS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL8J47onJaot9vYgL5d+VXRuBTlwy4quLRkcFDvAhy9YwzdDAZ0bio2qgVpXMK1aP1kvpOn6+Zy9jUKuwaUraJpE8Yp7dCzTXujrCQSS3sfy+pTwS/kcDUM/sBd16gXU4lfub56+Oiuvi9eRISDKTeZebgTskN2O7gZS91nLSo7xz/Fsrinp3oRWcqZ0VWzc0+zLIldU50ASZ/AqDQQ/JLaqI84b6Ft8JjWZKCGUqBBoRURjvDxqr2e19i2+2mu5Cbayq6IJ62yH+dP3pVd9UZntSXABaTnq2+v9dt/unhOXibzMwh87q+fI9w7SyM7Wy/r6V3qk/aes0bYI6Sj8DW0CAwEAAaOCAW8wggFrMFAGA1UdIARJMEcwRQYHKoZIsT4BADA6MDgGCCsGAQUFBwIBFixodHRwOi8vd3d3Lmdsb2JhbHNpZ24ubmV0L3JlcG9zaXRvcnkvY3BzLmNmbTAOBgNVHQ8BAf8EBAMCBaAwHwYDVR0jBBgwFoAUZWWjPdc7EaMKByU3yUJKW3Z3UOEwHQYDVR0OBBYEFMAf54GaLCmlAHIKbGBskYgJ64yTMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwuZ2xvYmFsc2lnbi5uZXQvZWR1Y2F0aW9uYWwuY3JsME8GCCsGAQUFBwEBBEMwQTA/BggrBgEFBQcwAoYzaHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLm5ldC9jYWNlcnQvZWR1Y2F0aW9uYWwuY3J0MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAbBgNVHREEFDASghBpZHAuc2VjdXJlLnN1LnNlMA0GCSqGSIb3DQEBBQUAA4IBAQA2ZODtOolJMQNFz86urE/RM3LIwkaaRHv9WN743WEPVyrQ0s7XjYuHAuJCuLVhwteA0ODpbmYJHaesG1O4Hqilv/tRD+8MahGWqA2lk28T7mkx+/Hb2jsZWBIMGNNOf97sZUK100wbnsFvjvBsOAsznnRX2JKOBeemOnIPZR1EmA+VRxUaIHb2/SD63zSsa/+y8xkSYAo1Pxr9MU6jePNIPnMF7ixwfzTZElyoxKuNNbQAuxfvvbRElGs2YCmC9WBY8zGmyHfNWWblVt5tjeNH0pWu+qg1tVBSB9VZZ4xGuKgoMyoYKul4y3raQRiUCUaUmJCdAiQNqsSMpY3QpA+k</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.secure.su.se/shibboleth-idp/Artifact" index="1" isDefault="true" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.secure.su.se/shibboleth-idp/SSO" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">SU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Stockholm university</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.su.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Stockholm university</md:Company>
+    <md:EmailAddress>leifj@it.su.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

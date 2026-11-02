@@ -1,0 +1,135 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-logon-bi-test.ethz.ch/idp/shibboleth">
+        <md:IDPSSODescriptor errorURL="http://www.id.ethz.ch/support/" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">aai-logon-bi-test.ethz.ch
+                </shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="de">ETH Zürich (BI test)
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="en">ETH Zurich (BI test)
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="de">Eidgenössische Technische
+                        Hochschule Zürich - test IDP für BI
+                    </mdui:Description>
+                    <mdui:Description xml:lang="en">Swiss Federal Institute of
+                        Technology Zurich - test IDP for BI
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>aai-logon-bi-test.ethz.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIFRDCCBCygAwIBAgIUOjHm4EyYMCfH/vK0ohIZnxqUS4cwDQYJKoZIhvcNAQEF
+                            BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+                            BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+                            IEdsb2JhbCBTU0wgSUNBMB4XDTEzMDcyMjE0MjkwOVoXDTE1MDcyMjE0MjkwOVow
+                            azELMAkGA1UEBhMCQ0gxEDAOBgNVBAgTB1p1ZXJpY2gxEDAOBgNVBAcTB1p1ZXJp
+                            Y2gxFDASBgNVBAoTC0VUSCBadWVyaWNoMSIwIAYDVQQDExlhYWktbG9nb24tYmkt
+                            dGVzdC5ldGh6LmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm0Wu
+                            xvygKe6eRroo05HOe3FpO5LJCEaFuPWRub1bBjDdiRx+3ZuuC1bi4Z+ylIrsfsFZ
+                            Qewi264X7TxKRs/SwjUQCVY1kW+pswlovI4UK/4VQB+TKGza7ilbXVOZ0/Uqi6bp
+                            SqhF+hcyzD52dgZZTbsoPd+sgbuJ6wAsFhz8yA8VuByRlH2qMRBCsKFPcIDz+RL4
+                            OJRoZ3d/3Iye/4MP2OYFZOCFDFSsWN87Moz+M+FK5ilQaMfWiOnz9EQ2csZKbcAd
+                            tLO1MI/WtxU2jKHoXP5C3mEwqNdBenLxPzVKaKhJfHNIU2vkTi0owVDBhXjHWgBk
+                            tB8RjutmyNi09khbRwIDAQABo4IB3jCCAdowdAYIKwYBBQUHAQEEaDBmMCoGCCsG
+                            AQUFBzABhh5odHRwOi8vb2NzcC5xdW92YWRpc2dsb2JhbC5jb20wOAYIKwYBBQUH
+                            MAKGLGh0dHA6Ly90cnVzdC5xdW92YWRpc2dsb2JhbC5jb20vcXZzc2xpY2EuY3J0
+                            MGMGA1UdEQRcMFqCGWFhaS1sb2dvbi1iaS10ZXN0LmV0aHouY2iCD3ZrdW5nZnUu
+                            ZXRoei5jaIIPdmtpa3V5dS5ldGh6LmNogRt2bGFkaXNsYXYubmVzcG9yQGlkLmV0
+                            aHouY2gwUQYDVR0gBEowSDBGBgwrBgEEAb5YAAJkAQEwNjA0BggrBgEFBQcCARYo
+                            aHR0cDovL3d3dy5xdW92YWRpc2dsb2JhbC5jb20vcmVwb3NpdG9yeTAOBgNVHQ8B
+                            Af8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMB8GA1UdIwQY
+                            MBaAFDJNoU/q8K6Ztu6bByyECBFQi+J+MDsGA1UdHwQ0MDIwMKAuoCyGKmh0dHA6
+                            Ly9jcmwucXVvdmFkaXNnbG9iYWwuY29tL3F2c3NsaWNhLmNybDAdBgNVHQ4EFgQU
+                            lkFazbB6s22nWX7soKeUVJmaXsswDQYJKoZIhvcNAQEFBQADggEBAGPp0BMJv/7U
+                            MuW4ZnsZMkQYR39g+lVM2NaZfkElRTY8rKAPspu+ktOY2V+/PnvIWTSzhNcDN/fM
+                            EEaY1Q7jgwZOSRda5cawFKPvqOPFt2zTmNQAF5TGbYzgP0rEM4+JqbSKc7WPFEBZ
+                            rcCa1vD9rwP8YnYAYfGfh7UOmSS81SmryAlFBubJ4QnfTWcDggC3kKIvP1Kw6M6j
+                            Rw7zmoFVaZDFgNRE5EBulb2N/n07EVh2ABMiFBal0TFIXTHpd9ZdYVHZG07Zjl3I
+                            LVxuXK+nX/MC1NI+XnMS6xvAnYVcJzde4XQZIlR1TgX7aUic9OOLMFYkmRQfCtyH
+                            PBSZJ2TytgI=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon-bi-test.ethz.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon-bi-test.ethz.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-logon-bi-test.ethz.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-logon-bi-test.ethz.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-logon-bi-test.ethz.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-logon-bi-test.ethz.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">aai-logon-bi-test.ethz.ch
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIFRDCCBCygAwIBAgIUOjHm4EyYMCfH/vK0ohIZnxqUS4cwDQYJKoZIhvcNAQEF
+                            BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+                            BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+                            IEdsb2JhbCBTU0wgSUNBMB4XDTEzMDcyMjE0MjkwOVoXDTE1MDcyMjE0MjkwOVow
+                            azELMAkGA1UEBhMCQ0gxEDAOBgNVBAgTB1p1ZXJpY2gxEDAOBgNVBAcTB1p1ZXJp
+                            Y2gxFDASBgNVBAoTC0VUSCBadWVyaWNoMSIwIAYDVQQDExlhYWktbG9nb24tYmkt
+                            dGVzdC5ldGh6LmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm0Wu
+                            xvygKe6eRroo05HOe3FpO5LJCEaFuPWRub1bBjDdiRx+3ZuuC1bi4Z+ylIrsfsFZ
+                            Qewi264X7TxKRs/SwjUQCVY1kW+pswlovI4UK/4VQB+TKGza7ilbXVOZ0/Uqi6bp
+                            SqhF+hcyzD52dgZZTbsoPd+sgbuJ6wAsFhz8yA8VuByRlH2qMRBCsKFPcIDz+RL4
+                            OJRoZ3d/3Iye/4MP2OYFZOCFDFSsWN87Moz+M+FK5ilQaMfWiOnz9EQ2csZKbcAd
+                            tLO1MI/WtxU2jKHoXP5C3mEwqNdBenLxPzVKaKhJfHNIU2vkTi0owVDBhXjHWgBk
+                            tB8RjutmyNi09khbRwIDAQABo4IB3jCCAdowdAYIKwYBBQUHAQEEaDBmMCoGCCsG
+                            AQUFBzABhh5odHRwOi8vb2NzcC5xdW92YWRpc2dsb2JhbC5jb20wOAYIKwYBBQUH
+                            MAKGLGh0dHA6Ly90cnVzdC5xdW92YWRpc2dsb2JhbC5jb20vcXZzc2xpY2EuY3J0
+                            MGMGA1UdEQRcMFqCGWFhaS1sb2dvbi1iaS10ZXN0LmV0aHouY2iCD3ZrdW5nZnUu
+                            ZXRoei5jaIIPdmtpa3V5dS5ldGh6LmNogRt2bGFkaXNsYXYubmVzcG9yQGlkLmV0
+                            aHouY2gwUQYDVR0gBEowSDBGBgwrBgEEAb5YAAJkAQEwNjA0BggrBgEFBQcCARYo
+                            aHR0cDovL3d3dy5xdW92YWRpc2dsb2JhbC5jb20vcmVwb3NpdG9yeTAOBgNVHQ8B
+                            Af8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMB8GA1UdIwQY
+                            MBaAFDJNoU/q8K6Ztu6bByyECBFQi+J+MDsGA1UdHwQ0MDIwMKAuoCyGKmh0dHA6
+                            Ly9jcmwucXVvdmFkaXNnbG9iYWwuY29tL3F2c3NsaWNhLmNybDAdBgNVHQ4EFgQU
+                            lkFazbB6s22nWX7soKeUVJmaXsswDQYJKoZIhvcNAQEFBQADggEBAGPp0BMJv/7U
+                            MuW4ZnsZMkQYR39g+lVM2NaZfkElRTY8rKAPspu+ktOY2V+/PnvIWTSzhNcDN/fM
+                            EEaY1Q7jgwZOSRda5cawFKPvqOPFt2zTmNQAF5TGbYzgP0rEM4+JqbSKc7WPFEBZ
+                            rcCa1vD9rwP8YnYAYfGfh7UOmSS81SmryAlFBubJ4QnfTWcDggC3kKIvP1Kw6M6j
+                            Rw7zmoFVaZDFgNRE5EBulb2N/n07EVh2ABMiFBal0TFIXTHpd9ZdYVHZG07Zjl3I
+                            LVxuXK+nX/MC1NI+XnMS6xvAnYVcJzde4XQZIlR1TgX7aUic9OOLMFYkmRQfCtyH
+                            PBSZJ2TytgI=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon-bi-test.ethz.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon-bi-test.ethz.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">aai-logon-bi-test.ethz.ch
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="de">ETH Zürich (BI test)
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="en">ETH Zurich (BI test)
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">
+                http://www.aai-logon-bi-test.ethz.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

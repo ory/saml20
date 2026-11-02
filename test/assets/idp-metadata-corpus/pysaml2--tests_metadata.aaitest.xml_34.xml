@@ -1,0 +1,109 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="http://shibvm8.et-test.psu.edu">
+
+        
+        
+
+        
+        
+
+        
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+            <md:Extensions>
+                <shibmd:Scope regexp="false">psu.edu</shibmd:Scope>
+            </md:Extensions>
+
+            <md:KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDRjCCAq+gAwIBAgIJALJIC8NL/oBCMA0GCSqGSIb3DQEBBQUAMHYxCzAJBgNV
+                            BAYTAlVTMR0wGwYDVQQIExREaXN0cmljdCBvZiBDb2x1bWJpYTETMBEGA1UEBxMK
+                            V2FzaGluZ3RvbjERMA8GA1UEChMIU2hpYlZNIDgxIDAeBgNVBAMTF3NoaWJ2bTgu
+                            ZXQtdGVzdC5wc3UuZWR1MB4XDTA3MDkxMTIwNDAxNloXDTA4MDkxMDIwNDAxNlow
+                            djELMAkGA1UEBhMCVVMxHTAbBgNVBAgTFERpc3RyaWN0IG9mIENvbHVtYmlhMRMw
+                            EQYDVQQHEwpXYXNoaW5ndG9uMREwDwYDVQQKEwhTaGliVk0gODEgMB4GA1UEAxMX
+                            c2hpYnZtOC5ldC10ZXN0LnBzdS5lZHUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJ
+                            AoGBANA5RJ3Jk8cw8wG49PexiR4lx9qyIp3xWe1aiQbFpjdNrhPwGoT9ghe8DYbi
+                            20Umo5n/CqfLoHaeOE/qZQMCnbyU8hhb4ZLpktZY/x8eqYreccqCcj36wnxbvXHd
+                            fU755YJR92wvOh0zb6dvxoJDLg6sTjbtrSHPph/AThk59p8nAgMBAAGjgdswgdgw
+                            HQYDVR0OBBYEFGDxedDK68d23ZCYNQK3NPF8nbZzMIGoBgNVHSMEgaAwgZ2AFGDx
+                            edDK68d23ZCYNQK3NPF8nbZzoXqkeDB2MQswCQYDVQQGEwJVUzEdMBsGA1UECBMU
+                            RGlzdHJpY3Qgb2YgQ29sdW1iaWExEzARBgNVBAcTCldhc2hpbmd0b24xETAPBgNV
+                            BAoTCFNoaWJWTSA4MSAwHgYDVQQDExdzaGlidm04LmV0LXRlc3QucHN1LmVkdYIJ
+                            ALJIC8NL/oBCMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAumMBAWZ6
+                            hv17qvbakyGk21kCgGFLWQZg3nR5xlJfbUgCYRWqhMjsmjJv39lTsGDKAdsnncOV
+                            Zgs4sZzNcCbCvcj6JukiAhba6/cVJ1CRKQYEZbWurGGtXYGlZHWCQRd+S3EsoYoE
+                            IuaD9Dh350ioeqRvHHep672uJt5q7+61rL0=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="http://shibvm8.et-test.psu.edu:8080/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="http://shibvm8.et-test.psu.edu:8080/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="http://shibvm8.et-test.psu.edu:8080/idp/profile/Shibboleth/SSO" />
+
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://shibvm8.et-test.psu.edu:8080/idp/profile/SAML2/POST/SSO" />
+
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="http://shibvm8.et-test.psu.edu:8080/idp/profile/SAML2/POST-SimpleSign/SSO" />
+
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://shibvm8.et-test.psu.edu:8080/idp/profile/SAML2/Redirect/SSO" />
+        </md:IDPSSODescriptor>
+
+        
+        
+
+        
+        
+
+        
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+            <md:Extensions>
+                <shibmd:Scope regexp="false">psu.edu</shibmd:Scope>
+            </md:Extensions>
+
+            <md:KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDRjCCAq+gAwIBAgIJALJIC8NL/oBCMA0GCSqGSIb3DQEBBQUAMHYxCzAJBgNV
+                            BAYTAlVTMR0wGwYDVQQIExREaXN0cmljdCBvZiBDb2x1bWJpYTETMBEGA1UEBxMK
+                            V2FzaGluZ3RvbjERMA8GA1UEChMIU2hpYlZNIDgxIDAeBgNVBAMTF3NoaWJ2bTgu
+                            ZXQtdGVzdC5wc3UuZWR1MB4XDTA3MDkxMTIwNDAxNloXDTA4MDkxMDIwNDAxNlow
+                            djELMAkGA1UEBhMCVVMxHTAbBgNVBAgTFERpc3RyaWN0IG9mIENvbHVtYmlhMRMw
+                            EQYDVQQHEwpXYXNoaW5ndG9uMREwDwYDVQQKEwhTaGliVk0gODEgMB4GA1UEAxMX
+                            c2hpYnZtOC5ldC10ZXN0LnBzdS5lZHUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJ
+                            AoGBANA5RJ3Jk8cw8wG49PexiR4lx9qyIp3xWe1aiQbFpjdNrhPwGoT9ghe8DYbi
+                            20Umo5n/CqfLoHaeOE/qZQMCnbyU8hhb4ZLpktZY/x8eqYreccqCcj36wnxbvXHd
+                            fU755YJR92wvOh0zb6dvxoJDLg6sTjbtrSHPph/AThk59p8nAgMBAAGjgdswgdgw
+                            HQYDVR0OBBYEFGDxedDK68d23ZCYNQK3NPF8nbZzMIGoBgNVHSMEgaAwgZ2AFGDx
+                            edDK68d23ZCYNQK3NPF8nbZzoXqkeDB2MQswCQYDVQQGEwJVUzEdMBsGA1UECBMU
+                            RGlzdHJpY3Qgb2YgQ29sdW1iaWExEzARBgNVBAcTCldhc2hpbmd0b24xETAPBgNV
+                            BAoTCFNoaWJWTSA4MSAwHgYDVQQDExdzaGlidm04LmV0LXRlc3QucHN1LmVkdYIJ
+                            ALJIC8NL/oBCMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAumMBAWZ6
+                            hv17qvbakyGk21kCgGFLWQZg3nR5xlJfbUgCYRWqhMjsmjJv39lTsGDKAdsnncOV
+                            Zgs4sZzNcCbCvcj6JukiAhba6/cVJ1CRKQYEZbWurGGtXYGlZHWCQRd+S3EsoYoE
+                            IuaD9Dh350ioeqRvHHep672uJt5q7+61rL0=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="http://shibvm8.et-test.psu.edu:8080/idp/profile/SAML1/SOAP/AttributeQuery" />
+
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="http://shibvm8.et-test.psu.edu:8080/idp/profile/SAML2/SOAP/AttributeQuery" />
+
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+    </md:EntityDescriptor>
+    
+    

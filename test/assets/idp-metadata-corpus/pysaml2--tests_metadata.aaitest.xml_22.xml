@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://test.idph.switch.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.idph.switch.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">SWITCH IdP Hosting Test
+                        Login
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Test login for SWITCH IdP
+                        hosting
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDLDCCAhSgAwIBAgIJAMxcEJviu3XDMA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+                            BAMTE3Rlc3QuaWRwaC5zd2l0Y2guY2gwHhcNMTIwNDEwMTIxNTU2WhcNMTUwNDEw
+                            MTIxNTU2WjAeMRwwGgYDVQQDExN0ZXN0LmlkcGguc3dpdGNoLmNoMIIBIjANBgkq
+                            hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcNc/oB0HW96PTpuHeDR5MML3y8sMQ4z
+                            O35YmCvmg7Hx/uPOHrCc2v8H38QCj2JykoyrFASyQ5uHh0DQkAqyHwmyVNM97b4y
+                            Q2rIGGXO3ZVew1QWFUdDiNsDhPLKZLZT24I2uyJXqQCDySGXJ0E2ezafJv8VfGpR
+                            ZZriY18zYiom+z7SoCo92ZPBd+4pJczERURSPlNxVjBeJwaf6QNYTJcSYr8JI0/Y
+                            34OfVviA04tR20oc2lOGjVD5dEi40qnU6G6xe7vyPF+75l+PPVJzNgqBDFE+ICu4
+                            6Ahxwe5pMhH94/Ep+gv4fQPsr0aYONBQ19+67Kbcj0kYn5cYNcvMtQIDAQABo20w
+                            azBKBgNVHREEQzBBghN0ZXN0LmlkcGguc3dpdGNoLmNohipodHRwczovL3Rlc3Qu
+                            aWRwaC5zd2l0Y2guY2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFBenfe/MyDv+
+                            vPLe+UlfqFYumTJHMA0GCSqGSIb3DQEBBQUAA4IBAQCAGaAhHnmnt6vBcHit5KKG
+                            QguPOVKrEx19cEsVDz0Awr4z5yjSdKX1clMiSCE9tE0c569Ndtrhk9ivrBrssGaP
+                            wggTd2Ls6vFkRlwTwYZLpWuPYt142VWqennSo4OGUaAyji7vtoJDtACPNxOU/K92
+                            BVubMu9baz5EPBTvubMRF8eWPTNUba4H7rKB6bbAhgqk+sQVzncaiYOMtKnWj3Md
+                            6hSQn4XkKYB39+w4WvnN4KN3QnUOVvZ1P9Fi6I0r2F1TvtQCv5tyBO/Gbiu7L89C
+                            cBy8QAomYDiNoG7u+1PgmUeaqdsOZxbQ+u8yc+G0CETuBDK5j1LPmFZiLazEuHah
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://test.idph.switch.ch/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test.idph.switch.ch/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test.idph.switch.ch/idp/profile/SAML2/Redirect/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.idph.switch.ch/idp/profile/SAML2/POST/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test.idph.switch.ch/idp/profile/SAML2/SOAP/SLO" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://test.idph.switch.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test.idph.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.idph.switch.ch/idp/profile/SAML2/POST/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.idph.switch.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDLDCCAhSgAwIBAgIJAMxcEJviu3XDMA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+                            BAMTE3Rlc3QuaWRwaC5zd2l0Y2guY2gwHhcNMTIwNDEwMTIxNTU2WhcNMTUwNDEw
+                            MTIxNTU2WjAeMRwwGgYDVQQDExN0ZXN0LmlkcGguc3dpdGNoLmNoMIIBIjANBgkq
+                            hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzcNc/oB0HW96PTpuHeDR5MML3y8sMQ4z
+                            O35YmCvmg7Hx/uPOHrCc2v8H38QCj2JykoyrFASyQ5uHh0DQkAqyHwmyVNM97b4y
+                            Q2rIGGXO3ZVew1QWFUdDiNsDhPLKZLZT24I2uyJXqQCDySGXJ0E2ezafJv8VfGpR
+                            ZZriY18zYiom+z7SoCo92ZPBd+4pJczERURSPlNxVjBeJwaf6QNYTJcSYr8JI0/Y
+                            34OfVviA04tR20oc2lOGjVD5dEi40qnU6G6xe7vyPF+75l+PPVJzNgqBDFE+ICu4
+                            6Ahxwe5pMhH94/Ep+gv4fQPsr0aYONBQ19+67Kbcj0kYn5cYNcvMtQIDAQABo20w
+                            azBKBgNVHREEQzBBghN0ZXN0LmlkcGguc3dpdGNoLmNohipodHRwczovL3Rlc3Qu
+                            aWRwaC5zd2l0Y2guY2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFBenfe/MyDv+
+                            vPLe+UlfqFYumTJHMA0GCSqGSIb3DQEBBQUAA4IBAQCAGaAhHnmnt6vBcHit5KKG
+                            QguPOVKrEx19cEsVDz0Awr4z5yjSdKX1clMiSCE9tE0c569Ndtrhk9ivrBrssGaP
+                            wggTd2Ls6vFkRlwTwYZLpWuPYt142VWqennSo4OGUaAyji7vtoJDtACPNxOU/K92
+                            BVubMu9baz5EPBTvubMRF8eWPTNUba4H7rKB6bbAhgqk+sQVzncaiYOMtKnWj3Md
+                            6hSQn4XkKYB39+w4WvnN4KN3QnUOVvZ1P9Fi6I0r2F1TvtQCv5tyBO/Gbiu7L89C
+                            cBy8QAomYDiNoG7u+1PgmUeaqdsOZxbQ+u8yc+G0CETuBDK5j1LPmFZiLazEuHah
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://test.idph.switch.ch/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test.idph.switch.ch/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">test.idph.switch.ch
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">SWITCH IdP Hosting Test
+                Login
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.test.idph.switch.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

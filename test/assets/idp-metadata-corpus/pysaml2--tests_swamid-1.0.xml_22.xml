@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://swamid.user.uu.se/idp/shibboleth" xml:base="swamid-1.0/swamid.user.uu.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">user.uu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDMDCCAhigAwIBAgIVAPqNghQPfCgNNR69QmGvhnv2+MJSMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXN3YW1pZC51c2VyLnV1LnNlMB4XDTEwMDIyMzEyMzg1
+M1oXDTMwMDIyMzEyMzg1M1owHDEaMBgGA1UEAxMRc3dhbWlkLnVzZXIudXUuc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0rygeUgY9WEbkLe+IWLwo
+BF1qc8RA0kusBjjaw0Oxz03yxde5xqimaajD4J+qPIusKiyxTbc+9EwbNuuqFjxd
+u8orHU1rm+yMsMqnNOC1SQWEkMIVEPs4H4x6oVmKptDiXiY7yRhA0cRXr5RHulbw
+W2JCV+2yjOYlbacHJilmq2Qne6jqfcGpeFkNrNJsQrPTF396s3xt2+47GKpDC96U
+Ts8/3S2B9IWGnhdTTPSzk71bIClX+rPlGoK2mtfZ83SNJO5/vWze7Onslp5hfYxY
+gseuGLf1knlRLAVAeY7mbbwdNVUa/0MM0aRYp5N7XLRhUL2rHE7n/mX25k1S5pnT
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXN3YW1pZC51c2VyLnV1LnNlhihodHRwczov
+L3N3YW1pZC51c2VyLnV1LnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRF76Ds
+kiLuwuqhAdDXiefnXgsEeTANBgkqhkiG9w0BAQUFAAOCAQEAVkgHOAmDQh0f85ZQ
+qkuSu8h3RYKWbd/bPGDRtoJuoo/AM3OHAo2iMndMNS37B0MF0ethPU3t5mjHl+gx
+HDHEdG/3q2daaPLeehp46CXR1QLyYYB32pJpZyf85lCmtdXf8UZC682n3gYCL2k0
+Lg5a8sRosZsnCPolLGLyy9OPcmjTQPQhO7QHH6fMjm3ob3Hyfdbuyw/J/CRJp8Rj
+lC2c5ZX/5/3+uelyIlLOK5N1daJ3oYtSooXIkaAa8GRQR6C/UAfrp41cBuclYRzW
+L+FrdTBecYrIv0m4n8mAdQeJPBH7G/4mg+FFHS8gqf97m3JPwtGlF10V5KVt5jhl
+2DlT+A==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://swamid.user.uu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://swamid.user.uu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://swamid.user.uu.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://swamid.user.uu.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://swamid.user.uu.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://swamid.user.uu.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">user.uu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDMDCCAhigAwIBAgIVAPqNghQPfCgNNR69QmGvhnv2+MJSMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXN3YW1pZC51c2VyLnV1LnNlMB4XDTEwMDIyMzEyMzg1
+M1oXDTMwMDIyMzEyMzg1M1owHDEaMBgGA1UEAxMRc3dhbWlkLnVzZXIudXUuc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0rygeUgY9WEbkLe+IWLwo
+BF1qc8RA0kusBjjaw0Oxz03yxde5xqimaajD4J+qPIusKiyxTbc+9EwbNuuqFjxd
+u8orHU1rm+yMsMqnNOC1SQWEkMIVEPs4H4x6oVmKptDiXiY7yRhA0cRXr5RHulbw
+W2JCV+2yjOYlbacHJilmq2Qne6jqfcGpeFkNrNJsQrPTF396s3xt2+47GKpDC96U
+Ts8/3S2B9IWGnhdTTPSzk71bIClX+rPlGoK2mtfZ83SNJO5/vWze7Onslp5hfYxY
+gseuGLf1knlRLAVAeY7mbbwdNVUa/0MM0aRYp5N7XLRhUL2rHE7n/mX25k1S5pnT
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXN3YW1pZC51c2VyLnV1LnNlhihodHRwczov
+L3N3YW1pZC51c2VyLnV1LnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRF76Ds
+kiLuwuqhAdDXiefnXgsEeTANBgkqhkiG9w0BAQUFAAOCAQEAVkgHOAmDQh0f85ZQ
+qkuSu8h3RYKWbd/bPGDRtoJuoo/AM3OHAo2iMndMNS37B0MF0ethPU3t5mjHl+gx
+HDHEdG/3q2daaPLeehp46CXR1QLyYYB32pJpZyf85lCmtdXf8UZC682n3gYCL2k0
+Lg5a8sRosZsnCPolLGLyy9OPcmjTQPQhO7QHH6fMjm3ob3Hyfdbuyw/J/CRJp8Rj
+lC2c5ZX/5/3+uelyIlLOK5N1daJ3oYtSooXIkaAa8GRQR6C/UAfrp41cBuclYRzW
+L+FrdTBecYrIv0m4n8mAdQeJPBH7G/4mg+FFHS8gqf97m3JPwtGlF10V5KVt5jhl
+2DlT+A==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://swamid.user.uu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://swamid.user.uu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+        <md:OrganizationName xml:lang="en">UU</md:OrganizationName> 
+        <md:OrganizationDisplayName xml:lang="en">Uppsala universitet</md:OrganizationDisplayName> 
+        <md:OrganizationURL xml:lang="en">http://www.uu.se</md:OrganizationURL> 
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+        <md:Company>Uppsala universitet</md:Company> 
+        <md:SurName>AKKA SAML2</md:SurName> 
+        <md:EmailAddress>akka-datordrift@its.uu.se</md:EmailAddress> 
+    </md:ContactPerson>
+</md:EntityDescriptor>
+  

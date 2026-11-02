@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp-test.bea.switch.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">idp-test.bea.switch.ch
+                </shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">idp-test.bea.switch.ch
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">idp-test.bea.switch.ch
+                    </mdui:Description>
+                    <mdui:Logo height="16" width="16">
+                        data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAACF0RVh0U29mdHdhcmUAR3JhcGhpY0NvbnZlcnRlciAoSW50ZWwpd4f6GQAAAgFJREFUeJxi+P//P8PHXd1nfj484w1ik4rBxNsVeR+f1Kr+/7ira/Pfr++USTbg3aqCj4/LJP8/Lpf6/6LP8ce38+tb/v/7y0W8AWtKnj8qFvn/pFrp/+NKOTB+syD+0a/HF0KJMuD324eS79eVzwd64+/jCpn/T2qABgHpp/Ua/z9sadz759NLbbwGwPDP+ydNXs+NPPK4UhbsiifVimBvPe+2+f3l1LL+f39+8eM1AIz//mH8em5N5Is+p0cgzU+BhjytAhpWIf3/zeywF7/uH08EqmPEbQAU//v2nuvnockNj1uMv96r1vh/r0bz/70K5f/367T/P1pVc/zr2+cmeA348+8/49KtZ8Nt/ItvGzklvzd2SX2vZ5/0Xtc24X1xWevVp48e+uI04PCZW0YeKb2HWLWT/7PopIExg2rif1WP6p/z1x/v/P7rLy9WL9x59EoivW7hXF6jzL/Mmkn/ufTT/jMBaRHz3P9VfWt2vH73WR1rIL7/+JW9a862Mhn7oo+MGolgjSDb2XVT/gflTLl3/trDALzRmN+69DKDcux/Dt3U/xx6qf9BhhgF1H9bu+tM3b9//zkJJqSEyjkfGdUT/jMBNUpYF/xvnbF57ftP3+SJTsoJFXM+MgM1x5TOunbj3nNXkjNTet2Cx/PWHCoGsllJ0QzCAAAAAP//AwC4nrtuPmwfNwAAAABJRU5ErkJggg==
+                    </mdui:Logo>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>idp-test.bea.switch.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDRDCCAiygAwIBAgIVAI6I/QKAvZ++ambiPLpIHmt58oXzMA0GCSqGSIb3DQEB
+                            BQUAMCExHzAdBgNVBAMTFmlkcC10ZXN0LmJlYS5zd2l0Y2guY2gwHhcNMTIwMTE2
+                            MTYwNjAwWhcNMTUwMTE2MTYwNjAwWjAhMR8wHQYDVQQDExZpZHAtdGVzdC5iZWEu
+                            c3dpdGNoLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlhw7ufXD
+                            aEVHU0qbPxVZrfzf291I3DbHcCG7Rszk/y7AOpw1EmTkjAByQLwJ9I/Aao5pJBCj
+                            QQh6CR9AOKqFR4gxcehSyQmPSdYhA7kHJWaBejYF+GtmCDMOFmVju/7lAdXF/LDs
+                            9bNM1DnPmGhx5z2fjVbE35Wjvo+e/lfcdkGSUgW+zfsx8wtIvrrGndbIXkMp4LvP
+                            PP8N9DlJMO3ynu5FxHeRHKui0itcYBxPvN/0SNLw0/1pVBOvdB2L9ZZmw0FRNI2g
+                            jmAVy7xn/v8YyDQX2of/SWaL4zuEB0H1CpFqa3h9xFSeHRrBQAQeXl0i91fN5W46
+                            VBq+DHqzyYCN7QIDAQABo3MwcTBQBgNVHREESTBHghZpZHAtdGVzdC5iZWEuc3dp
+                            dGNoLmNohi1odHRwczovL2lkcC10ZXN0LmJlYS5zd2l0Y2guY2gvaWRwL3NoaWJi
+                            b2xldGgwHQYDVR0OBBYEFEkvSNgw2A3TMTTD8jn7terHbOv5MA0GCSqGSIb3DQEB
+                            BQUAA4IBAQASZ1/Re1AY61A9lz4qydnYfoeaVET+HWXI1bPda3+T/u2DcjTaMIo2
+                            zotAILRiYJxFP9paZMdvQ/SWyImHiQpBhkdW9+d5eLJM6R+bUyCVZ0An0b9kM6un
+                            GCJZ/7d2BxZ8CEMwcdAvD0x2OCiGds8OaFKuJVuKVfYF9OxSVPQ7un3VL2VCoBdx
+                            iqqOTltl6DR16DSpt3K5ctn0HNT63O1yL62f4/3qheWvLGwWzFuuxe2SABr+WeV6
+                            P05wMOhO+CHglHvpLlgMJ4K3MP/k+ybZACU1IQ6XiKXKnNrS8Hgk0YyRdJEhBOFx
+                            dT6wQuymfGx05j0RXtZbFGdnXyHx2mbW
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-test.bea.switch.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.bea.switch.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-test.bea.switch.ch/idp/profile/SAML2/Redirect/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-test.bea.switch.ch/idp/profile/SAML2/POST/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.bea.switch.ch/idp/profile/SAML2/SOAP/SLO" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp-test.bea.switch.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-test.bea.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-test.bea.switch.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp-test.bea.switch.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">idp-test.bea.switch.ch
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDRDCCAiygAwIBAgIVAI6I/QKAvZ++ambiPLpIHmt58oXzMA0GCSqGSIb3DQEB
+                            BQUAMCExHzAdBgNVBAMTFmlkcC10ZXN0LmJlYS5zd2l0Y2guY2gwHhcNMTIwMTE2
+                            MTYwNjAwWhcNMTUwMTE2MTYwNjAwWjAhMR8wHQYDVQQDExZpZHAtdGVzdC5iZWEu
+                            c3dpdGNoLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlhw7ufXD
+                            aEVHU0qbPxVZrfzf291I3DbHcCG7Rszk/y7AOpw1EmTkjAByQLwJ9I/Aao5pJBCj
+                            QQh6CR9AOKqFR4gxcehSyQmPSdYhA7kHJWaBejYF+GtmCDMOFmVju/7lAdXF/LDs
+                            9bNM1DnPmGhx5z2fjVbE35Wjvo+e/lfcdkGSUgW+zfsx8wtIvrrGndbIXkMp4LvP
+                            PP8N9DlJMO3ynu5FxHeRHKui0itcYBxPvN/0SNLw0/1pVBOvdB2L9ZZmw0FRNI2g
+                            jmAVy7xn/v8YyDQX2of/SWaL4zuEB0H1CpFqa3h9xFSeHRrBQAQeXl0i91fN5W46
+                            VBq+DHqzyYCN7QIDAQABo3MwcTBQBgNVHREESTBHghZpZHAtdGVzdC5iZWEuc3dp
+                            dGNoLmNohi1odHRwczovL2lkcC10ZXN0LmJlYS5zd2l0Y2guY2gvaWRwL3NoaWJi
+                            b2xldGgwHQYDVR0OBBYEFEkvSNgw2A3TMTTD8jn7terHbOv5MA0GCSqGSIb3DQEB
+                            BQUAA4IBAQASZ1/Re1AY61A9lz4qydnYfoeaVET+HWXI1bPda3+T/u2DcjTaMIo2
+                            zotAILRiYJxFP9paZMdvQ/SWyImHiQpBhkdW9+d5eLJM6R+bUyCVZ0An0b9kM6un
+                            GCJZ/7d2BxZ8CEMwcdAvD0x2OCiGds8OaFKuJVuKVfYF9OxSVPQ7un3VL2VCoBdx
+                            iqqOTltl6DR16DSpt3K5ctn0HNT63O1yL62f4/3qheWvLGwWzFuuxe2SABr+WeV6
+                            P05wMOhO+CHglHvpLlgMJ4K3MP/k+ybZACU1IQ6XiKXKnNrS8Hgk0YyRdJEhBOFx
+                            dT6wQuymfGx05j0RXtZbFGdnXyHx2mbW
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-test.bea.switch.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.bea.switch.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">idp-test.bea.switch.ch
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">idp-test.bea.switch.ch
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.idp-test.bea.switch.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

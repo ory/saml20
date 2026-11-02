@@ -1,0 +1,119 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://achat.psi.ch/idp/shibboleth">
+        <md:IDPSSODescriptor errorURL="http://ait.web.psi.ch/us/" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">psi.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="de">PSI - Paul Scherrer
+                        Institut
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="en">PSI - Paul Scherrer
+                        Institut
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="de">Das Paul Scherrer Institut
+                        ist ein multidisziplinäres Forschungszentrum für
+                        Naturwissenschaften und Technologie, das national und
+                        international eng mit Hochschulen, andern
+                        Forschungsinstituten, den Fachhochschulen und der
+                        Industrie zusammenarbeitet.
+                    </mdui:Description>
+                    <mdui:Description xml:lang="en">Das Paul Scherrer Institut
+                        ist ein multidisziplinäres Forschungszentrum für
+                        Naturwissenschaften und Technologie, das national und
+                        international eng mit Hochschulen, andern
+                        Forschungsinstituten, den Fachhochschulen und der
+                        Industrie zusammenarbeitet.
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>psi.ch</mdui:DomainHint>
+                    <mdui:DomainHint>psilab.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDEDCCAfigAwIBAgIJAKVL8xIHdnX5MA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+                            BAMTDGFjaGF0LnBzaS5jaDAeFw0xMzA5MzAwOTIyMzlaFw0xNjA5MjkwOTIyMzla
+                            MBcxFTATBgNVBAMTDGFjaGF0LnBzaS5jaDCCASIwDQYJKoZIhvcNAQEBBQADggEP
+                            ADCCAQoCggEBALsg6RG8J2DlaTVeg5VNIAGqpa7mbewIVe3sd3dmS4TIU7iEYcPu
+                            kj4FJtwY8gLDQakXIZw9r8v5uIe9uCepoRFkJxOxf/GRdGg0IQfp4VmqeBC8O24b
+                            CPJ//W68/v4voP5P3bnYNA41i5KMuanueVIyVn+c0ADGij8u6qkrA6hfvi3IyJ7A
+                            Is6buE6ZncOJupTBPY3EZ0rei5Dgx7mkdfImEl6FFyifVymuCGnQwe7K6KhC0E0e
+                            db+xZMkfHjIJKQd+a9rR+9Hv2l6PeW0xhC7IMIcTnqJ2lG+43v4SuAlT3dbSCD/a
+                            S/DyC/mZSg4eFCMawqzDkCOzWjZV4Razbz0CAwEAAaNfMF0wPAYDVR0RBDUwM4IM
+                            YWNoYXQucHNpLmNohiNodHRwczovL2FjaGF0LnBzaS5jaC9pZHAvc2hpYmJvbGV0
+                            aDAdBgNVHQ4EFgQUYGbVnR00fuCQpFzRNeBlfDbQVkwwDQYJKoZIhvcNAQEFBQAD
+                            ggEBAAC5syjuX3cvUMrDAhdd0jmjlzo9k/XNhGmQsmROy8KVmxq4Jt5bw6DagQG2
+                            p22JVUrsJRh7sBUZCNBeAo8/3evwJQoq/I5CIvy7gegfbzU42yesTDmASHXztag0
+                            6cq+wFde6wBZgmJcTS58chS8MtbRPYtCm49hlLGKsm55Vpxa6moVr+dEvwJ9BrTY
+                            noktgBzi5wTIBCLkMlPNoP2STQcwQF0JRVSlmS7UieHZJwoFSH9XV5SFyeZFSFpL
+                            tmzD89N3cMzV6WauIngvDULARGMstA/TzzeYOM1PjupCqzqaeUevMtD9TbWSlpM9
+                            V4pfEH7uhsCOMP/oX20TXH6ztQg=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://achat.psi.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://achat.psi.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://achat.psi.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://achat.psi.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://achat.psi.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://achat.psi.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">psi.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDEDCCAfigAwIBAgIJAKVL8xIHdnX5MA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+                            BAMTDGFjaGF0LnBzaS5jaDAeFw0xMzA5MzAwOTIyMzlaFw0xNjA5MjkwOTIyMzla
+                            MBcxFTATBgNVBAMTDGFjaGF0LnBzaS5jaDCCASIwDQYJKoZIhvcNAQEBBQADggEP
+                            ADCCAQoCggEBALsg6RG8J2DlaTVeg5VNIAGqpa7mbewIVe3sd3dmS4TIU7iEYcPu
+                            kj4FJtwY8gLDQakXIZw9r8v5uIe9uCepoRFkJxOxf/GRdGg0IQfp4VmqeBC8O24b
+                            CPJ//W68/v4voP5P3bnYNA41i5KMuanueVIyVn+c0ADGij8u6qkrA6hfvi3IyJ7A
+                            Is6buE6ZncOJupTBPY3EZ0rei5Dgx7mkdfImEl6FFyifVymuCGnQwe7K6KhC0E0e
+                            db+xZMkfHjIJKQd+a9rR+9Hv2l6PeW0xhC7IMIcTnqJ2lG+43v4SuAlT3dbSCD/a
+                            S/DyC/mZSg4eFCMawqzDkCOzWjZV4Razbz0CAwEAAaNfMF0wPAYDVR0RBDUwM4IM
+                            YWNoYXQucHNpLmNohiNodHRwczovL2FjaGF0LnBzaS5jaC9pZHAvc2hpYmJvbGV0
+                            aDAdBgNVHQ4EFgQUYGbVnR00fuCQpFzRNeBlfDbQVkwwDQYJKoZIhvcNAQEFBQAD
+                            ggEBAAC5syjuX3cvUMrDAhdd0jmjlzo9k/XNhGmQsmROy8KVmxq4Jt5bw6DagQG2
+                            p22JVUrsJRh7sBUZCNBeAo8/3evwJQoq/I5CIvy7gegfbzU42yesTDmASHXztag0
+                            6cq+wFde6wBZgmJcTS58chS8MtbRPYtCm49hlLGKsm55Vpxa6moVr+dEvwJ9BrTY
+                            noktgBzi5wTIBCLkMlPNoP2STQcwQF0JRVSlmS7UieHZJwoFSH9XV5SFyeZFSFpL
+                            tmzD89N3cMzV6WauIngvDULARGMstA/TzzeYOM1PjupCqzqaeUevMtD9TbWSlpM9
+                            V4pfEH7uhsCOMP/oX20TXH6ztQg=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://achat.psi.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://achat.psi.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">psi.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="de">PSI - Paul Scherrer
+                Institut
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="en">PSI - Paul Scherrer
+                Institut
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="de">http://www.psi.ch/</md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

@@ -1,0 +1,102 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.kb.switch.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">login.kb.switch.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">SWITCH Test IdP KB
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">This IdP is used for testing
+                        purposes in the AAI Test Federation only.
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>login.kb.switch.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDKDCCAhCgAwIBAgIJAKnCLE1QlFbeMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+                            BAMTEmxvZ2luLmtiLnN3aXRjaC5jaDAeFw0xMzEwMTAxMzE1MTZaFw0xNjEwMDkx
+                            MzE1MTZaMB0xGzAZBgNVBAMTEmxvZ2luLmtiLnN3aXRjaC5jaDCCASIwDQYJKoZI
+                            hvcNAQEBBQADggEPADCCAQoCggEBAJ/JK7ghdXmv9pi0umWM3ZO7WGC9g3lyH9uT
+                            5IrW4JjXuwurv60pD2turk24b/ElU5IZGj061APGwfa8708ICI4JF4VvQ3RSggTC
+                            MlTjNNz0IrBXg9ycygXOxyOZErtaqwB0q+vWMX+R4UbHrgG3WsM5+Gp0LbsWjDNG
+                            AAAI4PKb3Lb+mZDkliIU22yQGHnIJAvYfsG9AU4/+17VZDxVnD3yshkfEwjP2xTc
+                            Y4gknBmRU5duCYYfXwAx0c6xGlUgamLvTjpa/biv9vrgZkInqf8sRIjbh4/aPkOV
+                            vpkWRhRXtbyIe4hqukh9oPKU9Fd9ougAJkNzmQbbudzDx0PqfIMCAwEAAaNrMGkw
+                            SAYDVR0RBEEwP4ISbG9naW4ua2Iuc3dpdGNoLmNohilodHRwczovL2xvZ2luLmti
+                            LnN3aXRjaC5jaC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU4Niq2sRvnnaUUg+O
+                            ZF1cvrleizkwDQYJKoZIhvcNAQEFBQADggEBAIe8dWDD8MyR6fAPgQm0F5RLA6RP
+                            vjn6aSYV8s4Qlsq1sOVARwOHi3Sv/RvHmH6noPnW17e2eivx5F9DhcwGbZehE1RJ
+                            4jLxnBj59J881VyWx9hgkTyX5laYVgm8F9uo93LX/JnOlLgSuTL0lMAIsEa68I7l
+                            WWqdVt0q5viuzuFt/j+SepG5pmj8pTUEoTtT1SEEYkeIKP4Wah5gaLm43/XgVLQP
+                            MKjXaxg0GGwQ2kZbtxHmaxLWjQdqVAWUtnPZlpJS1dN8KRwLqEzgnDzAL6JZ4LRn
+                            8hrhWHDz3B5tyn3kes3Zagbl+OCPVmB45F2IW+NFJ37sjY40n9RO9iTiNOM=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.kb.switch.ch/idp/profile/SAML2/SOAP/ArtifactResolution" index="1" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.kb.switch.ch/idp/profile/SAML2/Redirect/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.kb.switch.ch/idp/profile/SAML2/POST/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.kb.switch.ch/idp/profile/SAML2/SOAP/SLO" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="http://only.saml2.spoken.here.invalid" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.kb.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.kb.switch.ch/idp/profile/SAML2/POST/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">login.kb.switch.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDKDCCAhCgAwIBAgIJAKnCLE1QlFbeMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+                            BAMTEmxvZ2luLmtiLnN3aXRjaC5jaDAeFw0xMzEwMTAxMzE1MTZaFw0xNjEwMDkx
+                            MzE1MTZaMB0xGzAZBgNVBAMTEmxvZ2luLmtiLnN3aXRjaC5jaDCCASIwDQYJKoZI
+                            hvcNAQEBBQADggEPADCCAQoCggEBAJ/JK7ghdXmv9pi0umWM3ZO7WGC9g3lyH9uT
+                            5IrW4JjXuwurv60pD2turk24b/ElU5IZGj061APGwfa8708ICI4JF4VvQ3RSggTC
+                            MlTjNNz0IrBXg9ycygXOxyOZErtaqwB0q+vWMX+R4UbHrgG3WsM5+Gp0LbsWjDNG
+                            AAAI4PKb3Lb+mZDkliIU22yQGHnIJAvYfsG9AU4/+17VZDxVnD3yshkfEwjP2xTc
+                            Y4gknBmRU5duCYYfXwAx0c6xGlUgamLvTjpa/biv9vrgZkInqf8sRIjbh4/aPkOV
+                            vpkWRhRXtbyIe4hqukh9oPKU9Fd9ougAJkNzmQbbudzDx0PqfIMCAwEAAaNrMGkw
+                            SAYDVR0RBEEwP4ISbG9naW4ua2Iuc3dpdGNoLmNohilodHRwczovL2xvZ2luLmti
+                            LnN3aXRjaC5jaC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU4Niq2sRvnnaUUg+O
+                            ZF1cvrleizkwDQYJKoZIhvcNAQEFBQADggEBAIe8dWDD8MyR6fAPgQm0F5RLA6RP
+                            vjn6aSYV8s4Qlsq1sOVARwOHi3Sv/RvHmH6noPnW17e2eivx5F9DhcwGbZehE1RJ
+                            4jLxnBj59J881VyWx9hgkTyX5laYVgm8F9uo93LX/JnOlLgSuTL0lMAIsEa68I7l
+                            WWqdVt0q5viuzuFt/j+SepG5pmj8pTUEoTtT1SEEYkeIKP4Wah5gaLm43/XgVLQP
+                            MKjXaxg0GGwQ2kZbtxHmaxLWjQdqVAWUtnPZlpJS1dN8KRwLqEzgnDzAL6JZ4LRn
+                            8hrhWHDz3B5tyn3kes3Zagbl+OCPVmB45F2IW+NFJ37sjY40n9RO9iTiNOM=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="http://no.saml1.spoken.here.invalid" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.kb.switch.ch/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">login.kb.switch.ch
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">SWITCH Test IdP KB
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.login.kb.switch.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shib-idp-1.oru.se/idp/shibboleth" xml:base="swamid-1.0/shib-idp-1.oru.se.xml">
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <shibmd:Scope regexp="false">oru.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIDMDCCAhigAwIBAgIVALJU7HH8NWybHvd6JV9KLneiEBQ9MA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNoaWItaWRwLTEub3J1LnNlMB4XDTA5MTAyNjEwMjU1
+NVoXDTI5MTAyNjA5MjU1NVowHDEaMBgGA1UEAxMRc2hpYi1pZHAtMS5vcnUuc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC7J4bgJcpbTuu4SD8pYvDC
+D5lRoaxVTvvacSPEIt2FUTGfa+smWLJvaoxL7eaP517Re9xqqw0MyRZ2fjyDW2GU
+z84RhCMQemT6EccDCEDwubkjoq41QQFbOsk/uh40Q0a/fOniP+e9cDpq57vQTux6
+a1tFNHgbOVR/1PsCksVsY6tdVbR364otqKXIti8ddYmPB5ax5Qr4+ezD7MJwitvN
+NyOgZZ2qM8P7Y1rMN+kKb4OTPHLIhVUiCRtww3p/9HTZOhjxRZbDKNLVQjHCwv9N
+pKh+cON1k5YGSEYba28z1ZuKKvVq6cCMcgndTiMA0R8LxMi3psbWB6rohddoo8E9
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNoaWItaWRwLTEub3J1LnNlhihodHRwczov
+L3NoaWItaWRwLTEub3J1LnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSJG9Hv
+5hKDK9iBmJYEU3Hg0DZZPzANBgkqhkiG9w0BAQUFAAOCAQEAC1tgenssXaACi4b0
+O+j5Qno3bjq35y+cj0OC/Za2lBuD10zYiySOMcuxg7WdPDiiTKtoBdYkRRN6oKiT
+ix3hLTwuU3PjLTIZ83ytNgezEa6oK+iCGi/ecz2ax77QZ9rqpQCRNudIZjbTN6SO
+x+FduJkHovXk0Z9zfp5YZzJG2ViPYemurS8OEofkJXQKgmoFmw+LycSTMx2G6rnN
+SqQVF5wbEc9N1wy/sisZQ8yw4Err6mDAChcnrGtfFQ5aR89Xrb2VIkaOTRysytEQ
+JCVUOimhAjCyTt7bIWWH3Y1VYBQ9PfklNyHfusJ3AjqnuqYjoDiDKEz42EqLnq71
+Pz8R3A==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib-idp-1.oru.se/idp/profile/Shibboleth/SSO" />
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/POST/SSO" />
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/Redirect/SSO" />
+  </md:IDPSSODescriptor>
+  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <shibmd:Scope regexp="false">oru.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor>
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIDMDCCAhigAwIBAgIVALJU7HH8NWybHvd6JV9KLneiEBQ9MA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNoaWItaWRwLTEub3J1LnNlMB4XDTA5MTAyNjEwMjU1
+NVoXDTI5MTAyNjA5MjU1NVowHDEaMBgGA1UEAxMRc2hpYi1pZHAtMS5vcnUuc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC7J4bgJcpbTuu4SD8pYvDC
+D5lRoaxVTvvacSPEIt2FUTGfa+smWLJvaoxL7eaP517Re9xqqw0MyRZ2fjyDW2GU
+z84RhCMQemT6EccDCEDwubkjoq41QQFbOsk/uh40Q0a/fOniP+e9cDpq57vQTux6
+a1tFNHgbOVR/1PsCksVsY6tdVbR364otqKXIti8ddYmPB5ax5Qr4+ezD7MJwitvN
+NyOgZZ2qM8P7Y1rMN+kKb4OTPHLIhVUiCRtww3p/9HTZOhjxRZbDKNLVQjHCwv9N
+pKh+cON1k5YGSEYba28z1ZuKKvVq6cCMcgndTiMA0R8LxMi3psbWB6rohddoo8E9
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNoaWItaWRwLTEub3J1LnNlhihodHRwczov
+L3NoaWItaWRwLTEub3J1LnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSJG9Hv
+5hKDK9iBmJYEU3Hg0DZZPzANBgkqhkiG9w0BAQUFAAOCAQEAC1tgenssXaACi4b0
+O+j5Qno3bjq35y+cj0OC/Za2lBuD10zYiySOMcuxg7WdPDiiTKtoBdYkRRN6oKiT
+ix3hLTwuU3PjLTIZ83ytNgezEa6oK+iCGi/ecz2ax77QZ9rqpQCRNudIZjbTN6SO
+x+FduJkHovXk0Z9zfp5YZzJG2ViPYemurS8OEofkJXQKgmoFmw+LycSTMx2G6rnN
+SqQVF5wbEc9N1wy/sisZQ8yw4Err6mDAChcnrGtfFQ5aR89Xrb2VIkaOTRysytEQ
+JCVUOimhAjCyTt7bIWWH3Y1VYBQ9PfklNyHfusJ3AjqnuqYjoDiDKEz42EqLnq71
+Pz8R3A==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+  </md:AttributeAuthorityDescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">ORU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Örebro Universitet</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.oru.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Jonny</md:GivenName>
+    <md:SurName>Ehrnberg</md:SurName>
+    <md:EmailAddress>jonny.ehrnberg@oru.se</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Mikael</md:GivenName>
+    <md:SurName>Borjesson</md:SurName>
+    <md:EmailAddress>mikael.borjesson@oru.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

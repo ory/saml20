@@ -1,0 +1,1495 @@
+{
+  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's.",
+  "documents": [
+    {
+      "file": "pysaml2--example_idp2_idp.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "example/idp2/idp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "pysaml2--tests_idp_slo_redirect.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/idp_slo_redirect.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_2.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_3.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_4.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_5.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_6.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_7.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_8.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_9.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_10.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_idp_aa.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/idp_aa.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata_example.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata_example.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_idp_uiinfo.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/idp_uiinfo.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_idp_all.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/idp_all.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_2.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_3.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_4.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_5.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_6.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_7.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_8.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_9.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_10.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_11.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_12.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_13.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_14.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_15.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_16.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_17.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_18.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_19.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_20.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_21.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_22.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_23.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_24.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_25.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_26.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_27.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_28.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_29.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_30.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_31.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_32.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_33.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_34.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_35.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_36.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_37.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_38.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_swamid-1.0.xml_39.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/swamid-1.0.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_2.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_3.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_4.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_5.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_6.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_7.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_8.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_9.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_10.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_11.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_12.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_13.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_14.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_15.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_16.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_17.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_18.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_19.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_20.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_21.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_22.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_23.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_24.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_25.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_26.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_27.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_28.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_29.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_30.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_31.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_32.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_33.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_34.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata.aaitest.xml_35.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata.aaitest.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_idp.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/idp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "pysaml2--tests_idp_2.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/idp_2.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_idp_example.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/idp_example.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "pysaml2--tests_idp_soap.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/idp_soap.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata_idp_uiinfo.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata/idp_uiinfo.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "pysaml2--tests_metadata_idp.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata/idp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_multiple_descriptors.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_multiple_descriptors.xml",
+        "license": "MIT"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_multiple_descriptors.xml_2.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_multiple_descriptors.xml",
+        "license": "MIT"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_descriptor_3.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_descriptor_3.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_descriptor_4.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_descriptor_4.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_different_slo_response_location.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_different_slo_response_location.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_descriptor_5.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_descriptor_5.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_descriptor_2.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_descriptor_2.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_metadata_same_sign_and_encrypt_cert.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_metadata_same_sign_and_encrypt_cert.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_descriptor_6.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_descriptor_6.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_metadata_different_sign_and_encrypt_cert.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_metadata_different_sign_and_encrypt_cert.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_multiple_descriptors_2.xml_2.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_multiple_descriptors_2.xml",
+        "license": "MIT"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_metadata_multi_certs.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_metadata_multi_certs.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_descriptor.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_descriptor.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_metadata_multi_signing_certs.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_metadata_multi_signing_certs.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "ruby-saml--test_metadata_idp_without_slo_response_location.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/idp_without_slo_response_location.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "saml--samlsp_testdata_idp_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "samlsp/testdata/idp_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "saml--samlsp_testdata_testshib_metadata.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "samlsp/testdata/testshib_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "saml--testdata_TestSPRealWorldAssertionSignedNotResponse_idp_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPRealWorldAssertionSignedNotResponse_idp_metadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "saml--testdata_TestGetArtifactBindingLocation_IDPMetadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestGetArtifactBindingLocation_IDPMetadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "saml--testdata_TestSPRejectsMalformedResponse_IDPMetadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPRejectsMalformedResponse_IDPMetadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "saml--testdata_TestSPCanHandleOktaSignedResponseEncryptedAssertion_IDPMetadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanHandleOktaSignedResponseEncryptedAssertion_IDPMetadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "saml--testdata_TestSPCanHandleOneloginResponse_IDPMetadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanHandleOneloginResponse_IDPMetadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "saml--testdata_TestServiceProviderCanHandleSignedAssertionsResponse_IDPMetadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestServiceProviderCanHandleSignedAssertionsResponse_IDPMetadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "saml--testdata_SP_IDPMetadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/SP_IDPMetadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "python3-saml--tests_data_metadata_idp_multiple_descriptors.xml_2.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/idp_multiple_descriptors.xml",
+        "license": "MIT"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "python3-saml--tests_data_metadata_idp_metadata.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/idp_metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "python3-saml--tests_data_metadata_idp_metadata_same_sign_and_encrypt_cert.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/idp_metadata_same_sign_and_encrypt_cert.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "python3-saml--tests_data_metadata_testshib-providers.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/testshib-providers.xml",
+        "license": "MIT"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "python3-saml--tests_data_metadata_idp_metadata2.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/idp_metadata2.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "python3-saml--tests_data_metadata_idp_metadata_different_sign_and_encrypt_cert.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/idp_metadata_different_sign_and_encrypt_cert.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "python3-saml--tests_data_metadata_idp_metadata_multi_signing_certs.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/idp_metadata_multi_signing_certs.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_idp_metadata.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/idp_metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_metadata.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_shib_metadata.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/shib_metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_shib_metadata.xml_2.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/shib_metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_onelogin_metadata.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/onelogin_metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_testshib-providers.xml_1.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/testshib-providers.xml",
+        "license": "MIT"
+      },
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_idp_metadata_multi_certs.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/idp_metadata_multi_certs.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_FederationMetadata.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/FederationMetadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "php-saml--tests_data_metadata_idp_idp_metadata_multi_signing_certs.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/idp/idp_metadata_multi_signing_certs.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "polis--npm_test_identity-federation_data_metadata.xml",
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/identity-federation/data/metadata.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "polis--npm_test_sso_data_metadata_boxyhq.xml",
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/sso/data/metadata/boxyhq.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "polis--npm_test_sso_data_metadata_example.xml",
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/sso/data/metadata/example.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "polis--npm_test_sso_data_metadata_noentityID_boxyhq-noentityID.xml",
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/sso/data/metadata/noentityID/boxyhq-noentityID.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "polis--npm_test_sso_data_metadata_nobinding_boxyhq-nobinding.xml",
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/sso/data/metadata/nobinding/boxyhq-nobinding.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "polis--_dev_saml_config_boxyhq.xml",
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "_dev/saml_config/boxyhq.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "samlify--test_misc_idpmeta_onelogoutservice.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/idpmeta_onelogoutservice.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "samlify--test_misc_idpmeta.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/idpmeta.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "samlify--test_misc_multiple_entitydescriptor.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/multiple_entitydescriptor.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "samlify--test_misc_idpmeta_nosign.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/idpmeta_nosign.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "samlify--test_misc_idpmeta_share_cert.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/idpmeta_share_cert.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    },
+    {
+      "file": "samlify--test_misc_idpmeta_rollingcert.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/idpmeta_rollingcert.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published"
+    }
+  ]
+}

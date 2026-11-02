@@ -1,0 +1,102 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://testidp.unifr.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.unifr.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Université de Fribourg Test
+                        Home Organization
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">L\'Université suisse
+                        bilingue. Die zweisprachige Universität.
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>test.unifr.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDLDCCAhSgAwIBAgIVAJVcm9m/w8qa8DFzMd592CsSI6LxMA0GCSqGSIb3DQEB
+                            BQUAMBsxGTAXBgNVBAMTEHRlc3RpZHAudW5pZnIuY2gwHhcNMTIwMjIzMTA1OTQ4
+                            WhcNMTUwMjIzMTA1OTQ4WjAbMRkwFwYDVQQDExB0ZXN0aWRwLnVuaWZyLmNoMIIB
+                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAopfdhdLfnX43TbsyUODvyXcc
+                            I63Sp2J43Xluc5xOsvdzSjA0ws087EYNx5o5oTrXRcKg30ooichkfxVG9WylPaF+
+                            yNwnEFbPrndK23wozgBoTSr0W8Bd9Wa+2YVCb3P8XvZkc12y7NmBZEDTznvRJfXt
+                            KBLH7u+tUkSgt7ky/V6rRUvuDWlsah3njMWQIJfHm3r/qaTA/1zFmNRcszWkkwKp
+                            F5XrQksr766EybaJpJpYPkeS7L+pP3HvyprG8NRm7gNbFn9HzKoOPf+cvnurGN4r
+                            bRnKsLYJC80MFbqY6Dv5sIy3FpyR1cODGqZfi1dI6HZS8o7aa1H9jeeDaToKDQID
+                            AQABo2cwZTBEBgNVHREEPTA7ghB0ZXN0aWRwLnVuaWZyLmNohidodHRwczovL3Rl
+                            c3RpZHAudW5pZnIuY2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFFh4sQu+oGFd
+                            49jhSN87P8Y+Py+5MA0GCSqGSIb3DQEBBQUAA4IBAQBo3p6agRoGGxg/M/Y2bEU+
+                            vqDCyTLoUv06ykvFBavNyXu1+1CY55ubu54pjxNWtiuBoSVrkMonPbVMjEvSwDOZ
+                            E4lNtIRUsCIMC/dT9wWp9fVH0jlsJu1z189DuYQdIN2/sot/Cfx5LKl8cCyyY4kM
+                            jBjNn2ZWpjYc+HdEbTB3kbxSs5GhDzsatSnokO0ipRAVg1/z3VY3JUccCWPS7vEe
+                            GM4hLS/Z9PLc3l/DlwrAAEBsVNGl6MX60CGRV1eKhMzUBvB143qrSsMkOug/Sg2v
+                            qZQXcAEtay8hNJNO00TGuX8R7ViXlShwPH/K9YQb/WTxJnxh6GLI0aAn3iJJtW3W
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://testidp.unifr.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://testidp.unifr.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://testidp.unifr.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://testidp.unifr.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://testidp.unifr.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://testidp.unifr.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.unifr.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDLDCCAhSgAwIBAgIVAJVcm9m/w8qa8DFzMd592CsSI6LxMA0GCSqGSIb3DQEB
+                            BQUAMBsxGTAXBgNVBAMTEHRlc3RpZHAudW5pZnIuY2gwHhcNMTIwMjIzMTA1OTQ4
+                            WhcNMTUwMjIzMTA1OTQ4WjAbMRkwFwYDVQQDExB0ZXN0aWRwLnVuaWZyLmNoMIIB
+                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAopfdhdLfnX43TbsyUODvyXcc
+                            I63Sp2J43Xluc5xOsvdzSjA0ws087EYNx5o5oTrXRcKg30ooichkfxVG9WylPaF+
+                            yNwnEFbPrndK23wozgBoTSr0W8Bd9Wa+2YVCb3P8XvZkc12y7NmBZEDTznvRJfXt
+                            KBLH7u+tUkSgt7ky/V6rRUvuDWlsah3njMWQIJfHm3r/qaTA/1zFmNRcszWkkwKp
+                            F5XrQksr766EybaJpJpYPkeS7L+pP3HvyprG8NRm7gNbFn9HzKoOPf+cvnurGN4r
+                            bRnKsLYJC80MFbqY6Dv5sIy3FpyR1cODGqZfi1dI6HZS8o7aa1H9jeeDaToKDQID
+                            AQABo2cwZTBEBgNVHREEPTA7ghB0ZXN0aWRwLnVuaWZyLmNohidodHRwczovL3Rl
+                            c3RpZHAudW5pZnIuY2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFFh4sQu+oGFd
+                            49jhSN87P8Y+Py+5MA0GCSqGSIb3DQEBBQUAA4IBAQBo3p6agRoGGxg/M/Y2bEU+
+                            vqDCyTLoUv06ykvFBavNyXu1+1CY55ubu54pjxNWtiuBoSVrkMonPbVMjEvSwDOZ
+                            E4lNtIRUsCIMC/dT9wWp9fVH0jlsJu1z189DuYQdIN2/sot/Cfx5LKl8cCyyY4kM
+                            jBjNn2ZWpjYc+HdEbTB3kbxSs5GhDzsatSnokO0ipRAVg1/z3VY3JUccCWPS7vEe
+                            GM4hLS/Z9PLc3l/DlwrAAEBsVNGl6MX60CGRV1eKhMzUBvB143qrSsMkOug/Sg2v
+                            qZQXcAEtay8hNJNO00TGuX8R7ViXlShwPH/K9YQb/WTxJnxh6GLI0aAn3iJJtW3W
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://testidp.unifr.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://testidp.unifr.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">test.unifr.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Université de Fribourg Test
+                Home Organization
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.test.unifr.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

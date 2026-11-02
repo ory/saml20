@@ -1,0 +1,33 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://test-tequila.epfl.ch/SAML2IdP">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">epfl.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">EPFL Test Identity
+                        Provider
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">EPFL Test Identity
+                        Provider
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test-tequila.epfl.ch/SAML2IdP/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test-tequila.epfl.ch/SAML2IdP/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://test-tequila.epfl.ch/SAML2IdP/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">epfl.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">EPFL Test Identity Provider
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.epfl.ch/</md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    
