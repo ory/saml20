@@ -1,3 +1,4 @@
+import { create } from 'xmlbuilder2';
 import { parseFromString, setOwn } from './utils';
 
 // What xmlToObject produces: attributes under `attrkey` (a map of strings),
@@ -120,5 +121,28 @@ const xmlToObject = (xml: string, options: XmlObjectOptions): XmlNode | null => 
   return result;
 };
 
-export { xmlToObject };
+type BuildOptions = {
+  encoding?: string;
+  standalone?: boolean;
+  pretty?: boolean;
+};
+
+// Characters XML 1.0 cannot carry, including a lone surrogate half.
+const illegalChar =
+  // oxlint-disable-next-line no-control-regex -- the control characters are the point
+  /[\0-\x08\x0B\f\x0E-\x1F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+
+// Serializes nodes in the xmlbuilder2 object convention (`@name` attributes,
+// `#text`, lists for repeated elements) with an XML declaration. A carriage
+// return is written as a character reference: a receiving parser would turn
+// a literal one into a line feed.
+const buildXml = (nodes: object, { pretty, ...declaration }: BuildOptions = {}): string => {
+  const xml = create({ version: '1.0', ...declaration }, nodes).end({ prettyPrint: pretty });
+  if (illegalChar.test(xml)) {
+    throw new Error('Invalid character in XML.');
+  }
+  return xml.replace(/\r/g, '&#xD;');
+};
+
+export { xmlToObject, buildXml };
 export type { XmlObjectOptions, XmlNode, XmlValue };

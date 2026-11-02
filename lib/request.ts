@@ -1,9 +1,8 @@
 import { promisify } from 'util';
 import { inflateRaw } from 'zlib';
-import xmlbuilder from 'xmlbuilder';
 import { SAMLReq } from './typings';
 import { generateId, getAttribute } from './utils';
-import { xmlToObject } from './xml';
+import { xmlToObject, buildXml } from './xml';
 import type { XmlValue } from './xml';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS } from './constants';
@@ -78,7 +77,7 @@ const request = ({
     samlReq['samlp:AuthnRequest']['@ProviderName'] = providerName;
   }
 
-  let xml = xmlbuilder.create(samlReq).end({});
+  let xml = buildXml(samlReq);
   if (signingKey) {
     xml = sign(xml, signingKey, publicKey, authnXPath);
   }

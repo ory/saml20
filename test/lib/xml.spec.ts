@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import { xmlToObject } from '../../lib/xml';
+import { xmlToObject, buildXml } from '../../lib/xml';
 import { doctypeNotAllowedError, multiRootedXMLError } from '../../lib/utils';
 
 const asDollar = (xml: string) => xmlToObject(xml, { attrkey: '$' });
@@ -205,5 +205,51 @@ describe('xmlToObject', function () {
     assert.strictEqual(asDollar('<a>x&lt;&gt;&quot;&apos;</a>')!.a, 'x<>"\'');
     assert.strictEqual(asDollar('<a><![CDATA[a & b]]></a>')!.a, 'a & b');
     assert.strictEqual(asDollar('<a><!-- a & b -->c</a>')!.a, 'c');
+  });
+});
+
+describe('buildXml', function () {
+  const nodes = {
+    'a:root': {
+      '@xmlns:a': 'urn:a',
+      '@n': 1,
+      '@f': false,
+      'a:child': [{ '#text': 'x & <y>' }, { '@q': '"' }],
+    },
+  };
+
+  it('serializes attributes, text and repeated elements with a declaration', function () {
+    assert.strictEqual(
+      buildXml(nodes),
+      '<?xml version="1.0"?><a:root xmlns:a="urn:a" n="1" f="false"><a:child>x &amp; &lt;y&gt;</a:child><a:child q="&quot;"/></a:root>'
+    );
+  });
+
+  it('writes the encoding and standalone values and pretty-prints on request', function () {
+    assert.strictEqual(
+      buildXml({ a: { b: { '#text': 't' } } }, { encoding: 'UTF-8', standalone: false, pretty: true }),
+      '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n<a>\n  <b>t</b>\n</a>'
+    );
+    assert.strictEqual(
+      buildXml({ a: {} }, { encoding: 'UTF-8' }),
+      '<?xml version="1.0" encoding="UTF-8"?><a/>'
+    );
+  });
+
+  it('escapes a carriage return so the parser does not normalize it away', function () {
+    assert.strictEqual(
+      buildXml({ a: { '@x': 'p\rq', '#text': 'r\rs' } }),
+      '<?xml version="1.0"?><a x="p&#xD;q">r&#xD;s</a>'
+    );
+  });
+
+  it('rejects a character XML cannot carry', function () {
+    assert.throws(() => buildXml({ a: { '#text': 'a\u0001b' } }), /Invalid character/);
+    assert.throws(() => buildXml({ a: { '#text': 'a\ud800b' } }), /Invalid character/);
+    assert.throws(() => buildXml({ a: { '@x': 'a\u0000b' } }), /Invalid character/);
+    assert.strictEqual(
+      buildXml({ a: { '#text': 'tab\t\u00e9\u{1F600}' } }),
+      '<?xml version="1.0"?><a>tab\t\u00e9\u{1F600}</a>'
+    );
   });
 });

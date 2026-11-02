@@ -1,5 +1,4 @@
 import type { SAMLProfile, ValidateOptions } from './typings';
-import xmlbuilder from 'xmlbuilder';
 import { getVersion } from './getVersion';
 import { verifySignature, sanitizeXML } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
@@ -7,7 +6,7 @@ import { decryptXml } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
 import { parseFromString, WrapError, generateId, getAttribute } from './utils';
-import { xmlToObject } from './xml';
+import { xmlToObject, buildXml } from './xml';
 import type { XmlNode, XmlValue } from './xml';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS, XML_SCHEMA_INSTANCE_NS, XML_SCHEMA_NS } from './constants';
@@ -351,7 +350,6 @@ const createSAMLResponse = async ({
       '@IssueInstant': authTimestamp,
       '@Version': '2.0',
       '@xmlns:samlp': PROTOCOL_NS,
-      '@xmlns:xs': XML_SCHEMA_NS,
       'saml:Issuer': {
         '@Format': 'urn:oasis:names:tc:SAML:2.0:nameid-format:entity',
         '@xmlns:saml': ASSERTION_NS,
@@ -437,7 +435,7 @@ const createSAMLResponse = async ({
     },
   };
 
-  const xml = xmlbuilder.create(nodes, { encoding: 'UTF-8' }).end();
+  const xml = buildXml(nodes, { encoding: 'UTF-8' });
 
   const signedAssertionXml = sign(xml, privateKey, publicKey, '//*[local-name(.)="Assertion"]');
 
