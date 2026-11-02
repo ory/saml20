@@ -30,8 +30,6 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org
-          scope: '@boxyhq'
           cache: 'npm'
       - run: npm ci
       - run: npm run lint
@@ -42,8 +40,22 @@ jobs:
         run: |
           export NODE_OPTIONS=--max_old_space_size=4096
           npm run test
+
+  publish:
+    needs: build
+    if: github.ref == 'refs/heads/release' || contains(github.ref, 'refs/tags/beta-v')
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          scope: '@boxyhq'
+          cache: 'npm'
+      - run: npm ci
       - name: Publish NPM
-        if: matrix.node-version == 24 && (github.ref == 'refs/heads/release' || contains(github.ref, 'refs/tags/beta-v'))
         run: |
           publishTag="latest"
           if [[ "$GITHUB_REF" == *\/release ]]
