@@ -5,6 +5,7 @@ import path from 'path';
 import { parseIssuer, validate } from '../../lib/response';
 import { parseSAMLRequest } from '../../lib/request';
 import { parseLogoutRequest, parseLogoutResponse } from '../../lib/logout';
+import { decryptXml } from '../../lib/decrypt';
 import type { ValidateOptions } from '../../lib/typings';
 
 // SAML messages collected from other libraries' test fixtures (MANIFEST.json
@@ -13,10 +14,12 @@ import type { ValidateOptions } from '../../lib/typings';
 // to the release immediately before xml2js was replaced. validate() runs with
 // the options recorded per document: the certificate embedded in the message
 // and its own Audience, with expiry bypassed, so a self-consistently signed
-// response verifies and a tampered one is rejected.
+// response verifies and a tampered one is rejected. Encrypted responses name
+// the published, test-only SP key (under keys/) that decrypts them.
 const dir = path.resolve('./test/assets/saml-message-corpus');
 
-type Outcome = { result?: unknown; error?: string; options?: ValidateOptions };
+type Options = ValidateOptions & { privateKeyFile?: string };
+type Outcome = { result?: unknown; error?: string; options?: Options };
 const expected = JSON.parse(fs.readFileSync(path.join(dir, 'expected.json'), 'utf8')) as {
   documents: Record<string, Record<string, Outcome>>;
 };
@@ -32,9 +35,18 @@ const intendedDifferences: Record<string, Record<string, (actual: Outcome) => vo
 
 const normalizeError = (message: string) => message.replace(/error:[0-9A-Fa-f]+:/g, 'error:*:');
 
+const liveOptions = (options: Options): ValidateOptions => {
+  const { privateKeyFile, ...rest } = options;
+  return privateKeyFile
+    ? { ...rest, privateKey: fs.readFileSync(path.join(dir, privateKeyFile), 'utf8') }
+    : rest;
+};
+
 const entryPoints: Record<string, (xml: string, outcome: Outcome) => Promise<unknown>> = {
   parseIssuer: async (xml) => parseIssuer(xml),
-  validate: async (xml, outcome) => validate(xml, outcome.options as ValidateOptions),
+  validate: async (xml, outcome) => validate(xml, liveOptions(outcome.options as Options)),
+  decryptXml: async (xml, outcome) =>
+    decryptXml(xml, { privateKey: liveOptions(outcome.options as Options).privateKey as string }),
   parseSAMLRequestPost: async (xml) => parseSAMLRequest(xml, true),
   parseSAMLRequestRedirect: async (xml) => parseSAMLRequest(xml, false),
   parseLogoutRequest: async (xml) => parseLogoutRequest(xml),
@@ -67,7 +79,8 @@ describe('message parsers over the public SAML message corpus', function () {
     for (const [entryPoint, want] of Object.entries(expected.documents[file])) {
       it(`${entryPoint}: ${file}`, async function () {
         const xml = fs.readFileSync(path.join(dir, file), 'utf8');
-        const actual = await outcomeOf(() => entryPoints[entryPoint](xml, want));
+        const withOptions = entryPoint === 'decryptXml' ? expected.documents[file].validate : want;
+        const actual = await outcomeOf(() => entryPoints[entryPoint](xml, withOptions));
         const intended = intendedDifferences[file]?.[entryPoint];
         if (intended) {
           intended(actual);

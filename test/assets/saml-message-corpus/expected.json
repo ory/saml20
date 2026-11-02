@@ -5722,39 +5722,90 @@
       "parseIssuer": {
         "result": "http://www.okta.com/exkppsa1qwuFV4D7z0h7"
       },
+      "decryptXml": {
+        "result": {
+          "assertion": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><saml2p:Response Destination=\"http://localhost:8000/saml/acs\" ID=\"id84898765215753401971732746\" InResponseTo=\"id-953d4cab69ff475c5901d12e585b0bb15a7b85fe\" IssueInstant=\"2020-03-03T19:40:54.699Z\" Version=\"2.0\" xmlns:saml2p=\"urn:oasis:names:tc:SAML:2.0:protocol\"><saml2:Issuer Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:entity\" xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\">http://www.okta.com/exkppsa1qwuFV4D7z0h7</saml2:Issuer><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#id84898765215753401971732746\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>jJLVDtlF3eO9tdwZeRqQgHGHK0rI5lWoRvTpCKwHXe0=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>mQ2uHBVuTua314z3NpV0FzD/BPQT/rnefKpg4nyCazzF342OKhStgVy4vSmRERjUFqdR5tHZKZRPelpTAOKMdflW6UzBzaX0iI80+47Fm6jCmiSwEHriEH1dAnUOec93+RO1XolEJZ4iqv/stU3oI/JjisSUGyUad5pdP54aKK6wp1cEoyrLf8EXD5/b4DoU8zUGegWtL65ZLbERYfd/HFYTaEi3V9ijRvH3wZiFycj5r8b4oYFO9aYifN9yf2qzAmMMG2KC5GDMQi5XVImPUU/Cx88IAHlswNC1dTkP8d9oeD0KxUZANqL71dcNL+nSf+wgC7Oq17XH4mpx5bzW0g==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEW\nDWluZm9Ab2t0YS5jb20wHhcNMTgwOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNV\nBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0MRwwGgYJ\nKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\noggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TIOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0\nIZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajfzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2E\nJuHMXMS786UY5GfD+/n0gRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9G\nIckQsyF+fsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8BINv\n9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBypFox\n/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyVaXrYoHwPoWYpok6MYddMkoo2YuPG\nW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+PaqmtHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARun\nVy/pIuLowXrQUCF0cccePD8jryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQ\nhXU85OE5qXEY92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature><saml2p:Status xmlns:saml2p=\"urn:oasis:names:tc:SAML:2.0:protocol\"><saml2p:StatusCode Value=\"urn:oasis:names:tc:SAML:2.0:status:Success\"/></saml2p:Status><saml2:Assertion xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" ID=\"id84898765216570251668573514\" IssueInstant=\"2020-03-03T19:40:54.699Z\" Version=\"2.0\"><saml2:Issuer xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:entity\">http://www.okta.com/exkppsa1qwuFV4D7z0h7</saml2:Issuer><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#id84898765216570251668573514\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"><ec:InclusiveNamespaces xmlns:ec=\"http://www.w3.org/2001/10/xml-exc-c14n#\" PrefixList=\"xs\"/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>LK+whtVtqlMQVMc3TlVYcQujzPp6XNeuRw4+F5tnXrY=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>MFQltDhYbJxh6UNE0pE4QNG5hrRIEcqSAqfCxz2ELUKM+L9QrHUbkI3MiRpXswjNXyDVaXboA/VMHPeg49loNlWip4AT4QNkFIEPkvHoFtcrwpjiLd1W1aRJL0VXUWNB1eQ+TfOb5ttfgKbnkHbp5tI6q/SXmOaKW+n1SsmZbU6eS4SKHvjKzFx9hL+0hQIK8qEpeRxSHyXYUm9gUrXrA8aUo0QJo3beDJgVPYaoNb3KTJ6XP/qK0kXxdjCq42se+mP0KhohPqvdmBp6xcVkMsQijPCCUKjaZ4xIFxr5f1HFBMJyOv92RXqrPBiQx5eo99WHlQCqGxum9poULXIcSQ==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEW\nDWluZm9Ab2t0YS5jb20wHhcNMTgwOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNV\nBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0MRwwGgYJ\nKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\noggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TIOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0\nIZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajfzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2E\nJuHMXMS786UY5GfD+/n0gRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9G\nIckQsyF+fsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8BINv\n9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBypFox\n/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyVaXrYoHwPoWYpok6MYddMkoo2YuPG\nW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+PaqmtHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARun\nVy/pIuLowXrQUCF0cccePD8jryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQ\nhXU85OE5qXEY92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature><saml2:Subject xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\"><saml2:NameID Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified\">testuser@testrsc.com</saml2:NameID><saml2:SubjectConfirmation Method=\"urn:oasis:names:tc:SAML:2.0:cm:bearer\"><saml2:SubjectConfirmationData InResponseTo=\"id-953d4cab69ff475c5901d12e585b0bb15a7b85fe\" NotOnOrAfter=\"2020-03-03T19:45:54.699Z\" Recipient=\"http://localhost:8000/saml/acs\"/></saml2:SubjectConfirmation></saml2:Subject><saml2:Conditions xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" NotBefore=\"2020-03-03T19:35:54.699Z\" NotOnOrAfter=\"2020-03-03T19:45:54.699Z\"><saml2:AudienceRestriction><saml2:Audience>http://localhost:8000/saml/metadata</saml2:Audience></saml2:AudienceRestriction></saml2:Conditions><saml2:AuthnStatement xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" AuthnInstant=\"2020-03-03T19:05:07.758Z\" SessionIndex=\"id-953d4cab69ff475c5901d12e585b0bb15a7b85fe\"><saml2:AuthnContext><saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml2:AuthnContextClassRef></saml2:AuthnContext></saml2:AuthnStatement><saml2:AttributeStatement xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\"><saml2:Attribute Name=\"Username\" NameFormat=\"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified\"><saml2:AttributeValue xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"xs:string\">FixedValue</saml2:AttributeValue></saml2:Attribute></saml2:AttributeStatement></saml2:Assertion></saml2p:Response>",
+          "decrypted": true
+        }
+      },
       "validate": {
         "options": {
-          "audience": "urn:none",
-          "publicKey": "MIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEW\nDWluZm9Ab2t0YS5jb20wHhcNMTgwOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNV\nBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0MRwwGgYJ\nKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\noggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TIOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0\nIZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajfzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2E\nJuHMXMS786UY5GfD+/n0gRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9G\nIckQsyF+fsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8BINv\n9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBypFox\n/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyVaXrYoHwPoWYpok6MYddMkoo2YuPG\nW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+PaqmtHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARun\nVy/pIuLowXrQUCF0cccePD8jryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQ\nhXU85OE5qXEY92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr",
-          "bypassExpiration": true
+          "audience": "http://localhost:8000/saml/metadata",
+          "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMM\nCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTgw\nOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNV\nBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0\nMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TI\nOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0IZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajf\nzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2EJuHMXMS786UY5GfD+/n0\ngRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9GIckQsyF+\nfsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8\nBINv9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEB\nCwUAA4IBAQBypFox/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyV\naXrYoHwPoWYpok6MYddMkoo2YuPGW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+Paqm\ntHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARunVy/pIuLowXrQUCF0cccePD8j\nryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQhXU85OE5qXEY\n92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr\n-----END CERTIFICATE-----\n",
+          "bypassExpiration": true,
+          "privateKeyFile": "keys/crewjam-sp-private.pem"
         },
-        "error": "Exception of Assertion Decryption."
+        "result": {
+          "audience": "http://localhost:8000/saml/metadata",
+          "audiences": ["http://localhost:8000/saml/metadata"],
+          "claims": {
+            "Username": "FixedValue",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "testuser@testrsc.com"
+          },
+          "issuer": "http://www.okta.com/exkppsa1qwuFV4D7z0h7",
+          "sessionIndex": "id-953d4cab69ff475c5901d12e585b0bb15a7b85fe",
+          "nameId": {
+            "value": "testuser@testrsc.com",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+          },
+          "assertionId": "id84898765216570251668573514",
+          "notOnOrAfter": "2020-03-03T19:45:54.699Z"
+        }
       }
     },
     "saml--testdata_TestSPCanHandleOktaResponseEncryptedSignedAssertion_response.xml": {
       "parseIssuer": {
         "result": "http://www.okta.com/exkppsa1qwuFV4D7z0h7"
       },
+      "decryptXml": {
+        "result": {
+          "assertion": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><saml2p:Response Destination=\"http://localhost:8000/saml/acs\" ID=\"id8493865182068056942505177\" InResponseTo=\"id-6d976cdde8e76df5df0a8ff58148fc0b7ec6796d\" IssueInstant=\"2020-03-03T19:31:55.895Z\" Version=\"2.0\" xmlns:saml2p=\"urn:oasis:names:tc:SAML:2.0:protocol\"><saml2:Issuer Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:entity\" xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\">http://www.okta.com/exkppsa1qwuFV4D7z0h7</saml2:Issuer><saml2p:Status xmlns:saml2p=\"urn:oasis:names:tc:SAML:2.0:protocol\"><saml2p:StatusCode Value=\"urn:oasis:names:tc:SAML:2.0:status:Success\"/></saml2p:Status><saml2:Assertion xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" ID=\"id84938651821511611470546522\" IssueInstant=\"2020-03-03T19:31:55.895Z\" Version=\"2.0\"><saml2:Issuer xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:entity\">http://www.okta.com/exkppsa1qwuFV4D7z0h7</saml2:Issuer><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#id84938651821511611470546522\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"><ec:InclusiveNamespaces xmlns:ec=\"http://www.w3.org/2001/10/xml-exc-c14n#\" PrefixList=\"xs\"/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>+mQFQMdlmqkULfUZdEV+++jXp5EF+siTYl7HiI+kcdM=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>KZ7MFoWSHKoYEQDEqzNGQ2f5VDmLrnQuc/h/rli2oV6fOZhCp4Ns1/Jc/pk2MmUZvPF1F5/O5wCPsc52ujcVxMge1Ly8nA900AfsEut2fBkIW1RtYqo7ERuypnkyoNzOgidFSE0P5xENXonk+ajDqizoMLR7GV+YDe85MTSS4rLcxNDyskQNdEuFusAKWhTtocsiuNGlcKjJ29nGATwlpslYcqPD+GY5J+78w0/IQY3UR5oesa/eeeQmI0KHIT7OzcGkWO2EsbnwdMi9GF7YfbNxMrCxOvFEXefMQ8W8QFVIOvnbXM90nPZvKiE+2rcbxoghEGgxROVwFdm2efPCVA==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEW\nDWluZm9Ab2t0YS5jb20wHhcNMTgwOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNV\nBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0MRwwGgYJ\nKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\noggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TIOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0\nIZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajfzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2E\nJuHMXMS786UY5GfD+/n0gRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9G\nIckQsyF+fsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8BINv\n9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBypFox\n/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyVaXrYoHwPoWYpok6MYddMkoo2YuPG\nW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+PaqmtHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARun\nVy/pIuLowXrQUCF0cccePD8jryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQ\nhXU85OE5qXEY92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature><saml2:Subject xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\"><saml2:NameID Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified\">testuser@testrsc.com</saml2:NameID><saml2:SubjectConfirmation Method=\"urn:oasis:names:tc:SAML:2.0:cm:bearer\"><saml2:SubjectConfirmationData InResponseTo=\"id-6d976cdde8e76df5df0a8ff58148fc0b7ec6796d\" NotOnOrAfter=\"2020-03-03T19:36:55.895Z\" Recipient=\"http://localhost:8000/saml/acs\"/></saml2:SubjectConfirmation></saml2:Subject><saml2:Conditions xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" NotBefore=\"2020-03-03T19:26:55.895Z\" NotOnOrAfter=\"2020-03-03T19:36:55.895Z\"><saml2:AudienceRestriction><saml2:Audience>http://localhost:8000/saml/metadata</saml2:Audience></saml2:AudienceRestriction></saml2:Conditions><saml2:AuthnStatement xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" AuthnInstant=\"2020-03-03T19:05:07.758Z\" SessionIndex=\"id-6d976cdde8e76df5df0a8ff58148fc0b7ec6796d\"><saml2:AuthnContext><saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml2:AuthnContextClassRef></saml2:AuthnContext></saml2:AuthnStatement><saml2:AttributeStatement xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\"><saml2:Attribute Name=\"Username\" NameFormat=\"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified\"><saml2:AttributeValue xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"xs:string\">FixedValue</saml2:AttributeValue></saml2:Attribute></saml2:AttributeStatement></saml2:Assertion></saml2p:Response>",
+          "decrypted": true
+        }
+      },
       "validate": {
         "options": {
-          "audience": "urn:none",
-          "publicKey": "MIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJVUzELMAkGA1UE\nCAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTEzMTAwMjAwMDg1MVoX\nDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28x\nEjAQBgNVBAMMCWxvY2FsaG9zdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308\nkWLhZVT4vOulqx/9ibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTv\nSPmHO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKvRsw0X/gf\nnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgkakpMdAqJfs24maGb90Dv\nTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeTQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+\ncvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvnOwJlNCASPZRH/JmF8tX0hoHuAQ==",
-          "bypassExpiration": true
+          "audience": "http://localhost:8000/saml/metadata",
+          "publicKey": "-----BEGIN CERTIFICATE-----\nMIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJV\nUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0\nMB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMx\nCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCB\nnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9\nibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmH\nO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKv\nRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgk\nakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeT\nQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvn\nOwJlNCASPZRH/JmF8tX0hoHuAQ==\n-----END CERTIFICATE-----\n",
+          "bypassExpiration": true,
+          "privateKeyFile": "keys/crewjam-sp-private.pem"
         },
-        "error": "Exception of Assertion Decryption."
+        "error": "Invalid assertion."
       }
     },
     "saml--testdata_TestSPCanHandleOktaSignedResponseEncryptedAssertion_response.xml": {
       "parseIssuer": {
         "result": "http://www.okta.com/exkppsa1qwuFV4D7z0h7"
       },
+      "decryptXml": {
+        "result": {
+          "assertion": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><saml2p:Response Destination=\"http://localhost:8000/saml/acs\" ID=\"id84952199689057361896939333\" InResponseTo=\"id-a7364d1e4432aa9085a7a8bd824ea2fa8fa8f684\" IssueInstant=\"2020-03-03T19:24:29.213Z\" Version=\"2.0\" xmlns:saml2p=\"urn:oasis:names:tc:SAML:2.0:protocol\"><saml2:Issuer Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:entity\" xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\">http://www.okta.com/exkppsa1qwuFV4D7z0h7</saml2:Issuer><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#id84952199689057361896939333\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fJasAwG4t+98w0aCcXuw/UlGjBDQqkqyjXB1H1gm7Og=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>RGdEhrQEDbDtqpukFQoxKfU9vrbq6srN2nppR8mwnxC/mUdmdOIS2TpDYzR9ONVUcqs9DyQlpG6aAeoHStyQCRyXpEu25T6eKLx26sF23lIsfztWYVeitVW2ehKmEwhstq9FeFlOwjvJHFQbJ0uI+cin5EcSasaIWF8oj2JRqryyqtClYvYCNwrC/OtN5jqH6iSaieaRc6sxOBTtjcFNJvruJcoIi1kWidhEeYGcVrSOWITbEYivRsVs5FaLHu0MiERxoudoF4L+02gegh7mL8mMkTTMgmHGz6IIvMIlJhfKaF2I4MMkQysjGCtAom54nUkKJ9sUD9qlRiY+bv9/5A==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEW\nDWluZm9Ab2t0YS5jb20wHhcNMTgwOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNV\nBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0MRwwGgYJ\nKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\noggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TIOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0\nIZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajfzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2E\nJuHMXMS786UY5GfD+/n0gRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9G\nIckQsyF+fsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8BINv\n9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBypFox\n/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyVaXrYoHwPoWYpok6MYddMkoo2YuPG\nW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+PaqmtHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARun\nVy/pIuLowXrQUCF0cccePD8jryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQ\nhXU85OE5qXEY92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature><saml2p:Status xmlns:saml2p=\"urn:oasis:names:tc:SAML:2.0:protocol\"><saml2p:StatusCode Value=\"urn:oasis:names:tc:SAML:2.0:status:Success\"/></saml2p:Status><saml2:Assertion xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" ID=\"id84952199689873111750846593\" IssueInstant=\"2020-03-03T19:24:29.213Z\" Version=\"2.0\"><saml2:Issuer Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:entity\">http://www.okta.com/exkppsa1qwuFV4D7z0h7</saml2:Issuer><saml2:Subject><saml2:NameID Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified\">testuser@testrsc.com</saml2:NameID><saml2:SubjectConfirmation Method=\"urn:oasis:names:tc:SAML:2.0:cm:bearer\"><saml2:SubjectConfirmationData InResponseTo=\"id-a7364d1e4432aa9085a7a8bd824ea2fa8fa8f684\" NotOnOrAfter=\"2020-03-03T19:29:29.214Z\" Recipient=\"http://localhost:8000/saml/acs\"/></saml2:SubjectConfirmation></saml2:Subject><saml2:Conditions NotBefore=\"2020-03-03T19:19:29.214Z\" NotOnOrAfter=\"2020-03-03T19:29:29.214Z\"><saml2:AudienceRestriction><saml2:Audience>http://localhost:8000/saml/metadata</saml2:Audience></saml2:AudienceRestriction></saml2:Conditions><saml2:AuthnStatement AuthnInstant=\"2020-03-03T19:05:07.758Z\" SessionIndex=\"id-a7364d1e4432aa9085a7a8bd824ea2fa8fa8f684\"><saml2:AuthnContext><saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml2:AuthnContextClassRef></saml2:AuthnContext></saml2:AuthnStatement><saml2:AttributeStatement><saml2:Attribute Name=\"Username\" NameFormat=\"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified\"><saml2:AttributeValue xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"xs:string\">FixedValue</saml2:AttributeValue></saml2:Attribute></saml2:AttributeStatement></saml2:Assertion></saml2p:Response>",
+          "decrypted": true
+        }
+      },
       "validate": {
         "options": {
-          "audience": "urn:none",
-          "publicKey": "MIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEW\nDWluZm9Ab2t0YS5jb20wHhcNMTgwOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNV\nBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0MRwwGgYJ\nKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\noggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TIOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0\nIZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajfzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2E\nJuHMXMS786UY5GfD+/n0gRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9G\nIckQsyF+fsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8BINv\n9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBypFox\n/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyVaXrYoHwPoWYpok6MYddMkoo2YuPG\nW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+PaqmtHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARun\nVy/pIuLowXrQUCF0cccePD8jryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQ\nhXU85OE5qXEY92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr",
-          "bypassExpiration": true
+          "audience": "http://localhost:8000/saml/metadata",
+          "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMM\nCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTgw\nOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNV\nBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0\nMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TI\nOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0IZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajf\nzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2EJuHMXMS786UY5GfD+/n0\ngRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9GIckQsyF+\nfsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8\nBINv9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEB\nCwUAA4IBAQBypFox/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyV\naXrYoHwPoWYpok6MYddMkoo2YuPGW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+Paqm\ntHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARunVy/pIuLowXrQUCF0cccePD8j\nryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQhXU85OE5qXEY\n92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr\n-----END CERTIFICATE-----\n",
+          "bypassExpiration": true,
+          "privateKeyFile": "keys/crewjam-sp-private.pem"
         },
-        "error": "Exception of Assertion Decryption."
+        "result": {
+          "audience": "http://localhost:8000/saml/metadata",
+          "audiences": ["http://localhost:8000/saml/metadata"],
+          "claims": {
+            "Username": "FixedValue",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "testuser@testrsc.com"
+          },
+          "issuer": "http://www.okta.com/exkppsa1qwuFV4D7z0h7",
+          "sessionIndex": "id-a7364d1e4432aa9085a7a8bd824ea2fa8fa8f684",
+          "nameId": {
+            "value": "testuser@testrsc.com",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+          },
+          "assertionId": "id84952199689873111750846593",
+          "notOnOrAfter": "2020-03-03T19:29:29.214Z"
+        }
       }
     },
     "saml--testdata_TestSPCanHandleOneloginResponse_response.xml": {
@@ -6456,6 +6507,328 @@
           "bypassExpiration": true
         },
         "error": "Invalid assertion."
+      }
+    },
+    "protocol--responses--entra-assertion-signed.xml": {
+      "parseIssuer": {
+        "result": "https://sts.windows.net/a28016a7-6135-43f2-8ea0-37ada6ae567c/"
+      },
+      "validate": {
+        "options": {
+          "audience": "urn:amazon:cognito:sp:us-east-1_mSGKPnplt",
+          "publicKey": "MIIC8DCCAdigAwIBAgIQdWfpQni5Ma1CMU8d6uUlcDANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yNDAxMTYxMDI1NTdaFw0yNzAxMTYxMDI1NTdaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA23Hm3vNBUcDycpmgXMJKRLwi0BiTMJOnOgnfQftoLeXg1IkYVRQMTw9enyDak2330fWVhSjfeBcPQgZamHuTzbE+c4gkgRylzDIUjDvnmz1rJGMzae7ZzYaHmFwBfNCc8mfToAcFgFHrlwGbacKoM8ZS6MPcSH8r1hx2ImWFB0pMCqSAhrdGCvpoXI0eSRxKWWEK0f1LfidxqvmQesFcG0EmFqNEEG2NT7O8YLqkCzsk70dH8FKJb+v1Ap88qIBPWqzZgKtmnEvyVjvyqkSfTWc59PuIYPSh152KXJZ5zdckBG1xMrxyXXz20fu9/JUaEYmD6p0K8Jobj0u/UxF5yQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAsVNQVxkqVR1ZanoK1TCUwmTkcY1R6u8c80cMxcI0wJivwfHEIpyVtL3lmR35aGQ7UM+csqkwpK1tYArFW0SyH4xglsjMhQj1jGK4jMIIUPjTKtNi/4BcxyBYuu2Vwjfy26b0SbzQQFv2Usuhmg57YZn7Yq43Rj2c1ZQND+ue5ChKsF9/1GTgsKgm6UO2E11IhHXkAOiBpvxmkHCd5pmZae7JKvv655aI1YKUZTuEPxBOWH+a86eXG4BJ5BpR3ctoDr5YyGcNSByJxoBFbYLE8iOTeaOBSH27pqvRRPAFs5uNXFsrL79GpHPPHc0/5nNqFxw/mdguPNVlyuzd1B/ID",
+          "bypassExpiration": true
+        },
+        "result": {
+          "audience": "urn:amazon:cognito:sp:us-east-1_mSGKPnplt",
+          "audiences": ["urn:amazon:cognito:sp:us-east-1_mSGKPnplt"],
+          "claims": {
+            "http://schemas.microsoft.com/identity/claims/tenantid": "a28016a7-6135-43f2-8ea0-37ada6ae567c",
+            "http://schemas.microsoft.com/identity/claims/objectidentifier": "c035a24a-26e8-40f6-a4b9-6d2570069095",
+            "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/a28016a7-6135-43f2-8ea0-37ada6ae567c/",
+            "http://schemas.microsoft.com/claims/authnmethodsreferences": "http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "testUser@SafeTechnologyPvtLtd.onmicrosoft.com",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "testUser@SafeTechnologyPvtLtd.onmicrosoft.com"
+          },
+          "issuer": "https://sts.windows.net/a28016a7-6135-43f2-8ea0-37ada6ae567c/",
+          "sessionIndex": "_70c4d592-c53f-4a6b-868d-b39d7594b900",
+          "nameId": {
+            "value": "testUser@SafeTechnologyPvtLtd.onmicrosoft.com",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+          },
+          "assertionId": "_70c4d592-c53f-4a6b-868d-b39d7594b900",
+          "notOnOrAfter": "2024-01-16T17:33:45.882Z"
+        }
+      }
+    },
+    "protocol--responses--okta-both-signed.xml": {
+      "parseIssuer": {
+        "result": "http://www.okta.com/exk659aytfMeNI49v0h7"
+      },
+      "validate": {
+        "options": {
+          "audience": "\"123\"",
+          "publicKey": "MIIDpDCCAoygAwIBAgIGAVLIBhAwMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi0xMTY4MDcxHDAaBgkqhkiG9w0BCQEW\nDWluZm9Ab2t0YS5jb20wHhcNMTYwMjA5MjE1MjA2WhcNMjYwMjA5MjE1MzA2WjCBkjELMAkGA1UE\nBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNV\nBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtMTE2ODA3MRwwGgYJ\nKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\nmtjBOZ8MmhUyi8cGk4dUY6Fj1MFDt/q3FFiaQpLzu3/q5lRVUNUBbAtqQWwY10dzfZguHOuvA5p5\nQyiVDvUhe+XkVwN2R2WfArQJRTPnIcOaHrxqQf3o5cCIG21ZtysFHJSo8clPSOe+0VsoRgcJ1aF4\n2rODwgqRRZdO9Wh3502XlJ799DJQ23IC7XasKEsGKzJqhlRrfd/FyIuZT0sFHDKRz5snSJhm9gpN\nuQlCmk7ONZ1sXqtt+nBIfWIqeoYQubPW7pT5GTc7wouWq4TCjHJiK9k2HiyNxW0E3JX08swEZi2+\nLVDjgLzNc4lwjSYIj3AOtPZs8s606oBdIBni4wIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBMxSkJ\nTxkXxsoKNW0awJNpWRbU81QpheMFfENIzLam4Itc/5kSZAaSy/9e2QKfo4jBo/MMbCq2vM9TyeJQ\nDJpRaioUTd2lGh4TLUxAxCxtUk/pascL+3Nn936LFmUCLxaxnbeGzPOXAhscCtU1H0nFsXRnKx5a\ncPXYSKFZZZktieSkww2Oi8dg2DYaQhGQMSFMVqgVfwEu4bvCRBvdSiNXdWGCZQmFVzBZZ/9rOLzP\npvTFTPnpkavJm81FLlUhiE/oFgKlCDLWDknSpXAI0uZGERcwPca6xvIMh86LjQKjbVci9FYDStXC\nqRnqQ+TccSu/B6uONFsDEngGcXSKfB+a",
+          "bypassExpiration": true
+        },
+        "result": {
+          "audience": "\"123\"",
+          "audiences": ["\"123\""],
+          "claims": {
+            "username": "russell.haering@scaleft.com",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "russellhaering"
+          },
+          "issuer": "http://www.okta.com/exk659aytfMeNI49v0h7",
+          "sessionIndex": "_15f66d2d-628b-4d9b-a99e-089d8da862e1",
+          "nameId": {
+            "value": "russellhaering",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+          },
+          "assertionId": "id12433943338016269283631347",
+          "notOnOrAfter": "2016-07-25T23:25:14.859Z"
+        }
+      }
+    },
+    "protocol--responses--auth0-response-signed.xml": {
+      "parseIssuer": {
+        "result": "urn:scaleft-test.auth0.com"
+      },
+      "validate": {
+        "options": {
+          "audience": "urn:scaleft-test.auth0.com",
+          "publicKey": "MIIC9DCCAdygAwIBAgIJX9Qb0a2w33UjMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNVBAMTFnNjYWxlZnQtdGVzdC5hdXRoMC5jb20wHhcNMTYwNzI1MTc0OTQ1WhcNMzAwNDAzMTc0OTQ1WjAhMR8wHQYDVQQDExZzY2FsZWZ0LXRlc3QuYXV0aDAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx+MnMtsJsNjDD4YEsi//LeBDwbwqwYTJk8mUlTLuaSss2X4aPo2kGjuEjvTc0x4Mk9ZQ/CIPPX3J9N4AFQu88rRdpT+TTuY9AIiyt8sZ+b1qF9eewyLVchM6s9Ff2JqgDIfajym825GKAJL7hi6smFRT6h+OyyHo8pJjXePldum4woSFW/H3y83meF51Wn9oMTRRVAlpsdRVOgmuQpBlw3apeeRpAmqLYT7DH3j30umYu3+4+NcxtEC7s5+QAIenuORjjw+M+IB+HhYpy1AnblY64RRAD+EfESEC+AF/+G0zuA4q43s9IduYZp2GMzPzMlnhDlR5syiLGFtLZ+pwFQIDAQABoy8wLTAMBgNVHRMEBTADAQH/MB0GA1UdDgQWBBSX/v06GyNh1an1f7O7KKER6xNntTANBgkqhkiG9w0BAQUFAAOCAQEAgtITYCbzRo8l8Q3+EHFwASlmnSyRm8HWG41nmHLcC2lUqNvniSEf0kO65oMN2nxlq9JMeI7NxKNpTVL4OYX5+/0NqcxePayY/9/5jBRwqF+84USc8HG8z+BFh1rVW35eoE5ULeegUBPgDG9shQjSLyIkNvYqXQ7AtjMka8lkmdtU9XBlfYZC4YEmkeQOHkW5gmix5opajkj+Tih7HKsdhOgxZrl7/4WmGOoyR2q3Ffg8fmNgDe2Sf8bGv7IoTeeYVHIurVFoQSLziICOBQSpk/y/NS3HdSBOADRxhUn241jRTaEi06qcg/A9P4zulKR61mCVpEWv6ZveEyVm4XA4xQ==",
+          "bypassExpiration": true
+        },
+        "result": {
+          "audience": "urn:scaleft-test.auth0.com",
+          "audiences": ["urn:scaleft-test.auth0.com"],
+          "claims": {
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "google-oauth2|117637692321743777825",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "russell.haering@scaleft.com",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "Russell Haering",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Russell",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Haering",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "russell.haering@scaleft.com",
+            "http://schemas.auth0.com/identities/default/provider": "google-oauth2",
+            "http://schemas.auth0.com/identities/default/connection": "google-oauth2",
+            "http://schemas.auth0.com/identities/default/isSocial": "true",
+            "http://schemas.auth0.com/email_verified": "true",
+            "http://schemas.auth0.com/picture": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg",
+            "http://schemas.auth0.com/locale": "en",
+            "http://schemas.auth0.com/clientID": "rlXOZ4kOUTQaTV8icSXrfZUd1qtD1NhK",
+            "http://schemas.auth0.com/updated_at": "Mon Jul 25 2016 18:29:17 GMT+0000 (UTC)",
+            "http://schemas.auth0.com/nickname": "russell.haering",
+            "http://schemas.auth0.com/identities": "[object Object]",
+            "http://schemas.auth0.com/created_at": "Mon Jul 25 2016 17:51:26 GMT+0000 (UTC)"
+          },
+          "issuer": "urn:scaleft-test.auth0.com",
+          "sessionIndex": "_PpuqwkgWTWGbYyLu3lhPMW4vvzLKIiEF",
+          "nameId": {
+            "value": "google-oauth2|117637692321743777825",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+          },
+          "assertionId": "_mU52Pie5AsaLMC1ne4sCHEYWPjvt00oS",
+          "notOnOrAfter": "2016-07-25T19:29:17.523Z"
+        }
+      }
+    },
+    "protocol--responses--adfs-assertion-signed.xml": {
+      "parseIssuer": {
+        "result": "http://fs.spstest2.com/adfs/services/trust"
+      },
+      "validate": {
+        "options": {
+          "audience": "https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7",
+          "publicKey": "MIIC2jCCAcKgAwIBAgIQNdNUIOmoKrFJNQadPV+9sTANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBmcy5zcHN0ZXN0Mi5jb20wHhcNMTYxMTAyMjIyOTE1WhcNMTcxMTAyMjIyOTE1WjApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBmcy5zcHN0ZXN0Mi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjjUuNwckrCQgaXAMzHLFMuxrG+dREwct+d5W6PlAxlh8jxijhWXeHMcpPnaDLkPhI6J5hva+2r/kJcIuz3c9wAHVIl6oQdSeH4lwbrD/bfCnu0lOmjgey/cY2lVTs4mfx1L7ejnUWd4ROfrHkhtFgqOYrJYir29ZOqojmCvaSQbqfjXAQmP8xvsFyYw0FNSURrt2ZZ9HTY1T6eJIrEJi0csgI4579IzYNyttwOfuM8rDrin2gTNTVTOE/lfXv2q7CGU67ErETCtmaJJvlqYmRLwT51Jxrf3KLTkAjxyE4uISTuzys/Y/ktxI6LQ3eFD/oRfTtA1V3pj96nxbxk2z3AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEZ5uUC+Djrx9XJlrGHwwhVShyDcEvloJzeZLnNvMC1Gfyq4enHaVE5ztnkLTvphym9+W9waFlVPHlIAXv3CKz9xbFWDtaXvD229pOGThDBCKo8o2vucHCo8gn+dUq0ZS+TVLpqeNoTpjfI4FQZ7BwDoILza6xdXHmDukui1btNFYYwhHzgMx1x1cz4VvBj5D+WWf13uClD2dkeasoZ4M9KH15Oy128tXhmzCw7ymsv3KC20CvHiqwGnYcybZdcIKQUTaB3qCNW5ti44RxwmLF4tnuFONmPuH1Pet0Hnq6pWNBMsWNEPM9LRVoPLqDR3fmkL/mNtZZd4xG3Kgd1IbPc=",
+          "bypassExpiration": true
+        },
+        "result": {
+          "audience": "https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7",
+          "audiences": ["https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7"],
+          "claims": {
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "paul",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "fraley",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "paul@spstest2.com",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "paul@spstest2.com"
+          },
+          "issuer": "http://fs.spstest2.com/adfs/services/trust",
+          "sessionIndex": "_fd6108fd-d2bf-4327-a81f-c03b8fca770d",
+          "nameId": {
+            "value": "paul@spstest2.com",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+          },
+          "assertionId": "_fd6108fd-d2bf-4327-a81f-c03b8fca770d",
+          "notOnOrAfter": "2017-09-21T23:32:06.828Z"
+        }
+      }
+    },
+    "protocol--responses--onelogin-assertion-signed.xml": {
+      "parseIssuer": {
+        "result": "https://app.onelogin.com/saml/metadata/634027"
+      },
+      "validate": {
+        "options": {
+          "audience": "{audience}",
+          "publicKey": "MIIEJjCCAw6gAwIBAgIUOHrykO4ce1TbjvGgXXVVnR4NsqMwDQYJKoZIhvcNAQEFBQAwXTELMAkGA1UEBhMCVVMxFTATBgNVBAoMDExhdW5jaERhcmtseTEVMBMGA1UECwwMT25lTG9naW4gSWRQMSAwHgYDVQQDDBdPbmVMb2dpbiBBY2NvdW50IDEwMjEyNzAeFw0xNzAzMDYwMjQ2NTNaFw0yMjAzMDcwMjQ2NTNaMF0xCzAJBgNVBAYTAlVTMRUwEwYDVQQKDAxMYXVuY2hEYXJrbHkxFTATBgNVBAsMDE9uZUxvZ2luIElkUDEgMB4GA1UEAwwXT25lTG9naW4gQWNjb3VudCAxMDIxMjcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCaJ02AnJe5vq+zzkmrIHhRy8V/UxJogbJGEJW6nqrEmO7Q4sXO7dLIKxGccCEz0KAavGKWzSX9uhVvKpazpD4bW80wPQIgFxN3CjiA3qlYIfhhh4emSZo2AnaTuG4BPVGFNPx0jxXGAhh/3xkpIsqARJFPB6njT2+MwFctm3fockx3Yp4e1xoUD8qQR0f/8oq1LjrYd2Vlckmmw7qrzSqS8POHW/I1jx9Y/vAjTPWDKXmbmLcTe3188PDrthSyoBuaAGBRVTP9WTuYMh4kGvmfX6sNvIDGejUcUCq6IObRr4xLSZiGy5uoyqsQc9agAhQm+26Gpq0R3NSvN91JdbZHAgMBAAGjgd0wgdowDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUnbxBsHgNVq3OSXEuG5EkR0Jd1UswgZoGA1UdIwSBkjCBj4AUnbxBsHgNVq3OSXEuG5EkR0Jd1UuhYaRfMF0xCzAJBgNVBAYTAlVTMRUwEwYDVQQKDAxMYXVuY2hEYXJrbHkxFTATBgNVBAsMDE9uZUxvZ2luIElkUDEgMB4GA1UEAwwXT25lTG9naW4gQWNjb3VudCAxMDIxMjeCFDh68pDuHHtU247xoF11VZ0eDbKjMA4GA1UdDwEB/wQEAwIHgDANBgkqhkiG9w0BAQUFAAOCAQEAL/6j2qpMCrnolwKT7mfPEpA6btbtl0R0t6zSwYUVU9T3PK0/P3LKXvbjSySov0E4R9d5qlOcyj5CbYiuqAO2aON3xy82s0dN3FHRiO6kcjoRPwVIIF0S8x7tpzcPKa42zSPfBqMRw4ezUEzTijFriepkSWST1Btr3QeK2Cxhr0fC1xmw/YK82BV0/oVRslGL27ro+v3/dNY0A0r32Xe2+THomrY/YaZaDCPCjHo8dlxrX3D/mPfoiiKSkm2mGagQXT0giTHVo3oIq+u+KdrBcQn65EBcjfFKDIeFCdiVmO0xPl9mmWskVRLy2/wpuDIp6hnAphl9lj5DY48eBsrEXQ==",
+          "bypassExpiration": true
+        },
+        "result": {
+          "audience": "{audience}",
+          "audiences": ["{audience}"],
+          "claims": {
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "arun@launchdarkly.com",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "arun@launchdarkly.com"
+          },
+          "issuer": "https://app.onelogin.com/saml/metadata/634027",
+          "sessionIndex": "_d5fe4830-e601-0134-4e06-0af7aa36d0f9",
+          "nameId": {
+            "value": "arun@launchdarkly.com",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+          },
+          "assertionId": "pfx63cf6dc4-c309-ff5e-6049-84c34f0c0061",
+          "notOnOrAfter": "2017-03-08T07:56:39Z"
+        }
+      }
+    },
+    "protocol--responses--pingone-assertion-signed.xml": {
+      "parseIssuer": {
+        "result": "https://auth.pingone.com/082dba86-d36e-413e-85b4-ee499a5cea55"
+      },
+      "validate": {
+        "options": {
+          "audience": "samltest1684175032",
+          "publicKey": "MIIDhDCCAmygAwIBAgIGAXfbmxViMA0GCSqGSIb3DQEBCwUAMIGCMQswCQYDVQQGEwJVUzEWMBQGA1UECgwNUGluZyBJZGVudGl0eTEWMBQGA1UECwwNUGluZyBJZGVudGl0eTFDMEEGA1UEAww6UGluZ09uZSBTU08gQ2VydGlmaWNhdGUgZm9yIE5ldy1FbnZfMTYxNDI5NzExMCBlbnZpcm9ubWVudDAeFw0yMTAyMjUyMzUxNDlaFw0yMjAyMjUyMzUxNDlaMIGCMQswCQYDVQQGEwJVUzEWMBQGA1UECgwNUGluZyBJZGVudGl0eTEWMBQGA1UECwwNUGluZyBJZGVudGl0eTFDMEEGA1UEAww6UGluZ09uZSBTU08gQ2VydGlmaWNhdGUgZm9yIE5ldy1FbnZfMTYxNDI5NzExMCBlbnZpcm9ubWVudDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMzeydjsolMIbTUAxX8tsdRhH1KjQ0ZQ/hjA6EptuPzYi6AfYawa/Sf/abJlh56B9wB2COpA9qrxJ7lmoEsKXlLa5bMOv9jgotR8XzP1aGugCGsPEidbgs83iMVNlDoUI2DiBg6/+Jqo6UfbLRnvMCTy3xl5G32TFqB9LGKkG/oXUhOU4MsolY3Rv8zYrnqWUnaqNd6z2AegFVvJDHKoFeMqkc8hJ8KrfBZNV2qikGi252O4UTefZOu0Qippq0EvUDfsitjjtG0hfbk5N8wHxYgQ5VR5vVwWPnFl+8w7tYSmbFYpM7T3Gz7c9Gb4H2AwrG+m89rXgro9E8OX+xmNmQcCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAOwiV4RnYLftebJ8v6LNYgkvzTFc8NhoKWd2OceOwBY52SpbzPej18djdgHLYpDOFOyIOmKGIwjpQaohbTYs4NsgRz59CbZ0xeRa8TXpIE5m4A7S+KceNNoDYOXHxf7ui4djadjCZVTh4TlR3yRkOuiz6LS3o6wZTw1SQgtQ9qM1AyyMYrwG/fqs9g+dsf/E6sRtYTtFKQHR7qUvcz5sFLJwHJNKIEdQ/hHR2P6rn7rRPXrEfq7t8L2MxIxUg78mSu2Py4BdWGXHpQjCUkJx00InRSVH/IIZ8kKKeBvJGWE+fidmNZ44bNYsyUvWS7EcGTbw3RwGB6wwtdw3maToAKA==",
+          "bypassExpiration": true
+        },
+        "result": {
+          "audience": "samltest1684175032",
+          "audiences": ["samltest1684175032"],
+          "claims": {
+            "saml_subject": "9473704d-0e44-42af-b102-dfdc2f1798c5",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9473704d-0e44-42af-b102-dfdc2f1798c5",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "9473704d-0e44-42af-b102-dfdc2f1798c5"
+          },
+          "issuer": "https://auth.pingone.com/082dba86-d36e-413e-85b4-ee499a5cea55",
+          "sessionIndex": "e9016939-1d4e-483d-b450-7eb44a954aa9",
+          "nameId": {
+            "value": "9473704d-0e44-42af-b102-dfdc2f1798c5",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+          },
+          "assertionId": "id-2db93ba6-3c85-4ce0-a193-75c558b13ee2",
+          "notOnOrAfter": "2023-05-15T18:25:59.001Z"
+        }
+      }
+    },
+    "protocol--idp-initiated--okta-assertion-signed.xml": {
+      "parseIssuer": {
+        "result": "http://www.okta.com/k7xkhq0jUHUPQAXVMUAN"
+      },
+      "validate": {
+        "options": {
+          "audience": "https://auth0145.auth0.com",
+          "publicKey": "MIICnTCCAgagAwIBAgIGAUBGHxqUMA0GCSqGSIb3DQEBBQUAMIGRMQswCQYDVQQGEwJVUzETMBEG\nA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU\nMBIGA1UECwwLU1NPUHJvdmlkZXIxEjAQBgNVBAMMCWtsdWdsYWJzMjEcMBoGCSqGSIb3DQEJARYN\naW5mb0Bva3RhLmNvbTAeFw0xMzA4MDMyMTM4MzhaFw00MzA4MDMyMTM5MzhaMIGRMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UE\nCgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEjAQBgNVBAMMCWtsdWdsYWJzMjEcMBoGCSqG\nSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAsCB9lJTH\nqB7vdM5jeOH84cW8u7IHYv4/OAPYF0fBYe9wJy19CgyM2OgiASuAcItnH4WhB+io2ZPwb/Xwl7Uu\n4XmUE0l+mkCNuDYp5fXTZxwv5G6HvkAxXZio0Rk9T0VETCroxgpS5LxQ/o/owjR39S7xzRnj6ddX\n3Mq2yGjKyBcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQAB1qGNqSNLLWq+RPcP+wOaWtYpJOJ8/MbZ\nEWWm9/KKHKXM6J/zgUUIXZi3czMeO+Y+X14PR8lGXoAHf5b/JavG9FmFvRn4fGa45VTVo2GfMN6K\naIKF0obeCbYi/QUf8B+Xi1tSIJm1VCKRE7nnliQ/TzGaNulgWeyTbVkG0/X8LQ==",
+          "bypassExpiration": true
+        },
+        "result": {
+          "audience": "https://auth0145.auth0.com",
+          "audiences": ["https://auth0145.auth0.com"],
+          "claims": {
+            "Role": "Admin",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "admin@kluglabs.com",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "admin@kluglabs.com"
+          },
+          "issuer": "http://www.okta.com/k7xkhq0jUHUPQAXVMUAN",
+          "sessionIndex": "id1375566883942.687610437",
+          "nameId": {
+            "value": "admin@kluglabs.com",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+          },
+          "assertionId": "id8132302868541019755414121",
+          "notOnOrAfter": "2013-08-03T21:59:43.942Z"
+        }
+      }
+    },
+    "protocol--encrypted--adfs-assertion-signed.xml": {
+      "parseIssuer": {
+        "result": "http://fs.spstest2.com/adfs/services/trust"
+      },
+      "decryptXml": {
+        "result": {
+          "assertion": "<samlp:Response ID=\"_ae246d4e-b9e0-49e3-97a2-c2f236408b9e\" Version=\"2.0\" IssueInstant=\"2017-09-21T23:19:11.608Z\" Destination=\"https://saml.test.nope/session/sso/saml/acs/dknhyszjl7\" Consent=\"urn:oasis:names:tc:SAML:2.0:consent:unspecified\" InResponseTo=\"_252d0129-1c83-496e-b039-ffc9cee11cca\" xmlns:samlp=\"urn:oasis:names:tc:SAML:2.0:protocol\"><Issuer xmlns=\"urn:oasis:names:tc:SAML:2.0:assertion\">http://fs.spstest2.com/adfs/services/trust</Issuer><samlp:Status><samlp:StatusCode Value=\"urn:oasis:names:tc:SAML:2.0:status:Success\"/></samlp:Status><Assertion ID=\"_d9357d06-4e2a-42d9-92d6-898500a4b62c\" IssueInstant=\"2017-09-21T23:19:11.608Z\" Version=\"2.0\" xmlns=\"urn:oasis:names:tc:SAML:2.0:assertion\"><Issuer>http://fs.spstest2.com/adfs/services/trust</Issuer><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#_d9357d06-4e2a-42d9-92d6-898500a4b62c\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>MwqC8Dlmc//bhWBxC9VkxdMDvAdG/rUoGhghX7yx8Vk=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Kx5bcTRyrq53OpL8IUFDn+Z7KrcMFqH7KdPRo2bUkvnTFOGlFR85sO1IzSmlPCIF+gUFHpplMyomimtlWIs7KttF2a14a5w1DjeeDCVIH8NX7jP6k8kvevES5KE3Li/3LrHkeFr14nZ7CHmWD0KlIhSC4gfSnlTDjaxIn92P0Hs7q7Dj6ZhM9nrhD9Iu1c+NHeo0RUhaKRrS+C6+zPxU6Orl0oEzHrDpZgj1asrbXtDTy/fUTYak9LApr5FQGJjUEBLqHHCFLb3Evx1E57dIAn17DZl7I/vsQfq4KanPyjbef4JBu8HTWco+UmGj23+fxX4z51iPMcAMaUAGULEYkw==</ds:SignatureValue><KeyInfo xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><ds:X509Data><ds:X509Certificate>MIIC2jCCAcKgAwIBAgIQNdNUIOmoKrFJNQadPV+9sTANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBmcy5zcHN0ZXN0Mi5jb20wHhcNMTYxMTAyMjIyOTE1WhcNMTcxMTAyMjIyOTE1WjApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBmcy5zcHN0ZXN0Mi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjjUuNwckrCQgaXAMzHLFMuxrG+dREwct+d5W6PlAxlh8jxijhWXeHMcpPnaDLkPhI6J5hva+2r/kJcIuz3c9wAHVIl6oQdSeH4lwbrD/bfCnu0lOmjgey/cY2lVTs4mfx1L7ejnUWd4ROfrHkhtFgqOYrJYir29ZOqojmCvaSQbqfjXAQmP8xvsFyYw0FNSURrt2ZZ9HTY1T6eJIrEJi0csgI4579IzYNyttwOfuM8rDrin2gTNTVTOE/lfXv2q7CGU67ErETCtmaJJvlqYmRLwT51Jxrf3KLTkAjxyE4uISTuzys/Y/ktxI6LQ3eFD/oRfTtA1V3pj96nxbxk2z3AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEZ5uUC+Djrx9XJlrGHwwhVShyDcEvloJzeZLnNvMC1Gfyq4enHaVE5ztnkLTvphym9+W9waFlVPHlIAXv3CKz9xbFWDtaXvD229pOGThDBCKo8o2vucHCo8gn+dUq0ZS+TVLpqeNoTpjfI4FQZ7BwDoILza6xdXHmDukui1btNFYYwhHzgMx1x1cz4VvBj5D+WWf13uClD2dkeasoZ4M9KH15Oy128tXhmzCw7ymsv3KC20CvHiqwGnYcybZdcIKQUTaB3qCNW5ti44RxwmLF4tnuFONmPuH1Pet0Hnq6pWNBMsWNEPM9LRVoPLqDR3fmkL/mNtZZd4xG3Kgd1IbPc=</ds:X509Certificate></ds:X509Data></KeyInfo></ds:Signature><Subject><NameID Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\">paul@spstest2.com</NameID><SubjectConfirmation Method=\"urn:oasis:names:tc:SAML:2.0:cm:bearer\"><SubjectConfirmationData InResponseTo=\"_252d0129-1c83-496e-b039-ffc9cee11cca\" NotOnOrAfter=\"2017-09-21T23:24:11.608Z\" Recipient=\"https://saml.test.nope/session/sso/saml/acs/dknhyszjl7\"/></SubjectConfirmation></Subject><Conditions NotBefore=\"2017-09-21T23:19:11.606Z\" NotOnOrAfter=\"2017-09-22T00:19:11.606Z\"><AudienceRestriction><Audience>https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7</Audience></AudienceRestriction></Conditions><AttributeStatement><Attribute Name=\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname\"><AttributeValue>paul</AttributeValue></Attribute><Attribute Name=\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname\"><AttributeValue>fraley</AttributeValue></Attribute></AttributeStatement><AuthnStatement AuthnInstant=\"2017-09-21T23:19:11.564Z\" SessionIndex=\"_d9357d06-4e2a-42d9-92d6-898500a4b62c\"><AuthnContext><AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</AuthnContextClassRef></AuthnContext></AuthnStatement></Assertion></samlp:Response>",
+          "decrypted": true
+        }
+      },
+      "validate": {
+        "options": {
+          "audience": "https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7",
+          "publicKey": "-----BEGIN CERTIFICATE-----\nMIIC2jCCAcKgAwIBAgIQNdNUIOmoKrFJNQadPV+9sTANBgkqhkiG9w0BAQsFADAp\nMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBmcy5zcHN0ZXN0Mi5jb20wHhcNMTYx\nMTAyMjIyOTE1WhcNMTcxMTAyMjIyOTE1WjApMScwJQYDVQQDEx5BREZTIFNpZ25p\nbmcgLSBmcy5zcHN0ZXN0Mi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\nAoIBAQCjjUuNwckrCQgaXAMzHLFMuxrG+dREwct+d5W6PlAxlh8jxijhWXeHMcpP\nnaDLkPhI6J5hva+2r/kJcIuz3c9wAHVIl6oQdSeH4lwbrD/bfCnu0lOmjgey/cY2\nlVTs4mfx1L7ejnUWd4ROfrHkhtFgqOYrJYir29ZOqojmCvaSQbqfjXAQmP8xvsFy\nYw0FNSURrt2ZZ9HTY1T6eJIrEJi0csgI4579IzYNyttwOfuM8rDrin2gTNTVTOE/\nlfXv2q7CGU67ErETCtmaJJvlqYmRLwT51Jxrf3KLTkAjxyE4uISTuzys/Y/ktxI6\nLQ3eFD/oRfTtA1V3pj96nxbxk2z3AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEZ5\nuUC+Djrx9XJlrGHwwhVShyDcEvloJzeZLnNvMC1Gfyq4enHaVE5ztnkLTvphym9+\nW9waFlVPHlIAXv3CKz9xbFWDtaXvD229pOGThDBCKo8o2vucHCo8gn+dUq0ZS+TV\nLpqeNoTpjfI4FQZ7BwDoILza6xdXHmDukui1btNFYYwhHzgMx1x1cz4VvBj5D+WW\nf13uClD2dkeasoZ4M9KH15Oy128tXhmzCw7ymsv3KC20CvHiqwGnYcybZdcIKQUT\naB3qCNW5ti44RxwmLF4tnuFONmPuH1Pet0Hnq6pWNBMsWNEPM9LRVoPLqDR3fmkL\n/mNtZZd4xG3Kgd1IbPc=\n-----END CERTIFICATE-----\n",
+          "bypassExpiration": true,
+          "privateKeyFile": "keys/gosaml2-sp-private.pem"
+        },
+        "result": {
+          "audience": "https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7",
+          "audiences": ["https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7"],
+          "claims": {
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "paul",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "fraley",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "paul@spstest2.com",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "paul@spstest2.com"
+          },
+          "issuer": "http://fs.spstest2.com/adfs/services/trust",
+          "sessionIndex": "_d9357d06-4e2a-42d9-92d6-898500a4b62c",
+          "nameId": {
+            "value": "paul@spstest2.com",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+          },
+          "assertionId": "_d9357d06-4e2a-42d9-92d6-898500a4b62c",
+          "notOnOrAfter": "2017-09-21T23:24:11.608Z"
+        }
+      }
+    },
+    "protocol--supplemental--entra-idp-initiated-parser-only.xml": {
+      "parseIssuer": {
+        "result": "https://sts.windows.net/25f4519b-eca5-405d-b516-123af862c268/\n\t"
+      },
+      "validate": {
+        "options": {
+          "audience": "https://signin.aws.amazon.com/saml",
+          "publicKey": "MIIC8DCCAdigAwIBAgIQV3utGUh+Q55I54g7Y8RkUjANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0xOTA4MDgwNzA1MDBaFw0yMjA4MDgwNzAyMTlaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApO5wQVjdzEx2/j5gNrUh94wpBni4wNmRI3tKoSWJpRjnnlhwHSiiAWo7KX924owbbc8m+aqZ/dt7gdyADl02dJN5vjYwHy0rJoitC6j9hVHd/Fz7QOOhlaLwtxKfp7bgzvLYw3/HsAFbnJxwQWdddiPm6+2b903tdUehV9lR7LgLwa8pYA8ybnV/8KrgB9zwDi8c+h0Od3+SLvheCagOLmPZBc3u2YkW6BRLt3HIdT75Rv5G81ak3yKdmpjelIgcj/39x/g5K4xTYYJz8x/a8xdy1tax46Vr0h7xfg3YkuYy/kcs6JGilQEVsA/NVmAGPl7W7uu03CCFsi5Xc8aIXwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBiVFSvDRTGqlgnBaQjrdaN3GanD+vggrz8rzm+ccdFi72xkRKMmAxePVcgYNZWl4pZgXitQOa9otE4gxzLFQEXpShj/xgomZ1orF5Fx2DIP/TtHn+6BGK4pi/QsSDWqOx33lDnPjXY6Ouiyz4GoY50l6UfXzwyCiYBoI/r0Paf5bLSF9gV0aJInFswG28lXDsUydXKsByrprqvYpWX6lplRf/SgCmCf8l9eApk+558cWtIlUn1mDzYxt8z7X8xhBYXyg6193wz4A2ULhfB7No/bO6WDlaaK2YN1VSpjRdwDKpKiR2yy3kJRJl1IO8szqIYPKcrdTwGBNRDix1UEwdR",
+          "bypassExpiration": true
+        },
+        "error": "Invalid assertion signature."
+      }
+    },
+    "protocol--supplemental--wsfed-entra-placeholder.xml": {
+      "parseIssuer": {},
+      "validate": {
+        "options": {
+          "audience": "http://Automation1",
+          "publicKey": "ThisIsAValidToken",
+          "bypassExpiration": true
+        },
+        "error": "Invalid assertion signature."
+      }
+    },
+    "protocol--supplemental--wsfed-wstrust13-signed.xml": {
+      "parseIssuer": {},
+      "validate": {
+        "options": {
+          "audience": "http://dev.pms.baxon.net/",
+          "publicKey": "MIIC8DCCAdigAwIBAgIQUwBSjcy73ZVOX5nV9aGv0zANBgkqhkiG9w0BAQUFADAcMRowGAYDVQQDExFkZXYucG1zLmJheG9uLm5ldDAeFw0xMjA5MTgxODEzMjhaFw0xMzA5MTkwMDEzMjhaMBwxGjAYBgNVBAMTEWRldi5wbXMuYmF4b24ubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ldGxCKIA5sIbwsl9WNpF59jVFG7UZvKjPixxNoxnUHKHll5u14XA1eJvZUgPdOSjRTMTnWN9YpMLumC2PWzNg7PKDNMP6uVnFkmdXI+q31b5WjYkuKOyaGdjFEGRMcr+vqSrcnkUWujXL1t3P+RoabN5svduYaQF20GU5I52EOhzzK+ogE6zHHFaHibjiFQ4ww/Ip9cytCzCsfl258RkauJ3xCVCTVji9MpwmX/1Rj8sma54FN+u2MB9i8GcGrN+ZFxoM98WX6GA1/5B3ZCx1BgHz0D3dXhCi4xU7N7yvkYC4TwHkOjLxmkjz2UP/jm28/R0NNO/HdbFPNFtZ66/wIDAQABoy4wLDALBgNVHQ8EBAMCBPAwHQYDVR0OBBYEFPbqbWG48yDRzE3kutclDzPN3pDnMA0GCSqGSIb3DQEBBQUAA4IBAQB6QIauvKs8bzhI5YZHOdqAhINVbA1m4ulJzlLXbPDbwfD5U4ginePbLxPvvP3jfTujaztD7YK9bxdFTFWdvCSX+RV1zK8wvNZSRV4d3F7ZSXZzmipoInUsTh9U+grqdpdcMddKge/6RDubLD92k6aSKLrOyrFj0oJfkqFgXJnPpVqIlfqjjXRtQ90RUJQJh4qssOHC2a/cwgeBsFj2ei8Rq4tFIo5QO8zDtvKz7E3ZBFiclWjhcZ3t8u2M7JSRk/bk0tTiQyFFzzDx7nZvi8qP00l3ynNOmsz2SeHkSAPrDQ4JRee50ULOuPCC5ySZS326gsq/UXz8zQybp6fFGW1B",
+          "bypassExpiration": true
+        },
+        "error": "SAML Assertion version not supported."
+      }
+    },
+    "protocol--supplemental--wsfed-adfs-derived-envelope.xml": {
+      "parseIssuer": {},
+      "validate": {
+        "options": {
+          "audience": "urn:auth0:auth0",
+          "publicKey": "MIIC5DCCAcygAwIBAgIQGmfE0ae34q1IXJvpfhwYVDANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNBREZTIFNpZ25pbmcgLSB0ZXN0LWFkZnMuYXV0aDEwLmNvbTAeFw0xMzAyMTIwMzU3MzlaFw0xNDAyMTIwMzU3MzlaMC4xLDAqBgNVBAMTI0FERlMgU2lnbmluZyAtIHRlc3QtYWRmcy5hdXRoMTAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuNaTwlMjKeXVabhVQJjmjousrLuYi5hxELIQX80ZT3/kTsRUQaP6AoCMEYjofcV6QnxQeHxHJgzcy5t4bmHozIsLYlroH7PaDNqXLnX+6ivAX1nFa9IOeaw3X206oGmCSo6pJxbW8LwXjYC7BYrINitm/mgcOrypbasADvO1j+fyjkBTFPuF2+La4ehwGCKdrvZZF0lDKiHPbCI8xqH7HOgX+QLtnhK2WclDIpcPd2eeaVq1fB8XBwTXNOv2ZdaEi2i3mDXQoa8wZVozqs5h6OKVXl7hNQH2/qUDAZc15kZcR9Zcxyo5v0GtqYS3J70Q+8HkuQfYTBGR+Cum9S+bfQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAVf930SJfJquM/4A3vibsmjRuCytHeEXLrEyt0j/NBDnyLqFMoL7qILfqtK3oSmQNb6PRQiLLFJlIz7fnkj6k3hm4qpJJvjyqcxYDeW6SK8yP7zKNGMeyIMs/humVgXWALkTF6PoFIfFo2lfnHAzHqPE06WN+hcYHRBjuR5/T+58l2LH9vJjPHuceGkWXyQCB/Hd2riNElXODIBEKzzKL923rm3oPaH/Un8TYnpyRRVKLd40DiptbY/E7YpzWrOsUppjsm0pUhdvBYjihLc6PhALzoUC3GwMjUK0T70gqRoGzsiqRIjIEC35QBGKavzhya2DLTZK3Pf70eJpkp1bGL",
+          "bypassExpiration": true
+        },
+        "error": "SAML Assertion version not supported."
+      }
+    },
+    "protocol--supplemental--logout-sp-request-to-entra.xml": {
+      "parseLogoutRequest": {
+        "result": {
+          "id": "idaa6ebe6839094fe4abc4ebd5281ec780",
+          "issuer": "https://www.workaad.com",
+          "nameId": " Uz2Pqz1X7pxe4XLWxV9KJQ+n59d573SepSAkuYKSde8=",
+          "issueInstant": "2013-03-28T07:10:49.6004822Z"
+        }
+      }
+    },
+    "protocol--supplemental--logout-entra-response.xml": {
+      "parseLogoutResponse": {
+        "result": {
+          "issuer": "https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/",
+          "id": "_f0961a83-d071-4be5-a18c-9ae7b22987a4",
+          "status": "urn:oasis:names:tc:SAML:2.0:status:Success",
+          "inResponseTo": "iddce91f96e56747b5ace6d2e2aa9d4f8c"
+        }
       }
     }
   }

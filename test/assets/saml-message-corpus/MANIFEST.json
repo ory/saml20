@@ -1,5 +1,5 @@
 {
-  "description": "SAML protocol messages (Responses, Assertions, AuthnRequests, LogoutRequests, LogoutResponses) collected from open-source SAML libraries' test fixtures. storedAs records whether the upstream file was raw XML, base64, or base64+deflate; the file here is always the decoded XML. Many are deliberately invalid (signature wrapping, tampering, missing elements): those pin the rejection.",
+  "description": "SAML protocol messages (Responses, Assertions, AuthnRequests, LogoutRequests, LogoutResponses) collected from open-source SAML libraries' test fixtures. storedAs records whether the upstream file was raw XML, base64, or base64+deflate; the file here is always the decoded XML. Many are deliberately invalid (signature wrapping, tampering, missing elements): those pin the rejection. Files prefixed protocol-- are per-product protocol examples (signed responses from Entra ID, Okta, Google Workspace, Auth0, AD FS, OneLogin, Keycloak and PingOne; an Okta IdP-initiated response; an AD FS encrypted assertion; WS-Federation and logout examples marked supplemental in their notes). keys/ holds the published, test-only SP private keys that decrypt the encrypted cases. validateOptions on an entry override the defaults (audience taken from the decrypted assertion, the verification certificate, and the key file).",
   "documents": [
     {
       "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-3971-8859-2-in-header-authnresponse.xml",
@@ -441,7 +441,15 @@
         "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/saml/v2/util/saml20-signed-response.xml",
         "license": "Apache-2.0",
         "storedAs": "raw"
-      }
+      },
+      "alsoKnownAs": [
+        {
+          "id": "responses/keycloak-assertion-signed",
+          "provider": "Keycloak",
+          "category": "signed-response",
+          "signaturePlacements": ["Assertion"]
+        }
+      ]
     },
     {
       "file": "node-saml--test_static_logout_request_with_bad_expiration.xml",
@@ -4471,6 +4479,20 @@
         "path": "testdata/TestSPCanHandleOktaResponseEncryptedAssertionBothSigned_response",
         "license": "BSD-2-Clause",
         "storedAs": "base64"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "encrypted/okta-both-signed",
+          "provider": "Okta",
+          "category": "encrypted-assertion",
+          "signaturePlacements": ["Response", "Assertion"]
+        }
+      ],
+      "validateOptions": {
+        "audience": "http://localhost:8000/saml/metadata",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMM\nCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTgw\nOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNV\nBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0\nMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TI\nOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0IZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajf\nzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2EJuHMXMS786UY5GfD+/n0\ngRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9GIckQsyF+\nfsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8\nBINv9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEB\nCwUAA4IBAQBypFox/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyV\naXrYoHwPoWYpok6MYddMkoo2YuPGW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+Paqm\ntHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARunVy/pIuLowXrQUCF0cccePD8j\nryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQhXU85OE5qXEY\n92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr\n-----END CERTIFICATE-----\n",
+        "bypassExpiration": true,
+        "privateKeyFile": "keys/crewjam-sp-private.pem"
       }
     },
     {
@@ -4484,6 +4506,20 @@
         "path": "testdata/TestSPCanHandleOktaResponseEncryptedSignedAssertion_response",
         "license": "BSD-2-Clause",
         "storedAs": "base64"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "encrypted/okta-assertion-signed",
+          "provider": "Okta",
+          "category": "encrypted-assertion",
+          "signaturePlacements": ["Assertion"]
+        }
+      ],
+      "validateOptions": {
+        "audience": "http://localhost:8000/saml/metadata",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJV\nUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0\nMB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMx\nCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCB\nnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9\nibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmH\nO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKv\nRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgk\nakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeT\nQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvn\nOwJlNCASPZRH/JmF8tX0hoHuAQ==\n-----END CERTIFICATE-----\n",
+        "bypassExpiration": true,
+        "privateKeyFile": "keys/crewjam-sp-private.pem"
       }
     },
     {
@@ -4497,6 +4533,20 @@
         "path": "testdata/TestSPCanHandleOktaSignedResponseEncryptedAssertion_response",
         "license": "BSD-2-Clause",
         "storedAs": "base64"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "encrypted/okta-response-signed",
+          "provider": "Okta",
+          "category": "encrypted-assertion",
+          "signaturePlacements": ["Response"]
+        }
+      ],
+      "validateOptions": {
+        "audience": "http://localhost:8000/saml/metadata",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMM\nCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTgw\nOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNV\nBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0\nMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TI\nOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0IZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajf\nzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2EJuHMXMS786UY5GfD+/n0\ngRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9GIckQsyF+\nfsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8\nBINv9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEB\nCwUAA4IBAQBypFox/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyV\naXrYoHwPoWYpok6MYddMkoo2YuPGW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+Paqm\ntHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARunVy/pIuLowXrQUCF0cccePD8j\nryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQhXU85OE5qXEY\n92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr\n-----END CERTIFICATE-----\n",
+        "bypassExpiration": true,
+        "privateKeyFile": "keys/crewjam-sp-private.pem"
       }
     },
     {
@@ -4510,7 +4560,15 @@
         "path": "testdata/TestSPCanHandleOneloginResponse_response",
         "license": "BSD-2-Clause",
         "storedAs": "base64"
-      }
+      },
+      "alsoKnownAs": [
+        {
+          "id": "responses/onelogin-response-signed",
+          "provider": "OneLogin",
+          "category": "signed-response",
+          "signaturePlacements": ["Response"]
+        }
+      ]
     },
     {
       "file": "saml--testdata_TestSPCanProduceRedirectLogoutRequest_decodedRequest.xml",
@@ -4614,7 +4672,15 @@
         "path": "testdata/TestSPRejectsInjectedComment_response",
         "license": "BSD-2-Clause",
         "storedAs": "base64"
-      }
+      },
+      "alsoKnownAs": [
+        {
+          "id": "responses/google-response-signed",
+          "provider": "Google Workspace",
+          "category": "signed-response",
+          "signaturePlacements": ["Response"]
+        }
+      ]
     },
     {
       "file": "saml--testdata_TestSPResponseWithNoIssuer_response.xml",
@@ -5043,6 +5109,252 @@
         "path": "test/misc/signed_response_sha512.xml",
         "license": "MIT",
         "storedAs": "raw"
+      }
+    },
+    {
+      "file": "protocol--responses--entra-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "signed-response",
+        "origin": "published-test-user-documentation",
+        "sourceUrl": "https://docs.safe.security/docs/how-to-collect-har-sso-troubleshooting",
+        "transformation": "Extract XML lines 68-164 from returned source text; remove Markdown fence; normalize NBSP formatting spaces.",
+        "notes": "Published testUser@SafeTechnologyPvtLtd.onmicrosoft.com response. Article XML transcribed from source text; nonbreaking formatting spaces replaced inside XML tags. Assertion signature still verifies.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--responses--okta-both-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Okta",
+        "category": "signed-response",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "unchanged XML",
+        "notes": "",
+        "signaturePlacements": ["Response", "Assertion"]
+      }
+    },
+    {
+      "file": "protocol--responses--auth0-response-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Auth0",
+        "category": "signed-response",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "unchanged XML",
+        "notes": "Historical RSA-SHA1 signature; verify only as a legacy test fixture.",
+        "signaturePlacements": ["Response"]
+      }
+    },
+    {
+      "file": "protocol--responses--adfs-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "AD FS",
+        "category": "signed-response",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "Base64 decoded; decoded bytes otherwise unchanged",
+        "notes": "",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--responses--onelogin-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "OneLogin",
+        "category": "signed-response",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "unchanged XML",
+        "notes": "",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--responses--pingone-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "PingOne",
+        "category": "signed-response",
+        "origin": "official-api-response-example",
+        "sourceUrl": "https://developer.pingidentity.com/pingone-api/auth/saml-2.0/saml-resume.html",
+        "transformation": "Extract original hidden SAMLResponse Base64 value; decode without reformatting XML.",
+        "notes": "Success response from Ping Identity SAML resume API example; includes a signed assertion.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--idp-initiated--okta-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Okta",
+        "category": "idp-initiated",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/auth0/passport-wsfed-saml2",
+        "commit": "97b451a7e5718257109a3e1ec217a72b6ed04593",
+        "path": null,
+        "license": "MIT",
+        "transformation": "Extract the Base64 literal in the \"signed assertion from okta\" test and decode it; XML unchanged.",
+        "notes": "Both Response and SubjectConfirmationData lack InResponseTo; signature verifies. Original fixture uses a historical RSA-SHA1 signature.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--encrypted--adfs-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "provider": "AD FS",
+        "category": "encrypted-assertion",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "Base64 decoded; decoded bytes otherwise unchanged",
+        "notes": "Upstream ADFS encryption key/certificate paths are symlinks to these Okta-named test files; correct key is established by successful decryption and assertion signature verification. A second IdP for encrypted assertion coverage; this is AD FS, not Entra.",
+        "signaturePlacements": ["Assertion"]
+      },
+      "validateOptions": {
+        "audience": "https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIC2jCCAcKgAwIBAgIQNdNUIOmoKrFJNQadPV+9sTANBgkqhkiG9w0BAQsFADAp\nMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBmcy5zcHN0ZXN0Mi5jb20wHhcNMTYx\nMTAyMjIyOTE1WhcNMTcxMTAyMjIyOTE1WjApMScwJQYDVQQDEx5BREZTIFNpZ25p\nbmcgLSBmcy5zcHN0ZXN0Mi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\nAoIBAQCjjUuNwckrCQgaXAMzHLFMuxrG+dREwct+d5W6PlAxlh8jxijhWXeHMcpP\nnaDLkPhI6J5hva+2r/kJcIuz3c9wAHVIl6oQdSeH4lwbrD/bfCnu0lOmjgey/cY2\nlVTs4mfx1L7ejnUWd4ROfrHkhtFgqOYrJYir29ZOqojmCvaSQbqfjXAQmP8xvsFy\nYw0FNSURrt2ZZ9HTY1T6eJIrEJi0csgI4579IzYNyttwOfuM8rDrin2gTNTVTOE/\nlfXv2q7CGU67ErETCtmaJJvlqYmRLwT51Jxrf3KLTkAjxyE4uISTuzys/Y/ktxI6\nLQ3eFD/oRfTtA1V3pj96nxbxk2z3AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEZ5\nuUC+Djrx9XJlrGHwwhVShyDcEvloJzeZLnNvMC1Gfyq4enHaVE5ztnkLTvphym9+\nW9waFlVPHlIAXv3CKz9xbFWDtaXvD229pOGThDBCKo8o2vucHCo8gn+dUq0ZS+TV\nLpqeNoTpjfI4FQZ7BwDoILza6xdXHmDukui1btNFYYwhHzgMx1x1cz4VvBj5D+WW\nf13uClD2dkeasoZ4M9KH15Oy128tXhmzCw7ymsv3KC20CvHiqwGnYcybZdcIKQUT\naB3qCNW5ti44RxwmLF4tnuFONmPuH1Pet0Hnq6pWNBMsWNEPM9LRVoPLqDR3fmkL\n/mNtZZd4xG3Kgd1IbPc=\n-----END CERTIFICATE-----\n",
+        "bypassExpiration": true,
+        "privateKeyFile": "keys/gosaml2-sp-private.pem"
+      }
+    },
+    {
+      "file": "protocol--supplemental--entra-idp-initiated-parser-only.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "parser-only",
+        "origin": "modified-upstream-test-fixture",
+        "repo": "https://github.com/Versent/saml2aws",
+        "commit": "65195ee65d15f68a7a12da97876f6efbb8618cca",
+        "path": null,
+        "license": "MIT",
+        "transformation": "unchanged XML",
+        "notes": "No InResponseTo, but upstream XML has modified dates/formatting and its assertion signature fails. Negative/parser coverage ONLY; not a positive Entra IdP-initiated capture.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--supplemental--wsfed-entra-placeholder.xml",
+      "root": "RequestSecurityTokenResponse",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "wsfed-parser-only",
+        "origin": "modified-upstream-test-fixture",
+        "repo": "https://github.com/dotnet/aspnetcore",
+        "commit": "f7d14ca402e8bb350148bfb64ad873e48c44f0b7",
+        "path": null,
+        "license": "MIT",
+        "transformation": "unchanged XML",
+        "notes": "WS-Trust February 2005 RequestSecurityTokenResponse wrapping SAML 2.0. X509Certificate is literal ThisIsAValidToken; upstream uses a mock token validator. Parser-only, not a cryptographic positive or pristine captured POST.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--supplemental--wsfed-wstrust13-signed.xml",
+      "root": "RequestSecurityTokenResponseCollection",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Unconfirmed WS-Fed STS",
+        "category": "wsfed-signed-supplement",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/auth0/passport-wsfed-saml2",
+        "commit": "97b451a7e5718257109a3e1ec217a72b6ed04593",
+        "path": null,
+        "license": "MIT",
+        "transformation": "unchanged XML",
+        "notes": "Signed SAML 1.1 inside WS-Trust 1.3 RequestSecurityTokenResponseCollection. Signature verifies; source does not establish this STS as AD FS or Entra.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--supplemental--wsfed-adfs-derived-envelope.xml",
+      "root": "RequestSecurityTokenResponse",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "AD FS",
+        "category": "wsfed-derived-envelope",
+        "origin": "derived-envelope-around-genuine-adfs-assertion",
+        "repo": "https://github.com/auth0/passport-wsfed-saml2",
+        "commit": "97b451a7e5718257109a3e1ec217a72b6ed04593",
+        "path": null,
+        "license": "MIT",
+        "transformation": "Extract XML literal from test \"should validate an assertion from adfs\"; wrap unchanged signed assertion in a newly constructed WS-Trust 2005 RSTR/RequestedSecurityToken envelope.",
+        "notes": "The SAML 1.1 assertion is a public AD FS test capture and its signature verifies. The outer RSTR was constructed here. NOT an as-received AD FS wresult POST.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--supplemental--logout-sp-request-to-entra.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "logout-documentation-example",
+        "origin": "official-documentation-example",
+        "sourceUrl": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-out-saml-protocol",
+        "transformation": "Extract documentation XML code block without reformatting.",
+        "notes": "Documentation example only; not a raw Redirect/POST capture. Request is SP->Entra, response is Entra->SP. These two samples have different request IDs and are not a matched transaction.",
+        "signaturePlacements": []
+      }
+    },
+    {
+      "file": "protocol--supplemental--logout-entra-response.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "logout-documentation-example",
+        "origin": "official-documentation-example",
+        "sourceUrl": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-out-saml-protocol",
+        "transformation": "Extract documentation XML code block without reformatting.",
+        "notes": "Documentation example only; not a raw Redirect/POST capture. Request is SP->Entra, response is Entra->SP. These two samples have different request IDs and are not a matched transaction.",
+        "signaturePlacements": []
       }
     }
   ]
