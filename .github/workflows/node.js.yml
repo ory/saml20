@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [24]
+        node-version: [22, 24, 26]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -43,7 +43,7 @@ jobs:
           export NODE_OPTIONS=--max_old_space_size=4096
           npm run test
       - name: Publish NPM
-        if: github.ref == 'refs/heads/release' || contains(github.ref, 'refs/tags/beta-v')
+        if: matrix.node-version == 24 && (github.ref == 'refs/heads/release' || contains(github.ref, 'refs/tags/beta-v'))
         run: |
           publishTag="latest"
           if [[ "$GITHUB_REF" == *\/release ]]
