@@ -1,0 +1,74 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://event.ethernet.edu.et/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://ethernet.edu.et/">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://efis.ethernet.edu.et/docs/policydocument.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">EthERNet - Indico</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Event management system powered by Indico</mdui:Description>
+          <mdui:Keywords xml:lang="en">event
+indico</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://event.ethernet.edu.et</mdui:InformationURL>
+          <mdui:Logo width="212" height="92">https://jfr.ethernet.edu.et/rr3/images/event.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEOzCCAqOgAwIBAgIURdjpL3fp9Z6ZYvr3mBhaUa+c+/wwDQYJKoZIhvcNAQEL
+BQAwIDEeMBwGA1UEAxMVZXZlbnQuZXRoZXJuZXQuZWR1LmV0MB4XDTI2MDgyOTEx
+MDAxMFoXDTM2MDgyNjExMDAxMFowIDEeMBwGA1UEAxMVZXZlbnQuZXRoZXJuZXQu
+ZWR1LmV0MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAzav0O35cJP4i
+owTYS4qiWXgcSn1HwMyOqSqsKWo53G5dR53VNI2cSUTIK6GlyA2E0nLxHBkNZ9qS
+Dy31HmnA0AXfhvzqxuaaNejgzqnm+23k+L/2uLndz3rxo9MTJhkaEYR/3FjvT7/i
+fA4B6rRxj30RAe/DnIOWSNSBZKb4WMYyWmHOXTO5yeX2BmuIRE7cbDm2FsSybm09
+hrKM3e2Y2g6NwtA+lATz9f5xXBaca/vFQgQqMNvio50OR1TKEzTJ2HbZo7cgGyBJ
+l5z+UtuaIp389tjSLfox1BbvC90Do8jNJjh2+Z7N16Oc/YXaeMZZoJr7KcArB8CZ
+TGyoJd/rr9jM9PQrsh9IsiKUzo6Eh7QA7WqKJuOKnvksQlGHZnqdt+kvfRUV9NDk
+0MXdmcZugrNlMMaaDEtq3Fh0m2NgTrtNdthInu/VR/nFjOFvjLSef9wgfP3VRjMK
+lFURPQCk6EQdQ4iv6VjBYIEJv7hZ7+oY3Z3wqGRF7wXb3axPssV1AgMBAAGjbTBr
+MEoGA1UdEQRDMEGCFWV2ZW50LmV0aGVybmV0LmVkdS5ldIYoaHR0cHM6Ly9ldmVu
+dC5ldGhlcm5ldC5lZHUuZXQvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUPFD6rwUQ063I
+4cfna3FVds2vuhQwDQYJKoZIhvcNAQELBQADggGBAHylElRbqHT5Lqb5waliVvID
+i2QoiEQkpl9DhRsTc3qduVYUfNJYdfWb0dMz+FD97KWEshlQj1xwFCqgegV0kUxS
+yG1p+aQ/4M1AYTxcJOZu4S761nsNbmVsV3x6GNVVj6H3StDIqhJ3KOoYWOf0s3VO
+wtNohE3rKRxPr0iVgsOeeEmH0a3+bQBRSB8u6tfU57PCCfnchoVz5WTNjSl4I0aA
+cZ2mggTpK685WUflAujHeRn1AfOc7+YinBuxw+GCujrEnb8oFmAXeBXtahXquP1a
+iwIW0WkSxQVqzVFb8ZLRq1glf8DR0cCOyVwV47TaMVzpzdL8ZKn//oHASn4KOdB5
+k9NO3KYjiovwBqTicTYaNR9ml7YW7IyVZBiDDtD/zLXaCBAcn2BiEdWhCO+nKI4v
+VTPy7ClrE6HIFkSpEO+ZqtzezDA8WOBlp5m4MxxmdPKwNcCdq0HBtK+kUVRQNMyR
+na9SqYz6+2lcY47aeXfOR+QZyVCfgXPofzZHc/Yv4A==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://event.ethernet.edu.et/multipass/saml/saml/sls" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://event.ethernet.edu.et/multipass/saml/saml/acs" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ethiopian Education and Research Network (EthERNet)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EthERNet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://ethernet.edu.et</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Nigatu</md:GivenName>
+      <md:SurName>Nigusie</md:SurName>
+      <md:EmailAddress>mailto:nigatu.nigusie@ethernet.edu.et</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Lensa</md:GivenName>
+      <md:SurName>Abera</md:SurName>
+      <md:EmailAddress>mailto:lensa.abera@ethernet.edu.et</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Nigatu</md:GivenName>
+      <md:SurName>Nigusie</md:SurName>
+      <md:EmailAddress>mailto:nigatu.nigusie@ethernet.edu.et</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

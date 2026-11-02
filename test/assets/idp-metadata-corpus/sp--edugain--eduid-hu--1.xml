@@ -1,0 +1,69 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://www.akjournals.com/saml/sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.hu" registrationInstant="2020-04-15T10:47:58Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://metadata.eduid.hu/eduid.hu-mrps-v2.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.hu/category/registered-by-eduidhu</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">AKJournals</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="hu">AKJournals</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Our mission is to promote international and Hungarian science, that is, to publish the new discoveries in several areas of science, to effectively support information exchange amongst scientists on a global level, and to make scientific results a public property for all who seek valuable and reliable knowledge</mdui:Description>
+          <mdui:Description xml:lang="hu">Our mission is to promote international and Hungarian science, that is, to publish the new discoveries in several areas of science, to effectively support information exchange amongst scientists on a global level, and to make scientific results a public property for all who seek valuable and reliable knowledge</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://akjournals.com</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://akademiai.com/page/privacy</mdui:PrivacyStatementURL>
+          <mdui:Logo width="200" height="54">https://ak.pubfactory.com/fileasset/ak-logo-new.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>akjournals.com</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDLjCCAhagAwIBAgIEXllVrzANBgkqhkiG9w0BAQsFADBZMQswCQYDVQQGEwJVUzELMAkGA1UECAwCTUExDzANBgNVBAcMBkJvc3RvbjETMBEGA1UECgwKUHViRmFjdG9yeTEXMBUGA1UEAwwOYWtqb3VybmFscy5jb20wHhcNMjAwMjI4MTgwMjIzWhcNMzAwMjI4MTgwMjIzWjBZMQswCQYDVQQGEwJVUzELMAkGA1UECAwCTUExDzANBgNVBAcMBkJvc3RvbjETMBEGA1UECgwKUHViRmFjdG9yeTEXMBUGA1UEAwwOYWtqb3VybmFscy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjlNekBDpSfeM3KhI7to26TvETluUJ7e5VIa+iHjuhfBBLRbV0Ra7eRSyMRSqu6gGDaxaQ6TJUESvlMEryjr0U0yccKhXyf5xFJ4ASZJhtRzusJXVvZPvdv7DIBRLZnfpNQDWIcHzENnFUDN3cjRHvFrTE6m/o4nPaJ2NBWzwHwibFVT8teX7ysL1Q1z3v2knFkymre7IqS0zKjB43aFj3TGbGH7bq9SUlF6Iwnay8qLgcd+w0vKe+Kt8WmC50eyCQ8QrxegpYQOJgVXW1FUOGyg+k3vPTHoZwHty4BrH8wYDKBo1qNpJ7IRUFyZfFNN66ZhqeuqYYXHH0qy/s+/nZAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAGObMRMmN6W7G/z5ot5qY2RWMyJRWNUAwcTRTas8RIpbhptIokm9dE6ikZPv/+irW0k890W/rk4CtC+s5nEN969Dmkb+A3XcPcGeuLIJlVygbAPs0+8qz5OYpCe2E/xVjkSCNZP/F7MhgcDLNICwYHdszAUfOYU+kYo89/9ou9AQ+mB4GTP6sgHLvlRCtKBGjDYTHrQYorBZQLOv4cKfOMzSvF7O78uEpCS9MUNuZ2SwZTgL+Z3mGy0ihqHAAp5ejJRRjBCr9bGBHQS/1ee6ifWWiA0gai6R4fmtY7pMEq2vKYDlxlDdeYQSZTdF4+OBIoCXefHpTiSPMQy11SVV9fM=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.akjournals.com/saml/sp?logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.akjournals.com/saml/sp?logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.akjournals.com/saml/sp?logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.akjournals.com/saml/sp?logoutendpoint=true" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.akjournals.com/saml/sp" index="0" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="hu">AKJournals</md:ServiceName>
+        <md:ServiceName xml:lang="en">AKJournals</md:ServiceName>
+        <md:ServiceDescription xml:lang="hu">Our mission is to promote international and Hungarian science, that is, to publish the new discoveries in several areas of science, to effectively support information exchange amongst scientists on a global level, and to make scientific results a public property for all who seek valuable and reliable knowledge</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">Our mission is to promote international and Hungarian science, that is, to publish the new discoveries in several areas of science, to effectively support information exchange amongst scientists on a global level, and to make scientific results a public property for all who seek valuable and reliable knowledge</md:ServiceDescription>
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="eduPersonScopedAffiliation" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="hu">NIIF - Nemzeti Információs Infrastruktúra Fejlesztési Intézet</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">NIIF Institute - National Information Infrastructure Development</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="hu">NIIF - Nemzeti Információs Infrastruktúra Fejlesztési Intézet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">NIIF Institute - National Information Infrastructure Development</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="hu">http://www.niif.hu</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.niif.hu/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>István Kothencz</md:GivenName>
+      <md:SurName>István Kothencz</md:SurName>
+      <md:EmailAddress>mailto:istvan.kothencz@akademiai.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael Istratov</md:GivenName>
+      <md:SurName>Michael Istratov</md:SurName>
+      <md:EmailAddress>mailto:michael.istratov@sheridan.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Journals Department</md:GivenName>
+      <md:SurName>Journals Department</md:SurName>
+      <md:EmailAddress>mailto:customerservice@akjournals.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

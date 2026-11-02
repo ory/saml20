@@ -13,14 +13,18 @@ const expected = JSON.parse(fs.readFileSync(path.join(dir, 'expected.json'), 'ut
   documents: Record<string, { result?: unknown; error?: string }>;
 };
 const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'MANIFEST.json'), 'utf8')) as {
-  documents: { file: string }[];
+  documents: { file: string; role: 'idp' | 'sp' }[];
 };
+const roles = new Map(manifest.documents.map((d) => [d.file, d.role]));
 
 // Documents where this parser intentionally differs from 1.22.0.
 const intendedDifferences: Record<string, RegExp> = {
   // Two root elements: xml2js read the first and ignored the rest; xmldom
   // rejects the document as not well-formed.
   'samlify--test_misc_multiple_entitydescriptor.xml': /multirooted xml not allowed/,
+  // Deliberately malformed (mismatched end tag): both reject it, with the
+  // parser's own wording.
+  'sp--python3-saml--tests_data_metadata_unparsed_metadata.xml': /Opening and ending tag mismatch/,
 };
 
 // OpenSSL error messages carry a version-specific hex code.
@@ -53,7 +57,9 @@ describe('parseMetadata over the public IdP metadata corpus', function () {
           return true;
         });
       } else {
-        assert.deepStrictEqual(await parseMetadata(xml), want.result);
+        const parsed = await parseMetadata(xml);
+        assert.deepStrictEqual(parsed, want.result);
+        assert.strictEqual(parsed.loginType, roles.get(file));
       }
     });
   }

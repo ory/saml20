@@ -1,5 +1,5 @@
 {
-  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's. The edugain-- files are a sample of the eduGAIN interfederation aggregate chosen so that every structural feature seen across its IdPs (elements, namespace prefixes, key layouts, bindings, certificate formatting) appears several times and every registering federation at least once.",
+  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's. The edugain-- files are a sample of the eduGAIN interfederation aggregate chosen so that every structural feature seen across its IdPs (elements, namespace prefixes, key layouts, bindings, certificate formatting) appears several times and every registering federation at least once. Files prefixed sp-- are SP metadata (SPSSODescriptor only), sampled from the same sources the same way; parseMetadata reads AssertionConsumerService for those.",
   "documents": [
     {
       "file": "pysaml2--example_idp2_idp.xml",
@@ -9,7 +9,8 @@
         "path": "example/idp2/idp.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_idp_slo_redirect.xml_1.xml",
@@ -19,7 +20,8 @@
         "path": "tests/idp_slo_redirect.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_1.xml",
@@ -29,7 +31,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_2.xml",
@@ -39,7 +42,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_3.xml",
@@ -49,7 +53,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_4.xml",
@@ -59,7 +64,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_5.xml",
@@ -69,7 +75,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_6.xml",
@@ -79,7 +86,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_7.xml",
@@ -89,7 +97,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_8.xml",
@@ -99,7 +108,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_9.xml",
@@ -109,7 +119,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_urn-mace-swami.se-swamid-test-1.0-metadata.xml_10.xml",
@@ -119,7 +130,8 @@
         "path": "tests/urn-mace-swami.se-swamid-test-1.0-metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_idp_aa.xml_1.xml",
@@ -129,7 +141,8 @@
         "path": "tests/idp_aa.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.xml_1.xml",
@@ -139,7 +152,8 @@
         "path": "tests/metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata_example.xml_1.xml",
@@ -149,7 +163,8 @@
         "path": "tests/metadata_example.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_idp_uiinfo.xml_1.xml",
@@ -159,7 +174,8 @@
         "path": "tests/idp_uiinfo.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_idp_all.xml",
@@ -169,7 +185,8 @@
         "path": "tests/idp_all.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_1.xml",
@@ -179,7 +196,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_2.xml",
@@ -189,7 +207,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_3.xml",
@@ -199,7 +218,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_4.xml",
@@ -209,7 +229,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_5.xml",
@@ -219,7 +240,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_6.xml",
@@ -229,7 +251,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_7.xml",
@@ -239,7 +262,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_8.xml",
@@ -249,7 +273,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_9.xml",
@@ -259,7 +284,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_10.xml",
@@ -269,7 +295,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_11.xml",
@@ -279,7 +306,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_12.xml",
@@ -289,7 +317,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_13.xml",
@@ -299,7 +328,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_14.xml",
@@ -309,7 +339,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_15.xml",
@@ -319,7 +350,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_16.xml",
@@ -329,7 +361,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_17.xml",
@@ -339,7 +372,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_18.xml",
@@ -349,7 +383,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_19.xml",
@@ -359,7 +394,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_20.xml",
@@ -369,7 +405,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_21.xml",
@@ -379,7 +416,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_22.xml",
@@ -389,7 +427,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_23.xml",
@@ -399,7 +438,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_24.xml",
@@ -409,7 +449,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_25.xml",
@@ -419,7 +460,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_26.xml",
@@ -429,7 +471,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_27.xml",
@@ -439,7 +482,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_28.xml",
@@ -449,7 +493,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_29.xml",
@@ -459,7 +504,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_30.xml",
@@ -469,7 +515,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_31.xml",
@@ -479,7 +526,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_32.xml",
@@ -489,7 +537,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_33.xml",
@@ -499,7 +548,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_34.xml",
@@ -509,7 +559,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_35.xml",
@@ -519,7 +570,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_36.xml",
@@ -529,7 +581,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_37.xml",
@@ -539,7 +592,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_38.xml",
@@ -549,7 +603,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_swamid-1.0.xml_39.xml",
@@ -559,7 +614,8 @@
         "path": "tests/swamid-1.0.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_1.xml",
@@ -569,7 +625,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_2.xml",
@@ -579,7 +636,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_3.xml",
@@ -589,7 +647,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_4.xml",
@@ -599,7 +658,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_5.xml",
@@ -609,7 +669,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_6.xml",
@@ -619,7 +680,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_7.xml",
@@ -629,7 +691,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_8.xml",
@@ -639,7 +702,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_9.xml",
@@ -649,7 +713,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_10.xml",
@@ -659,7 +724,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_11.xml",
@@ -669,7 +735,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_12.xml",
@@ -679,7 +746,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_13.xml",
@@ -689,7 +757,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_14.xml",
@@ -699,7 +768,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_15.xml",
@@ -709,7 +779,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_16.xml",
@@ -719,7 +790,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_17.xml",
@@ -729,7 +801,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_18.xml",
@@ -739,7 +812,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_19.xml",
@@ -749,7 +823,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_20.xml",
@@ -759,7 +834,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_21.xml",
@@ -769,7 +845,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_22.xml",
@@ -779,7 +856,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_23.xml",
@@ -789,7 +867,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_24.xml",
@@ -799,7 +878,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_25.xml",
@@ -809,7 +889,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_26.xml",
@@ -819,7 +900,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_27.xml",
@@ -829,7 +911,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_28.xml",
@@ -839,7 +922,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_29.xml",
@@ -849,7 +933,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_30.xml",
@@ -859,7 +944,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_31.xml",
@@ -869,7 +955,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_32.xml",
@@ -879,7 +966,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_33.xml",
@@ -889,7 +977,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_34.xml",
@@ -899,7 +988,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata.aaitest.xml_35.xml",
@@ -909,7 +999,8 @@
         "path": "tests/metadata.aaitest.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_idp.xml",
@@ -919,7 +1010,8 @@
         "path": "tests/idp.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_idp_2.xml_1.xml",
@@ -929,7 +1021,8 @@
         "path": "tests/idp_2.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_idp_example.xml",
@@ -939,7 +1032,8 @@
         "path": "tests/idp_example.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_idp_soap.xml_1.xml",
@@ -949,7 +1043,8 @@
         "path": "tests/idp_soap.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata_idp_uiinfo.xml_1.xml",
@@ -959,7 +1054,8 @@
         "path": "tests/metadata/idp_uiinfo.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "pysaml2--tests_metadata_idp.xml_1.xml",
@@ -969,7 +1065,8 @@
         "path": "tests/metadata/idp.xml",
         "license": "Apache-2.0"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_multiple_descriptors.xml_1.xml",
@@ -979,7 +1076,8 @@
         "path": "test/metadata/idp_multiple_descriptors.xml",
         "license": "MIT"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_multiple_descriptors.xml_2.xml",
@@ -989,7 +1087,8 @@
         "path": "test/metadata/idp_multiple_descriptors.xml",
         "license": "MIT"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_descriptor_3.xml",
@@ -999,7 +1098,8 @@
         "path": "test/metadata/idp_descriptor_3.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_descriptor_4.xml",
@@ -1009,7 +1109,8 @@
         "path": "test/metadata/idp_descriptor_4.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_different_slo_response_location.xml",
@@ -1019,7 +1120,8 @@
         "path": "test/metadata/idp_different_slo_response_location.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_descriptor_5.xml",
@@ -1029,7 +1131,8 @@
         "path": "test/metadata/idp_descriptor_5.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_descriptor_2.xml",
@@ -1039,7 +1142,8 @@
         "path": "test/metadata/idp_descriptor_2.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_metadata_same_sign_and_encrypt_cert.xml",
@@ -1049,7 +1153,8 @@
         "path": "test/metadata/idp_metadata_same_sign_and_encrypt_cert.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_descriptor_6.xml",
@@ -1059,7 +1164,8 @@
         "path": "test/metadata/idp_descriptor_6.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_metadata_different_sign_and_encrypt_cert.xml",
@@ -1069,7 +1175,8 @@
         "path": "test/metadata/idp_metadata_different_sign_and_encrypt_cert.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_multiple_descriptors_2.xml_2.xml",
@@ -1079,7 +1186,8 @@
         "path": "test/metadata/idp_multiple_descriptors_2.xml",
         "license": "MIT"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_metadata_multi_certs.xml",
@@ -1089,7 +1197,8 @@
         "path": "test/metadata/idp_metadata_multi_certs.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_descriptor.xml",
@@ -1099,7 +1208,8 @@
         "path": "test/metadata/idp_descriptor.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_metadata_multi_signing_certs.xml",
@@ -1109,7 +1219,8 @@
         "path": "test/metadata/idp_metadata_multi_signing_certs.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "ruby-saml--test_metadata_idp_without_slo_response_location.xml",
@@ -1119,7 +1230,8 @@
         "path": "test/metadata/idp_without_slo_response_location.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "saml--samlsp_testdata_idp_metadata.xml",
@@ -1129,7 +1241,8 @@
         "path": "samlsp/testdata/idp_metadata.xml",
         "license": "BSD-2-Clause"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "saml--samlsp_testdata_testshib_metadata.xml_1.xml",
@@ -1139,7 +1252,8 @@
         "path": "samlsp/testdata/testshib_metadata.xml",
         "license": "BSD-2-Clause"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "saml--testdata_TestSPRealWorldAssertionSignedNotResponse_idp_metadata.xml",
@@ -1149,7 +1263,8 @@
         "path": "testdata/TestSPRealWorldAssertionSignedNotResponse_idp_metadata",
         "license": "BSD-2-Clause"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "saml--testdata_TestGetArtifactBindingLocation_IDPMetadata.xml",
@@ -1159,7 +1274,8 @@
         "path": "testdata/TestGetArtifactBindingLocation_IDPMetadata",
         "license": "BSD-2-Clause"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "saml--testdata_TestSPRejectsMalformedResponse_IDPMetadata.xml",
@@ -1169,7 +1285,8 @@
         "path": "testdata/TestSPRejectsMalformedResponse_IDPMetadata",
         "license": "BSD-2-Clause"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "saml--testdata_TestSPCanHandleOktaSignedResponseEncryptedAssertion_IDPMetadata.xml",
@@ -1179,7 +1296,8 @@
         "path": "testdata/TestSPCanHandleOktaSignedResponseEncryptedAssertion_IDPMetadata",
         "license": "BSD-2-Clause"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "saml--testdata_TestSPCanHandleOneloginResponse_IDPMetadata.xml",
@@ -1189,7 +1307,8 @@
         "path": "testdata/TestSPCanHandleOneloginResponse_IDPMetadata",
         "license": "BSD-2-Clause"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "saml--testdata_TestServiceProviderCanHandleSignedAssertionsResponse_IDPMetadata.xml",
@@ -1199,7 +1318,8 @@
         "path": "testdata/TestServiceProviderCanHandleSignedAssertionsResponse_IDPMetadata",
         "license": "BSD-2-Clause"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "saml--testdata_SP_IDPMetadata.xml",
@@ -1209,7 +1329,8 @@
         "path": "testdata/SP_IDPMetadata",
         "license": "BSD-2-Clause"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "python3-saml--tests_data_metadata_idp_multiple_descriptors.xml_2.xml",
@@ -1219,7 +1340,8 @@
         "path": "tests/data/metadata/idp_multiple_descriptors.xml",
         "license": "MIT"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "python3-saml--tests_data_metadata_idp_metadata.xml",
@@ -1229,7 +1351,8 @@
         "path": "tests/data/metadata/idp_metadata.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "python3-saml--tests_data_metadata_idp_metadata_same_sign_and_encrypt_cert.xml",
@@ -1239,7 +1362,8 @@
         "path": "tests/data/metadata/idp_metadata_same_sign_and_encrypt_cert.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "python3-saml--tests_data_metadata_testshib-providers.xml_1.xml",
@@ -1249,7 +1373,8 @@
         "path": "tests/data/metadata/testshib-providers.xml",
         "license": "MIT"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "python3-saml--tests_data_metadata_idp_metadata2.xml",
@@ -1259,7 +1384,8 @@
         "path": "tests/data/metadata/idp_metadata2.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "python3-saml--tests_data_metadata_idp_metadata_different_sign_and_encrypt_cert.xml",
@@ -1269,7 +1395,8 @@
         "path": "tests/data/metadata/idp_metadata_different_sign_and_encrypt_cert.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "python3-saml--tests_data_metadata_idp_metadata_multi_signing_certs.xml",
@@ -1279,7 +1406,8 @@
         "path": "tests/data/metadata/idp_metadata_multi_signing_certs.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_idp_metadata.xml",
@@ -1289,7 +1417,8 @@
         "path": "tests/data/metadata/idp/idp_metadata.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_metadata.xml",
@@ -1299,7 +1428,8 @@
         "path": "tests/data/metadata/idp/metadata.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_shib_metadata.xml_1.xml",
@@ -1309,7 +1439,8 @@
         "path": "tests/data/metadata/idp/shib_metadata.xml",
         "license": "MIT"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_shib_metadata.xml_2.xml",
@@ -1319,7 +1450,8 @@
         "path": "tests/data/metadata/idp/shib_metadata.xml",
         "license": "MIT"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_onelogin_metadata.xml",
@@ -1329,7 +1461,8 @@
         "path": "tests/data/metadata/idp/onelogin_metadata.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_testshib-providers.xml_1.xml",
@@ -1339,7 +1472,8 @@
         "path": "tests/data/metadata/idp/testshib-providers.xml",
         "license": "MIT"
       },
-      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)"
+      "kind": "entity split out of an EntitiesDescriptor aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_idp_metadata_multi_certs.xml",
@@ -1349,7 +1483,8 @@
         "path": "tests/data/metadata/idp/idp_metadata_multi_certs.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_FederationMetadata.xml",
@@ -1359,7 +1494,8 @@
         "path": "tests/data/metadata/idp/FederationMetadata.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "php-saml--tests_data_metadata_idp_idp_metadata_multi_signing_certs.xml",
@@ -1369,7 +1505,8 @@
         "path": "tests/data/metadata/idp/idp_metadata_multi_signing_certs.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "polis--npm_test_identity-federation_data_metadata.xml",
@@ -1379,7 +1516,8 @@
         "path": "npm/test/identity-federation/data/metadata.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "polis--npm_test_sso_data_metadata_boxyhq.xml",
@@ -1389,7 +1527,8 @@
         "path": "npm/test/sso/data/metadata/boxyhq.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "polis--npm_test_sso_data_metadata_example.xml",
@@ -1399,7 +1538,8 @@
         "path": "npm/test/sso/data/metadata/example.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "polis--npm_test_sso_data_metadata_noentityID_boxyhq-noentityID.xml",
@@ -1409,7 +1549,8 @@
         "path": "npm/test/sso/data/metadata/noentityID/boxyhq-noentityID.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "polis--npm_test_sso_data_metadata_nobinding_boxyhq-nobinding.xml",
@@ -1419,7 +1560,8 @@
         "path": "npm/test/sso/data/metadata/nobinding/boxyhq-nobinding.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "polis--_dev_saml_config_boxyhq.xml",
@@ -1429,7 +1571,8 @@
         "path": "_dev/saml_config/boxyhq.xml",
         "license": "Apache-2.0"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "samlify--test_misc_idpmeta_onelogoutservice.xml",
@@ -1439,7 +1582,8 @@
         "path": "test/misc/idpmeta_onelogoutservice.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "samlify--test_misc_idpmeta.xml",
@@ -1449,7 +1593,8 @@
         "path": "test/misc/idpmeta.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "samlify--test_misc_multiple_entitydescriptor.xml",
@@ -1459,7 +1604,8 @@
         "path": "test/misc/multiple_entitydescriptor.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "samlify--test_misc_idpmeta_nosign.xml",
@@ -1469,7 +1615,8 @@
         "path": "test/misc/idpmeta_nosign.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "samlify--test_misc_idpmeta_share_cert.xml",
@@ -1479,7 +1626,8 @@
         "path": "test/misc/idpmeta_share_cert.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "samlify--test_misc_idpmeta_rollingcert.xml",
@@ -1489,7 +1637,8 @@
         "path": "test/misc/idpmeta_rollingcert.xml",
         "license": "MIT"
       },
-      "kind": "file as published"
+      "kind": "file as published",
+      "role": "idp"
     },
     {
       "file": "edugain--aai-arnes-si--1.xml",
@@ -1498,7 +1647,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://aai.arnes.si"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--aai-grnet-gr--1.xml",
@@ -1507,7 +1657,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://aai.grnet.gr/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--cafe-rnp-br--1.xml",
@@ -1516,7 +1667,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://cafe.rnp.br"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--cofre-reuna-cl--1.xml",
@@ -1525,7 +1677,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://cofre.reuna.cl"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--colfire-co--1.xml",
@@ -1534,7 +1687,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://colfire.co"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--eduid-at--1.xml",
@@ -1543,7 +1697,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://eduid.at"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--eduid-hu--1.xml",
@@ -1552,7 +1707,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://eduid.hu"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--eduid-lu--1.xml",
@@ -1561,7 +1717,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://eduid.lu"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--eduid-roedu-net--1.xml",
@@ -1570,7 +1727,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://eduid.roedu.net"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--federation-belnet-be--1.xml",
@@ -1579,7 +1737,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://federation.belnet.be/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--federation-belnet-be--2.xml",
@@ -1588,7 +1747,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://federation.belnet.be/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--federation-belnet-be--3.xml",
@@ -1597,7 +1757,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://federation.belnet.be/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--federations-renam-md--1.xml",
@@ -1606,7 +1767,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://federations.renam.md/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--feide-no--1.xml",
@@ -1615,7 +1777,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://feide.no/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--iif-iucc-ac-il--1.xml",
@@ -1624,7 +1787,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://iif.iucc.ac.il"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--inflibnet-ac-in--1.xml",
@@ -1633,7 +1797,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://inflibnet.ac.in"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--kafe-kreonet-net--1.xml",
@@ -1642,7 +1807,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://kafe.kreonet.net"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--rr-aai-switch-ch--1.xml",
@@ -1651,7 +1817,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://rr.aai.switch.ch/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--safeid-sk--1.xml",
@@ -1660,7 +1827,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://safeid.sk"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--somaliren-org--1.xml",
@@ -1669,7 +1837,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://somaliren.org"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--taat-edu-ee--1.xml",
@@ -1678,7 +1847,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://taat.edu.ee"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--taat-edu-ee--2.xml",
@@ -1687,7 +1857,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://taat.edu.ee"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--taat-edu-ee--3.xml",
@@ -1696,7 +1867,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://taat.edu.ee"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--taat-edu-ee--4.xml",
@@ -1705,7 +1877,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://taat.edu.ee"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--taat-edu-ee--5.xml",
@@ -1714,7 +1887,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://taat.edu.ee"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--ukfederation-org-uk--1.xml",
@@ -1723,7 +1897,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://ukfederation.org.uk"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-canarie-ca--1.xml",
@@ -1732,7 +1907,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.canarie.ca"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-csc-fi-haka--1.xml",
@@ -1741,7 +1917,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.csc.fi/haka"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-eduid-cz--1.xml",
@@ -1750,7 +1927,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.eduid.cz/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-eduid-cz--2.xml",
@@ -1759,7 +1937,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.eduid.cz/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-eduid-cz--3.xml",
@@ -1768,7 +1947,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.eduid.cz/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-eduid-cz--4.xml",
@@ -1777,7 +1957,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.eduid.cz/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-fenix-org-mx--1.xml",
@@ -1786,7 +1967,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.fenix.org.mx"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-heanet-ie--1.xml",
@@ -1795,7 +1977,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.heanet.ie"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-idem-garr-it--1.xml",
@@ -1804,7 +1987,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.idem.garr.it/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-omren-om--1.xml",
@@ -1813,7 +1997,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.omren.om"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-rediris-es--1.xml",
@@ -1822,7 +2007,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.rediris.es/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-srce-hr--1.xml",
@@ -1831,7 +2017,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.srce.hr"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-surfconext-nl--1.xml",
@@ -1840,7 +2027,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.surfconext.nl/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-swamid-se--1.xml",
@@ -1849,7 +2037,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.swamid.se/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-swamid-se--2.xml",
@@ -1858,7 +2047,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.swamid.se/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-swamid-se--3.xml",
@@ -1867,7 +2057,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.swamid.se/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-swamid-se--4.xml",
@@ -1876,7 +2067,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.swamid.se/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-swamid-se--5.xml",
@@ -1885,7 +2077,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.swamid.se/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-swamid-se--6.xml",
@@ -1894,7 +2087,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "http://www.swamid.se/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--aaf-edu-au--1.xml",
@@ -1903,7 +2097,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://aaf.edu.au"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--aai-asnet-am--1.xml",
@@ -1912,7 +2107,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://aai.asnet.am"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--aai-pionier-net-pl--1.xml",
@@ -1921,7 +2117,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://aai.pionier.net.pl"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--aai-pionier-net-pl--2.xml",
@@ -1930,7 +2127,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://aai.pionier.net.pl"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--aai-pionier-net-pl--3.xml",
@@ -1939,7 +2137,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://aai.pionier.net.pl"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--bif-bren-bg--1.xml",
@@ -1948,7 +2147,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://bif.bren.bg"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--cif-cynet-ac-cy--1.xml",
@@ -1957,7 +2157,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://cif.cynet.ac.cy"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--edugain-azsciencenet-az--1.xml",
@@ -1966,7 +2167,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://edugain.azsciencenet.az"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--eduid-rash-al--1.xml",
@@ -1975,7 +2177,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://eduid.rash.al"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--eduidm-ma--1.xml",
@@ -1984,7 +2187,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://eduidm.ma"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--ethernet-edu-et--1.xml",
@@ -1993,7 +2197,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://ethernet.edu.et/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--febas-basnet-by--1.xml",
@@ -2002,7 +2207,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://febas.basnet.by"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--federacija-iamres-ac-rs--1.xml",
@@ -2011,7 +2217,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://federacija.iamres.ac.rs/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--federation-renater-fr--1.xml",
@@ -2020,7 +2227,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://federation.renater.fr/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--fedi-litnet-lt--1.xml",
@@ -2029,7 +2237,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://fedi.litnet.lt"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--fidern-ac-zm--1.xml",
@@ -2038,7 +2247,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://fidern.ac.zm"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--garnet-edu-gh--1.xml",
@@ -2047,7 +2257,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://garnet.edu.gh"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--hkaf-edu-hk--1.xml",
@@ -2056,7 +2267,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://hkaf.edu.hk"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--id-ricerka-net-mt--1.xml",
@@ -2065,7 +2277,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://id.ricerka.net.mt"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--idp-laife-lv--1.xml",
@@ -2074,7 +2287,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://idp.laife.lv/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--incommon-org--1.xml",
@@ -2083,7 +2297,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://incommon.org"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--irfed-ir--1.xml",
@@ -2092,7 +2307,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://irfed.ir/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--liaf-ac-lk--1.xml",
@@ -2101,7 +2317,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://liaf.ac.lk"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--maren-ac-mw--1.xml",
@@ -2110,7 +2327,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://maren.ac.mw"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--maren-ac-mw--2.xml",
@@ -2119,7 +2337,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://maren.ac.mw"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--mds-redclara-net--1.xml",
@@ -2128,7 +2347,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://mds.redclara.net/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--minga-cedia-org-ec--1.xml",
@@ -2137,7 +2357,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://minga.cedia.org.ec"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--mtd-gif-grena-ge--1.xml",
@@ -2146,7 +2367,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://mtd.gif.grena.ge"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--ngren-edu-ng--1.xml",
@@ -2155,7 +2377,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://ngren.edu.ng/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--peano-uran-ua--1.xml",
@@ -2164,7 +2387,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://peano.uran.ua"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--pkifed-pk--1.xml",
@@ -2173,7 +2397,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://pkifed.pk"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--rafiki-ke--1.xml",
@@ -2182,7 +2407,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://rafiki.ke"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--rr-aaiedu-mk--1.xml",
@@ -2191,7 +2417,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://rr.aaiedu.mk"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--safire-ac-za--1.xml",
@@ -2200,7 +2427,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://safire.ac.za"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--sifulan-my--1.xml",
@@ -2209,7 +2437,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://sifulan.my"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--tif-ternet-or-tz--1.xml",
@@ -2218,7 +2447,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://tif.ternet.or.tz/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--tigerfed-net-bd--1.xml",
@@ -2227,7 +2457,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://tigerfed.net.bd"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--tuakiri-ac-nz--1.xml",
@@ -2236,7 +2467,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://tuakiri.ac.nz/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-aai-arn-dz--1.xml",
@@ -2245,7 +2477,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.aai.arn.dz/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-aai-dfn-de--1.xml",
@@ -2254,7 +2487,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.aai.dfn.de"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-aai-dfn-de--2.xml",
@@ -2263,7 +2497,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.aai.dfn.de"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-aai-dfn-de--3.xml",
@@ -2272,7 +2507,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.aai.dfn.de"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-aai-dfn-de--4.xml",
@@ -2281,7 +2517,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.aai.dfn.de"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-aai-dfn-de--5.xml",
@@ -2290,7 +2527,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.aai.dfn.de"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-aai-dfn-de--6.xml",
@@ -2299,7 +2537,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.aai.dfn.de"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-carsi-edu-cn--1.xml",
@@ -2308,7 +2547,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.carsi.edu.cn"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-cstcloud-net--1.xml",
@@ -2317,7 +2557,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.cstcloud.net/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-eduid-africa--1.xml",
@@ -2326,7 +2567,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.eduid.africa/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-eduid-bf--1.xml",
@@ -2335,7 +2577,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.eduid.bf"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-eduid-ng--1.xml",
@@ -2344,7 +2587,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.eduid.ng"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-eduid-tg--1.xml",
@@ -2353,7 +2597,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.eduid.tg"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-fccn-pt--1.xml",
@@ -2362,7 +2607,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.fccn.pt"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-gakunin-jp--1.xml",
@@ -2371,7 +2617,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.gakunin.jp"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-kif-kg--1.xml",
@@ -2380,7 +2627,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.kif.kg"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-maeen-sa--1.xml",
@@ -2389,7 +2637,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.maeen.sa"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-renu-ac-ug--1.xml",
@@ -2398,7 +2647,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.renu.ac.ug"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-singaren-net-sg--1.xml",
@@ -2407,7 +2657,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.singaren.net.sg"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--www-wayf-dk--1.xml",
@@ -2416,7 +2667,8 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://www.wayf.dk"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
     },
     {
       "file": "edugain--yetkim-org-tr--1.xml",
@@ -2425,7 +2677,1508 @@
         "aggregateValidUntil": "2026-11-07T12:30:01Z",
         "registrationAuthority": "https://yetkim.org.tr/"
       },
-      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "idp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_pseudonymous_sp.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_pseudonymous_sp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_cat_sfs_hei.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_cat_sfs_hei.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_no_friendly_name_sp.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_no_friendly_name_sp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_esi_and_coco_sp.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_esi_and_coco_sp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_cat_rs.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_cat_rs.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_cat_re.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_cat_re.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_metadata_cert.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/metadata_cert.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_servera.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/servera.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_anonymous_sp.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_anonymous_sp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_personalized_sp.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_personalized_sp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_uu.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/uu.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_entity_cat_re_nren.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/entity_cat_re_nren.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--pysaml2--tests_sp.xml",
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/sp.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--ruby-saml--test_metadata_no_idp_descriptor.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/metadata/no_idp_descriptor.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--samlsp_testdata_expected_middleware_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "samlsp/testdata/expected_middleware_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--samlidp_testdata_sp_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "samlidp/testdata/sp_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestCanParseMetadata_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestCanParseMetadata_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestSPCanProduceMetadataWithNoLougoutBindings_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanProduceMetadataWithNoLougoutBindings_metadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestSPCanProduceMetadataWithEncryptionCert_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanProduceMetadataWithEncryptionCert_metadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestCanProduceMetadataNoCerts_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestCanProduceMetadataNoCerts_metadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestIDPNoDestination_idp_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPNoDestination_idp_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestIDPRequestedAttributes_idp_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPRequestedAttributes_idp_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestSPCanProduceMetadataWithBothLougoutBindings_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanProduceMetadataWithBothLougoutBindings_metadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestMetadataValidatesUrlSchemeForProtocolBinding_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestMetadataValidatesUrlSchemeForProtocolBinding_metadata.xml",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestSPCanProduceMetadataWithBothCerts_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanProduceMetadataWithBothCerts_metadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestCanProduceSPMetadata_expected.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestCanProduceSPMetadata_expected",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--saml--testdata_TestCanProduceMetadataEntityID_metadata.xml",
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestCanProduceMetadataEntityID_metadata",
+        "license": "BSD-2-Clause"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--python3-saml--tests_data_metadata_unparsed_metadata.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/unparsed_metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--python3-saml--tests_data_metadata_signed_metadata_settings2.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/signed_metadata_settings2.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--python3-saml--tests_data_metadata_signed_metadata_settings1.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/signed_metadata_settings1.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--python3-saml--tests_data_metadata_metadata_settings1.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/metadata_settings1.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--python3-saml--tests_data_metadata_no_expiration_mark_metadata.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/no_expiration_mark_metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--python3-saml--tests_data_metadata_noentity_metadata_settings1.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/noentity_metadata_settings1.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--python3-saml--tests_data_metadata_expired_metadata_settings1.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/expired_metadata_settings1.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--python3-saml--tests_data_metadata_metadata_bad_order_settings1.xml",
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/metadata/metadata_bad_order_settings1.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--node-saml--test_static_acme_tools_com.xml",
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/acme_tools_com.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--node-saml--test_static_expectedMetadataWithBothKeys.xml",
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/expectedMetadataWithBothKeys.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--node-saml--test_static_signedMetadata.xml",
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signedMetadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--node-saml--test_static_expected_metadata_without_key.xml",
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/expected metadata without key.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--node-saml--test_static_expected_metadata_attributeConsumingServices.xml",
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/expected_metadata_attributeConsumingServices.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--node-saml--test_static_expected_metadata.xml",
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/expected metadata.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--node-saml--test_static_expected_metadata_metadataExtensions.xml",
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/expected_metadata_metadataExtensions.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--node-saml--test_static_expectedMetadataWithEncryptionAndTwoSigningKeys.xml",
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/expectedMetadataWithEncryptionAndTwoSigningKeys.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--php-saml--tests_data_metadata_signed_metadata_settings1.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/signed_metadata_settings1.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--php-saml--tests_data_metadata_metadata_settings1.xml",
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/metadata/metadata_settings1.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--polis--npm_test_sso_data_metadata_invalidSSODescriptor_invalidssodescriptor.xml",
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/sso/data/metadata/invalidSSODescriptor/invalidssodescriptor.xml",
+        "license": "Apache-2.0"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--samlify--test_misc_spmeta_noassertsign.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/spmeta_noassertsign.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--samlify--test_misc_spmeta.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/spmeta.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--samlify--test_misc_sp_metadata_98.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/sp_metadata_98.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--samlify--test_misc_spmeta_noauthnsign.xml",
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/spmeta_noauthnsign.xml",
+        "license": "MIT"
+      },
+      "kind": "file as published",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--aai-arnes-si--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://aai.arnes.si"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--aai-grnet-gr--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://aai.grnet.gr/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--cofre-reuna-cl--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://cofre.reuna.cl"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--eduid-at--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.at"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--eduid-hu--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.hu"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--eduid-hu--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.hu"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--eduid-lu--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.lu"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--eduid-roedu-net--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.roedu.net"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--federation-belnet-be--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federation.belnet.be/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--federation-belnet-be--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federation.belnet.be/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--federation-belnet-be--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federation.belnet.be/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--federation-belnet-be--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federation.belnet.be/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--federations-renam-md--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federations.renam.md/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--feide-no--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://feide.no/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--iif-iucc-ac-il--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://iif.iucc.ac.il"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--inflibnet-ac-in--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://inflibnet.ac.in"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--kafe-kreonet-net--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://kafe.kreonet.net"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--rr-aai-switch-ch--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://rr.aai.switch.ch/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--rr-aai-switch-ch--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://rr.aai.switch.ch/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--rr-aai-switch-ch--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://rr.aai.switch.ch/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--safeid-sk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://safeid.sk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--somaliren-org--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://somaliren.org"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--taat-edu-ee--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--taat-edu-ee--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--taat-edu-ee--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--taat-edu-ee--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--taat-edu-ee--5.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--ukfederation-org-uk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://ukfederation.org.uk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--ukfederation-org-uk--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://ukfederation.org.uk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--ukfederation-org-uk--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://ukfederation.org.uk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--ukfederation-org-uk--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://ukfederation.org.uk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--ukfederation-org-uk--5.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://ukfederation.org.uk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--ukfederation-org-uk--6.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://ukfederation.org.uk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-canarie-ca--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.canarie.ca"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-csc-fi-haka--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.csc.fi/haka"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-cz--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-cz--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-cz--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-cz--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-cz--5.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-cz--6.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-cz--7.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-cz--8.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-heanet-ie--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.heanet.ie"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-idem-garr-it--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.idem.garr.it/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-omren-om--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.omren.om"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-rediris-es--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.rediris.es/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-srce-hr--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.srce.hr"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-surfconext-nl--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.surfconext.nl/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-swamid-se--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-swamid-se--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-swamid-se--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--aaf-edu-au--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://aaf.edu.au"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--aai-asnet-am--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://aai.asnet.am"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--aai-pionier-net-pl--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://aai.pionier.net.pl"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--bif-bren-bg--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://bif.bren.bg"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--cif-cynet-ac-cy--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://cif.cynet.ac.cy"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--edugain-azsciencenet-az--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://edugain.azsciencenet.az"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--eduid-rash-al--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://eduid.rash.al"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--eduidm-ma--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://eduidm.ma"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--ethernet-edu-et--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://ethernet.edu.et/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--federation-renater-fr--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://federation.renater.fr/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--fedi-litnet-lt--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://fedi.litnet.lt"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--garnet-edu-gh--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://garnet.edu.gh"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--hkaf-edu-hk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://hkaf.edu.hk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--idp-laife-lv--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://idp.laife.lv/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--idp-laife-lv--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://idp.laife.lv/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--idp-laife-lv--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://idp.laife.lv/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--idp-laife-lv--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://idp.laife.lv/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--incommon-org--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://incommon.org"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--maren-ac-mw--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://maren.ac.mw"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--mds-redclara-net--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://mds.redclara.net/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--minga-cedia-org-ec--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://minga.cedia.org.ec"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--ngren-edu-ng--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://ngren.edu.ng/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--peano-uran-ua--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://peano.uran.ua"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--rafiki-ke--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://rafiki.ke"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--rr-aaiedu-mk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://rr.aaiedu.mk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--safire-ac-za--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://safire.ac.za"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--sifulan-my--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://sifulan.my"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--tif-ternet-or-tz--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://tif.ternet.or.tz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--tigerfed-net-bd--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://tigerfed.net.bd"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-aai-dfn-de--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.aai.dfn.de"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-carsi-edu-cn--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.carsi.edu.cn"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-cstcloud-net--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.cstcloud.net/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-africa--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.eduid.africa/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-bf--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.eduid.bf"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-ng--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.eduid.ng"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-eduid-tg--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.eduid.tg"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-fccn-pt--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.fccn.pt"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-gakunin-jp--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.gakunin.jp"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-gakunin-jp--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.gakunin.jp"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-kif-kg--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.kif.kg"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-renu-ac-ug--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.renu.ac.ug"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--www-wayf-dk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.wayf.dk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
+    },
+    {
+      "file": "sp--edugain--yetkim-org-tr--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://yetkim.org.tr/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)",
+      "role": "sp"
     }
   ]
 }

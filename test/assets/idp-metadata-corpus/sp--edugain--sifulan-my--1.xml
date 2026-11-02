@@ -1,0 +1,115 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://filesender.asia/sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://sifulan.my" registrationInstant="2024-03-05T12:37:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://sifulan.my/sifulan-mrps-v1-2/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">FileSender.Asia</mdui:DisplayName>
+          <mdui:Description xml:lang="en">FileSender.Asia is instance of FileSender, a web based application that allows authenticated users to securely and easily send large files to other users.
+
+This project is supported by Asi@Connect, TEIN*CC, APAN and the European Union via grant contract ACA 2016/376-562 (Asi@Connect).</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://filesender.asia/?s=about</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://filesender.asia/?s=privacy</mdui:PrivacyStatementURL>
+          <mdui:Logo height="270" width="270" xml:lang="en">https://filesender.asia/images/favicons/mstile-150x150.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEzTCCAzWgAwIBAgIUW7dp7xqEjq14at+iABapbFlZmhgwDQYJKoZIhvcNAQEL
+BQAwdjELMAkGA1UEBhMCQVUxETAPBgNVBAgMCFRhc21hbmlhMRMwEQYDVQQHDApM
+YXVuY2VzdG9uMRgwFgYDVQQKDA9GaWxlU2VuZGVyLkFzaWExCzAJBgNVBAsMAklU
+MRgwFgYDVQQDDA9maWxlc2VuZGVyLmFzaWEwHhcNMjMwNDEzMDM1MTE0WhcNMzMw
+NDEyMDM1MTE0WjB2MQswCQYDVQQGEwJBVTERMA8GA1UECAwIVGFzbWFuaWExEzAR
+BgNVBAcMCkxhdW5jZXN0b24xGDAWBgNVBAoMD0ZpbGVTZW5kZXIuQXNpYTELMAkG
+A1UECwwCSVQxGDAWBgNVBAMMD2ZpbGVzZW5kZXIuYXNpYTCCAaIwDQYJKoZIhvcN
+AQEBBQADggGPADCCAYoCggGBAK7jO5YYtCJtoOUHBHw0NLmU7ZdZjbJLf8SPSCpC
+gR6qwfWOOM5BJclWs/bZToKk8p0IkbGiYIEls7rbg9o/VuZWj5TGoobIF1Tgv6Kj
+F0FMJd/Q9LauJqKuvWRGVdB4//fM9eprFYGp9MqejiKL8+UsXTljp+7S+8AW9ieg
+y9AO4/KQl5SvfdX0tmBB1Bhlq8hkJk58XrZvamDXJELlRPSgfDfg92WyiP0J/iQ3
+2KGk027ni3MEh/SdxcnYuKDzMzlZbq/JYu3fB6qoX+k1bsSBST1i08TYs3fxF03P
+mp4QvRBo4wi0waD0Sr1y3z3FSA4TxGHap96rnwRxEtkOGF5kVL+/231SzWJAK6YS
+tilfmw2IVu0dwLCNHIHSp0iGOo3a00Mr9W/EFvCUhDeOBrLdCcXsgYLjeCLZN+ka
+tRyfzZi0a8dFzNcr4HjiDoe1JyRliT+n/jQyNP4VGHLPYb6ZUu6dZgsldlceyvav
+9+QXb4V7SB2rGTbxxO0H1KVDKQIDAQABo1MwUTAdBgNVHQ4EFgQUYWkI5orwQ8zg
+frh3AEEgYs3qqtcwHwYDVR0jBBgwFoAUYWkI5orwQ8zgfrh3AEEgYs3qqtcwDwYD
+VR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAeG4NnS+mD3Fs3xZfTsDw
+bthrqYCqLLuFd5w8LdL3VQlXP9EaIAzUJ3s927cuJ+tPLOJGb6k0fL663H4jSRw0
++a8zNSfjTusbYR2GN7C1tMMcAhvBst90lJPjQ2s2Vh7Jbtl3EpYLAYfnxhjAalYB
+YVHpcQHxNj3YUsP8DeNveeREkgaYSLn1OD+nTEXomHqJs77qa2MfCXy+jhfM3zyQ
+N+vff20SlTJrtd9VH3AWC8PNyP/3JdFBVpNOFmjla+RB2GQ5LcckFiVVq/uQcDFi
+Vs0qvnfdOzufHXnY5tWwiuFXbu78BYIO28bzpALSDKqI1jjcufhIGX93JqbcWb4H
+L/hPI93k8aTQ+UZ9n6YxiUtHOAOIECYlqhF/eJS9oanErxPGIHuHm1DFKFKiRMup
+ndXYP57wph0dwkqcNXpTQZH9ipK8/1aehqrx3Sy5Tuy2R33b8ZGhjaLNdsatYW10
+74MSdWHWkHQcCiy21r3zvuCU5uJlQH592koUGlL3JcVS
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEzTCCAzWgAwIBAgIUW7dp7xqEjq14at+iABapbFlZmhgwDQYJKoZIhvcNAQEL
+BQAwdjELMAkGA1UEBhMCQVUxETAPBgNVBAgMCFRhc21hbmlhMRMwEQYDVQQHDApM
+YXVuY2VzdG9uMRgwFgYDVQQKDA9GaWxlU2VuZGVyLkFzaWExCzAJBgNVBAsMAklU
+MRgwFgYDVQQDDA9maWxlc2VuZGVyLmFzaWEwHhcNMjMwNDEzMDM1MTE0WhcNMzMw
+NDEyMDM1MTE0WjB2MQswCQYDVQQGEwJBVTERMA8GA1UECAwIVGFzbWFuaWExEzAR
+BgNVBAcMCkxhdW5jZXN0b24xGDAWBgNVBAoMD0ZpbGVTZW5kZXIuQXNpYTELMAkG
+A1UECwwCSVQxGDAWBgNVBAMMD2ZpbGVzZW5kZXIuYXNpYTCCAaIwDQYJKoZIhvcN
+AQEBBQADggGPADCCAYoCggGBAK7jO5YYtCJtoOUHBHw0NLmU7ZdZjbJLf8SPSCpC
+gR6qwfWOOM5BJclWs/bZToKk8p0IkbGiYIEls7rbg9o/VuZWj5TGoobIF1Tgv6Kj
+F0FMJd/Q9LauJqKuvWRGVdB4//fM9eprFYGp9MqejiKL8+UsXTljp+7S+8AW9ieg
+y9AO4/KQl5SvfdX0tmBB1Bhlq8hkJk58XrZvamDXJELlRPSgfDfg92WyiP0J/iQ3
+2KGk027ni3MEh/SdxcnYuKDzMzlZbq/JYu3fB6qoX+k1bsSBST1i08TYs3fxF03P
+mp4QvRBo4wi0waD0Sr1y3z3FSA4TxGHap96rnwRxEtkOGF5kVL+/231SzWJAK6YS
+tilfmw2IVu0dwLCNHIHSp0iGOo3a00Mr9W/EFvCUhDeOBrLdCcXsgYLjeCLZN+ka
+tRyfzZi0a8dFzNcr4HjiDoe1JyRliT+n/jQyNP4VGHLPYb6ZUu6dZgsldlceyvav
+9+QXb4V7SB2rGTbxxO0H1KVDKQIDAQABo1MwUTAdBgNVHQ4EFgQUYWkI5orwQ8zg
+frh3AEEgYs3qqtcwHwYDVR0jBBgwFoAUYWkI5orwQ8zgfrh3AEEgYs3qqtcwDwYD
+VR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAeG4NnS+mD3Fs3xZfTsDw
+bthrqYCqLLuFd5w8LdL3VQlXP9EaIAzUJ3s927cuJ+tPLOJGb6k0fL663H4jSRw0
++a8zNSfjTusbYR2GN7C1tMMcAhvBst90lJPjQ2s2Vh7Jbtl3EpYLAYfnxhjAalYB
+YVHpcQHxNj3YUsP8DeNveeREkgaYSLn1OD+nTEXomHqJs77qa2MfCXy+jhfM3zyQ
+N+vff20SlTJrtd9VH3AWC8PNyP/3JdFBVpNOFmjla+RB2GQ5LcckFiVVq/uQcDFi
+Vs0qvnfdOzufHXnY5tWwiuFXbu78BYIO28bzpALSDKqI1jjcufhIGX93JqbcWb4H
+L/hPI93k8aTQ+UZ9n6YxiUtHOAOIECYlqhF/eJS9oanErxPGIHuHm1DFKFKiRMup
+ndXYP57wph0dwkqcNXpTQZH9ipK8/1aehqrx3Sy5Tuy2R33b8ZGhjaLNdsatYW10
+74MSdWHWkHQcCiy21r3zvuCU5uJlQH592koUGlL3JcVS
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.asia/saml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.asia/saml/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.asia/saml/module.php/saml/sp/saml2-acs.php/default-sp" index="1" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">FileSender.Asia</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">FileSender.Asia is instance of FileSender, a web based application that allows authenticated users to securely and easily send large files to other users.
+
+This project is supported by Asi@Connect, TEIN*CC, APAN and the European Union via grant contract ACA 2016/376-562 (Asi@Connect).</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="transientId" Name="urn:oid:1.2.3.4.5.6.7.8.9.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">APAN.net</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Asia Pacific Advanced Network</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://apan.net</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>FileSender Asia</md:GivenName>
+      <md:EmailAddress>mailto:hello@iamfederated.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

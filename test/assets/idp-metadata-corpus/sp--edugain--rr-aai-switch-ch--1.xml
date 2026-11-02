@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ns4="https://rr.aai.switch.ch/" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://authprxy-staging.datahub.ac/Saml2/proxy_saml2_backend.xml">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2021-03-18T08:55:08Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/switchaai-mrps-v2.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:profiles:subject-id:req" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>none</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <ns4:SWITCHaaiExtensions federation="urn:mace:switch.ch:SWITCHaai" homeOrganization="switch.ch" homeURL="https://staging.nuvolos.cloud">
+        <ns4:IntendedAudience audiencePolicy="include" type="homeOrganizationType">university</ns4:IntendedAudience>
+        <ns4:IntendedAudience audiencePolicy="include" type="homeOrganizationType">uas</ns4:IntendedAudience>
+        <ns4:IntendedAudience audiencePolicy="include" type="homeOrganizationType">hospital</ns4:IntendedAudience>
+        <ns4:IntendedAudience audiencePolicy="include" type="homeOrganizationType">library</ns4:IntendedAudience>
+        <ns4:IntendedAudience audiencePolicy="include" type="homeOrganizationType">tertiaryb</ns4:IntendedAudience>
+        <ns4:IntendedAudience audiencePolicy="include" type="homeOrganizationType">uppersecondary</ns4:IntendedAudience>
+        <ns4:IntendedAudience audiencePolicy="include" type="homeOrganizationType">vho</ns4:IntendedAudience>
+        <ns4:IntendedAudience audiencePolicy="exclude" type="homeOrganizationType">others</ns4:IntendedAudience>
+        <ns4:IntendedAudience audiencePolicy="include" type="homeOrganization">eduid.ch</ns4:IntendedAudience>
+      </ns4:SWITCHaaiExtensions>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Nuvolos Staging</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Nuvolos by Alphacruncher AG (Staging)</mdui:Description>
+          <mdui:Logo height="16" width="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA2QAAANkBj64lFQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEnSURBVDiNzY+hSwNhGMZ/791NbqDIYOWGitgs/gVjOBHsFmHNYjDaTIJJMGgVBUHcbmlW23FTMMykyWbTYBPnhrd7LZtMd9/Ymk/63pfn+b3PB/9anh/WPD+sDfOIMVyur2HpNYBauvK6sRwk+azE9Ml9CkuPAER4dJt6ZzqUCPCmP7aBRQCNeXjeLLZGBuQqQRZlrzerMIWq8auDDcTeBzLdqalfrRIiOhJgplJfUnSrHxe7E8brA4AYPQbsvlXaieyrufJNBoOc3sOrhuuqFAccoqvvTjse2mD+PHBRDk2mdJQqDG3QdmUHWDCZVKTq+eFZd2i8lAqXPwVn/dtcROcJmDQB/uhNVHbV0k9H7cCJiA/GCANkVfQUhUg7FxZofozwbwn5b1VKXdxwJqTcAAAAAElFTkSuQmCC</mdui:Logo>
+          <mdui:Logo height="57" width="80">data:image/png;base64,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</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">https://staging.nuvolos.cloud/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://nuvolos.cloud/legal/privacy-policy/privacy-policy</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIELTCCApWgAwIBAgIUf+4BF52x5Fi3BL0yKku4FZ5Cq2MwDQYJKoZIhvcNAQEL
+BQAwJjEkMCIGA1UEAwwbYXV0aHByeHktc3RhZ2luZy5kYXRhaHViLmFjMB4XDTIy
+MDMyNDEzNTcwMFoXDTMyMDMyMTEzNTcwMFowJjEkMCIGA1UEAwwbYXV0aHByeHkt
+c3RhZ2luZy5kYXRhaHViLmFjMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKC
+AYEA1dJ1FzZGuG1Fc8cqLoDS+WCnHxq6rednTH4/f1ywntmlkgAPWOrwOtq33YER
+deQEF9k9+gVzCzEdjqh9xL26CbXWPqic7+PUn3hyTfaAvwRyvuwH0ZlheHyQN9kB
+4Kegj7fuL1yjUAZ9zTyNfOdBM07ECd7HXxHRaK8OMX/C7oYztMECD0EPi2DOcs4x
+LPlJLzh5/5tGogGveV/yIBTyqz3svi/2YoWSBsxU5ri+7Q8CxoxkI0C7bZdFBYmn
+IiJ0MN+iUEPXpq68uyBBnGa7tyg6J5pKChuOFxl/svyEz/R9ROEOY7b/Up2UoWD0
+4NK6OByURseLMcySjvXRUOqmbld1okT6E0O33FCMm4phnaRnJPSGC6psU9MXhXnY
+ALijis/sD0eSF4quS5nEbfVMqysQb4kW/aNOqceLB3GC8lE3tNeVNFunfc+3ieVT
+qjVgL0lIZvq6v3VazVwCY7r48gs6RNDuShkordSHwIZjcEmNyOULdLTheBlGYZO6
+etjdAgMBAAGjUzBRMB0GA1UdDgQWBBQyFVjbNUrJ75A1tlu1AO6xVClnxTAfBgNV
+HSMEGDAWgBQyFVjbNUrJ75A1tlu1AO6xVClnxTAPBgNVHRMBAf8EBTADAQH/MA0G
+CSqGSIb3DQEBCwUAA4IBgQCTYW6SsKqeC3VukLVYhUBy7cC2nrfQQs9btEjOJnyv
+w/A4MPUCCPCO6aoJsz/XM5Psz1OxfqEcffwXcxvD4r46hAKLNMN9/ry++xTvLnHC
+iQYJpWWddr3O1j2OPVwaleELuH0+AXAxQLz1fl5Ydw/jYI8koM8QOVEbMAhtYHmW
+WLOwtdp9k7zChV3Ouzt1GcbNIa/ICBcghQjeXRNP4kXf6qorWq83agDmr+ZOk+CF
+tsSXuf7gSKGvO0gEfNk+o3nknh/rlOAGP9C7XmKAEfriCPnNAX3ZhEBvTcu4dzze
+vT7DaNLbJr+jmQewidAlFAddH1SykH7P5vuXabb/CwhK+It6/154YkR8b0Ir4kLV
+xUnKoqcUqKERvgbGhZpk9JawDRCaEoQEdUx4ycCTIPRKNhHzc+qOvtesWxdNl2gV
+08ukcO3hvg9pGMV0T96RdTqco3y0D8PbnaUnKtCnZGoJUUcsp4BIau3uTlHfnQkd
+h87H/R4c9jd48/14stVKFNg=
+						</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://authproxy.nginx.nuvolos.cloud/Saml2/acs/post" index="1" />
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">Nuvolos Staging</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Nuvolos by Alphacruncher AG (Staging)</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="commonName" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">alphacruncher.com</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ALPHACRUNCHER AG</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://alphacruncher.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support</md:GivenName>
+      <md:SurName>Alphacruncher HQ</md:SurName>
+      <md:EmailAddress>mailto:support@alphacruncher.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Sysadmin</md:GivenName>
+      <md:SurName>Alphacruncher HQ</md:SurName>
+      <md:EmailAddress>mailto:sysadmin@alphacruncher.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

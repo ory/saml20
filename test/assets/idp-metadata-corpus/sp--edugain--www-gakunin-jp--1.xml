@@ -1,0 +1,95 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ns4="http://www.gakunin.jp/ns/uapprove-jp/metadata" entityID="https://nous.nins.jp/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.gakunin.jp" registrationInstant="2017-08-16T09:45:04Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.gakunin.jp/en/join</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="ja">https://www.gakunin.jp/join</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://nous.nins.jp/Shibboleth.sso/DS" index="1" />
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://nous-dev.nins.jp/Shibboleth.sso/DS" index="2" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">NINS Open Use System</mdui:DisplayName>
+          <mdui:Description xml:lang="ja">自然科学共同利用・共同研究統括システム</mdui:Description>
+          <mdui:Description xml:lang="en">NOUS is the database system to operate Open Use in the National Institutes of Natural Sciences (NINS).</mdui:Description>
+        </mdui:UIInfo>
+        <ns4:RequestedAttributeExtension FriendlyName="eduPersonTargetedID">
+          <ns4:Description xml:lang="ja">ユーザを一意に識別するため</ns4:Description>
+        </ns4:RequestedAttributeExtension>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIIKjCCBhKgAwIBAgIQBSio+Lr+YrSKecdp8aWb6DANBgkqhkiG9w0BAQsFADBb
+MQswCQYDVQQGEwJKUDEmMCQGA1UEChMdU0VDT00gVHJ1c3QgU3lzdGVtcyBDby4s
+IEx0ZC4xJDAiBgNVBAMTG05JSSBPcGVuIERvbWFpbiBDQSAtIEc4IFJTQTAeFw0y
+NjAyMjcwMTUzMDlaFw0yNzAzMzAwMTUzMDlaMHoxCzAJBgNVBAYTAkpQMQ4wDAYD
+VQQIEwVUb2t5bzESMBAGA1UEBxMJTWluYXRvLWt1MTAwLgYDVQQKEydOYXRpb25h
+bCBJbnN0aXR1dGVzIG9mIE5hdHVyYWwgU2NpZW5jZXMxFTATBgNVBAMTDG5vdXMu
+bmlucy5qcDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJuAxkgZyFv9
+2OBLnrm9b3hgFcbWDdvUcf2vnfC9+CmPIcHOWUmDm4uLcNfTpRl6bMgPAPfsWYDZ
+0P66Gn6WmgqkEVbaAPiLXIbd2vUINOUU9jaIbj8bi5D5yJUH6DXSEQsyJVjdLek8
+rUGR0fFm3eg5TaEtwTPa/wOa+aIBiZBhWIG1Y8WfAq5xnjo5u8MJd2MnsSEhqyUW
+GKAo+obdUFaVBIR1ESJ0IETq3pfLs3vy4LpZcGROVakAwm30RNs93/rxnLv+AW6T
+Uhgig1LAS+NDJm+OQ3847gJ0CeuBF/hBhdXetBOroSDAGgZtcPEtQTaHKNDOpKHq
+GKBiboJM7N0CAwEAAaOCA8kwggPFMB8GA1UdIwQYMBaAFJKqOLEYWitcS+ehCkCl
+8kQp2MBTMIGKBggrBgEFBQcBAQR+MHwwSgYIKwYBBQUHMAKGPmh0dHA6Ly9yZXBv
+MS5zZWNvbXRydXN0Lm5ldC9zcHBjYS9uaWkvb2RjYTQvbmlpLW9kY2E0Zzhyc2Eu
+Y2VyMC4GCCsGAQUFBzABhiJodHRwOi8vbmlpZzhyc2Eub2NzcC5zZWNvbS1jZXJ0
+LmpwMBcGA1UdEQQQMA6CDG5vdXMubmlucy5qcDATBgNVHSAEDDAKMAgGBmeBDAEC
+AjATBgNVHSUEDDAKBggrBgEFBQcDATBNBgNVHR8ERjBEMEKgQKA+hjxodHRwOi8v
+cmVwbzEuc2Vjb210cnVzdC5uZXQvc3BwY2EvbmlpL29kY2E0L2Z1bGxjcmxnOHJz
+YS5jcmwwDgYDVR0PAQH/BAQDAgWgMIICcQYKKwYBBAHWeQIEAgSCAmEEggJdAlsA
+dwDW1Y2p0BdT82pKoMdXSQKv68fcLNOM2fdkyAyJGR6fAgAAAZyc1edBAAAEAwBI
+MEYCIQDQfhmmTLoiYc0wK6bF5X9gIA6io21v0ML5PY6jyCfhSwIhAO+T1dqToi+a
+bJYp7QqwtbAzymIDKnnNfji5wSq7M4orAHUARMK9DOkUDmSlyUoBkwpaobs1lw4A
+7hEWiWgqHETXtWYAAAGcnNXpaAAABAMARjBEAiBS+3CQauZ3xpNfUyIPT8Zgv89c
+wk7lo2/PI3aCF0lGZgIgKYGORKM5aqAjkv0LicM1RUIBAbyqB6gF6+wJZXfZM/QA
+dwBMY9yY5Zwdq4j2Hoo93q6Pq0SjN3tfm5TD+6Gc/MG+JgAAAZyc1escAAAEAwBI
+MEYCIQDH6TEPa5/k/6lLTfdSOt4u8nEuNLbJ5uePBHpMGCBsCQIhAJyWqNNI7eRM
+BR4FQtdLhfGx+2zdgdmwF4K3moLK6eVCAHcAHJ9oLOn68EVpUPgbloqH3dsyENhM
+5siy44JSSsTPWZ8AAAGcnNXuYAAABAMASDBGAiEAyquPXoCu+udluCdaMO3loks6
+8NIw/tEdFbkp5H8x0J0CIQCjZWXVqlmgjcjPOAsWXCQT4YBEgYVfjf/jrJoHkCT0
+mAB3AGBMmq96f3dfAdQG/JINyJnrCxx9+MlSG/r6F3c7l4vJAAABnJzV+WMAAAQD
+AEgwRgIhALVxBSfNpqT3OBv0jPsKQLUh141RIolpMX9D6vz7eun7AiEAyRQnmsun
+bfLNs24xfj7ZS6SccE0ID3Xxx/HfR7Q6uIwwDQYJKoZIhvcNAQELBQADggIBADYg
+gLxfcQPs6d1+CnJw3bVbZhouFtQMRfCzbDJB3iSra70glAaVGE7gUokpy2jdlQzc
+17ep77tJY1VM6U/iJCfWg8IwiM6px/K3FsLk4SUf9LgpTcXs0AsoaEeLbDuiQy22
+AwJV8JDxgOQcAbWdnH7fE2rejmDbnKrjOYZoMUfqw3Z+yZJy3P+Rj/mabeawQsat
+ufO2+CNlTxF78enk5TVjHbhg85n5WwJyVXDzAJGgv9LHPReSLyonIyU14vKCUm/q
+OoRjTl0+MdTdbzg6253Ma5thqEXm4zkA2/Qj/tu8F5XR/N8os6iz4Qt3ESZvJAaV
+fbiNlw2inkoniBPmYVMIBOwb05odv93CQGmrc44lIPoF5dIPKVAchtaHtEDDVjud
+g5Mmzuuaj8PyPway5D2oy7GkhuQqploWkpGV3KYDQjjKYjCZfLMUvOKsThdo/LNy
+Z7EJKMHmSBiPaVAWpei5v7A2IRU/xQg3n3qwU4PePBuM3fKiu7Chd9IUEoTOHKwx
+Mi1FshMfdypFuJrfIfBKDCqtUiSLUcD6a0aWQX5aQbbR3i87jlzfW02WLzlCOHtw
+HyYWuVjbi5VwJJ4IoUjmmV6k9s3SmAEshKnz2+YfzVReqk6hQg8g4ByQg8roAYUp
+6eS4Dbl/kZWNiyBND4+4QZ88a2wgYogfpadg2tLJ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://nous.nins.jp/Shibboleth.sso/SAML2/POST" index="1" isDefault="true" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://nous.nins.jp/Shibboleth.sso/SAML2/POST-SimpleSign" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://nous.nins.jp/Shibboleth.sso/SAML2/Artifact" index="3" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://nous.nins.jp/Shibboleth.sso/SAML/POST" index="4" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://nous.nins.jp/Shibboleth.sso/SAML/Artifact" index="5" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://nous-dev.nins.jp/Shibboleth.sso/SAML2/POST" index="6" />
+      <md:AttributeConsumingService index="1" isDefault="true">
+        <md:ServiceName xml:lang="en">NINS Open Use System</md:ServiceName>
+        <md:ServiceDescription xml:lang="ja">自然科学共同利用・共同研究統括システム</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">NOUS is the database system to operate Open Use in the National Institutes of Natural Sciences (NINS).</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Inter-University Research Institute Corporation National Institutes of Natural Sciences</md:OrganizationName>
+      <md:OrganizationName xml:lang="ja">大学共同利用機関法人自然科学研究機構</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">NINS Open Use System</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nins.jp/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:SurName>Research Support Section</md:SurName>
+      <md:EmailAddress>mailto:nteam@nins.jp</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

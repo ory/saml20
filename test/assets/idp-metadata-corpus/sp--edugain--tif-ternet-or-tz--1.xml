@@ -1,0 +1,54 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://africarxiv.ubuntunet.net/shibboleth">
+    <md:Extensions>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+      <mdrpi:RegistrationInfo registrationAuthority="https://tif.ternet.or.tz/">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://tif.ternet.or.tz/storage/attachments/674eb2e8c54c4_EduGAIN%20Policy%20v2.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/Login" />
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/Login" index="1" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">AfricArXiv</mdui:DisplayName>
+          <mdui:Description xml:lang="en">AfricArXiv</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://info.africarxiv.org/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/Artifact/SOAP" index="1" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/SLO/SOAP" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/SLO/Redirect" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/SLO/POST" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/SLO/Artifact" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/SAML2/POST" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/SAML2/Artifact" index="3" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://africarxiv.ubuntunet.net/Shibboleth.sso/SAML2/ECP" index="4" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">AfricArXiv</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">AfricArXiv</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://info.africarxiv.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Nkumbugwa</md:SurName>
+      <md:EmailAddress>mailto:edugain@ternet.or.tz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

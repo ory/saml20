@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://chico.imodules.com/sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://incommon.org" />
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://id.incommon.org/category/registered-by-incommon</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">iModules SID 1751 CSU Chico</mdui:DisplayName>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.imodules.com/s/1333/19/1col.aspx?sid=1333&amp;gid=1&amp;pgid=230&amp;cid=157&amp;no_cookie=1</mdui:PrivacyStatementURL>
+          <mdui:Logo height="50" width="50" xml:lang="en">https://www.imodules.com/s/1333/images/editor/incommon/logo__2_.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIC/DCCAeigAwIBAgIQD9op3qjrKa5A2xSMhZUxrTAJBgUrDgMCHQUAMBcxFTAT
+BgNVBAMTDGltb2R1bGVzLmNvbTAeFw0yMDEyMDIyMjA1MTZaFw00MDEyMDIyMjA1
+MTVaMBcxFTATBgNVBAMTDGltb2R1bGVzLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBANst6sxebRa5eHgQJWgMhdqso518A1L1L+yE08hvd4jaxtIS
+7YaA9ImVPm2aJWkUOh5vmGKEjKhdryIP5bMyw3jQ4ukuVeszScbGSscl2bFjB3Pj
+dGyDU2z+1hwIILMX6sYQSmkzqN+x5suyev2q5Vx1NscSYfg703nxx9b3CHwxf2SA
+RlloupryfN5OJc/GzOyeZGI9ttO2vA3Bd4Z6yLFLyOehdBIKeMgIl0SbMXY7S55Y
+KRrHwYGmR8zMJdfgY6WimLgOtXXk4J3ntpgkCKy8PDvVo+szW/uMWPgUWctW89M8
+1nAZ+nzTxPrRHKpWzuDMKrKS5wpJO+m0SLeF+bkCAwEAAaNMMEowSAYDVR0BBEEw
+P4AQjeZlXJcj8QJr/YrADW/haKEZMBcxFTATBgNVBAMTDGltb2R1bGVzLmNvbYIQ
+D9op3qjrKa5A2xSMhZUxrTAJBgUrDgMCHQUAA4IBAQCPCumWcBuPuLQZ8gZWnkEz
+ssXV40Fw9PLcDq/6IYTw4XfC559FOmsLzIyC1BWRss5ue7Jn/SQSdJZ+R6NcJ3Gb
+uygPqGKZepFMVGtFd/PDk3ZMmvRve+TbbwIMTegOs3W8HdnVBOab2x4M0IaBFalg
+MBpRrCV3hXjULO9O4G4TGHfzcUeAp8h5jrBpK6IgpVkwE6/dUewe5bCpc8sz2SnM
+yur0yv6IMHl8gM+P4v58gcADvGMFQGzia5Lqd+WLasZ+fbrFDhU/THDUJopWUbkt
+YcBXBXIDztydEBnTRsIGuo7nHnIo9w/TVqc41iO3G3rLzWi7TVdbcRjBBQpldUBz
+          </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://securelb.imodules.com/controls/login/AssertionConsumerService.aspx?sid=1751" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.test-imodules.com/controls/login/AssertionConsumerService.aspx?sid=601751" index="2" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Imodules Software, Inc.</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Imodules Software, Inc.</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.imodules.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Production</md:GivenName>
+      <md:EmailAddress>mailto:Prodtask@imodules.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Production</md:GivenName>
+      <md:EmailAddress>mailto:Prodtask@imodules.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Production</md:GivenName>
+      <md:EmailAddress>mailto:Prodtask@imodules.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

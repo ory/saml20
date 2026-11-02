@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://filesender.kreonet.net/sp/simplesamlphp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://kafe.kreonet.net" registrationInstant="2015-11-10T07:18:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.kafe.or.kr/kafe-mrps-v1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">KREONET FileSender</mdui:DisplayName>
+          <mdui:Description xml:lang="en">FileSender enables you to send large files easily and quickly. FileSender is carried by KREONET.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://filesender.kreonet.net/?s=faq</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://coreen.kreonet.net/privacy_policy</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIECTCCAvGgAwIBAgIJAJG/vFBVqeWZMA0GCSqGSIb3DQEBBQUAMIGaMQswCQYD
+VQQGEwJLUjETMBEGA1UECAwKU29tZS1TdGF0ZTEQMA4GA1UEBwwHRGFlamVvbjEO
+MAwGA1UECgwFS0lTVEkxEDAOBgNVBAsMB0tSRU9ORVQxHzAdBgNVBAMMFmZpbGVz
+ZW5kZXIua3Jlb25ldC5uZXQxITAfBgkqhkiG9w0BCQEWEmNvcmVlbkBrcmVvbmV0
+Lm5ldDAeFw0xNTExMTAwNjUzMDFaFw0yNTExMDkwNjUzMDFaMIGaMQswCQYDVQQG
+EwJLUjETMBEGA1UECAwKU29tZS1TdGF0ZTEQMA4GA1UEBwwHRGFlamVvbjEOMAwG
+A1UECgwFS0lTVEkxEDAOBgNVBAsMB0tSRU9ORVQxHzAdBgNVBAMMFmZpbGVzZW5k
+ZXIua3Jlb25ldC5uZXQxITAfBgkqhkiG9w0BCQEWEmNvcmVlbkBrcmVvbmV0Lm5l
+dDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANQFT4AO0OzZys2ZAwda
+PeGiOCx4jCWHO8MJkgq7AYhAcdyvfyqgH+bylVeb9juMVAI2njD+/hWwS/IFqiIX
+fBzSJ1z7FVX9hfd5QOao9EIWOTZvCXWexqlpTViSXwcOdtF+Ix3Mw2y/jU6zODPl
+lSat8WbrQYWINS2crpcZjBZ+BS1X38iZjWVM6NCrKjIxH7b4HzpHSEBf/a9dzeHW
+Oiup+d6NouHEhYkYmKJuBMwjSzmrLvszkrw5zALlhSOnrUflKG5xxAidDXC+Vffn
+WNXD1nmf/+UDLLu5SzcaWsjv5TpO0yyKo0+q/PAx6fqwU102UJwa/SG1b+0qroQn
+cbkCAwEAAaNQME4wHQYDVR0OBBYEFF6+qzJWbVe3F42vB5fkE5rRBoiAMB8GA1Ud
+IwQYMBaAFF6+qzJWbVe3F42vB5fkE5rRBoiAMAwGA1UdEwQFMAMBAf8wDQYJKoZI
+hvcNAQEFBQADggEBAHCyQNwvMg0GmUTcoJPj8jq+cCrYyStcCwCyB3uuKiZcp20N
+1c0u7la8z0rJgLkCPvsVhFoknyGrK/pWUCf0Zk+pJXdL2k49VYxbTVOGtwBbkGB/
+3/Xb6lwzPb/9/5Tl4RqJ6o4MSOOeY1xl02p+UJHG40XOjAIBtVPWIo70+MgF1BGI
+J7mEDt1yjIvn8I4JMNtCiuiTgsIi1KuN/rXJVL5Z8izHIxMKSEgHZR2DHXj884uR
+MMM1rIBaF3FScObZ2Usja0QySzda++YC9Oyv1yMJanr0nPGGDR/C3iO2tudO6TnA
+PxgwD16b8tn0cj1lBG1IQ87f3B/aCvVgdZZw9vk=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIECTCCAvGgAwIBAgIJAJG/vFBVqeWZMA0GCSqGSIb3DQEBBQUAMIGaMQswCQYD
+VQQGEwJLUjETMBEGA1UECAwKU29tZS1TdGF0ZTEQMA4GA1UEBwwHRGFlamVvbjEO
+MAwGA1UECgwFS0lTVEkxEDAOBgNVBAsMB0tSRU9ORVQxHzAdBgNVBAMMFmZpbGVz
+ZW5kZXIua3Jlb25ldC5uZXQxITAfBgkqhkiG9w0BCQEWEmNvcmVlbkBrcmVvbmV0
+Lm5ldDAeFw0xNTExMTAwNjUzMDFaFw0yNTExMDkwNjUzMDFaMIGaMQswCQYDVQQG
+EwJLUjETMBEGA1UECAwKU29tZS1TdGF0ZTEQMA4GA1UEBwwHRGFlamVvbjEOMAwG
+A1UECgwFS0lTVEkxEDAOBgNVBAsMB0tSRU9ORVQxHzAdBgNVBAMMFmZpbGVzZW5k
+ZXIua3Jlb25ldC5uZXQxITAfBgkqhkiG9w0BCQEWEmNvcmVlbkBrcmVvbmV0Lm5l
+dDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANQFT4AO0OzZys2ZAwda
+PeGiOCx4jCWHO8MJkgq7AYhAcdyvfyqgH+bylVeb9juMVAI2njD+/hWwS/IFqiIX
+fBzSJ1z7FVX9hfd5QOao9EIWOTZvCXWexqlpTViSXwcOdtF+Ix3Mw2y/jU6zODPl
+lSat8WbrQYWINS2crpcZjBZ+BS1X38iZjWVM6NCrKjIxH7b4HzpHSEBf/a9dzeHW
+Oiup+d6NouHEhYkYmKJuBMwjSzmrLvszkrw5zALlhSOnrUflKG5xxAidDXC+Vffn
+WNXD1nmf/+UDLLu5SzcaWsjv5TpO0yyKo0+q/PAx6fqwU102UJwa/SG1b+0qroQn
+cbkCAwEAAaNQME4wHQYDVR0OBBYEFF6+qzJWbVe3F42vB5fkE5rRBoiAMB8GA1Ud
+IwQYMBaAFF6+qzJWbVe3F42vB5fkE5rRBoiAMAwGA1UdEwQFMAMBAf8wDQYJKoZI
+hvcNAQEFBQADggEBAHCyQNwvMg0GmUTcoJPj8jq+cCrYyStcCwCyB3uuKiZcp20N
+1c0u7la8z0rJgLkCPvsVhFoknyGrK/pWUCf0Zk+pJXdL2k49VYxbTVOGtwBbkGB/
+3/Xb6lwzPb/9/5Tl4RqJ6o4MSOOeY1xl02p+UJHG40XOjAIBtVPWIo70+MgF1BGI
+J7mEDt1yjIvn8I4JMNtCiuiTgsIi1KuN/rXJVL5Z8izHIxMKSEgHZR2DHXj884uR
+MMM1rIBaF3FScObZ2Usja0QySzda++YC9Oyv1yMJanr0nPGGDR/C3iO2tudO6TnA
+PxgwD16b8tn0cj1lBG1IQ87f3B/aCvVgdZZw9vk=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.kreonet.net/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.kreonet.net/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://filesender.kreonet.net/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.kreonet.net/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://filesender.kreonet.net/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">KREONET FileSender</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">FileSender enables you to send large files easily and quickly. FileSender is carried by KREONET.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="organizationName" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Korea Institute of Science and Technology Information</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Korea Institute of Science and Technology Information</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kisti.re.kr/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Administrator</md:SurName>
+      <md:EmailAddress>mailto:support@kafe.or.kr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://cas.cuni.cz/cas/sp/edugain/metadata">
+    <md:Extensions>
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#hmac-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#hmac-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#hmac-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#hmac-sha1" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2024-10-11T15:46:06Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Charles University Authentication Service (CAS)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Autentizační služba Univerzity Karlovy (CAS)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Authentication to Charles University information services.</mdui:Description>
+          <mdui:Description xml:lang="cs">Přihlášení k informačním zdrojům Univerzity Karlovy.</mdui:Description>
+          <mdui:Logo height="40" width="41">https://ldap.cuni.cz/images/UK_logo_40.png</mdui:Logo>
+          <mdui:Logo height="89" width="91">https://ldap.cuni.cz/images/UK_logo.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.cuni.cz/UKENG-1.html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.cuni.cz/</mdui:InformationURL>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://cas.cuni.cz/cas/login?client_name=edugain" />
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIICozCCAYsCFC8ca+MqmqzCDIKcbf0PUGuJka4MMA0GCSqGSIb3DQEBCwUAMA4xDDAKBgNVBAMM
+A2NhczAeFw0yNDEwMDkxNTQwMzNaFw0zNDEwMDcxNTQwMzNaMA4xDDAKBgNVBAMMA2NhczCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK5WoJerb/ihlB1wRyQTSEjXt08T20l1QPRuOL7X
+qBL8oMlCWoazOD50kChwOYYVZulBq4VJ6mFpzjk/4llcGrwOtW2242f2Awkepk3kr8/hRsbO70hv
+zQmxus+1+ysVYks8ZpKhprDFOKKIZpx5X4tMsvjFV+zd6nxrMC3EnsGdR5sF5VGIKuJGBijyESae
+4HN/YXTU6ZKK60WQP0L8At3d3dzHU54pWmRkgZ9bYKoEWuSt9uF1RM/RT0D4wEVZsYQXczPXPtFK
+Ge37odCpi3Ns0ew9DArCiv4D/ikBFDrfVtt9cTPERtwW2+WwRKF0rR9SVOozOq2QtqXzsFHhP6UC
+AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAhHGX7aKFroCBR4GGiLlj7h79pSQKAKk1Vq4cLO8mb/bL
+fPYAyOVudFAJstNsvPOGLEUHCkmHkbPMtnPjw/lDRyzY7u0fiLqJ6eZq9386BXglBY72BoA5K0U9
+pEICWTWPYUjEM71yRtYbGM45h0Q1ZnlRHs6LN84hIL/kwieMFDVXYH6QUoL8+2xwY6zGBB+jhGHg
+aikkNifLonvJAaj2yEVDx68kY8A+x7iM16i5M19qVFk+RqydQC6PndsTxrhTxIRxzqoI1eHUXRCd
+KFJP+z5ARLu8p56FwaCqyPqqCFIZZZ4QFGKZpjlhFJnH3+rthcV0DVEps8swcVqC3lGpdg==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIICozCCAYsCFC8ca+MqmqzCDIKcbf0PUGuJka4MMA0GCSqGSIb3DQEBCwUAMA4xDDAKBgNVBAMM
+A2NhczAeFw0yNDEwMDkxNTQwMzNaFw0zNDEwMDcxNTQwMzNaMA4xDDAKBgNVBAMMA2NhczCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK5WoJerb/ihlB1wRyQTSEjXt08T20l1QPRuOL7X
+qBL8oMlCWoazOD50kChwOYYVZulBq4VJ6mFpzjk/4llcGrwOtW2242f2Awkepk3kr8/hRsbO70hv
+zQmxus+1+ysVYks8ZpKhprDFOKKIZpx5X4tMsvjFV+zd6nxrMC3EnsGdR5sF5VGIKuJGBijyESae
+4HN/YXTU6ZKK60WQP0L8At3d3dzHU54pWmRkgZ9bYKoEWuSt9uF1RM/RT0D4wEVZsYQXczPXPtFK
+Ge37odCpi3Ns0ew9DArCiv4D/ikBFDrfVtt9cTPERtwW2+WwRKF0rR9SVOozOq2QtqXzsFHhP6UC
+AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAhHGX7aKFroCBR4GGiLlj7h79pSQKAKk1Vq4cLO8mb/bL
+fPYAyOVudFAJstNsvPOGLEUHCkmHkbPMtnPjw/lDRyzY7u0fiLqJ6eZq9386BXglBY72BoA5K0U9
+pEICWTWPYUjEM71yRtYbGM45h0Q1ZnlRHs6LN84hIL/kwieMFDVXYH6QUoL8+2xwY6zGBB+jhGHg
+aikkNifLonvJAaj2yEVDx68kY8A+x7iM16i5M19qVFk+RqydQC6PndsTxrhTxIRxzqoI1eHUXRCd
+KFJP+z5ARLu8p56FwaCqyPqqCFIZZZ4QFGKZpjlhFJnH3+rthcV0DVEps8swcVqC3lGpdg==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cas.cuni.cz/cas/login?client_name=edugain&amp;logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cas.cuni.cz/cas/login?client_name=edugain&amp;logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cas.cuni.cz/cas/login?client_name=edugain&amp;logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cas.cuni.cz/cas/login?client_name=edugain&amp;logoutendpoint=true" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cas.cuni.cz/cas/login?client_name=edugain" index="0" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="cs">Univerzita Karlova</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Charles University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="cs">Univerzita Karlova</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Charles University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cuni.cz/UKENG-1.html</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://www.cuni.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Michal</md:GivenName>
+      <md:SurName>Vocu</md:SurName>
+      <md:EmailAddress>mailto:michal@cuni.cz</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michal</md:GivenName>
+      <md:SurName>Vocu</md:SurName>
+      <md:EmailAddress>mailto:michal@cuni.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

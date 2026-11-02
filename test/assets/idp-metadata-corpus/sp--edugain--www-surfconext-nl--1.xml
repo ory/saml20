@@ -1,0 +1,46 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://account.boom.nl/auth/realms/boom">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.surfconext.nl/" registrationInstant="2026-06-10T13:26:32.001Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://support.surfconext.nl/edugain-reginfo</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:Description xml:lang="nl">Inlogportaal voor Koninklijke Boom Uitgevers digitale publicaties en diensten</mdui:Description>
+          <mdui:DisplayName xml:lang="nl">Koninklijke Boom Uitgevers</mdui:DisplayName>
+          <mdui:Logo height="500" width="300">https://images.squarespace-cdn.com/content/v1/654a8dbb1813aa23d345c8ff/1742292058701-SPARZNBR53QZOFSZG1NL/Boom+uitgevers+logo.png</mdui:Logo>
+          <mdui:PrivacyStatementURL xml:lang="nl">https://www.boom.nl/voorwaarden/privacy-policy</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>bpSX4cwmSPm2GHFQyITRvS0kzyloydDtzUWyaXqLDj8</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIClzCCAX8CBgFw5C0SmzANBgkqhkiG9w0BAQsFADAPMQ0wCwYDVQQDDARib29tMB4XDTIwMDMxNjE2MjcwNFoXDTMwMDMxNjE2Mjg0NFowDzENMAsGA1UEAwwEYm9vbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANwpcTo/yNxOlJuXWo7dUXq4fEPv2SiJ3agTW5ayJ0EJ+WGzCAh5QaXEMmfuxRrQRYt9zJo/WDBDkhbcL6C6FHItMHudpCugyivqSRMEdien3mvWXSUD2fz18wrlRxwMX/JAPnxPYqexktLPT+hlQpzBXbBcvQhDlYi8OCXeRY53nH0PRepYf282nvOI4HwPDgBAoosv18moHRVqfGgkmPnMVFutpeaUhFRAeAwPFn9mnY7FsbEDfoz6MuaKJvTbwcjYxQ2ggWyv7fOgBECLFzO0A4wfR0fx03BOkqJKXVV+wjU5F0sRTQM3jX2RGd/TrXbX2Juiy5CFZLgEqjsEfH0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEA1kMKigcGnuMIW55Lyo7vEZMETR3Dqfc/N0iBSO+JKmNjA7dLXEoqWKq9s/GQcSOFVT2iToUUd5APyKwvAe6a/Ddtm2/53nh6ocuYArpOrI5qFT/aWNAU9o019oZBpnhIHVc9Wbwqatyxk7z6td17TytduQmm+PxiOhGZv0vqFJwYdVGRa4ccjQ+BGLUbN9nYFfJjtQU8OXnAeSYgBljQwVDS+t/wZIIJrHOUoQtc1s/qBt3quFJa7EWxc4tS049I4J9SC4l9o6teTsLO6iq5JXsVB4Zr7JYPEBZB699FhpaQ7FLZdkgCBw4sAxRUVWp9EluuMSGiD/CBqNqn9s0vGA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://account.boom.nl/auth/realms/boom/broker/surfconext-edugain/endpoint" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://account.boom.nl/auth/realms/boom/broker/surfconext-edugain/endpoint" index="1" isDefault="true" />
+      <md:AttributeConsumingService index="0" isDefault="true">
+        <md:ServiceName xml:lang="nl">Boom Uitgevers</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" />
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" />
+        <md:RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" />
+        <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Koninklijke Boom Uitgevers</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Koninklijke Boom Uitgevers</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.boom.nl</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Koninklijke Boom Uitgevers</md:Company>
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:applicaties@boom.nl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

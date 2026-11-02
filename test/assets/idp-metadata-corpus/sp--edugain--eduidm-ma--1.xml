@@ -1,0 +1,84 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://satosa.marwan.ma/Saml2/proxy_saml2_backend.xml">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://eduidm.ma" registrationInstant="2025-11-25T12:07:33Z" />
+    </md:Extensions>
+    <md:SPSSODescriptor WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://satosa.marwan.ma/Saml2/disco" index="1" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">MARWAN SATOSA SP Proxy</mdui:DisplayName>
+          <mdui:Description xml:lang="en">MARWAN SATOSA SP Proxy</mdui:Description>
+          <mdui:Keywords xml:lang="fr">MARWAN SATOSA-FRE</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">MARWAN SATOSA-EN</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://www.marwan.ma/satosa</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.marwan.ma/satosa</mdui:PrivacyStatementURL>
+          <mdui:Logo height="100" width="100">https://www.marwan.ma/</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFzCCAf+gAwIBAgIUR4t37IG6yc1i4mCGxv4RIyNwSZEwDQYJKoZIhvcNAQEL
+BQAwGzEZMBcGA1UEAwwQc2F0b3NhLm1hcndhbi5tYTAeFw0yNTExMjAxMzI1MDVa
+Fw0zNTExMTgxMzI1MDVaMBsxGTAXBgNVBAMMEHNhdG9zYS5tYXJ3YW4ubWEwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2w1kkmnuaqBEWprJJwe3KwSV9
+Vjv7cRHnx8gN7VnVU/DmHYtsagbU6E6ILsglsf76UoRdkwnhk7Sgh/ZSPWlEw0XY
+VCQ14TPs6QpVnjALmLlMJ75xQ6UTZv9HSaE7SOKtW4oVi6pEFrMkIJWeKBiEhCl5
+S6ttKGRMx/1ms69P9s1rrjEJG1YH924+isuekAQ8ZS7JCSngpCC6LUqWw4GlwyF/
+AVgIMnzPS/wuR8ETxNnCav7ivS5YygEbJjSA9wH2y2wFKNpJtr5AHAFHcYZKF0eg
+LL1ZCcJb70HbiFoavcch8nwqV8p+qdqAu46ZPZxrMGl4JchEq8Eef12n8PnVAgMB
+AAGjUzBRMB0GA1UdDgQWBBTDqgGbyGJv1CQLstBEznDI6yw/QzAfBgNVHSMEGDAW
+gBTDqgGbyGJv1CQLstBEznDI6yw/QzAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3
+DQEBCwUAA4IBAQAp+cNMvTawWFsWxgt7O6Vh9RrhwxbcitlztD8nulEuTjQQdQDx
+cPwO7XVqc6yP7D5+UL5q9vv4aA0EGsMQknqKB74RtWlM/g92pceLbFKfiKwcXJyU
+jZF12JMNySQojU8JK89/hjCtBqrMlAhB5fFiZMsq/FN8gvO3JB4DoszwN9h3UyP/
+hs4evrNgSCgJWP7TfNLXF5C/fFjt++QwvoX8QxsgCsnEvgO00bjGJkf6MOmojXrL
+wdG6UsQKSzH/Ai5VsWnfWS0ki2JQQExt1MAoNKPlvbzN0NwMLo36goiPzwJx3/wF
+SUsdOWb99Na0OSYylIVxhvFb3+BIsIARDChQ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFzCCAf+gAwIBAgIUR4t37IG6yc1i4mCGxv4RIyNwSZEwDQYJKoZIhvcNAQEL
+BQAwGzEZMBcGA1UEAwwQc2F0b3NhLm1hcndhbi5tYTAeFw0yNTExMjAxMzI1MDVa
+Fw0zNTExMTgxMzI1MDVaMBsxGTAXBgNVBAMMEHNhdG9zYS5tYXJ3YW4ubWEwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2w1kkmnuaqBEWprJJwe3KwSV9
+Vjv7cRHnx8gN7VnVU/DmHYtsagbU6E6ILsglsf76UoRdkwnhk7Sgh/ZSPWlEw0XY
+VCQ14TPs6QpVnjALmLlMJ75xQ6UTZv9HSaE7SOKtW4oVi6pEFrMkIJWeKBiEhCl5
+S6ttKGRMx/1ms69P9s1rrjEJG1YH924+isuekAQ8ZS7JCSngpCC6LUqWw4GlwyF/
+AVgIMnzPS/wuR8ETxNnCav7ivS5YygEbJjSA9wH2y2wFKNpJtr5AHAFHcYZKF0eg
+LL1ZCcJb70HbiFoavcch8nwqV8p+qdqAu46ZPZxrMGl4JchEq8Eef12n8PnVAgMB
+AAGjUzBRMB0GA1UdDgQWBBTDqgGbyGJv1CQLstBEznDI6yw/QzAfBgNVHSMEGDAW
+gBTDqgGbyGJv1CQLstBEznDI6yw/QzAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3
+DQEBCwUAA4IBAQAp+cNMvTawWFsWxgt7O6Vh9RrhwxbcitlztD8nulEuTjQQdQDx
+cPwO7XVqc6yP7D5+UL5q9vv4aA0EGsMQknqKB74RtWlM/g92pceLbFKfiKwcXJyU
+jZF12JMNySQojU8JK89/hjCtBqrMlAhB5fFiZMsq/FN8gvO3JB4DoszwN9h3UyP/
+hs4evrNgSCgJWP7TfNLXF5C/fFjt++QwvoX8QxsgCsnEvgO00bjGJkf6MOmojXrL
+wdG6UsQKSzH/Ai5VsWnfWS0ki2JQQExt1MAoNKPlvbzN0NwMLo36goiPzwJx3/wF
+SUsdOWb99Na0OSYylIVxhvFb3+BIsIARDChQ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://satosa.marwan.ma/Saml2/acs/post" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">MARWAN</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MARWAN</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.marwan.ma</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical</md:GivenName>
+      <md:EmailAddress>mailto:bouhaddou@marwan.ma</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support</md:GivenName>
+      <md:EmailAddress>mailto:bouhaddou@marwan.ma</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>Security</md:GivenName>
+      <md:EmailAddress>mailto:security@marwan.ma</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  
