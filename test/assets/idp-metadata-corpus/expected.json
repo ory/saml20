@@ -5499,6 +5499,20 @@
       "error": "Could not find X509Certificate in the SP metadata.",
       "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
+    "vendor--duo-anonymised.xml": {
+      "result": {
+        "sso": {
+          "postUrl": "https://sso-00000000.sso.duosecurity.com/saml2/sp/DIEXAMPLE00000000000/sso",
+          "redirectUrl": "https://sso-00000000.sso.duosecurity.com/saml2/sp/DIEXAMPLE00000000000/sso"
+        },
+        "slo": {},
+        "entityID": "https://sso-00000000.sso.duosecurity.com/saml2/sp/DIEXAMPLE00000000000/metadata",
+        "publicKey": "MIIDSzCCAjOgAwIBAgIUaxx2ormwrRZEY1Qe9kK7QY/En2kwDQYJKoZIhvcNAQEL\nBQAwNTEUMBIGA1UECgwLRXhhbXBsZSBJZFAxHTAbBgNVBAMMFERJRVhBTVBMRTAw\nMDAwMDAwMDAwMB4XDTI2MTEwMjEzMzQ1NloXDTM3MTAxNTEzMzQ1NlowNTEUMBIG\nA1UECgwLRXhhbXBsZSBJZFAxHTAbBgNVBAMMFERJRVhBTVBMRTAwMDAwMDAwMDAw\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxpEwIKwp008Q7YThfaEt\nU0rx+UrCRd8ltzHGa8yeMolWd5QVwjk4nLNQiNBGvHia9d+skzYuK1Oy0bZ1KcF6\nBPozi4Zs9bP9gU5XKC4wSeuK201YSjw/mE8rBESILGxR14RKPVDlImmTzQOVmDDk\n/Fc3JgI0JRtv9RBQKnC4diAc7+C5tKJbkrJICtkiSCEI/MbxVvyu092qcimoDUmw\nfywc0SuOBpyCPcb40hDEGPRNg5i+KgT6BZ9rpJjm1csJDEV0zWnR5HVbue5JUCQL\nAag1D/APG5+PsmqW7hsicQaT6h3OTqBC58IWmNc2Ms42gkbj3MRHumvxcxbnK2ZW\nSQIDAQABo1MwUTAdBgNVHQ4EFgQUyRZNOI4GdQqPxqROPK9PKol/7kEwHwYDVR0j\nBBgwFoAUyRZNOI4GdQqPxqROPK9PKol/7kEwDwYDVR0TAQH/BAUwAwEB/zANBgkq\nhkiG9w0BAQsFAAOCAQEARAGYl+LujZAoalwj8oIq51FRJ/Rqm6dy/wNsRYI3pyg9\n1spgGf9n6LJMddvzRndZpyVZIPENp5Crjqm1WDrkaGoA0B5Wbzj/ADRYeijCbjAq\n2CVpC6W/hAGjdb9lYV2i5peJg9iPVoOgI8AxspCLn/bev1bPx6h9kwGYaZWUp0/m\nouLg7wCWi7iOnKSe+uqFs2qLZ9f5gx4MgzHYjItfae7hlP+yVCdd/zJ3+qktpU/e\ny8CyFbHYh+MAMsvA2oarJzPgGLeVHmg1ERC7uhonnkAElhuO5wBsMSLNGXrwjn+H\nlPQo+HfYr/RKNa30qU9BVleDhxmppZh21GMovfUhPw==",
+        "thumbprint": "c2e4bb447cb26ab5328ca53be94bbd0b01516f8a",
+        "validTo": "Oct 15 13:34:56 2037 GMT",
+        "loginType": "idp"
+      }
+    },
     "vendor--jumpcloud-redacted-public-example.xml": {
       "error": "error:*:PEM routines::bad base64 decode"
     },

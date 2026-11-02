@@ -4517,6 +4517,17 @@
       },
       "kind": "transcribed from published documentation (see notes)",
       "role": "idp"
+    },
+    {
+      "file": "vendor--duo-anonymised.xml",
+      "source": {
+        "provider": "Cisco Duo SSO",
+        "kind": "public-endpoint-snapshot, anonymised",
+        "retrieved": "2026-11-02",
+        "notes": "Fetched from a Duo SSO application metadata endpoint (https://sso-<tenant>.sso.duosecurity.com/saml2/sp/<app>/metadata). The tenant label and application id were replaced with placeholders in the entityID, endpoint locations and certificate CN, and the certificate replaced with a freshly generated self-signed one laid out like the original (same subject shape, 64-column wrapping). Element structure is unchanged."
+      },
+      "kind": "anonymised snapshot",
+      "role": "idp"
     }
   ]
 }
