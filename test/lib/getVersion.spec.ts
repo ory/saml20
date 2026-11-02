@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import * as version from '../../lib/getVersion';
 
 describe('getVersion.ts', function () {

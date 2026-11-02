@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { validate } from '../../lib/response';
 import fs from 'fs';
 import { SignedXml } from 'xml-crypto';

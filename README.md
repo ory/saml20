@@ -100,7 +100,7 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 ## Tests
 
 ```bash
-$ npm test            # mocha with coverage
+$ npm test            # node:test with coverage
 $ npm run typecheck   # type-checks lib/ and test/
 $ npm run lint
 ```

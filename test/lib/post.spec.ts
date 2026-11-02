@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { DOMParser, MIME_TYPE } from '@xmldom/xmldom';
 import * as saml from '../../lib/post';
 
@@ -11,7 +12,7 @@ const parsedAction = (html: string): string => {
 };
 
 describe('post.ts', function () {
-  it('Should validate creation of post form', function (done) {
+  it('Should validate creation of post form', function () {
     const relayState = 'boxyhq_jackson_17b723c56a2fdc4e94f5e5fa792f89e3';
     const samlRequest =
       'PHNhbWxwOkxvZ291dFJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6c';
@@ -32,7 +33,6 @@ describe('post.ts', function () {
       true
     );
     assert.strictEqual(form.includes(`<input type="submit" value="Continue" />`), true);
-    done();
   });
 });
 

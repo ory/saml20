@@ -1,3 +1,4 @@
+import { describe, it } from 'node:test';
 import { validateSignature, DEFAULT_MAX_SIGNATURE_REFERENCES } from '../../lib/validateSignature';
 import xmlbuilder from 'xmlbuilder';
 
@@ -7,7 +8,7 @@ import { sign } from '../../lib/sign';
 import { SignedXml } from 'xml-crypto';
 import { certToPEM, PubKeyInfo, stripCertHeaderAndFooter } from '../../lib/cert';
 import { thumbprint } from '../../lib/utils';
-import assert from 'assert';
+import assert from 'node:assert';
 import {
   ASSERTION_NS,
   ASSERTION_XPATH,
@@ -608,12 +609,11 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
     }
   });
 
-  it('counts References in linear time', function () {
+  it('counts References in linear time', { timeout: 20000 }, function () {
     // The count used to be an XPath query that was quadratic in the number of
     // References: about 14 s for 4000 of them, enough for one POST to pin a
     // CPU. Walking the DOM rejects the same document in a fraction of a
     // second; the bound below leaves a wide margin for slow CI machines.
-    this.timeout(20000);
     const inflated = withReferences(4000);
     const started = Date.now();
     assert.throws(
