@@ -236,10 +236,14 @@ describe('buildXml', function () {
     );
   });
 
-  it('escapes a carriage return so the parser does not normalize it away', function () {
+  it('escapes the whitespace a parser would normalize away', function () {
     assert.strictEqual(
-      buildXml({ a: { '@x': 'p\rq', '#text': 'r\rs' } }),
-      '<?xml version="1.0"?><a x="p&#xD;q">r&#xD;s</a>'
+      buildXml({ a: { '@x': 'p\rq\tr\ns', '#text': 'r\rs\tt\nu' } }),
+      '<?xml version="1.0"?><a x="p&#xD;q&#x9;r&#xA;s">r&#xD;s\tt\nu</a>'
+    );
+    assert.strictEqual(
+      buildXml({ a: { '@x': 'p\tq', b: { '@y': '>\n' } } }, { pretty: true }),
+      '<?xml version="1.0"?>\n<a x="p&#x9;q">\n  <b y="&gt;&#xA;"/>\n</a>'
     );
   });
 

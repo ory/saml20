@@ -134,14 +134,19 @@ const illegalChar =
 
 // Serializes nodes in the xmlbuilder2 object convention (`@name` attributes,
 // `#text`, lists for repeated elements) with an XML declaration. A carriage
-// return is written as a character reference: a receiving parser would turn
-// a literal one into a line feed.
+// return, and a tab or line feed in an attribute value, are written as
+// character references: a receiving parser normalizes the literal characters
+// to a line feed or a space.
 const buildXml = (nodes: object, { pretty, ...declaration }: BuildOptions = {}): string => {
   const xml = create({ version: '1.0', ...declaration }, nodes).end({ prettyPrint: pretty });
   if (illegalChar.test(xml)) {
     throw new Error('Invalid character in XML.');
   }
-  return xml.replace(/\r/g, '&#xD;');
+  // Within a tag, whitespace other than the single space between attributes
+  // can only come from an attribute value; xmlbuilder2 escapes > there.
+  return xml
+    .replace(/<[^>]*>/g, (tag) => tag.replace(/\t/g, '&#x9;').replace(/\n/g, '&#xA;'))
+    .replace(/\r/g, '&#xD;');
 };
 
 export { xmlToObject, buildXml };

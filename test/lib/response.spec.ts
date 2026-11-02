@@ -398,6 +398,25 @@ it('parseIssuer should return undefined if Issuer element is missing', async fun
   assert.strictEqual(issuer, undefined);
 });
 
+it('keeps tabs and line feeds in claim names and values through a round trip', async function () {
+  const name = 'department\tcode';
+  const value = 'line 1\nline 2\ttabbed';
+  const response = await createSAMLResponse({
+    audience: 'http://sp.example.com/demo1/metadata.php',
+    issuer: 'http://idp.example.com/metadata.php',
+    acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+    claims: { email: 'jackson@example.com', raw: { [name]: value } },
+    requestId: '_request',
+    privateKey: testIdpPrivateKey,
+    publicKey: testIdpPublicKey,
+  });
+  const profile = await validate(response, {
+    audience: 'http://sp.example.com/demo1/metadata.php',
+    publicKey: testIdpPublicKey,
+  });
+  assert.strictEqual(profile.claims[name], value);
+});
+
 it('Should create a SAML response with nameFormat basic', async function () {
   const json = {
     audience: 'http://sp.example.com/demo1/metadata.php',
