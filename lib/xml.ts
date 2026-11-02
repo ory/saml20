@@ -16,23 +16,27 @@ const CDATA_SECTION_NODE = 4;
 const prefix = /(?!xmlns)^.*:/;
 const stripPrefix = (name: string) => name.replace(prefix, '');
 
-// Prefixes a document may use without declaring them, bound to the namespace
-// each conventionally means. SAML producers often write xsi:type="xs:string"
-// without declaring either prefix, and metadata pasted from a larger document
-// can arrive with md:/ds: prefixes and no xmlns attributes at all.
-const undeclaredPrefixes = {
-  xsi: 'http://www.w3.org/2001/XMLSchema-instance',
-  xs: 'http://www.w3.org/2001/XMLSchema',
-  md: 'urn:oasis:names:tc:SAML:2.0:metadata',
-  ds: 'http://www.w3.org/2000/09/xmldsig#',
-  saml: 'urn:oasis:names:tc:SAML:2.0:assertion',
-  samlp: 'urn:oasis:names:tc:SAML:2.0:protocol',
-  xenc: 'http://www.w3.org/2001/04/xmlenc#',
-  mdui: 'urn:oasis:names:tc:SAML:metadata:ui',
-  mdattr: 'urn:oasis:names:tc:SAML:metadata:attribute',
-  mdrpi: 'urn:oasis:names:tc:SAML:metadata:rpi',
-  shibmd: 'urn:mace:shibboleth:metadata:1.0',
-  alg: 'urn:oasis:names:tc:SAML:metadata:algsupport',
+// Namespaces play no part in the result (prefixes are stripped), so a prefix
+// the document uses without declaring it is bound to a placeholder rather than
+// rejected: producers write xsi:type="xs:string" without declaring either
+// prefix, and metadata pasted out of a larger document arrives with md:/ds:
+// prefixes and no xmlns attributes at all.
+const prefixInUse = /<\/?([A-Za-z_][\w.-]*):|\s([A-Za-z_][\w.-]*):[A-Za-z_][\w.-]*\s*=/g;
+const prefixDeclared = /\sxmlns:([A-Za-z_][\w.-]*)\s*=/g;
+const undeclaredPrefixes = (xml: string): Record<string, string> => {
+  const declared = new Set<string>();
+  for (const m of xml.matchAll(prefixDeclared)) {
+    declared.add(m[1]);
+  }
+  const bindings: Record<string, string> = {};
+  for (const m of xml.matchAll(prefixInUse)) {
+    const name = m[1] ?? m[2];
+    // xml: is bound by the XML specification itself and must not be rebound.
+    if (name !== 'xml' && name !== 'xmlns' && !declared.has(name)) {
+      bindings[name] = `urn:undeclared-prefix:${name}`;
+    }
+  }
+  return bindings;
 };
 
 const toObject = (element: Element, options: XmlObjectOptions): unknown => {
@@ -93,7 +97,7 @@ const xmlToObject = (xml: string, options: XmlObjectOptions): Record<string, unk
   if (xml.trim() === '') {
     return null;
   }
-  const root = parseFromString(xml, undeclaredPrefixes).documentElement as unknown as Element;
+  const root = parseFromString(xml, undeclaredPrefixes(xml)).documentElement as unknown as Element;
   const result: Record<string, unknown> = {};
   setOwn(result, stripPrefix(root.tagName), toObject(root, options));
   return result;

@@ -166,8 +166,26 @@ describe('xmlToObject', function () {
     });
   });
 
-  it('rejects any other undeclared prefix', function () {
-    assert.throws(() => asDollar('<a><p:b/></a>'), /NamespaceError/);
+  it('accepts any undeclared prefix, on elements and attributes alike', function () {
+    assert.deepStrictEqual(asDollar('<a><p:b q:r="1">x</p:b></a>'), {
+      a: { b: [{ $: { 'q:r': '1' }, _: 'x' }] },
+    });
+    assert.deepStrictEqual(asDollar('<wsfed:Envelope><wsfed:Body>x</wsfed:Body></wsfed:Envelope>'), {
+      Envelope: { Body: ['x'] },
+    });
+  });
+
+  it('leaves the xml: prefix to the XML namespace', function () {
+    assert.deepStrictEqual(asDollar('<a xml:lang="en">x</a>'), { a: { $: { 'xml:lang': 'en' }, _: 'x' } });
+  });
+
+  it('still honours a declared prefix and a declared default namespace', function () {
+    assert.deepStrictEqual(asDollar('<p:a xmlns:p="urn:p"><p:b>x</p:b></p:a>'), {
+      a: { $: { 'xmlns:p': 'urn:p' }, b: ['x'] },
+    });
+    assert.deepStrictEqual(asDollar('<a xmlns="urn:d"><b>x</b></a>'), {
+      a: { $: { xmlns: 'urn:d' }, b: ['x'] },
+    });
   });
 
   it('rejects a DTD and a second root element', function () {
