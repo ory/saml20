@@ -480,6 +480,16 @@ describe('parseMetadata on documents that are not metadata', function () {
     });
   }
 
+  it('names the role in the missing-certificate error for SP metadata', async () => {
+    const sp =
+      '<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp">' +
+      '<md:SPSSODescriptor><md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" ' +
+      'Location="https://sp/acs" index="0"/></md:SPSSODescriptor></md:EntityDescriptor>';
+    await assert.rejects(parseMetadata(sp), {
+      message: 'Could not find X509Certificate in the SP metadata.',
+    });
+  });
+
   it('still reports a missing certificate for real metadata', async () => {
     await assert.rejects(parseMetadata(samlMetadata6), {
       message: 'Could not find X509Certificate in the IdP metadata.',

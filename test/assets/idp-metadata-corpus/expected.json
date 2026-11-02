@@ -1,6 +1,6 @@
 {
   "generatedWith": "@boxyhq/saml20@1.22.0",
-  "note": "parseMetadata output per document. error messages have OpenSSL error codes replaced by *. Entries with fixedFrom record a 1.22.0 failure that this parser fixes; their result is the current output.",
+  "note": "parseMetadata output per document. error messages have OpenSSL error codes replaced by *. Entries with fixedFrom record a 1.22.0 failure that this parser fixes; their result is the current output. Entries with messageChangedFrom carry a reworded error: 1.22.0 said \"IdP metadata\" for SP documents too.",
   "documents": {
     "edugain--aaf-edu-au--1.xml": {
       "result": {
@@ -3683,7 +3683,8 @@
       }
     },
     "sp--edugain--edugain-azsciencenet-az--1.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--edugain--eduid-at--1.xml": {
       "result": {
@@ -3932,13 +3933,16 @@
       }
     },
     "sp--edugain--idp-laife-lv--1.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--edugain--idp-laife-lv--2.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--edugain--idp-laife-lv--3.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--edugain--idp-laife-lv--4.xml": {
       "result": {
@@ -4294,7 +4298,8 @@
       }
     },
     "sp--edugain--tif-ternet-or-tz--1.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--edugain--tigerfed-net-bd--1.xml": {
       "result": {
@@ -4976,7 +4981,8 @@
       }
     },
     "sp--node-saml--test_static_expected_metadata_without_key.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--node-saml--test_static_signedMetadata.xml": {
       "result": {
@@ -4992,7 +4998,8 @@
       }
     },
     "sp--php-saml--tests_data_metadata_metadata_settings1.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--php-saml--tests_data_metadata_signed_metadata_settings1.xml": {
       "result": {
@@ -5226,13 +5233,16 @@
       }
     },
     "sp--python3-saml--tests_data_metadata_metadata_bad_order_settings1.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--python3-saml--tests_data_metadata_metadata_settings1.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--python3-saml--tests_data_metadata_no_expiration_mark_metadata.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--python3-saml--tests_data_metadata_noentity_metadata_settings1.xml": {
       "error": "Invalid metadata: missing EntityDescriptor element."
@@ -5304,13 +5314,16 @@
       "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--saml--testdata_TestCanParseMetadata_metadata.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--saml--testdata_TestCanProduceMetadataEntityID_metadata.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--saml--testdata_TestCanProduceMetadataNoCerts_metadata.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--saml--testdata_TestCanProduceSPMetadata_expected.xml": {
       "result": {
@@ -5329,13 +5342,16 @@
       "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--saml--testdata_TestIDPNoDestination_idp_metadata.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--saml--testdata_TestIDPRequestedAttributes_idp_metadata.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--saml--testdata_TestMetadataValidatesUrlSchemeForProtocolBinding_metadata.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--saml--testdata_TestSPCanProduceMetadataWithBothCerts_metadata.xml": {
       "result": {
@@ -5401,7 +5417,8 @@
       "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--samlify--test_misc_sp_metadata_98.xml": {
-      "error": "Could not find X509Certificate in the IdP metadata."
+      "error": "Could not find X509Certificate in the SP metadata.",
+      "messageChangedFrom": "1.22.0: Could not find X509Certificate in the IdP metadata."
     },
     "sp--samlify--test_misc_spmeta.xml": {
       "result": {

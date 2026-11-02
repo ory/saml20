@@ -121,7 +121,7 @@ const parseMetadata = async (
     if (X509CertificatesWithoutSigningAttr.length !== 0) {
       X509Certificates = X509CertificatesWithoutSigningAttr;
     } else {
-      throw new Error(`Could not find X509Certificate in the IdP metadata.`);
+      throw new Error(`Could not find X509Certificate in the ${loginType === 'sp' ? 'SP' : 'IdP'} metadata.`);
     }
   }
 
