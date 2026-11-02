@@ -1,0 +1,25 @@
+<samlp:Response Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" Destination="https://sp1.example.com/sso/saml2" ID="_b2597314-2221-4c2b-9884-1ec0ad68023f" InResponseTo="_e61c6aa5ec9b5076a46289e354afd9e2" IssueInstant="2012-08-19T16:42:04.436Z" Version="2.0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://adfs.vc.example.com/adfs/services/trust</Issuer>
+  <samlp:Status>
+    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <Assertion ID="_1855cb64-4f6d-49bd-be80-c4e50e203b95" IssueInstant="2012-08-19T16:42:04.434Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+    <Issuer>http://adfs.vc.example.com/adfs/services/trust</Issuer>
+    <Subject>
+      <NameID>chrisl@vc.example.com</NameID>
+      <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+        <SubjectConfirmationData InResponseTo="_e61c6aa5ec9b5076a46289e354afd9e2" NotOnOrAfter="2012-08-19T16:47:04.436Z" Recipient="https://sp1.example.com/sso/saml2"/>
+      </SubjectConfirmation>
+    </Subject>
+    <Conditions NotBefore="2012-08-19T16:42:04.432Z" NotOnOrAfter="2012-08-19T17:42:04.432Z">
+      <AudienceRestriction>
+        <Audience>https://sp1.example.com/sso</Audience>
+      </AudienceRestriction>
+    </Conditions>
+    <AuthnStatement AuthnInstant="2012-08-19T16:42:04.327Z" SessionIndex="_1855cb64-4f6d-49bd-be80-c4e50e203b95">
+      <AuthnContext>
+        <AuthnContextClassRef>urn:federation:authentication:windows</AuthnContextClassRef>
+      </AuthnContext>
+    </AuthnStatement>
+  </Assertion>
+</samlp:Response>
