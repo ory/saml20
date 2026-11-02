@@ -1,0 +1,128 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.gcuc.edu.gh/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://garnet.edu.gh" registrationInstant="2024-11-09T09:54:45Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://gif.garnet.edu.gh/pdf/metadataregistrationpracticestatement.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gcuc.edu.gh</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Garden City University College</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IdP for GCUC</mdui:Description>
+          <mdui:Logo height="60" width="80" xml:lang="en">https://idp.gcuc.edu.gh/idp/images/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEKDCCApCgAwIBAgIVALAVNT68Db55PeuHoEntH/wiC4RgMA0GCSqGSIb3DQEB
+CwUAMBoxGDAWBgNVBAMMD2lkcC5nY3VjLmVkdS5naDAeFw0yNDExMDgxMjA1MTha
+Fw00NDExMDgxMjA1MThaMBoxGDAWBgNVBAMMD2lkcC5nY3VjLmVkdS5naDCCAaIw
+DQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBALa+MFn6e1NFxv2Jlnd3VP0FbXOP
+0WkepHpOFwS71X8bDRu+U8IESC5+o4sj+knmnFtvIZ058/tKrOaqW8ZDZMc2OkHp
+TIgSSxwgCmaI6yzjgUhOfp7PgOVfRpuyc4SjfxMcs7/ag79j6h6IrGLLV8IPJwHX
+6/r6PnPypbyX1UHLvKzMMx98GieqssnzQQjiS6QImyjT7NIecaGE3/Uc6Z19aFsC
+Mv6+Y+ADKo8Gdqk4qLGrqHJQBOOh52VoEiE4Z2g341F9cZKVW55dKGr+Lhul67RE
+VSFYhjsF1SCqzqf8U2RlvT621vsu4HXLeudjS8fJ+pGKeBsMrnJMeISUtmg3bO8R
+mkqnIrC3/aAQ9Qw5cfG3bTy8ktcyNK8afVMz/v9kCaLRf6/hP6QaD4b2Xq0iTsZD
+neJsaKOM8EFsQXrObF7uUZaRMvX4IQaGuuzy9hQY0EVBqho4jlnaj9bCrmMocnK4
+ryrc/ezo2lKa/POyr1Y9d/hvanHSqv07j2d/SQIDAQABo2UwYzAdBgNVHQ4EFgQU
+pzJuRY1NavUoW+EWXoCbW3HQChswQgYDVR0RBDswOYIPaWRwLmdjdWMuZWR1Lmdo
+hiZodHRwczovL2lkcC5nY3VjLmVkdS5naC9pZHAvc2hpYmJvbGV0aDANBgkqhkiG
+9w0BAQsFAAOCAYEACwHxbOrmBfl5PkIZjmDBar+sFXJPkXZY4aw/gpfnzF4tLjKf
+8WDYts1FKWAqW7agNVkWZ/iAhUr5+vWjOZgApAx9tuhSQO252lZMEAqoEr4juOKh
+OalZDv992O7jSu34VFotQaXYGFrvq2M4cb4ZSwuFkryVnfOr5h59rOZuWKfkHBLF
+3Z/3PzbHDsqMLqrrVF5mOEjHtJZtgSFmfyv92WIOZgXRyNm2q9ZO3SsRaVbL9gUV
+tv2nVJ7AcQTjZP/G/Oey0GHCYnsBRDdl6ltjBDsFLCmDf6Pvkuz/z2NFUmxMBOs/
+vDETf0cc53Jur6rbMevweV9B5noe1BuT4Rf/pc2YsSTIQCWoN6u04n1U+ofjkrNY
+wsNwKSo+czVcbdtQM4vk43N78XOyVY4VDJhezLkA2JY2wcmGwNmrdkp8wAbRIQ9n
+NO0nRfxa5wi8xL260Wd63Nk922y5gQPnwZrEHa9GlM2p+UIZ7rDoj/Obyn9blYoi
+zQwbyO9ghw2P//MI
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEJzCCAo+gAwIBAgIUCtsvr+EispmKUbHGXECMZI9aSB4wDQYJKoZIhvcNAQEL
+BQAwGjEYMBYGA1UEAwwPaWRwLmdjdWMuZWR1LmdoMB4XDTI0MTEwODEyMDUxN1oX
+DTQ0MTEwODEyMDUxN1owGjEYMBYGA1UEAwwPaWRwLmdjdWMuZWR1LmdoMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAvMWeQoGjP7cNlQBw6U5mF3Km/UN5
+TiXn6mvCO2YgazMOkK+wg4B3yROxXEj57JAKL3VXvMLd7D2OpTnnBtC0FFzA+2x1
+Ufk5yl/wAa2p2UEjZ5hQagBTsCA+VdsDWoyQH63/Xq18oeRz30YInOHArtoUCcDM
+R/QzjrdpQYN4XVJqzV8uz4ddQbrbN387U7pjOTZuMT5a0BZcdfwj5rlJDQg/pv17
+xYBMCwUEzL8Puakhs4spYsSqJ7wfmiOC6WxLxQe9wrGS729BRzVI2WTY2v7MJxew
+da1lO1x6LoCY4aXlnTzLpWs6mKXaUD/ILRkvntxW33zDcYkTII8BEzsXG7AflE4c
+wKviZMZeKQhSf9S75HF891E74xSC2Ov6uP6zh6d/RM2UjO/vziP95mYGvlCVErpt
+snNoy5+QgjVIEPa31GYAutoZze+OBnr0xSz3mkCpUV+Qhv0tDh43yZ+AxCAP7Q28
+b5WcDDA4HJRhqqI0tzAxUM6aGY6u7rmjbMhFAgMBAAGjZTBjMB0GA1UdDgQWBBSk
+lYHie3Ekk08+ag1d/4zuuIgcDzBCBgNVHREEOzA5gg9pZHAuZ2N1Yy5lZHUuZ2iG
+Jmh0dHBzOi8vaWRwLmdjdWMuZWR1LmdoL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3
+DQEBCwUAA4IBgQBUwuJDzHQVSpVDQGSz2ID3kCVhcMyJYEnuqw3NHvlqErml3Q47
+jELIGx84NYK3rRwlnEhE4BSfpnXmMGJ17f51Me2cwNAwwANE/f/GARcKWsYP/hpf
+0pxCJrndGvpDPf+L9xzla3H7gkL6lRtnHM0SGLPFwXrc+vCySIRNm4jndE9NBUmM
+7UpWIpL0ctX70v5GQC0GK1O7BuFY9AQby01fVdPrtM6hNLfMTt9NvsUBPVRD5kog
+nuIrzXM4O/ANulL6ayGU+GeakON2HG8pJkMI1tv2E6px4EsiyKlZpwwkAFbHaP2y
+2WLOQQ7SByG2qrt8cnj1fHURUxXUaXANGBRCmR+D0uFcz+Tdjt7esDrelXId3qGz
+yoBfvax9wavBdUaVpLW/o/IlWiadrjRn/q0FsFQCKfeDgXt6hutpkz0ALNnDdoXi
+NUo5wN5Z50iXPcXw4OHpaA2e3m2mrbJ9lavW5vlshwaYoze75DEVa7T5GYbsX6jH
+J6WjU9tk5yDULVU=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEJzCCAo+gAwIBAgIUINKXOzDvJbUqvjgq52hm0YOyWcEwDQYJKoZIhvcNAQEL
+BQAwGjEYMBYGA1UEAwwPaWRwLmdjdWMuZWR1LmdoMB4XDTI0MTEwODEyMDUxN1oX
+DTQ0MTEwODEyMDUxN1owGjEYMBYGA1UEAwwPaWRwLmdjdWMuZWR1LmdoMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAt/QfmBuAdANIMQ7eW/HSATZRUS4W
+xY34BxsDx//zTo2svPkGum12t1GfTpLpnpCf9e2KKwfVIPkLd+fHX+lGwk5XK4NW
+PNnerlcWA08wnYjJR4ulSoMhwxSPaxqIUUBvyE+FoWjbwZPF7IfIEsOpcQNAIEtp
++G+qQogHMdzTwt2XCSwIc1z2yh0VMmJ9BTb4FDrujHPy3Jjw9+WkBfLreSVPr4ei
+7HQnmBnyHc4VsgLkHh3Cp3dvDraXxO/EwMe/guwdBPPJrRYK66zgp0XVcwEPfM/8
+G4lOfLxXr3sL49WRn8XR9iKR+HR1l/mhSNkLIRIXUPajXVyfFq99PjpIWS9Sm3pA
+q3L3iPimgLlRYh52AdLov8CtPfvDWpZAa6sS2CTKlAXWX0X7X0cgPPJqIAEZg3g/
+psWSjW7wsyXYeGzuG/3CM6cpjkqetHON0Os7QbgQcR32WFx1vH3Im/ju3/Pk39sP
+pZLPSfRINXeLVvEeT8XmmoAN6f8zAlNkuGYjAgMBAAGjZTBjMB0GA1UdDgQWBBRm
+7ePgReh/XMmOV5FY6N3YKNQMkTBCBgNVHREEOzA5gg9pZHAuZ2N1Yy5lZHUuZ2iG
+Jmh0dHBzOi8vaWRwLmdjdWMuZWR1LmdoL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3
+DQEBCwUAA4IBgQBuY4RpxTwQGFK2dwKpum9GPINbQhUAc9lY9hk54/QFIDDcw+Sx
+Ae5OXwUDN7+wxbB4jmWHvkIjZ1dAqesLGXSp1qAu1bx7SSyIC50nXUwJPEl3sAvF
+aJVayky66Uml+d9HZoPDEQTAGgFCL+AlzXTIjlqp3lvoY5S9aJyfMomVCfGXFJ9H
+AG+CtHGOb2obF3zGN2hrlpl7p52+hah1rzQZM/J/Q4BeI8AuHMImwaglNgERKMup
+18TlLlLWqQVL3LDDEdfNCoyx+oY+IrtyosSpimx29BCvjHV38HeSSM0OKZylz0iE
+GkphzUVCZXQuzxMUwfMnt4786yWjHsMWX7OPpGt1Gd6mvxdcrPvM0IQs2AXZgFAn
+H6UpdA2u7DfEVp6ia66+cpefRSyDEsVry3NqJrJFft9P+cISJIlcTnq9l1s0z7Pw
+2e1w6aSSYoOAYvwYDxKdadqvZ8ogrBW+umMzg7tLuJLdZO+B8Fy1W8moy8KCy7Z8
+iSgMKLZ9Ymz6FjA=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.gcuc.edu.gh/idp/profile/SAML2/SOAP/ArtifactResolution" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.gcuc.edu.gh/idp/profile/SAML2/Redirect/SLO" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.gcuc.edu.gh/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.gcuc.edu.gh/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.gcuc.edu.gh/idp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Garden City University College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Garden City University College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://gcuc.edu.gh</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Samuel</md:GivenName>
+      <md:SurName>Djorbuah</md:SurName>
+      <md:EmailAddress>mailto:samdjorb@gcuc.edu.gh</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

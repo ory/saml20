@@ -1,0 +1,50 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.kobepharma-u.ac.jp/realms/oneid">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.gakunin.jp" registrationInstant="2025-04-18T01:38:50Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.gakunin.jp/en/join</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="ja">https://www.gakunin.jp/join</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:Keywords xml:lang="en">category:location:kinki category:organizationType:university</mdui:Keywords>
+          <mdui:DisplayName xml:lang="ja">神戸薬科大学</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Kobe Pharmaceutical University</mdui:DisplayName>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">kobepharma-u.ac.jp</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>VsmeuhIch90n3WZTggkTduf0ZHXaHySH9ju6kicVf8M</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFtTCCA52gAwIBAgIJALEfye66wYH4MA0GCSqGSIb3DQEBDQUAMHExCzAJBgNVBAYTAkpQMRIwEAYDVQQIDAlPbmVJRC1JZFAxEjAQBgNVBAcMCU9uZUlELUlkUDESMBAGA1UECgwJT25lSUQtSWRQMRIwEAYDVQQLDAlPbmVJRC1JZFAxEjAQBgNVBAMMCU9uZUlELUlkUDAeFw0yNDAzMjExMDA4NTFaFw0zNDAzMTkxMDA4NTFaMHExCzAJBgNVBAYTAkpQMRIwEAYDVQQIDAlPbmVJRC1JZFAxEjAQBgNVBAcMCU9uZUlELUlkUDESMBAGA1UECgwJT25lSUQtSWRQMRIwEAYDVQQLDAlPbmVJRC1JZFAxEjAQBgNVBAMMCU9uZUlELUlkUDCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBALJ/XgWTFB1LkmJzzFQ6oowktWtFAKqzwt3BDDUKFuRWCCL6JlhQ+kXCvlL/dRgjAyFhW19M1Ugp1t+K3DxVJGIIk9GFxlxCDifiRMVxtOKkKZBHkSW3wLdxRdpGkQGvLtgFuFTLM1ule9tja/kbdhGwynuZjWPRutBLGWkY8LYhALxHRCdXklPGgECnD7biOyKA8rFgbnSkYnsfXAqPXtFu1kkVP2/mUVAUFAAkSqpm2Xfgt2vqcUZQvizoUreFf9YfqKjAy7lCv73RnYAMy/5q05feE8ih+26/zZdQXQFzXQRDG2Dm+4PTu+4gZGjHa/7vcsA4W800H3C3DO47si3goXygP0XNIj1dauMo5icwgBCKH9+iTkMRvqgTMdzC/z7Mi2ICaHBCJA5FnKB7kvvm5CriDkDq01sSLrDH9baPyJ1GKr3WvvGC7PluqY7t4tjt4FTCCQzmMkNUkYr32I3dMfbINfmV8rzFPEjdo1k1itZviGCUFu4HgWyC8VcVN73khC+ERqBpEQY+ESHQONQrP35xJVmYddFkexRN0v3YlEceTsxLVtSAMqSx2a78hI28TlC4FxbMlP1sFpCGdLpMGu2ENnACw31nhCqG1Jk+D1z7oAJWsfHfuW+/JgDMYGsGJHkEGvbXhnd7ruyiSrPna4mMUpcrm7CLZY5+oL+HAgMBAAGjUDBOMB0GA1UdDgQWBBRs8sReqM7cMUd09Tx+AVRPJlllNzAfBgNVHSMEGDAWgBRs8sReqM7cMUd09Tx+AVRPJlllNzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBDQUAA4ICAQBopmRryM6/m5al31HGbqCi2fk1EUgfg7lyrvmtq5wOd8sz1wAV31rEWIGchxpc8t7KoXn890+UwYkWWEkSOTiYcddq1fw0EIA5TmBkr+XzkpXExR8ZYy6oJVhhay76zwQLw6hFHJFvSOtpiHzPILZsub9GF5xcahn7CLKq0vSJfBbp9IzcHwRRvanecNvhSETwhnjcZ1ZDfO0oOcvbLU2X+B9l6Quo0EkrGg3eknqgfmR9VSoTIVzQ80tSrMhU774sf0DyhrDXcmMFSVaqNIbgvyXe5tG9HGlss0pEpJ1ktWlPBkoKYPQkmlRyGecDyySEsOrIgtltfwjDHjMNGCLsG8kCbgxukXay5SIX3+VhWyQnNilQtZDGhdIsDJpXI7YySac0lSflaciKXKQ3PnxzpGf95YiAIoGjLDvA+qFToLj2okXU06nQcgY/pecd4cn2PbFRtr5uod1B7Oz/tMqBZ9hZxNlN2I6OUAp9FAsjLI2zkqBCyNQHh3qYIm58mJ+sWJ7avj0j1cKVGSQIoWvUkmdpVLOLzPIH1saOXMrzqXAQ0RGOcw8DF2slRN6G3qNm8BEVLdn8kNkzj4HxgOM/2dozl1AW10C0kX0YMPqKtSlys/PBU4Qlv6Z/sA8X7QGIUaOpjWKZpP867f3KjPUyaYUP5b2BxqTLoNfLe6bMWQ==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kobepharma-u.ac.jp/realms/oneid/protocol/saml/resolve" index="0" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.kobepharma-u.ac.jp/realms/oneid/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.kobepharma-u.ac.jp/realms/oneid/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://idp.kobepharma-u.ac.jp/realms/oneid/protocol/saml" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.kobepharma-u.ac.jp/realms/oneid/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.kobepharma-u.ac.jp/realms/oneid/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kobepharma-u.ac.jp/realms/oneid/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://idp.kobepharma-u.ac.jp/realms/oneid/protocol/saml" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="ja">神戸薬科大学</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Kobe Pharmaceutical University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="ja">神戸薬科大学</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Kobe Pharmaceutical University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.kobepharma-u.ac.jp/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Academic Information Division</md:SurName>
+      <md:EmailAddress>mailto:johoroom@kobepharma-u.ac.jp</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,134 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.sav.sk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://safeid.sk" registrationInstant="2022-05-23T07:59:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.safeid.sk/doc/safeID-Metadata-Registration-Practice-Statement-1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sav.sk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Slovak Academy of Sciences</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sk">Slovenská akadémia vied</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for users of Slovak Academy of Sciences.</mdui:Description>
+          <mdui:Description xml:lang="sk">Identity Provider pre používateľov Slovenskej akadémie vied.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.sav.sk/?lang=en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sk">http://www.sav.sk/</mdui:InformationURL>
+          <mdui:Logo width="500" height="500">https://idp.sav.sk/idp/images/logo_sav-500-1.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>147.213.0.0/16</mdui:IPHint>
+          <mdui:DomainHint>sav.sk</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEFDCCAnygAwIBAgIVAKEshkz+4E232MZpD/DEfydGTGHcMA0GCSqGSIb3DQEB
+CwUAMBUxEzARBgNVBAMMCmlwZC5zYXYuc2swHhcNMjIwMjIyMDEwNzM0WhcNNDIw
+MjIyMDEwNzM0WjAVMRMwEQYDVQQDDAppcGQuc2F2LnNrMIIBojANBgkqhkiG9w0B
+AQEFAAOCAY8AMIIBigKCAYEAnZ2wxaNPfjUx69WIo7R85o0PSGtXJHV1ZGc9Z9zi
+0SWgPgr0rACtPSJTr8KlOIMsm5+OxaLYhm6iz7ij+b+piBVwmMmS7sL8111jNYqv
+FEFb2Ftt5mBRGoXsQBsk+HqVuSmN+Y+JgdU7p2uY3t4KnVofo2XLwe2wyufVnzHv
+nDIDX3hhen1NWwUL0UnelxL7qu/HG1QoEXsiZH0S1pH+n454iLVH7jlYgGroHqii
+q4w+/VpukX9q7px31yhEhOF1RWscasZICeM2VpFlCW33pLCdgE53seHIiA9HrA+Y
+hufp5e1dOTUIHwiUdsg8tRTzebqKSOEd+ccV1ZseSGRgIjRYylG54SPQ20m9zlzn
+NdMpKAdSjhxWZCoH7ZlksC2msP7L0qxvZBPBzqQ8jD1Uy0SOI5DC5MR0eDigiJ3G
+Td/NMolnS+ocsU1X9hJKzM79JrHS98/GrwiHpWdA/EWhHP+cXqQCKVD+PuI5OEuG
+ZAGxGt2oeBu0o4aMI/ktw3QHAgMBAAGjWzBZMB0GA1UdDgQWBBSMZxyEDapfGG0S
+kgAns5QfUr8ldTA4BgNVHREEMTAvggppcGQuc2F2LnNrhiFodHRwczovL2lwZC5z
+YXYuc2svaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQADggGBAH/Ye40tCYPw
+FTmOLYe9h3s151ejWFw4IU+gbOS6wS3XczgTYu2xzCOvuutNqVmccAnadLNmXOnk
+7b3UV30Fu+drJ1ScS+eCQSoyldsHEEs4cz4u4E3u9mzSFrLQupTBHxVSPseLATCW
+guIUlxS3lUFEAM9Ga2KmC1kxncJAkVR8u1T5PgDYdW6RnaVk/Bllhat0QJP6xuSi
+B6slNWufoC7bePBXg/sE7Dwo0iL38z3TU2816wsUY0lkH5XIMLMDpdgG5EmO4RFX
++O9/LVntuD3MliPchK5n+WdHB2ANvYPsHTPAsKF+Iu3TFmqbNl1NY0IvBKOnVIsB
+NRDrzH4Es9PFzL8dcKTJcuaZlULbtl8MZrhTQ327sWpEujg2bRs0Y482f0HDd2nD
+BSDpL8S6lSJyLNTBguvGHvSsvZ7qg+NTdVZ/CvZHsECfa7rUwwbsXC9dc34QuMXc
+lsiDq8jrZhAI83t/6BO2bPGmQZknSZdq/yubYffNlnaaKaGqY6R73Q==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEEzCCAnugAwIBAgIUCHf43dp4d5bI6tVrQcN6FSBZoyUwDQYJKoZIhvcNAQEL
+BQAwFTETMBEGA1UEAwwKaXBkLnNhdi5zazAeFw0yMjAyMjIwMTA3MDlaFw00MjAy
+MjIwMTA3MDlaMBUxEzARBgNVBAMMCmlwZC5zYXYuc2swggGiMA0GCSqGSIb3DQEB
+AQUAA4IBjwAwggGKAoIBgQCkXhKxVms1ZVubrqpbTxs87xhXi44K30+NY4Lj+wV7
+LJjIc7ByPRRvf96oUVmbvmjl9hPNYfl6lmJFFGSoYRQ22+4ccAav09516VM0pPCR
+giPhs59N/gTJyzpKGwSgxw3D0UODx2pSYVhhlWjyw0iElYVheMD9FPvPTD/UK+Df
+hEQzQULHj2xrZcn1TMcZOVr05Jf8Z/c/g9K4PhaT3bWhrTThv7ONQq4DRxm0aLQt
+YyxI0f0dqhS6zp6qxev0urBBdsa8cxqKtdq6T6f79DyNqeG31SHCBAvm8cP9WTCm
+UTIu9pcIn5O6OibqSZbHwiauyDenYeVtKLpSSVho9QkCUDm9yEouSsgr31T3+kck
+WoMSsAu+pRPlx8fNSqWrXobIqlO6nAN1rp/S0dPRjmulOgyXqISvL7XGaJrT7b6u
+5GPYaJAt7Hm1OIX9RiKj5RLrBBSc0Ol491BQcOJ18Jrz9TfYxTcQB7R/QI7VJH3J
+vmfZvmu6FNbPQK47FkR68ZkCAwEAAaNbMFkwHQYDVR0OBBYEFMxjGn2OyvLY7opc
+rus1ni0gGoBNMDgGA1UdEQQxMC+CCmlwZC5zYXYuc2uGIWh0dHBzOi8vaXBkLnNh
+di5zay9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAYEAWyWK7NM6A4Hy
++azew/NSpq23z4H7nDnFjVrDj2EHBW0P7KmmhUs8hTSEX3Obh0y9p81gABwA231a
+xIRSCy6YertYQ/UFiB6TJPBK32Cf/5RRp+tn5D/Xwk9dUVxgC3+x5wFuI4nsypqz
+bGcp9UeKS21n6jGZc9bSaBaHRHHWxlhp/TNDDZIIFQOB6GlMnaciwUAvbRjklc63
+Jw5HVzNnBBiQQbw4VJPPaGsQEZvWPcfBkL8IZoMP5V/Uo+c/V/Z+B1n+q5393wjW
+rKzQdSvNV55PMTTG/ZQAkDilLujLp23+j/aLywlFctjvMUl95YahQ1NLA/B/6nnt
+7R8+s59QsPZih0KrycN7ZdFPsaajNKbsit9C3jDFJYpmCZc8UgMfR/WzZ1R3oL/e
+Pw+NreNymdMfhIOgVoxoFtp4hltTGbOkwxSTHcMyg/ENamrJQocx2urCrvLrUQ1+
+CUjQx//bVHyRDxmzZm3q5ZzgDel+R2ybWCpZOx/4jXpuW8YtJVO7
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEFDCCAnygAwIBAgIVAIAO+o2+yUd8ou/bDjvyUyZytJIlMA0GCSqGSIb3DQEB
+CwUAMBUxEzARBgNVBAMMCmlwZC5zYXYuc2swHhcNMjIwMjIyMDEwNzEwWhcNNDIw
+MjIyMDEwNzEwWjAVMRMwEQYDVQQDDAppcGQuc2F2LnNrMIIBojANBgkqhkiG9w0B
+AQEFAAOCAY8AMIIBigKCAYEAh7cQfXQ/gFk0nO3M6hZO2gIKQoOrkzHUDox60Ay4
+EOwLqlL530swtyE9gMpvLa4H2mVGhKFRIuwUpWv3G7tzFKDiSTTKePSKT1sNobHx
+8uWyV/+SET/Mc9G+lQqf4seYBbMQb9Eris2t2nqcFqhHq/6F+U5KL/KPjQo4kPS5
+4VvUIVXRQuwoPa/WNU/ZuGQ7gFtLTwvd7IRdqtwxlAJMVaxWTnlK8edJrDjeYhpm
+KN+fohEDPCKrifJQyuLOpBU0532LMiyEAnCDo889Z12pWZbzjBkXegjWBah82BxI
+HQdpbSbaWvHIpzyKFE8vG7jLaicM9uWUo1Apva+hcV/0GW5lh/ECSl8gAydSMjr+
+GnLrJOgw9Y9tsUdxM352bDKh/A7iSvD8b0OA2p/D3Qm2dxHjwwAxrBMbCpNe+R4B
+qtQTwSULgoWWwORw9/nqDTFBtvLnl+1odfXWXNuVc5iGAd1Nyskf85/TcLADFLc7
+dl6eXudCurJpmzviQqzRirE1AgMBAAGjWzBZMB0GA1UdDgQWBBT6s3rQF5LQ5oRd
+ScVEf4cmaB9YLjA4BgNVHREEMTAvggppcGQuc2F2LnNrhiFodHRwczovL2lwZC5z
+YXYuc2svaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQADggGBAEVszxy5dIoo
+XR9FiFHbDPSJ096A7z+aj6LTxmftAUjgUIzt8GxIey704/GbfslskesTZXxIsG7H
+pES5aj4jhuBG3M/WRkEhDRPpZEqCUQSy/h0bCyJp/NXHy0cyun2podGAp5bCUiYR
+y9LYzjkqhgn/JZV1Sx7mNElGTxOKMxM0PbYYz6NM5YJgOOjWIZ2x05J/W/35eak7
+n9u1hus7yqScj/mQvtzieET6bC8WGaCMhz4cE9lqurqX0pWDSSdxZy/n45MaDzS2
+QXEUKLjqytANZbGpwDAudDMcnAi44tsW+pV6iB2vo6+1W+q7QICqfhIotf6g5o0+
+R05+4usYlihGYRz6ulGW/0RY0z+zV2cyH5JmIR1lfb0AUJLlIsyLMLjVBoPqR+Ru
+6kwCn3EWFml65E2M0uB01/1RAr8OG/tgmiKm8zj58uaqZAOc9a87JLxZQOgepRmr
+EnA3z5g46p2q/3yoVgRdmRFaf459xetgGznJ41fAinArmwEBJlteSg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sav.sk/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.sav.sk/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.sav.sk/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.sav.sk/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="sk">Slovenská akadémia vied</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Slovak Academy of Sciences</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sk">Slovenská akadémia vied</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Slovak Academy of Sciences</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="sk">https://www.sav.sk/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.sav.sk/?lang=en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IdP Admin</md:GivenName>
+      <md:EmailAddress>mailto:idp-admin@savba.sk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

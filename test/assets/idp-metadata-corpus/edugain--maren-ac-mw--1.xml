@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.unima.ac.mw/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://maren.ac.mw">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://mif.maren.ac.mw/wp-content/uploads/2024/02/MAREN-Id-Fed-Policy-v1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unima.ac.mw</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University Of Malawi</mdui:DisplayName>
+          <mdui:Description xml:lang="en">University of Malawi Identity Provider</mdui:Description>
+          <mdui:Logo xml:lang="en" width="80" height="80">https://idp.unima.ac.mw/idp/images/unima_logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIEJzCCAo+gAwIBAgIUcVQXlevlPuLAGQA2Qn3I4LPUjhswDQYJKoZIhvcNAQELBQAwGjEYMBYG A1UEAwwPaWRwLnVuaW1hLmFjLm13MB4XDTI0MDkxOTA5NDQwOFoXDTQ0MDkxOTA5NDQwOFowGjEY MBYGA1UEAwwPaWRwLnVuaW1hLmFjLm13MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA kYF/eUp3QBXo2723eZQ5FZm6bF5MawMEt3J/VaEqq1YQYX8p2NBzgu58RYb6Lw4zJj7qsmJglXNg Xl56Q+5quK6uqG+jWWn44wJPc+x3lRDHmzv2qOKzd956O0SLQ5uCIkVRHWYZSNGaj5Hfpc76NqJE r6AVzz/zbr9IK+7RTBDQ/Z5nIDDrMQszntersibKmkuUgMvtBSj6SKF9Y9RrDzDOd15xsgU9sIjl quHLnJ0Ct7AcWmLlOlGWnfeIoQtrMHAKboVMlpTY7+lp381pTGCGKv05wVyAQ0sCtXJCPKXlSq4Z 3qnW6hLG9FGv94uHDTuwlAPmqIonUBjiNlYg7jK78ZSQUgAqHdjAqxorXFbJZnweHIpkVeG+pC56 CGxqO06OWYA6w4w6dPbsAPTqTofoXQjxhgQ6eUQADblMqce1QLygpa7mjPkeY0RZPXSJrt1Mj4BB 8c2yVPjUp1y9Kr+Qq4lLHClgllCQyhB6vsdKFMrFIElaJqQOgt9HqHdtAgMBAAGjZTBjMB0GA1Ud DgQWBBSXoepCHU0CkFRbdlQ93M3uQsQSpzBCBgNVHREEOzA5gg9pZHAudW5pbWEuYWMubXeGJmh0 dHBzOi8vaWRwLnVuaW1hLmFjLm13L2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBCwUAA4IBgQBL LeDa8LKbTLTyXBiCqUrhGmyzDguHNbCp/kKineaj3HcjgXqGRXna6daNVPqoZaC7+7aMJh9/Tl2O pGrUhBcVVWQAsiC0+6xM6h01eM0UO1RETfsaIiL7NXlsm7Z8CqIrTVvZNB2hSYAjDE78yXzu9L+M ZKV20RNeSwtQrDhN7h7VKBOIFTzn7mD/6ae1zP9oVd4DhzmhEah2jOYu2VXbc74O7NnEeTkNlPVh 46d8V7AebVmdPHOmV8AoD6P/B31wAx9nOy0tMzxOqT4Oo3n3jXlma0zOKDb+BjN6ssOGBSdIKHHl FVfh1rUE24+v/yxTkqn32WegycEOfPQodGjhA7/F71P9q9uvcuT2FUtgLxSwRoPf0HIYQ0fr4N7f KVGwbFNLnomHZiuvpbOnp3vdEK1k7DsxyGuknbvx1pMqcPm+pdJUOoOiDS/R0RXViGL5O1rrXvHN 2PrRpxLsgz+og+/YUso3Xo4KlmeIPFtNjDQ8VJoF5K+HLCg+dp/u/78= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIEKDCCApCgAwIBAgIVAJQFpphzG/vgVa+BUZYu59W8B2gRMA0GCSqGSIb3DQEBCwUAMBoxGDAW BgNVBAMMD2lkcC51bmltYS5hYy5tdzAeFw0yNDA5MTkwOTQ0MDRaFw00NDA5MTkwOTQ0MDRaMBox GDAWBgNVBAMMD2lkcC51bmltYS5hYy5tdzCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGB AKiIb+mbLNKoD+OuNMdtfWJB/ALn9bVbBPxsezYNRwR3+KxGyYmEh5N//OPrbYp+BoRIqgW7+5YW 9bdxQxma8tEtMaqJdNz2+FY9tmWIIbfBt16o1dscTLSZQLJc2WeF8YdTwds8POLDY9YF/JwsAdqS Wex4RPmUHWlsAq1SLZVqMEVux3sbrF0by8ClTWh+aLAY3XsSuTg23EO4EMhRbFBMlNylGETmNoNu pyXZ36MRmTJA9T4SKas7di7uMcM7/gG5gVJMhYroC1zOzzYfra7BalBwe+/FWg1c9ypVRxumEERS K/J2OBBoDfVWxTpDwre0QfyIyeA/5hveTmPR9cn0dn318b7iUPNByAVmwM61qU8dcd3S9Q8bcngA 36d6I5wyzARVfvcVuOO8RKPNDrgqqlKjCXZF2KgF9h8t6jJxRsRh08GlXmln52uskvtopb6sRPxk pWGJ8c1cR1USNmKaDNZ7rTvqVRlMWtLhr937fRt9rT68M6TCUIsPS0+SEQIDAQABo2UwYzAdBgNV HQ4EFgQUvBxwE2kq7CV/9OnE3rBc1vp73fkwQgYDVR0RBDswOYIPaWRwLnVuaW1hLmFjLm13hiZo dHRwczovL2lkcC51bmltYS5hYy5tdy9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAYEA JSXpI/TtYfCFJ9XY34o/7WRzTEmbks+nyeKqMmEbLwIfzkobqr+NlCM6tdo1CiC5fOrnnEuXdEUC LZ0IFIwDOdZGaUSZIrOgnBHX75dKpymeTN++NZbZpxLWMFbIlja816115RXffTxBJZVm7V/6Oxkt grtYpWni3UPIb3JgFxNsYbwCV1hjJA0SsfJI4KGEohC5YjBnUxrRCFwPbVHg5yQ8lFBZC69Odqib cu1ID1QQrx1eBF8EEiObdCwJyK16tFBSEzWKMB6xl/MpZbhEoZ82sAvc/dFxYWNLihpfTwedmHKw rG62Mtz16ZdaO33ZHp445y2BvrIkglB06RWIXWYcOwI6rEcJ4t2Un/proQmSk+qccbB2nRBn+4hF uI30SYbSpKqZOHkCZC80FAC13yu6hOm8btYqOqXPltvJNdh5HL7ktl4xrzj4FxqzpInFT/+b1pn+ XnaZ8fkSK99nWkQEgjfQYIi7L7lVeUc5T5SuytsRz8d9kU8Fk9xNEXGN </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIEKDCCApCgAwIBAgIVAKgaLHYz/G2L7yduxd08+IrWrc2mMA0GCSqGSIb3DQEBCwUAMBoxGDAW BgNVBAMMD2lkcC51bmltYS5hYy5tdzAeFw0yNDA5MTkwOTQ0MDVaFw00NDA5MTkwOTQ0MDVaMBox GDAWBgNVBAMMD2lkcC51bmltYS5hYy5tdzCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGB AM03ixwDfmiwcLmf+mIFikypYb0abiUmwcO/B3r0vI7SVZgfqHityT6IHjNnHxjn5BKNt64sZKe9 dVCdFANzCA1YkGZ1N+ZIwALds2Tyh6eGpKGpL6Fwh3/hKml/UDKvbzgBR7efMLyx2Z2PtoxQkZQw fO2xMOY4EU6sCKeSPPT406Jnae+mZXttOJ1Eb2qVvGPc+pZZAeMAbgSywT+ScITF28CJiIMDoIYS KOksgZvbxlSG659YKSAi+iYDBm7UkHD3bczy+5Go0Y8ji7UTySqMiLsTxR+TsysBxKj34suOar6S 7zo0y/xsxQ5thlCgvTLCYByBBihXAK/S2XqSZrMX/AJjltWHyjGmJnBYhhXqC9rxMnld7OttGIjl LCwcAGzQp83X+6EDYFZTh0nwbo3TCWhN/sxQXuuzWiYzSTPiF/2FVE7a9ubb1rOBhTdsXoOV0DtD MC0wF0DJzIrNp0gvJmvv+TQF09zDfIKI854fAF7yvrqQnoZfcr6HdObaqQIDAQABo2UwYzAdBgNV HQ4EFgQU4lZHoLB7+XHYpz9JH3//5nre9NcwQgYDVR0RBDswOYIPaWRwLnVuaW1hLmFjLm13hiZo dHRwczovL2lkcC51bmltYS5hYy5tdy9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAYEA xxx/in6GnegUhHJkiUuTYOA9QqKGyhrqJ0sIe9033sgIBt0lkSnxqNdQDl+29KxH45uvu0UyAlOu 7CK8AdpcFvJomNFPIcEjovogA2tSWHN36aigMpOucjCs7H14wEd1nr0s9V1OGwimd0rmZ//1fFNA Q7NPIBfdrV+TnFHrEKAlQtEafl4RmZu0GZA0Ot5bw9Htkmb6mzuaO3k4Z2OpO75l945eCr+Lv4OC rck/31K4Sd1ZT3Ng7gkJ8tZZHC79Ly4n+kanOj6WDp4cueB6LJVF1sRLvwqjsAHrxb5dJ6XP8t4e hMzCl/Itk/4ohfk8if4DUF0OsR4oiWqViJ2U7wiD8hDn85v0Ytq/acF+1ckU4/7Kxt/bO+XyGZDR cu+mJiAi2HjdfEDTzAvdGGxQwC2/WPYDE/yRsFLzsSbP9cDSMrDXi9TydaciV87wEzlYPuJys8Gr WJJiFJUQTg1lXP7gqV+XUH+hUcZ89eXzWfYQg55Yd+QEPhNBrO3ebqW2 </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unima.ac.mw/idp/profile/SAML2/SOAP/ArtifactResolution" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unima.ac.mw/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unima.ac.mw/idp/profile/SAML2/POST/SLO" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.unima.ac.mw/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unima.ac.mw/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unima.ac.mw/idp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en"> University of Malawi </md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en"> University of Malawi (UNIMA) </md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en"> https://unima.ac.mw </md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:ict-technical@unima.ac.mw</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:EmailAddress>mailto:ict-technical@unima.ac.mw</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

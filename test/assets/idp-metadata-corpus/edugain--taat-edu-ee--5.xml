@@ -1,0 +1,49 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:taat="http://www.eenet.ee/EENet/urn" entityID="https://sts.windows.net/85a5c3b9-b2bd-4bbc-ad62-7a0e4d77e87f/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://taat.edu.ee" registrationInstant="2024-09-18T08:54:05.000Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://taat.edu.ee/main/documents/?lang=en</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <taat:taat>
+        <taat:active>yes</taat:active>
+        <taat:AttributeNameFormat />
+        <taat:modified>2024-09-18T08:54:05Z</taat:modified>
+        <taat:RegistrationInstant2>2024-09-18T08:54:05Z</taat:RegistrationInstant2>
+        <taat:type>saml20-idp</taat:type>
+        <taat:eid>211</taat:eid>
+        <taat:env>prodaccepted</taat:env>
+      </taat:taat>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">EMKTS Microsoft ENTRA</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="et">EMKTS Microsoft ENTRA</mdui:DisplayName>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">emkts.ee</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC8DCCAdigAwIBAgIQHEdWEBmbyotKGrlRzakXuzANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yNDA3MDQxODE1NDJaFw0yNzA3MDQxODE1NDRaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA34P5+2PP9FAwKdQjuE5HpkHEXMoxl+GsZod8GmgWW9EIxB9+yv5Va3OQq8EvroytNpRW4c0ee5aV8iU2kccrXmuhfjcxVYvnCU8HkQwSAfvFiCVlTlwcj/IJp4FXin09o0Gj1n52QM6IBrwcMpXUhxgoDj/i8VOCk1+ZCm10hcTW+aMRDfCiB71unkTaM1e8jn8ps3tyT761RKSevZFf1AUmSSgZ5pT0J+q1u5yK9YoxSkYKRMhl3euRnLKbVvw/BOyZs6K6UKfgqkmrcEklwIVUAKvc3iYeHF7fc2rcpkeJDipFRSG++ylXmETWakNpvhXmakgDFJe0K4lin+wyMQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQCeq1PfCehSHLbpzFQvBPQde2A4rhApwgsR/f6W1tCrRleVhxhrn8yGhnhavoQiZ3xx15gMaBEZtRllCWO3+frKgsPrrtaP4qNMG5lnu2/LLKd1JsIY7EkSto9uktDnTivBeUIzVOMPBi7/MQ1MTWbTbMuW/VpujvelAjlqPRoMlcv2GXLSPbFeQpOPKx375Vl0qFB8T0prrX2rQKgQ880G7Ay79uQoouQUJOdZjGaypnlGP+7Xp75KcjVLmnUfZlZkxhAh8bXydf8nMS20M8XeDie6ol1DsuuiftTv9TW6RRQC4IzzcSeG8qvqwy+rhHpJfEJ5HBIb4wGwCgnNLrJZ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/85a5c3b9-b2bd-4bbc-ad62-7a0e4d77e87f/saml2" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/85a5c3b9-b2bd-4bbc-ad62-7a0e4d77e87f/saml2" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Eesti Metodisti Kirik</md:OrganizationName>
+      <md:OrganizationName xml:lang="et">Eesti Metodisti Kirik</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Baltic Methodist Theological Seminary</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="et">EMK Teoloogiline Seminar</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.emkts.ee/index.php/en/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="et">https://www.emkts.ee/index.php/et/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>TAAT</md:GivenName>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>mailto:eenet@eenet.ee</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

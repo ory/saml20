@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.kolas.basnet.by/idp/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://febas.basnet.by" registrationInstant="2021-11-30T07:20:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://febas.basnet.by/shared/febas_mrps.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kolas.basnet.by</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">CSL NAS Belarus</mdui:DisplayName>
+          <mdui:Description xml:lang="en">CSL NAS Belarus IdP Server</mdui:Description>
+          <mdui:Keywords xml:lang="en">library academy belarusian science csl idp</mdui:Keywords>
+          <mdui:Logo width="148" height="60">https://csl.bas-net.by/assets/site_vn/images/logo.svg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEmTCCA4GgAwIBAgIUA4AL+d4NBg1rYaGXVUlMfivtFWAwDQYJKoZIhvcNAQEL
+BQAwgdsxCzAJBgNVBAYTAkJZMRwwGgYDVQQIDBNSZWJ1YmxpYyBvZiBCZWxhcnVz
+MQ4wDAYDVQQHDAVNaW5zazEsMCoGA1UECgwjWWFrdWIgS29sYXMgQ2VudHJhbCBT
+Y2llbmNlIExpYnJhcnkxLDAqBgNVBAsMI1lha3ViIEtvbGFzIENlbnRyYWwgU2Np
+ZW5jZSBMaWJyYXJ5MRwwGgYDVQQDDBNpZHAua29sYXMuYmFzbmV0LmJ5MSQwIgYJ
+KoZIhvcNAQkBFhVhZG1pbkBrb2xhcy5iYXNuZXQuYnkwHhcNMjExMTMwMDYwNzE4
+WhcNMjQxMTI5MDYwNzE4WjCB2zELMAkGA1UEBhMCQlkxHDAaBgNVBAgME1JlYnVi
+bGljIG9mIEJlbGFydXMxDjAMBgNVBAcMBU1pbnNrMSwwKgYDVQQKDCNZYWt1YiBL
+b2xhcyBDZW50cmFsIFNjaWVuY2UgTGlicmFyeTEsMCoGA1UECwwjWWFrdWIgS29s
+YXMgQ2VudHJhbCBTY2llbmNlIExpYnJhcnkxHDAaBgNVBAMME2lkcC5rb2xhcy5i
+YXNuZXQuYnkxJDAiBgkqhkiG9w0BCQEWFWFkbWluQGtvbGFzLmJhc25ldC5ieTCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN7noZ52tfT0UYgjujKRqLJQ
+cVHsfUHi8KJnw0qDnUTkHXLcAOvtYmm1CKH4i3/CXnl9KsLO78QR/nglDAf/UuL8
+Jf+Rkr9WyReBCU4juhjSuTx4+inzfqMMsGtgerCjhkuoo3/HG8qpaI5gh8z5U1u4
+jOcGHA/TcsIVT3caqgRamAHlcfwyGs2ll5S+BEB0nPBlHgMRL2XX0NtJ70xOZ7Gp
+UJ5wyRzCTV5eRJ2gL5Hph4II+wSvm4EDI15gGCN47j227xZnexik2lVEcJj8NPoN
+4a6g+rm8Bn/ycyesWesWX1NCB270JdMDLrHPL7kBt46HtomyXg/bTzShV9FHnD8C
+AwEAAaNTMFEwHQYDVR0OBBYEFGQYXCQB1nhK2IV/EfE6HnnOgn0WMB8GA1UdIwQY
+MBaAFGQYXCQB1nhK2IV/EfE6HnnOgn0WMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZI
+hvcNAQELBQADggEBAG+HtL366LHCiawh+4MPZ8ym5A6Af1uM7xWZKiNomYlneD93
+/fgp68CEMdPfkF7yJJ/NoARhGb5yNsVLocg00Ur+TF15qu2ofHtAHsBF4kCB+Blh
+AIZ8JrRDREjjMke0z2tDMzQL9IfD46XT8uedNWmOvRgUVOiMw/sKovyWoDE3VBrN
+jpFIjaN/pnlUGJd2THzvQuG0pHXmLZIzdt/ZXPLTxtQCeeiP/ceJVvHMae5EdDiq
+7BGH6vbPJzhmJF0mdHn+HxueJZmp9+5Zza0sXOde9WcCPG0AEAWu++eZDpQosxpi
+TEwaHR2p4de6CRV044wzkWL+JHGe3TIZhzKMcAo=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEmTCCA4GgAwIBAgIUA4AL+d4NBg1rYaGXVUlMfivtFWAwDQYJKoZIhvcNAQEL
+BQAwgdsxCzAJBgNVBAYTAkJZMRwwGgYDVQQIDBNSZWJ1YmxpYyBvZiBCZWxhcnVz
+MQ4wDAYDVQQHDAVNaW5zazEsMCoGA1UECgwjWWFrdWIgS29sYXMgQ2VudHJhbCBT
+Y2llbmNlIExpYnJhcnkxLDAqBgNVBAsMI1lha3ViIEtvbGFzIENlbnRyYWwgU2Np
+ZW5jZSBMaWJyYXJ5MRwwGgYDVQQDDBNpZHAua29sYXMuYmFzbmV0LmJ5MSQwIgYJ
+KoZIhvcNAQkBFhVhZG1pbkBrb2xhcy5iYXNuZXQuYnkwHhcNMjExMTMwMDYwNzE4
+WhcNMjQxMTI5MDYwNzE4WjCB2zELMAkGA1UEBhMCQlkxHDAaBgNVBAgME1JlYnVi
+bGljIG9mIEJlbGFydXMxDjAMBgNVBAcMBU1pbnNrMSwwKgYDVQQKDCNZYWt1YiBL
+b2xhcyBDZW50cmFsIFNjaWVuY2UgTGlicmFyeTEsMCoGA1UECwwjWWFrdWIgS29s
+YXMgQ2VudHJhbCBTY2llbmNlIExpYnJhcnkxHDAaBgNVBAMME2lkcC5rb2xhcy5i
+YXNuZXQuYnkxJDAiBgkqhkiG9w0BCQEWFWFkbWluQGtvbGFzLmJhc25ldC5ieTCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN7noZ52tfT0UYgjujKRqLJQ
+cVHsfUHi8KJnw0qDnUTkHXLcAOvtYmm1CKH4i3/CXnl9KsLO78QR/nglDAf/UuL8
+Jf+Rkr9WyReBCU4juhjSuTx4+inzfqMMsGtgerCjhkuoo3/HG8qpaI5gh8z5U1u4
+jOcGHA/TcsIVT3caqgRamAHlcfwyGs2ll5S+BEB0nPBlHgMRL2XX0NtJ70xOZ7Gp
+UJ5wyRzCTV5eRJ2gL5Hph4II+wSvm4EDI15gGCN47j227xZnexik2lVEcJj8NPoN
+4a6g+rm8Bn/ycyesWesWX1NCB270JdMDLrHPL7kBt46HtomyXg/bTzShV9FHnD8C
+AwEAAaNTMFEwHQYDVR0OBBYEFGQYXCQB1nhK2IV/EfE6HnnOgn0WMB8GA1UdIwQY
+MBaAFGQYXCQB1nhK2IV/EfE6HnnOgn0WMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZI
+hvcNAQELBQADggEBAG+HtL366LHCiawh+4MPZ8ym5A6Af1uM7xWZKiNomYlneD93
+/fgp68CEMdPfkF7yJJ/NoARhGb5yNsVLocg00Ur+TF15qu2ofHtAHsBF4kCB+Blh
+AIZ8JrRDREjjMke0z2tDMzQL9IfD46XT8uedNWmOvRgUVOiMw/sKovyWoDE3VBrN
+jpFIjaN/pnlUGJd2THzvQuG0pHXmLZIzdt/ZXPLTxtQCeeiP/ceJVvHMae5EdDiq
+7BGH6vbPJzhmJF0mdHn+HxueJZmp9+5Zza0sXOde9WcCPG0AEAWu++eZDpQosxpi
+TEwaHR2p4de6CRV044wzkWL+JHGe3TIZhzKMcAo=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.kolas.basnet.by/idp/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.kolas.basnet.by/idp/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Yakub Kolas Central Science Library of the National Academy of Sciences of Belarus</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CSL NAS Belarus</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://csl.bas-net.by</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support Team</md:GivenName>
+      <md:EmailAddress>mailto:admin@kolas.basnet.by</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>Public Feedback Team</md:GivenName>
+      <md:EmailAddress>mailto:csl@kolas.basnet.by</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Administrator</md:GivenName>
+      <md:EmailAddress>mailto:admin@kolas.basnet.by</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

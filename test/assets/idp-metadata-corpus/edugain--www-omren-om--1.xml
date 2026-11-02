@@ -1,0 +1,73 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://accounts.google.com/o/saml2?idpid=C02afc2g7">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.omren.om" registrationInstant="2022-12-14T13:27:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.omren.om/wp-content/uploads/2019/10/OMREN_Federation_policies_1.3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">accounts.google.com</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Technology and Applied Sciences</mdui:DisplayName>
+          <mdui:Description xml:lang="en">University of Technology and Applied Sciences</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.sct.edu.om/home/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.sct.edu.om/home/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="200" width="200" xml:lang="en">https://pbs.twimg.com/profile_images/1296736682356727809/7_JIKNAB_400x400.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>accounts.google.com</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDdDCCAlygAwIBAgIGAXmdrEdDMA0GCSqGSIb3DQEBCwUAMHsxFDASBgNVBAoT
+C0dvb2dsZSBJbmMuMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MQ8wDQYDVQQDEwZH
+b29nbGUxGDAWBgNVBAsTD0dvb2dsZSBGb3IgV29yazELMAkGA1UEBhMCVVMxEzAR
+BgNVBAgTCkNhbGlmb3JuaWEwHhcNMjEwNTI0MDkxOTQyWhcNMjYwNTIzMDkxOTQy
+WjB7MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEWMBQGA1UEBxMNTW91bnRhaW4gVmll
+dzEPMA0GA1UEAxMGR29vZ2xlMRgwFgYDVQQLEw9Hb29nbGUgRm9yIFdvcmsxCzAJ
+BgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEA9HjcmEK9AfCUaSK/lbyBtIv4K40gT2HwrYZrVyH699yE
+tNKTMzYgs7LuneIVJZT2ngjoNBaVX5O4igply6Sy3srO8k3u677FjZRPW1WWyhJ7
+sS7D2EVOR74oRf+SNPJ/67uzFbbXY7TkEHtwjvUl4M7vxcsmfYRdUzNjNHQzRZUs
+OpgXwB4tM0+Enm/3BfUYAFeJ3AntJrt8eMRrFLBHxvm++QjzOmXjL2aL/hcfhsji
+shrsLAx6zNVzns5EE0Mlvco7HHS8zpBDXEE9VL3aQUtGsXuWvHQMqs293HmhgF/z
+NoTHDpKjxeirqBe2qGSxcliXH5I1X+SuG92K9ZGk6QIDAQABMA0GCSqGSIb3DQEB
+CwUAA4IBAQBWJlaTg6F7stTmz6kIcQnjGsbckyuNjPQaa/T1PV9l6Ra9ytowRGjS
+++hPzwNbQ4BZnu3DnontQOTvTqGMO5n4w4pilvLuAbBrKfJTW2FprnK/5NIV7E06
+xZ6ezC5JYaDdCrWRX46sDiG5TvfAr4mJyXm+pWsZD4Z7J69ETS3CbZWTzMY/gIKu
+4Akqj5i1bI7YTbWrCAW8TqEgUd7Vz5RrafKlRzBklDFal58gYBa+9FhS0dMNKQSX
+utxa+R2bMYKda5BplX65AEdMlAHVuSKgZfPHd56OJ3JEwb3YL4X97iNS/fsndypT
+ckc6RXKyzNB0RAPOhNH4GatT0xSNEk6Z
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://accounts.google.com/o/saml2/idp?idpid=C02afc2g7" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://accounts.google.com/o/saml2/idp?idpid=C02afc2g7" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://accounts.google.com/o/saml2/idp?idpid=C02afc2g7" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Technology and Applied Sciences</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Technology and Applied Sciences</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.sct.edu.om/home/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>weal</md:GivenName>
+      <md:SurName>Weal</md:SurName>
+      <md:EmailAddress>mailto:admin@cas.edu.om</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Weal</md:GivenName>
+      <md:SurName>Weal</md:SurName>
+      <md:EmailAddress>mailto:admin@cas.edu.om</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>Weal</md:GivenName>
+      <md:SurName>Weal</md:SurName>
+      <md:EmailAddress>mailto:admin@cas.edu.om</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

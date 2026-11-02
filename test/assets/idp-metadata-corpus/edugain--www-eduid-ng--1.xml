@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://ekokonnect.hosted.eduid.ng/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.eduid.ng" registrationInstant="2026-09-30T03:22:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.eduid.ng/mrps.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ekokonnect.hosted.eduid.ng</shibmd:Scope>
+        <shibmd:Scope regexp="false">eko-konnect.org.ng</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Eko-Konnect Research and Education Initiative</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Eko-Konnect Staff</mdui:Description>
+          <mdui:Keywords xml:lang="en">eduID, geteduroam</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://www.eduid.ng/Nigeria-Identity-Federation-Policy-Document-v2.0.pdf</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.eduid.ng/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="200" width="200">https://hosted.eduid.ng/images/idp_logo/6abc7c132d4c9.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>eko-konnect.org.ng</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIICyDCCAbCgAwIBAgIUNyQ3Xb9pVjLF3XakWmtOokwPvcowDQYJKoZIhvcNAQEF
+BQAwHjEcMBoGA1UEAwwTZWtva29ubmVjdC5lZHVpZC5uZzAeFw0yNjA2MDExNDMz
+MTVaFw0yNzA2MDExNDMzMTVaMB4xHDAaBgNVBAMME2Vrb2tvbm5lY3QuZWR1aWQu
+bmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCf9yF1X53VUkJEWc5H
+cpFmEhcbgiu2xGZ/KVNKXXM5tmWOPHN6cdBFmnVag//HE/tjYXt9XvzMWB7Zx3MP
+uNIiAZLnG5G/Z8oWLgYD4ukNKoxBgtZ8zAhCjk0NHwphfkxJ8np5DOD7J+M/APq8
+3I7gLIjYiRmsHvir9AtHg95qhyLN2xTN7ExXC/j/E1DxLQveuiP4nARM/mXu26Gg
+pFjHauJbHkAZM5mwOayow98wRWP5ngU3UERePQJCqFAoEBv9mvrTF8LmmE3WCiMG
+iiu43bFLflx7x0dQPWPUMOFvmoOaoEzSt6jPQ7quVkytlyMG6x+9lH84rMzh7Csg
+158hAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBABVH3kvkbH8gKEvba3Kf9wjyAXpl
+8aS9D16YzyFEb0cHE9MsHi5Ibeg4f2jNexUvxxY+8IqY1qKSpYDJcbcsuqNf/3YI
+GFhNNdw9MIapS9MwKtikxO8lbgFEAu0MRq5jw68fkSugXa8whA3oi+yjZO0ubxXs
+5sXUSJ71xq8VeGwXV9JjNxjF/lQVX5AS1DfH4Nfb89FjtnBtli7E8Swy1Vv2VLkw
+/jseoL9QkYW+tMegT48ExaY7JKHygQXgYtMvb6mos8tAZiRIys+n9Oc8WDJ3oIyd
+fwxgwP3M5yAZAohEJCIP5aLeZ57zoeJPczS/xcWLqu99QozfsUCkF6LW9is=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIICyDCCAbCgAwIBAgIUNyQ3Xb9pVjLF3XakWmtOokwPvcowDQYJKoZIhvcNAQEF
+BQAwHjEcMBoGA1UEAwwTZWtva29ubmVjdC5lZHVpZC5uZzAeFw0yNjA2MDExNDMz
+MTVaFw0yNzA2MDExNDMzMTVaMB4xHDAaBgNVBAMME2Vrb2tvbm5lY3QuZWR1aWQu
+bmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCf9yF1X53VUkJEWc5H
+cpFmEhcbgiu2xGZ/KVNKXXM5tmWOPHN6cdBFmnVag//HE/tjYXt9XvzMWB7Zx3MP
+uNIiAZLnG5G/Z8oWLgYD4ukNKoxBgtZ8zAhCjk0NHwphfkxJ8np5DOD7J+M/APq8
+3I7gLIjYiRmsHvir9AtHg95qhyLN2xTN7ExXC/j/E1DxLQveuiP4nARM/mXu26Gg
+pFjHauJbHkAZM5mwOayow98wRWP5ngU3UERePQJCqFAoEBv9mvrTF8LmmE3WCiMG
+iiu43bFLflx7x0dQPWPUMOFvmoOaoEzSt6jPQ7quVkytlyMG6x+9lH84rMzh7Csg
+158hAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBABVH3kvkbH8gKEvba3Kf9wjyAXpl
+8aS9D16YzyFEb0cHE9MsHi5Ibeg4f2jNexUvxxY+8IqY1qKSpYDJcbcsuqNf/3YI
+GFhNNdw9MIapS9MwKtikxO8lbgFEAu0MRq5jw68fkSugXa8whA3oi+yjZO0ubxXs
+5sXUSJ71xq8VeGwXV9JjNxjF/lQVX5AS1DfH4Nfb89FjtnBtli7E8Swy1Vv2VLkw
+/jseoL9QkYW+tMegT48ExaY7JKHygQXgYtMvb6mos8tAZiRIys+n9Oc8WDJ3oIyd
+fwxgwP3M5yAZAohEJCIP5aLeZ57zoeJPczS/xcWLqu99QozfsUCkF6LW9is=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ekokonnect.hosted.eduid.ng/saml2/idp/SingleLogoutService.php" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ekokonnect.hosted.eduid.ng/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ekokonnect.hosted.eduid.ng/saml2/idp/SSOService.php" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ekokonnect.hosted.eduid.ng/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Eko-Konnect Research and Education Initiative</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Eko-Konnect Research and Education Initiative</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://eko-konnect.org.ng</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Eko-Konnect</md:GivenName>
+      <md:SurName>eduID</md:SurName>
+      <md:EmailAddress>mailto:eduid@eko-konnect.org.ng</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>Eko-Konnect</md:GivenName>
+      <md:SurName>eduID</md:SurName>
+      <md:EmailAddress>mailto:eduid@eko-konnect.org.ng</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Eko-Konnect</md:GivenName>
+      <md:SurName>Secretariat</md:SurName>
+      <md:EmailAddress>mailto:secretariat@eko-konnect.org.ng</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

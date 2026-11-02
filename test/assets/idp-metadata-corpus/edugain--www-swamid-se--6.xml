@@ -1,0 +1,229 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp3.hig.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/" registrationInstant="2016-11-16T16:34:09Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://swamid.se/policy/mdrps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al1</saml:AttributeValue>
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al2</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" Name="http://macedir.org/entity-category-support">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/code-of-conduct/v2</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/anonymous</saml:AttributeValue>
+          <saml:AttributeValue>https://myacademicid.org/entity-categories/esi</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/pseudonymous</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/personalized</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/category/code-of-conduct/v2</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" errorURL="https://error.swamid.se/?errorurl_code=ERRORURL_CODE&amp;errorurl_ts=ERRORURL_TS&amp;errorurl_rp=ERRORURL_RP&amp;errorurl_tid=ERRORURL_TID&amp;errorurl_ctx=ERRORURL_CTX&amp;entityid=https://idp3.hig.se/idp/shibboleth">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hig.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Högskolan i Gävle</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Gävle</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för anställda och studenter vid Högskolan i Gävle.</mdui:Description>
+          <mdui:Description xml:lang="en">The University of Gävle Identity Provider is used by employees and students at the university.</mdui:Description>
+          <mdui:Logo xml:lang="en" height="83" width="94">https://reset.hig.se/head/loggaengelska.png</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">gävle gavle hig</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">gävle gavle hig</mdui:Keywords>
+          <mdui:Logo xml:lang="sv" height="83" width="94">https://reset.hig.se/head/logga3.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">https://www.hig.se/engelska/university-of-gavle/student/during-your-studies/services-and-systems/snabbguider/it-guider/user-account/saml2-websso-service-definition</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sv">https://www.hig.se/student/under-studierna/tjanster-och-system/snabbguider/it-guider/anvandarkonto/saml2-websso-tjanstedefinition</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="sv">https://www.hig.se/student/under-studierna/tjanster-och-system/snabbguider/it-guider/anvandarkonto/saml2-websso-tjanstedefinition</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.hig.se/engelska/university-of-gavle/student/during-your-studies/services-and-systems/snabbguider/it-guider/user-account/saml2-websso-service-definition</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>hig.se</mdui:DomainHint>
+          <mdui:IPHint>130.243.0.0/20</mdui:IPHint>
+          <mdui:IPHint>193.11.48.0/20</mdui:IPHint>
+          <mdui:IPHint>193.10.163.0/24</mdui:IPHint>
+          <mdui:IPHint>2001:6b0:23::/48</mdui:IPHint>
+          <mdui:GeolocationHint>geo:60.6692,17.1191</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFzCCAf+gAwIBAgIUb49uwCfYwUsxLAS4QX52Z+LGD/owDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAwwLaWRwMy5oaWcuc2UwHhcNMTYxMTE2MTQzNDI2WhcNMzYx
+MTE2MTQzNDI2WjAWMRQwEgYDVQQDDAtpZHAzLmhpZy5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAI+kkAfT+diALb7gF1jLrQts59EwS6MM0WId9Zcb
+ypHLNuGXe2QEvdeCVSCx229elyNOOgNm+AuGDKBFveiv7O2Dd6Xebb6dm9v/DnbT
+wLZUAOQB2qSlP0OXxa3TlRWS7l12PcGT5FMmjq7xSstX4YPWE7E0r39eqvLfCGjY
+sAmzibMyVuqr07Vb/+1M2SiG/lFjfdxA/Ze016LDiG/wax5aLp5KEN2M3kIRPOC4
+6Hi5PDX3HdqHAI9gCJydeHGJSABdS2x9uykcl35fZGHc7IhaHFoUl75BUSy/fRKe
+wdWaXW5UDIG1Wi2DvUxLzT41mzUrnAHxqAbUf8c1fBn8hPUCAwEAAaNdMFswHQYD
+VR0OBBYEFLbU5xzHGS8IhBXGrqmk2mFARsV/MDoGA1UdEQQzMDGCC2lkcDMuaGln
+LnNlhiJodHRwczovL2lkcDMuaGlnLnNlL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3
+DQEBCwUAA4IBAQAzD+a0UFyhxa+fTp9Hz3g1wBE7VSyLKn7ydgI8qWpmzxt8YzZt
+pYPm7XjUfmrQhxtaVp9aCLGgaKB3QZ2AWWqe8wlin2oVA80c3vwqNERwanwh8HXy
+KY9+Pk/xM4SccOG5d7Fli9/DMMtA9lCfcB+VvkEvyB0JXncAoduMFuJWeDH1+YNj
+X06y0H12Vb0MAOdX+ZwUDCcljRTXs/Xz17JlPEIA573fpUUX9iUGHapyi49Lf6P3
+emKBZGVGPtOEIkuwUNjvkAXxTdSqztW3tHz/4c4yAXRIyKtwi4zrWYCw8pPnz2LN
+fZ9x1HnkUO7tsnLp4MMfANCrRtVqNZuBaHjV</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFzCCAf+gAwIBAgIURDaPmh4fojI5RTQlsw6odpGuJ9IwDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAwwLaWRwMy5oaWcuc2UwHhcNMTYxMTE2MTQzNDI1WhcNMzYx
+MTE2MTQzNDI1WjAWMRQwEgYDVQQDDAtpZHAzLmhpZy5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAJNac0ev7kxZgrXM1GL1XM3rnBiD8PsiaFHFB5fn
+hXKrmDEtb1gXSp8ZS5ZDkZdyOW1LHWGkflGdR1y5LfmZUdTI3LGAwUx+5QgHggQd
+LSB9x5kLP3m2RE/cmFV9Ec0CAyoizbpKcoYuBjCN/YfQH4u6ZtWbrPBIhEZ9tF70
+HHJ26e+6UXWmFzw2BHv9BJ47XywJg3pbQ+ozhV/kRm727YyyxAb2s4j69dtpWcxM
+bpaHbZf3ZZUwODBFY+wlVWwL2GSZomBTIxSdWyjUBmdxFnWmtrP7gu1MqTXOMaGm
+90KJbmvNko9hw0wD1EbkNL7LTjRhjuUIaOSZuOUUXjjFBkUCAwEAAaNdMFswHQYD
+VR0OBBYEFKkedXD1X7fDQXcCyWHjSWf85AGhMDoGA1UdEQQzMDGCC2lkcDMuaGln
+LnNlhiJodHRwczovL2lkcDMuaGlnLnNlL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3
+DQEBCwUAA4IBAQBcHSpCvSXvIqjKu1z6L51V6t6joTmqDUYeuQG6wPeMNXuNojI5
+zuIv4hvKuLUfyjryH8igCl8361zkjkiOw5vJqCTIpmIsH+OkxqL88H6GOr2jzAQ5
+53f8zLmNSi6ThwTWRfUIGc7qu+zbjPUh3fi3JRiJXmye8DiOvr0vTOManWtsnab5
++70k82K16/LTroAtsoL5ILTpP0XH/f5UzEnrUP5seaFMP+zA4n2ps4jc1h7kLkfb
+UAZ6TEcqZzYGuUQhgz7Q4dwexohnWyfJXSzADbEgxqYrG6M4OUhMsVSYwsx06oQz
+MfV1UqCXysIAIN4hzYWJPMBj/EBD8cha92n8</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFzCCAf+gAwIBAgIUd7xvAjohRdOXVDSf0wu3l75uPbMwDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAwwLaWRwMy5oaWcuc2UwHhcNMTYxMTE2MTQzNDI1WhcNMzYx
+MTE2MTQzNDI1WjAWMRQwEgYDVQQDDAtpZHAzLmhpZy5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAJ1KSzfqvoHf3493SBKtumXDyZWRZsLqFUXcwvmX
+oVTECzGmQU82/GR2Wbr11v6NC3ShIVy+tdP5H4nfQgIKgJZEo4eisesa/vT6a9e4
+DdpipjHwAn8Y8Ogm1ZI/d28bwTWi6EJhu85Pe9eRwnRYtkkNYHmm2Te5iCib5/95
+reI6fL2PFx2BDIhphEW+r+zGT8s3Ptxqsf335L8dRR4HM7IbJ+FEbvrGv62tosY/
+MNvrXjIHNKjaF2OWV5ka9o0JF6mkcCFx2zA5yF9TRDFo3TJWbSsgK0MGO4g+zLpK
+qY3YX3JMTn2nGwl9RjwY4opaIK3hh1L8JBw+bfYCAWA/ZkUCAwEAAaNdMFswHQYD
+VR0OBBYEFJ1ItL4gA2MYHs0PiGplkA6DUrxxMDoGA1UdEQQzMDGCC2lkcDMuaGln
+LnNlhiJodHRwczovL2lkcDMuaGlnLnNlL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3
+DQEBCwUAA4IBAQB01IX/rJQDncwW0bJxX82liWdb9vH+rDA9lIxmj7dtc+18P9/Y
+eImEmbKZ7P3QvO3/e7tVlt+Ld4eWPDd/wftpV4kWXincS3XooEJroDSAFjrS4jEn
+86ZQk8ujVLMVWwHh+c4qbKt5b4ENpc628+i2MTzEqTCzYB7GZJgFSej9Qzdnz7P4
+wKRijhkjyNeyPebflCRaA5XoYfBNdabJy+bqTxTbbfpev0PCIXSzWMK6+ZwFtlJ8
+D7xYfJe/x9FrVnIZHPsrwj3ekyL0qpQ4Bs1BFkKDe0bpcyVSrrV0txbaJxnWcgQE
+uSUv8QvuQcOa9kYsSNH4o1+qTVp8mrFCghss</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp3.hig.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp3.hig.se/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp3.hig.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Högskolan i Gävle SP</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Gävle SP</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för anställda och studenter vid Högskolan i Gävle. SP</mdui:Description>
+          <mdui:Description xml:lang="en">The University of Gävle Identity Provider is used by employees and students at the university. SP</mdui:Description>
+          <mdui:Logo xml:lang="en" height="83" width="94">https://reset.hig.se/head/loggaengelska.png</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">gävle gavle hig</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">gävle gavle hig</mdui:Keywords>
+          <mdui:PrivacyStatementURL xml:lang="sv">https://www.hig.se/Ext/Sv/-Om-webbplatsen/Om-webbplatsen/Behandling-av-personuppgifter---IDP.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.hig.se/Ext/En/University-of-Gavle/Om-webbplatsen/About-the-website/Processing-of-personal-data---IDP.html</mdui:PrivacyStatementURL>
+          <mdui:Logo xml:lang="sv" height="83" width="94">https://reset.hig.se/head/logga3.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">https://hig.se/Ext/En/University-of-Gavle/About-the-University.html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sv">https://hig.se/Ext/Sv/Om-Hogskolan.html</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFzCCAf+gAwIBAgIURDaPmh4fojI5RTQlsw6odpGuJ9IwDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAwwLaWRwMy5oaWcuc2UwHhcNMTYxMTE2MTQzNDI1WhcNMzYx
+MTE2MTQzNDI1WjAWMRQwEgYDVQQDDAtpZHAzLmhpZy5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAJNac0ev7kxZgrXM1GL1XM3rnBiD8PsiaFHFB5fn
+hXKrmDEtb1gXSp8ZS5ZDkZdyOW1LHWGkflGdR1y5LfmZUdTI3LGAwUx+5QgHggQd
+LSB9x5kLP3m2RE/cmFV9Ec0CAyoizbpKcoYuBjCN/YfQH4u6ZtWbrPBIhEZ9tF70
+HHJ26e+6UXWmFzw2BHv9BJ47XywJg3pbQ+ozhV/kRm727YyyxAb2s4j69dtpWcxM
+bpaHbZf3ZZUwODBFY+wlVWwL2GSZomBTIxSdWyjUBmdxFnWmtrP7gu1MqTXOMaGm
+90KJbmvNko9hw0wD1EbkNL7LTjRhjuUIaOSZuOUUXjjFBkUCAwEAAaNdMFswHQYD
+VR0OBBYEFKkedXD1X7fDQXcCyWHjSWf85AGhMDoGA1UdEQQzMDGCC2lkcDMuaGln
+LnNlhiJodHRwczovL2lkcDMuaGlnLnNlL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3
+DQEBCwUAA4IBAQBcHSpCvSXvIqjKu1z6L51V6t6joTmqDUYeuQG6wPeMNXuNojI5
+zuIv4hvKuLUfyjryH8igCl8361zkjkiOw5vJqCTIpmIsH+OkxqL88H6GOr2jzAQ5
+53f8zLmNSi6ThwTWRfUIGc7qu+zbjPUh3fi3JRiJXmye8DiOvr0vTOManWtsnab5
++70k82K16/LTroAtsoL5ILTpP0XH/f5UzEnrUP5seaFMP+zA4n2ps4jc1h7kLkfb
+UAZ6TEcqZzYGuUQhgz7Q4dwexohnWyfJXSzADbEgxqYrG6M4OUhMsVSYwsx06oQz
+MfV1UqCXysIAIN4hzYWJPMBj/EBD8cha92n8</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFzCCAf+gAwIBAgIUd7xvAjohRdOXVDSf0wu3l75uPbMwDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAwwLaWRwMy5oaWcuc2UwHhcNMTYxMTE2MTQzNDI1WhcNMzYx
+MTE2MTQzNDI1WjAWMRQwEgYDVQQDDAtpZHAzLmhpZy5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAJ1KSzfqvoHf3493SBKtumXDyZWRZsLqFUXcwvmX
+oVTECzGmQU82/GR2Wbr11v6NC3ShIVy+tdP5H4nfQgIKgJZEo4eisesa/vT6a9e4
+DdpipjHwAn8Y8Ogm1ZI/d28bwTWi6EJhu85Pe9eRwnRYtkkNYHmm2Te5iCib5/95
+reI6fL2PFx2BDIhphEW+r+zGT8s3Ptxqsf335L8dRR4HM7IbJ+FEbvrGv62tosY/
+MNvrXjIHNKjaF2OWV5ka9o0JF6mkcCFx2zA5yF9TRDFo3TJWbSsgK0MGO4g+zLpK
+qY3YX3JMTn2nGwl9RjwY4opaIK3hh1L8JBw+bfYCAWA/ZkUCAwEAAaNdMFswHQYD
+VR0OBBYEFJ1ItL4gA2MYHs0PiGplkA6DUrxxMDoGA1UdEQQzMDGCC2lkcDMuaGln
+LnNlhiJodHRwczovL2lkcDMuaGlnLnNlL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3
+DQEBCwUAA4IBAQB01IX/rJQDncwW0bJxX82liWdb9vH+rDA9lIxmj7dtc+18P9/Y
+eImEmbKZ7P3QvO3/e7tVlt+Ld4eWPDd/wftpV4kWXincS3XooEJroDSAFjrS4jEn
+86ZQk8ujVLMVWwHh+c4qbKt5b4ENpc628+i2MTzEqTCzYB7GZJgFSej9Qzdnz7P4
+wKRijhkjyNeyPebflCRaA5XoYfBNdabJy+bqTxTbbfpev0PCIXSzWMK6+ZwFtlJ8
+D7xYfJe/x9FrVnIZHPsrwj3ekyL0qpQ4Bs1BFkKDe0bpcyVSrrV0txbaJxnWcgQE
+uSUv8QvuQcOa9kYsSNH4o1+qTVp8mrFCghss</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp3.hig.se.se/idp/profile/Authn/SAML2/POST/SSO" index="0" />
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">University of Gävle SP</md:ServiceName>
+        <md:ServiceName xml:lang="sv">Högskolan i Gävle SP</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="norEduPersonNIN" Name="urn:oid:1.3.6.1.4.1.2428.90.1.5" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Gävle</md:OrganizationName>
+      <md:OrganizationName xml:lang="sv">Högskolan i Gävle</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Högskolan i Gävle</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Gävle</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.hig.se</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sv">https://www.hig.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>University of Gävle</md:Company>
+      <md:SurName>Network Operations</md:SurName>
+      <md:EmailAddress>mailto:nat@hig.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 26 648500</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>University of Gävle</md:Company>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>mailto:nat@hig.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 26 648500</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>University of Gävle</md:Company>
+      <md:SurName>IT Support</md:SurName>
+      <md:EmailAddress>mailto:itsupport@hig.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 26 648500</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Security Response Team</md:GivenName>
+      <md:EmailAddress>mailto:nat@hig.se</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

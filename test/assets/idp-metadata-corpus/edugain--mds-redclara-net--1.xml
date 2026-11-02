@@ -1,0 +1,53 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://idplaconga.redclara.net/simplesaml/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://mds.redclara.net/" registrationInstant="2023-02-17T11:28:03Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">
+                https://www.redclara.net/index.php/en/servicios-rc/federaciones-de-identidad</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="es">
+                https://www.redclara.net/index.php/es/servicios-rc/federaciones-de-identidad</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">LA-CoNGA physics</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">LA-CoNGA physics</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">https://laconga.redclara.net/en/home/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="es">https://laconga.redclara.net/</mdui:InformationURL>
+          <mdui:Logo height="192" width="192">https://laconga.redclara.net/wp-content/uploads/2022/11/cropped-logo_LAconga-oficial-01-192x192.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+                        MIIFGzCCA4OgAwIBAgIUZRublJrRlQ6KzDXgFU3upRaMHiwwDQYJKoZIhvcNAQELBQAwgZwxCzAJBgNVBAYTAkNPMRIwEAYDVQQIDAlTYW50YW5kZXIxFDASBgNVBAcMC0J1Y2FyYW1hbmdhMREwDwYDVQQKDAhMQS1Db05HQTEVMBMGA1UECwwMTEEtQ29OR0EgRWR1MREwDwYDVQQDDAhMQS1Db05HQTEmMCQGCSqGSIb3DQEJARYXcmVkY2xhcmFtaWxhYkBnbWFpbC5jb20wHhcNMjAxMDI4MjAyNTU2WhcNMzAxMDI4MjAyNTU2WjCBnDELMAkGA1UEBhMCQ08xEjAQBgNVBAgMCVNhbnRhbmRlcjEUMBIGA1UEBwwLQnVjYXJhbWFuZ2ExETAPBgNVBAoMCExBLUNvTkdBMRUwEwYDVQQLDAxMQS1Db05HQSBFZHUxETAPBgNVBAMMCExBLUNvTkdBMSYwJAYJKoZIhvcNAQkBFhdyZWRjbGFyYW1pbGFiQGdtYWlsLmNvbTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMKChqIYWbBWOUEgIP+puIwIOP31IyMqoQNXFvo5od/kw0jnJJpRNlEZclEq5qNw/KssaDNrA/eQcS6gcDIteBu7K4fAKFgE2e+17Way5bzmNgxCIKL66PslBSrTTyrJOPy5yE7tWv0a8+Rwv9KcEW150So2FGhcK8tPo9deV1CC7x1Z6/OEODWpykf/T80vgM2zcWwv+wGsrLqBWOERelUbxwAtWvjlX6oGSpraZ7Z9PqZ7LbMN8zIqXpaoJGCdy7ndO3LWJ1y0zoK0X3AnakeUF5wh8XJD19iyZZVl0u4MIGdqPooHWLJMqCPegwsDkiXOIujS5yCN6ugCrqby6wmGVAxeojeB1l1Obvy1URXIIisumkk63/69GIALkV8qhjbSBYYzBb1tK/XJN4KAd7e+lCUio8Ut0Vz1adtP+CIC+3ury0IaZS64z1cCxFzKR6FBWaiqR9iIv0WipgoJAVLFeyyU6aSB24T8zJmyK0ChKPYQ2YpOACOpU38flZvjkwIDAQABo1MwUTAdBgNVHQ4EFgQU7Wr8dvP81jZCnVF70OOD/k444P8wHwYDVR0jBBgwFoAU7Wr8dvP81jZCnVF70OOD/k444P8wDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAR3pO/3vQW7+LpUmDgP8cZ7GUuPdBCNvqD2/LfoyOCMmESCFJYH+WmDjGnH5OzurgmquRr1LA6NKhZWS4tE0hPVF185QRVmRUSNx26i0E5nir1rjXblg+iDXnTC1zPfdbbx2z766aMRya2aD2NFcu8qrcUaAxun8zZYL+rrNZmO1xu5hTSU8ZqDHS2QENRFiEEk3SpC19ntfL+JyR1dl34UjRYLM8XCBrvuQlVVhwDo1ZZHzBYzCHt93zv6/vcpjCNDxuk/3Hy6XhOqM27V0kJW71Et7p5QX8+GGleQY62i1Gd4dPbafqIzp2CwMNvsKS6MiosAJ73ES+fCVjqb7xoz5gk7OkHGBOkjhzQplJCfEIvL8EE4OlBPmnvwdQ7Ww52KOrKU+s/xFWOL2fso4+VqK5kjTmZeMTw8wFN8XzKMm6qjm+uBAqXQSrn2QY5c73OCQXM5VL/ZSN9X0dp3B1eW969vOwVdGVLWU3Fx4b3nWn2FAiW4HEPU31fAM1s5ZO</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+                        MIIFGzCCA4OgAwIBAgIUZRublJrRlQ6KzDXgFU3upRaMHiwwDQYJKoZIhvcNAQELBQAwgZwxCzAJBgNVBAYTAkNPMRIwEAYDVQQIDAlTYW50YW5kZXIxFDASBgNVBAcMC0J1Y2FyYW1hbmdhMREwDwYDVQQKDAhMQS1Db05HQTEVMBMGA1UECwwMTEEtQ29OR0EgRWR1MREwDwYDVQQDDAhMQS1Db05HQTEmMCQGCSqGSIb3DQEJARYXcmVkY2xhcmFtaWxhYkBnbWFpbC5jb20wHhcNMjAxMDI4MjAyNTU2WhcNMzAxMDI4MjAyNTU2WjCBnDELMAkGA1UEBhMCQ08xEjAQBgNVBAgMCVNhbnRhbmRlcjEUMBIGA1UEBwwLQnVjYXJhbWFuZ2ExETAPBgNVBAoMCExBLUNvTkdBMRUwEwYDVQQLDAxMQS1Db05HQSBFZHUxETAPBgNVBAMMCExBLUNvTkdBMSYwJAYJKoZIhvcNAQkBFhdyZWRjbGFyYW1pbGFiQGdtYWlsLmNvbTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMKChqIYWbBWOUEgIP+puIwIOP31IyMqoQNXFvo5od/kw0jnJJpRNlEZclEq5qNw/KssaDNrA/eQcS6gcDIteBu7K4fAKFgE2e+17Way5bzmNgxCIKL66PslBSrTTyrJOPy5yE7tWv0a8+Rwv9KcEW150So2FGhcK8tPo9deV1CC7x1Z6/OEODWpykf/T80vgM2zcWwv+wGsrLqBWOERelUbxwAtWvjlX6oGSpraZ7Z9PqZ7LbMN8zIqXpaoJGCdy7ndO3LWJ1y0zoK0X3AnakeUF5wh8XJD19iyZZVl0u4MIGdqPooHWLJMqCPegwsDkiXOIujS5yCN6ugCrqby6wmGVAxeojeB1l1Obvy1URXIIisumkk63/69GIALkV8qhjbSBYYzBb1tK/XJN4KAd7e+lCUio8Ut0Vz1adtP+CIC+3ury0IaZS64z1cCxFzKR6FBWaiqR9iIv0WipgoJAVLFeyyU6aSB24T8zJmyK0ChKPYQ2YpOACOpU38flZvjkwIDAQABo1MwUTAdBgNVHQ4EFgQU7Wr8dvP81jZCnVF70OOD/k444P8wHwYDVR0jBBgwFoAU7Wr8dvP81jZCnVF70OOD/k444P8wDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAR3pO/3vQW7+LpUmDgP8cZ7GUuPdBCNvqD2/LfoyOCMmESCFJYH+WmDjGnH5OzurgmquRr1LA6NKhZWS4tE0hPVF185QRVmRUSNx26i0E5nir1rjXblg+iDXnTC1zPfdbbx2z766aMRya2aD2NFcu8qrcUaAxun8zZYL+rrNZmO1xu5hTSU8ZqDHS2QENRFiEEk3SpC19ntfL+JyR1dl34UjRYLM8XCBrvuQlVVhwDo1ZZHzBYzCHt93zv6/vcpjCNDxuk/3Hy6XhOqM27V0kJW71Et7p5QX8+GGleQY62i1Gd4dPbafqIzp2CwMNvsKS6MiosAJ73ES+fCVjqb7xoz5gk7OkHGBOkjhzQplJCfEIvL8EE4OlBPmnvwdQ7Ww52KOrKU+s/xFWOL2fso4+VqK5kjTmZeMTw8wFN8XzKMm6qjm+uBAqXQSrn2QY5c73OCQXM5VL/ZSN9X0dp3B1eW969vOwVdGVLWU3Fx4b3nWn2FAiW4HEPU31fAM1s5ZO</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idplaconga.redclara.net/simplesaml/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idplaconga.redclara.net/simplesaml/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IDP LA-CoNGA physics</md:OrganizationName>
+      <md:OrganizationName xml:lang="es">IDP LA-CoNGA physics</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IDP LA-CoNGA physics</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="es">IDP LA-CoNGA physics</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://laconga.redclara.net/en/home/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="es">https://laconga.redclara.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Administrator</md:GivenName>
+      <md:EmailAddress>mailto:seg@redclara.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

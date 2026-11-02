@@ -1,0 +1,53 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:req-attr="urn:oasis:names:tc:SAML:protocol:ext:req-attr" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.uz.zgora.pl/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://aai.pionier.net.pl" registrationInstant="2022-11-29T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://aai.pionier.net.pl/en/index.php?page=rps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uz.zgora.pl</shibmd:Scope>
+        <shibmd:Scope regexp="false">ck.uz.zgora.pl</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Zielona Góra</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pl">Uniwersytet Zielonogórski</mdui:DisplayName>
+          <mdui:Description xml:lang="en">University of Zielona Góra Identity Provider</mdui:Description>
+          <mdui:Description xml:lang="pl">Uniwersytet Zielonogórski</mdui:Description>
+          <mdui:Logo height="240" width="325">https://ck.uz.zgora.pl/fcp/BHVENFTgGFAMKCAkFBwIDHU5REB4fFhw/_global/public/loga/uz-logo-pion-2.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIEJzCCAo+gAwIBAgIUae/V/nI6f4IIxr/D72xDVSWi3hswDQYJKoZIhvcNAQEL BQAwGjEYMBYGA1UEAwwPaWRwLnV6Lnpnb3JhLnBsMB4XDTI0MDMwNDA5NTkyM1oX DTQ0MDMwNDA5NTkyM1owGjEYMBYGA1UEAwwPaWRwLnV6Lnpnb3JhLnBsMIIBojAN BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAg81WhFMIKaO+51/vmGsTw0IbzVUR y/EAqbEY9S4/aqqcLhh2Rw3ggaYv0MiAuvOtZXWd1OK3nLW99+ZdG7fGCnBnzYVs edfIskyaa5CoEcrfWKYRvhrqb0xWABe6haRci7cfzcFZ+0wTt0joojb0Btf4y3mM oTFHZN+6j2XaXr8SjjLdb4CpEonQwVq4wKeHRzyb1OUmDHVsBZC/pbmx8pvvTE9c KLpDthKXpe8YxDwlPmbCzxohDqfV6jOJEyw42nhDwhxRjdTsVMU4+TBG3jI/9F22 Qcb/37n4V7JqxdnBeAWfEthD7JedHj40Fu+Az4mUxjO4AcbNCq0w1Cd2kPNrQWcC VMmyujb2At3XPILhZe7VqqlZKFx0t5e7Wrn6fnerHMT+UG5f5ncZZ6iu+UT20E0v SB8nMOPDupJ0woqKwLm4UYLlDP+FBXER2n3xGi3Qyd8jXTq0lrLvy540mOovlIj3 T3433US6JU1Wvstn53uzc+5/dcXz7p3h3fXNAgMBAAGjZTBjMB0GA1UdDgQWBBSD yYTm/gPFMDyd+xIX3+7H64/VdDBCBgNVHREEOzA5gg9pZHAudXouemdvcmEucGyG Jmh0dHBzOi8vaWRwLnV6Lnpnb3JhLnBsL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3 DQEBCwUAA4IBgQBYKjF4Uj2Dnn5X3BJAXIAoZ+TaLLrPy+Riual/ZXkh+DmkxVuh djEOKzEDe1E65tR/rD7wyKKJ4UNyf1oRN0/6QtVOqWKaNhlj8YSFz9LuHrPNNjaQ 6unGJnmwZJoLMWm9MuYzLrJehMwPfMcuLRjTViu1Up80r4OJEaN+n26DUk1ZqNdP 3jzyx6yy4p4+IqsXGZLeVkwJcbWz1WS7MdQMuUIH2Df61cTEF/X9U/UXKkRuVjLv piH/2DtzuwKLdEqVEKabgWcHStqy0bf0udIfGJ67YqEcnm4IUDgVrIvxpFWwKJqu JNTCPuJEwPgYrrZwpKZ/qFuim92V2+oqhZfD4uLOWy0pS5xaXNb2eL6IvNGiuMIF 8pcZvJIPrSvpztsS5X+R/x2r8QjCHC01S9K1DDvr5Xt85+U9pj87LywxQz4lrKq6 FC8U7ZWB7d2xFPLedlwVA71m5it3s+Pc5ks7g/+nbxKp3Bhon5EZNFhLtO3VV+k/ 1GeiVrhCu4qi/XI= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIEKDCCApCgAwIBAgIVANLr3Lwhn3oOqvVktvBGXi3sn61hMA0GCSqGSIb3DQEB CwUAMBoxGDAWBgNVBAMMD2lkcC51ei56Z29yYS5wbDAeFw0yNDAzMDQwOTU5MjNa Fw00NDAzMDQwOTU5MjNaMBoxGDAWBgNVBAMMD2lkcC51ei56Z29yYS5wbDCCAaIw DQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAPxawp32VUTtaKeDPesIY/9P1hf5 XJieOZI2gwQvmiPyqWDBS6Rs2g9J5iCUk/Xi8A/bfjh8dTqnOO/9wsLcRLRnSAVc imVtk5OHlDlQU+CeyW/TxHR6Hq3qNI+AxIDLE8omlw8bMDX/nSJOX7SSndQg8WAz 37fmjJebEIrifaVt9UPi6aqq9/f3ZYEiJ24UY2z52Slsit5y+Y3PLEdO6/PVlVfh nIOlRxYA8u3le8ExTSoye1qijmyYiOEJcYyxc0GwXB+Rq0TUonoYbwJMoX7NE5M5 mAE763DUnffkIy5N9X/cYFlqBoOhVA+yRDDRxIDXxQBkFZrzfrKsbslgMPl5EiYl asLUt0JuZ61wIbbcG6tM2pDR6TotUMtXlu62OW+9LeK7R1kXVhbLSyGYAwFYW399 LvfUuVaKuDnchPTEL2EtJRedkh9gIQOiVPhlwd6OaK1L8uPyyFI/CW5rhf0DcOdT kWrCesaB6/xEC5VmtLiIp+Bm6zygSZCe4ucRhQIDAQABo2UwYzAdBgNVHQ4EFgQU lWL21FRShgSvBosieDr/R0cTemQwQgYDVR0RBDswOYIPaWRwLnV6Lnpnb3JhLnBs hiZodHRwczovL2lkcC51ei56Z29yYS5wbC9pZHAvc2hpYmJvbGV0aDANBgkqhkiG 9w0BAQsFAAOCAYEAvnCsnigrg8rsiTjkJ0IlSJooX22dp6oGvwsKsEFhxyIdsDMo ajgstCXXd3v2a+biUWOyUNAKP955aOJ0M8ZDwiZU4tRzOu1BO10FBWyE29D7Jx+Q Rt3vMe9HyVld/yosCHWeKLhAK3wJAOAFx58FlS0IejikQMSm1pIvyQme09wQrgQB TU8oPQxyHaOosAjnLs5lm+sqRk9X/SrniCT1uvow9Ceif+fJ2e2lQfwAGhTJMV1r YSUL70hlK541S6mdlt7Ga/6Znzgitih7Rvor3C3fhGIhXbnOAiXEx+5NVr2x7RyH vNCFDGFKscUZ6UVlAJpkY3cot1fdGesiw3S0NnbvrSY3NQJdlb1GUESrI2d9O8RP 2kCvMcUU5wsOxd+t2IYP28vu/fGCJaOjLlZPugXIfNVW8LUzaW0YJv9wXnT1KePh et2Rrxtw4g8fbtzm4wIMZgODOnwpPv6Kazldx17CHzCL8wQHhR7iP+6YVfGahFco /Li6pDS8iez+5fJV </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uz.zgora.pl/idp/profile/SAML2/POST/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.uz.zgora.pl/idp/profile/SAML2/POST-SimpleSign/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uz.zgora.pl/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uz.zgora.pl/idp/profile/SAML2/Redirect/SSO" req-attr:supportsRequestedAttributes="true" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uz.zgora.pl/idp/profile/SAML2/POST/SSO" req-attr:supportsRequestedAttributes="true" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.uz.zgora.pl/idp/profile/SAML2/POST-SimpleSign/SSO" req-attr:supportsRequestedAttributes="true" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Zielona Gora</md:OrganizationName>
+      <md:OrganizationName xml:lang="pl">Uniwersytet Zielonogórski</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Zielona Gora</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pl">Uniwersytet Zielonogórski</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uz.zgora.pl</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Zespół Administratorów Centrum Komputerowego UZ</md:GivenName>
+      <md:SurName>Team</md:SurName>
+      <md:EmailAddress>mailto:serwis@ck.uz.zgora.pl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

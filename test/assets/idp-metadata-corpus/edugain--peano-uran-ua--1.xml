@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.nure.ua/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://peano.uran.ua" registrationInstant="2025-12-01T00:01:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://peano.uran.ua/~eng/policy.htm</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">nure.ua</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Kharkiv National University of Radio Electronics</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="uk">Харківський національний університет радіоелектроніки</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">https://nure.ua/en/university/about-university</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="uk">https://nure.ua/universytet/pro-universitet</mdui:InformationURL>
+          <mdui:Logo height="52" width="52">https://nure.ua/wp-content/themes/nure/images/logo.png?v=2.0</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>nure.ua</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDgjCCAmqgAwIBAgIGAZeyErgpMA0GCSqGSIb3DQEBCwUAMIGBMRQwEgYDVQQK
+EwtHb29nbGUgSW5jLjEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEAxML
+TERBUCBDbGllbnQxGTAXBgNVBAsTEEdvb2dsZSBXb3Jrc3BhY2UxCzAJBgNVBAYT
+AlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMB4XDTI1MDYyNzE1NDc0MFoXDTI4MDYy
+NjE1NDc0MFowgYExFDASBgNVBAoTC0dvb2dsZSBJbmMuMRYwFAYDVQQHEw1Nb3Vu
+dGFpbiBWaWV3MRQwEgYDVQQDEwtMREFQIENsaWVudDEZMBcGA1UECxMQR29vZ2xl
+IFdvcmtzcGFjZTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDiY06DOrfnxVSgnDxqxY/ajwx6
+tD4nV05qArXbXcXTPyJk1oydYhnzDWynpTLqSqVO60OZpioYRQDmI7QJddqFqHQG
+RqBz+PHmYwusij+y8gPaknnScU+9mTtQcO5VfaAo8xSvbUJQxEhytNJqk87VJXLY
+fGEVnrKTqf90zfqqO8OF+HjFr9TpXCVAXZ6YSXB28LmpNo+2p80N67pAbMmCgmMN
+ke+c2WMFE20Q4sTIGyK+nJLYR0fKbmwPyp7FFu0nu4KyYoz8G6xxQHCxhtnK6NPQ
+zgcHB5Qk4HAoEN+lXCqL7pdFLe9MXpenhhgNN9zhxWF3NIOWhKtiVr1NL53hAgMB
+AAEwDQYJKoZIhvcNAQELBQADggEBAJ/8Uiyd+JwbTcJMlS3RoL6jh6/0mh1JW5FI
+roFBQ3CGc+1PHxFo8WH3yAcp3+8D4Vd4jaFTVugy5gJAh0/J0PrVEulIg9SsNYTx
+Ye4nHh0WYk0Rw3MDNPWHnrz9dYlhhl9+Jg5UpJLLjcLfhnMF36Ku9EOrQf7u9zH/
+XnwSmA20kqWHL6Cik6NBZRPaIxYgwQfYodY/aeWkUrNhbnz5YRXBGNMauCeZhyQ8
+xCW2iFZfRum2nccJTEmikQJyNyebEPuzBwarghspQzXOUNL9fs7ee6amv7oSOQFI
+GyniVWIx0yxRyCyfDAHnEJwz4dZYBwNmk+t1VX/9xrjWwCIbWfs=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDgjCCAmqgAwIBAgIGAZeyErgpMA0GCSqGSIb3DQEBCwUAMIGBMRQwEgYDVQQK
+EwtHb29nbGUgSW5jLjEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEAxML
+TERBUCBDbGllbnQxGTAXBgNVBAsTEEdvb2dsZSBXb3Jrc3BhY2UxCzAJBgNVBAYT
+AlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMB4XDTI1MDYyNzE1NDc0MFoXDTI4MDYy
+NjE1NDc0MFowgYExFDASBgNVBAoTC0dvb2dsZSBJbmMuMRYwFAYDVQQHEw1Nb3Vu
+dGFpbiBWaWV3MRQwEgYDVQQDEwtMREFQIENsaWVudDEZMBcGA1UECxMQR29vZ2xl
+IFdvcmtzcGFjZTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDiY06DOrfnxVSgnDxqxY/ajwx6
+tD4nV05qArXbXcXTPyJk1oydYhnzDWynpTLqSqVO60OZpioYRQDmI7QJddqFqHQG
+RqBz+PHmYwusij+y8gPaknnScU+9mTtQcO5VfaAo8xSvbUJQxEhytNJqk87VJXLY
+fGEVnrKTqf90zfqqO8OF+HjFr9TpXCVAXZ6YSXB28LmpNo+2p80N67pAbMmCgmMN
+ke+c2WMFE20Q4sTIGyK+nJLYR0fKbmwPyp7FFu0nu4KyYoz8G6xxQHCxhtnK6NPQ
+zgcHB5Qk4HAoEN+lXCqL7pdFLe9MXpenhhgNN9zhxWF3NIOWhKtiVr1NL53hAgMB
+AAEwDQYJKoZIhvcNAQELBQADggEBAJ/8Uiyd+JwbTcJMlS3RoL6jh6/0mh1JW5FI
+roFBQ3CGc+1PHxFo8WH3yAcp3+8D4Vd4jaFTVugy5gJAh0/J0PrVEulIg9SsNYTx
+Ye4nHh0WYk0Rw3MDNPWHnrz9dYlhhl9+Jg5UpJLLjcLfhnMF36Ku9EOrQf7u9zH/
+XnwSmA20kqWHL6Cik6NBZRPaIxYgwQfYodY/aeWkUrNhbnz5YRXBGNMauCeZhyQ8
+xCW2iFZfRum2nccJTEmikQJyNyebEPuzBwarghspQzXOUNL9fs7ee6amv7oSOQFI
+GyniVWIx0yxRyCyfDAHnEJwz4dZYBwNmk+t1VX/9xrjWwCIbWfs=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.nure.ua/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.nure.ua/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="uk">Харківський національний університет радіоелектроніки</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Kharkiv National University of Radio Electronics</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="uk">ХНУРЕ</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">NURE</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="uk">https://nure.ua/universytet/pro-universitet</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://nure.ua/en/university/about-university</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:serhii.zavodov@nure.ua</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Administrator</md:GivenName>
+      <md:EmailAddress>mailto:serhii.zavodov@nure.ua</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

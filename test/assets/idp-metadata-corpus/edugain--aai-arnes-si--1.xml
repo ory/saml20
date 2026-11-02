@@ -1,0 +1,81 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.upr.si/idp/201005XX">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://aai.arnes.si" registrationInstant="2020-04-03T19:36:22Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://aai.arnes.si/static/doc/ArnesAAI_general.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="sl">https://aai.arnes.si/static/doc/ArnesAAI_splosni_pogoji.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">fhs.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">pef.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">turistica.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">famnit.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">zrs.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">uprava.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">pint.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">vszi.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">sd.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">fmstudentisenat.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">rektorat.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">other.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">fm.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">fvz.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">fts.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">feniks.upr.si</shibmd:Scope>
+        <shibmd:Scope regexp="false">student.upr.si</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Primorska</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sl">Univerza na Primorskem</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity provider for organization University of Primorska</mdui:Description>
+          <mdui:Description xml:lang="sl">Ponudnik identitet organizacije Univerza na Primorskem</mdui:Description>
+          <mdui:Keywords xml:lang="en">Identity provider for organization University of Primorska</mdui:Keywords>
+          <mdui:Keywords xml:lang="sl">Ponudnik identitet organizacije Univerza na Primorskem</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">http://www.upr.si/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sl">http://www.upr.si/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIF1TCCA72gAwIBAgIJANkUcE0FMjLaMA0GCSqGSIb3DQEBCwUAMIGAMQswCQYDVQQGEwJTSTEOMAwGA1UEBwwFS29wZXIxHzAdBgNVBAoMFlVuaXZlcnphIG5hIFByaW1vcnNrZW0xGjAYBgNVBAMMEVVQIElkUCBpZHAudXByLnNpMSQwIgYJKoZIhvcNAQkBFhVwb2Rwb3JhQGZhbW5pdC51cHIuc2kwHhcNMjEwNDIxMTE1MjQyWhcNMjYwNDIwMTE1MjQyWjCBgDELMAkGA1UEBhMCU0kxDjAMBgNVBAcMBUtvcGVyMR8wHQYDVQQKDBZVbml2ZXJ6YSBuYSBQcmltb3Jza2VtMRowGAYDVQQDDBFVUCBJZFAgaWRwLnVwci5zaTEkMCIGCSqGSIb3DQEJARYVcG9kcG9yYUBmYW1uaXQudXByLnNpMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAzBtjJG02qx40s7K6sGdoht3NgotcazIdmM/09zcITMWIU9eJ4aX1jhvcomJUyW7dlGR9LPTj+MCuixHzziBqHUXLWOICer7XA/+QH9fZlbcTUocHw/CH5Ts2QmjvNPPIDoVesrPU+9bXB5PqjTBRSUPuwCZcyHa3qIcukJh7L9VzIvITWUSWy/hdz5DvHLphV3deMiyvOUwAuJN/csR4aYlW9SPO+EJTF5DDi1Y+iVvkOwSFUB7I8EohagqrvOBtAZ2YwVcpivNdFwjLsbmrmIJ0t1jncCPBpdEoKxGNM5OSezstg36o+DG+CvsYP0Jfq2zavV5uxcwXhNNqW8OMpWm2+jdq1rhrk7N7LDg/Ll33Ua17vaflpr0wET99GWd8ypHlMmIOd/wJ9XCFk76WnooPy4XU6LjTjpvImGLjbHg1aHIpzSAMpffcozgCly7ODEFnlDf5SSAIrCzVti1adxUs5yTvJO8UVrJbPYinybGTPZHRmmjvIXm8pUlPg6GSJGloANGF5182Z8kK0PUFRHkG9S+nModo0/FvKvyWA86Ohi7hfX0qLGRxAAuCQrBENKcEmgKEQPFhi/gthjaqEPrQ0Olskql0ZO4L081TryJ6PQxLZ+rFD+sTYRgjvRG2WhYYOrB8kKN+Lkbqk85OkNdopnPxlcVXw9mBKK9VOXsCAwEAAaNQME4wHQYDVR0OBBYEFLK17sEG+izOrmzU5NqlTpBOre28MB8GA1UdIwQYMBaAFLK17sEG+izOrmzU5NqlTpBOre28MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggIBAKTa/WRkYQ0S3lKn5w7FMFH7JfQXDFjWdnydgvZu+ub2LBI9aV3lQIsHb3/mZikUYYUsyzuuYt3TKLFFEdqCSYl+1YHTYPynEm/8Ngg0Xcuc7DxIuhjgPa1du81EmZ4B9/KupTqI+XZhRDnPInTRYeveqZcc5gLNNE+luwPTPALT3tzaky7WT7xQI+T8CHcxS69JqHVbfDNdeCp1Wa70ruc9n7JxXCDWdJlDyBP7e5H6PSKJE+J30pgwt+d/OeeCueoSeiweIuNCUZfDinQWiUZ+huDyGrFp82h0mqDUw0ptptCQgDaUdEDUU2ZV4r5LviSQac3AgXHLJunF8nEBJfHnFFV6EKSAHIFU3LEcBpEIjydfAdyPabTcKz2nBy/fi6iwm5je8iN94hwHjOiRl8rHjt1T/GAd924ZJyjoclR1XCYOj/LDHH2GvDyOsrFwpE5vU2FlsqcnSfTs0n7GRvmh6pkmH/Elfdd21B9MozP24tp5waPhHig+0/S4Z4wZ+iZm6H221AqcCA//ZNnyj/V8CvoAB9mWVevWpi2n0sYVs0n+YkMniY1Gd4RC8MHaJ7TJcCNC17bf50ZeB3GpRZqDKGew8sZXziyDhnqcTzhD+3O+KBwNSolaMnecxF/HlJH+a4RzzZBbdaoSjXAnqatYebBE9OI70+ojujiq1VRQ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIF1TCCA72gAwIBAgIJANkUcE0FMjLaMA0GCSqGSIb3DQEBCwUAMIGAMQswCQYDVQQGEwJTSTEOMAwGA1UEBwwFS29wZXIxHzAdBgNVBAoMFlVuaXZlcnphIG5hIFByaW1vcnNrZW0xGjAYBgNVBAMMEVVQIElkUCBpZHAudXByLnNpMSQwIgYJKoZIhvcNAQkBFhVwb2Rwb3JhQGZhbW5pdC51cHIuc2kwHhcNMjEwNDIxMTE1MjQyWhcNMjYwNDIwMTE1MjQyWjCBgDELMAkGA1UEBhMCU0kxDjAMBgNVBAcMBUtvcGVyMR8wHQYDVQQKDBZVbml2ZXJ6YSBuYSBQcmltb3Jza2VtMRowGAYDVQQDDBFVUCBJZFAgaWRwLnVwci5zaTEkMCIGCSqGSIb3DQEJARYVcG9kcG9yYUBmYW1uaXQudXByLnNpMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAzBtjJG02qx40s7K6sGdoht3NgotcazIdmM/09zcITMWIU9eJ4aX1jhvcomJUyW7dlGR9LPTj+MCuixHzziBqHUXLWOICer7XA/+QH9fZlbcTUocHw/CH5Ts2QmjvNPPIDoVesrPU+9bXB5PqjTBRSUPuwCZcyHa3qIcukJh7L9VzIvITWUSWy/hdz5DvHLphV3deMiyvOUwAuJN/csR4aYlW9SPO+EJTF5DDi1Y+iVvkOwSFUB7I8EohagqrvOBtAZ2YwVcpivNdFwjLsbmrmIJ0t1jncCPBpdEoKxGNM5OSezstg36o+DG+CvsYP0Jfq2zavV5uxcwXhNNqW8OMpWm2+jdq1rhrk7N7LDg/Ll33Ua17vaflpr0wET99GWd8ypHlMmIOd/wJ9XCFk76WnooPy4XU6LjTjpvImGLjbHg1aHIpzSAMpffcozgCly7ODEFnlDf5SSAIrCzVti1adxUs5yTvJO8UVrJbPYinybGTPZHRmmjvIXm8pUlPg6GSJGloANGF5182Z8kK0PUFRHkG9S+nModo0/FvKvyWA86Ohi7hfX0qLGRxAAuCQrBENKcEmgKEQPFhi/gthjaqEPrQ0Olskql0ZO4L081TryJ6PQxLZ+rFD+sTYRgjvRG2WhYYOrB8kKN+Lkbqk85OkNdopnPxlcVXw9mBKK9VOXsCAwEAAaNQME4wHQYDVR0OBBYEFLK17sEG+izOrmzU5NqlTpBOre28MB8GA1UdIwQYMBaAFLK17sEG+izOrmzU5NqlTpBOre28MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggIBAKTa/WRkYQ0S3lKn5w7FMFH7JfQXDFjWdnydgvZu+ub2LBI9aV3lQIsHb3/mZikUYYUsyzuuYt3TKLFFEdqCSYl+1YHTYPynEm/8Ngg0Xcuc7DxIuhjgPa1du81EmZ4B9/KupTqI+XZhRDnPInTRYeveqZcc5gLNNE+luwPTPALT3tzaky7WT7xQI+T8CHcxS69JqHVbfDNdeCp1Wa70ruc9n7JxXCDWdJlDyBP7e5H6PSKJE+J30pgwt+d/OeeCueoSeiweIuNCUZfDinQWiUZ+huDyGrFp82h0mqDUw0ptptCQgDaUdEDUU2ZV4r5LviSQac3AgXHLJunF8nEBJfHnFFV6EKSAHIFU3LEcBpEIjydfAdyPabTcKz2nBy/fi6iwm5je8iN94hwHjOiRl8rHjt1T/GAd924ZJyjoclR1XCYOj/LDHH2GvDyOsrFwpE5vU2FlsqcnSfTs0n7GRvmh6pkmH/Elfdd21B9MozP24tp5waPhHig+0/S4Z4wZ+iZm6H221AqcCA//ZNnyj/V8CvoAB9mWVevWpi2n0sYVs0n+YkMniY1Gd4RC8MHaJ7TJcCNC17bf50ZeB3GpRZqDKGew8sZXziyDhnqcTzhD+3O+KBwNSolaMnecxF/HlJH+a4RzzZBbdaoSjXAnqatYebBE9OI70+ojujiq1VRQ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.upr.si/simplesaml/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.upr.si/simplesaml/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Primorska</md:OrganizationName>
+      <md:OrganizationName xml:lang="sl">Univerza na Primorskem</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Primorska</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="sl">Univerza na Primorskem</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.upr.si/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sl">http://www.upr.si/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Rajko</md:GivenName>
+      <md:SurName>Gržinić</md:SurName>
+      <md:EmailAddress>mailto:rajko.grzinic@fvz.upr.si</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Podpora</md:GivenName>
+      <md:SurName>UP FAMNIT</md:SurName>
+      <md:EmailAddress>mailto:podpora@famnit.upr.si</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Podpora</md:GivenName>
+      <md:SurName>UP FAMNIT</md:SurName>
+      <md:EmailAddress>mailto:podpora@famnit.upr.si</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

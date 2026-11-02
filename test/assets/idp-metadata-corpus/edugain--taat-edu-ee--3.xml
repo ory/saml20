@@ -1,0 +1,52 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:taat="http://www.eenet.ee/EENet/urn" entityID="https://siseveeb.nooruse.ee/sso/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://taat.edu.ee" registrationInstant="2015-05-21T11:20:57.000Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://taat.edu.ee/main/documents/?lang=en</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <taat:taat>
+        <taat:active>yes</taat:active>
+        <taat:AttributeNameFormat />
+        <taat:modified>2018-05-09T12:38:29Z</taat:modified>
+        <taat:RegistrationInstant2>2015-05-21T11:20:57Z</taat:RegistrationInstant2>
+        <taat:redirect.sign>1</taat:redirect.sign>
+        <taat:type>saml20-idp</taat:type>
+        <taat:eid>66</taat:eid>
+        <taat:env>prodaccepted</taat:env>
+      </taat:taat>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:Description xml:lang="en">Tartu Healthcare College</mdui:Description>
+          <mdui:Description xml:lang="et">Tartu Tervishoiu Kõrgkool</mdui:Description>
+          <mdui:DisplayName xml:lang="en">Tartu Healthcare College</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="et">Tartu Tervishoiu Kõrgkool</mdui:DisplayName>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">nooruse.ee</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDpDCCAowCCQC1dtKIoPz+eTANBgkqhkiG9w0BAQUFADCBkzELMAkGA1UEBhMCRVQxETAPBgNVBAgMCFRhcnR1bWFhMQ4wDAYDVQQHDAVUYXJ0dTElMCMGA1UECgwcVGFydHUgVGVydmlzaG9pdSBLw4PCtXJna29vbDEcMBoGA1UEAwwTc2lzZXZlZWIubm9vcnVzZS5lZTEcMBoGCSqGSIb3DQEJARYNaXRAbm9vcnVzZS5lZTAeFw0xODA1MDgwOTA0NDFaFw0yODA1MDUwOTA0NDFaMIGTMQswCQYDVQQGEwJFVDERMA8GA1UECAwIVGFydHVtYWExDjAMBgNVBAcMBVRhcnR1MSUwIwYDVQQKDBxUYXJ0dSBUZXJ2aXNob2l1IEvDg8K1cmdrb29sMRwwGgYDVQQDDBNzaXNldmVlYi5ub29ydXNlLmVlMRwwGgYJKoZIhvcNAQkBFg1pdEBub29ydXNlLmVlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtyy2dBLgrjCvLB+OWrmM7Y2pygWwRC0gLZ7FRZpV7tM5I5kU9iIBuV7h4+xoW7TLjregbqNw9Ff3ytuqp7p5UQRiM99vVMS63CYT/U6fYZj7No5kGT1oW67OhzU21qocsIaMM4G5KnWxhF16dOH/O2ZtcT6/Up3xm/OYkyqZxo00JuIZ2GD1OtzINeexDymKM6pJl0hYwl2+H0jq95KxbJnxU7hivZ641YJncYA6bwsgjIfaM495QMmDjxqzweStyJtweWwp/HL16FLaCT471mlAr1NDtlt3uROcjSgq+ceRK4yquN1k/MSUmeZt6PCYcV9D4nlwrOPdbOEnYhoTbQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBHOqVQ0eT9LsYyS6rjWQu8laTEmbyQhdUUlfbYisqn+IF5Hqd/18UUyLYp3fughaRAPiwfRqD8EdDwKHundFP6b7yX9Cyl7/NmYWAykpfjWW/ojtlkwW5XvFBR6AnaROqRD1rPprFpOAfwq5CtfW0TvHEUGKIftxpTDtS7SVyPbq6wwQ8azrAe6B+0CaQ4mR6tziltCzH73dx9wsuD8bD7ALVGyfa7DKgH/6Yr5XBdBkX1VQfsay+jj1ZiMnrMJXr0IxFswhXTRiBKvC4vF/fHGfMr/KU+GbdlpwiqEBdUqTiJvlVzjauThZ/UdVPOdbCgDDvWNn2vtlYrVXpl8A7i</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://siseveeb.nooruse.ee/sso/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://siseveeb.nooruse.ee/sso/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Tartu Healthcare College</md:OrganizationName>
+      <md:OrganizationName xml:lang="et">Tartu Tervishoiu Kõrgkool</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Tartu Healthcare College</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="et">Tartu Tervishoiu Kõrgkool</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nooruse.ee/eng</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="et">http://www.nooruse.ee</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>TAAT</md:GivenName>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>mailto:eenet@eenet.ee</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://amtapidp.renam.md">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://federations.renam.md/" registrationInstant="2026-05-28T18:58:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="ro">http://federations.renam.md</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="en">http://federations.renam.md</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">amtap.md</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">AMTAP-MD</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="ro">AMTAP-MD</mdui:DisplayName>
+          <mdui:Description xml:lang="en">AMTAP-MD - identity provider used by Academy Of Music, Theater And Fine Arts</mdui:Description>
+          <mdui:Description xml:lang="ro">AMTAP-MD - prestator de servicii de identitate utilizat de Academia de Muzică, Teatru şi Arte Plastice</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://amtapidp.renam.md</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="ro">https://amtapidp.renam.md</mdui:InformationURL>
+          <mdui:Logo height="148" width="148">https://amtap.md/assets/app/img/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEZTCCAs2gAwIBAgIUHrsAFHi8Envb3apKfmYPH7aC2v8wDQYJKoZIhvcNAQELBQAwQjELMAkGA1UEBhMCTUQxFTATBgNVBAcMDERlZmF1bHQgQ2l0eTEcMBoGA1UECgwTRGVmYXVsdCBDb21wYW55IEx0ZDAeFw0yMzA5MDYyMDE3MzhaFw0zMzA5MDUyMDE3MzhaMEIxCzAJBgNVBAYTAk1EMRUwEwYDVQQHDAxEZWZhdWx0IENpdHkxHDAaBgNVBAoME0RlZmF1bHQgQ29tcGFueSBMdGQwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQC2+coKLGSvSCTbkYNy+kgnpvyAo3XEtRq1WvuofPLDySIDCO/OIC/mh+du9gFbKONQtkEP3bajv/TZ753k+CZr7SY8S9Cpi8zovxR5zRxZ0/oimtduAqmDJPVCq7g+7FZnV7trgpKTM5ENnNXagMViPkT1Nl4tcdce/iExRx4tlJUPi5rLfcif/3QLBg8Q1msPSOpBQHaxb4cu+BXNDHyiboV7x5KF0BbVGTaNb6dnWKA/Zkj0B7kdXr6cRrZU5qzJpK/3p1VoMCeO7h69Q9K+93tGYSCdg6iwZ2q8MqzcjZtm/birQeBbJtweLhfU24LRJz8FWEPDy64yO7KPH0M0rxbLfMJRYVSYUHdPW4GBUJM2OwPk72M4WTwWiFSM6z7h288GY9ZiMIXRIdB4izAM0qa1FTJchPyXeG0e6H15zjRZft03ckKETjvra316Le19q8+xY9C5PBCvhjyWP0mVS13+jApY661o1OmopjtLlhxUA5gZSrAqoCGfd43jE3cCAwEAAaNTMFEwHQYDVR0OBBYEFFuGiss1IoNMyz83dgYXpqU1TPFoMB8GA1UdIwQYMBaAFFuGiss1IoNMyz83dgYXpqU1TPFoMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBAG7F8trkRWjdWcc3w8SDWrRM9h8jFazsrRuy103mbk+jdvyr8rdMZDElwBBeM/EwRUrBH5Y1IioNRk8PljAIdEDsJx2sQ4cudYWZBqnIwYj4zFv2LJ6MSQBucdyKJChasEuZq2AjgY4gxH+4OUfeO38vxUYGAl5Eqghs3vFOv1WAac/SGcNASrFwxjU4UwefdGVn5cEZJpvo/94afYZi5g07Yo3GfB8ObAOoq/KYCCuzbZ6L7eXbd87T0E0XEylmz1rdZCNFGQgnUvXnHgUeuW812UvA+XJUmeHjeunpVsDH90WvMX+avg+KD/pt/9qF4jBTL9SK9+rFrsjRjOtW5qDMkMirzmRkTYrlqGjBdxgeWtg4ngKa1yyJmDlxklv8EyCPBJ2lRl69naGhvahfj/HRbhcXq27th1EZtnPySBrGk38W1ZBy0b6o20mufQ4tM6RuoxWb44DuqMqzlHLJ2Uz5IplRgnU5AroEm96fJIMXswwOMaz4ZwqEqqrqlFzRNA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEZTCCAs2gAwIBAgIUHrsAFHi8Envb3apKfmYPH7aC2v8wDQYJKoZIhvcNAQELBQAwQjELMAkGA1UEBhMCTUQxFTATBgNVBAcMDERlZmF1bHQgQ2l0eTEcMBoGA1UECgwTRGVmYXVsdCBDb21wYW55IEx0ZDAeFw0yMzA5MDYyMDE3MzhaFw0zMzA5MDUyMDE3MzhaMEIxCzAJBgNVBAYTAk1EMRUwEwYDVQQHDAxEZWZhdWx0IENpdHkxHDAaBgNVBAoME0RlZmF1bHQgQ29tcGFueSBMdGQwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQC2+coKLGSvSCTbkYNy+kgnpvyAo3XEtRq1WvuofPLDySIDCO/OIC/mh+du9gFbKONQtkEP3bajv/TZ753k+CZr7SY8S9Cpi8zovxR5zRxZ0/oimtduAqmDJPVCq7g+7FZnV7trgpKTM5ENnNXagMViPkT1Nl4tcdce/iExRx4tlJUPi5rLfcif/3QLBg8Q1msPSOpBQHaxb4cu+BXNDHyiboV7x5KF0BbVGTaNb6dnWKA/Zkj0B7kdXr6cRrZU5qzJpK/3p1VoMCeO7h69Q9K+93tGYSCdg6iwZ2q8MqzcjZtm/birQeBbJtweLhfU24LRJz8FWEPDy64yO7KPH0M0rxbLfMJRYVSYUHdPW4GBUJM2OwPk72M4WTwWiFSM6z7h288GY9ZiMIXRIdB4izAM0qa1FTJchPyXeG0e6H15zjRZft03ckKETjvra316Le19q8+xY9C5PBCvhjyWP0mVS13+jApY661o1OmopjtLlhxUA5gZSrAqoCGfd43jE3cCAwEAAaNTMFEwHQYDVR0OBBYEFFuGiss1IoNMyz83dgYXpqU1TPFoMB8GA1UdIwQYMBaAFFuGiss1IoNMyz83dgYXpqU1TPFoMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBAG7F8trkRWjdWcc3w8SDWrRM9h8jFazsrRuy103mbk+jdvyr8rdMZDElwBBeM/EwRUrBH5Y1IioNRk8PljAIdEDsJx2sQ4cudYWZBqnIwYj4zFv2LJ6MSQBucdyKJChasEuZq2AjgY4gxH+4OUfeO38vxUYGAl5Eqghs3vFOv1WAac/SGcNASrFwxjU4UwefdGVn5cEZJpvo/94afYZi5g07Yo3GfB8ObAOoq/KYCCuzbZ6L7eXbd87T0E0XEylmz1rdZCNFGQgnUvXnHgUeuW812UvA+XJUmeHjeunpVsDH90WvMX+avg+KD/pt/9qF4jBTL9SK9+rFrsjRjOtW5qDMkMirzmRkTYrlqGjBdxgeWtg4ngKa1yyJmDlxklv8EyCPBJ2lRl69naGhvahfj/HRbhcXq27th1EZtnPySBrGk38W1ZBy0b6o20mufQ4tM6RuoxWb44DuqMqzlHLJ2Uz5IplRgnU5AroEm96fJIMXswwOMaz4ZwqEqqrqlFzRNA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://amtapidp.renam.md/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://amtapidp.renam.md/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">AMTAP</md:OrganizationName>
+      <md:OrganizationName xml:lang="ro">AMTAP</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">AMTAP</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="ro">AMTAP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://amtap.md</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="ro">https://amtap.md</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Valentin</md:GivenName>
+      <md:SurName>Pocotilenco</md:SurName>
+      <md:EmailAddress>mailto:pvv@renam.md</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Valentin</md:GivenName>
+      <md:SurName>Pocotilenco</md:SurName>
+      <md:EmailAddress>mailto:pvv@renam.md</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

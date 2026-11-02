@@ -1,0 +1,148 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://sso.nust.edu.pk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://pkifed.pk" registrationInstant="2026-10-05T10:03:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://pkifed.pk/wp-content/uploads/2018/09/PKIFED-MRPS-v0.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">nust.edu.pk</shibmd:Scope>
+        <shibmd:Scope regexp="false">student.nust.edu.pk</shibmd:Scope>
+        <shibmd:Scope regexp="false">seecs.nust.edu.pk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">National University of Science &amp; Technology (NUST)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">National University of Science &amp; Technology (NUST)</mdui:Description>
+          <mdui:Keywords xml:lang="en">NUST</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://nust.edu.pk</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://nust.edu.pk</mdui:PrivacyStatementURL>
+          <mdui:Logo height="600" width="600">https://images.seeklogo.com/logo-png/23/1/nust-logo-png_seeklogo-234117.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEMzCCApugAwIBAgIVAOWlvzR4JkdIrl3v4f2D4TipzJ2dMA0GCSqGSIb3DQEB
+CwUAMBoxGDAWBgNVBAMMD3Nzby5udXN0LmVkdS5wazAeFw0yNjA5MjQxNDA3MTRa
+Fw00NjA5MjQxNDA3MTRaMBoxGDAWBgNVBAMMD3Nzby5udXN0LmVkdS5wazCCAaIw
+DQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAOKlBpjpFnT3Ihko+07HjurebX5f
+EzqUTUxvp2Rezt22IzCVkUZFrt1l+Td+DSfDZVbUIOvBtmLDs/QpXVkO3ON80wkV
+96btvO2wbL29f4oCYjAvXfL0MyG9NqIPw5wIH8Ip1JJsPcExS1TIxOZRZBYrTZbd
+a1Q55gbSd7Bz/CN5hfePPYm0IjMdVa5+Za7Fajyy6oTPaO5C3Cu9aKsi1gGrEkqi
+jeMQPhyjoukXOHJaGG6pgm+xEsSOhA6bHBTgT6ebAuHHydau5cktrA8lhLMUnJ+j
+HiXcsJ2+rdfIoJCXsfk4NjL1EkEbkUr8phmVKRykKa/luOwb5RA1MXTJt8m6hjmA
+qd4662HpcMIB9rPg7pfQUcXBjiTUH3sK08oPtYC6kSiAyU/oMbTXQeCtJ0wHDxV2
+UF5WzvlVR3DqsD3yn5nGrW6eXZ5q61WlvkdEkw2KxWEZ56tTH86rP6/tR7yyPdri
+8I3b3VAg6JP9NHMyGnxCIG2zEd1QNqqS4J5VoQIDAQABo3AwbjAdBgNVHQ4EFgQU
+dXtIJNRGtIVHFrPSuPT5+oQDw6owQgYDVR0RBDswOYIPc3NvLm51c3QuZWR1LnBr
+hiZodHRwczovL3Nzby5udXN0LmVkdS5way9pZHAvc2hpYmJvbGV0aDAJBgNVHRME
+AjAAMA0GCSqGSIb3DQEBCwUAA4IBgQA6kcuhp095HQaXWbm0/Gbbnhfb5uXPS4cl
+786Vzyq15igDxUg7mtwDLpdf1Pho6Llbrf5bmAWArmYyEpy2BpsRmFanH68l0kmQ
+xi69Cu0SwMJt7Ngm095SaiTceYYcFI4uaCqfkYsqnoRqdOcihN+zx+2X8ppTTVUH
++i2y5UvZ5GXSHU+vgzgq9kyxD06dCmxAI5VBplzNzQeS5nj6wzcpvp26/v0xXqkr
+EDYJQPUv5/jUnGhgSt19pPUylQkbD+SaENSrJMBgrxaaj+V3Hzk1hXqJoyv8RSFh
+aDNxOOTPmF2hd+tdatjHQzPh8jYMReM+0knsEGIUMm+juk6WLz1nFFZpujL+QEhc
+rFAoQ/RtGND0kUWP1sAK/WPtFdQaBSZBgdvDPRzxL11FmE6umqkHNlY9cUkevh7W
+nYny5WpZ/Xozqbj7abhzGX6UbpBO/sr0FiMBJE9TF8aJUl8SUsO/P/2Fp9Pwzoec
+98HAuQFq1V0b6aKt1MOLiuINn105K3M=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEMzCCApugAwIBAgIVAJaZQO22ocJo2MgprHdHyk/aKurDMA0GCSqGSIb3DQEB
+CwUAMBoxGDAWBgNVBAMMD3Nzby5udXN0LmVkdS5wazAeFw0yNjA5MjQxNDA3MTNa
+Fw00NjA5MjQxNDA3MTNaMBoxGDAWBgNVBAMMD3Nzby5udXN0LmVkdS5wazCCAaIw
+DQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAOIDU863uzfRUFXzkFaEALtsoIjR
+ncRM3U+2i4auUEIk6jClbAFcKOTVK/wjk6eN3q2FldzYRO32FJf39TmelvMI/068
+1TdUAke3eDmxP70W0+tHckCK1256FjIVnbQsYpF0bN+qqIqNiz2IQItuNDox0vez
+P5r5XNrpY+LrgMYCZ/HmVtMuvyZZ9Vu2iSCKNeCclqvXatt2h0Gxhwvtd1lonysQ
+mYIT0GtV3zCFwETRkw8fSqUoQZX0njG5bChCabXixuBrLZA9O8k616A5vmUYkfeG
+p7duomfWsg5afS6OyRUZC8V7bXA/ck0PLdMNA5e+KMm++gz5qfk8v7AwK9axLe7s
+cPN/oTMi+XD1u3CTdTDLP1XdpQWzXjJfVxjoZd8JumP04vBqhE2X+H43FSvc/37b
+XFDqxgRq7BtCNrCu4yHXVkboc9Y7vWl6c6ExE4jNTkqDWP8bfv/JPtuUeBRxS2z1
+zLEu8ZONrzHZjq3Qt99YGTEbUt8GlD9gUPwmZwIDAQABo3AwbjAdBgNVHQ4EFgQU
+2U0wfAlj07pv5PAVnDTyWRPn5IcwQgYDVR0RBDswOYIPc3NvLm51c3QuZWR1LnBr
+hiZodHRwczovL3Nzby5udXN0LmVkdS5way9pZHAvc2hpYmJvbGV0aDAJBgNVHRME
+AjAAMA0GCSqGSIb3DQEBCwUAA4IBgQAD6x1WJDdNYYkVMF8ppGgYfBYI1wUnGaiv
+b14iAB0vvz/zMOrU4W3CcZay7MToK/ySXz7H2uB2Dg3g5eSq7doQX1Zh8dcr1q71
+klhj5SvKeRVLqGjGKjql6ti932Tnego+kGjsRmpBoTopgWtByOFEuTtddImUkS3I
+Eiwf05ncoqSx5mKoSPGotpLaoS5jFLuct+q8ePUhAPnNRmA/I4pkWlPUBebx3PHc
+xf8jvL9Cv+0gL3/JIMqkhldxY2NpLZkRd+3UsK3jS61lGOUSUvp4SCB2HgjQCLsA
+G5Bg1aSy7MQG0E/PZxT7h9TuT7keLNO5vRr7KFTxY787b4SeT3y97bn2XJi9Fnxh
+vzf4Sgyk6DcgeG2oFHQz9ZoiAjMxw0lF+g7+PQ02W0FWnluW/jSQdYa/3GJlZH9v
+Y9OjfmAmwB7fh7qmB1XGnsvjBELhTMZVrewNoXuGEmmpXRF0oSPwBwiJIbL6jd0B
+HcqhxhbGY+M5lpvELWabNu3ui7oM6Zk=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEMjCCApqgAwIBAgIUOSVcvg+WNYws+vPc9GckbR/Ja7AwDQYJKoZIhvcNAQEL
+BQAwGjEYMBYGA1UEAwwPc3NvLm51c3QuZWR1LnBrMB4XDTI2MDkyNDE0MDcxNFoX
+DTQ2MDkyNDE0MDcxNFowGjEYMBYGA1UEAwwPc3NvLm51c3QuZWR1LnBrMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAmbp0HuuVIuJNFZsZ9qJYCCDUHfTm
+d6vh8Whq7f7jAY+6XgL5HVxGXyGnbARW9P79d8ezGC4aheTUtdrGNU8o1jXH+7yi
+VZVfKmbXl8/8aAz4PPYErEq95MSEa3n3mB4f7hidep4VLdrQwsXVGsnbuEe9h4MH
+LUBDR/USHW64HcGkTSW80Z6+AlYr9JKb2uAP07EKGHxpTOkP1EVAWlI8Izy1rRFg
+Zw7gbjsqyIkGh7IRpqoAjtJ5o8z/yA0cJYcL0aaJMhTty8itYFpYa7WfTmA0B+yM
+v+A7a20sFlEZD8Ommzffte+XsiWPb+vaPgF2s+vZDO3qllr/jKahKvZOTwVMrL/m
+2C89ULA3+Xt710R6c7jog0rD0PlV90WcUIxiNz0hh+ttPY8USEJfYpO+4f7tOjT8
+Xh2/ltmkBWS2fRVT3YghnCbZnXsnNG1Z9pYfpybZauYxoj9hZYNA3/KOW5ydAJWa
+gqBACkkuHGqIZaeKNcHzZcGUqi3Ie0WNRX8/AgMBAAGjcDBuMB0GA1UdDgQWBBQn
+DBuJxSo7nwTv+w0F1qZNVQm6lDBCBgNVHREEOzA5gg9zc28ubnVzdC5lZHUucGuG
+Jmh0dHBzOi8vc3NvLm51c3QuZWR1LnBrL2lkcC9zaGliYm9sZXRoMAkGA1UdEwQC
+MAAwDQYJKoZIhvcNAQELBQADggGBAGEQ/1IiLulMB5Ny3l/Lg/48tqswvM6OBW7i
+9fhIslNgYH7pC2YHKvwY38Tn1BlL4D/5y+aZR8bqgigqcGP/7sqvDp7hnwN2c2uw
+nHP0geP0e7+kk6cxVFZ6SFVGpI8EAtyD65fvH3HFG90H2DFvmXn5r+UNl6AQ96el
+uzxwUbiCeEoBsV3ECzeTU19m9XqyTOrNhtMUmMdOitb/fBjkOkAeXIQ1FrvveB2/
+z5rSsXPDA2TD3vZWKF1zxlt8OWgupccJeNPZ8xxhqLHxjx1PGfAFw19xABhnJ0hE
+7IhEvTS2icxNEOSqWpjfMjfsxMyQJHppL1Zs7+vM1lnLD2szl9WOikoXa8fkWlxM
+Fpj8n3typKfKTBgGXmO6wmnT6Y/RMMzRfvCsr+poDGxgq6xYK/DHi2LQ2o4ljkVI
+MzFtF/k4jbYPuI8cRtnkTd/eo7IkdlgL5L3hCm7e8VcYR9S1mNhfueMylv4vqYQD
+yQ0+c8GXxzzYX20mCv53Fvo+UoZRow==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.nust.edu.pk/idp/profile/SAML2/POST/SLO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso.nust.edu.pk/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.nust.edu.pk/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.nust.edu.pk/idp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">National University of Science &amp; Technology (NUST)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">National University of Science &amp; Technology (NUST)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://nust.edu.pk</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Waqas Ahmed</md:GivenName>
+      <md:SurName>Khan</md:SurName>
+      <md:EmailAddress>mailto:wakhan@hec.gov.pk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Waqas Ahmed</md:GivenName>
+      <md:SurName>Khan</md:SurName>
+      <md:EmailAddress>mailto:wakhan@hec.gov.pk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Waqas Ahmed</md:GivenName>
+      <md:SurName>Khan</md:SurName>
+      <md:EmailAddress>mailto:wakhan@hec.gov.pk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

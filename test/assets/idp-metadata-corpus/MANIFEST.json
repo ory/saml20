@@ -1,5 +1,5 @@
 {
-  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's.",
+  "description": "IdP metadata collected from open-source SAML libraries' test fixtures. Each entry records where the document came from. Files marked re-serialised were extracted from an aggregate with Python's ElementTree, so their whitespace and prefixes are the serialiser's, not the original's. The edugain-- files are a sample of the eduGAIN interfederation aggregate chosen so that every structural feature seen across its IdPs (elements, namespace prefixes, key layouts, bindings, certificate formatting) appears several times and every registering federation at least once.",
   "documents": [
     {
       "file": "pysaml2--example_idp2_idp.xml",
@@ -1490,6 +1490,942 @@
         "license": "MIT"
       },
       "kind": "file as published"
+    },
+    {
+      "file": "edugain--aai-arnes-si--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://aai.arnes.si"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--aai-grnet-gr--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://aai.grnet.gr/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--cafe-rnp-br--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://cafe.rnp.br"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--cofre-reuna-cl--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://cofre.reuna.cl"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--colfire-co--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://colfire.co"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--eduid-at--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.at"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--eduid-hu--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.hu"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--eduid-lu--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.lu"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--eduid-roedu-net--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://eduid.roedu.net"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--federation-belnet-be--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federation.belnet.be/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--federation-belnet-be--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federation.belnet.be/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--federation-belnet-be--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federation.belnet.be/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--federations-renam-md--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://federations.renam.md/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--feide-no--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://feide.no/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--iif-iucc-ac-il--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://iif.iucc.ac.il"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--inflibnet-ac-in--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://inflibnet.ac.in"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--kafe-kreonet-net--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://kafe.kreonet.net"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--rr-aai-switch-ch--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://rr.aai.switch.ch/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--safeid-sk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://safeid.sk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--somaliren-org--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://somaliren.org"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--taat-edu-ee--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--taat-edu-ee--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--taat-edu-ee--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--taat-edu-ee--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--taat-edu-ee--5.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://taat.edu.ee"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--ukfederation-org-uk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://ukfederation.org.uk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-canarie-ca--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.canarie.ca"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-csc-fi-haka--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.csc.fi/haka"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-eduid-cz--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-eduid-cz--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-eduid-cz--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-eduid-cz--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.eduid.cz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-fenix-org-mx--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.fenix.org.mx"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-heanet-ie--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.heanet.ie"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-idem-garr-it--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.idem.garr.it/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-omren-om--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.omren.om"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-rediris-es--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.rediris.es/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-srce-hr--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.srce.hr"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-surfconext-nl--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.surfconext.nl/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-swamid-se--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-swamid-se--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-swamid-se--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-swamid-se--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-swamid-se--5.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-swamid-se--6.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "http://www.swamid.se/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--aaf-edu-au--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://aaf.edu.au"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--aai-asnet-am--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://aai.asnet.am"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--aai-pionier-net-pl--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://aai.pionier.net.pl"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--aai-pionier-net-pl--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://aai.pionier.net.pl"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--aai-pionier-net-pl--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://aai.pionier.net.pl"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--bif-bren-bg--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://bif.bren.bg"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--cif-cynet-ac-cy--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://cif.cynet.ac.cy"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--edugain-azsciencenet-az--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://edugain.azsciencenet.az"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--eduid-rash-al--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://eduid.rash.al"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--eduidm-ma--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://eduidm.ma"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--ethernet-edu-et--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://ethernet.edu.et/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--febas-basnet-by--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://febas.basnet.by"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--federacija-iamres-ac-rs--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://federacija.iamres.ac.rs/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--federation-renater-fr--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://federation.renater.fr/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--fedi-litnet-lt--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://fedi.litnet.lt"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--fidern-ac-zm--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://fidern.ac.zm"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--garnet-edu-gh--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://garnet.edu.gh"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--hkaf-edu-hk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://hkaf.edu.hk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--id-ricerka-net-mt--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://id.ricerka.net.mt"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--idp-laife-lv--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://idp.laife.lv/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--incommon-org--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://incommon.org"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--irfed-ir--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://irfed.ir/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--liaf-ac-lk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://liaf.ac.lk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--maren-ac-mw--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://maren.ac.mw"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--maren-ac-mw--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://maren.ac.mw"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--mds-redclara-net--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://mds.redclara.net/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--minga-cedia-org-ec--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://minga.cedia.org.ec"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--mtd-gif-grena-ge--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://mtd.gif.grena.ge"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--ngren-edu-ng--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://ngren.edu.ng/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--peano-uran-ua--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://peano.uran.ua"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--pkifed-pk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://pkifed.pk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--rafiki-ke--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://rafiki.ke"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--rr-aaiedu-mk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://rr.aaiedu.mk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--safire-ac-za--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://safire.ac.za"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--sifulan-my--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://sifulan.my"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--tif-ternet-or-tz--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://tif.ternet.or.tz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--tigerfed-net-bd--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://tigerfed.net.bd"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--tuakiri-ac-nz--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://tuakiri.ac.nz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-aai-arn-dz--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.aai.arn.dz/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-aai-dfn-de--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.aai.dfn.de"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-aai-dfn-de--2.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.aai.dfn.de"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-aai-dfn-de--3.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.aai.dfn.de"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-aai-dfn-de--4.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.aai.dfn.de"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-aai-dfn-de--5.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.aai.dfn.de"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-aai-dfn-de--6.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.aai.dfn.de"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-carsi-edu-cn--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.carsi.edu.cn"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-cstcloud-net--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.cstcloud.net/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-eduid-africa--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.eduid.africa/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-eduid-bf--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.eduid.bf"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-eduid-ng--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.eduid.ng"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-eduid-tg--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.eduid.tg"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-fccn-pt--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.fccn.pt"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-gakunin-jp--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.gakunin.jp"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-kif-kg--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.kif.kg"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-maeen-sa--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.maeen.sa"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-renu-ac-ug--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.renu.ac.ug"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-singaren-net-sg--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.singaren.net.sg"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--www-wayf-dk--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://www.wayf.dk"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
+    },
+    {
+      "file": "edugain--yetkim-org-tr--1.xml",
+      "source": {
+        "aggregate": "https://mds.edugain.org/edugain-v2.xml",
+        "aggregateValidUntil": "2026-11-07T12:30:01Z",
+        "registrationAuthority": "https://yetkim.org.tr/"
+      },
+      "kind": "entity split out of the eduGAIN aggregate (re-serialised)"
     }
   ]
 }

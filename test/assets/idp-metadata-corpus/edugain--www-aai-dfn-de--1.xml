@@ -1,0 +1,164 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.th-owl.de/nidp/saml2/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2019-10-17T08:33:20Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/fileadmin/documents/mrps_dfn-aai_1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://aai.dfn.de/category/idm.nrw-member</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hs-owl.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">stud.th-owl.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">th-owl.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Technische Hochschule Ostwestfalen-Lippe</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Technische Hochschule Ostwestfalen-Lippe</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Technische Hochschule Ostwestfalen-Lippe</mdui:Description>
+          <mdui:Description xml:lang="en">Technische Hochschule Ostwestfalen-Lippe</mdui:Description>
+          <mdui:Logo height="180" width="180">https://mdv.aai.dfn.de/media/logos/e301/th_owl_logl_simple.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://www.th-owl.de/favicon.ico</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>login.th-owl.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>C=DE,ST=NRW,L=Lemgo,O=THOWL,OU=SKIM,CN=login.th-owl.de</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGYzCCBUugAwIBAgIUXMHRepoZyFeHYKGriPjul+EgrpIwDQYJKoZIhvcNAQEL
+BQAwMjEaMBgGA1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExFDASBgNVBAoUC3Jvb2sx
+MV90cmVlMB4XDTI2MTAxMzEwMDEzM1oXDTI4MTAxMzEwMDEzM1owZDEYMBYGA1UE
+AxMPbG9naW4udGgtb3dsLmRlMQ0wCwYDVQQLEwRTS0lNMQ4wDAYDVQQKEwVUSE9X
+TDEOMAwGA1UEBxMFTGVtZ28xDDAKBgNVBAgTA05SVzELMAkGA1UEBhMCREUwggIi
+MA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDOLzIjTFjFtTXGGBJzApapZSJw
+07XcuK/ECwHWtczflAP0xVuGxktec7Hel4cG6/E+2sD23C8/m4PSr4RJ0fbyEf9a
+mMpkLLBbtlQHXvItMWxMMrws1Fk2Z/qIpfqmKQiqgUl6Qag/EBHLb5hKmPbiyBk0
+wGa7PBYs+wo0oauHIkpjBTNrUgobwveMtIrXZR62tOLIKhdw3ESi/hdSHjCSE5mN
+IoF/dkOzQM9jjEYGSPHX2HZcR+h5oYZtc48UjUw2+s3xiXymOwVPwe19wIAGuyJn
+fmdXIUb+CLtolBTjV751ZuIcGmjm0RwiBeZE48/3PUqdprTC5UGhbgfEDZypKbCu
+gm36vGUvnnaq1hCwba6CuVCM5hLcfhhE4x+PlULggBwUfR9N6SmoX9nVozb1OU1N
+sR/mRvh3St2WGkX1qoZXm8mdO/Wqi/Tuy6ATeKX3sCfbARXq1Jmp58xlrbuejDjd
+buFDclfK8dTTGP3dGj2pgR4QPvxZPKcDejMOW4OnKXQg91ms5fXN6V80bfmc/yIP
+X03w5NkkV4NWAsTbCH78wKEoJuEvwJf/w1nNN4FR6n3z/pZAyUo7DPeWiFys9gF1
+yFTvWmIBymt2E3hqmucl+GoX9aykzqoGinqXSiNZz+BgY3BdKAkV7nu9Ik0eZfDw
+t4wSw7mEuRm/aR9/RQIDAQABo4ICPTCCAjkwHQYDVR0OBBYEFC8AfpG2WtpOiyX9
+yCOLQce4rBtqMB8GA1UdIwQYMBaAFA9A0wNGPQ2w0Zew+HtjMT6qGkRRMBoGA1Ud
+EQQTMBGCD2xvZ2luLnRoLW93bC5kZTALBgNVHQ8EBAMCB4AwggHMBgtghkgBhvg3
+AQkEAQSCAbswggG3BAIBAAEB/xMdTm92ZWxsIFNlY3VyaXR5IEF0dHJpYnV0ZSh0
+bSkWQ2h0dHA6Ly9kZXZlbG9wZXIubm92ZWxsLmNvbS9yZXBvc2l0b3J5L2F0dHJp
+YnV0ZXMvY2VydGF0dHJzX3YxMC5odG0wggFIoBoBAQAwCDAGAgEBAgFGMAgwBgIB
+AQIBCgIBaaEaAQEAMAgwBgIBAQIBADAIMAYCAQECAQACAQCiBgIBFwEB/6OCAQSg
+WAIBAgICAP8CAQADDQCAAAAAAAAAAAAAAAADCQCAAAAAAAAAADAYMBACAQACCH//
+////////AQEAAgQG8N9IMBgwEAIBAAIIf/////////8BAQACBAbw30ihWAIBAgIC
+AP8CAQADDQBAAAAAAAAAAAAAAAADCQBAAAAAAAAAADAYMBACAQACCH//////////
+AQEAAgQR/66BMBgwEAIBAAIIf/////////8BAQACBBH/roGiTjBMAgECAgEAAgIA
+/wMNAIAAAAAAAAAAAAAAAAMJAIAAAAAAAAAAMBIwEAIBAAIIf/////////8BAQAw
+EjAQAgEAAgh//////////wEBADANBgkqhkiG9w0BAQsFAAOCAQEAPb1yh9qj4NEr
+UjAboDUics/Ct92CJwP1jZTNJeyB+yYnp8vF+WY90cgpKZ+7UYR+kaxvmLBEGBAh
+7LfbrDUw7CCIumUchzAPZfSWTP8KJS348J5z7UdcO3S3mTxZ0LIq2Vw1D9+w6e7U
+YkP/o6CnKNCjzBagtdDmg1BR6Yy0WW8NvFWJ96prEHFcD2vv8Beq45p/UFfHQT77
+8ezaJ/RblR6C5eeS0Np+uwc8cEuJtlSgOWnzhtP4rotPXrABHzXTU70oRIGdl82q
+TkzyBG7vuTm9GMnxV9cTO86HvyhFNtGHY574cxAnkNk6oZHvKnMzesr8lbDlhdyd
+srYd5CUMYA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.th-owl.de/nidp/saml2/soap" index="0" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.th-owl.de/nidp/saml2/slo" ResponseLocation="https://login.th-owl.de/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.th-owl.de/nidp/saml2/slo" ResponseLocation="https://login.th-owl.de/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.th-owl.de/nidp/saml2/soap" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.th-owl.de/nidp/saml2/rni" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.th-owl.de/nidp/saml2/rni" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.th-owl.de/nidp/saml2/soap" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.th-owl.de/nidp/saml2/sso" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.th-owl.de/nidp/saml2/sso" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hs-owl.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">stud.th-owl.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">th-owl.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Technische Hochschule Ostwestfalen-Lippe</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Technische Hochschule Ostwestfalen-Lippe</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Technische Hochschule Ostwestfalen-Lippe</mdui:Description>
+          <mdui:Description xml:lang="en">Technische Hochschule Ostwestfalen-Lippe</mdui:Description>
+          <mdui:Logo height="180" width="180">https://mdv.aai.dfn.de/media/logos/e301/th_owl_logl_simple.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://www.th-owl.de/favicon.ico</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>login.th-owl.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>C=DE,ST=NRW,L=Lemgo,O=THOWL,OU=SKIM,CN=login.th-owl.de</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGYzCCBUugAwIBAgIUXMHRepoZyFeHYKGriPjul+EgrpIwDQYJKoZIhvcNAQEL
+BQAwMjEaMBgGA1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExFDASBgNVBAoUC3Jvb2sx
+MV90cmVlMB4XDTI2MTAxMzEwMDEzM1oXDTI4MTAxMzEwMDEzM1owZDEYMBYGA1UE
+AxMPbG9naW4udGgtb3dsLmRlMQ0wCwYDVQQLEwRTS0lNMQ4wDAYDVQQKEwVUSE9X
+TDEOMAwGA1UEBxMFTGVtZ28xDDAKBgNVBAgTA05SVzELMAkGA1UEBhMCREUwggIi
+MA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDOLzIjTFjFtTXGGBJzApapZSJw
+07XcuK/ECwHWtczflAP0xVuGxktec7Hel4cG6/E+2sD23C8/m4PSr4RJ0fbyEf9a
+mMpkLLBbtlQHXvItMWxMMrws1Fk2Z/qIpfqmKQiqgUl6Qag/EBHLb5hKmPbiyBk0
+wGa7PBYs+wo0oauHIkpjBTNrUgobwveMtIrXZR62tOLIKhdw3ESi/hdSHjCSE5mN
+IoF/dkOzQM9jjEYGSPHX2HZcR+h5oYZtc48UjUw2+s3xiXymOwVPwe19wIAGuyJn
+fmdXIUb+CLtolBTjV751ZuIcGmjm0RwiBeZE48/3PUqdprTC5UGhbgfEDZypKbCu
+gm36vGUvnnaq1hCwba6CuVCM5hLcfhhE4x+PlULggBwUfR9N6SmoX9nVozb1OU1N
+sR/mRvh3St2WGkX1qoZXm8mdO/Wqi/Tuy6ATeKX3sCfbARXq1Jmp58xlrbuejDjd
+buFDclfK8dTTGP3dGj2pgR4QPvxZPKcDejMOW4OnKXQg91ms5fXN6V80bfmc/yIP
+X03w5NkkV4NWAsTbCH78wKEoJuEvwJf/w1nNN4FR6n3z/pZAyUo7DPeWiFys9gF1
+yFTvWmIBymt2E3hqmucl+GoX9aykzqoGinqXSiNZz+BgY3BdKAkV7nu9Ik0eZfDw
+t4wSw7mEuRm/aR9/RQIDAQABo4ICPTCCAjkwHQYDVR0OBBYEFC8AfpG2WtpOiyX9
+yCOLQce4rBtqMB8GA1UdIwQYMBaAFA9A0wNGPQ2w0Zew+HtjMT6qGkRRMBoGA1Ud
+EQQTMBGCD2xvZ2luLnRoLW93bC5kZTALBgNVHQ8EBAMCB4AwggHMBgtghkgBhvg3
+AQkEAQSCAbswggG3BAIBAAEB/xMdTm92ZWxsIFNlY3VyaXR5IEF0dHJpYnV0ZSh0
+bSkWQ2h0dHA6Ly9kZXZlbG9wZXIubm92ZWxsLmNvbS9yZXBvc2l0b3J5L2F0dHJp
+YnV0ZXMvY2VydGF0dHJzX3YxMC5odG0wggFIoBoBAQAwCDAGAgEBAgFGMAgwBgIB
+AQIBCgIBaaEaAQEAMAgwBgIBAQIBADAIMAYCAQECAQACAQCiBgIBFwEB/6OCAQSg
+WAIBAgICAP8CAQADDQCAAAAAAAAAAAAAAAADCQCAAAAAAAAAADAYMBACAQACCH//
+////////AQEAAgQG8N9IMBgwEAIBAAIIf/////////8BAQACBAbw30ihWAIBAgIC
+AP8CAQADDQBAAAAAAAAAAAAAAAADCQBAAAAAAAAAADAYMBACAQACCH//////////
+AQEAAgQR/66BMBgwEAIBAAIIf/////////8BAQACBBH/roGiTjBMAgECAgEAAgIA
+/wMNAIAAAAAAAAAAAAAAAAMJAIAAAAAAAAAAMBIwEAIBAAIIf/////////8BAQAw
+EjAQAgEAAgh//////////wEBADANBgkqhkiG9w0BAQsFAAOCAQEAPb1yh9qj4NEr
+UjAboDUics/Ct92CJwP1jZTNJeyB+yYnp8vF+WY90cgpKZ+7UYR+kaxvmLBEGBAh
+7LfbrDUw7CCIumUchzAPZfSWTP8KJS348J5z7UdcO3S3mTxZ0LIq2Vw1D9+w6e7U
+YkP/o6CnKNCjzBagtdDmg1BR6Yy0WW8NvFWJ96prEHFcD2vv8Beq45p/UFfHQT77
+8ezaJ/RblR6C5eeS0Np+uwc8cEuJtlSgOWnzhtP4rotPXrABHzXTU70oRIGdl82q
+TkzyBG7vuTm9GMnxV9cTO86HvyhFNtGHY574cxAnkNk6oZHvKnMzesr8lbDlhdyd
+srYd5CUMYA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.th-owl.de/nidp/saml2/soap" />
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e301</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e301</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Technische Hochschule Ostwestfalen-Lippe</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Technische Hochschule Ostwestfalen-Lippe</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.th-owl.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.th-owl.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Andreas</md:GivenName>
+      <md:SurName>Weiss</md:SurName>
+      <md:EmailAddress>mailto:andreas.weiss@th-owl.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andreas</md:GivenName>
+      <md:SurName>Weiss</md:SurName>
+      <md:EmailAddress>mailto:andreas.weiss@th-owl.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andreas</md:GivenName>
+      <md:SurName>Weiss</md:SurName>
+      <md:EmailAddress>mailto:andreas.weiss@th-owl.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

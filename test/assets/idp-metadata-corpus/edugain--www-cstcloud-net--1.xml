@@ -1,0 +1,69 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai.goscloud.net/saml/idp">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.cstcloud.net/" registrationInstant="2026-10-30T02:10:16Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://cstcloud.net/documentation.html</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="zh">GOSC AAI</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">GOSC AAI</mdui:DisplayName>
+          <mdui:Description xml:lang="zh">GOSC</mdui:Description>
+          <mdui:Description xml:lang="en">GOSC</mdui:Description>
+          <mdui:Logo height="80" width="80">https://aai.cstcloud.net/samlApply/gosc.png</mdui:Logo>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">aai.goscloud.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFRTCCAy0CFFCP1iCLMt5rEDn5nmNQw1lLYucJMA0GCSqGSIb3DQEBCwUAMF4xCzAJBgNVBAYT AkNOMRAwDgYDVQQIDAdCRUlKSU5HMRAwDgYDVQQHDAdCRUlKSU5HMQ0wCwYDVQQKDARDRU5JMQ0w CwYDVQQLDARDRU5JMQ0wCwYDVQQDDARDRU5JMCAXDTIzMDgyMTA4NDAyNFoYDzIxMjMwNzI4MDg0 MDI0WjBeMQswCQYDVQQGEwJDTjEQMA4GA1UECAwHQkVJSklORzEQMA4GA1UEBwwHQkVJSklORzEN MAsGA1UECgwEQ0VOSTENMAsGA1UECwwEQ0VOSTENMAsGA1UEAwwEQ0VOSTCCAiIwDQYJKoZIhvcN AQEBBQADggIPADCCAgoCggIBAMg5jrMNTfpcNslaX0kbWfiUfmRZYWZTdHkU5okc7kmPyb0/lr3C JpP4AjQE98rYcEnqFsHFpbkdZUZL5neu4GvdwmXQhGSPdrYoMIr0kmcjkJ/aTKUoqS9PrjRVKFlI uqRXs2+Mz8VAdoCm15rw6cSaBBTlDgmaJqDRTGL2fvdUegl7PLNQTcSK1SdzD3njnCUccq0dtw2T gcxG2owz683pkRB45qdDwDwlZ+H9UKtm42/AC1b8hh+bGp9ijEOI5xZuPiG3+O8Mp2G8RikuUS8W xIPbgWpryOyCXnk2tsRdJhXa7pGbIHJVLEa7Spln+wwQnQBz+9Qj+uBXkvqm0iWCnn5jaTgdEHbK sCAbPDApafZLMxZHapZRkcInjdn9l1PwlPj7WAdmbbr1SiPjZ0P5S49kOnuEAEdY71isUnY5y3wf 7hF66HGoHAKXoVOOEIVeMvXrVf9bSLhD7CppSeWnhNveH5SLq8A5lpviYDP2u3g0Qnc6NdN7ynu6 /0mSUaTGFw9E+sFWLbiSxRziDfuAXcJcDv3X4JkjQrW2C8iaxIT/lWzEm02uqb6FgxuB2+xr15Ia Iv9fSw3rwcS/qfUllvtaWV3QsYI9X+ueWe8M+8LmL1g9jJynceZ1r8bmWd1KWclJ24v3dZ4SYpuD B7rR6SKV19tp80mZ2z1/4ig5AgMBAAEwDQYJKoZIhvcNAQELBQADggIBABshwviplbRJSEdZY3Kb lXO4i1deT+GTal6A2zkos9a2HG2oFDy/qJHpHSDWw2ujrZBpdoDOKInDkJgtD5rYrPRt8Jbxz5nH d6/tpgDisPMS/mxsglRoUWTCb7A7eVg+9osogKaeePq1vwAN7d3rYLi16eoQN3mQbJ0aujvwaKIz snWZnZINYswB1O4jiLxY2efQ9iFOVpaDChGNP8Wo4IwS6odGX9RFjLuNCim+10Nvl6nxZZm5Ple2 m+fTtjHi2ETRSUx3taRjG6bWlejexvuab87Isc9ajB5syc0Oolf8g61C+3cOkLQlEaY1lOPMPGQz cD9j4T4wF2aPkmyJ4QVZQr3KLr0oZvzDYIwhwAVlyPnFLdX5OpN/SAw0KV7qpN3N+wpZTCAm817O KFRGr750LUA4LD+YCNQiRc496S33NOSOAvnsyzr93FF6/VzfTDg2e4rhFGgehjyC8d4Cjlzj1NPE esmCldZKlz2LpRIeWjr3+mdEOXUw26yscICN74VAN+jqFs+ybWdwCNfPKHf2WErKHf26YwNhnbDc JG+Zbe/WevSuwA/2nWAgQL/FK6owwNDeV+53queZsF8eQe2d9cwNQTtYuWZAd4C+S8tXKgUvWC/8 hu6GA8kGO99D0AyXK8vxosmbNsyVtjp/XUfx3NinovIsrzAtq3/qEblg</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFRTCCAy0CFFCP1iCLMt5rEDn5nmNQw1lLYucJMA0GCSqGSIb3DQEBCwUAMF4xCzAJBgNVBAYT AkNOMRAwDgYDVQQIDAdCRUlKSU5HMRAwDgYDVQQHDAdCRUlKSU5HMQ0wCwYDVQQKDARDRU5JMQ0w CwYDVQQLDARDRU5JMQ0wCwYDVQQDDARDRU5JMCAXDTIzMDgyMTA4NDAyNFoYDzIxMjMwNzI4MDg0 MDI0WjBeMQswCQYDVQQGEwJDTjEQMA4GA1UECAwHQkVJSklORzEQMA4GA1UEBwwHQkVJSklORzEN MAsGA1UECgwEQ0VOSTENMAsGA1UECwwEQ0VOSTENMAsGA1UEAwwEQ0VOSTCCAiIwDQYJKoZIhvcN AQEBBQADggIPADCCAgoCggIBAMg5jrMNTfpcNslaX0kbWfiUfmRZYWZTdHkU5okc7kmPyb0/lr3C JpP4AjQE98rYcEnqFsHFpbkdZUZL5neu4GvdwmXQhGSPdrYoMIr0kmcjkJ/aTKUoqS9PrjRVKFlI uqRXs2+Mz8VAdoCm15rw6cSaBBTlDgmaJqDRTGL2fvdUegl7PLNQTcSK1SdzD3njnCUccq0dtw2T gcxG2owz683pkRB45qdDwDwlZ+H9UKtm42/AC1b8hh+bGp9ijEOI5xZuPiG3+O8Mp2G8RikuUS8W xIPbgWpryOyCXnk2tsRdJhXa7pGbIHJVLEa7Spln+wwQnQBz+9Qj+uBXkvqm0iWCnn5jaTgdEHbK sCAbPDApafZLMxZHapZRkcInjdn9l1PwlPj7WAdmbbr1SiPjZ0P5S49kOnuEAEdY71isUnY5y3wf 7hF66HGoHAKXoVOOEIVeMvXrVf9bSLhD7CppSeWnhNveH5SLq8A5lpviYDP2u3g0Qnc6NdN7ynu6 /0mSUaTGFw9E+sFWLbiSxRziDfuAXcJcDv3X4JkjQrW2C8iaxIT/lWzEm02uqb6FgxuB2+xr15Ia Iv9fSw3rwcS/qfUllvtaWV3QsYI9X+ueWe8M+8LmL1g9jJynceZ1r8bmWd1KWclJ24v3dZ4SYpuD B7rR6SKV19tp80mZ2z1/4ig5AgMBAAEwDQYJKoZIhvcNAQELBQADggIBABshwviplbRJSEdZY3Kb lXO4i1deT+GTal6A2zkos9a2HG2oFDy/qJHpHSDWw2ujrZBpdoDOKInDkJgtD5rYrPRt8Jbxz5nH d6/tpgDisPMS/mxsglRoUWTCb7A7eVg+9osogKaeePq1vwAN7d3rYLi16eoQN3mQbJ0aujvwaKIz snWZnZINYswB1O4jiLxY2efQ9iFOVpaDChGNP8Wo4IwS6odGX9RFjLuNCim+10Nvl6nxZZm5Ple2 m+fTtjHi2ETRSUx3taRjG6bWlejexvuab87Isc9ajB5syc0Oolf8g61C+3cOkLQlEaY1lOPMPGQz cD9j4T4wF2aPkmyJ4QVZQr3KLr0oZvzDYIwhwAVlyPnFLdX5OpN/SAw0KV7qpN3N+wpZTCAm817O KFRGr750LUA4LD+YCNQiRc496S33NOSOAvnsyzr93FF6/VzfTDg2e4rhFGgehjyC8d4Cjlzj1NPE esmCldZKlz2LpRIeWjr3+mdEOXUw26yscICN74VAN+jqFs+ybWdwCNfPKHf2WErKHf26YwNhnbDc JG+Zbe/WevSuwA/2nWAgQL/FK6owwNDeV+53queZsF8eQe2d9cwNQTtYuWZAd4C+S8tXKgUvWC/8 hu6GA8kGO99D0AyXK8vxosmbNsyVtjp/XUfx3NinovIsrzAtq3/qEblg</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai.goscloud.net/saml/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai.goscloud.net/saml/idp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="zh">GOSC</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">GOSC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="zh">GOSC</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">GOSC</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="zh">GOSC</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">GOSC</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:Company>GOSC</md:Company>
+      <md:GivenName>GOSC</md:GivenName>
+      <md:SurName>GOSC</md:SurName>
+      <md:EmailAddress>mailto:GOSC@GOSC.cn</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>GOSC</md:Company>
+      <md:GivenName>GOSC</md:GivenName>
+      <md:SurName>GOSC</md:SurName>
+      <md:EmailAddress>mailto:GOSC@GOSC.cn</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>徐志健</md:GivenName>
+      <md:EmailAddress>mailto:xuzhijian@cstnet.cn</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

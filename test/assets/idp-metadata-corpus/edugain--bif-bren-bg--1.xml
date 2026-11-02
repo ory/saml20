@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://idp.bfu.bg/idp/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://bif.bren.bg" registrationInstant="2021-11-16T15:53:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://bif.bren.bg/wp-content/uploads/2020/12/MRPS_BIF_V1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Burgas Free University</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="bg">Бургаски свободен университет</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Modern, innovative and student-oriented and the professional realization of a university with significant academic positions and established international status.</mdui:Description>
+          <mdui:Description xml:lang="bg">Модерен, иновативен и ориентиран към студентите и тяхната професионална реализация университет със значими академични постижения и утвърден международен статус.</mdui:Description>
+          <mdui:Logo height="80" width="80">https://www.bfu.bg/logo_180x180.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDdzCCAl8CFEBSIcqcfpSAHDHUh4h2U12oBB+JMA0GCSqGSIb3DQEBCwUAMHgx
+CzAJBgNVBAYTAkJHMQwwCgYDVQQLDANCRlUxHzAdBgNVBAoMFkJ1cmdhcyBGcmVl
+IFVuaXZlcnNpdHkxGzAZBgNVBAMMEmh0dHBzOi8vaWRwLmJmdS5iZzEdMBsGCSqG
+SIb3DQEJARYOZWR1Z2FpbkBiZnUuYmcwHhcNMjExMTE1MDg1ODU3WhcNMzExMTE1
+MDg1ODU3WjB4MQswCQYDVQQGEwJCRzEMMAoGA1UECwwDQkZVMR8wHQYDVQQKDBZC
+dXJnYXMgRnJlZSBVbml2ZXJzaXR5MRswGQYDVQQDDBJodHRwczovL2lkcC5iZnUu
+YmcxHTAbBgkqhkiG9w0BCQEWDmVkdWdhaW5AYmZ1LmJnMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEA1Kfb8uhwa25S6UF7T8SeTXe4WIav7HkHZIfafodq
+7HDIwZZ2Jh91OOPMpGEHJyrxgy7JIk44vqAax/JdQqGgyMg8mSDv8FL0hKH1yAXP
+vpom0EMhvUb8jKxtd7hpzsGzjiTxqPpCTz/FFdoZPBFcO2mRm65flQTGVi+Wphj3
+prsbouhmuMRhFHehBrK9T+CYKw+nFnKZoubp2Ufs26fHnFm5NbwnwNnmGwhqMEL1
+uM7nVFwl2oCX7vh88GFxsarbGsEuqLYM30yVwmGFx0eMjEBaUmTjk+kIO19R9ETu
+saXhvMBbvFcDr9Q2iDVGswuxbG2uwNeKVlWaMiLm598lXQIDAQABMA0GCSqGSIb3
+DQEBCwUAA4IBAQBLuHMcIAdTVv/DQ98o8Pd4qex16EQl59mkP5sV8oIx4lZqaSzP
+ulx8/KaBxqzOKFF0Ex8qdSK74SCo8XiN1JumapfdBUVRdUIeFip52glFtIG3tKtG
+t8VlLk3WdGzbNszK294yp9IULcIPBUr8an7Zv9IpK/ZYs6NlbmbkUVEJGq1DOY1X
+Lu4W9Chb3XB9uwHdFN6WknB8kSVv1DyUpT14/+dJhzmnemqUYHX41mUQSaofOL/N
+Y5p1CuwsraE1M2k0C7rreIR4cMU/Y9zzRlMsq7bZIfSJMuwhKBJv2o7ds6EYavQw
+R35s4Jhwo5ZoYPtKsAw7v+tbAZ6zFgdJkNct
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDdzCCAl8CFEBSIcqcfpSAHDHUh4h2U12oBB+JMA0GCSqGSIb3DQEBCwUAMHgx
+CzAJBgNVBAYTAkJHMQwwCgYDVQQLDANCRlUxHzAdBgNVBAoMFkJ1cmdhcyBGcmVl
+IFVuaXZlcnNpdHkxGzAZBgNVBAMMEmh0dHBzOi8vaWRwLmJmdS5iZzEdMBsGCSqG
+SIb3DQEJARYOZWR1Z2FpbkBiZnUuYmcwHhcNMjExMTE1MDg1ODU3WhcNMzExMTE1
+MDg1ODU3WjB4MQswCQYDVQQGEwJCRzEMMAoGA1UECwwDQkZVMR8wHQYDVQQKDBZC
+dXJnYXMgRnJlZSBVbml2ZXJzaXR5MRswGQYDVQQDDBJodHRwczovL2lkcC5iZnUu
+YmcxHTAbBgkqhkiG9w0BCQEWDmVkdWdhaW5AYmZ1LmJnMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEA1Kfb8uhwa25S6UF7T8SeTXe4WIav7HkHZIfafodq
+7HDIwZZ2Jh91OOPMpGEHJyrxgy7JIk44vqAax/JdQqGgyMg8mSDv8FL0hKH1yAXP
+vpom0EMhvUb8jKxtd7hpzsGzjiTxqPpCTz/FFdoZPBFcO2mRm65flQTGVi+Wphj3
+prsbouhmuMRhFHehBrK9T+CYKw+nFnKZoubp2Ufs26fHnFm5NbwnwNnmGwhqMEL1
+uM7nVFwl2oCX7vh88GFxsarbGsEuqLYM30yVwmGFx0eMjEBaUmTjk+kIO19R9ETu
+saXhvMBbvFcDr9Q2iDVGswuxbG2uwNeKVlWaMiLm598lXQIDAQABMA0GCSqGSIb3
+DQEBCwUAA4IBAQBLuHMcIAdTVv/DQ98o8Pd4qex16EQl59mkP5sV8oIx4lZqaSzP
+ulx8/KaBxqzOKFF0Ex8qdSK74SCo8XiN1JumapfdBUVRdUIeFip52glFtIG3tKtG
+t8VlLk3WdGzbNszK294yp9IULcIPBUr8an7Zv9IpK/ZYs6NlbmbkUVEJGq1DOY1X
+Lu4W9Chb3XB9uwHdFN6WknB8kSVv1DyUpT14/+dJhzmnemqUYHX41mUQSaofOL/N
+Y5p1CuwsraE1M2k0C7rreIR4cMU/Y9zzRlMsq7bZIfSJMuwhKBJv2o7ds6EYavQw
+R35s4Jhwo5ZoYPtKsAw7v+tbAZ6zFgdJkNct
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.bfu.bg/idp/saml2/idp/SingleLogoutService.php" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.bfu.bg/idp/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="bg">Бургаски свободен университет</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Burgas Free University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="bg">Бургаски свободен университет</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Burgas Free University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="bg">https://www.bfu.bg/bg/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.bfu.bg/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Elka</md:GivenName>
+      <md:SurName>Mavrodieva</md:SurName>
+      <md:EmailAddress>mailto:emavrodieva@bfu.bg</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

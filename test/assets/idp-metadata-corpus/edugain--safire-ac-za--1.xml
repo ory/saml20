@@ -1,0 +1,82 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://proxy.safire.ac.za/birk.php/sauth1.gwc.ac.za/realms/gwc">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://safire.ac.za">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://safire.ac.za/safire/policy/mrps/v20250901.html</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" Name="urn:oasis:names:tc:SAML:attribute:assurance-certification">
+          <saml:AttributeValue>https://refeds.org/sirtfi2</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/anonymous</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" errorURL="https://iziko.safire.ac.za/module.php/core/error/ERRORURL_CODE?ts=ERRORURL_TS&amp;rp=ERRORURL_RP&amp;tid=ERRORURL_TID&amp;ctx=ERRORURL_CTX&amp;idp=https%3A%2F%2Fsauth1.gwc.ac.za%2Frealms%2Fgwc">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gwc.ac.za</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">George Whitefield College</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Authenticate staff and students to online resources</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.gwc.ac.za/wp-content/uploads/2021/07/GWC-Privacy-Policy.pdf</mdui:PrivacyStatementURL>
+          <mdui:InformationURL xml:lang="en">https://www.gwc.ac.za/vision-mission-statement/</mdui:InformationURL>
+          <mdui:Keywords xml:lang="en">GWC George Whitefield</mdui:Keywords>
+          <mdui:Logo width="212" height="71">https://static.safire.ac.za/mduicache/D-f0b791c677c55e51d3f1f51bea67211dcc976c8b-0fb8bd5fc3d2eee6ba8ee000ebcf25b2dca8198c.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID0TCCArmgAwIBAgIJAO95CLlC4ctdMA0GCSqGSIb3DQEBCwUAMH8xCzAJBgNVBAYTAlpBMSowKAYDVQQKDCFTb3V0aCBBZnJpY2FuIElkZW50aXR5IEZlZGVyYXRpb24xMzAxBgNVBAMMKlNBRklSRSBJZGVudGl0eSBQcm92aWRlciBQcm94eSAoSUQ9MDAwMDM1KTEPMA0GA1UEBRMGMDAwMDM1MB4XDTE3MDEzMDEzMzY0NVoXDTM3MDEzMDEzMzY0NVowfzELMAkGA1UEBhMCWkExKjAoBgNVBAoMIVNvdXRoIEFmcmljYW4gSWRlbnRpdHkgRmVkZXJhdGlvbjEzMDEGA1UEAwwqU0FGSVJFIElkZW50aXR5IFByb3ZpZGVyIFByb3h5IChJRD0wMDAwMzUpMQ8wDQYDVQQFEwYwMDAwMzUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDNzjnbj34b+6O1U/8bJL2dY/xk9OptFwqPar0vy0f0KTZTaLN9Ue7ilrYy5JE9Tx8FO3eKYYcdKqP1KIMZ0sMYOqLP55sQmoNv6wzD8L9guD5F0Z30s1JoTqUShKJgqBCgh8JMuzlEeWhfxVfRoXca00XAANjy9bSyIpwL0TkdzfZBOUvor7O/81JaxirEGzi//stbMx0KC2EtD7EgQ+wX8U89ddCCLBnLZlkgIBo0sCp0v02sVa5eZ2A6y49AsTGqh8mZf9WDLd+9cCSGZ/utsZGNp6meI+AGF2C9vHRGpOQfx7r0kuAsMCXMfdxo+aM5JHWsY1pdM3Cw6uPWoprbAgMBAAGjUDBOMB0GA1UdDgQWBBQZKSFUy1IUd7vq62RtQMes5YHlVzAfBgNVHSMEGDAWgBQZKSFUy1IUd7vq62RtQMes5YHlVzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAnGA9FtFOo6DXpEcMuuphCj3EMt4kkVLh9RHXni1GVhT6FNm3mdsrRN5iDBfuHmHKCU6ektRU5DHQ3zSVZf3DnFtAGPnveQKt13/GunBlxHO+jVfAXP+CqSQqu0eUTG2xnW0+xMUS+4yIf91hPyTRJAjYspB1uGJytFUd5E/UzVvkAd6la8XASfhiT+5cnD1QOoMoFR4SNaxeKqdTJpglbSy1lgFIzRJSpcV7cA4wORcP+Y1+AZHFE//cyP35Ahb4PU/sRVU/4qfnIwMrrXPlQfVbO1NAblMNJF0bpA6O5RmiY+JJ9vZoebzWqMBjPohiSeM2C/gY2OuHSyCwbxaA2</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID0TCCArmgAwIBAgIJAO95CLlC4ctdMA0GCSqGSIb3DQEBCwUAMH8xCzAJBgNVBAYTAlpBMSowKAYDVQQKDCFTb3V0aCBBZnJpY2FuIElkZW50aXR5IEZlZGVyYXRpb24xMzAxBgNVBAMMKlNBRklSRSBJZGVudGl0eSBQcm92aWRlciBQcm94eSAoSUQ9MDAwMDM1KTEPMA0GA1UEBRMGMDAwMDM1MB4XDTE3MDEzMDEzMzY0NVoXDTM3MDEzMDEzMzY0NVowfzELMAkGA1UEBhMCWkExKjAoBgNVBAoMIVNvdXRoIEFmcmljYW4gSWRlbnRpdHkgRmVkZXJhdGlvbjEzMDEGA1UEAwwqU0FGSVJFIElkZW50aXR5IFByb3ZpZGVyIFByb3h5IChJRD0wMDAwMzUpMQ8wDQYDVQQFEwYwMDAwMzUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDNzjnbj34b+6O1U/8bJL2dY/xk9OptFwqPar0vy0f0KTZTaLN9Ue7ilrYy5JE9Tx8FO3eKYYcdKqP1KIMZ0sMYOqLP55sQmoNv6wzD8L9guD5F0Z30s1JoTqUShKJgqBCgh8JMuzlEeWhfxVfRoXca00XAANjy9bSyIpwL0TkdzfZBOUvor7O/81JaxirEGzi//stbMx0KC2EtD7EgQ+wX8U89ddCCLBnLZlkgIBo0sCp0v02sVa5eZ2A6y49AsTGqh8mZf9WDLd+9cCSGZ/utsZGNp6meI+AGF2C9vHRGpOQfx7r0kuAsMCXMfdxo+aM5JHWsY1pdM3Cw6uPWoprbAgMBAAGjUDBOMB0GA1UdDgQWBBQZKSFUy1IUd7vq62RtQMes5YHlVzAfBgNVHSMEGDAWgBQZKSFUy1IUd7vq62RtQMes5YHlVzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAnGA9FtFOo6DXpEcMuuphCj3EMt4kkVLh9RHXni1GVhT6FNm3mdsrRN5iDBfuHmHKCU6ektRU5DHQ3zSVZf3DnFtAGPnveQKt13/GunBlxHO+jVfAXP+CqSQqu0eUTG2xnW0+xMUS+4yIf91hPyTRJAjYspB1uGJytFUd5E/UzVvkAd6la8XASfhiT+5cnD1QOoMoFR4SNaxeKqdTJpglbSy1lgFIzRJSpcV7cA4wORcP+Y1+AZHFE//cyP35Ahb4PU/sRVU/4qfnIwMrrXPlQfVbO1NAblMNJF0bpA6O5RmiY+JJ9vZoebzWqMBjPohiSeM2C/gY2OuHSyCwbxaA2</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://iziko.safire.ac.za/module.php/safire/idp/singleLogout/f0b791c677" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://iziko.safire.ac.za/module.php/safire/idp/singleLogout/f0b791c677" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://iziko.safire.ac.za/module.php/safire/idp/singleLogout/f0b791c677" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://iziko.safire.ac.za/module.php/safire/idp/singleSignOnService/f0b791c677" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://iziko.safire.ac.za/module.php/safire/idp/singleSignOnService/f0b791c677" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://iziko.safire.ac.za/module.php/safire/idp/singleSignOnService/f0b791c677" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">George Whitefield College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">George Whitefield College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.gwc.ac.za</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>JodY Leukes</md:GivenName>
+      <md:EmailAddress>mailto:ict@gwc.ac.za</md:EmailAddress>
+      <md:TelephoneNumber>+27219380900</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>GWC Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:ict@gwc.ac.za</md:EmailAddress>
+      <md:TelephoneNumber>+27219380900</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>IT Administrator</md:GivenName>
+      <md:EmailAddress>mailto:ict@gwc.ac.za</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>South African Identity Federation</md:GivenName>
+      <md:EmailAddress>mailto:safire@tenet.ac.za</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

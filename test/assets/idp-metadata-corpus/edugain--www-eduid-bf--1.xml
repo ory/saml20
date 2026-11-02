@@ -1,0 +1,70 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://cames.fasoren.eduid.africa/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.eduid.bf" registrationInstant="2023-11-20T10:54:37Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.eduid.bf/docs/MRPS-eduid-bf-v1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cames.fasoren.eduid.africa</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">CAMES</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">CAMES</mdui:DisplayName>
+          <mdui:Logo height="200" width="200">https://fasoren.eduid.africa/images/idp_logo/64c8cd562d3cc.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIID2zCCAsMCFAhkCGmNFR7sH3cYNHXack2Xoz2lMA0GCSqGSIb3DQEBCwUAMIGp
+MQswCQYDVQQGEwJCRjEQMA4GA1UECAwHS0FESU9HTzEUMBIGA1UEBwwLT1VBR0FE
+T1VHT1UxDjAMBgNVBAoMBUNBTUVTMQ4wDAYDVQQLDAVDQU1FUzEjMCEGA1UEAwwa
+Y2FtZXMuZmFzb3Jlbi5lZHVpZC5hZnJpY2ExLTArBgkqhkiG9w0BCQEWHmtvdWRv
+dXNzb3Uub3VhdHRhcmFAd2FjcmVuLm5ldDAeFw0yNDExMTgxNTU4MTlaFw0yNjEx
+MTgxNTU4MTlaMIGpMQswCQYDVQQGEwJCRjEQMA4GA1UECAwHS0FESU9HTzEUMBIG
+A1UEBwwLT1VBR0FET1VHT1UxDjAMBgNVBAoMBUNBTUVTMQ4wDAYDVQQLDAVDQU1F
+UzEjMCEGA1UEAwwaY2FtZXMuZmFzb3Jlbi5lZHVpZC5hZnJpY2ExLTArBgkqhkiG
+9w0BCQEWHmtvdWRvdXNzb3Uub3VhdHRhcmFAd2FjcmVuLm5ldDCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAMJV1DZma2v5miGpgmtFf7rVrbzvzlKWthQX
+ac3gd5775h95FKru9YNy9T6aZCwYs629p4PVJumdJ1U9G9TVbTgwfpEIRy9CZnl9
+0A/0jvYbaQKrBN/+mVqFCztZwf4j0h96WwBFd5J9vurHc/OWS1QghlaTPFkezyKg
+Tre6WjqhSLEWiVkWiD06OuRysES3qlW9cPD7d/XTrlWK7bveTsHBB06VKDCRxAMI
+j2UDeHsAqMJR/LNxgWiCSvewbaqSOAv6pxs5TloQJFJUip6lnlvjhFRauKAPkGv1
+oqbj2rjOqVnn+CsKoOdKrus3ahUzBaFxdn8j76MUlCduhLKnTqMCAwEAATANBgkq
+hkiG9w0BAQsFAAOCAQEAnqYCChYnoQW1dQJ+uBPx/DqetxXWST9fJdNNP1VsWMfM
+b9LBZyS7mi9ICFMvp/yCNsB0paX/6A+VTiVR+Ky9fAgk8mIKPpSd1Z9oDCimtGhW
+Z9vHV0Cbo6XIoCuP/NPh9aYJpLLbd+SeJPhkPrkgT3IACYqsB2I+kziS/TdSV/E6
+OXnP/WSCLhhRnhB2/oXR4oNzWSUDs+IDkRLCAxxq6wZl0sIk0AJVqZZSdaJhAmtB
+H5Pnolorg+sc0ZworFHCTJrFpxPzJNL/ZmZCNv8XHxegbIdJNAHr8MrFSWUuL0rf
+xYt6koGYBstLFoQ5NSCEA/tvBx/3cAdNn5MKSrhlcg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cames.fasoren.eduid.africa/saml2/idp/SingleLogoutService.php" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cames.fasoren.eduid.africa/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cames.fasoren.eduid.africa/saml2/idp/SSOService.php" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cames.fasoren.eduid.africa/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="fr">CAMES</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">CAMES</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="fr">CAMES</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">CAMES</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="fr">https://www.lecames.org/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.lecames.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Briand</md:GivenName>
+      <md:SurName>IDOSSOU</md:SurName>
+      <md:EmailAddress>mailto:briand.idossou@lecames.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>Briand</md:GivenName>
+      <md:SurName>IDOSSOU</md:SurName>
+      <md:EmailAddress>mailto:briand.idossou@lecames.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="http://adfs.uni.gl/adfs/services/trust">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationInstant="2020-06-23T11:01:32Z" registrationAuthority="https://www.wayf.dk">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://wayf.dk/sites/default/files/uploads/PDF/MDRPS.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni.gl</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="gl">Ilisimatusarfik</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="da">Ilisimatusarfik</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Greenland</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">https://uk.uni.gl/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="da">https://da.uni.gl/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="gl">https://www.uni.gl/</mdui:InformationURL>
+          <mdui:Keywords xml:lang="da">Grønlands Universitet</mdui:Keywords>
+          <mdui:Logo height="88" width="100">data:image/gif;base64,R0lGODdhWABkAMQAAAAAAAsLCxQUFBwcHCMjIysrKzMzMzo6OkFBQUtLS1VVVWRkZG1tbYCAgKqqqr+/v////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABEALAAAAABYAGQAAAX/YCSOZGmeqEkIIpG+cCzP6DCsQkEEYsCLAxZtSCwGW73fKCCMFAbAW3FKLZAEAOhooOw1CVCBtkktv1alVTeyZm6hAa3VTK8ByNA7Kb7XRmx/AC4lfHV0N10CaldkACR+AgGDQJGGRAR6QAduQCKVnolKjUpgnJY0WEIGmz9SXhE7ZBECYmNJniyFnn6nI5NgAD8GEXq0vkM3OGwsXI9ZvKefSAF3uXGAZYPYzSN6R72wmX8uWI5g4CPS1KCn21lbUegln1il4nRgkI648jUr7z54ySICjU2rgv2WCFmDaRIRY7OUBHOY8MSgLgD0zCkSyUfAPwMropD4DuSQX1q+/4mcASgSgUEbZUgrgXBlih2CYPk5F4NLzk41baZQuTFYzBepdgmtw2VNz3tLy0QK+ZRqVBlNefF8RBFI16szZv4xteQnPLDZtlAbeKMjia9oaRQogEXSC59QgsbFGiziS54U6+rdG2OhEilkTRKu4/Sfj8W9HqPoSGsw5Bi6aki+XMYVDLicQ4seTbq06dOoU6tezbq169JWXxeGOguPLFOV0Yrhy6JJ3XQZB5UT3rdiUzLUQJPI2LTbPhHMyypJLnJAxibBLLPJeC/jnuezSgaKbQiTt8QmfIjh3ui6J/fhf5p3amO3kS7UuGdGoYa7eCZrxfeOeZnk9wwt1OxXQ/9uAvJRTjDimYANcPpVyNwdCVqnXxD+dQjeUx5yRwx7HJoSxEfOhKjiiiySp4KBLFYTB4D5NXZHjDjGqJ0JD+boYUh9weijj06VoMNfSOZjw5JMNunkkUkmo6STVFZpZZIvyablllx26eWXYIa5pX0m0KVDmMrFI+ZkQbjI2lZb1LKmYunMyUgrFO2oWkpSzEGLGGm2llKcnoUZBC+eBaraJzZ8NSGXTwQFhiJe/gDoCX48+loQLmjKiJ6QFZqOXhM+8QdqMZG5Yz6qbUSOm3FSgtpOOinaCT+oCQGIqUX8cJRo34jxq0xQZHnaEXAik8Zo9pFpxgBWJLvXGIPSMROfN4RhI8AwhkDkFazyaOGGqJbsVtCw/fiZ0IQ30GoEumnA8YhQnPAErhNGgvELTH8UK1SnttRGA0UExBTEHJOgt27BneqajGXQQMPrLPgSpmsT1c7LxEbbOIwrYdr40pssdBmwAsf+CiHtZTnEI0sYnTLyBhK5tnsFEppWxmprt7EwjLM95FWkaZ5mKqlraXo6zmqTwnuMnfxBrYLTCYUAADs=</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>uni.gl</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID6zCCAlOgAwIBAgIRAKYPwBuVdgCvzSOa/Z/dkFowDQYJKoZIhvcNAQELBQAw
+JzElMCMGA1UEAxMcd2F5Zi4zSy4yMDI1LnNpZ25pbmcucHJpLTE1NTAgFw0yNTEx
+MTExMTExMTFaGA8yMTI1MTExMTExMTExMVowJzElMCMGA1UEAxMcd2F5Zi4zSy4y
+MDI1LnNpZ25pbmcucHJpLTE1NTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoC
+ggGBANTzoQ2kjn43AzCFH+6nry/eu+sjF72C34IEeS6dP8MzCWlsKwDwBs3zg91L
+IIKSimLpSNzEFt1ndrSA8+JdEFktKcb+49aScXInHag0QPytcbH22Up5RPij7db5
+XaCqwEJtcx3Vfhx5jB1DEKTHrJ91+um93UFwBwUR8PXisMqRIUWa4WTsyLGcDl+K
+Eg+4+QC6mhYp/qh530UtlyudX9U/sjSEre1eavrsTrM93gY5DizZS/dGXk4Ixhgf
+3fg3dpJgDNozIFnWJ61PnTarZpsdc/0sGeIquYArBoRluOJrarRZdtSP1RGZxXGb
+vw8/j02oRCxLBRCptKjJc4goXn5fwjLKZEe3vvCAhjSkpu4Iw9B9MOsnut/BcmcG
+B7QPpyMXA3mWy3gkQ4aUXKQ5uBHbjAyyNuGGSdYQjc6vakcTxeOcJ7UnvLjgzNOE
+JqFX487MZlMiZSMYGSjps87LeGhPCCs+41P8SJ3POBUC7o9y656hOuwRuuUAqCPJ
+dGafOwIDAQABoxAwDjAMBgNVHRMBAf8EAjAAMA0GCSqGSIb3DQEBCwUAA4IBgQBr
+/5rX2JnBQ2jLQ6CNwjFUaq72Ab88DRS4Zyn+Y7N5puqms/v9t4h12zMRI1xJ6/jv
+/4/w/hEF0v2o9OqGgnHAxsyukBvup0sx0pOHktJ75wO1I9NDlmCTuHnF4qf8si0+
+bNnEamIjkdclScz7yFs2FzVVOgWGGH2ZzxaAV1vlPwRbbrslRJmP1w7hP2EJVlGq
+HfMcaJiHO+Yp0BIVZaBJvBM+YjroNhRuF119gM9oq2bHqs+dpgendwAy2flmYoyt
+DvjbcUNydrsF6Td1z+LTFNWB/m3im40VoVu9BYDyJY5NYJ0k6Mbh8GOpVaoKebCn
+KhUyz9zhJ2Cp9BS98Doz2qhryEkMjo0kWFD5qcUjN8EOq0qElCvM7gnB3iPjy7Id
+qNhe+bBSdkpLTGSVyxkyHLnh+nwaynp3fj2yIuXDBBzausuM2/01Di/di1ZW667/
+rYKQha5jIq9F/hwBTnUYFCLbaWJj2yoVjAbca0kvokJ7lQfWc0d9SdeIr9bcyMQ=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID8TCCAlmgAwIBAgIRAKols264MA/Pr6XPRKTJ+q4wDQYJKoZIhvcNAQELBQAw
+KjEoMCYGA1UEAxMfd2F5Zi4zSy4yMDI1LmVuY3J5cHRpb24ucHJpLTE1NTAgFw0y
+NTExMTExMTExMTFaGA8yMTI1MTExMTExMTExMVowKjEoMCYGA1UEAxMfd2F5Zi4z
+Sy4yMDI1LmVuY3J5cHRpb24ucHJpLTE1NTCCAaIwDQYJKoZIhvcNAQEBBQADggGP
+ADCCAYoCggGBAKLpUNDklC006U1WaVQjQ6hV+/lt/QnUptVpQmYXx5w+eRa40idt
+Dg9H1JQUzSlFoX79sSI3R0IYgfh1wX1JBr9zPlnROnEXusUtKHbmfSwePbkPpV9N
+q0tSVzpC2ep4G0UFPSyFC9+30Dq2KK9RXfDg6m102DIW0brCkToizh/29mtDj4JW
+232Dx1pFH12CDByg7j9SZpFsd0gCLLssAkfx6vCYAlfvGTRZvbRJwXQy1bGy69Hj
+AU3Y/OiCc8IDZP31Bf2e0V4+XsU/UCvM/lp6x53n6bRDGQxZycUh6PkBXlKLGV7e
+CPUfi2jFfLuzXBh5F9zukTPp4waGOxCbqFNZIyvNvn3YVoCXIllVsCt1vyAvWNjg
+If+zjgIRCo97gynmb3NDG04Rpntj2IgpAgcCLt3HcEshymYojf6lZGY2ZyC1PKWK
+9mzMKqUo5wpPFEICNru0hQ3vmVF6Jv/FKCj9/kyG4Z1xXorPRqlyUqFHA/eNoMUf
+rPd+bEHf7uoxKwIDAQABoxAwDjAMBgNVHRMBAf8EAjAAMA0GCSqGSIb3DQEBCwUA
+A4IBgQBuXA2XlJLCy4qS9pWidwjcdp4EiAZXlTlQruG3W7C4x8OiVQniat5JEVD3
+dDwml0RTJNI+JhHfaWNHZWhkpgH9ONGKVuoT2yFrfc7UZs56QswxsNj0r3S1VvtD
+0CcJ8h8tLgoKuF6R4qoxOXdla11KkvJBmvvoDAvFh+Rj2n3Hih/ZhSNsEbno2QDW
+Io18PV4tHTe4sybffsxLS0VK4ho1IKg44/G+jYJ7I/l/9Mqe5I52OD7pC3wBkyBu
+AjHJ+Uo2AjdVPtSBI6u5F08SKMngug16udtut1FRXy5oLCwxc3h2Xe6RIKF+qqr7
+1zePvrBIKUK3XBROPC3pUujopWefI+O/GRIxGoCYFe2v3dbS9m9nKe3d8VHwv9OL
+H6gAz2UIOWs51Kot8WwYK73Wx2Rv/lqOmC9nBVuf00ILOGpJft7p9kdCUsPyp2zK
+dZZEmITULEra3wC70OgGgrKbXLbkMloUw/lDHdJ4vbYVkiyQAWSk4ASADq2S3DcZ
+B4q2Uz4=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://birk.wayf.dk/SLO/birk3/adfs.uni.gl/adfs/ls/" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://birk.wayf.dk/birk3/adfs.uni.gl/adfs/ls/" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Greenland</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Greenland</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://uk.uni.gl</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Maren</md:GivenName>
+      <md:SurName>Mikkelsen-Lennert</md:SurName>
+      <md:EmailAddress>mailto:mml@uni.gl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>WAYF</md:GivenName>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>mailto:operations@wayf.dk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  
