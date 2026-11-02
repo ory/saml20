@@ -5766,11 +5766,26 @@
       "validate": {
         "options": {
           "audience": "http://localhost:8000/saml/metadata",
-          "publicKey": "-----BEGIN CERTIFICATE-----\nMIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJV\nUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0\nMB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMx\nCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCB\nnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9\nibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmH\nO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKv\nRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgk\nakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeT\nQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvn\nOwJlNCASPZRH/JmF8tX0hoHuAQ==\n-----END CERTIFICATE-----\n",
+          "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMM\nCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTgw\nOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNV\nBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0\nMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TI\nOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0IZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajf\nzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2EJuHMXMS786UY5GfD+/n0\ngRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9GIckQsyF+\nfsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8\nBINv9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEB\nCwUAA4IBAQBypFox/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyV\naXrYoHwPoWYpok6MYddMkoo2YuPGW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+Paqm\ntHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARunVy/pIuLowXrQUCF0cccePD8j\nryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQhXU85OE5qXEY\n92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr\n-----END CERTIFICATE-----\n",
           "bypassExpiration": true,
           "privateKeyFile": "keys/crewjam-sp-private.pem"
         },
-        "error": "Invalid assertion."
+        "result": {
+          "audience": "http://localhost:8000/saml/metadata",
+          "audiences": ["http://localhost:8000/saml/metadata"],
+          "claims": {
+            "Username": "FixedValue",
+            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "testuser@testrsc.com"
+          },
+          "issuer": "http://www.okta.com/exkppsa1qwuFV4D7z0h7",
+          "sessionIndex": "id-6d976cdde8e76df5df0a8ff58148fc0b7ec6796d",
+          "nameId": {
+            "value": "testuser@testrsc.com",
+            "format": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+          },
+          "assertionId": "id84938651821511611470546522",
+          "notOnOrAfter": "2020-03-03T19:36:55.895Z"
+        }
       }
     },
     "saml--testdata_TestSPCanHandleOktaSignedResponseEncryptedAssertion_response.xml": {
