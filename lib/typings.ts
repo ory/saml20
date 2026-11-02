@@ -71,9 +71,10 @@ export interface ValidateOptions extends ValidateSignatureOptions {
   // ID of the AuthnRequest this response answers (SP-initiated flows). When
   // set, the signed content must carry the same InResponseTo.
   inResponseTo?: string;
-  // ACS URL the response was posted to. When set, the signed content must
-  // name it (see validateRecipient).
-  recipient?: string;
+  // ACS URL the response was posted to, or the ACS URLs it may have been
+  // posted to. When set, the signed content must name one of them (see
+  // validateRecipient).
+  recipient?: string | string[];
   // Skip the NotBefore/NotOnOrAfter checks.
   bypassExpiration?: boolean;
   // One-time-use check: return true when the assertion was already used.

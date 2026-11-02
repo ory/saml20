@@ -314,12 +314,13 @@ const getBearerSubjectConfirmationData = (assertion: any): Record<string, string
     (item) => (item['@'] as Record<string, string> | undefined) || {}
   );
 
-// Whether the signed content addresses the assertion to `recipient`.
+// Whether the signed content addresses the assertion to one of `recipients`.
 //
+// Each candidate is judged on its own, as if it were the only one:
 // - A signed Response/@Destination, when present, must equal it.
 // - When any bearer SubjectConfirmationData carries a Recipient, ONE bearer
 //   confirmation must satisfy the Web Browser SSO profile checks together
-//   (profiles 4.1.4.2 and 4.1.4.3): its Recipient equals `recipient` AND its
+//   (profiles 4.1.4.2 and 4.1.4.3): its Recipient equals the candidate AND its
 //   own [NotBefore, NotOnOrAfter] window is currently valid. Confirmations are
 //   alternatives, so a matching Recipient on a lapsed confirmation cannot be
 //   combined with the valid window of a confirmation for another endpoint.
@@ -329,28 +330,33 @@ const getBearerSubjectConfirmationData = (assertion: any): Record<string, string
 //   Destination can name the endpoint, so it must be present.
 // - `bypassExpiration` skips the window part only, matching the option of the
 //   same name on validate(); the Recipient still has to match.
+// A Destination naming one candidate and a Recipient naming another is
+// therefore rejected: the response was addressed to a single endpoint.
 const validateRecipient = (
   assertion: any,
   signedDestination: string | undefined,
-  recipient: string,
+  recipient: string | string[],
   { bypassExpiration = false }: { bypassExpiration?: boolean } = {}
 ): boolean => {
-  if (signedDestination !== undefined && signedDestination !== recipient) {
-    return false;
-  }
-
   const withRecipient = getBearerSubjectConfirmationData(assertion).filter(
     (attrs) => attrs.Recipient !== undefined
   );
-  if (withRecipient.length === 0) {
-    return signedDestination !== undefined;
-  }
 
-  return withRecipient.some(
-    (attrs) =>
-      attrs.Recipient === recipient &&
-      (bypassExpiration || checkWindow(attrs.NotBefore, attrs.NotOnOrAfter) === 'valid')
-  );
+  const matches = (candidate: string): boolean => {
+    if (signedDestination !== undefined && signedDestination !== candidate) {
+      return false;
+    }
+    if (withRecipient.length === 0) {
+      return signedDestination !== undefined;
+    }
+    return withRecipient.some(
+      (attrs) =>
+        attrs.Recipient === candidate &&
+        (bypassExpiration || checkWindow(attrs.NotBefore, attrs.NotOnOrAfter) === 'valid')
+    );
+  };
+
+  return (Array.isArray(recipient) ? recipient : [recipient]).some(matches);
 };
 
 const getAssertionId = (assertion: any): string | undefined => {

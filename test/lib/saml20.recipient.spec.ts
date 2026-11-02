@@ -80,7 +80,7 @@ function build({ destination = ACS_A, recipients = [ACS_A], signResponse = false
   return sign(xml, privateKey, cert, xpath);
 }
 
-async function expectInvalidRecipient(xml: string, recipient: string) {
+async function expectInvalidRecipient(xml: string, recipient: string | string[]) {
   await assert.rejects(
     () => validate(xml, { audience: AUDIENCE, publicKey: cert, recipient }),
     (err: Error) => {
@@ -90,7 +90,11 @@ async function expectInvalidRecipient(xml: string, recipient: string) {
   );
 }
 
-async function expectAccepted(xml: string, recipient?: string, extra: Record<string, unknown> = {}) {
+async function expectAccepted(
+  xml: string,
+  recipient?: string | string[],
+  extra: Record<string, unknown> = {}
+) {
   const profile = await validate(xml, { audience: AUDIENCE, publicKey: cert, recipient, ...extra });
   assert.strictEqual(profile.issuer, 'https://idp');
 }
@@ -225,6 +229,61 @@ describe('saml20: recipient binding', () => {
         }
       );
     });
+  });
+
+  describe('several recipients', () => {
+    // An SP that accepts responses at more than one address passes them all;
+    // each is judged as if it were the only one.
+    it('accepts when the signed Recipient is any listed candidate', async () => {
+      await expectAccepted(build(), [ACS_B, ACS_A]);
+      await expectAccepted(build({ destination: ACS_B, recipients: [ACS_B] }), [ACS_A, ACS_B]);
+    });
+
+    it('rejects when no candidate is named', async () => {
+      await expectInvalidRecipient(build(), [ACS_B, 'https://sp.jackson.example/api/oauth/saml/provider-c']);
+    });
+
+    it('rejects a signed Destination and Recipient that name different candidates', async () => {
+      const signed = build({ signResponse: true, destination: ACS_B, recipients: [ACS_A] });
+      await expectInvalidRecipient(signed, [ACS_A, ACS_B]);
+    });
+
+    it('accepts a signed Destination naming a later candidate when no Recipient is present', async () => {
+      await expectAccepted(build({ signResponse: true, destination: ACS_B, recipients: [null] }), [
+        ACS_A,
+        ACS_B,
+      ]);
+    });
+
+    it('does not let a lapsed confirmation for one candidate borrow the window of another', async () => {
+      const signed = build({
+        recipients: [
+          { recipient: ACS_A, window: 'expired' },
+          { recipient: ACS_B, window: 'valid' },
+        ],
+      });
+      // B is valid and listed, so it matches; A alone does not.
+      await expectAccepted(signed, [ACS_A, ACS_B]);
+      await expectInvalidRecipient(signed, [ACS_A]);
+    });
+
+    it('behaves like the single form for a one-element list', async () => {
+      await expectAccepted(build(), [ACS_A]);
+      await expectInvalidRecipient(build(), [ACS_B]);
+    });
+
+    const malformed = ['', [], [ACS_A, ''], [ACS_A, 1]] as unknown as (string | string[])[];
+    for (const recipient of malformed) {
+      it(`rejects ${JSON.stringify(recipient)} as the option instead of skipping the check`, async () => {
+        await assert.rejects(
+          () => validate(build(), { audience: AUDIENCE, publicKey: cert, recipient }),
+          (err: Error) => {
+            assert.strictEqual(err.message, 'recipient must be a non-empty URL or a non-empty list of them.');
+            return true;
+          }
+        );
+      });
+    }
   });
 
   it('does not check anything when no recipient is supplied', async () => {
