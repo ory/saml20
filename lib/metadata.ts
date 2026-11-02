@@ -28,6 +28,11 @@ type ParsedMetadata = {
   loginType: 'idp' | 'sp';
 };
 
+// An element with attributes (Go's encoding/xml puts xmlns on every element)
+// is parsed as { $: {...}, _: text } rather than a plain string.
+const elementText = (element: unknown): string | undefined =>
+  typeof element === 'string' ? element : (element as { _?: string } | undefined)?._;
+
 const parseMetadata = async (
   idpMeta: string,
   validateOpts: ParseMetadataOptions = {}
@@ -65,7 +70,7 @@ const parseMetadata = async (
     for (const keyDesRec of keyDes) {
       const ki = keyDesRec['KeyInfo']?.[0];
       const cd = ki?.['X509Data']?.[0];
-      const x509cert = cd?.['X509Certificate']?.[0];
+      const x509cert = elementText(cd?.['X509Certificate']?.[0]);
       if (keyDesRec['$'] && keyDesRec['$'].use === 'signing') {
         if (x509cert) {
           X509Certificates.push(x509cert);

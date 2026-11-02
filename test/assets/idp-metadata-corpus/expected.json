@@ -1,6 +1,6 @@
 {
   "generatedWith": "@boxyhq/saml20@1.22.0",
-  "note": "parseMetadata output per document. error messages have OpenSSL error codes replaced by *.",
+  "note": "parseMetadata output per document. error messages have OpenSSL error codes replaced by *. Entries with fixedFrom record a 1.22.0 failure that this parser fixes; their result is the current output.",
   "documents": {
     "edugain--aaf-edu-au--1.xml": {
       "result": {
@@ -5274,10 +5274,34 @@
       "error": "error:*:asn1 encoding routines::wrong tag"
     },
     "sp--saml--samlidp_testdata_sp_metadata.xml": {
-      "error": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
+      "result": {
+        "sso": {
+          "postUrl": "https://example.com/saml2/acs"
+        },
+        "slo": {},
+        "entityID": "https://example.com/saml2/metadata",
+        "publicKey": "MIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJVUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9ibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmHO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKvRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgkakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeTQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvnOwJlNCASPZRH/JmF8tX0hoHuAQ==",
+        "thumbprint": "7c95bac97f1e932848099c2ae313ca1afd03e28d",
+        "validTo": "Oct  2 00:08:51 2014 GMT",
+        "loginType": "sp"
+      },
+      "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--saml--samlsp_testdata_expected_middleware_metadata.xml": {
-      "error": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
+      "result": {
+        "sso": {
+          "postUrl": "https://15661444.ngrok.io/saml2/acs"
+        },
+        "slo": {
+          "postUrl": "https://15661444.ngrok.io/saml2/slo"
+        },
+        "entityID": "https://15661444.ngrok.io/saml2/metadata",
+        "publicKey": "MIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJVUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9ibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmHO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKvRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgkakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeTQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvnOwJlNCASPZRH/JmF8tX0hoHuAQ==",
+        "thumbprint": "7c95bac97f1e932848099c2ae313ca1afd03e28d",
+        "validTo": "Oct  2 00:08:51 2014 GMT",
+        "loginType": "sp"
+      },
+      "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--saml--testdata_TestCanParseMetadata_metadata.xml": {
       "error": "Could not find X509Certificate in the IdP metadata."
@@ -5289,7 +5313,20 @@
       "error": "Could not find X509Certificate in the IdP metadata."
     },
     "sp--saml--testdata_TestCanProduceSPMetadata_expected.xml": {
-      "error": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
+      "result": {
+        "sso": {
+          "postUrl": "http://localhost:5000/e087a985171710fb9fb30f30f41384f9/saml2/ls/"
+        },
+        "slo": {
+          "redirectUrl": "http://localhost:5000/e087a985171710fb9fb30f30f41384f9/saml2/ls/"
+        },
+        "entityID": "http://localhost:5000/e087a985171710fb9fb30f30f41384f9/saml2/metadata/",
+        "publicKey": "MIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJVUzELMAkGA1UE\nCAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTEzMTAwMjAwMDg1MVoX\nDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28x\nEjAQBgNVBAMMCWxvY2FsaG9zdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308\nkWLhZVT4vOulqx/9ibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTv\nSPmHO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKvRsw0X/gf\nnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgkakpMdAqJfs24maGb90Dv\nTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeTQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+\ncvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvnOwJlNCASPZRH/JmF8tX0hoHuAQ==",
+        "thumbprint": "7c95bac97f1e932848099c2ae313ca1afd03e28d",
+        "validTo": "Oct  2 00:08:51 2014 GMT",
+        "loginType": "sp"
+      },
+      "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--saml--testdata_TestIDPNoDestination_idp_metadata.xml": {
       "error": "Could not find X509Certificate in the IdP metadata."
@@ -5301,16 +5338,67 @@
       "error": "Could not find X509Certificate in the IdP metadata."
     },
     "sp--saml--testdata_TestSPCanProduceMetadataWithBothCerts_metadata.xml": {
-      "error": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
+      "result": {
+        "sso": {
+          "postUrl": "https://example.com/saml2/acs"
+        },
+        "slo": {
+          "postUrl": "https://example.com/saml2/slo"
+        },
+        "entityID": "https://example.com/saml2/metadata",
+        "publicKey": "MIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJVUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9ibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmHO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKvRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgkakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeTQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvnOwJlNCASPZRH/JmF8tX0hoHuAQ==",
+        "thumbprint": "7c95bac97f1e932848099c2ae313ca1afd03e28d",
+        "validTo": "Oct  2 00:08:51 2014 GMT",
+        "loginType": "sp"
+      },
+      "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--saml--testdata_TestSPCanProduceMetadataWithBothLougoutBindings_metadata.xml": {
-      "error": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
+      "result": {
+        "sso": {
+          "postUrl": "https://example.com/saml2/acs"
+        },
+        "slo": {
+          "redirectUrl": "https://example.com/saml2/slo",
+          "postUrl": "https://example.com/saml2/slo"
+        },
+        "entityID": "https://example.com/saml2/metadata",
+        "publicKey": "MIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJVUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9ibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmHO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKvRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgkakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeTQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvnOwJlNCASPZRH/JmF8tX0hoHuAQ==",
+        "thumbprint": "7c95bac97f1e932848099c2ae313ca1afd03e28d",
+        "validTo": "Oct  2 00:08:51 2014 GMT",
+        "loginType": "sp"
+      },
+      "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--saml--testdata_TestSPCanProduceMetadataWithEncryptionCert_metadata.xml": {
-      "error": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
+      "result": {
+        "sso": {
+          "postUrl": "https://example.com/saml2/acs"
+        },
+        "slo": {
+          "postUrl": "https://example.com/saml2/slo"
+        },
+        "entityID": "https://example.com/saml2/metadata",
+        "publicKey": "MIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJVUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9ibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmHO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKvRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgkakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeTQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvnOwJlNCASPZRH/JmF8tX0hoHuAQ==",
+        "thumbprint": "7c95bac97f1e932848099c2ae313ca1afd03e28d",
+        "validTo": "Oct  2 00:08:51 2014 GMT",
+        "loginType": "sp"
+      },
+      "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--saml--testdata_TestSPCanProduceMetadataWithNoLougoutBindings_metadata.xml": {
-      "error": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
+      "result": {
+        "sso": {
+          "postUrl": "https://example.com/saml2/acs"
+        },
+        "slo": {},
+        "entityID": "https://example.com/saml2/metadata",
+        "publicKey": "MIIB7zCCAVgCCQDFzbKIp7b3MTANBgkqhkiG9w0BAQUFADA8MQswCQYDVQQGEwJVUzELMAkGA1UECAwCR0ExDDAKBgNVBAoMA2ZvbzESMBAGA1UEAwwJbG9jYWxob3N0MB4XDTEzMTAwMjAwMDg1MVoXDTE0MTAwMjAwMDg1MVowPDELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkdBMQwwCgYDVQQKDANmb28xEjAQBgNVBAMMCWxvY2FsaG9zdDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1PMHYmhZj308kWLhZVT4vOulqx/9ibm5B86fPWwUKKQ2i12MYtz07tzukPymisTDhQaqyJ8Kqb/6JjhmeMnEOdTvSPmHO8m1ZVveJU6NoKRn/mP/BD7FW52WhbrUXLSeHVSKfWkNk6S4hk9MV9TswTvyRIKvRsw0X/gfnqkroJcCAwEAATANBgkqhkiG9w0BAQUFAAOBgQCMMlIO+GNcGekevKgkakpMdAqJfs24maGb90DvTLbRZRD7Xvn1MnVBBS9hzlXiFLYOInXACMW5gcoRFfeTQLSouMM8o57h0uKjfTmuoWHLQLi6hnF+cvCsEFiJZ4AbF+DgmO6TarJ8O05t8zvnOwJlNCASPZRH/JmF8tX0hoHuAQ==",
+        "thumbprint": "7c95bac97f1e932848099c2ae313ca1afd03e28d",
+        "validTo": "Oct  2 00:08:51 2014 GMT",
+        "loginType": "sp"
+      },
+      "fixedFrom": "1.22.0: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object"
     },
     "sp--samlify--test_misc_sp_metadata_98.xml": {
       "error": "Could not find X509Certificate in the IdP metadata."

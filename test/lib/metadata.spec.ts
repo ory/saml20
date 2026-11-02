@@ -366,6 +366,15 @@ describe('parseMetadata error and tolerance cases', function () {
     fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString()
   );
 
+  it('reads a certificate whose element carries attributes (xmlns on every element)', async () => {
+    const plain = await parseMetadata(idpMetadata(signingKey(cert)), {});
+    const withAttributes = idpMetadata(signingKey(cert)).replace(
+      '<ds:X509Certificate>',
+      '<ds:X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">'
+    );
+    assert.deepStrictEqual(await parseMetadata(withAttributes, {}), plain);
+  });
+
   it('parses metadata whose Extensions use names that Object.prototype also defines', async () => {
     const extensions =
       '<md:Extensions xmlns:e="urn:example:extension">' +
