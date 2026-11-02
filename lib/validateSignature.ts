@@ -46,7 +46,7 @@ export interface ValidateSignatureOptions {
  */
 export const DEFAULT_MAX_SIGNATURE_REFERENCES = 16;
 
-const isMultiCert = (cert) => {
+const isMultiCert = (cert: string) => {
   return cert.indexOf(',') !== -1;
 };
 
@@ -87,7 +87,7 @@ const applyAlgorithmAllowlists = (signed: SignedXml, options?: ValidateSignature
 // outside the allowlists. The narrowed registries above are the actual
 // enforcement; this only turns the generic "not supported" (which the
 // multi-certificate loop would otherwise swallow) into a clear message.
-const assertAllowedAlgorithms = (signed: SignedXml, signature, options?: ValidateSignatureOptions) => {
+const assertAllowedAlgorithms = (signed: SignedXml, signature: Node, options?: ValidateSignatureOptions) => {
   if (!options) {
     return;
   }
@@ -146,7 +146,7 @@ const countSignedInfoReferences = (signature: Node): number =>
 // nothing gets canonicalized. Only SignedInfo's direct Reference children are
 // counted: that is exactly the set xml-crypto iterates, so a Manifest inside an
 // unsigned ds:Object neither inflates the count nor gets a document rejected.
-const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) => {
+const assertBoundedReferences = (signature: Node, options?: ValidateSignatureOptions) => {
   const max = options?.maxSignatureReferences ?? DEFAULT_MAX_SIGNATURE_REFERENCES;
   // `count > NaN` and `count > Infinity` are both false, so a malformed
   // ceiling would silently switch the guard off. Refuse it instead.
@@ -159,28 +159,22 @@ const assertBoundedReferences = (signature, options?: ValidateSignatureOptions) 
   }
 };
 
-const hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string | null => {
+const hasValidSignature = (
+  xml: string,
+  cert: string | null | undefined,
+  certThumbprint: string | null | undefined,
+  options?: ValidateSignatureOptions
+): string | null => {
   const doc = parseFromString(xml);
+  // @ts-expect-error missing Node properties are not needed
+  const selectNodes = (expression: string) => select(expression, doc!) as Node[];
   let signature =
-    select(
-      `/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
-      // @ts-expect-error missing Node properties are not needed
-      doc!
-    )?.[0] ||
-    select(
-      `/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
-      // @ts-expect-error missing Node properties are not needed
-      doc!
-    )?.[0] ||
-    select(
-      `/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`,
-      // @ts-expect-error missing Node properties are not needed
-      doc!
-    )?.[0];
+    selectNodes(`/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0] ||
+    selectNodes(`/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0] ||
+    selectNodes(`/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0];
 
   if (!signature) {
-    // @ts-expect-error missing Node properties are not needed
-    signature = select("//*[local-name(.)='Signature']", doc!)?.[0];
+    signature = selectNodes("//*[local-name(.)='Signature']")?.[0];
   }
 
   if (!signature) {
@@ -247,7 +241,7 @@ const hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatur
         return null;
       }
       // Case A: use the pre-configured trusted certificate
-      return certToPEM(cert);
+      return cert ? certToPEM(cert) : null;
     };
 
     valid = signed.checkSignature(xml);
@@ -261,7 +255,12 @@ const hasValidSignature = (xml, cert, certThumbprint, options?: ValidateSignatur
 
 // Returns null when the signature does not verify, and throws when the
 // document cannot be checked at all; validate() retries only on null.
-const verifySignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string | null => {
+const verifySignature = (
+  xml: string,
+  cert: string | null | undefined,
+  certThumbprint: string | null | undefined,
+  options?: ValidateSignatureOptions
+): string | null => {
   if (cert && certThumbprint) {
     throw new Error('You should provide either cert or certThumbprint, not both');
   }
@@ -271,7 +270,12 @@ const verifySignature = (xml, cert, certThumbprint, options?: ValidateSignatureO
 
 // Returns the signed XML, which is what callers must read from; throws when
 // the signature does not verify.
-const validateSignature = (xml, cert, certThumbprint, options?: ValidateSignatureOptions): string => {
+const validateSignature = (
+  xml: string,
+  cert: string | null | undefined,
+  certThumbprint: string | null | undefined,
+  options?: ValidateSignatureOptions
+): string => {
   const signedXml = verifySignature(xml, cert, certThumbprint, options);
   if (!signedXml) {
     throw new Error('invalid signature: the signature does not verify');
@@ -279,7 +283,7 @@ const validateSignature = (xml, cert, certThumbprint, options?: ValidateSignatur
   return signedXml;
 };
 
-const sanitizeXML = (xml) => {
+const sanitizeXML = (xml: string) => {
   return xml.replace(/&#x(d|D);/gi, '');
 };
 

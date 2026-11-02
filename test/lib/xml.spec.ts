@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { xmlToObject } from '../../lib/xml';
 import { doctypeNotAllowedError, multiRootedXMLError } from '../../lib/utils';
 

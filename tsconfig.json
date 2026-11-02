@@ -4,8 +4,8 @@
     "outDir": "./dist",
 
     "module": "CommonJS",
-    "target": "ES2019",
-    "lib": ["ES2019"],
+    "target": "ES2022",
+    "lib": ["ES2022"],
 
     "declaration": true,
     "sourceMap": true,
@@ -17,8 +17,6 @@
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-
-    "noImplicitAny": false,
   },
   "include": ["./lib/**/*"],
   "exclude": ["node_modules", "test/**/*"],

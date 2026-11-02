@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { default as saml20 } from '../../lib/saml20';
 import fs from 'fs';
 

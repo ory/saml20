@@ -43,7 +43,7 @@ const parseFromString = (xmlString: string, xmlns?: Record<string, string>) => {
 
   const errors: string[] = [];
   let multiRootErrFound = false;
-  const onError = (level, msg) => {
+  const onError = (level: string, msg: string) => {
     if (isMultiRootedXMLError({ message: msg })) {
       if (!multiRootErrFound) {
         multiRootErrFound = true;

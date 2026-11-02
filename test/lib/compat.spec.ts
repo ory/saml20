@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import fs from 'fs';
 import path from 'path';
 import * as root from '../../lib/index';

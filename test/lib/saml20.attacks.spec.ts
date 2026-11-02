@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { parseIssuer, validate } from '../../lib/response';
 import { multiRootedXMLError } from '../../lib/utils';
 import fs from 'fs';

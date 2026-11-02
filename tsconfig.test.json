@@ -6,7 +6,7 @@
     "rootDir": ".",
     "noEmit": true,
     // TypeScript 6 no longer loads every @types package by default.
-    "types": ["mocha", "node"],
+    "types": ["node"],
   },
   "include": ["./lib/**/*", "./test/**/*"],
   "exclude": ["node_modules"],

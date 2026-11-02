@@ -101,9 +101,9 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 ## Tests
 
 ```bash
-$ npm test            # mocha with coverage
+$ npm test            # node:test with coverage
 $ npm run typecheck   # type-checks lib/ and test/
-$ npm run lint
+$ npm run lint       # oxlint
 ```
 
 Fixtures live in `test/assets`. Tests that need a fresh validity window, or a shape the fixtures do not have, build and sign their own documents with the helpers in `test/helpers/fixtures.ts`.

@@ -8,10 +8,10 @@ const givenNameClaimType = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claim
 const surnameClaimType = 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname';
 const nameidFormatEmailAddress = 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress';
 
-function getClaims(attributes) {
-  const claims = {};
+function getClaims(attributes: any[]) {
+  const claims: Record<string, unknown> = {};
 
-  attributes.forEach(function attributesForEach(attribute) {
+  attributes.forEach(function attributesForEach(attribute: any) {
     const attributeName = attribute['@'].Name;
     const friendlyName = attribute['@'].FriendlyName;
 
@@ -35,19 +35,23 @@ function getClaims(attributes) {
   return claims;
 }
 
-function trimWords(phrase) {
+function trimWords(phrase: string) {
   return phrase
     .split(' ')
-    .map(function wordMapping(w) {
+    .map(function wordMapping(w: string) {
       return w.trim();
     })
-    .filter(function wordFiltering(w) {
+    .filter(function wordFiltering(w: string) {
       return !!w;
     })
     .join(' ');
 }
 
-function getExtendedProp(obj, prop?: string, extraProp?: string) {
+function getExtendedProp(
+  obj: any,
+  prop?: string,
+  extraProp?: string
+): { result?: any; format?: string | null } {
   let result = prop ? getAttribute(obj, prop) : obj;
   const format = result && result['@'] && result['@'].Format ? result['@'].Format : null;
 
@@ -70,13 +74,13 @@ function getExtendedProp(obj, prop?: string, extraProp?: string) {
   return {};
 }
 
-function getProp(obj, prop?: string, extraProp?: string) {
+function getProp(obj: any, prop?: string, extraProp?: string): any {
   return getExtendedProp(obj, prop, extraProp).result;
 }
 
 // The Subject NameID with its attributes, its value kept exactly as asserted:
 // a LogoutRequest has to name the subject the IdP issued, whitespace included.
-const assertedNameId = (assertion): AssertedNameID | undefined => {
+const assertedNameId = (assertion: any): AssertedNameID | undefined => {
   const nameId = getAttribute<unknown>(assertion, 'Subject.NameID');
   const element =
     typeof nameId === 'object' && nameId !== null
@@ -104,9 +108,9 @@ const assertedNameId = (assertion): AssertedNameID | undefined => {
   };
 };
 
-const parse = (assertion) => {
-  let claims = {};
-  let attributes = getAttribute(assertion, 'AttributeStatement.Attribute');
+const parse = (assertion: any) => {
+  let claims: Record<string, unknown> = {};
+  let attributes = getAttribute<any>(assertion, 'AttributeStatement.Attribute');
 
   if (attributes) {
     attributes = attributes instanceof Array ? attributes : [attributes];
@@ -142,7 +146,7 @@ const parse = (assertion) => {
 
 // Audiences are compared exactly. A prefix match would accept an assertion
 // issued for any identifier that merely starts with the relying party's.
-const audienceCheck = (audience, expectedAudience) =>
+const audienceCheck = (audience: unknown, expectedAudience: unknown) =>
   typeof audience === 'string' && typeof expectedAudience === 'string' && audience === expectedAudience;
 
 const toArray = <T>(value: T | T[] | undefined | null): T[] => {
@@ -153,7 +157,7 @@ const toArray = <T>(value: T | T[] | undefined | null): T[] => {
 };
 
 // The <Audience> values of each <AudienceRestriction>, in document order.
-const getAudienceRestrictions = (assertion): unknown[][] =>
+const getAudienceRestrictions = (assertion: any): unknown[][] =>
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   toArray<any>(getAttribute<any>(assertion, 'Conditions.AudienceRestriction')).map((restriction) =>
     toArray(getAttribute(restriction, 'Audience')).map((audience) => getProp(audience))
@@ -164,7 +168,7 @@ const getAudienceRestrictions = (assertion): unknown[][] =>
 // <Audience> values are alternatives, so any one of them may name the relying
 // party. `realm` is the relying party's own identifier, or a list of them;
 // an Audience must equal one of them exactly.
-const validateAudience = (assertion, realm) => {
+const validateAudience = (assertion: any, realm: unknown) => {
   try {
     const expected = toArray(realm);
     const restrictions = getAudienceRestrictions(assertion);
@@ -192,7 +196,7 @@ const BEARER_METHOD = 'urn:oasis:names:tc:SAML:2.0:cm:bearer';
 // confirmations. Bearer assertions carry their expiration here rather than
 // (or in addition to) Conditions.
 const getSubjectConfirmationData = (
-  assertion,
+  assertion: any,
   { bearerOnly = false }: { bearerOnly?: boolean } = {}
 ): Record<string, unknown>[] => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -244,7 +248,7 @@ const checkWindow = (notBefore?: string, notOnOrAfter?: string): WindowResult =>
   return 'valid';
 };
 
-const validateExpiration = (assertion) => {
+const validateExpiration = (assertion: any) => {
   // The <Conditions> window is an absolute constraint on the assertion (SAML
   // core 2.5.1): when present it must be satisfied. A present-but-unparseable
   // bound is treated as invalid.
@@ -279,14 +283,14 @@ const validateExpiration = (assertion) => {
 // InResponseTo read from the outer <Response> wrapper. Only trust this when the
 // whole Response is signed; the wrapper is unsigned in the common
 // assertion-only-signed case.
-const getInResponseTo = (xml) => {
+const getInResponseTo = (xml: any) => {
   return getProp(xml, 'Response.@.InResponseTo');
 };
 
 // InResponseTo carried inside the bearer SubjectConfirmationData. This element
 // lives inside the <Assertion> and is therefore covered by the assertion
 // signature even when the outer <Response> wrapper is not signed.
-const getSubjectConfirmationInResponseTo = (assertion): string | undefined => {
+const getSubjectConfirmationInResponseTo = (assertion: any): string | undefined => {
   for (const scd of getSubjectConfirmationData(assertion)) {
     const inResponseTo = (scd['@'] as Record<string, string> | undefined)?.InResponseTo;
     if (inResponseTo) {
@@ -298,14 +302,14 @@ const getSubjectConfirmationInResponseTo = (assertion): string | undefined => {
 
 // Destination read from the outer <Response> wrapper. Like getInResponseTo,
 // only trust this when the whole Response is signed.
-const getDestination = (xml): string | undefined => {
+const getDestination = (xml: any): string | undefined => {
   return getProp(xml, 'Response.@.Destination');
 };
 
 // Attributes of the bearer SubjectConfirmationData elements only. These live
 // inside the <Assertion> and are covered by the assertion signature even when
 // the outer <Response> wrapper is not signed.
-const getBearerSubjectConfirmationData = (assertion): Record<string, string>[] =>
+const getBearerSubjectConfirmationData = (assertion: any): Record<string, string>[] =>
   getSubjectConfirmationData(assertion, { bearerOnly: true }).map(
     (item) => (item['@'] as Record<string, string> | undefined) || {}
   );
@@ -326,7 +330,7 @@ const getBearerSubjectConfirmationData = (assertion): Record<string, string>[] =
 // - `bypassExpiration` skips the window part only, matching the option of the
 //   same name on validate(); the Recipient still has to match.
 const validateRecipient = (
-  assertion,
+  assertion: any,
   signedDestination: string | undefined,
   recipient: string,
   { bypassExpiration = false }: { bypassExpiration?: boolean } = {}
@@ -349,7 +353,7 @@ const validateRecipient = (
   );
 };
 
-const getAssertionId = (assertion): string | undefined => {
+const getAssertionId = (assertion: any): string | undefined => {
   return getAttribute<string | undefined>(assertion, '@.ID');
 };
 
@@ -360,7 +364,7 @@ const getAssertionId = (assertion): string | undefined => {
 // confirmations are alternatives, the bearer side is governed by the LATEST
 // SubjectConfirmationData/@NotOnOrAfter. Callers key replay-cache TTLs off this
 // value, so it must reflect the real window in which the assertion can validate.
-const getNotOnOrAfter = (assertion): string | undefined => {
+const getNotOnOrAfter = (assertion: any): string | undefined => {
   const upperBounds: string[] = [];
 
   const conditionsNotOnOrAfter = getAttribute<string | undefined>(assertion, 'Conditions.@.NotOnOrAfter');
