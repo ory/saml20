@@ -297,6 +297,25 @@ describe('saml20 time windows, recipients and expiry edges', function () {
       };
       assert.strictEqual(saml20.validateRecipient(assertion, undefined, ACS), true);
     });
+
+    it('accepts a list and judges each candidate on its own', function () {
+      const other = 'https://other/acs';
+      const assertion = {
+        Subject: {
+          SubjectConfirmation: {
+            '@': { Method: BEARER },
+            SubjectConfirmationData: { '@': { Recipient: ACS, NotOnOrAfter: minutes(10) } },
+          },
+        },
+      };
+      assert.strictEqual(saml20.validateRecipient(assertion, undefined, [other, ACS]), true);
+      assert.strictEqual(saml20.validateRecipient(assertion, undefined, [other]), false);
+      assert.strictEqual(saml20.validateRecipient(assertion, ACS, [other, ACS]), true);
+      // Destination names one candidate, Recipient another: no single candidate fits.
+      assert.strictEqual(saml20.validateRecipient(assertion, other, [other, ACS]), false);
+      assert.strictEqual(saml20.validateRecipient({}, other, [ACS, other]), true);
+      assert.strictEqual(saml20.validateRecipient(assertion, undefined, []), false);
+    });
   });
 
   describe('getNotOnOrAfter', function () {

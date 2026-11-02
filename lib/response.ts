@@ -65,6 +65,20 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     throw new Error('audience is required.');
   }
 
+  // An empty list or entry would make the check below pass for nothing, or
+  // skip it; neither is what a caller who set the option wants.
+  if (options.recipient !== undefined) {
+    const recipients: unknown[] = Array.isArray(options.recipient)
+      ? Array.from(options.recipient)
+      : [options.recipient];
+    if (
+      recipients.length === 0 ||
+      !recipients.every((recipient) => typeof recipient === 'string' && recipient !== '')
+    ) {
+      throw new Error('recipient must be a non-empty URL or a non-empty list of them.');
+    }
+  }
+
   // Optional algorithm allowlists and the Reference ceiling, forwarded to
   // validateSignature. Leaving them out keeps the defaults.
   const signatureOptions: ValidateSignatureOptions = {
@@ -171,9 +185,9 @@ const checkAssertion = async (
     return new Error('Invalid InResponseTo.');
   }
 
-  // Fail closed: when the caller supplies the ACS URL the response was
-  // posted to, the signed content must name it (see validateRecipient for
-  // the exact rule). Without this, an assertion issued for one SP endpoint
+  // Fail closed: when the caller supplies the ACS URL(s) the response may
+  // have been posted to, the signed content must name one of them (see
+  // validateRecipient for the exact rule). Without this, an assertion issued for one SP endpoint
   // can be posted to another that shares the IdP signing key and the
   // audience. The unsigned <Response> wrapper is never consulted, so
   // editing its Destination cannot satisfy the check.
