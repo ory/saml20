@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { decryptXml } from '../../lib/decrypt';
 import { validate } from '../../lib/response';
 import { multiRootedXMLError, WrapError } from '../../lib/utils';
@@ -27,14 +28,9 @@ const options = {
   privateKey: privateKey,
 };
 describe('decrypt.ts', function () {
-  it('valid xml', function (done) {
-    try {
-      const { assertion } = decryptXml(samlResponseEncrypted, options);
-      assert(assertion);
-      done();
-    } catch (error) {
-      done(error);
-    }
+  it('valid xml', function () {
+    const { assertion } = decryptXml(samlResponseEncrypted, options);
+    assert(assertion);
   });
 
   it('empty xml ', function () {

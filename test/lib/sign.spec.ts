@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { sign } from '../../lib/sign';
 import { validateSignature } from '../../lib/validateSignature';
 import { stripCertHeaderAndFooter } from '../../lib/cert';

@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import crypto from 'crypto';
 import fs from 'fs';
 import { stripCertHeaderAndFooter, PubKeyInfo, certToPEM, ensurePemArmor } from '../../lib/cert';

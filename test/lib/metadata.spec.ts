@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from '../../lib/metadata';
 import type { ParsedMetadata, ParseMetadataOptions } from '../../lib/metadata';
 import { doctypeNotAllowedError, thumbprint } from '../../lib/utils';

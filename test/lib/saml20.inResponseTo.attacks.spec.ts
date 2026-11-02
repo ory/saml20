@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import fs from 'fs';
 import { sign } from '../../lib/sign';
 import { validate } from '../../lib/response';

@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it } from 'node:test';
+import assert from 'node:assert';
 import { default as saml } from '../../lib/index';
 import * as namedExports from '../../lib/index';
 import type { AssertionReplayInfo, SAMLProfile, SAMLReq, ValidateOptions } from '../../lib/index';

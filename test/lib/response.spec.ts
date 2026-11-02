@@ -1,4 +1,5 @@
-import assert from 'assert';
+import { describe, it, before } from 'node:test';
+import assert from 'node:assert';
 import { parseIssuer, validate, createSAMLResponse, WrapError } from '../../lib/response';
 import type { ValidateOptions } from '../../lib/typings';
 import { doctypeNotAllowedError } from '../../lib/utils';
@@ -179,18 +180,16 @@ describe('response.ts', function () {
       assert.strictEqual(result, 'publicKey or thumbprint are options required.');
     }
   });
-  it('Assertion is expired.', async function () {
-    try {
+  it('rejects a response that is not XML', async function () {
+    await assert.rejects(
       validate('invalid-assertion', {
         audience,
         publicKey: certificate,
         bypassExpiration: true,
         inResponseTo: inResponseTo,
-      });
-    } catch (error) {
-      const result = (error as Error).message;
-      assert.strictEqual(result, 'Invalid assertion.');
-    }
+      }),
+      { message: 'missing root element' }
+    );
   });
 
   it('Should validate saml 2.0 token using certificate', async function () {
