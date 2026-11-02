@@ -144,6 +144,28 @@ describe('xmlToObject', function () {
     });
   });
 
+  it('accepts the standard SAML prefixes without a declaration', function () {
+    const fragment =
+      '<md:EntityDescriptor entityID="https://idp"><md:IDPSSODescriptor><md:KeyDescriptor use="signing">' +
+      '<ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIB</ds:X509Certificate></ds:X509Data></ds:KeyInfo>' +
+      '</md:KeyDescriptor></md:IDPSSODescriptor></md:EntityDescriptor>';
+    assert.deepStrictEqual(asDollar(fragment), {
+      EntityDescriptor: {
+        $: { entityID: 'https://idp' },
+        IDPSSODescriptor: [
+          {
+            KeyDescriptor: [
+              { $: { use: 'signing' }, KeyInfo: [{ X509Data: [{ X509Certificate: ['MIIB'] }] }] },
+            ],
+          },
+        ],
+      },
+    });
+    assert.deepStrictEqual(asDollar('<samlp:Response><saml:Issuer>i</saml:Issuer></samlp:Response>'), {
+      Response: { Issuer: ['i'] },
+    });
+  });
+
   it('rejects any other undeclared prefix', function () {
     assert.throws(() => asDollar('<a><p:b/></a>'), /NamespaceError/);
   });

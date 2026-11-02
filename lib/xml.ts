@@ -16,11 +16,23 @@ const CDATA_SECTION_NODE = 4;
 const prefix = /(?!xmlns)^.*:/;
 const stripPrefix = (name: string) => name.replace(prefix, '');
 
-// SAML producers often write xsi:type="xs:string" on an AttributeValue without
-// declaring either prefix.
+// Prefixes a document may use without declaring them, bound to the namespace
+// each conventionally means. SAML producers often write xsi:type="xs:string"
+// without declaring either prefix, and metadata pasted from a larger document
+// can arrive with md:/ds: prefixes and no xmlns attributes at all.
 const undeclaredPrefixes = {
   xsi: 'http://www.w3.org/2001/XMLSchema-instance',
   xs: 'http://www.w3.org/2001/XMLSchema',
+  md: 'urn:oasis:names:tc:SAML:2.0:metadata',
+  ds: 'http://www.w3.org/2000/09/xmldsig#',
+  saml: 'urn:oasis:names:tc:SAML:2.0:assertion',
+  samlp: 'urn:oasis:names:tc:SAML:2.0:protocol',
+  xenc: 'http://www.w3.org/2001/04/xmlenc#',
+  mdui: 'urn:oasis:names:tc:SAML:metadata:ui',
+  mdattr: 'urn:oasis:names:tc:SAML:metadata:attribute',
+  mdrpi: 'urn:oasis:names:tc:SAML:metadata:rpi',
+  shibmd: 'urn:mace:shibboleth:metadata:1.0',
+  alg: 'urn:oasis:names:tc:SAML:metadata:algsupport',
 };
 
 const toObject = (element: Element, options: XmlObjectOptions): unknown => {
