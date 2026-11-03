@@ -156,28 +156,43 @@ const illegalChar =
   // oxlint-disable-next-line no-control-regex -- the control characters are the point
   /[\0-\x08\x0B\f\x0E-\x1F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
 
-// Serializes nodes in the xmlbuilder2 object convention (`@name` attributes,
-// `#text`, lists for repeated elements) with an XML declaration. A carriage
-// return, and a tab or line feed in an attribute value, are written as
-// character references: a receiving parser normalizes the literal characters
-// to a line feed or a space.
-const opaqueOrStartTagOrCR = /<!\[CDATA\[[\s\S]*?\]\]>|<!--[\s\S]*?-->|(<[A-Za-z_:][^>]*>)|\r/g;
+const reference: Record<string, string> = { '\t': '&#x9;', '\n': '&#xA;', '\r': '&#xD;' };
 
+// Writes a carriage return, and a tab or line feed inside a start tag, as a
+// character reference: a receiving parser normalizes the literal characters
+// to a line feed or a space. Within a start tag, whitespace other than the
+// single space between attributes can only come from an attribute value;
+// xmlbuilder2 escapes > there and < in text. CDATA sections and comments are
+// copied as they are. One pass: every opener is looked up once.
+const escapeNormalizedWhitespace = (xml: string): string => {
+  let out = '';
+  let at = 0;
+  for (;;) {
+    const open = xml.indexOf('<', at);
+    const chunk = open === -1 ? xml.slice(at) : xml.slice(at, open);
+    out += chunk.replace(/\r/g, reference['\r']);
+    if (open === -1) {
+      return out;
+    }
+    const close = xml.startsWith('<!--', open) ? '-->' : xml.startsWith('<![CDATA[', open) ? ']]>' : '>';
+    const end = xml.indexOf(close, open + 1);
+    if (end === -1) {
+      return out + xml.slice(open);
+    }
+    const tag = xml.slice(open, end + close.length);
+    out += close === '>' ? tag.replace(/[\t\n\r]/g, (c) => reference[c]) : tag;
+    at = end + close.length;
+  }
+};
+
+// Serializes nodes in the xmlbuilder2 object convention (`@name` attributes,
+// `#text`, lists for repeated elements) with an XML declaration.
 const buildXml = (nodes: object, { pretty, ...declaration }: BuildOptions = {}): string => {
   const xml = create({ version: '1.0', ...declaration }, nodes).end({ prettyPrint: pretty });
   if (illegalChar.test(xml)) {
     throw new Error('Invalid character in XML.');
   }
-  // Within a start tag, whitespace other than the single space between
-  // attributes can only come from an attribute value; xmlbuilder2 escapes
-  // > there and < in text. CDATA sections and comments are left as they are.
-  return xml.replace(opaqueOrStartTagOrCR, (match, tag?: string) =>
-    tag
-      ? tag.replace(/[\t\n\r]/g, (c) => ({ '\t': '&#x9;', '\n': '&#xA;', '\r': '&#xD;' })[c] as string)
-      : match === '\r'
-        ? '&#xD;'
-        : match
-  );
+  return escapeNormalizedWhitespace(xml);
 };
 
 export { xmlToObject, buildXml };
