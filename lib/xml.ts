@@ -100,29 +100,34 @@ const misplacedDeclaration = /^((?:\s|<!--(?:(?!-->)[\s\S])*-->)+)<\?xml(?=\s)[\
 // plain objects: tag names without their namespace prefix, attributes under
 // `attrkey`, text under `_`, child elements in lists under their name, and a
 // string for an element that has only text. Returns null for an empty document.
-// The document without its CDATA sections and comments, in a single pass:
-// each opener is looked up once, and an unterminated one is left in place for
-// the parser to reject.
-const withoutCdataAndComments = (xml: string): string => {
+// The document without its CDATA sections, comments and processing
+// instructions, in a single pass: each opener is looked up once, and an
+// unterminated one is left in place for the parser to reject.
+const opaque: [string, string][] = [
+  ['<![CDATA[', ']]>'],
+  ['<!--', '-->'],
+  ['<?', '?>'],
+];
+const withoutOpaqueSpans = (xml: string): string => {
   let kept = '';
   let at = 0;
   for (;;) {
-    const open = xml.indexOf('<!', at);
+    const open = xml.indexOf('<', at);
     if (open === -1) {
       return kept + xml.slice(at);
     }
-    const close = xml.startsWith('<!--', open) ? '-->' : xml.startsWith('<![CDATA[', open) ? ']]>' : '';
-    if (close === '') {
-      kept += xml.slice(at, open + 2);
-      at = open + 2;
+    const span = opaque.find(([opener]) => xml.startsWith(opener, open));
+    if (!span) {
+      kept += xml.slice(at, open + 1);
+      at = open + 1;
       continue;
     }
-    const end = xml.indexOf(close, open + 4);
+    const end = xml.indexOf(span[1], open + span[0].length);
     if (end === -1) {
       return kept + xml.slice(at);
     }
     kept += xml.slice(at, open);
-    at = end + close.length;
+    at = end + span[1].length;
   }
 };
 
@@ -135,7 +140,7 @@ const xmlToObject = (xml: string, options: XmlObjectOptions): XmlNode | null => 
   if (xml.trim() === '') {
     return null;
   }
-  if (bareAmpersand.test(withoutCdataAndComments(xml))) {
+  if (bareAmpersand.test(withoutOpaqueSpans(xml))) {
     throw new Error('Invalid XML.');
   }
   const root = parseFromString(xml, undeclaredPrefixes(xml)).documentElement as unknown as Element;
