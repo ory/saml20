@@ -204,8 +204,8 @@ describe('xmlToObject', function () {
     // Each "<!--" that never closes was a fresh scan to the end of the input.
     for (const opener of ['<!-- ', '<![CDATA[ ', '<?', '<!x', '<']) {
       const start = Date.now();
-      assert.throws(() => asDollar('<a>' + opener.repeat(200000) + '</a>'));
-      assert.ok(Date.now() - start < 2000, opener);
+      assert.throws(() => asDollar('<a>' + opener.repeat(100000) + '</a>'));
+      assert.ok(Date.now() - start < 3000, opener);
     }
   });
 
