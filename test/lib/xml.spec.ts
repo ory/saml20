@@ -271,8 +271,13 @@ describe('buildXml', function () {
     );
     assert.strictEqual(
       buildXml({ a: { $: 'c\td>\r', '!': 'm\nn>', '?': 'pi x\ty', b: { '@y': 'p\tq' } } }),
-      '<?xml version="1.0"?><a><![CDATA[c\td>\r]]><!--m\nn>--><?pi x\ty?><b y="p&#x9;q"/></a>'
+      '<?xml version="1.0"?><a><![CDATA[c\td>]]>&#xD;<![CDATA[]]><!--m\nn>--><?pi x\ty?><b y="p&#x9;q"/></a>'
     );
+  });
+
+  it('round-trips a carriage return inside CDATA', function () {
+    const xml = buildXml({ a: { $: 'line 1\rline 2\r\nline 3' } });
+    assert.strictEqual(xmlToObject(xml, { attrkey: '$' })!.a, 'line 1\rline 2\r\nline 3');
   });
 
   it('rejects a character XML cannot carry', function () {
