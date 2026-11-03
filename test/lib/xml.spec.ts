@@ -270,8 +270,8 @@ describe('buildXml', function () {
       '<?xml version="1.0"?><a>x="<b y="p&#x9;q"/></a>'
     );
     assert.strictEqual(
-      buildXml({ a: { $: 'c\td>\r', '!': 'm\nn>', b: { '@y': 'p\tq' } } }),
-      '<?xml version="1.0"?><a><![CDATA[c\td>\r]]><!--m\nn>--><b y="p&#x9;q"/></a>'
+      buildXml({ a: { $: 'c\td>\r', '!': 'm\nn>', '?': 'pi x\ty', b: { '@y': 'p\tq' } } }),
+      '<?xml version="1.0"?><a><![CDATA[c\td>\r]]><!--m\nn>--><?pi x\ty?><b y="p&#x9;q"/></a>'
     );
   });
 

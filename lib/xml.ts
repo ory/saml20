@@ -167,8 +167,9 @@ const reference: Record<string, string> = { '\t': '&#x9;', '\n': '&#xA;', '\r': 
 // character reference: a receiving parser normalizes the literal characters
 // to a line feed or a space. Within a start tag, whitespace other than the
 // single space between attributes can only come from an attribute value;
-// xmlbuilder2 escapes > there and < in text. CDATA sections and comments are
-// copied as they are. One pass: every opener is looked up once.
+// xmlbuilder2 escapes > there and < in text. CDATA sections, comments and
+// processing instructions are copied as they are. One pass: every opener is
+// looked up once.
 const escapeNormalizedWhitespace = (xml: string): string => {
   let out = '';
   let at = 0;
@@ -179,7 +180,7 @@ const escapeNormalizedWhitespace = (xml: string): string => {
     if (open === -1) {
       return out;
     }
-    const close = xml.startsWith('<!--', open) ? '-->' : xml.startsWith('<![CDATA[', open) ? ']]>' : '>';
+    const close = opaque.find(([opener]) => xml.startsWith(opener, open))?.[1] ?? '>';
     const end = xml.indexOf(close, open + 1);
     if (end === -1) {
       return out + xml.slice(open);
