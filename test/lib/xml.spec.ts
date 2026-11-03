@@ -202,11 +202,22 @@ describe('xmlToObject', function () {
 
   it('scans unterminated comments and CDATA sections once', function () {
     // Each "<!--" that never closes was a fresh scan to the end of the input.
-    for (const opener of ['<!-- ', '<![CDATA[ ', '<!x']) {
+    for (const opener of ['<!-- ', '<![CDATA[ ', '<?', '<!x', '<']) {
       const start = Date.now();
       assert.throws(() => asDollar('<a>' + opener.repeat(200000) + '</a>'));
       assert.ok(Date.now() - start < 2000, opener);
     }
+  });
+
+  it('does not let a comment or CDATA opener inside a processing instruction hide an &', function () {
+    assert.throws(() => asDollar('<?pi <!-- ?><a>x & y</a><!-- -->'), /Invalid XML/);
+    assert.throws(() => asDollar('<?pi <![CDATA[ ?><a>x & y</a><!-- ]]> -->'), /Invalid XML/);
+    assert.throws(() => asDollar('<!-- <?pi --><a>x & y</a><!-- ?> -->'), /Invalid XML/);
+  });
+
+  it('accepts an & inside a processing instruction', function () {
+    assert.deepStrictEqual(asDollar('<?pi a & b ?><a>x</a>'), { a: 'x' });
+    assert.deepStrictEqual(asDollar('<a><?pi a & b ?>x</a>'), { a: 'x' });
   });
 
   it('accepts references and an & inside CDATA or a comment', function () {
