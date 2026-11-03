@@ -200,6 +200,15 @@ describe('xmlToObject', function () {
     }
   });
 
+  it('scans unterminated comments and CDATA sections once', function () {
+    // Each "<!--" that never closes was a fresh scan to the end of the input.
+    for (const opener of ['<!-- ', '<![CDATA[ ', '<!x']) {
+      const start = Date.now();
+      assert.throws(() => asDollar('<a>' + opener.repeat(200000) + '</a>'));
+      assert.ok(Date.now() - start < 2000, opener);
+    }
+  });
+
   it('accepts references and an & inside CDATA or a comment', function () {
     assert.strictEqual(asDollar('<a>x&amp;y&#38;z&#x26;w</a>')!.a, 'x&y&z&w');
     assert.strictEqual(asDollar('<a>x&lt;&gt;&quot;&apos;</a>')!.a, 'x<>"\'');
