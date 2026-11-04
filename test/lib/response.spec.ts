@@ -445,6 +445,29 @@ describe('response.ts', function () {
       format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
     });
   });
+
+  it('Should use the given NameID when claims.email is omitted', async function () {
+    const json = {
+      audience: 'http://sp.example.com/demo1/metadata.php',
+      issuer: 'http://idp.example.com/metadata.php',
+      acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+      claims: { raw: {} },
+      requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
+      nameId: {
+        value: '_a3f1c0de9b8e4f7d',
+        format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+      },
+    };
+
+    const parsed = await validate(await createSAMLResponse(json), {
+      audience: json.audience,
+      publicKey: testIdpPublicKey,
+    });
+
+    assert.deepStrictEqual(parsed.nameId, json.nameId);
+  });
 });
 it('parseIssuer should return the correct issuer value', async function () {
   const rawAssertion = fs.readFileSync('./test/assets/saml20.validResponse.xml').toString();
