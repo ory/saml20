@@ -1,3 +1,4 @@
+import { create } from 'xmlbuilder2';
 import { parseFromString, setOwn } from './utils';
 
 // What xmlToObject produces: attributes under `attrkey` (a map of strings),
@@ -149,5 +150,62 @@ const xmlToObject = (xml: string, options: XmlObjectOptions): XmlNode | null => 
   return result;
 };
 
-export { xmlToObject };
+type BuildOptions = {
+  encoding?: string;
+  standalone?: boolean;
+  pretty?: boolean;
+};
+
+// Characters XML 1.0 cannot carry, including a lone surrogate half.
+const illegalChar =
+  // oxlint-disable-next-line no-control-regex -- the control characters are the point
+  /[\0-\x08\x0B\f\x0E-\x1F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
+
+const reference: Record<string, string> = { '\t': '&#x9;', '\n': '&#xA;', '\r': '&#xD;' };
+
+// Writes a carriage return, and a tab or line feed inside a start tag, as a
+// character reference: a receiving parser normalizes the literal characters
+// to a line feed or a space. Within a start tag, whitespace other than the
+// single space between attributes can only come from an attribute value;
+// xmlbuilder2 escapes > there and < in text. A CDATA section is split around
+// a carriage return, since end-of-line normalization applies there too;
+// comments and processing instructions are copied as they are. One pass:
+// every opener is looked up once.
+const escapeNormalizedWhitespace = (xml: string): string => {
+  let out = '';
+  let at = 0;
+  for (;;) {
+    const open = xml.indexOf('<', at);
+    const chunk = open === -1 ? xml.slice(at) : xml.slice(at, open);
+    out += chunk.replace(/\r/g, reference['\r']);
+    if (open === -1) {
+      return out;
+    }
+    const close = opaque.find(([opener]) => xml.startsWith(opener, open))?.[1] ?? '>';
+    const end = xml.indexOf(close, open + 1);
+    if (end === -1) {
+      return out + xml.slice(open);
+    }
+    const tag = xml.slice(open, end + close.length);
+    out +=
+      close === '>'
+        ? tag.replace(/[\t\n\r]/g, (c) => reference[c])
+        : close === ']]>'
+          ? tag.replace(/\r/g, `]]>${reference['\r']}<![CDATA[`)
+          : tag;
+    at = end + close.length;
+  }
+};
+
+// Serializes nodes in the xmlbuilder2 object convention (`@name` attributes,
+// `#text`, lists for repeated elements) with an XML declaration.
+const buildXml = (nodes: object, { pretty, ...declaration }: BuildOptions = {}): string => {
+  const xml = create({ version: '1.0', ...declaration }, nodes).end({ prettyPrint: pretty });
+  if (illegalChar.test(xml)) {
+    throw new Error('Invalid character in XML.');
+  }
+  return escapeNormalizedWhitespace(xml);
+};
+
+export { xmlToObject, buildXml };
 export type { XmlObjectOptions, XmlNode, XmlValue };

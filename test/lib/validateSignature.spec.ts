@@ -1,10 +1,10 @@
 import { describe, it } from 'node:test';
 import { validateSignature, DEFAULT_MAX_SIGNATURE_REFERENCES } from '../../lib/validateSignature';
-import xmlbuilder from 'xmlbuilder';
 
 import crypto from 'crypto';
 import fs from 'fs';
 import { sign } from '../../lib/sign';
+import { buildXml } from '../../lib/xml';
 import { SignedXml } from 'xml-crypto';
 import { certToPEM, PubKeyInfo, stripCertHeaderAndFooter } from '../../lib/cert';
 import { thumbprint } from '../../lib/utils';
@@ -264,7 +264,7 @@ function generateXML({ sign: shouldSign = true } = {}) {
     samlReq['samlp:AuthnRequest']['@ProviderName'] = providerName;
   }
 
-  let xml = xmlbuilder.create(samlReq).end({});
+  let xml = buildXml(samlReq);
   if (shouldSign && signingKey) {
     xml = sign(xml, signingKey, publicKey, authnXPath);
   }

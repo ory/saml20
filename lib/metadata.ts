@@ -1,10 +1,9 @@
 import { getAttribute, thumbprint } from './utils';
-import { xmlToObject } from './xml';
+import { xmlToObject, buildXml } from './xml';
 import type { XmlValue } from './xml';
 import { ensurePemArmor, stripCertHeaderAndFooter } from './cert';
 
 import crypto from 'crypto';
-import xmlbuilder from 'xmlbuilder';
 import { METADATA_NS, PROTOCOL_NS, XMLDSIG_NS } from './constants';
 
 type ParseMetadataOptions = {
@@ -242,7 +241,7 @@ const createIdPMetadataXML = ({
     },
   };
 
-  return xmlbuilder.create(nodes, { encoding: 'UTF-8', standalone: false }).end({ pretty: true });
+  return buildXml(nodes, { encoding: 'UTF-8', standalone: false, pretty: true });
 };
 
 const createSPMetadataXML = ({
@@ -315,7 +314,7 @@ const createSPMetadataXML = ({
     },
   };
 
-  return xmlbuilder.create(nodes, { encoding: 'UTF-8', standalone: false }).end({ pretty: true });
+  return buildXml(nodes, { encoding: 'UTF-8', standalone: false, pretty: true });
 };
 
 export { parseMetadata, createIdPMetadataXML, createSPMetadataXML };

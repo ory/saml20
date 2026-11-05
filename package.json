@@ -50,7 +50,7 @@
     "@xmldom/xmldom": "0.9.12",
     "xml-crypto": "6.4.0",
     "xml-encryption": "6.0.2",
-    "xmlbuilder": "15.1.1",
+    "xmlbuilder2": "4.0.3",
     "xpath": "0.0.36"
   },
   "devDependencies": {

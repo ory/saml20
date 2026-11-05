@@ -1,6 +1,5 @@
-import xmlbuilder from 'xmlbuilder';
 import { generateId, getAttribute } from './utils';
-import { xmlToObject } from './xml';
+import { xmlToObject, buildXml } from './xml';
 import type { XmlValue } from './xml';
 import { ASSERTION_NS, PROTOCOL_NS } from './constants';
 
@@ -106,7 +105,7 @@ const createLogoutRequest = ({
 
   return {
     id,
-    xml: xmlbuilder.create(xml).end({}),
+    xml: buildXml(xml),
   };
 };
 
@@ -213,7 +212,7 @@ const createLogoutResponse = ({
 
   return {
     id,
-    xml: xmlbuilder.create(xml).end({}),
+    xml: buildXml(xml),
   };
 };
 
