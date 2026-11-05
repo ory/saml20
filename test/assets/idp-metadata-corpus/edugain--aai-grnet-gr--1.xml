@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.ionio.gr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://aai.grnet.gr/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://aai.grnet.gr/static/policy/policy-en-1.1.0.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="el">http://aai.grnet.gr/static/policy/policy-el-1.1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ionio.gr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="el">Ιόνιο Πανεπιστήμιο</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Ionian University</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">http://www.ionio.gr/central/en/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="el">http://www.ionio.gr/central/</mdui:InformationURL>
+          <mdui:Logo width="200" height="200">https://jagger.test.grnet.gr/rr3/logos/ionio.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>ionio.gr</mdui:DomainHint>
+          <mdui:IPHint>195.130.124.0/22</mdui:IPHint>
+          <mdui:IPHint>195.251.110.0/23</mdui:IPHint>
+          <mdui:GeolocationHint>geo:39.620953,19.923851</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+                            MIIC6jCCAdICCQC8OCMy8ze1SDANBgkqhkiG9w0BAQsFADA2MQswCQYDVQQGEwJH
+                            UjEQMA4GA1UECwwHSURQIEtFWTEVMBMGA1UEAwwMaWRwLmlvbmlvLmdyMCAXDTE5
+                            MTEyNjExNDAyOVoYDzIwNTAwMTA3MTE0MDI5WjA2MQswCQYDVQQGEwJHUjEQMA4G
+                            A1UECwwHSURQIEtFWTEVMBMGA1UEAwwMaWRwLmlvbmlvLmdyMIIBIjANBgkqhkiG
+                            9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2A2SBetrHkoGOGeOFduoywOGmRhWZpgJifTJ
+                            R1FsCuoGenXgJLQpQpir98JjCToufpG1F9Rzo19ydTBz3Nk9bL1gNTVz+K3x4bnL
+                            Fg3QSDZPGqsth6awaF8nhVSK68y6Lu29uE/zUfp+qnlrXD6AogpFQKcwe7W8eoaU
+                            wnoa4rHcN80KAMGex3h9JDuNtnmktkdHwNwdyn7AziPzmZNW/eRstRsImBtnqpeQ
+                            DEkrJV5CloApp9r/PGxmUk45ZE0acV9g8DcYQxz0gXx7+M+oGl1WaZJ2Wt1++qh/
+                            JIaIJLkF4ITwulSPz+wufHABCJ7cyrGQ4CGo8vDjryzkXMDjHwIDAQABMA0GCSqG
+                            SIb3DQEBCwUAA4IBAQA+jcLJdt9sYQEN5in9i/eJ2o+XaDQFDxUrvKbyNqyiVzLM
+                            FSV4G1BMcCx5KmgSszF0nKV83OVdsz0ZMznT2St21EIM5UhukarPHjB5ot0NqY3Q
+                            onhI8wNYG7yCj9RtpNzUGaTsKsMmkiJC9OU7raDiNyBkQFZ7i+Yi1I4yEqSiD1ZE
+                            1fZVnH7TNLqenwHC9mICbwwprEFvw/jIcg8bV0Y7OMUVkVt870aN1L3CEKVaQzlt
+                            h6aafh9VshgopR4TgGn7qnftf2R4MW7Zgq9QWEWTIo6pykNmz7o3dPk1TBFRerHG
+                            HlAl9CMs9u2pHx5LXRMCuXWO5Dfj7CKI23DbqXx5
+                        </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ionio.gr:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ionio.gr:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ionio.gr/idp/profile/Shibboleth/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ionio.gr/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ionio.gr/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ionio.gr/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ionio.gr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+                            MIIC6jCCAdICCQC8OCMy8ze1SDANBgkqhkiG9w0BAQsFADA2MQswCQYDVQQGEwJH
+                            UjEQMA4GA1UECwwHSURQIEtFWTEVMBMGA1UEAwwMaWRwLmlvbmlvLmdyMCAXDTE5
+                            MTEyNjExNDAyOVoYDzIwNTAwMTA3MTE0MDI5WjA2MQswCQYDVQQGEwJHUjEQMA4G
+                            A1UECwwHSURQIEtFWTEVMBMGA1UEAwwMaWRwLmlvbmlvLmdyMIIBIjANBgkqhkiG
+                            9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2A2SBetrHkoGOGeOFduoywOGmRhWZpgJifTJ
+                            R1FsCuoGenXgJLQpQpir98JjCToufpG1F9Rzo19ydTBz3Nk9bL1gNTVz+K3x4bnL
+                            Fg3QSDZPGqsth6awaF8nhVSK68y6Lu29uE/zUfp+qnlrXD6AogpFQKcwe7W8eoaU
+                            wnoa4rHcN80KAMGex3h9JDuNtnmktkdHwNwdyn7AziPzmZNW/eRstRsImBtnqpeQ
+                            DEkrJV5CloApp9r/PGxmUk45ZE0acV9g8DcYQxz0gXx7+M+oGl1WaZJ2Wt1++qh/
+                            JIaIJLkF4ITwulSPz+wufHABCJ7cyrGQ4CGo8vDjryzkXMDjHwIDAQABMA0GCSqG
+                            SIb3DQEBCwUAA4IBAQA+jcLJdt9sYQEN5in9i/eJ2o+XaDQFDxUrvKbyNqyiVzLM
+                            FSV4G1BMcCx5KmgSszF0nKV83OVdsz0ZMznT2St21EIM5UhukarPHjB5ot0NqY3Q
+                            onhI8wNYG7yCj9RtpNzUGaTsKsMmkiJC9OU7raDiNyBkQFZ7i+Yi1I4yEqSiD1ZE
+                            1fZVnH7TNLqenwHC9mICbwwprEFvw/jIcg8bV0Y7OMUVkVt870aN1L3CEKVaQzlt
+                            h6aafh9VshgopR4TgGn7qnftf2R4MW7Zgq9QWEWTIo6pykNmz7o3dPk1TBFRerHG
+                            HlAl9CMs9u2pHx5LXRMCuXWO5Dfj7CKI23DbqXx5
+                        </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ionio.gr:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ionio.gr:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ionian University</md:OrganizationName>
+      <md:OrganizationName xml:lang="el">Ιόνιο Πανεπιστήμιο</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Ionian University</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="el">Ιόνιο Πανεπιστήμιο</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ionio.gr/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="el">http://www.ionio.gr/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Greek Research and Technology Network</md:Company>
+      <md:EmailAddress>mailto:support@grnet.gr</md:EmailAddress>
+      <md:TelephoneNumber>800-11-47638</md:TelephoneNumber>
+      <md:TelephoneNumber>+30-2152157854</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Ionian University</md:Company>
+      <md:EmailAddress>mailto:noc@ionio.gr</md:EmailAddress>
+      <md:TelephoneNumber>+30-2661087669</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

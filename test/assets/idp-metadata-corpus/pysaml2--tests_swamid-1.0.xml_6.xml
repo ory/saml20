@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.liu.se/idp/shibboleth" xml:base="swamid-1.0/login.liu.se.xml">
+ 
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">liu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUUGevf/6+3wexHl4UyWmMfjha+8owDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMbG9naW4ubGl1LnNlMB4XDTA5MDYyNTA2Mjg1NloXDTI5
+MDYyNTA2Mjg1NlowFzEVMBMGA1UEAxMMbG9naW4ubGl1LnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkdGaEeZYE4lLbCTP3I/7SWH2dI4RfbVp0bPH
+X3TSDGUAJMf8lVwignl37pypkj1it/Ea1oOs1QAUUJF2s7eDKbbsQZ6IMEZHUCG9
+2yBt6cAA7HH8XyhyQodkTZd6JhY/HJY1oAiKXar7JSnxnVdg6365Z4rP+W4UHcHM
+ePgj6SqR0eW6qXmEIx9a/cyJ+s/R5cUiTrNDL9c0FH/watGYgesLxCxSSgijW7L1
+Cobl5Y5+Wr8i3sPPNVVtHXsp1aRI4G4YWW2qsoPF94s9f+LguJ+vHMT2URqplOZ3
+g41V7NFMqSw8f7n32BKl7ekAVBfhAwMuiKSENCuJ1vWHsXS7wwIDAQABo18wXTA8
+BgNVHREENTAzggxsb2dpbi5saXUuc2WGI2h0dHBzOi8vbG9naW4ubGl1LnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSouPd/n3U2de/t4ArJMSZcZGlsrjANBgkq
+hkiG9w0BAQUFAAOCAQEAdupL+cmtm9wOczmRze5JGpSkrEnJLWOABVH71QGhRPd3
+bEA93XLjwiO9NPuFyLrb03IUrcgdlgkxnCoq2dla2IQBI6ky+VSuc4lCsdanI+XB
+t2SymRPiqJ60K04Rm4TYOZHsDVHPO3dE3f4mjbhx/irlPmDIM+eB88SbT1nPRQfv
+G2bsafC6oxZjtT5CDJP30lUpieKkmIneVjTmYHBLQmWvl0G5o5j5OLtVj1xhfz9r
+zB2373DVTdsTnFIbFLDF8bGXt1jhxNOT5cxviUYKI+L1VLwKRjWlFd2tUMMKKz/I
+dE1S/LL5o/3BCZXOh9Fuvm6ND4e+jSkCizMQNgm4iw==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.liu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.liu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.liu.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.liu.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.liu.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.liu.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">liu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUUGevf/6+3wexHl4UyWmMfjha+8owDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMbG9naW4ubGl1LnNlMB4XDTA5MDYyNTA2Mjg1NloXDTI5
+MDYyNTA2Mjg1NlowFzEVMBMGA1UEAxMMbG9naW4ubGl1LnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkdGaEeZYE4lLbCTP3I/7SWH2dI4RfbVp0bPH
+X3TSDGUAJMf8lVwignl37pypkj1it/Ea1oOs1QAUUJF2s7eDKbbsQZ6IMEZHUCG9
+2yBt6cAA7HH8XyhyQodkTZd6JhY/HJY1oAiKXar7JSnxnVdg6365Z4rP+W4UHcHM
+ePgj6SqR0eW6qXmEIx9a/cyJ+s/R5cUiTrNDL9c0FH/watGYgesLxCxSSgijW7L1
+Cobl5Y5+Wr8i3sPPNVVtHXsp1aRI4G4YWW2qsoPF94s9f+LguJ+vHMT2URqplOZ3
+g41V7NFMqSw8f7n32BKl7ekAVBfhAwMuiKSENCuJ1vWHsXS7wwIDAQABo18wXTA8
+BgNVHREENTAzggxsb2dpbi5saXUuc2WGI2h0dHBzOi8vbG9naW4ubGl1LnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSouPd/n3U2de/t4ArJMSZcZGlsrjANBgkq
+hkiG9w0BAQUFAAOCAQEAdupL+cmtm9wOczmRze5JGpSkrEnJLWOABVH71QGhRPd3
+bEA93XLjwiO9NPuFyLrb03IUrcgdlgkxnCoq2dla2IQBI6ky+VSuc4lCsdanI+XB
+t2SymRPiqJ60K04Rm4TYOZHsDVHPO3dE3f4mjbhx/irlPmDIM+eB88SbT1nPRQfv
+G2bsafC6oxZjtT5CDJP30lUpieKkmIneVjTmYHBLQmWvl0G5o5j5OLtVj1xhfz9r
+zB2373DVTdsTnFIbFLDF8bGXt1jhxNOT5cxviUYKI+L1VLwKRjWlFd2tUMMKKz/I
+dE1S/LL5o/3BCZXOh9Fuvm6ND4e+jSkCizMQNgm4iw==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.liu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.liu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+   
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">LiU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Linköping University</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.liu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Linköping University</md:Company>
+    <md:GivenName>Markus</md:GivenName>
+    <md:SurName>Olausson</md:SurName>
+    <md:EmailAddress>markus.olausson@liu.se</md:EmailAddress>
+  </md:ContactPerson>
+     
+</md:EntityDescriptor>
+  

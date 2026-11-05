@@ -1,0 +1,37 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://filesender.vpc.lv/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://idp.laife.lv/">
+        <mdrpi:RegistrationPolicy xml:lang="lv">https://vpc.lv/wp-content/uploads/2026/07/eduGAIN_policy_v3LV.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">VPC Filesender Service</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="lv">VPC Filesender Service</mdui:DisplayName>
+          <mdui:Description xml:lang="en">https://vpc.lv/about/</mdui:Description>
+          <mdui:Description xml:lang="lv">https://vpc.lv/lv/par/</mdui:Description>
+          <mdui:Logo height="155" width="300">https://vpc.lv/wp-content/uploads/2025/01/LogoVPC_real.svg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.vpc.lv/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.vpc.lv/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.vpc.lv/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">VPC Filesender Service</md:OrganizationName>
+      <md:OrganizationName xml:lang="lv">VPC Filesender Service</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">VPC Filesender Service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://vpc.lv</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Administrator</md:GivenName>
+      <md:EmailAddress>mailto:atbalsts@vpc.lv</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Ilja</md:GivenName>
+      <md:SurName>Afanasjevs</md:SurName>
+      <md:EmailAddress>mailto:support@vpc.lv</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.saveproject.mw/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://maren.ac.mw">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://mif.maren.ac.mw/wp-content/uploads/2024/02/MAREN-Id-Fed-Policy-v1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">saveproject.mw</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Ministry of Education</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Ministry of Education Identity Provider</mdui:Description>
+          <mdui:Logo xml:lang="en" width="80" height="80">https://idp.saveproject.mw/idp/images/placeholder-logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIENDCCApygAwIBAgIVAJUjo7BaM2Xi4e44c6O8UyG+vCF1MA0GCSqGSIb3DQEBCwUAMB0xGzAZ BgNVBAMMEmlkcC5zYXZlcHJvamVjdC5tdzAeFw0yNTAzMTkwNjQ4MDNaFw00NTAzMTkwNjQ4MDNa MB0xGzAZBgNVBAMMEmlkcC5zYXZlcHJvamVjdC5tdzCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCC AYoCggGBALUw5MMLFX4tt6cW2lOEPHsAprXV8T4geuGftqddGRgTdHShwvjuIrbazgQ/2816ffCr n+a9eTrcxbze9bIYjDzPfEnq+jQosFONX1n577wcYZEtbktan8Hj+S+lVkeLe744fj4iV4ZcCyXk VBdco3k1vc3/RjmDb1M/WkpkM2EF2IfPpRO9v6iXl8K2kaurHnUINj9ZSL5I0z/6hLZ/kjllI3Ad HUSQ344o2FIRAbMsmsiy/+D4yn95BjkWaXAwtWOkkZtVokfim0H1UEluYYAPfGSPTR2GskmRHx7h MsiSBaYyZB4jsW/rlMlewzPzVEHki5i1O4Za6Xb+cF6f1hVh8rF5pzWngQACPjkdUcqTD/xPSpSp VwgEmWm55DIWzmNBnpB9n1dW8JLM4nTOHTmftY7bFIxf4o6Xpmtv6oz9V/Y6P89KTElY0/yx6qXx XMPK/4BZcJVDAu1gS/Kh6g3GvV0B0YhTnHwktCvxk7mAW+noSvCpKK6uwQztflrOHQIDAQABo2sw aTAdBgNVHQ4EFgQUm6EImenjbwfdLX0/7aCmZb8VO7YwSAYDVR0RBEEwP4ISaWRwLnNhdmVwcm9q ZWN0Lm13hilodHRwczovL2lkcC5zYXZlcHJvamVjdC5tdy9pZHAvc2hpYmJvbGV0aDANBgkqhkiG 9w0BAQsFAAOCAYEAnLk6SgzBFKDXV0kz56cDDopWUU8lARvX6GCrPp9EDGhDlIG5lKg8Pxlv2+Ow c7yTuJNsrTPbcThKVfZq8a8KW9Y3FoI0uPQamMWCPxMGnX0tapZLkdzEGR6BNG3NqTbruewmY9IX vRcD4I5s7LxBlaOHQABLlDBQfVVgNhqPbyi75wq1866KmrkBrq3nydMAYvKIO4y+qX6ZeASroYz+ GMHaomfQNIlS6Rie9CCqS69KrLwyAeOvKGadBWv27l4ikLN1jD6UVzfU10ZHmnE6cFVX7q81w8U4 YSW6pECvYe8Fdf04tFFObFEvwVi4WvRNOssDv7XrQOeMMrSZXrTRTW90Z8fdJ4xoO9LNeDvCQx49 iluUvXjJugeVGHMJrGdVEEES5JVyk/eF6ng2OBlbN6IzY4K8Ozran4Tfqi/U9cdWlKTEFdiORl4f EDiTqRaZBdiXzspU3S1raVurY7JX6TZad4H1CFFhwJ2EO6XNzaSctc+iGQH9IEKcYrK1RwjO </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIEMzCCApugAwIBAgIULE2G44cimwTNQgFK1WcQ0wFTtSowDQYJKoZIhvcNAQELBQAwHTEbMBkG A1UEAwwSaWRwLnNhdmVwcm9qZWN0Lm13MB4XDTI1MDMxOTA2NDgwMloXDTQ1MDMxOTA2NDgwMlow HTEbMBkGA1UEAwwSaWRwLnNhdmVwcm9qZWN0Lm13MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIB igKCAYEAl+1apjKFWNyAZTuPQ3O/fJ7nEBJ+UBILUxDq6/wLrANk7Swl3ICpMH2qLAt379nK9E+n 2R+F5RDq1QW4rzQvaJzbLXYQv0GqLBmcw4h2KOtOp1BsQ1PImjwWiPXnPoFZIoV6uic3Y3dd502r /cGTBsOUaShy5eVlT1ztjptptWb1EzA8s8gbaYdHxwiigL5AmJ3QzxeO5Etq4n6LiUPPJjFO3cPg LW02/n22Pe4OiNGspdEchEaqq0+lXkve/ZlcI+3dCeJQ4Do4qRKe9+tDX4wOBw/YS9RIPf/wwFnP YwD/3+Fu6xgnLPcIdyTfdEhtTRYC9ILdSOZnBfv0WG7WWPf/DGa0LJ9dthMmyWdpQh0JJEYliaB4 9JrkIqPwPKr1E0NpdYVfJ2J2WQQp+Nq3Q6Ah9JvTRK7ix+k4LgGYJPMC5etF55o72Y7cVIX5LL+I Gc55Ydt8CHzL2RbAxrxL6fX/uRSNa+UgP2k3yj1ORaOGfq97YbnBPQjRKeB7GsB5AgMBAAGjazBp MB0GA1UdDgQWBBRrTYfszzY4Km85+eRgYKwXqaxANjBIBgNVHREEQTA/ghJpZHAuc2F2ZXByb2pl Y3QubXeGKWh0dHBzOi8vaWRwLnNhdmVwcm9qZWN0Lm13L2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3 DQEBCwUAA4IBgQBDiN5J7SErsOO4gNEV+I2lpsbigBeS/7kEhI9CUHFJsNQ3uTF2/3CHewELMr/Q 3FKxm9HWlIWAgFbrdY/q+W7Hub2krs93xpmHiAdaOZZfVnFoMp3NG7cSanqnsZn3UIW++RejBGQs fhLoj6hIDDXi/MFeF5iuLA1hbiJWPLt0okJ3oeXaVtxMNmSLga4BhVw1RaMll3Wom8UEh7XiwAjK 1y+h4XbpwCMAIzBQV/lOYpIF2Xh5uHj5PjLFILq6V5x40UZRTuR2njdMuL41ZyXWeMT5CdmbtJys r88mg5yEyMYFqCD32j28u9Q6RTPtsMJFgdK4xyyV4HR0cKK+CvuBfcZNW4NwYMFWUKbPhBW5V2tF /AIvNikTx6SfmeCKHXJx7rIoilBNZRJfuaizd8GDOcKSe2IxQoQu6v81zIXWA1xXtr02CDNrCBwc Z5BtKPnP9Ymu8W4I1h/S8zuxkRvMRjBlCI/FFfthZthW2T+3g+HPip8lVvuB4FXBWmBzK3A= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIEMzCCApugAwIBAgIUF6w07A+E+UjxyMEgf4KuVEFATgcwDQYJKoZIhvcNAQELBQAwHTEbMBkG A1UEAwwSaWRwLnNhdmVwcm9qZWN0Lm13MB4XDTI1MDMxOTA2NDgwMloXDTQ1MDMxOTA2NDgwMlow HTEbMBkGA1UEAwwSaWRwLnNhdmVwcm9qZWN0Lm13MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIB igKCAYEA3J7i/+cVW8PehdA5L16XnlhrwuoCNLXUjI26tLjvEeOffz5sbTY6r8khjxuONFBzgjGP ljGD1lsBUZCrQzrGZQAWYZfpALoA+Qcef4/B4U9mS9UNP6RXyyFzbUxgwoxjtPJvZWq7GGjN7PoZ vSAgjIaRKdhVIXVicDoYKLzVxws3WQrNKUUvp0HLpWiWiC700v4vo0C/NmKf2JPLm7AX/Q0VLwpV tP6GrtKzWjoM51sB+aNY3NFBxZt0Uoh2x7gqXYJDdKKJWwVghFjUCWuaDHixfrNx72mWDfdDRs8y N2pPKmMcNWs6SHHtigWD3AhYv039OEmSM0CAknnBxprgJ9cGS+G7n18+J+fRj7wNBJhNYPfyYG4f 6VdwY33c5dhi6MAVE4aRWAAo1+69W95om4sdCCmphnu+4cW9MheQFdkBQ+LVgz7z3/Q7XG2d5FIW TihzBf5DWJ+HoyDQ73NmGTp/Yj6CxuDhMiVYD4QgLEXl6WHFo4FZo889FN9FHU0XAgMBAAGjazBp MB0GA1UdDgQWBBTwouLqX3FOj0kTJunGzydLZsahfDBIBgNVHREEQTA/ghJpZHAuc2F2ZXByb2pl Y3QubXeGKWh0dHBzOi8vaWRwLnNhdmVwcm9qZWN0Lm13L2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3 DQEBCwUAA4IBgQBPN++5iwAEsDo45BFxSekodZwSE4FAHxJIgDIg/ksPE5ghy5mMkaG1vcvf47K1 ZJjWI7KnHLXlPxDMAyv6NcQLx2KYtfx1baO9NKk5Q8KsPIdsf4scBr7qTglaapMAJp3fPOQZnNkV cS44qvRbQXYgL0f8+oPwawTc5ZnkaHGYmmxroemFvALvMZgwWjQp6hnCWaJ11SeCY2/byRsPZGUL 6t1y+VsAzgJwZP2wXlIvRUJUeTwNW6xubpf8270Qkuo5ssH3Qy/uR/oXBybpO6Chg9RVFq1bJuIH ZYIRuJkYS6GeqZ2z+tU8Wi/fjWoiK6zh1WMY6Bvrkhm0KZwXd+H1bxeSngAAzXNFKPsqxja8M8xw fam+3HXNiZQepQILKtsic/A16rWQAUln0pyjIv1shvqPF1twggY/i2Uz+F0p4QrCm+zDLNhqieOF IZK4XDVouXkJf/xcD7pI3ykk9IetGao7z/XXxBBjPYXQywFe31lb7jORGqA+1mxBQ+KIQs0= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.saveproject.mw/idp/profile/SAML2/SOAP/ArtifactResolution" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.saveproject.mw/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.saveproject.mw/idp/profile/SAML2/POST/SLO" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.saveproject.mw/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.saveproject.mw/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.saveproject.mw/idp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ministry of Education </md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Ministry of Education </md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en"> https://education.gov.mw </md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:chrissie.mtonga@education.gov.mw</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:EmailAddress>mailto:chrissie.mtonga@education.gov.mw</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,116 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.aztu.edu.az/simplesaml/module.php/saml/idp/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://edugain.azsciencenet.az" registrationInstant="2026-06-29T15:21:00Z" />
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">aztu.edu.az</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Azerbaijan Technical University IdP</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="az">Azərbaycan Texniki Universiteti Giriş Portalı</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for AzTU electronic services and global federations.</mdui:Description>
+          <mdui:Description xml:lang="az">AzTU elektron xidmətləri və qlobal federasiyalar üçün Vahid Giriş Portalı.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://idp.aztu.edu.az/info_page.html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="az">https://idp.aztu.edu.az/info_page.html</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://idp.aztu.edu.az/privacy_page.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="az">https://idp.aztu.edu.az/privacy_page.html</mdui:PrivacyStatementURL>
+          <mdui:Logo height="60" width="80">https://idp.aztu.edu.az/logo.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://idp.aztu.edu.az/favicon.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:40.370089,49.815552</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFZjCCA9GgAwIBAgIUBDhGx8AW31DrQmZ/GQ3sHWmw9fUwDQYJKoZIhvcNAQEL
+BQAwgcUxCzAJBgNVBAYTAkFaMQ0wCwYDVQQIDARCYWt1MQ0wCwYDVQQHDARCYWt1
+MSgwJgYDVQQKDB9hemVyYmFpamFuIHRlY2huaWNhbCB1bml2ZXJzaXR5MSgwJgYD
+VQQLDB9hemVyYmFpamFuIHRlY2huaWNhbCB1bml2ZXJzaXR5MRgwFgYDVQQDDA9p
+ZHAuYXp0dS5lZHUuYXoxKjAoBgkqhkiG9w0BCQEWG21pa2F5aWwuaWJyYWhpbS5h
+QGdtYWlsLmNvbTAeFw0yNjA2MjUwODQyNTFaFw0zNjA2MjIwODQyNTFaMIHFMQsw
+CQYDVQQGEwJBWjENMAsGA1UECAwEQmFrdTENMAsGA1UEBwwEQmFrdTEoMCYGA1UE
+CgwfYXplcmJhaWphbiB0ZWNobmljYWwgdW5pdmVyc2l0eTEoMCYGA1UECwwfYXpl
+cmJhaWphbiB0ZWNobmljYWwgdW5pdmVyc2l0eTEYMBYGA1UEAwwPaWRwLmF6dHUu
+ZWR1LmF6MSowKAYJKoZIhvcNAQkBFhttaWtheWlsLmlicmFoaW0uYUBnbWFpbC5j
+b20wggGeMA0GCSqGSIb3DQEBAQUAA4IBiwAwggGGAoIBfQznd44X/XiSU81toR60
+5GKvZxQZ1og96SNyk4/Q+Eg/296a4xSNJiQYU7jXTgclXeKkaKAZMY0zanm1Fp2i
+2lD96dpN2hbOeOtjEyhAxJFbRKv9qFxKFSmAa9QEpWCoygh6daU3TF373R4+OwGC
+VgmJcQxGv5vQnXf4aWhRshvON/WCjjhDFb7H2ULksRPftGeArXgjsJ4Tet/8uPFd
+GXBiKCmW3wTznXUCIczo6WTHdEujUGnYVrpAr6NosXXocAqX/y+o7vjwt1srHigw
+JuOMrxYoNR5CVtYlRDaKgp3LRqwX/oP9gNweYxUCJWOa6/J4iFG+U9dosYEkBriS
+RnRvI2uXpeBva6rkc7uOUHynt2ZlhcRBb/+jO2IashdaC1qadDI1Cbo+trTkMbfq
+uR7ERA6gvtOgQtlp/rAA1SDhmg1V3vBG8yLiizVGObVLOZcdBKHF4kuEd1kLacab
+nMvyR6kuaTulmRyj5S3BXSuTfHsZjq0pVANhG0n3FwIDAQABo1MwUTAdBgNVHQ4E
+FgQUE6wWKyEjtIsDyLfxvzTco/3wHNAwHwYDVR0jBBgwFoAUE6wWKyEjtIsDyLfx
+vzTco/3wHNAwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAX4ACac7
+yJ9qZgXHqpEUJeWsN7oAtqcibkiMnXu0LITjJ1HHhRBiIsQGizii6gKAZNFodaOg
+1i2VRdHJrKU+ZxQsJAm8RBhO22yjFidETmJ1wK7HpbXbU9f15Go0kttdDC1ImayC
+Yc65lRGlwGKTiKT2gMYe6dCaJpa6OdcmBN5nL7EXt02U1C1sqbAp1Ja2nvyKCWIt
+lEislmGijV6Zx/3xJ1PihcZGVxlNhjabWRCu0ak/RdMDjm7toxrKXaffWqbO1LLt
+AtHL5KgSORvO9XoabEfeG70ltW2rXU45zG2zNqB1ysZgRxHBdws1bwLru7wVaKi/
+ZtPzi7BHXwSgRGLBZztGBng6CR3JnJcvnnnxWdjqNLoPuPSrlTICyy98btwfg8bv
+Ze304S8dq2kyyV5cAQeW34QtwxL3xTcgJ2bsXwon3ELeyiKhO2jvmj3IwIaJ3zbx
+jWyljqoXNxYjNCl76sKcRTHNn8ziK7Cc5vTfdZ6P0X0efTw9qbFkU05W
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFZjCCA9GgAwIBAgIUBDhGx8AW31DrQmZ/GQ3sHWmw9fUwDQYJKoZIhvcNAQEL
+BQAwgcUxCzAJBgNVBAYTAkFaMQ0wCwYDVQQIDARCYWt1MQ0wCwYDVQQHDARCYWt1
+MSgwJgYDVQQKDB9hemVyYmFpamFuIHRlY2huaWNhbCB1bml2ZXJzaXR5MSgwJgYD
+VQQLDB9hemVyYmFpamFuIHRlY2huaWNhbCB1bml2ZXJzaXR5MRgwFgYDVQQDDA9p
+ZHAuYXp0dS5lZHUuYXoxKjAoBgkqhkiG9w0BCQEWG21pa2F5aWwuaWJyYWhpbS5h
+QGdtYWlsLmNvbTAeFw0yNjA2MjUwODQyNTFaFw0zNjA2MjIwODQyNTFaMIHFMQsw
+CQYDVQQGEwJBWjENMAsGA1UECAwEQmFrdTENMAsGA1UEBwwEQmFrdTEoMCYGA1UE
+CgwfYXplcmJhaWphbiB0ZWNobmljYWwgdW5pdmVyc2l0eTEoMCYGA1UECwwfYXpl
+cmJhaWphbiB0ZWNobmljYWwgdW5pdmVyc2l0eTEYMBYGA1UEAwwPaWRwLmF6dHUu
+ZWR1LmF6MSowKAYJKoZIhvcNAQkBFhttaWtheWlsLmlicmFoaW0uYUBnbWFpbC5j
+b20wggGeMA0GCSqGSIb3DQEBAQUAA4IBiwAwggGGAoIBfQznd44X/XiSU81toR60
+5GKvZxQZ1og96SNyk4/Q+Eg/296a4xSNJiQYU7jXTgclXeKkaKAZMY0zanm1Fp2i
+2lD96dpN2hbOeOtjEyhAxJFbRKv9qFxKFSmAa9QEpWCoygh6daU3TF373R4+OwGC
+VgmJcQxGv5vQnXf4aWhRshvON/WCjjhDFb7H2ULksRPftGeArXgjsJ4Tet/8uPFd
+GXBiKCmW3wTznXUCIczo6WTHdEujUGnYVrpAr6NosXXocAqX/y+o7vjwt1srHigw
+JuOMrxYoNR5CVtYlRDaKgp3LRqwX/oP9gNweYxUCJWOa6/J4iFG+U9dosYEkBriS
+RnRvI2uXpeBva6rkc7uOUHynt2ZlhcRBb/+jO2IashdaC1qadDI1Cbo+trTkMbfq
+uR7ERA6gvtOgQtlp/rAA1SDhmg1V3vBG8yLiizVGObVLOZcdBKHF4kuEd1kLacab
+nMvyR6kuaTulmRyj5S3BXSuTfHsZjq0pVANhG0n3FwIDAQABo1MwUTAdBgNVHQ4E
+FgQUE6wWKyEjtIsDyLfxvzTco/3wHNAwHwYDVR0jBBgwFoAUE6wWKyEjtIsDyLfx
+vzTco/3wHNAwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAX4ACac7
+yJ9qZgXHqpEUJeWsN7oAtqcibkiMnXu0LITjJ1HHhRBiIsQGizii6gKAZNFodaOg
+1i2VRdHJrKU+ZxQsJAm8RBhO22yjFidETmJ1wK7HpbXbU9f15Go0kttdDC1ImayC
+Yc65lRGlwGKTiKT2gMYe6dCaJpa6OdcmBN5nL7EXt02U1C1sqbAp1Ja2nvyKCWIt
+lEislmGijV6Zx/3xJ1PihcZGVxlNhjabWRCu0ak/RdMDjm7toxrKXaffWqbO1LLt
+AtHL5KgSORvO9XoabEfeG70ltW2rXU45zG2zNqB1ysZgRxHBdws1bwLru7wVaKi/
+ZtPzi7BHXwSgRGLBZztGBng6CR3JnJcvnnnxWdjqNLoPuPSrlTICyy98btwfg8bv
+Ze304S8dq2kyyV5cAQeW34QtwxL3xTcgJ2bsXwon3ELeyiKhO2jvmj3IwIaJ3zbx
+jWyljqoXNxYjNCl76sKcRTHNn8ziK7Cc5vTfdZ6P0X0efTw9qbFkU05W
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.aztu.edu.az/simplesaml/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.aztu.edu.az/simplesaml/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="az">Azərbaycan Texniki Universiteti</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Azerbaijan Technical University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="az">AzTU</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">AzTU</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="az">https://aztu.edu.az</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://aztu.edu.az</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>AzTU IT Support</md:GivenName>
+      <md:EmailAddress>mailto:it.support@aztu.edu.az</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:oaf="http://schemas.eduserv.org.uk/openathens-federation/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://auth.osa.org/oa/entity" xsi:schemaLocation="urn:oasis:names:tc:SAML:2.0:metadata saml-schema-metadata-2.0.xsd">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.carsi.edu.cn" registrationInstant="2022-03-30T01:02:28Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.carsi.edu.cn/index.htm</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="zh">https://www.carsi.edu.cn/index_zh.htm</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.openathens.net/saml/2/auth" index="1" />
+        <oaf:AccessURL Location="https://opg.optica.org/openathens.cfm" />
+        <oaf:Redirector>
+          <oaf:RedirectorInfo Location="https://opg.optica.org/openathens.cfm?entity={entity}&amp;target_link_uri={target}">
+            <oaf:RedirectorHostname>opg.optica.org</oaf:RedirectorHostname>
+          </oaf:RedirectorInfo>
+          <oaf:RedirectorInfo Location="https://connect.openathens.net/osa.org/044c15ae-16d9-4f14-9c9c-5a14677c642d/login?entity={entity}&amp;target={target}">
+            <oaf:RedirectorHostname>auth.osa.org</oaf:RedirectorHostname>
+          </oaf:RedirectorInfo>
+        </oaf:Redirector>
+        <oaf:Visibility>Public</oaf:Visibility>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="zh">Optica Publishing Group </mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">https://auth.osa.org/oa/entity</mdui:DisplayName>
+          <mdui:Description xml:lang="en">https://auth.osa.org/oa/entity</mdui:Description>
+          <mdui:Logo height="80" width="80">https://mgmt.carsi.edu.cn/member_files/osa.org/osa.org-logo.png</mdui:Logo>
+          <mdui:PrivacyStatementURL xml:lang="en">https://opg.optica.org/privacy.cfm</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>osa.org</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDaDCCAlCgAwIBAgIQq1Pa7vgeSW+gOKfWskI70DANBgkqhkiG9w0BAQsFADBwMRAwDgYDVQQDDAdvc2Eub3JnMS0wKwYDVQQKDCRUaGUgT3B0aWNhbCBTb2NpZXR5IG9mIEFtZXJpY2EsIGluYy4xLTArBgNVBAsMJGFiNTNkYWVlLWY4MWUtNDk2Zi1hMDM4LWE3ZDZiMjQyM2JkMDAeFw0xOTAxMzExOTM3MzFaFw0yOTAxMzExOTM3MzFaMHAxEDAOBgNVBAMMB29zYS5vcmcxLTArBgNVBAoMJFRoZSBPcHRpY2FsIFNvY2lldHkgb2YgQW1lcmljYSwgaW5jLjEtMCsGA1UECwwkYWI1M2RhZWUtZjgxZS00OTZmLWEwMzgtYTdkNmIyNDIzYmQwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn8IOWH+Gy7CkPHmdH/oc6DXY9pC5kEuGA+fINRESmeObeS6nYAL1IkYpgJchW66vgv3UnUL9Jj16wY4kXWy1dbc9ywzcRzTGXF334jXP472VETUPaxq5C7ga8XtgoEsIY8RMYeSQOcYxz8vWQXTMxMr54Aie47GKd7Mia+ivj0SusJbuyY4UfFBoYgApOZSIXV8VNLfZtsPSdfSEB2jj47y+OMDulKwzRua8xA69KFml3u+flRNrqocAvkCtPEBP9LwSzZLye2kWwtoFXD3TvH0UbwDfcY0SpFXC59Oif/19nytRcoXAvJjjj78R4qPqVzYU6zHxGqDG1DcUBw5aBQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBOpoFkfg80SMBey6W194tkHDzt0BuEdoLUxrkSfCKJq5YPICiWvfV4FPVtflcKXSBlwjGc6lc4D00/bFBUYaZkWyKZDQYU/KYnzSkwSJxQPcUZnb5Ah32+q8waFOZIgKVEV1XG/jK7h96tFeduDr64xUfGcAuoRJq+qM1ZJulRbpoNWw+VriGyAJ0vQ2TLaFL7SxTTYQsrcHaWIP7hhdT2vo2Wm8wRY71CGclCwaAQLgPxAm5yesVy0/9fPmPOmSVSpsUujb5ZQGiUFrpsrx6q3StH9Hp002edP1hrXhrLhmUj4uy+dXoWhK+49h7wqmkCZGKsOHmus+0jdyJwgvL4</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>osa.org</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDaDCCAlCgAwIBAgIQq1Pa7vgeSW+gOKfWskI70DANBgkqhkiG9w0BAQsFADBwMRAwDgYDVQQDDAdvc2Eub3JnMS0wKwYDVQQKDCRUaGUgT3B0aWNhbCBTb2NpZXR5IG9mIEFtZXJpY2EsIGluYy4xLTArBgNVBAsMJGFiNTNkYWVlLWY4MWUtNDk2Zi1hMDM4LWE3ZDZiMjQyM2JkMDAeFw0xOTAxMzExOTM3MzFaFw0yOTAxMzExOTM3MzFaMHAxEDAOBgNVBAMMB29zYS5vcmcxLTArBgNVBAoMJFRoZSBPcHRpY2FsIFNvY2lldHkgb2YgQW1lcmljYSwgaW5jLjEtMCsGA1UECwwkYWI1M2RhZWUtZjgxZS00OTZmLWEwMzgtYTdkNmIyNDIzYmQwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn8IOWH+Gy7CkPHmdH/oc6DXY9pC5kEuGA+fINRESmeObeS6nYAL1IkYpgJchW66vgv3UnUL9Jj16wY4kXWy1dbc9ywzcRzTGXF334jXP472VETUPaxq5C7ga8XtgoEsIY8RMYeSQOcYxz8vWQXTMxMr54Aie47GKd7Mia+ivj0SusJbuyY4UfFBoYgApOZSIXV8VNLfZtsPSdfSEB2jj47y+OMDulKwzRua8xA69KFml3u+flRNrqocAvkCtPEBP9LwSzZLye2kWwtoFXD3TvH0UbwDfcY0SpFXC59Oif/19nytRcoXAvJjjj78R4qPqVzYU6zHxGqDG1DcUBw5aBQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBOpoFkfg80SMBey6W194tkHDzt0BuEdoLUxrkSfCKJq5YPICiWvfV4FPVtflcKXSBlwjGc6lc4D00/bFBUYaZkWyKZDQYU/KYnzSkwSJxQPcUZnb5Ah32+q8waFOZIgKVEV1XG/jK7h96tFeduDr64xUfGcAuoRJq+qM1ZJulRbpoNWw+VriGyAJ0vQ2TLaFL7SxTTYQsrcHaWIP7hhdT2vo2Wm8wRY71CGclCwaAQLgPxAm5yesVy0/9fPmPOmSVSpsUujb5ZQGiUFrpsrx6q3StH9Hp002edP1hrXhrLhmUj4uy+dXoWhK+49h7wqmkCZGKsOHmus+0jdyJwgvL4</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connect.openathens.net/osa.org/ab53daee-f81e-496f-a038-a7d6b2423bd0/auth/rcv/saml2/post" index="1" isDefault="true" />
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">Optica</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Optical Society</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">The Optical Society</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.osa.org</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:SurName>Scott Dineen</md:SurName>
+      <md:EmailAddress>mailto:sdineen@optica.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Andy Larbalestier</md:SurName>
+      <md:EmailAddress>mailto:alarbalestier@optica.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

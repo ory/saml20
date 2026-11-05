@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" entityID="https://filesender.renam.md">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://federations.renam.md/" registrationInstant="2026-05-28T19:06:46Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://federations.renam.md</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">RENAM Filesender</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="ro">RENAM Filesender</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="ru">RENAM Filesender</mdui:DisplayName>
+          <mdui:Description xml:lang="en">RENAM Filesender Service - the service for exchanging files</mdui:Description>
+          <mdui:Description xml:lang="ro">Serviciul Filesender al RENAM - pentru schimbul de fisiere</mdui:Description>
+          <mdui:Description xml:lang="ru">Сервис для обмена файлами</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://filesender.renam.md</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="ro">https://filesender.renam.md</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="ru">https://filesender.renam.md</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID/TCCAuWgAwIBAgIUSS/wVr7WQkGewhwP9IIfAR9JcTMwDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAk1EMRAwDgYDVQQIDAdNb2xkb3ZhMREwDwYDVQQHDAhDaGlzaW5hdTEOMAwGA1UECgwFUkVOQU0xDDAKBgNVBAsMA05PQzEcMBoGA1UEAwwTZmlsZXNlbmRlci5yZW5hbS5tZDEdMBsGCSqGSIb3DQEJARYOYWRtaW5AcmVuYW0ubWQwHhcNMjAwNTE2MjI1MTU1WhcNMzAwNTE0MjI1MTU1WjCBjTELMAkGA1UEBhMCTUQxEDAOBgNVBAgMB01vbGRvdmExETAPBgNVBAcMCENoaXNpbmF1MQ4wDAYDVQQKDAVSRU5BTTEMMAoGA1UECwwDTk9DMRwwGgYDVQQDDBNmaWxlc2VuZGVyLnJlbmFtLm1kMR0wGwYJKoZIhvcNAQkBFg5hZG1pbkByZW5hbS5tZDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOE9M1IXZF7Y1xJDTp6mw87W/c0IipHuzdoYn2dBKLRYUWnKkQ0+asxL6bGSpQlAWEiI3+tN4avWbCFci06QzLdUzN2+LfiUPnS+F3gF3b11TcUGuhe3tTZbI/WNegDC987pZYTfNfwGukxWh7n+wTWd3lgm99TzPv0bxSx1q3mdMr58vzPu2jm6Wug8PRmYzhXcUFHuHPN673GLKHYGmkU+UZu5TGzKMvi9RLkJ31UkW5G55FGOi/td7yx4f5H3+TAaX+1LrqBBTthVtkJNeW4yWW1TIdpXO8gp4ZW8d1M3O2imitdyT/42HwHaKVGymbyfTxooPL5GuZ9nO0wG558CAwEAAaNTMFEwHQYDVR0OBBYEFEPvSBNpcooBAD8vetVFPtFl47vSMB8GA1UdIwQYMBaAFEPvSBNpcooBAD8vetVFPtFl47vSMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAKfzsJcEvEqZ16sZx4iQp4By/Zp4/aJm4H862ZfmTYVTlRQkF5TRO2zGZT+gRXyjKqggw+0YUqmZ5LaZVsw2IQMCQQi4j1oZdNQ6gmt1P1ZUMnEOrWXmVaS53YbXmtlM9ZQqz334gszTZBS/J9XaelGGvaTaESYgK9mlsxJwQrxfMW0sX7ZH8qWyl5/rUUBXGYnBJFaQQleZfk8ywq0KmWKFHAdIFDMLlzXv20RqzRI3o4DpAcPQUEmd0s2L8IXna4xKvlPksHvXjlIcdBv7F3zt9tcfVAU3PfvNDTNllIlgs5Kl3KNrM/h4CuUo64TLPXjC1CN1+jIz1Tm2LCzko2o=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID/TCCAuWgAwIBAgIUSS/wVr7WQkGewhwP9IIfAR9JcTMwDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAk1EMRAwDgYDVQQIDAdNb2xkb3ZhMREwDwYDVQQHDAhDaGlzaW5hdTEOMAwGA1UECgwFUkVOQU0xDDAKBgNVBAsMA05PQzEcMBoGA1UEAwwTZmlsZXNlbmRlci5yZW5hbS5tZDEdMBsGCSqGSIb3DQEJARYOYWRtaW5AcmVuYW0ubWQwHhcNMjAwNTE2MjI1MTU1WhcNMzAwNTE0MjI1MTU1WjCBjTELMAkGA1UEBhMCTUQxEDAOBgNVBAgMB01vbGRvdmExETAPBgNVBAcMCENoaXNpbmF1MQ4wDAYDVQQKDAVSRU5BTTEMMAoGA1UECwwDTk9DMRwwGgYDVQQDDBNmaWxlc2VuZGVyLnJlbmFtLm1kMR0wGwYJKoZIhvcNAQkBFg5hZG1pbkByZW5hbS5tZDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOE9M1IXZF7Y1xJDTp6mw87W/c0IipHuzdoYn2dBKLRYUWnKkQ0+asxL6bGSpQlAWEiI3+tN4avWbCFci06QzLdUzN2+LfiUPnS+F3gF3b11TcUGuhe3tTZbI/WNegDC987pZYTfNfwGukxWh7n+wTWd3lgm99TzPv0bxSx1q3mdMr58vzPu2jm6Wug8PRmYzhXcUFHuHPN673GLKHYGmkU+UZu5TGzKMvi9RLkJ31UkW5G55FGOi/td7yx4f5H3+TAaX+1LrqBBTthVtkJNeW4yWW1TIdpXO8gp4ZW8d1M3O2imitdyT/42HwHaKVGymbyfTxooPL5GuZ9nO0wG558CAwEAAaNTMFEwHQYDVR0OBBYEFEPvSBNpcooBAD8vetVFPtFl47vSMB8GA1UdIwQYMBaAFEPvSBNpcooBAD8vetVFPtFl47vSMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAKfzsJcEvEqZ16sZx4iQp4By/Zp4/aJm4H862ZfmTYVTlRQkF5TRO2zGZT+gRXyjKqggw+0YUqmZ5LaZVsw2IQMCQQi4j1oZdNQ6gmt1P1ZUMnEOrWXmVaS53YbXmtlM9ZQqz334gszTZBS/J9XaelGGvaTaESYgK9mlsxJwQrxfMW0sX7ZH8qWyl5/rUUBXGYnBJFaQQleZfk8ywq0KmWKFHAdIFDMLlzXv20RqzRI3o4DpAcPQUEmd0s2L8IXna4xKvlPksHvXjlIcdBv7F3zt9tcfVAU3PfvNDTNllIlgs5Kl3KNrM/h4CuUo64TLPXjC1CN1+jIz1Tm2LCzko2o=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.renam.md/simplesamlphp/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.renam.md/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="1" isDefault="true" />
+      <md:AttributeConsumingService index="0" isDefault="true">
+        <md:ServiceName xml:lang="en">RENAM Filesender</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">RENAM Filesender Service - the service for exchanging files</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="uid" Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="cn" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RENAM</md:OrganizationName>
+      <md:OrganizationName xml:lang="ro">RENAM</md:OrganizationName>
+      <md:OrganizationName xml:lang="ru">RENAM</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">RENAM</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="ro">RENAM</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="ru">RENAM</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://renam.md</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="ro">http://renam.md</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="ru">http://renam.md</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Alexandru Cacean</md:GivenName>
+      <md:EmailAddress>mailto:alexandru.cacean@renam.md</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Alexandru Cacean</md:GivenName>
+      <md:EmailAddress>mailto:alexandru.cacean@renam.md</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

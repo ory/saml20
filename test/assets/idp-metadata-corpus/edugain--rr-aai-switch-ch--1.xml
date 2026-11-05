@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://pzbs.authproxy.swisscovery.network/saml-idp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2026-06-23T12:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/switchaai-mrps-v2.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor errorURL="https://pzbs.authproxy.swisscovery.network/simplesaml/module.php/core/error/ERRORURL_CODE?ts=ERRORURL_TS&amp;rp=ERRORURL_RP&amp;tid=ERRORURL_TID&amp;ctx=ERRORURL_CTX" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">eduid.ch</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">PZ.BS via SLSKey</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="de">PZ.BS via SLSKey</mdui:DisplayName>
+          <mdui:Description xml:lang="en">PZ.BS library resource access via SLSKey</mdui:Description>
+          <mdui:Description xml:lang="de">Zugang zu PZ.BS Bibliotheksressourcen via SLSKey</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.bs.ch/ed/hochschulen/pzbs/mm/pzbs-bibliothek</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://slsp.ch/datenschutz/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="147" width="170">https://authproxy.swisscovery.network/module.php/slsptheme/assets/slskey_logo_edugain.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEejCCAuKgAwIBAgIUUmtgmJ+bMMe9gItMyY8A8S21e5gwDQYJKoZIhvcNAQELBQAwXTELMAkGA1UEBhMCQ0gxEDAOBgNVBAgMB1p1ZXJpY2gxEDAOBgNVBAcMB1p1ZXJpY2gxEDAOBgNVBAoMB1NMU1AgQUcxGDAWBgNVBAMMD1NMU0tleS1wemJzLWlkcDAeFw0yNTEyMDUwODIwMzdaFw0zNTEyMDMwODIwMzdaMF0xCzAJBgNVBAYTAkNIMRAwDgYDVQQIDAdadWVyaWNoMRAwDgYDVQQHDAdadWVyaWNoMRAwDgYDVQQKDAdTTFNQIEFHMRgwFgYDVQQDDA9TTFNLZXktcHpicy1pZHAwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCzobJRYqsszNPZM87uXhnb+q4d+6fAtwe7nLihGD1pSdGvLBRP5jAgpIBpuWBlDfgMPgW9H/jzKvNPGZJqe969s9yxBk6fXdcguWVGWGh0BitfoYrZEcU1UWSNBR1uHuicO61/qG9+TaloUtPKVmKZgMckNrHuQObeSSr2DKozixtfpRSHlUK6F/d1bn/cjHvZ73TDYa0YybbBfqLC450ZzqCg7V9R7Qu30lWiYWAc/iQTtP9HpDHmNS5dsovygacgLoHEtRQedWY/l8O1fGR8M/yygvYexP8SOMAi/E52mH+3Ecfa2W9u++QRJww8TAnXx3TS8vx8bqC5CGfYJ8dpWtGwNMgVg4DMmS+Xwq9DKkcOZG1eledXEJiGL8C+cxZ+v5zl3UwuGZqqkQsNEMb0bwDwq47stE/qPaL42UtPcq/c4U/byK3s/3RB/88DmiC11AgNRERDQXyCFwMgybqa71tth+ea7fJOx9mrlusnBcGFowW53VyusNgMe+L/3mUCAwEAAaMyMDAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUP4WMJqJLRddSmR0UYqLdsQPS2+cwDQYJKoZIhvcNAQELBQADggGBAKr9m9FX4SNQxFy36nZhz1j871sUlwD7kIwjTtd5VaW/XDv54wvY9bcEtMEUTdyIAjLAt6VML/SF1Yvonn/qUIvS/ydVBvW2GV6Ieo7uh2MQtEeD5zEQIj/PESxJqsmo8tip7xuvKNl1/L02373ivJol6xuOhI00HnqhrbreS/st6vIdyBd4DROvCXATuCsUm9Zzdr1qthMOxiOP0gVvZYVYLkReS2U0WGjdhvH0i+Z8DFqhe68ZdmjbZM1zlSbHimKrNvADqQ4sS9S3zT/9Owuyaf0IPqsOvApHOE2Wdvqs5tr9DjXAHudXSXfVDj4aJBsHaJ4X2yh+5H5432Obi+4P13Gx3iglOeaab1hVTYh/rFtcy8ejeI5PaobElcFAMOwfDmAj2xpdRv3EFnD+m42FAO+O/dPs05JwLUHnBqWQr9W4ZooN8iWukhRXAotcgk+yG95FTkutGo4KHQQpdHndTiUQFT/u55nL+DjYz26mD6EbhJo1EWLsqj0BNP9qjA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEejCCAuKgAwIBAgIUUmtgmJ+bMMe9gItMyY8A8S21e5gwDQYJKoZIhvcNAQELBQAwXTELMAkGA1UEBhMCQ0gxEDAOBgNVBAgMB1p1ZXJpY2gxEDAOBgNVBAcMB1p1ZXJpY2gxEDAOBgNVBAoMB1NMU1AgQUcxGDAWBgNVBAMMD1NMU0tleS1wemJzLWlkcDAeFw0yNTEyMDUwODIwMzdaFw0zNTEyMDMwODIwMzdaMF0xCzAJBgNVBAYTAkNIMRAwDgYDVQQIDAdadWVyaWNoMRAwDgYDVQQHDAdadWVyaWNoMRAwDgYDVQQKDAdTTFNQIEFHMRgwFgYDVQQDDA9TTFNLZXktcHpicy1pZHAwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCzobJRYqsszNPZM87uXhnb+q4d+6fAtwe7nLihGD1pSdGvLBRP5jAgpIBpuWBlDfgMPgW9H/jzKvNPGZJqe969s9yxBk6fXdcguWVGWGh0BitfoYrZEcU1UWSNBR1uHuicO61/qG9+TaloUtPKVmKZgMckNrHuQObeSSr2DKozixtfpRSHlUK6F/d1bn/cjHvZ73TDYa0YybbBfqLC450ZzqCg7V9R7Qu30lWiYWAc/iQTtP9HpDHmNS5dsovygacgLoHEtRQedWY/l8O1fGR8M/yygvYexP8SOMAi/E52mH+3Ecfa2W9u++QRJww8TAnXx3TS8vx8bqC5CGfYJ8dpWtGwNMgVg4DMmS+Xwq9DKkcOZG1eledXEJiGL8C+cxZ+v5zl3UwuGZqqkQsNEMb0bwDwq47stE/qPaL42UtPcq/c4U/byK3s/3RB/88DmiC11AgNRERDQXyCFwMgybqa71tth+ea7fJOx9mrlusnBcGFowW53VyusNgMe+L/3mUCAwEAAaMyMDAwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUP4WMJqJLRddSmR0UYqLdsQPS2+cwDQYJKoZIhvcNAQELBQADggGBAKr9m9FX4SNQxFy36nZhz1j871sUlwD7kIwjTtd5VaW/XDv54wvY9bcEtMEUTdyIAjLAt6VML/SF1Yvonn/qUIvS/ydVBvW2GV6Ieo7uh2MQtEeD5zEQIj/PESxJqsmo8tip7xuvKNl1/L02373ivJol6xuOhI00HnqhrbreS/st6vIdyBd4DROvCXATuCsUm9Zzdr1qthMOxiOP0gVvZYVYLkReS2U0WGjdhvH0i+Z8DFqhe68ZdmjbZM1zlSbHimKrNvADqQ4sS9S3zT/9Owuyaf0IPqsOvApHOE2Wdvqs5tr9DjXAHudXSXfVDj4aJBsHaJ4X2yh+5H5432Obi+4P13Gx3iglOeaab1hVTYh/rFtcy8ejeI5PaobElcFAMOwfDmAj2xpdRv3EFnD+m42FAO+O/dPs05JwLUHnBqWQr9W4ZooN8iWukhRXAotcgk+yG95FTkutGo4KHQQpdHndTiUQFT/u55nL+DjYz26mD6EbhJo1EWLsqj0BNP9qjA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://pzbs.authproxy.swisscovery.network/simplesaml/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://pzbs.authproxy.swisscovery.network/simplesaml/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Pädagogisches Zentrum PZ.BS via SLSKey</md:OrganizationName>
+      <md:OrganizationName xml:lang="de">Pädagogisches Zentrum PZ.BS via SLSKey</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Pädagogisches Zentrum PZ.BS via SLSKey</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="de">Pädagogisches Zentrum PZ.BS via SLSKey</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.bs.ch/ed/hochschulen/pzbs</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="de">https://www.bs.ch/ed/hochschulen/pzbs</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SLSP</md:GivenName>
+      <md:SurName>Technical Support</md:SurName>
+      <md:EmailAddress>mailto:martin.senn@slsp.ch</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SLSP</md:GivenName>
+      <md:SurName>Technical Support</md:SurName>
+      <md:EmailAddress>mailto:sascha.villing@slsp.ch</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>PZ.BS</md:GivenName>
+      <md:SurName>User Support</md:SurName>
+      <md:EmailAddress>mailto:bibliothek.pz@bs.ch</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SLSP</md:GivenName>
+      <md:EmailAddress>mailto:info@slsp.ch</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,139 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.ethernet.edu.et/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://ethernet.edu.et/">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://efis.ethernet.edu.et/docs/policydocument.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ethernet.edu.et</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Ethiopian Education and Research Network (EthERNet)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">EthERNet federated identity solution integrates seamlessly with eduGAIN, providing a secure and efficient way for researchers to access essential resources.</mdui:Description>
+          <mdui:Keywords xml:lang="en">edugain</mdui:Keywords>
+          <mdui:Logo width="225" height="225">https://jfr.ethernet.edu.et/rr3/images/efis-new.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:9.002899,38.766289</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEODCCAqCgAwIBAgIVAP82EEBP9Jzt7c+yVKTYFbXDqDmGMA0GCSqGSIb3DQEB
+CwUAMB4xHDAaBgNVBAMME2lkcC5ldGhlcm5ldC5lZHUuZXQwHhcNMjMxMjMxMTA0
+NjE1WhcNNDMxMjMxMTA0NjE1WjAeMRwwGgYDVQQDDBNpZHAuZXRoZXJuZXQuZWR1
+LmV0MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA41KYhwzC3KUsL4Pf
+QXhs2U9y4Sw/8NwKEnkanFKihVjfLgDVPvQPyOYueLV++9bAYUE1OWBdqNqKEquM
+uyNYqDHN3VPCO+4LhZ6nzYZJga7okCexWdmMSyWR/cvSfexmpIt9jZqrKu+QRfn8
+IVmdwiOWb4QIO2VyMWoR7WYorwvuDaylIfoP7lJGSnWCoioPzAZ1Pm9rgAKAk21G
+tzHjRFYDjdZ4CyKUz6FpF1wiWmiJEtmk5jdH0vv1aI1jO7FavapmHx0B/YX7EfAV
+xMWpBKCA4fZN86jAopyousgmjSvsjN+ZVZxqyh3fcsfsT9P19Iqllew6COvfnzth
+6OWtaKN67341Lho8eqCvkeu3PsDd7T+65WovvLfjyV3ST3F+tPHwE7pFz+HBcKR8
+umIEB3UuQEgkLkWQoQRGkGYx/8Y9OXKhi1+NQo5AnxBxm9v0zqhURWmITwcOCGsV
+AWIM4npRDrN8g22oQamEl6f2GIAohGH8KLBJ9V/4v2sc1qz1AgMBAAGjbTBrMB0G
+A1UdDgQWBBSOe0tbGZaMZu+szfERMie750JKLTBKBgNVHREEQzBBghNpZHAuZXRo
+ZXJuZXQuZWR1LmV0hipodHRwczovL2lkcC5ldGhlcm5ldC5lZHUuZXQvaWRwL3No
+aWJib2xldGgwDQYJKoZIhvcNAQELBQADggGBAGJYLdJIcYB7wZJT3P9yYtRQSqa4
+qIDxtS4WSePpUb9IaUDBtERIbjZxwlOVcbU0WLjMNXLpwVJgUnPX2IZV3FjatfUm
+l7EcvO1PVmlHAlwIufAUh1eVMOl0IoXyy7n0lQGQgKtq2HCHwbPO97gHHicCUYQ+
+/G++UFHu9GRqrtckvovrX/kjopMxsK4NuWaL09B1siiQedeQUhEOaJAlQAOGffw9
+H8JEcCFkC6c8M4uURdwL/4ium79Kf+3LuQe2fsn8liSTVQUevXU8KrhecvZdeBSn
+vp6lGk6plYoUhsWrhrZueFjbdd9oVZSMS19LpM4xBh4B144gwIl6HeopZSd3FpEH
+OCEUnc7jQMr9GxHszBQq5Bw0clyzSELU4rdCi+mH5bJ6mTKhiYcNkAWeovYVzeJL
+rTWvewqCAtXu32npUW961JcOFte7xvYUMY5BDBkXlU2mSIuDI4WFWAQWZM/PL5XR
+yYwaBDwcr+/i+V9qbi3l3zftsi46hZS+10bbsw==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEODCCAqCgAwIBAgIVAIXo/V0/At1X6hCllLVc+cXJ/wd6MA0GCSqGSIb3DQEB
+CwUAMB4xHDAaBgNVBAMME2lkcC5ldGhlcm5ldC5lZHUuZXQwHhcNMjMxMjMxMTA0
+NjE0WhcNNDMxMjMxMTA0NjE0WjAeMRwwGgYDVQQDDBNpZHAuZXRoZXJuZXQuZWR1
+LmV0MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA7jFmNT+WCSQk0Eku
+iwptKAC07Wh4H9A7mWSNNDdQS3zig02h2i/OAg6XG3cVn1lR08Ai8jf9gHjae3s3
+O3gZMqTqZCJ2HSL+3rCfAv5MfDlK9loHkAFMOQ5G/l6LgJR2PvmWf3PpJ3dkAd0z
+zZHazgeRxNyuM+cep/4tMQXJrWP7mX9wfR9ovElsDzE5DSdhUcBvePzC/Fki7hYB
+qRi0F9upZZ9URp8+ddpg4V3vimtwFDWbfNxHDWp9jN3txRHx6hmUgFdNy/OCUdQp
+zWa2o8B3GbdRohVHylWwoNhxo0OIJQ52hxllRJ37eevNRq3B3NtN+oXOFQGIRXKM
+aj+yoXtnOG2aT4ZPydiHIYNS+HJmk3AvdnqZRZN93lfWQ8/O5TR/eI03XdkUBo0a
+AMXg0TwHM1vpafxrnXi4NwuHvydeDBxDEBgfXItNoosive+XG5KHJyb+LclpJ4+f
+hcZTmSXqBABWRbIYBs0YWTMGhjF5lMNVNiJEoQe+04l6OsnJAgMBAAGjbTBrMB0G
+A1UdDgQWBBRNh0CmXP4JvnK0axEePnQQSVbdmjBKBgNVHREEQzBBghNpZHAuZXRo
+ZXJuZXQuZWR1LmV0hipodHRwczovL2lkcC5ldGhlcm5ldC5lZHUuZXQvaWRwL3No
+aWJib2xldGgwDQYJKoZIhvcNAQELBQADggGBAOUNXCucLaawnJBM96YySBNmUmpF
+no2Osjk4yoaRK8c+sd/jJFaXDUZoime7ZmXDW2jDg03IqZfON2n0FcqWnHDVsOxG
+/o6qYDovisDqJnCBlFoFOvj0oDBLlhq42BpPFDJBfXm0/UZ7PI5TP0iTZRQR8D2e
+OzrPqhv7aPwPQy0eRLy3C7xLLUvd1Hr20Ughf6WGefzrKf+adxw7u+NcGm4JdWVg
+sUiy/AiY7ZCtqRD+dSAOFuTvIvKlt9+i2lfBUrH1iugx6f8Zs78n+Adr1ZyMeRLR
+d7/xY3oLQXk/AVOT1l+Q375OFrlBDi4JZ3l8xUlKUNeAZN5k64Z7bv2q+1F5sYAU
+CSCmdFowLDr8aaQh8xo1tFX+CNUPuUY2xUVPqpUni29tXxMYKdOzin2KIdoJH436
+ssb77SVePqILAGcSvX5hi/j6kuIqllEhJcCZbPuoug3X42CYifZy+HVJii1XOYog
+cGES3HLGGXavg4uDbEl9UphIsL7nGKOP18tKKg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEODCCAqCgAwIBAgIVANe1EbtX+TIC7DvX6Jm1UDLDFMaKMA0GCSqGSIb3DQEB
+CwUAMB4xHDAaBgNVBAMME2lkcC5ldGhlcm5ldC5lZHUuZXQwHhcNMjMxMjMxMTA0
+NjE1WhcNNDMxMjMxMTA0NjE1WjAeMRwwGgYDVQQDDBNpZHAuZXRoZXJuZXQuZWR1
+LmV0MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAmoRVZ8eeRbmLmh15
+Y0WVEDcpjtU1VSrfHU+wQMLibmcFaxg5yzxSwCOJhhJfD4260OSTVp60PbBP0SXS
+0gF7Lxh1CaIirJpZhnA092altvLaWu8xsA3TfF5yqG+Ye9dzub+pl4XHj5xgbchl
+eqm4RXhZlzcWl64aU3QTKe0O5e7hh9rQzjwFdPh/XfvezId8Ul2BeqmOF6Jvt/WX
+FXog2S8TMzCVL0ljGCKEyD3WqviZ17NXHhLSGGZS2ONfEZ9HXeUHxVtN0ZlRGg9S
+P+XpAxddpmzU5SEcXT8+xqs0pu6005c0xILKMRkm54OX59ieyLnMaXrTt95E86//
+JcBnMOxX1hdRmyx1HeUcm0KaaQGXpYE8t+UqM87AiJb80dA7n2erDGc+jmm0RWTy
+XSORGdEq4QamPi1irdvpapNB2+gjO1EUZlpfrwGoJZ/qloQb2i8cPgBQGCYGshyQ
+g4eFBz5eRcUcXOHlG8BroWAertvY0WW0FMwkvUJYFvPHuIBjAgMBAAGjbTBrMB0G
+A1UdDgQWBBTvC1Q7nf22OzSq+cjhn44VR2NJWTBKBgNVHREEQzBBghNpZHAuZXRo
+ZXJuZXQuZWR1LmV0hipodHRwczovL2lkcC5ldGhlcm5ldC5lZHUuZXQvaWRwL3No
+aWJib2xldGgwDQYJKoZIhvcNAQELBQADggGBAEbDtczMeOtFQPV4M7p3hMqZ/G3P
+Zdy/r3EzHuwnSXMuuJTLOYVOFzuVwCAkEmVVgIuMkUXh11c7uFx63uf+/j2UyxRo
+XHEGgrrF3cilUyFjdZIpHQUfqb36Q1rp3gp6DyNp7EpUtpvgLUR7BHe+ZJtissxI
+X8L1gq3koiP4kd6mDQZuXQDmx6xoWtGPpJdat04RGKIaxMgOMzlcb/f2OJmVhgoS
+dsFhhcYGsQ1ij8yFSb0rVagrMW3PiRNDPdQCEmOb1zZ0LiZaC9UdRH5EI+o9/7DP
+daQlBT9V4R/wT2P3pS+ZtQVkfULVP3y4m45jALZLYIInCTNANN8/OwUsj5l7Ekdv
+U6Xm8ELNmBX1TvJSBCMlWFtf1SaylgExSiRAZ7Gwk+VqqJfnuuGku41lpAY6p7Gn
+pj+cktGoxNkadbBzmFVrge5L26l2UcsiFhp90X3tG85ibYISB0ZQmWmRvI4qH+M5
+wSOJv++6dhqGEKjWxx2zUN0a4MK6fV0DF2afGA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ethernet.edu.et/idp/profile/SAML2/SOAP/ArtifactResolution" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ethernet.edu.et/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ethernet.edu.et/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ethernet.edu.etidp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ethiopian Education and Research Network (EthERNet)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EthERNet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://ethernet.edu.et</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Nigatu</md:GivenName>
+      <md:SurName>Nigusie</md:SurName>
+      <md:EmailAddress>mailto:idp@ethernet.edu.et</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Lensa</md:GivenName>
+      <md:SurName>Abera</md:SurName>
+      <md:EmailAddress>mailto:edugain@ethernet.edu.et</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Nigatu</md:GivenName>
+      <md:SurName>Nigusie</md:SurName>
+      <md:EmailAddress>mailto:system@ethernet.edu.et</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

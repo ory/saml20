@@ -1,0 +1,41 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibboleth.sys.kth.se/identity" xml:base="swamid-1.0/shibboleth.sys.kth.se.xml">
+  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+    <md:Extensions>
+      <shibmd:Scope>kth.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIB6TCCAVKgAwIBAgIJAOWxnEiImxnuMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNVBAMTFXNoaWJib2xldGguc3lzLmt0aC5zZTAeFw0wODAyMDcwMDI4MDFaFw0xMTAyMDYwMDI4MDFaMCAxHjAcBgNVBAMTFXNoaWJib2xldGguc3lzLmt0aC5zZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAsoH589Je8tY9QKR4fdR5IMw+EOAsGNETKCdap9hqbSKSX5cG8xsJ3wjgxwbe9LbiboKk8GwxU/iSuxtzIa+myfeFkgL/IR0En6lyFvPnJxcNOV2fAVlForH2OPrt/WxeP9AzkzyjzrjOtH6mi4pT7jiHjxKWX7L6vB7rgyTJjHsCAwEAAaMrMCkwJwYDVR0lBCAwHgYIKwYBBQUHAwEGCCsGAQUFBwMCBggrBgEFBQcDBDANBgkqhkiG9w0BAQUFAAOBgQB3Ktsl6UYCV5YRwJ/gnHndiiUR/kOdaJaC0sv5C1f+uNdBGxJqz6h8W4rKXv6B4m/oDyZY0P7GYY1bZ2fMTnTfVF5MsCscURIIHz8bo+/LoYp/fRQSm/AG2Xz3vJFEMFtKXoGvi9VgcSS1BoBAn2I9oxZTNmTxlmkocYMYXdMopA==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.sys.kth.se:8443/shibboleth-idp/AA" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+  </md:AttributeAuthorityDescriptor>
+  <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+    <md:Extensions>
+      <shibmd:Scope>kth.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIB6TCCAVKgAwIBAgIJAOWxnEiImxnuMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNVBAMTFXNoaWJib2xldGguc3lzLmt0aC5zZTAeFw0wODAyMDcwMDI4MDFaFw0xMTAyMDYwMDI4MDFaMCAxHjAcBgNVBAMTFXNoaWJib2xldGguc3lzLmt0aC5zZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAsoH589Je8tY9QKR4fdR5IMw+EOAsGNETKCdap9hqbSKSX5cG8xsJ3wjgxwbe9LbiboKk8GwxU/iSuxtzIa+myfeFkgL/IR0En6lyFvPnJxcNOV2fAVlForH2OPrt/WxeP9AzkzyjzrjOtH6mi4pT7jiHjxKWX7L6vB7rgyTJjHsCAwEAAaMrMCkwJwYDVR0lBCAwHgYIKwYBBQUHAwEGCCsGAQUFBwMCBggrBgEFBQcDBDANBgkqhkiG9w0BAQUFAAOBgQB3Ktsl6UYCV5YRwJ/gnHndiiUR/kOdaJaC0sv5C1f+uNdBGxJqz6h8W4rKXv6B4m/oDyZY0P7GYY1bZ2fMTnTfVF5MsCscURIIHz8bo+/LoYp/fRQSm/AG2Xz3vJFEMFtKXoGvi9VgcSS1BoBAn2I9oxZTNmTxlmkocYMYXdMopA==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.sys.kth.se/shibboleth-idp/Artifact" index="1" isDefault="true" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.sys.kth.se/shibboleth-idp/SSO" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">KTH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Royal Institute of Technology</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.kth.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Royal Institute of Technology</md:Company>
+    <md:EmailAddress>jbn@kth.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

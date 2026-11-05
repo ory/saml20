@@ -24,6 +24,8 @@ export interface SAMLProfile {
   audience?: string;
   // Every <Audience> of every <AudienceRestriction>, in document order.
   audiences: string[];
+  // Claim values are whatever the IdP asserted: strings, or lists of them.
+  // oxlint-disable-next-line typescript/no-explicit-any
   claims: Record<string, any>;
   issuer: string;
   sessionIndex: string;

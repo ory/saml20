@@ -4,6 +4,7 @@ import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from '../../
 import type { ParsedMetadata, ParseMetadataOptions } from '../../lib/metadata';
 import { doctypeNotAllowedError, thumbprint } from '../../lib/utils';
 import { stripCertHeaderAndFooter } from '../../lib/cert';
+import { METADATA_NS } from '../../lib/constants';
 import fs from 'fs';
 
 const samlMetadata = fs.readFileSync('./test/assets/mock-saml-metadata.xml').toString();
@@ -365,9 +366,54 @@ describe('parseMetadata error and tolerance cases', function () {
     fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString()
   );
 
+  it('normalises CRLF inside the certificate text', async () => {
+    const wrapped = cert.match(/.{1,64}/g)!.join('\n');
+    const lf = await parseMetadata(idpMetadata(signingKey(wrapped)), {});
+    const crlf = await parseMetadata(idpMetadata(signingKey(wrapped)).replace(/\n/g, '\r\n'), {});
+    assert.deepStrictEqual(crlf, lf);
+    assert.doesNotMatch(crlf.publicKey!, /\r/);
+  });
+
+  it('reads a certificate whose element carries attributes (xmlns on every element)', async () => {
+    const plain = await parseMetadata(idpMetadata(signingKey(cert)), {});
+    const withAttributes = idpMetadata(signingKey(cert)).replace(
+      '<ds:X509Certificate>',
+      '<ds:X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">'
+    );
+    assert.deepStrictEqual(await parseMetadata(withAttributes, {}), plain);
+  });
+
+  it('parses metadata whose Extensions use names that Object.prototype also defines', async () => {
+    const extensions =
+      '<md:Extensions xmlns:e="urn:example:extension">' +
+      ['constructor', 'toString', 'hasOwnProperty', '__proto__']
+        .map((name) => `<e:${name} ${name}="v">x</e:${name}>`)
+        .join('') +
+      '</md:Extensions>';
+    const expected = await parseMetadata(idpMetadata(signingKey(cert)), {});
+    const value = await parseMetadata(
+      idpMetadata(signingKey(cert)).replace('<md:IDPSSODescriptor>', `${extensions}<md:IDPSSODescriptor>`),
+      {}
+    );
+    assert.deepStrictEqual(value, expected);
+    assert.strictEqual(value.entityID, 'https://idp');
+    assert.strictEqual(value.publicKey, cert);
+  });
+
+  it('accepts metadata with a newline or a comment before the XML declaration', async () => {
+    const doc = idpMetadata(signingKey(cert));
+    for (const prolog of ['\n', '<!-- Pasted from the IdP -->\n']) {
+      const value = await parseMetadata(`${prolog}<?xml version="1.0" encoding="UTF-8"?>\n${doc}`, {});
+      assert.strictEqual(value.entityID, 'https://idp');
+      assert.strictEqual(value.publicKey, cert);
+    }
+  });
+
   it('rejects input that is not XML with the parser error', async () => {
-    await assert.rejects(parseMetadata('not xml', {}), /Non-whitespace before first tag/);
-    await assert.rejects(parseMetadata('<md:EntityDescriptor', {}), /Unexpected end/);
+    await assert.rejects(parseMetadata('not xml', {}), { message: 'missing root element' });
+    await assert.rejects(parseMetadata(`<md:EntityDescriptor xmlns:md="${METADATA_NS}"`, {}), {
+      message: 'unclosed xml tag(s): md:EntityDescriptor',
+    });
   });
 
   it('rejects a certificate that cannot be decoded', async () => {
@@ -441,6 +487,16 @@ describe('parseMetadata on documents that are not metadata', function () {
       await assert.rejects(parseMetadata(xml), notMetadata);
     });
   }
+
+  it('names the role in the missing-certificate error for SP metadata', async () => {
+    const sp =
+      '<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp">' +
+      '<md:SPSSODescriptor><md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" ' +
+      'Location="https://sp/acs" index="0"/></md:SPSSODescriptor></md:EntityDescriptor>';
+    await assert.rejects(parseMetadata(sp), {
+      message: 'Could not find X509Certificate in the SP metadata.',
+    });
+  });
 
   it('still reports a missing certificate for real metadata', async () => {
     await assert.rejects(parseMetadata(samlMetadata6), {

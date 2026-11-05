@@ -1,0 +1,56 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.ces.cedia.edu.ec/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://minga.cedia.org.ec" registrationInstant="2020-09-06T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.cedia.edu.ec/en/minga</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="es">https://www.cedia.edu.ec/es/minga</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ces.ec</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Consejo de Educacion Superior - ces</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">Consejo de Educacion Superior - ces</mdui:DisplayName>
+          <mdui:Description xml:lang="en">ces - Federated access by CEDIA</mdui:Description>
+          <mdui:Description xml:lang="es">ces - Acceso federado ofrecido por CEDIA</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://ces.ec</mdui:InformationURL>
+          <mdui:Logo height="160" width="200" xml:lang="en">https://static.cedia.edu.ec/logos/ces-250x50.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDvTCCAqWgAwIBAgIUO/ePzAzekNaByuZxwMOhSfwG8IUwDQYJKoZIhvcNAQELBQAwbjELMAkGA1UEBhMCRUMxDjAMBgNVBAgMBUF6dWF5MQ8wDQYDVQQHDAZDdWVuY2ExDjAMBgNVBAoMBUNFRElBMQwwCgYDVQQLDANJREkxIDAeBgNVBAMMF3BvcnRhbC5jZXMuY2VkaWEuZWR1LmVjMB4XDTI1MTIxMTIxMTkyNloXDTM1MTIxMTIxMTkyNlowbjELMAkGA1UEBhMCRUMxDjAMBgNVBAgMBUF6dWF5MQ8wDQYDVQQHDAZDdWVuY2ExDjAMBgNVBAoMBUNFRElBMQwwCgYDVQQLDANJREkxIDAeBgNVBAMMF3BvcnRhbC5jZXMuY2VkaWEuZWR1LmVjMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzHQpg/qp7P43brKJR5pTzTRtLDbwrnxY+UIcP3xNF+1l/LBzleFkyRJU5gZVhOI2AWgpZIxZnrPbyCXcvltsyPtZBkfF5+2R1+t88pZp9jMAVa3y7o1B4bBy9QH9oOBroCM465O7qIEbK0bK5thlHagg/VBgsGx7hl8/4mb9oNzq1nLcq9fHEqzKoKMzvHp7StIxbb717JFvDAdta+V7z88D7pyw8KHzIfUMhV7G+hJ8Yuid/UZa0obbdIkI++dLBRR/ovAS4Rl3og4DoUDwaibAKeWadSgUUCi7qmYa9g+0BIxdI74JL40UBrNpL0PoGqRaKGGrASsaj7+pWCNPGQIDAQABo1MwUTAdBgNVHQ4EFgQU3EK4uOWyoE9YlYc+ngLDvhrAvEIwHwYDVR0jBBgwFoAU3EK4uOWyoE9YlYc+ngLDvhrAvEIwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAbYQEhMGkFo6OSv1s7Irjz8Oun6xX25s/1urB+HD5neFmB3PjFF96gTo6qXrC8ykZuhoc2E/I686UZnxUN6gmiCU2diC7QaZ4wQSJoDj483uBuOInFUn4kZ1QjOWxtv4+CgF1/o0sNewo7Ajs863zxgroqL9+abjG7jEChatHdjZLkypEw5oDCdJGcppisqLGw2dlrC6jsfmVMEouSbeKGYBielXZmxZhpPcNzfNPPx/tQOx0sYk4/ONjsi4rO/+YH7YFqc0pEclWYsQNGfh13j/SGXZYN2Aa2uyq2FmgIYsle0sVvub84XFzxgj2UZc/q0w6LzsJK23T8AFJEOSZhg==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDvTCCAqWgAwIBAgIUO/ePzAzekNaByuZxwMOhSfwG8IUwDQYJKoZIhvcNAQELBQAwbjELMAkGA1UEBhMCRUMxDjAMBgNVBAgMBUF6dWF5MQ8wDQYDVQQHDAZDdWVuY2ExDjAMBgNVBAoMBUNFRElBMQwwCgYDVQQLDANJREkxIDAeBgNVBAMMF3BvcnRhbC5jZXMuY2VkaWEuZWR1LmVjMB4XDTI1MTIxMTIxMTkyNloXDTM1MTIxMTIxMTkyNlowbjELMAkGA1UEBhMCRUMxDjAMBgNVBAgMBUF6dWF5MQ8wDQYDVQQHDAZDdWVuY2ExDjAMBgNVBAoMBUNFRElBMQwwCgYDVQQLDANJREkxIDAeBgNVBAMMF3BvcnRhbC5jZXMuY2VkaWEuZWR1LmVjMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzHQpg/qp7P43brKJR5pTzTRtLDbwrnxY+UIcP3xNF+1l/LBzleFkyRJU5gZVhOI2AWgpZIxZnrPbyCXcvltsyPtZBkfF5+2R1+t88pZp9jMAVa3y7o1B4bBy9QH9oOBroCM465O7qIEbK0bK5thlHagg/VBgsGx7hl8/4mb9oNzq1nLcq9fHEqzKoKMzvHp7StIxbb717JFvDAdta+V7z88D7pyw8KHzIfUMhV7G+hJ8Yuid/UZa0obbdIkI++dLBRR/ovAS4Rl3og4DoUDwaibAKeWadSgUUCi7qmYa9g+0BIxdI74JL40UBrNpL0PoGqRaKGGrASsaj7+pWCNPGQIDAQABo1MwUTAdBgNVHQ4EFgQU3EK4uOWyoE9YlYc+ngLDvhrAvEIwHwYDVR0jBBgwFoAU3EK4uOWyoE9YlYc+ngLDvhrAvEIwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAbYQEhMGkFo6OSv1s7Irjz8Oun6xX25s/1urB+HD5neFmB3PjFF96gTo6qXrC8ykZuhoc2E/I686UZnxUN6gmiCU2diC7QaZ4wQSJoDj483uBuOInFUn4kZ1QjOWxtv4+CgF1/o0sNewo7Ajs863zxgroqL9+abjG7jEChatHdjZLkypEw5oDCdJGcppisqLGw2dlrC6jsfmVMEouSbeKGYBielXZmxZhpPcNzfNPPx/tQOx0sYk4/ONjsi4rO/+YH7YFqc0pEclWYsQNGfh13j/SGXZYN2Aa2uyq2FmgIYsle0sVvub84XFzxgj2UZc/q0w6LzsJK23T8AFJEOSZhg==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.ces.cedia.edu.ec/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.ces.cedia.edu.ec/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ces</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Consejo de Educacion Superior - ces</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://ces.ec</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:Company>CEDIA</md:Company>
+      <md:GivenName>Claudio</md:GivenName>
+      <md:SurName>Chacon</md:SurName>
+      <md:EmailAddress>mailto:minga.support@cedia.org.ec</md:EmailAddress>
+      <md:TelephoneNumber>+593(9)93790347</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Claudio</md:GivenName>
+      <md:SurName>Chacon</md:SurName>
+      <md:EmailAddress>mailto:minga.support@cedia.org.ec</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

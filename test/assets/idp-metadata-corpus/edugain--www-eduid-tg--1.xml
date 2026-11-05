@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://esatg.togorer.eduid.africa/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.eduid.tg" registrationInstant="2023-11-07T13:47:08Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.eduid.tg/docs/MRPS-eduid-tg-v1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">esatg.togorer.eduid.africa</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">ESA</mdui:DisplayName>
+          <mdui:Logo height="200" width="200">https://togorer.eduid.africa/images/idp_logo/654a02232f024.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDrzCCApcCFCycLYC2/LOcP8njZFSKzFnl+FaIMA0GCSqGSIb3DQEBCwUAMIGT
+MQswCQYDVQQGEwJURzENMAsGA1UECAwETE9NRTENMAsGA1UEBwwETE9NRTEMMAoG
+A1UECgwDRVNBMQwwCgYDVQQLDANFU0ExIzAhBgNVBAMMGmVzYXRnLnRvZ29yZXIu
+ZWR1aWQuYWZyaWNhMSUwIwYJKoZIhvcNAQkBFhZyb255Lmxhd3NvbkB0b2dvcmVy
+LnRnMB4XDTI0MTEyMzE1NTcyM1oXDTI2MTEyMzE1NTcyM1owgZMxCzAJBgNVBAYT
+AlRHMQ0wCwYDVQQIDARMT01FMQ0wCwYDVQQHDARMT01FMQwwCgYDVQQKDANFU0Ex
+DDAKBgNVBAsMA0VTQTEjMCEGA1UEAwwaZXNhdGcudG9nb3Jlci5lZHVpZC5hZnJp
+Y2ExJTAjBgkqhkiG9w0BCQEWFnJvbnkubGF3c29uQHRvZ29yZXIudGcwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDIpjHyCGLk/ePY/5GB8X/JHrzwrlc/
+SRKQI7VUx6ldHZqHfqLQ3GqNLoIWh1mRPyxS4DVco47v1Kp6cUIoXjaWIq/6W9TP
+/0n81phkhIwG9PDGqXPEKiMWcEknonBg6c1MjT4jS1jp4SE8g+mJf4DaLcKENf0t
+oic7UQVxvc7uSkAvth4INu/Ngc061ULcCMsK3MbQ1BbMxoz2eMU1mH2wMQC1qe/8
+kVrqAfKI27chz5R/8zHhxoIBn4oF2tM1K4+ulEYQ9FoU8UcD22x+ctadRpRRiNbC
+6Wrhyu0Eqk5WYSgrW1Q/MeC/xA33L4Q5EYOiC/v9ImhnR0NFaycbQ+PhAgMBAAEw
+DQYJKoZIhvcNAQELBQADggEBAA0EpUqhKUg25CWrbd+ughsTFg5UMb76g4onJTiW
+sW3G04SimAMDiBHlnZfdOP48TYJwSm3tsxIBpQZihPmTC6O0mTgcLfbneJg0a/sU
+NIDyMVUBLcYLVUPlSRkcrfJy2cNT53jswCfv+Nxpm0FwYAOY1ZEPzqN64HqYSQqE
+1h+XHLfTlGzlcdusd0MpK3KeISnI5fYFVeKw90/h7xo/6qknPamSSb+eGBaVa2UP
+jEtdmnVEqe6citNeBM/rmQyE8v2NTTPsgNFXYkCFi1WMPGxR5CiIrGY1b9WT7Re9
+9vDQU9P9pANE2a837jw/lBtQhaMoEI4CSvgUnFVHiZ0t/2M=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://esatg.togorer.eduid.africa/saml2/idp/SingleLogoutService.php" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://esatg.togorer.eduid.africa/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://esatg.togorer.eduid.africa/saml2/idp/SSOService.php" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://esatg.togorer.eduid.africa/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ESA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ESA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.esatogo.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>ESA-TOGO</md:GivenName>
+      <md:SurName>ESA</md:SurName>
+      <md:EmailAddress>mailto:esatogonews@gmail.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>ESA-TOGO</md:GivenName>
+      <md:SurName>ESA</md:SurName>
+      <md:EmailAddress>mailto:esatogonews@gmail.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

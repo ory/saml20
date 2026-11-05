@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-logond.unibas.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">unibas.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Universität Basel TEST Home
+                        Org
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Basel University Test &amp;
+                        Dev Home Organisation
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:IPHint>131.152.0.0/16</mdui:IPHint>
+                    <mdui:DomainHint>unibas.ch</mdui:DomainHint>
+                    <mdui:GeolocationHint>geo:47.55874,7.58371
+                    </mdui:GeolocationHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDOzCCAiOgAwIBAgIUA2YmYIMyNuHd7NUf2HOMxppwghowDQYJKoZIhvcNAQEF
+                            BQAwHzEdMBsGA1UEAxMUYWFpLWxvZ29uZC51bmliYXMuY2gwHhcNMTIwNzEyMTMz
+                            MjEzWhcNMTUwNzEyMTMzMjEzWjAfMR0wGwYDVQQDExRhYWktbG9nb25kLnVuaWJh
+                            cy5jaDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAI0Akcy6g5Nkjb2O
+                            GjvSULwD8uky5gkkwSwXp0B3RkOxi274vvmNCLqqJeTLcPfouKwJ/L8+ThLF5WjN
+                            pn1G4im3tgmQq+p4c7xeSineWGPDdQiKDhaAux5itGJtxpXOiLs/uUKDk2w/Nn4I
+                            VZRhQJlupBQiOTPEpXav0AbB9zCxJZ1Q0wfiA+InL1iLNRpsyDwCABbcaVteJJA5
+                            j8PQmsUaW0RMBsv438MX6vYj7RL1i4CqBKv+PInNAJwFrGRM5xY4IyoCuiwyhfLX
+                            trg+Ij4K74qL+VoZaphlsZGbjHBvxjM1UYHufvbkEdb3K/BOW16Qd3XA2x2pO1l5
+                            ILseaZECAwEAAaNvMG0wTAYDVR0RBEUwQ4IUYWFpLWxvZ29uZC51bmliYXMuY2iG
+                            K2h0dHBzOi8vYWFpLWxvZ29uZC51bmliYXMuY2gvaWRwL3NoaWJib2xldGgwHQYD
+                            VR0OBBYEFAObPBUo63q2upnvRzbbrIbdx0JOMA0GCSqGSIb3DQEBBQUAA4IBAQAY
+                            pHmdHuvIclUmPnkCtpD65qEHgmFh6fAtC4VnJlD3JdCtgHdeBhy9qUUcUc6zH9DP
+                            5hmGbt0oPNQkLrDt+/k23yW1GQl15dRnCb6NKBCjP4IhirbLTZtlgkK+f9HS31HY
+                            M+JKhfcivXegSRbXz0wKlJRtkpR2u6haFVQUEfWv/aTaTLEoD7+c8CB60JPpdDk6
+                            0zbTt3slhtgEVfRCBnBWvcW/4Y056vFhN5iTw8pmvVD/k3iivVkOVjfTpo39qukD
+                            FVBecfN9BMyww1Nejtty8CqOvnog/LFADbSfd3+7T9oJ4SFIrzdNIF/JV9XkpPdE
+                            XxX8XwQqmGrShi2Y9MZ9
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logond.unibas.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logond.unibas.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-logond.unibas.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-logond.unibas.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-logond.unibas.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-logond.unibas.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">unibas.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDOzCCAiOgAwIBAgIUA2YmYIMyNuHd7NUf2HOMxppwghowDQYJKoZIhvcNAQEF
+                            BQAwHzEdMBsGA1UEAxMUYWFpLWxvZ29uZC51bmliYXMuY2gwHhcNMTIwNzEyMTMz
+                            MjEzWhcNMTUwNzEyMTMzMjEzWjAfMR0wGwYDVQQDExRhYWktbG9nb25kLnVuaWJh
+                            cy5jaDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAI0Akcy6g5Nkjb2O
+                            GjvSULwD8uky5gkkwSwXp0B3RkOxi274vvmNCLqqJeTLcPfouKwJ/L8+ThLF5WjN
+                            pn1G4im3tgmQq+p4c7xeSineWGPDdQiKDhaAux5itGJtxpXOiLs/uUKDk2w/Nn4I
+                            VZRhQJlupBQiOTPEpXav0AbB9zCxJZ1Q0wfiA+InL1iLNRpsyDwCABbcaVteJJA5
+                            j8PQmsUaW0RMBsv438MX6vYj7RL1i4CqBKv+PInNAJwFrGRM5xY4IyoCuiwyhfLX
+                            trg+Ij4K74qL+VoZaphlsZGbjHBvxjM1UYHufvbkEdb3K/BOW16Qd3XA2x2pO1l5
+                            ILseaZECAwEAAaNvMG0wTAYDVR0RBEUwQ4IUYWFpLWxvZ29uZC51bmliYXMuY2iG
+                            K2h0dHBzOi8vYWFpLWxvZ29uZC51bmliYXMuY2gvaWRwL3NoaWJib2xldGgwHQYD
+                            VR0OBBYEFAObPBUo63q2upnvRzbbrIbdx0JOMA0GCSqGSIb3DQEBBQUAA4IBAQAY
+                            pHmdHuvIclUmPnkCtpD65qEHgmFh6fAtC4VnJlD3JdCtgHdeBhy9qUUcUc6zH9DP
+                            5hmGbt0oPNQkLrDt+/k23yW1GQl15dRnCb6NKBCjP4IhirbLTZtlgkK+f9HS31HY
+                            M+JKhfcivXegSRbXz0wKlJRtkpR2u6haFVQUEfWv/aTaTLEoD7+c8CB60JPpdDk6
+                            0zbTt3slhtgEVfRCBnBWvcW/4Y056vFhN5iTw8pmvVD/k3iivVkOVjfTpo39qukD
+                            FVBecfN9BMyww1Nejtty8CqOvnog/LFADbSfd3+7T9oJ4SFIrzdNIF/JV9XkpPdE
+                            XxX8XwQqmGrShi2Y9MZ9
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logond.unibas.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logond.unibas.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">unibas.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Universität Basel TEST Home
+                Org
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.unibas.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

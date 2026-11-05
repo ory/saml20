@@ -1,0 +1,97 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://study.athenauni.eu/auth/saml2/sp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://fedi.litnet.lt" registrationInstant="2024-08-06T13:36:36Z" />
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="lt">Athenauni Moodle</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Athenauni Moodle</mdui:DisplayName>
+          <mdui:Description xml:lang="lt">Athenauni Moodle</mdui:Description>
+          <mdui:Description xml:lang="en">Athenauni Moodle</mdui:Description>
+          <mdui:InformationURL xml:lang="lt">https://study.athenauni.eu/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://study.athenauni.eu/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="lt">https://study.athenauni.eu/</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://study.athenauni.eu/</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEcjCCA1qgAwIBAgIBADANBgkqhkiG9w0BAQsFADCB0TEbMBkGA1UEAwwSc3R1
+ZHkuYXRoZW5hdW5pLmV1MQswCQYDVQQGEwJMVDEnMCUGCSqGSIb3DQEJARYYd2Vi
+bWFzdGVyQHZpbG5pdXN0ZWNoLmx0MRAwDgYDVQQHDAdWaWxuaXVzMTIwMAYDVQQK
+DClWaWxuaWF1cyBHZWRpbWlubyB0ZWNobmlrb3MgdW5pdmVyc2l0ZXRhczEbMBkG
+A1UECAwSVmlsbmlhdXMgYXBza3JpdGlzMRkwFwYDVQQLDBBWSUxOSVVTVEVDSCBJ
+VFNDMB4XDTI0MDgwNTExMzM1OVoXDTM0MDgwMzExMzM1OVowgdExGzAZBgNVBAMM
+EnN0dWR5LmF0aGVuYXVuaS5ldTELMAkGA1UEBhMCTFQxJzAlBgkqhkiG9w0BCQEW
+GHdlYm1hc3RlckB2aWxuaXVzdGVjaC5sdDEQMA4GA1UEBwwHVmlsbml1czEyMDAG
+A1UECgwpVmlsbmlhdXMgR2VkaW1pbm8gdGVjaG5pa29zIHVuaXZlcnNpdGV0YXMx
+GzAZBgNVBAgMElZpbG5pYXVzIGFwc2tyaXRpczEZMBcGA1UECwwQVklMTklVU1RF
+Q0ggSVRTQzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAM8yWbgwprip
+WW6wV5ROj0EzmjVq8ubio6XMcRABH29fH0vjrDVa/MGa1FiVUbMdy3Uap1o4Cvh8
+tLM6TBbkT/EgK2JSX4CD3deMDnp9miiBYPSReDjIcjpJrpFrS2U6J9mz4j8i0Vwd
+cIRSNTN7ikHa7jcNPanxIhapwW4RhEObL4bAHRjZolwSg7vjZQHgOvX1Ool/f2bz
+wEWUJmbSOMcVRiNwjxERZeDKHU6IN4f6vY0gRPKHJMkBHMWHFKcOtH+xPOxRgjA5
+FKHQSczLI+azta3kceESOXjhYZYvM0Hji4qf/uoQKPtjljKyUlzdqLbXLKl+FbsO
+IJjrDrR0QgcCAwEAAaNTMFEwHQYDVR0OBBYEFGDDNOH1h1QIu4UxN/aC+2jlmxKb
+MB8GA1UdIwQYMBaAFGDDNOH1h1QIu4UxN/aC+2jlmxKbMA8GA1UdEwEB/wQFMAMB
+Af8wDQYJKoZIhvcNAQELBQADggEBAGJH4L4qjtYgmqknF8/YGc2USGLuFaRfifGG
+oUdY+09s2AYvtIZol6BV/CpKJDVeEzgo4yf4R7TuIKZKY3nwG22IScqMuewJPKw3
+oYWxkj4s3BfRZ4XHKAkiR/8oNaN5ajk5GMNIVSkRralyY6wHeiKyw8xNiioS6QUE
+XKm90X1GEY+0LcIf9nXWgxXOLpfGrVB0kmYMsNuEsUnmwI+PMruDmT7Uw+YXYDGM
+ambfdG3vsn3rCmXN5woM+7EwlHT2X8rKIxbYFie4NvVWr1a1hAPwjIbDiB98SszE
+X6szIEwKRMmOr8JwFoZqNd+ZYJukA/tLVZBWiTjdv8CLXs6fTvQ=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEcjCCA1qgAwIBAgIBADANBgkqhkiG9w0BAQsFADCB0TEbMBkGA1UEAwwSc3R1
+ZHkuYXRoZW5hdW5pLmV1MQswCQYDVQQGEwJMVDEnMCUGCSqGSIb3DQEJARYYd2Vi
+bWFzdGVyQHZpbG5pdXN0ZWNoLmx0MRAwDgYDVQQHDAdWaWxuaXVzMTIwMAYDVQQK
+DClWaWxuaWF1cyBHZWRpbWlubyB0ZWNobmlrb3MgdW5pdmVyc2l0ZXRhczEbMBkG
+A1UECAwSVmlsbmlhdXMgYXBza3JpdGlzMRkwFwYDVQQLDBBWSUxOSVVTVEVDSCBJ
+VFNDMB4XDTI0MDgwNTExMzM1OVoXDTM0MDgwMzExMzM1OVowgdExGzAZBgNVBAMM
+EnN0dWR5LmF0aGVuYXVuaS5ldTELMAkGA1UEBhMCTFQxJzAlBgkqhkiG9w0BCQEW
+GHdlYm1hc3RlckB2aWxuaXVzdGVjaC5sdDEQMA4GA1UEBwwHVmlsbml1czEyMDAG
+A1UECgwpVmlsbmlhdXMgR2VkaW1pbm8gdGVjaG5pa29zIHVuaXZlcnNpdGV0YXMx
+GzAZBgNVBAgMElZpbG5pYXVzIGFwc2tyaXRpczEZMBcGA1UECwwQVklMTklVU1RF
+Q0ggSVRTQzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAM8yWbgwprip
+WW6wV5ROj0EzmjVq8ubio6XMcRABH29fH0vjrDVa/MGa1FiVUbMdy3Uap1o4Cvh8
+tLM6TBbkT/EgK2JSX4CD3deMDnp9miiBYPSReDjIcjpJrpFrS2U6J9mz4j8i0Vwd
+cIRSNTN7ikHa7jcNPanxIhapwW4RhEObL4bAHRjZolwSg7vjZQHgOvX1Ool/f2bz
+wEWUJmbSOMcVRiNwjxERZeDKHU6IN4f6vY0gRPKHJMkBHMWHFKcOtH+xPOxRgjA5
+FKHQSczLI+azta3kceESOXjhYZYvM0Hji4qf/uoQKPtjljKyUlzdqLbXLKl+FbsO
+IJjrDrR0QgcCAwEAAaNTMFEwHQYDVR0OBBYEFGDDNOH1h1QIu4UxN/aC+2jlmxKb
+MB8GA1UdIwQYMBaAFGDDNOH1h1QIu4UxN/aC+2jlmxKbMA8GA1UdEwEB/wQFMAMB
+Af8wDQYJKoZIhvcNAQELBQADggEBAGJH4L4qjtYgmqknF8/YGc2USGLuFaRfifGG
+oUdY+09s2AYvtIZol6BV/CpKJDVeEzgo4yf4R7TuIKZKY3nwG22IScqMuewJPKw3
+oYWxkj4s3BfRZ4XHKAkiR/8oNaN5ajk5GMNIVSkRralyY6wHeiKyw8xNiioS6QUE
+XKm90X1GEY+0LcIf9nXWgxXOLpfGrVB0kmYMsNuEsUnmwI+PMruDmT7Uw+YXYDGM
+ambfdG3vsn3rCmXN5woM+7EwlHT2X8rKIxbYFie4NvVWr1a1hAPwjIbDiB98SszE
+X6szIEwKRMmOr8JwFoZqNd+ZYJukA/tLVZBWiTjdv8CLXs6fTvQ=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://study.athenauni.eu/auth/saml2/sp/saml2-logout.php/study.athenauni.eu" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://study.athenauni.eu/auth/saml2/sp/saml2-acs.php/study.athenauni.eu" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://study.athenauni.eu/auth/saml2/sp/saml2-acs.php/study.athenauni.eu" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Athenauni Moodle</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Athenauni Moodle</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://study.athenauni.eu</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>VILNIUSTECH ITSC</md:GivenName>
+      <md:EmailAddress>mailto:webmaster@vilniustech.lt</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,335 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ns3="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:ns4="http://docs.oasis-open.org/wsfed/authorization/200706" xmlns:ns5="http://www.w3.org/2005/08/addressing" xmlns:ns6="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="http://idp.chalmers.se/adfs/services/trust" xml:base="swamid-1.0/idp.chalmers.se.xml">
+  <md:RoleDescriptor xsi:type="fed:ApplicationServiceType" protocolSupportEnumeration="http://docs.oasis-open.org/ws-sx/ws-trust/200512 http://schemas.xmlsoap.org/ws/2005/02/trust http://docs.oasis-open.org/wsfed/federation/200706" ServiceDisplayName="idp.chalmers.se">
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC4DCCAcigAwIBAgIQEp9COrofZZtPkRgYPamoEDANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSBpZHAuY2hhbG1lcnMuc2UwHhcNMTEwMTI3MTI1MzI0WhcNMTIwMTI3MTI1MzI0WjAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSBpZHAuY2hhbG1lcnMuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9XODqG7kiv2O8KUD4iXa4OX7+v3XkAE4oBkFJyAAS/kKeHEsCrD4dVZQlKL4QWbasgEx6dtxdTFNLcSKiJSEVHN7rgWApjK+1txMq/G8GNVKAT1Qh7wy/Owb9AUfx2JCZ+/G9PDhSiY33izug6YC5a0QD7UH4bO6a+wQeaRqhVN9fTiurBB3+clZZT98NZqgSnFVvBZdNV8Zfmg/+6ST/TTictUSxyqlMgi0tAhxoovoPOaSumrbSiCOe740qjJbfA0Ven+ot3kWn3duw1HRM5s0CZS3NqWnTIT3DOGWRh9hX7wy5cT7/4c+Fd/vSEqGAaVbNkQoS1h8GkRhDEMaxAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAJm2+Nh5ERESFdZkGVaUF3aGeLGtCx6GpWt0khJ0knLwFNGgwuLBGboLFlwqQaWckplJBMzUAMwpMk4cW0JTcxn+r1i4+USpz9zIHyBpDtJM/F+ALzMjiZ/h4gjWiwhI1TRJ5HNVeKLII6i3OgfBx/A60Ea25pINnK6SlUaSiG4IJR93D87mxlcZRLOdlF5JOWfHrUY5RNJWn0VQ2VfS6mbqm1uRGiy4qXZUrQFqR4csFy96Kpsn80MeMg1bXI4VqR9XGm/F1+c++leSdetzwNyWid6WcG/h/mWWgAZ6+GdrdVmAOyiUS/6VSuDe4R0bwLCqmgEDtKudDFFpxdhd9yI=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <ns3:ClaimTypesRequested>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" Optional="true">
+        <ns4:DisplayName>E-Mail Address</ns4:DisplayName>
+        <ns4:Description>The e-mail address of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" Optional="true">
+        <ns4:DisplayName>Given Name</ns4:DisplayName>
+        <ns4:Description>The given name of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" Optional="true">
+        <ns4:DisplayName>Name</ns4:DisplayName>
+        <ns4:Description>The unique name of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" Optional="true">
+        <ns4:DisplayName>UPN</ns4:DisplayName>
+        <ns4:Description>The user principal name (UPN) of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/claims/CommonName" Optional="true">
+        <ns4:DisplayName>Common Name</ns4:DisplayName>
+        <ns4:Description>The common name of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/claims/EmailAddress" Optional="true">
+        <ns4:DisplayName>AD FS 1.x E-Mail Address</ns4:DisplayName>
+        <ns4:Description>The e-mail address of the user when interoperating with AD FS 1.1 or ADFS 1.0</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/claims/Group" Optional="true">
+        <ns4:DisplayName>Group</ns4:DisplayName>
+        <ns4:Description>A group that the user is a member of</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/claims/UPN" Optional="true">
+        <ns4:DisplayName>AD FS 1.x UPN</ns4:DisplayName>
+        <ns4:Description>The UPN of the user when interoperating with AD FS 1.1 or ADFS 1.0</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" Optional="true">
+        <ns4:DisplayName>Role</ns4:DisplayName>
+        <ns4:Description>A role that the user has</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" Optional="true">
+        <ns4:DisplayName>Surname</ns4:DisplayName>
+        <ns4:Description>The surname of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier" Optional="true">
+        <ns4:DisplayName>PPID</ns4:DisplayName>
+        <ns4:Description>The private identifier of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" Optional="true">
+        <ns4:DisplayName>Name ID</ns4:DisplayName>
+        <ns4:Description>The SAML name identifier of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant" Optional="true">
+        <ns4:DisplayName>Authentication time stamp</ns4:DisplayName>
+        <ns4:Description>Used to display the time and date that the user was authenticated</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod" Optional="true">
+        <ns4:DisplayName>Authentication method</ns4:DisplayName>
+        <ns4:Description>The method used to authenticate the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid" Optional="true">
+        <ns4:DisplayName>Deny only group SID</ns4:DisplayName>
+        <ns4:Description>The deny-only group SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid" Optional="true">
+        <ns4:DisplayName>Deny only primary SID</ns4:DisplayName>
+        <ns4:Description>The deny-only primary SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid" Optional="true">
+        <ns4:DisplayName>Deny only primary group SID</ns4:DisplayName>
+        <ns4:Description>The deny-only primary group SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" Optional="true">
+        <ns4:DisplayName>Group SID</ns4:DisplayName>
+        <ns4:Description>The group SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid" Optional="true">
+        <ns4:DisplayName>Primary group SID</ns4:DisplayName>
+        <ns4:Description>The primary group SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid" Optional="true">
+        <ns4:DisplayName>Primary SID</ns4:DisplayName>
+        <ns4:Description>The primary SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" Optional="true">
+        <ns4:DisplayName>Windows account name</ns4:DisplayName>
+        <ns4:Description>The domain account name of the user in the form of &lt;domain&gt;\&lt;user&gt;</ns4:Description>
+      </ns4:ClaimType>
+    </ns3:ClaimTypesRequested>
+    <ns3:TargetScopes>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/services/trust/2005/issuedtokenmixedasymmetricbasic256</ns5:Address>
+      </ns5:EndpointReference>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/services/trust/2005/issuedtokenmixedsymmetricbasic256</ns5:Address>
+      </ns5:EndpointReference>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/services/trust/13/issuedtokenmixedasymmetricbasic256</ns5:Address>
+      </ns5:EndpointReference>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/services/trust/13/issuedtokenmixedsymmetricbasic256</ns5:Address>
+      </ns5:EndpointReference>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/ls/</ns5:Address>
+      </ns5:EndpointReference>
+      <ns5:EndpointReference>
+        <ns5:Address>http://idp.chalmers.se/adfs/services/trust</ns5:Address>
+      </ns5:EndpointReference>
+    </ns3:TargetScopes>
+    <ns3:ApplicationServiceEndpoint>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/services/trust/2005/issuedtokenmixedasymmetricbasic256</ns5:Address>
+      </ns5:EndpointReference>
+    </ns3:ApplicationServiceEndpoint>
+    <ns3:PassiveRequestorEndpoint>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/ls/</ns5:Address>
+      </ns5:EndpointReference>
+    </ns3:PassiveRequestorEndpoint>
+  </md:RoleDescriptor>
+  <md:RoleDescriptor xsi:type="fed:SecurityTokenServiceType" protocolSupportEnumeration="http://docs.oasis-open.org/ws-sx/ws-trust/200512 http://schemas.xmlsoap.org/ws/2005/02/trust http://docs.oasis-open.org/wsfed/federation/200706" ServiceDisplayName="idp.chalmers.se">
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC2jCCAcKgAwIBAgIQEXJmCBiBaLxDrNDUr+X/eDANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBpZHAuY2hhbG1lcnMuc2UwHhcNMTEwMTI3MTI1MzI0WhcNMTIwMTI3MTI1MzI0WjApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBpZHAuY2hhbG1lcnMuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRtkkCmvoX3Eg7lZIZehi8/Kx1rsRvEeeeAjTqOZMJUNj9/fvlfiudNSqeOQwopwyKdz5MaJUxzzPLt0/SXhKMKDxVjMdVn0hbPhmsxaASFjbyd0K+O32JlaUi9Cqx17hwMS//+cQ1sf3lV1RNGR97pncYWaeAu7+HUvqb3kvtmh3g6YYN8BBlI5AegE9BHXxUuDoGUUl12XJJ1awgBBa/e+69KbtknmScC1bSx8lNli0iJpZ4wyHjVq+xqSbnpxIL+S94j+fj2MHwe+ML7cJJZkkhywCZQJaD61jVii3P+0XVYPH64KxWeJbQYEs8DCujum28zU91kz1Fd+SqEopFAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAJffudoM9hmPtWmQbvdc8ccaBToXmB80/d7w5nJaUpNuA7XOYN4Msv77pv5t7F6vgLCDEI0mbM2BiLez7KA5J5F365csIz5PQ9lWYphiwzEOLGImrDn79EbMp0AKvxdYeYGkWpMNVZhB+BdOW/q2/RnkaZdxasATCZNewNLLzlSMt2UFgEJ0N/BTN7DJm532U8aZftZlTaS2MHJ/2SwheiHy2gTs//59EDvY7A6IYeQ3ldVklmTvbcmyKp1s84AD0yf+QZX4tbLQphiJRR3fkPXd9TRccnMrDJI/qZzM2bxYcK/Grj08tWpsM38IbeMvlE1/f2a42S0XeTcCEy+lzbs=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <ns3:TokenTypesOffered>
+      <ns3:TokenType Uri="urn:oasis:names:tc:SAML:2.0:assertion" />
+      <ns3:TokenType Uri="urn:oasis:names:tc:SAML:1.0:assertion" />
+    </ns3:TokenTypesOffered>
+    <ns3:ClaimTypesOffered>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" Optional="true">
+        <ns4:DisplayName>E-Mail Address</ns4:DisplayName>
+        <ns4:Description>The e-mail address of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" Optional="true">
+        <ns4:DisplayName>Given Name</ns4:DisplayName>
+        <ns4:Description>The given name of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" Optional="true">
+        <ns4:DisplayName>Name</ns4:DisplayName>
+        <ns4:Description>The unique name of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" Optional="true">
+        <ns4:DisplayName>UPN</ns4:DisplayName>
+        <ns4:Description>The user principal name (UPN) of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/claims/CommonName" Optional="true">
+        <ns4:DisplayName>Common Name</ns4:DisplayName>
+        <ns4:Description>The common name of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/claims/EmailAddress" Optional="true">
+        <ns4:DisplayName>AD FS 1.x E-Mail Address</ns4:DisplayName>
+        <ns4:Description>The e-mail address of the user when interoperating with AD FS 1.1 or ADFS 1.0</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/claims/Group" Optional="true">
+        <ns4:DisplayName>Group</ns4:DisplayName>
+        <ns4:Description>A group that the user is a member of</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/claims/UPN" Optional="true">
+        <ns4:DisplayName>AD FS 1.x UPN</ns4:DisplayName>
+        <ns4:Description>The UPN of the user when interoperating with AD FS 1.1 or ADFS 1.0</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" Optional="true">
+        <ns4:DisplayName>Role</ns4:DisplayName>
+        <ns4:Description>A role that the user has</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" Optional="true">
+        <ns4:DisplayName>Surname</ns4:DisplayName>
+        <ns4:Description>The surname of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier" Optional="true">
+        <ns4:DisplayName>PPID</ns4:DisplayName>
+        <ns4:Description>The private identifier of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" Optional="true">
+        <ns4:DisplayName>Name ID</ns4:DisplayName>
+        <ns4:Description>The SAML name identifier of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant" Optional="true">
+        <ns4:DisplayName>Authentication time stamp</ns4:DisplayName>
+        <ns4:Description>Used to display the time and date that the user was authenticated</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod" Optional="true">
+        <ns4:DisplayName>Authentication method</ns4:DisplayName>
+        <ns4:Description>The method used to authenticate the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid" Optional="true">
+        <ns4:DisplayName>Deny only group SID</ns4:DisplayName>
+        <ns4:Description>The deny-only group SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid" Optional="true">
+        <ns4:DisplayName>Deny only primary SID</ns4:DisplayName>
+        <ns4:Description>The deny-only primary SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid" Optional="true">
+        <ns4:DisplayName>Deny only primary group SID</ns4:DisplayName>
+        <ns4:Description>The deny-only primary group SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" Optional="true">
+        <ns4:DisplayName>Group SID</ns4:DisplayName>
+        <ns4:Description>The group SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid" Optional="true">
+        <ns4:DisplayName>Primary group SID</ns4:DisplayName>
+        <ns4:Description>The primary group SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid" Optional="true">
+        <ns4:DisplayName>Primary SID</ns4:DisplayName>
+        <ns4:Description>The primary SID of the user</ns4:Description>
+      </ns4:ClaimType>
+      <ns4:ClaimType Uri="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" Optional="true">
+        <ns4:DisplayName>Windows account name</ns4:DisplayName>
+        <ns4:Description>The domain account name of the user in the form of &lt;domain&gt;\&lt;user&gt;</ns4:Description>
+      </ns4:ClaimType>
+    </ns3:ClaimTypesOffered>
+    <ns3:SecurityTokenServiceEndpoint>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/services/trust/2005/certificatemixed</ns5:Address>
+        <ns5:Metadata>
+          <ns6:Metadata>
+            <ns6:MetadataSection Dialect="http://schemas.xmlsoap.org/ws/2004/09/mex">
+              <ns6:MetadataReference>
+                <ns5:Address>https://idp.chalmers.se/adfs/services/trust/mex</ns5:Address>
+              </ns6:MetadataReference>
+            </ns6:MetadataSection>
+          </ns6:Metadata>
+        </ns5:Metadata>
+      </ns5:EndpointReference>
+    </ns3:SecurityTokenServiceEndpoint>
+    <ns3:PassiveRequestorEndpoint>
+      <ns5:EndpointReference>
+        <ns5:Address>https://idp.chalmers.se/adfs/ls/</ns5:Address>
+      </ns5:EndpointReference>
+    </ns3:PassiveRequestorEndpoint>
+  </md:RoleDescriptor>
+  <md:SPSSODescriptor WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC4DCCAcigAwIBAgIQEp9COrofZZtPkRgYPamoEDANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSBpZHAuY2hhbG1lcnMuc2UwHhcNMTEwMTI3MTI1MzI0WhcNMTIwMTI3MTI1MzI0WjAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSBpZHAuY2hhbG1lcnMuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9XODqG7kiv2O8KUD4iXa4OX7+v3XkAE4oBkFJyAAS/kKeHEsCrD4dVZQlKL4QWbasgEx6dtxdTFNLcSKiJSEVHN7rgWApjK+1txMq/G8GNVKAT1Qh7wy/Owb9AUfx2JCZ+/G9PDhSiY33izug6YC5a0QD7UH4bO6a+wQeaRqhVN9fTiurBB3+clZZT98NZqgSnFVvBZdNV8Zfmg/+6ST/TTictUSxyqlMgi0tAhxoovoPOaSumrbSiCOe740qjJbfA0Ven+ot3kWn3duw1HRM5s0CZS3NqWnTIT3DOGWRh9hX7wy5cT7/4c+Fd/vSEqGAaVbNkQoS1h8GkRhDEMaxAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAJm2+Nh5ERESFdZkGVaUF3aGeLGtCx6GpWt0khJ0knLwFNGgwuLBGboLFlwqQaWckplJBMzUAMwpMk4cW0JTcxn+r1i4+USpz9zIHyBpDtJM/F+ALzMjiZ/h4gjWiwhI1TRJ5HNVeKLII6i3OgfBx/A60Ea25pINnK6SlUaSiG4IJR93D87mxlcZRLOdlF5JOWfHrUY5RNJWn0VQ2VfS6mbqm1uRGiy4qXZUrQFqR4csFy96Kpsn80MeMg1bXI4VqR9XGm/F1+c++leSdetzwNyWid6WcG/h/mWWgAZ6+GdrdVmAOyiUS/6VSuDe4R0bwLCqmgEDtKudDFFpxdhd9yI=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC2jCCAcKgAwIBAgIQEXJmCBiBaLxDrNDUr+X/eDANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBpZHAuY2hhbG1lcnMuc2UwHhcNMTEwMTI3MTI1MzI0WhcNMTIwMTI3MTI1MzI0WjApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBpZHAuY2hhbG1lcnMuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRtkkCmvoX3Eg7lZIZehi8/Kx1rsRvEeeeAjTqOZMJUNj9/fvlfiudNSqeOQwopwyKdz5MaJUxzzPLt0/SXhKMKDxVjMdVn0hbPhmsxaASFjbyd0K+O32JlaUi9Cqx17hwMS//+cQ1sf3lV1RNGR97pncYWaeAu7+HUvqb3kvtmh3g6YYN8BBlI5AegE9BHXxUuDoGUUl12XJJ1awgBBa/e+69KbtknmScC1bSx8lNli0iJpZ4wyHjVq+xqSbnpxIL+S94j+fj2MHwe+ML7cJJZkkhywCZQJaD61jVii3P+0XVYPH64KxWeJbQYEs8DCujum28zU91kz1Fd+SqEopFAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAJffudoM9hmPtWmQbvdc8ccaBToXmB80/d7w5nJaUpNuA7XOYN4Msv77pv5t7F6vgLCDEI0mbM2BiLez7KA5J5F365csIz5PQ9lWYphiwzEOLGImrDn79EbMp0AKvxdYeYGkWpMNVZhB+BdOW/q2/RnkaZdxasATCZNewNLLzlSMt2UFgEJ0N/BTN7DJm532U8aZftZlTaS2MHJ/2SwheiHy2gTs//59EDvY7A6IYeQ3ldVklmTvbcmyKp1s84AD0yf+QZX4tbLQphiJRR3fkPXd9TRccnMrDJI/qZzM2bxYcK/Grj08tWpsM38IbeMvlE1/f2a42S0XeTcCEy+lzbs=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.chalmers.se/adfs/ls/" />
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.chalmers.se/adfs/ls/" />
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.chalmers.se/adfs/ls/" index="0" isDefault="true" />
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://idp.chalmers.se/adfs/ls/" index="1" />
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.chalmers.se/adfs/ls/" index="2" />
+  </md:SPSSODescriptor>
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <shibmd:Scope regexp="false">chalmers.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC4DCCAcigAwIBAgIQEp9COrofZZtPkRgYPamoEDANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSBpZHAuY2hhbG1lcnMuc2UwHhcNMTEwMTI3MTI1MzI0WhcNMTIwMTI3MTI1MzI0WjAsMSowKAYDVQQDEyFBREZTIEVuY3J5cHRpb24gLSBpZHAuY2hhbG1lcnMuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9XODqG7kiv2O8KUD4iXa4OX7+v3XkAE4oBkFJyAAS/kKeHEsCrD4dVZQlKL4QWbasgEx6dtxdTFNLcSKiJSEVHN7rgWApjK+1txMq/G8GNVKAT1Qh7wy/Owb9AUfx2JCZ+/G9PDhSiY33izug6YC5a0QD7UH4bO6a+wQeaRqhVN9fTiurBB3+clZZT98NZqgSnFVvBZdNV8Zfmg/+6ST/TTictUSxyqlMgi0tAhxoovoPOaSumrbSiCOe740qjJbfA0Ven+ot3kWn3duw1HRM5s0CZS3NqWnTIT3DOGWRh9hX7wy5cT7/4c+Fd/vSEqGAaVbNkQoS1h8GkRhDEMaxAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAJm2+Nh5ERESFdZkGVaUF3aGeLGtCx6GpWt0khJ0knLwFNGgwuLBGboLFlwqQaWckplJBMzUAMwpMk4cW0JTcxn+r1i4+USpz9zIHyBpDtJM/F+ALzMjiZ/h4gjWiwhI1TRJ5HNVeKLII6i3OgfBx/A60Ea25pINnK6SlUaSiG4IJR93D87mxlcZRLOdlF5JOWfHrUY5RNJWn0VQ2VfS6mbqm1uRGiy4qXZUrQFqR4csFy96Kpsn80MeMg1bXI4VqR9XGm/F1+c++leSdetzwNyWid6WcG/h/mWWgAZ6+GdrdVmAOyiUS/6VSuDe4R0bwLCqmgEDtKudDFFpxdhd9yI=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC2jCCAcKgAwIBAgIQEXJmCBiBaLxDrNDUr+X/eDANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBpZHAuY2hhbG1lcnMuc2UwHhcNMTEwMTI3MTI1MzI0WhcNMTIwMTI3MTI1MzI0WjApMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBpZHAuY2hhbG1lcnMuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRtkkCmvoX3Eg7lZIZehi8/Kx1rsRvEeeeAjTqOZMJUNj9/fvlfiudNSqeOQwopwyKdz5MaJUxzzPLt0/SXhKMKDxVjMdVn0hbPhmsxaASFjbyd0K+O32JlaUi9Cqx17hwMS//+cQ1sf3lV1RNGR97pncYWaeAu7+HUvqb3kvtmh3g6YYN8BBlI5AegE9BHXxUuDoGUUl12XJJ1awgBBa/e+69KbtknmScC1bSx8lNli0iJpZ4wyHjVq+xqSbnpxIL+S94j+fj2MHwe+ML7cJJZkkhywCZQJaD61jVii3P+0XVYPH64KxWeJbQYEs8DCujum28zU91kz1Fd+SqEopFAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAJffudoM9hmPtWmQbvdc8ccaBToXmB80/d7w5nJaUpNuA7XOYN4Msv77pv5t7F6vgLCDEI0mbM2BiLez7KA5J5F365csIz5PQ9lWYphiwzEOLGImrDn79EbMp0AKvxdYeYGkWpMNVZhB+BdOW/q2/RnkaZdxasATCZNewNLLzlSMt2UFgEJ0N/BTN7DJm532U8aZftZlTaS2MHJ/2SwheiHy2gTs//59EDvY7A6IYeQ3ldVklmTvbcmyKp1s84AD0yf+QZX4tbLQphiJRR3fkPXd9TRccnMrDJI/qZzM2bxYcK/Grj08tWpsM38IbeMvlE1/f2a42S0XeTcCEy+lzbs=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.chalmers.se/adfs/services/trust/artifactresolution" index="0" />
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.chalmers.se/adfs/ls/" />
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.chalmers.se/adfs/ls/" />
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.chalmers.se/adfs/ls/" />
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.chalmers.se/adfs/ls/" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="E-Mail Address" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Given Name" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="UPN" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/CommonName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Common Name" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/EmailAddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="AD FS 1.x E-Mail Address" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/Group" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Group" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/UPN" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="AD FS 1.x UPN" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Role" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Surname" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="PPID" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name ID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication time stamp" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication method" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only group SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only primary SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only primary group SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Group SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Primary group SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Primary SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Windows account name" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">CHALMERS</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Chalmers</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.chalmers.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Chalmers</md:Company>
+    <md:EmailAddress>appro@chalmers.se</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Chalmers</md:Company>
+    <md:EmailAddress>nrq@chalmers.se</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Chalmers</md:Company>
+    <md:EmailAddress>biorn@chalmers.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

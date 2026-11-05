@@ -231,8 +231,7 @@ function generateXML({ sign: shouldSign = true } = {}) {
   const id = idPrefix + crypto.randomBytes(10).toString('hex');
   const date = new Date().toISOString();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const samlReq: Record<string, any> = {
+  const samlReq: Record<string, Record<string, unknown>> = {
     'samlp:AuthnRequest': {
       '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
       '@ID': id,
@@ -308,9 +307,9 @@ describe('validateSignature.ts', function () {
   it('validate response signature - no embedded cert, use multikey cert (wrong ones) should not pass', function () {
     try {
       validateSignature(validResponseSigned_noX509, wrongMultiPublicKey, null);
-    } catch (error: any) {
+    } catch (error) {
       assert.equal(
-        error.message,
+        (error as Error).message,
         'invalid signature: Failed to verify signature against all the certificates provided.'
       );
     }
@@ -577,6 +576,8 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
   };
 
   const spyCanon = () => {
+    // Spying on a private method of xml-crypto's class.
+    // oxlint-disable-next-line typescript/no-explicit-any
     const proto = SignedXml.prototype as any;
     const original = proto.getCanonReferenceXml;
     let calls = 0;

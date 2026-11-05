@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai.test.idiap.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">idiap.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">IDIAP - Idiap Research
+                        Institute (Test)
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">The Idiap Research Institute
+                        is an independent, nonprofit research foundation located
+                        in Martigny and active in the areas of Speech
+                        Processing, Computer Vision, Information Retrieval,
+                        Biometric Authentication, Multimodal Interaction and
+                        Machine Learning.
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>idiap.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:KeyName>aai.test.idiap.ch</ds:KeyName>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai.test.idiap.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai.test.idiap.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai.test.idiap.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai.test.idiap.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai.test.idiap.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai.test.idiap.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">idiap.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:KeyName>aai.test.idiap.ch</ds:KeyName>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai.test.idiap.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai.test.idiap.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">idiap.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">IDIAP - Idiap Research
+                Institute (Test)
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.idiap.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

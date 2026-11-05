@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:req-attr="urn:oasis:names:tc:SAML:protocol:ext:req-attr" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://id.nudz.cz/idp/shibboleth">
+    <md:Extensions>
+      <eduidmd:RepublishRequest>
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2020-12-08T08:35:36Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.cz/uri/idp-group/other</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">nudz.cz</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">National Institute of Mental Health</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Národní ústav duševního zdraví</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for NIMH employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance NUDZ.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.nudz.cz/en/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">https://www.nudz.cz/</mdui:InformationURL>
+          <mdui:Logo height="134" width="245" xml:lang="cs">https://www.nudz.cz/img/logo_cs.png</mdui:Logo>
+          <mdui:Logo height="134" width="245" xml:lang="en">https://www.nudz.cz/img/logo_en.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEFDCCAnygAwIBAgIVAKJEauFrNEmNRdkihWiyGCVakYM8MA0GCSqGSIb3DQEB
+CwUAMBUxEzARBgNVBAMMCmlkLm51ZHouY3owHhcNMTkxMDA5MDcyMTQzWhcNMzkx
+MDA5MDcyMTQzWjAVMRMwEQYDVQQDDAppZC5udWR6LmN6MIIBojANBgkqhkiG9w0B
+AQEFAAOCAY8AMIIBigKCAYEAnQ1JcBPyNrqxaEshYpgrC94KsyIGTGapDpJAcQa0
+UGWGZ0ble9d6CeZD9yu1GYf0wTlbhGocrwlhqW7BaiJcE6wbaay6QtGVbcCUIUbE
+AOvAQWs+7POqRY73KRr/7b254rfhyFsdOkwA8bT+7UoL9lzFPEgwvy3p6ix6yllG
+WKbtHvR61bTjnSmuc1rL6DDarlKWqt4PQemgP/tVM0G008UW6GF83Z8vwFoRWwsN
+y7nMBzzhNP3YsalAKiNChIAFxVJobnV42YTEU0keEqkqgyBE9XwGJrpYe9hOF6Dy
+neOnSl5xI33JTG1XmDXGcD2vWk3jzXtLaZG1Kh6jG3dHIpOuxBSshA2wqc725r3S
+qWrBtJlBhnPbbxoxITTy3GGsE8xDMqAHQxQZgg2b0sWd+4eS/IgZReINmRKJFLHx
+EYXnKtU1hCCx1pMlH656/khDXU5DfpaPX9SUwVqXxWk2LZIVV3n4HgmDAT0nKoNz
+qGOUNkVPf+T4cNTjZWcJx1XdAgMBAAGjWzBZMB0GA1UdDgQWBBSEvZrnheQYliV5
+j+76cF9a+55CKjA4BgNVHREEMTAvggppZC5udWR6LmN6hiFodHRwczovL2lkLm51
+ZHouY3ovaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQADggGBADN1i42fmPIN
+sqQtdVC4lcWLHjGNOgPiguDyjv4vkwE3L5ofnprD2g2MEp11ST+7p6xowYZ6ADYJ
+kK9jBsgnjgban/pajnVjvyDSoGs+K+0Vn0jpqhTHBWl/AG/xR5O6f3b6ImEWjYXb
+hAmZzE8a2qBobVmHfI5Wur2V+3wswtQwxGxSH6ZzPIl6LRixy9GhW52Ff6mKsKX6
+hcjXZao79zTRj8A+VhC+TdN02vAQUP0w35btJOtxalqojMXc7wknWYxaRPSXIOh/
+MbApTGuYZlzYwMbSD3TYkgbWtvGHTTQirfCUvpfOF/eYMqcuPAwyVfDZIHBuYcyc
+cD0YoR/SBqx682fY25wkkKHA3b4G5kUjeHVo8FqDKBJJ7Gnw+kU0P0K68fXGU7Qy
+x+ye3kTFlLWpJSoQc4FNWH4+65gHRLMBedxJInZKVcT2W1KQBS6nHJuoiDW+nJFN
+egoOSgCPbEJRzB7YPVBKEZ4qEVzUmPED3dpOQbdRIbWS1GmrrRKc5A==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEEzCCAnugAwIBAgIUO71JMWdtrMl+Qc94qGeAa3JzB7swDQYJKoZIhvcNAQEL
+BQAwFTETMBEGA1UEAwwKaWQubnVkei5jejAeFw0xOTEwMDkwNzIxNDRaFw0zOTEw
+MDkwNzIxNDRaMBUxEzARBgNVBAMMCmlkLm51ZHouY3owggGiMA0GCSqGSIb3DQEB
+AQUAA4IBjwAwggGKAoIBgQCOmEOmeIAy/YLzQQ5OQQFYIE5gmYwSUkuTqC0luaay
+EI2g2V0DaQkNRbo4iD3CUA6bud2Lngcb/kxCnzU+WTTKHiITT5AJXPerqN68uNYD
+QvZSKbifs3fcdIibeSxeImV6Ac497YcTCz61nM5t8Td3ox75v3TUIkS6pr/EfIPO
+HPQYPR82QROxqRosPy8dvpe5OGErG/VQvALQsH/lKxWxVTgvC0piGYdo2f+mveN2
+8zPVWfQcWDB/hnxi1DbbNAfFeGOQcNsVIwtC1hThvk1m1XuOm39t+IO9FVpzi+cK
+sDMz/mQwz8rQze2NYUhEQqnWJEdHfN0GFkUK9nhQ6FrroLbuabkPIaISZo8vWdty
+21UM1vDsXVUh17+fwHbR/SXTM1Xaq+rhhaRHvqYTBH9CTS1vosC0+M1IwRxQNF7w
+5ywC3/c1KiF4+whWLpFxeCuf8Euym+rCScKmrj1tT1OipRcIrbHrWKKlgPDxT+xn
+eHP3+nyhsHFyMvij/klAmfsCAwEAAaNbMFkwHQYDVR0OBBYEFN9vFviw5lt8nnaC
+V+mc+A8lcvkVMDgGA1UdEQQxMC+CCmlkLm51ZHouY3qGIWh0dHBzOi8vaWQubnVk
+ei5jei9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAYEAZf4eK7QINe8/
+acGzrgjzNPUVtdv1wB/pjSnqblJkivYkh/cB9b5vvZv9M0+GujcOEBdDdx23XtNP
+C2JyVtmNdQoCXt/ESPX1h41IgPNL3Di9XMq4oCPOtH0C2ESTAvnqAHYcTr0tDt7P
+2bRn0QIaJslaAKLAO5WXeo4oFdhKQkZPDfg/rBQSYzDQTbkHtjkViJnb+Svv2ffN
+21YIiALZ9lkhm70wuCUvNeIeq0WPDDjjX7eTxoPX/D0Qu7kpiFMMBR+7m5TkYk2c
++ClAgM49WLF5+B02QFjIG23CtjzkeR1Nr6ZUKV++XSPnW9E/taVhufSqaWgLhXBI
+0lxqAHAmuBrxMCdK8OggjjzSaPChNapvqpwfx+8ks4xvnNatFGaKilmxXp8hCLz4
+HzsbBZhSsKsyhIjfDDaLDXgj9c1GuCtQVO+kf2UufM0MvtlB+KoA5uFwf+Eb9Qtn
+knSvo0vZIE2w61/wTbX5fBufzWUJOS4i5xQjljUxFmfiWXogEz76</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://id.nudz.cz/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://id.nudz.cz/idp/profile/SAML2/POST/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://id.nudz.cz/idp/profile/SAML2/POST-SimpleSign/SLO" />
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://id.nudz.cz/idp/profile/Shibboleth/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://id.nudz.cz/idp/profile/SAML2/POST/SSO" req-attr:supportsRequestedAttributes="true" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://id.nudz.cz/idp/profile/SAML2/POST-SimpleSign/SSO" req-attr:supportsRequestedAttributes="true" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://id.nudz.cz/idp/profile/SAML2/Redirect/SSO" req-attr:supportsRequestedAttributes="true" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">National Institute of Mental Health</md:OrganizationName>
+      <md:OrganizationName xml:lang="cs">Národní ústav duševního zdraví</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">NATIONAL INSTITUTE OF MENTAL HEALTH</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">NÁRODNÍ ÚSTAV DUŠEVNÍHO ZDRAVÍ</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.nudz.cz/en/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">https://www.nudz.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Petr</md:GivenName>
+      <md:SurName>Mašík</md:SurName>
+      <md:EmailAddress>mailto:Petr.Masik@nudz.cz</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jan</md:GivenName>
+      <md:SurName>Budař</md:SurName>
+      <md:EmailAddress>mailto:Jan.Budar@nudz.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

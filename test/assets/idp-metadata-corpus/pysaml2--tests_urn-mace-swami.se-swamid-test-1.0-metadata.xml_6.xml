@@ -1,0 +1,43 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.test.umu.se/identity" xml:base="swamid-1.0/idp.test.umu.se.xml">
+  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+    <md:Extensions>
+      <shibmd:Scope>umu.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEOjCCAyKgAwIBAgICAd4wDQYJKoZIhvcNAQEFBQAwRTELMAkGA1UEBhMCU0UxGTAXBgNVBAoTEFVtZWEgdW5pdmVyc2l0ZXQxGzAZBgNVBAMTElVtZWEgVW5pdmVyc2l0eSBDQTAeFw0wODAzMTIxNDEwNDFaFw0wODExMDcxNDEwNDFaMEIxCzAJBgNVBAYTAlNFMRkwFwYDVQQKExBVbWVhIHVuaXZlcnNpdGV0MRgwFgYDVQQDEw9pZHAudGVzdC51bXUuc2UwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKQGac7vCABvE1YFheXQHgAh1HVl6gFkekBpLJ8sEa6bNu/adQOW2xFI801HfgW3xqQYW48wLinru22nPUE3cF30ISIB/r8qL6mw6c1nkZB62g3Svy42mW7ay7Kio+W3gS9NxEHoiHvCLPVYFBtOKe3FVwV1mnBffEv9jvbGfYYfAgMBAAGjggG5MIIBtTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHQYDVR0OBBYEFLWJ/IUQTsdgSBj3xq+hTSN2qZk5MH8GA1UdIwR4MHaAFHaQAcfvra4Asfdp2f4VKKzmMs5AoVukWTBXMQswCQYDVQQGEwJTRTEYMBYGA1UEChMPVW1lYSBVbml2ZXJzaXR5MRMwEQYDVQQLEwpTd1VQS0ktUENBMRkwFwYDVQQDExBTd1VQS0kgUG9saWN5IENBggERMCoGA1UdEgQjMCGBCWNhQHVtdS5zZYYUaHR0cDovL3d3dy5jYS51bXUuc2UwMAYDVR0fBCkwJzAloCOgIYYfaHR0cDovL3d3dy5jYS51bXUuc2UvY3JsX3YyLmNybDB+BgNVHSAEdzB1MHMGCCqFcCsCAQEBMGcwJAYIKwYBBQUHAgEWGGh0dHA6Ly93d3cuY2EudW11LnNlL0NQUzA/BggrBgEFBQcCAjAzGjFMaW1pdGVkIExpYWJpbGl0eSwgc2VlIGh0dHA6Ly93d3cuc3d1cGtpLnN1LnNlL0NQMA0GCSqGSIb3DQEBBQUAA4IBAQBjHF+0/RXKijMD2t6taOHp61TSP47fa/s9gD2H7mjlXKxwf2VHaN2mQ5Cy71atSzWpgfArCbND6lYLIaguDqkj+TtJAse3VBFe/nlaY5ewKxfaCLnnNGGNnoFaoVjTiZYrSYvSsqHjMmwIsgeAhVtAagkmB71B6QRL7nXwAJffNa1LVpVVI4e5T1tKa9BB5Z7LwqZSnC/MnBkNEU9h/Lw3gzIZyijNbnkOAVBnRf9gJwC8dHNafWhHyGj4urC2/GZIR+Mt+5HgQ2DKufHBjMv4a6edLS/gZFb4KfxmjgZDrb0ZC75Y9lcqiz8QZDXbu/4/ptMx7dNkEPfwJyuOD0TP</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.test.umu.se:9443/shibboleth-idp/AA" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+  </md:AttributeAuthorityDescriptor>
+  <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+    <md:Extensions>
+      <shibmd:Scope>umu.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEOjCCAyKgAwIBAgICAd4wDQYJKoZIhvcNAQEFBQAwRTELMAkGA1UEBhMCU0UxGTAXBgNVBAoTEFVtZWEgdW5pdmVyc2l0ZXQxGzAZBgNVBAMTElVtZWEgVW5pdmVyc2l0eSBDQTAeFw0wODAzMTIxNDEwNDFaFw0wODExMDcxNDEwNDFaMEIxCzAJBgNVBAYTAlNFMRkwFwYDVQQKExBVbWVhIHVuaXZlcnNpdGV0MRgwFgYDVQQDEw9pZHAudGVzdC51bXUuc2UwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKQGac7vCABvE1YFheXQHgAh1HVl6gFkekBpLJ8sEa6bNu/adQOW2xFI801HfgW3xqQYW48wLinru22nPUE3cF30ISIB/r8qL6mw6c1nkZB62g3Svy42mW7ay7Kio+W3gS9NxEHoiHvCLPVYFBtOKe3FVwV1mnBffEv9jvbGfYYfAgMBAAGjggG5MIIBtTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHQYDVR0OBBYEFLWJ/IUQTsdgSBj3xq+hTSN2qZk5MH8GA1UdIwR4MHaAFHaQAcfvra4Asfdp2f4VKKzmMs5AoVukWTBXMQswCQYDVQQGEwJTRTEYMBYGA1UEChMPVW1lYSBVbml2ZXJzaXR5MRMwEQYDVQQLEwpTd1VQS0ktUENBMRkwFwYDVQQDExBTd1VQS0kgUG9saWN5IENBggERMCoGA1UdEgQjMCGBCWNhQHVtdS5zZYYUaHR0cDovL3d3dy5jYS51bXUuc2UwMAYDVR0fBCkwJzAloCOgIYYfaHR0cDovL3d3dy5jYS51bXUuc2UvY3JsX3YyLmNybDB+BgNVHSAEdzB1MHMGCCqFcCsCAQEBMGcwJAYIKwYBBQUHAgEWGGh0dHA6Ly93d3cuY2EudW11LnNlL0NQUzA/BggrBgEFBQcCAjAzGjFMaW1pdGVkIExpYWJpbGl0eSwgc2VlIGh0dHA6Ly93d3cuc3d1cGtpLnN1LnNlL0NQMA0GCSqGSIb3DQEBBQUAA4IBAQBjHF+0/RXKijMD2t6taOHp61TSP47fa/s9gD2H7mjlXKxwf2VHaN2mQ5Cy71atSzWpgfArCbND6lYLIaguDqkj+TtJAse3VBFe/nlaY5ewKxfaCLnnNGGNnoFaoVjTiZYrSYvSsqHjMmwIsgeAhVtAagkmB71B6QRL7nXwAJffNa1LVpVVI4e5T1tKa9BB5Z7LwqZSnC/MnBkNEU9h/Lw3gzIZyijNbnkOAVBnRf9gJwC8dHNafWhHyGj4urC2/GZIR+Mt+5HgQ2DKufHBjMv4a6edLS/gZFb4KfxmjgZDrb0ZC75Y9lcqiz8QZDXbu/4/ptMx7dNkEPfwJyuOD0TP</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.test.umu.se:9443/shibboleth-idp/Artifact" index="1" isDefault="true" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.test.umu.se:9443/shibboleth-idp/SSO" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">UU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Umeå University</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.umu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>UMDAC</md:Company>
+    <md:GivenName>Einar</md:GivenName>
+    <md:SurName>Hillbom</md:SurName>
+    <md:EmailAddress>einar.hillbom@umdac.umu.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

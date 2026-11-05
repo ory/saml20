@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.nordu.net/idp/shibboleth" xml:base="swamid-1.0/idp.nordu.net.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">nordu.net</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUbYzFMX2BKRKmZwRSWg0HZ3/MQQwwDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNaWRwLm5vcmR1Lm5ldDAeFw0wOTA5MDMxOTI4NDlaFw0y
+OTA5MDMxOTI4NDlaMBgxFjAUBgNVBAMTDWlkcC5ub3JkdS5uZXQwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSypIpdblxznunPXiwKCqwOYmj99u5S9f7
+RTR+s8EDs01uwJ8buJs0MId+s96mD8MIkobE4iwn/B6xlafbMr3/BF+XxxH8Q5WX
+Bf3aQV3ohBqur6+mRQ2C+EenzPMGHmV/FCz0cbmTsIAQHZ9Vy16H+x5uWOBVd44i
+CMLM+fgjKyYcpcEUJP9Jkn/+d36L3mdXbyqAQS2UPN+S1g37xrgR2kWW+s1lMEiR
+M/f5L+PuA3l5DxIBmK0tFo+ZPLxbr6OBWOdH6EUbfdkvfciFCVNbWBGRW5MC2aru
+ATCdtf/Vev3OngUYBGSR/94eTgMcs3Oww/ppxRS6dzntGnnCT1sPAgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDWlkcC5ub3JkdS5uZXSGJGh0dHBzOi8vaWRwLm5vcmR1Lm5l
+dC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUwPXuksUpm5OdopeWHdoRcs6wCu0w
+DQYJKoZIhvcNAQEFBQADggEBAHiPOKmhiLnx8ecuQHmwmh4DUZvarhZXNtgxyasU
+bZAfPoZn8YiELiqYQoA/j+hoAfWcCEafMgjm8nkQO9aad1cwpGY66SIRKPAKBgsW
+nOugnrREWwYl1tXG3VWYzpgygycziYzkmwc4ysHQATKjCYdulA1tZ09YiAnZOIzY
+Q93/gA7X177nVKnAbmSkY1Nap4/rbkHIvQqk8RPSYs5AwasThkEFVk4OQpPtoTOn
+aOBLkJxpXY7rZDixrz59ny629qmOOakSCsuVkNwDPmbLQy9dKmHXTcge2xP0mDK7
+JiNCTXH29oP8kWBEBVaDxrDIrfDv53VjURS+KXqpBLjsuVE=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nordu.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nordu.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.nordu.net/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.nordu.net/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.nordu.net/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.nordu.net/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">nordu.net</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUbYzFMX2BKRKmZwRSWg0HZ3/MQQwwDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNaWRwLm5vcmR1Lm5ldDAeFw0wOTA5MDMxOTI4NDlaFw0y
+OTA5MDMxOTI4NDlaMBgxFjAUBgNVBAMTDWlkcC5ub3JkdS5uZXQwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSypIpdblxznunPXiwKCqwOYmj99u5S9f7
+RTR+s8EDs01uwJ8buJs0MId+s96mD8MIkobE4iwn/B6xlafbMr3/BF+XxxH8Q5WX
+Bf3aQV3ohBqur6+mRQ2C+EenzPMGHmV/FCz0cbmTsIAQHZ9Vy16H+x5uWOBVd44i
+CMLM+fgjKyYcpcEUJP9Jkn/+d36L3mdXbyqAQS2UPN+S1g37xrgR2kWW+s1lMEiR
+M/f5L+PuA3l5DxIBmK0tFo+ZPLxbr6OBWOdH6EUbfdkvfciFCVNbWBGRW5MC2aru
+ATCdtf/Vev3OngUYBGSR/94eTgMcs3Oww/ppxRS6dzntGnnCT1sPAgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDWlkcC5ub3JkdS5uZXSGJGh0dHBzOi8vaWRwLm5vcmR1Lm5l
+dC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUwPXuksUpm5OdopeWHdoRcs6wCu0w
+DQYJKoZIhvcNAQEFBQADggEBAHiPOKmhiLnx8ecuQHmwmh4DUZvarhZXNtgxyasU
+bZAfPoZn8YiELiqYQoA/j+hoAfWcCEafMgjm8nkQO9aad1cwpGY66SIRKPAKBgsW
+nOugnrREWwYl1tXG3VWYzpgygycziYzkmwc4ysHQATKjCYdulA1tZ09YiAnZOIzY
+Q93/gA7X177nVKnAbmSkY1Nap4/rbkHIvQqk8RPSYs5AwasThkEFVk4OQpPtoTOn
+aOBLkJxpXY7rZDixrz59ny629qmOOakSCsuVkNwDPmbLQy9dKmHXTcge2xP0mDK7
+JiNCTXH29oP8kWBEBVaDxrDIrfDv53VjURS+KXqpBLjsuVE=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nordu.net:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nordu.net:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">NORDUnet</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">NORDUnet</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.nordu.net</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>NORDUnet NOC</md:Company>
+    <md:EmailAddress>noc@nordu.net</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

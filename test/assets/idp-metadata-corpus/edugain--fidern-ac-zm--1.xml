@@ -1,0 +1,132 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://sso.zamren.zm/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://fidern.ac.zm" registrationInstant="2024-09-23T19:13:00Z" />
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">zamren.zm</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Zambia Research and Education Network</mdui:DisplayName>
+          <mdui:Description xml:lang="en">ZAMREN Identity Provider</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://fidern.ac.zm</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://fidern.ac.zm/policies</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>zamren.zm</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIDCCAoigAwIBAgIVAMnPaZ3tvGmdkhXhsINaUdx8YmePMA0GCSqGSIb3DQEB
+CwUAMBgxFjAUBgNVBAMMDXNzby56YW1yZW4uem0wHhcNMjQwOTIyMTIxMTAyWhcN
+NDQwOTIyMTIxMTAyWjAYMRYwFAYDVQQDDA1zc28uemFtcmVuLnptMIIBojANBgkq
+hkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAxbC6Qe7KXdJZqfLyJphL1kk4UG5ve09/
+2hLbZ3GxPwO7iplmml23lT3UaT3bPk/TaN3rBisVz6sIsVV6Nnqp2hgL9aTpPLHe
+1soMEoNfIBJp9mWWjcElwpXHtl8+7qQhZN49WsAZ3xPHXQrlPiPFg1eSH+qsP7gX
+2kISe9f8aQr6CXBFwzPcUBNDa+t9nmHmBxLJCDc9YPUiG9Ilwha0LoM159u/rI5K
+G7oMqc22/ww9e3z+A0xSgIuqFpYAE3dgq1wQh+N8OSdxoGLtt3RXxa+3wlN2C3XM
+MAUGQAK3r3p0q2hztW9LdjqGdKWnjpEsRsX/qVngw0WlBKApfqjNHoLy9IbXr2hs
+nNgVXQLzPOD9Cr6EgkXaw2mQsNsD3uylZyAWp22wPqnwgTIe13CgDy9EKuFH49LW
+7at6s6yfPIa680akMVFlCtlSNJp+68DbxIxMaLlfDtCPWhC6piRuqwAuA9v5BEbc
+NhTaYLG/22q/nBsiWtZmmO8D+vrCUysrAgMBAAGjYTBfMB0GA1UdDgQWBBSh56FL
+wLzGHPpCc0zd486kfG2skzA+BgNVHREENzA1gg1zc28uemFtcmVuLnpthiRodHRw
+czovL3Nzby56YW1yZW4uem0vaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQAD
+ggGBAEabxXSEAkJMymKG8DVl7NZmvGQHfuckkTLX9to87kfO/HJzFhUf5+s8/37R
+z1UeIcEF3EDxnQV8QwpudV1HT0wXPUroaANEL6ZqMwPn0eukaHMJfbhk7Jm1v3fV
+pswoJ/El6nWQUfLkTVx4baIoO6cfd8Vo3zQJ32WGd9gdRPpEoVcP8dd/++KLK+XD
+lPcwTowKBuQuyxuI4vjwP5vGrbZQC4Cwc5vmSFyZQAPEzRw6NXnljW8XHQNVPBfP
+zclCnk1XwXl6Nq5lWZOt38onCL4k4IGdASI5V1vfh2k4WGt/8wmTU9ms39gHFgR6
+GQIR+Dhp5l7wFS7fCqVch6JG0AF/gK3Gl5j8HuiuJtKkITIfpxwNz3Vn4puLFNBF
+gwBfvjPusN7jb3jCJL9wNc10dywbkLxvAsailY9iTYH2LQMROl5vzOrlAoL9nine
+WWJqTcdQL2b8qP+Vmb/a0jWQ+x1LcI4DiLjQkUqfNY4jQ6qQtsnXq+nC7P4EOYKk
+7OYX7w==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEHzCCAoegAwIBAgIUZsp50wzCX9E/NX5bPSmnoY7tA74wDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAwwNc3NvLnphbXJlbi56bTAeFw0yNDA5MjIxMjA5MzZaFw00
+NDA5MjIxMjA5MzZaMBgxFjAUBgNVBAMMDXNzby56YW1yZW4uem0wggGiMA0GCSqG
+SIb3DQEBAQUAA4IBjwAwggGKAoIBgQCWf5emGkU2O/CTDHKZc3KrDu88ARrskF6V
+oCj2S3mj1CiKa/Y1naPGf/fCrj3oUTGqHx/g58y5KqLOJjWadup43hYnjhbPU8qG
+87Z3nvy5vfJrbrzG63ERLqp/9QlXNpKWjqtwXQg9aNtKy7bVak3zJUvAhGlWJqDD
+sV9HE4itBQ3+Z1IlhsXCdp4cN3nj96m3nMc9aXN94hBLIe4ELMdESPH1YQZK3SQk
+GxBcs4WWzZ+kHq5WwZP75Y08XYB4vbAhFFkXrJFnZsp32zQKWaiKNWc9546Oe0G3
+8efygJrXnUbxymin0GQtNYQtF408ZgUnIafDNDYj6cPpMn/ssPRj9KqZ8M75N+QB
+nfmkL1iRiplk4ihaaRJQUkgQCvxi5qdsIAUgQ7uMWjFn46/S6gQEkiLep1UgbsUs
+7W4dw9XfWG9UvmpW03va6zZqU+4IeQKfJJT/qtMLjtcxv/gFSRY+IRiV10rzz1NA
+WVJi9B5oVKCmgRCKR7ufR1j5d4URxSECAwEAAaNhMF8wHQYDVR0OBBYEFH2tBmOS
+65DGuXIGQQSI7xOIKg7fMD4GA1UdEQQ3MDWCDXNzby56YW1yZW4uem2GJGh0dHBz
+Oi8vc3NvLnphbXJlbi56bS9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOC
+AYEAhzLpmUjDxqfsRmW+MstSJBxtnXrFplI1ip9dpxBLiWHIjIT6ruKL2jULJ6Jo
+64JcrYuRMCcHkGkJB3EXIKWG1jKiyGG6OFLvNNckI9tOJChXMKsXycdW44gRfC2H
+9M9MgbWN2P5sNdrvm0ods3DSswWUn96KyM6gVeb9025s5tWlos3w46Hb0QMR3N2t
+6k9Y//PADWqSY465Yq6Fhn2ImdN8SpRUaxxzWiRR9QQ71F7TEE1CxZntV1Q9moHl
+2saBskPErNsYs7flqY90AI2YABpgWr9lBVCdqYRsd2jYgS7mosP88R3/E5JdezaY
+z4y5t/b21MBaHvAzF6pyY5x5JcLOuWLJZ1R56D5czKC7PawmdPnV99c58WlFqfW5
+BE8dwXwJWvgvlalthWRc90aUnPdWiay9HwJzdKfvOvFdlGY93F+UeExAt8DOq7TR
+HcyBP6zdwA/v2ymiDXUJAeUrwUQbSTQ8fP66+WjumsGWEBbFcA6SNOftZb2VeKq5
+tvaT
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIDCCAoigAwIBAgIVAPFqYVugjS1J/zgR/sJwusYpIMcEMA0GCSqGSIb3DQEB
+CwUAMBgxFjAUBgNVBAMMDXNzby56YW1yZW4uem0wHhcNMjQwOTIyMTIwOTM2WhcN
+NDQwOTIyMTIwOTM2WjAYMRYwFAYDVQQDDA1zc28uemFtcmVuLnptMIIBojANBgkq
+hkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAjbU4ASKY+1EE4aJwYKMXCMq3+C2dTsew
+sDmVxk473906fmMjrhAru+sGhwbegQP6M/EiU8OBph3Ln8c5Kd573rYz464hqzyA
+/mEC612/XyaK2o2Y0Fl0/uKbadBbJPwiTsf1jE8xLpMSsH1CPRdfQDo+0VW5rsmm
+n0/UPC2+pMMMmqOp43336VeF9cITLITJYagVErN1iDE9+ZAXP82TolrNkty//Wyh
+IELsrH13AyDZ0XKpiOAReIGtDPY0LlNCrc2dQ9wbaVFcEpm5OqxHI3D5/xvs77Gt
+VysHuR0totEgkWqPe0uR0FLJ6KWTR+rRdQs44hSnMMkhXG14NJvba6qOnqPg5Mlf
+HaCwZiunPxX45Erra/OGH0sUbaXNgcCyEC63j41uS9Rg7j3fWvUCnAtoJ/06fTVB
+Lml6nT8JgY6g+4lR5S/FTiRthQx4ortuXQC6Y8sBjuLob0Y+mq7cHFrH74uQIlqg
+cO1lGR4u3295a1EfeUJOTEoVSkhTZFhTAgMBAAGjYTBfMB0GA1UdDgQWBBSOUiaU
+fC445rn7YMV9rIV9IDdQpzA+BgNVHREENzA1gg1zc28uemFtcmVuLnpthiRodHRw
+czovL3Nzby56YW1yZW4uem0vaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQAD
+ggGBAFYEfgInRkFFUeNeV5O2eGudiZkMJE5tC4jF3/txEDLKkOD0mmK0n9XTcbEr
+wssiOlm+XZDWO6BFPTBp5DBwZ+xIxIEFqH2De8fW/u8UxzCE8+5RGWzBwBQlT3LX
+VeBMLsK0dgEBDarGRNemKRIDd2wSjVKGsDgoBrLbLLke8w4KNyOLxteK6qApREPW
+YvBKrcpmpgQE6fxIdgjjGsNFIariHCGABmNJKbqPSxPz6gFFuX6hsC5S5/O+SPU0
+ii6Lw1aT1VhlHAgFOA7CeSTwQo6rFxT9AopQVgCCY1WRmCWgayZ/arDwfh+gri70
+SHRfzIQMkRs85ZIQa9uJBmVT5Hj9hOExBOp4lWwiK2l1J7h6AKnxubTEF7fu+4YG
+ft4zcFAO7GdlSOq+8xVOz5IuO6xj0EE5Jef5GNlSsn0MEG1Zr8oPZDl710JhhfZP
+XSfkqkjX8aB/I+Nvqe9mljxpoWlV/HOhiGp5oCBsBErrW1Yp5Pml+w57peDC4LRM
+KIiGww==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.zamren.zm/idp/profile/SAML2/SOAP/ArtifactResolution" index="20" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.zamren.zm/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.zamren.zm/idp/profile/SAML2/POST/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.zamren.zm/idp/profile/SAML2/SOAP/SLO" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.zamren.zm/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.zamren.zm/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso.zamren.zm/idp/profile/SAML2/POST-SimpleSign/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Zambia Research and Education Network</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ZAMREN</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://zamren.zm</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>ZAMREN</md:GivenName>
+      <md:SurName>Systems</md:SurName>
+      <md:EmailAddress>mailto:systems@zamren.zm</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

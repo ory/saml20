@@ -1,0 +1,91 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://slpc1.epfl.ch/SAML2IdP">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">epfl.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">EPFL slpc1
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">EPFL slpc1
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDDjCCAfagAwIBAgIJAJx8vpf4U22qMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+                            BAMTDXNscGMxLmVwZmwuY2gwHhcNMTIxMjIxMTU0NzA5WhcNMTUxMjIyMTU0NzA5
+                            WjAYMRYwFAYDVQQDEw1zbHBjMS5lcGZsLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOC
+                            AQ8AMIIBCgKCAQEA0taxX8bGqnaEWPIOaQx+Vt/WZZ2WBkQvuInrsD/PvMq9IO/s
+                            9LGnRMRB2obzrlyZYgas3euQJ/uegxS5YMLc+YdTjc60kzJ/heW2zztZBrLSwjxj
+                            c7beUs6OX6sT6VB72HjzawtTthw1Lb2rMsCI542TtznEbyShlh/G9RPDR38+yeM4
+                            xCoy1V1W5IM9xdIxKT4qMFqMTalYtvAab53L+PzgBS1XqChJ4pJK1ujWm5ofSycx
+                            kjpwyKJVU5z8JVBbjnlaRv16RBgw5Gw09kTmQr/RO9HsPUk6+IKdvYS5/7weRCS3
+                            VzTHYrDy4fdk5tz68kqWw3a4k2rzaIz5wrfIwwIDAQABo1swWTA4BgNVHREEMTAv
+                            gg1zbHBjMS5lcGZsLmNohh5odHRwczovL3NscGMxLmVwZmwuY2gvU0FNTDJJZFAw
+                            HQYDVR0OBBYEFDF/l8UFOGB4E+BTf8LWrFkIHz40MA0GCSqGSIb3DQEBBQUAA4IB
+                            AQDJcsU6+Gbj8RpntxpnsklBvG2DyWXM+X1FizyK6cMbKaJUc5mD1fW5sJajbbay
+                            g49+r65m19++QyhGLMUolnJX/ky2nQwBs6IBqcd5sPNO7pV9yPdKUmjPP2NEApYQ
+                            t6o/eA9jpqWJncqPd64HXVw16kWchhV3UQd8mh/SCOKTJssCgPy/YF+xJyOQtilb
+                            fxSY1fpOKZtBdLCsri/qYWk9dOq2KVZ6kzEdE7ZKnWIC9Vpa/SjKThHSGHtQDH+A
+                            aChFJJmKH/jI7Jd5LUglRDxNE49ybw3/cu0hZoGQ9KSVgEa5mUc2s7tzsbGI7j06
+                            JbEofBYXEwAZqw+j387+zkwu
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://slpc1.epfl.ch/SAML2IdP/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://slpc1.epfl.ch/SAML2IdP/SAML2/POST/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">epfl.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDDjCCAfagAwIBAgIJAJx8vpf4U22qMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+                            BAMTDXNscGMxLmVwZmwuY2gwHhcNMTIxMjIxMTU0NzA5WhcNMTUxMjIyMTU0NzA5
+                            WjAYMRYwFAYDVQQDEw1zbHBjMS5lcGZsLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOC
+                            AQ8AMIIBCgKCAQEA0taxX8bGqnaEWPIOaQx+Vt/WZZ2WBkQvuInrsD/PvMq9IO/s
+                            9LGnRMRB2obzrlyZYgas3euQJ/uegxS5YMLc+YdTjc60kzJ/heW2zztZBrLSwjxj
+                            c7beUs6OX6sT6VB72HjzawtTthw1Lb2rMsCI542TtznEbyShlh/G9RPDR38+yeM4
+                            xCoy1V1W5IM9xdIxKT4qMFqMTalYtvAab53L+PzgBS1XqChJ4pJK1ujWm5ofSycx
+                            kjpwyKJVU5z8JVBbjnlaRv16RBgw5Gw09kTmQr/RO9HsPUk6+IKdvYS5/7weRCS3
+                            VzTHYrDy4fdk5tz68kqWw3a4k2rzaIz5wrfIwwIDAQABo1swWTA4BgNVHREEMTAv
+                            gg1zbHBjMS5lcGZsLmNohh5odHRwczovL3NscGMxLmVwZmwuY2gvU0FNTDJJZFAw
+                            HQYDVR0OBBYEFDF/l8UFOGB4E+BTf8LWrFkIHz40MA0GCSqGSIb3DQEBBQUAA4IB
+                            AQDJcsU6+Gbj8RpntxpnsklBvG2DyWXM+X1FizyK6cMbKaJUc5mD1fW5sJajbbay
+                            g49+r65m19++QyhGLMUolnJX/ky2nQwBs6IBqcd5sPNO7pV9yPdKUmjPP2NEApYQ
+                            t6o/eA9jpqWJncqPd64HXVw16kWchhV3UQd8mh/SCOKTJssCgPy/YF+xJyOQtilb
+                            fxSY1fpOKZtBdLCsri/qYWk9dOq2KVZ6kzEdE7ZKnWIC9Vpa/SjKThHSGHtQDH+A
+                            aChFJJmKH/jI7Jd5LUglRDxNE49ybw3/cu0hZoGQ9KSVgEa5mUc2s7tzsbGI7j06
+                            JbEofBYXEwAZqw+j387+zkwu
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://slpc1.epfl.ch:8443/SAML2IdP/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">epfl.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">EPFL slpc1
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.epfl.ch/</md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

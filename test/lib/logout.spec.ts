@@ -74,8 +74,8 @@ describe('logout.ts', function () {
       async () => {
         await parseLogoutResponse(responseInvalid);
       },
-      (error: any) => {
-        assert.strictEqual(error.message.includes('Non-whitespace before first tag'), true);
+      (error: Error) => {
+        assert.strictEqual(error.message, 'missing root element');
         return true;
       }
     );
@@ -136,8 +136,8 @@ describe('logout.ts', function () {
       async () => {
         await parseLogoutRequest(requestInvalid);
       },
-      (error: any) => {
-        assert.strictEqual(error.message.includes('Non-whitespace before first tag'), true);
+      (error: Error) => {
+        assert.strictEqual(error.message, 'missing root element');
         return true;
       }
     );

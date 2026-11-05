@@ -1,0 +1,109 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-logon.test.vho-switchaai.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.vho-switchaai.ch
+                </shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Test Virtual Home
+                        Organization
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Test Virtual Home
+                        Organization
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>test.vho-switchaai.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDaTCCAlGgAwIBAgIUZ7vIS8xU/TmcJ01HVYip4nsWptMwDQYJKoZIhvcNAQEF
+                            BQAwKjEoMCYGA1UEAxMfYWFpLWxvZ29uLnRlc3QudmhvLXN3aXRjaGFhaS5jaDAe
+                            Fw0wOTAzMTAxNTEzNDFaFw0yOTAzMTAxNTEzNDFaMCoxKDAmBgNVBAMTH2FhaS1s
+                            b2dvbi50ZXN0LnZoby1zd2l0Y2hhYWkuY2gwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+                            DwAwggEKAoIBAQCNC4WTAZukzr4xx4ysAVeww94z1by8UoCAbkny6M1y5yjskEgX
+                            lxr0S259v+JZfi2PE/kNzqQwptAS/lPTKMEK1DRvtI+z2FX4cQ287HTBTtW63IFb
+                            h+a6a6/ZCdWswIgs6p9HqECGVwubrSieCW0oU95F9BGr2ev3Fjey0CT4Mopvab75
+                            JlW4MoQMERk98rCCzHJ/WMDS7paLfHtj1Mk2Gzi3rbg/NpHm2HvG4J9CzBY2I3Ws
+                            ASrxzH+J/qXmWmMRLBDLtWfPGTGLIrzVg8fiNEpcoj0GktkerxbioETDUtA+aUHS
+                            Er+KjWi/dFkd4Qk6ua4KmdkTOL1d0Cm0cvUXAgMBAAGjgYYwgYMwYgYDVR0RBFsw
+                            WYIfYWFpLWxvZ29uLnRlc3QudmhvLXN3aXRjaGFhaS5jaIY2aHR0cHM6Ly9hYWkt
+                            bG9nb24udGVzdC52aG8tc3dpdGNoYWFpLmNoL2lkcC9zaGliYm9sZXRoMB0GA1Ud
+                            DgQWBBQiAxs/3pBG53eHoOVcglQpkqcq6jANBgkqhkiG9w0BAQUFAAOCAQEAGt92
+                            GCuEkm7qWp2EKwXbr7P7J+4posn2xdnoKu9t0XSIb+af0P00TPznmRcVVE54n/oq
+                            32GkvrT9QVkjSOy83Jwr2ChWFlmdMHo/56YJy0vXO8ZMldASEVHIepfCLsLHwjcR
+                            GpXVwxl8goQbRPTUxiHcHvBTcDjXews/7nxLiIrm7oyfFntHD4ZGtG/hWbORBsgR
+                            42endMvS91hw9e1bh90skww+Iiy7tkdRw+xuPJjf5MwuJjb6+Ix8gzv1i3tGWagE
+                            B4BJMLwKgJTcRqjnSWQyoZGsfJKhPYO3ySW9Dv8A5lEf2KgqltGLwNep/LXm5yXG
+                            NaJ5zpd0pEiy3dSqZQ==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon.test.vho-switchaai.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon.test.vho-switchaai.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-logon.test.vho-switchaai.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-logon.test.vho-switchaai.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-logon.test.vho-switchaai.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-logon.test.vho-switchaai.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.vho-switchaai.ch
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDaTCCAlGgAwIBAgIUZ7vIS8xU/TmcJ01HVYip4nsWptMwDQYJKoZIhvcNAQEF
+                            BQAwKjEoMCYGA1UEAxMfYWFpLWxvZ29uLnRlc3QudmhvLXN3aXRjaGFhaS5jaDAe
+                            Fw0wOTAzMTAxNTEzNDFaFw0yOTAzMTAxNTEzNDFaMCoxKDAmBgNVBAMTH2FhaS1s
+                            b2dvbi50ZXN0LnZoby1zd2l0Y2hhYWkuY2gwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+                            DwAwggEKAoIBAQCNC4WTAZukzr4xx4ysAVeww94z1by8UoCAbkny6M1y5yjskEgX
+                            lxr0S259v+JZfi2PE/kNzqQwptAS/lPTKMEK1DRvtI+z2FX4cQ287HTBTtW63IFb
+                            h+a6a6/ZCdWswIgs6p9HqECGVwubrSieCW0oU95F9BGr2ev3Fjey0CT4Mopvab75
+                            JlW4MoQMERk98rCCzHJ/WMDS7paLfHtj1Mk2Gzi3rbg/NpHm2HvG4J9CzBY2I3Ws
+                            ASrxzH+J/qXmWmMRLBDLtWfPGTGLIrzVg8fiNEpcoj0GktkerxbioETDUtA+aUHS
+                            Er+KjWi/dFkd4Qk6ua4KmdkTOL1d0Cm0cvUXAgMBAAGjgYYwgYMwYgYDVR0RBFsw
+                            WYIfYWFpLWxvZ29uLnRlc3QudmhvLXN3aXRjaGFhaS5jaIY2aHR0cHM6Ly9hYWkt
+                            bG9nb24udGVzdC52aG8tc3dpdGNoYWFpLmNoL2lkcC9zaGliYm9sZXRoMB0GA1Ud
+                            DgQWBBQiAxs/3pBG53eHoOVcglQpkqcq6jANBgkqhkiG9w0BAQUFAAOCAQEAGt92
+                            GCuEkm7qWp2EKwXbr7P7J+4posn2xdnoKu9t0XSIb+af0P00TPznmRcVVE54n/oq
+                            32GkvrT9QVkjSOy83Jwr2ChWFlmdMHo/56YJy0vXO8ZMldASEVHIepfCLsLHwjcR
+                            GpXVwxl8goQbRPTUxiHcHvBTcDjXews/7nxLiIrm7oyfFntHD4ZGtG/hWbORBsgR
+                            42endMvS91hw9e1bh90skww+Iiy7tkdRw+xuPJjf5MwuJjb6+Ix8gzv1i3tGWagE
+                            B4BJMLwKgJTcRqjnSWQyoZGsfJKhPYO3ySW9Dv8A5lEf2KgqltGLwNep/LXm5yXG
+                            NaJ5zpd0pEiy3dSqZQ==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon.test.vho-switchaai.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon.test.vho-switchaai.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">test.vho-switchaai.ch
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Test Virtual Home
+                Organization
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.test.vho-switchaai.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

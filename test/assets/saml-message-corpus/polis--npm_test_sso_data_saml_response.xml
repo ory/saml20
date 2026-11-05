@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saml2p:Response xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol" Destination="https://7ea2-103-153-104-161.ngrok.io/sso/oauth/saml" ID="_4dfc9260d1ce5e04ae48e88ebd4ce967" InResponseTo="_dacd14adef2cb0754c96" IssueInstant="2021-12-06T15:23:07.360Z" Version="2.0">
+   <saml2:Issuer xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">https://accounts.google.com/o/saml2</saml2:Issuer>
+   <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+         <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+         <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+         <ds:Reference URI="#_4dfc9260d1ce5e04ae48e88ebd4ce967">
+            <ds:Transforms>
+               <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+               <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+            <ds:DigestValue>27W/De5JNVHZI5U5Jdb/R/fQr2kJfwUOnM/VTfCVpAM=</ds:DigestValue>
+         </ds:Reference>
+      </ds:SignedInfo>
+      <ds:SignatureValue>n/X+/oFs+rMSh12X8vz0ZSd6QiqNty67FqUmSptieFch3CRpd3ggiHspM9LroLZ6Udilm8mtVjNH
+/homrX3oTD8Q+qw3bJYNLJm4D/EcffdC6jRoDIg4XxV1bPUihPNr8vPEdAvxGp53bgc2DBlZBiOx
+xxFPRlKgj2CZ8yIi5GNE1ESbk6HKccx8GgqZkRbEQmkgmS1dmqpiymJP3z+0yZit2gwpAnVV3B05
+vNs/+I1sFVKhsVq78C6MZVsWZTJ/4DXZuhUJzK4ISIMuoTjQaZpFLxJA+9ag2/roN290r+iq6y1T
+3GJQuNPOSBUKSiZVU6gpNWQD0qrAqIaPPZNfzw==</ds:SignatureValue>
+      <ds:KeyInfo>
+         <ds:X509Data>
+            <ds:X509SubjectName>ST=California,C=US,OU=Google For Work,CN=Google,L=Mountain View,O=Google Inc.</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDdDCCAlygAwIBAgIGAXo6K+u/MA0GCSqGSIb3DQEBCwUAMHsxFDASBgNVBAoTC0dvb2dsZSBJ
+bmMuMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MQ8wDQYDVQQDEwZHb29nbGUxGDAWBgNVBAsTD0dv
+b2dsZSBGb3IgV29yazELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwHhcNMjEwNjIz
+MTgzOTUzWhcNMjYwNjIyMTgzOTUzWjB7MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEWMBQGA1UEBxMN
+TW91bnRhaW4gVmlldzEPMA0GA1UEAxMGR29vZ2xlMRgwFgYDVQQLEw9Hb29nbGUgRm9yIFdvcmsx
+CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEA4qZcxwPiVka9GzGdQ9LVlgVkn3A7O3HtxR6RIm5AMaL4YZziEHt2HgxLdJZyXYJw
+yfT1KB2IHt+XDQBkgEpQVXuuwSPI8vhI8Jr+nr8zia3MMoy9vJF8ZG7HuWeakaKEh7tJqjYu1Cl9
+a81rkYdXAFUA+gl2q+stvK26xylAUwptCJSQo0NanWzCq+k5zvX0uLmh58+W5Yv11hDTtAoW+1dH
+LWUTHXPfoZINPRy5NGKJ2Onq5/D5XJRimNnUa2iYi0Yv9txp1RRq4dpB9MaVttt3iKyDo4/+8fg/
+bL8BLhguiOeqcP4DEIzMuExi3bZAOu2NC7k7Qf28nA81LzP9DQIDAQABMA0GCSqGSIb3DQEBCwUA
+A4IBAQARBNB3+MfmKr5WXNXXE9YwUzUGmpfbqUPXh2y2dOAkj6TzoekAsOLWB0p8oyJ5d1bFlTsx
+i1OY9RuFl0tc35Jbo+ae5GfUvJmbnYGi9z8sBL55HY6x3KQNmM/ehof7ttZwvB6nwuRxAiGYG497
+3tSzrqMQzEskcgX1mlCW0vks/ztCaayprDXcCUxWdP9FaiSZDEXV6PHhFZgGlRNvERsgaMDJgOsq
+v6hLX10Q9CtOWzqu18PI4DcfoZ7exWcC29yWvwZzDTfHGaSG1DtUFLwiQmhVUbfd7/fmLV+/iOxV
+zI0b5xSYZOJ7Kena7gd5zGVrc2ygKAFKiffiI5GLmLkv</ds:X509Certificate>
+         </ds:X509Data>
+      </ds:KeyInfo>
+   </ds:Signature>
+   <saml2p:Status>
+      <saml2p:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
+   </saml2p:Status>
+   <saml2:Assertion xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion" ID="_11fd7e907cfcb1108376298c5774f827" IssueInstant="2021-12-06T15:23:07.360Z" Version="2.0">
+      <saml2:Issuer>https://accounts.google.com/o/saml2</saml2:Issuer>
+      <saml2:Subject>
+         <saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">kiran@demo.com</saml2:NameID>
+         <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+            <saml2:SubjectConfirmationData InResponseTo="_dacd14adef2cb0754c96" NotOnOrAfter="2021-12-06T15:28:07.360Z" Recipient="https://7ea2-103-153-104-161.ngrok.io/sso/oauth/saml" />
+         </saml2:SubjectConfirmation>
+      </saml2:Subject>
+      <saml2:Conditions NotBefore="2021-12-06T15:18:07.360Z" NotOnOrAfter="2021-12-06T15:28:07.360Z">
+         <saml2:AudienceRestriction>
+            <saml2:Audience>https://saml.boxyhq.com</saml2:Audience>
+         </saml2:AudienceRestriction>
+      </saml2:Conditions>
+      <saml2:AttributeStatement>
+         <saml2:Attribute Name="user.email">
+            <saml2:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">kiran@demo.com</saml2:AttributeValue>
+         </saml2:Attribute>
+         <saml2:Attribute Name="user.firstName">
+            <saml2:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">Kiran</saml2:AttributeValue>
+         </saml2:Attribute>
+         <saml2:Attribute Name="user.id" />
+         <saml2:Attribute Name="user.lastName">
+            <saml2:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">K</saml2:AttributeValue>
+         </saml2:Attribute>
+         <saml2:Attribute Name="member-of" />
+      </saml2:AttributeStatement>
+      <saml2:AuthnStatement AuthnInstant="2021-12-06T15:17:05.000Z" SessionIndex="_11fd7e907cfcb1108376298c5774f827">
+         <saml2:AuthnContext>
+            <saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified</saml2:AuthnContextClassRef>
+         </saml2:AuthnContext>
+      </saml2:AuthnStatement>
+   </saml2:Assertion>
+</saml2p:Response>

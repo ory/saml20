@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.his.se/idp/shibboleth" xml:base="swamid-1.0/idp.his.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">his.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDFDCCAfygAwIBAgIVAOlJBVpaMgEd+tU+i5F9QK3R5+6IMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5oaXMuc2UwHhcNMTAwNDE0MTIxNTI0WhcNMzAw
+NDE0MTIxNTI0WjAVMRMwEQYDVQQDEwppZHAuaGlzLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAm+RktUz4LD4GyD5AIBsAfy40Z7mZvYdKdCaTWAmd
+WucpWyu/0H2J3SFtXgOGedzgWjm7nbTmrnZHB87zc/yVuGdtpebq4Ye0XdBLg2A4
+H43lyPdknzQDxD035wzfcyi6/+PRzTK0jucR9KGtEPkNhPg0ziAbHggROKQ1ylNd
+RAul/8b2wDOA4yzBvO4FYFQj+H9bgge869M65P5f/AdBZAWtXy0Ox4G+2ysZfOSi
+7rGMyiX1/s+hgLO2AdosfAnQkKUOax3YsyRzyqbCu8PHEuDciwI2y968Kuq7kv7J
+7vMbZmPLcO4mLjsRnxrfyKlGG+Jpg0BGxRlMlmKn79kdEwIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAuaGlzLnNlhiFodHRwczovL2lkcC5oaXMuc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFE1bH9W+VqwoZnGTvPca0DNTcLL3MA0GCSqGSIb3DQEB
+BQUAA4IBAQBUX+vjv7eCQRljAwrRjH8jNoJyUwMIjQsyStbHM7A5y7+MIdOjBELv
+eNYBKGHHEMOiPiB0uPPFrgdN82q8l3PCcYMAYO6aWcwBJsHTpcEBx0lVa4OmW0/r
+Bc4RC+rrqNNf8XkYQnD80Px3ncb0OfXmNwSLnLDIKOoQq7hh4DGY73K66vi0sSor
+9e7hji23KpjhR2vPqmiNAvJuEMzDolB3hn2oz+rWfwynb85vFAghd4gJxTMPzsUj
+hNY1IDFKGebFhCWmlG7MMPDm/omu6mBurSE9EAhVTretr0YXxmkfFrOvDysPOYWj
+drVlFNv2EtdNX1C9u3EJYqslqtyXv2nZ
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.his.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.his.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.his.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.his.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.his.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.his.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">his.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDFDCCAfygAwIBAgIVAOlJBVpaMgEd+tU+i5F9QK3R5+6IMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5oaXMuc2UwHhcNMTAwNDE0MTIxNTI0WhcNMzAw
+NDE0MTIxNTI0WjAVMRMwEQYDVQQDEwppZHAuaGlzLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAm+RktUz4LD4GyD5AIBsAfy40Z7mZvYdKdCaTWAmd
+WucpWyu/0H2J3SFtXgOGedzgWjm7nbTmrnZHB87zc/yVuGdtpebq4Ye0XdBLg2A4
+H43lyPdknzQDxD035wzfcyi6/+PRzTK0jucR9KGtEPkNhPg0ziAbHggROKQ1ylNd
+RAul/8b2wDOA4yzBvO4FYFQj+H9bgge869M65P5f/AdBZAWtXy0Ox4G+2ysZfOSi
+7rGMyiX1/s+hgLO2AdosfAnQkKUOax3YsyRzyqbCu8PHEuDciwI2y968Kuq7kv7J
+7vMbZmPLcO4mLjsRnxrfyKlGG+Jpg0BGxRlMlmKn79kdEwIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAuaGlzLnNlhiFodHRwczovL2lkcC5oaXMuc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFE1bH9W+VqwoZnGTvPca0DNTcLL3MA0GCSqGSIb3DQEB
+BQUAA4IBAQBUX+vjv7eCQRljAwrRjH8jNoJyUwMIjQsyStbHM7A5y7+MIdOjBELv
+eNYBKGHHEMOiPiB0uPPFrgdN82q8l3PCcYMAYO6aWcwBJsHTpcEBx0lVa4OmW0/r
+Bc4RC+rrqNNf8XkYQnD80Px3ncb0OfXmNwSLnLDIKOoQq7hh4DGY73K66vi0sSor
+9e7hji23KpjhR2vPqmiNAvJuEMzDolB3hn2oz+rWfwynb85vFAghd4gJxTMPzsUj
+hNY1IDFKGebFhCWmlG7MMPDm/omu6mBurSE9EAhVTretr0YXxmkfFrOvDysPOYWj
+drVlFNv2EtdNX1C9u3EJYqslqtyXv2nZ
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.his.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.his.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">HIS</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Högskolan i Skövde</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.his.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Högskolan i Skövde</md:Company>
+    <md:EmailAddress>netadmin@his.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

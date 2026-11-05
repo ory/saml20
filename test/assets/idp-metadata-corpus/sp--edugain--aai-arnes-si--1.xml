@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://eosc-testbed.vega.izum.si/saml/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://aai.arnes.si" registrationInstant="2026-01-16T07:11:13Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://aai.arnes.si/static/doc/ArnesAAI_general.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="sl">https://aai.arnes.si/static/doc/ArnesAAI_splosni_pogoji.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">eosc-testbed</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sl">eosc-testbed</mdui:DisplayName>
+          <mdui:Description xml:lang="en">eosc-testbed</mdui:Description>
+          <mdui:Description xml:lang="sl">eosc-testbed</mdui:Description>
+          <mdui:Keywords xml:lang="en">eosc</mdui:Keywords>
+          <mdui:Keywords xml:lang="sl">eosc</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://eosc-testbed.vega.izum.si</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sl">https://eosc-testbed.vega.izum.si</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://eosc-testbed.vega.izum.si/terms</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="sl">https://eosc-testbed.vega.izum.si/terms</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDKTCCAhGgAwIBAgIUHFbEl+Wc2qSN1HwRcCOjMghzADkwDQYJKoZIhvcNAQELBQAwJDEiMCAGA1UEAwwZZW9zYy10ZXN0YmVkLnZlZ2EuaXp1bS5zaTAeFw0yNjAxMTkwODA1MDRaFw0zNjAxMTcwODA1MDRaMCQxIjAgBgNVBAMMGWVvc2MtdGVzdGJlZC52ZWdhLml6dW0uc2kwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCJqJIiWIYQAWPQfZU9DPb5w6T3lX4iwfAo316NQUrSoJhf4zLKiShYy+7dl8yJw6qbDuGxt9yzc8wXGkC0mn2eKwKSNC8jIODZj6te4kwkDskESGS1W59dUr83JeXlEOwQZ4K1z0i4knv34Hogv0PsiMEoEJKM/PfefoRqof3T8vPgaUDFVve4N53BCqBa5kHeUpJej9r/xILIX/if7ktqGpAR7EsqpVEf3Kif37yTNU0bZMFDeBN+GC91bT7RenXToo9Lom8T63t4VlyWT/5nBu6BugF5PQ6yj6uZg+MDTEAZnnsvgMvvNpZeTY7YIhipYF6IBMtTwRdPyGTPRU/7AgMBAAGjUzBRMB0GA1UdDgQWBBRe8tl+/3ThF8nUZNUKAaOiZk6tETAfBgNVHSMEGDAWgBRe8tl+/3ThF8nUZNUKAaOiZk6tETAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAz4Y02qg3WY5cabVZd699SG0HqFrTJD8A6T/8XCZZ9Lhx+29qghHT8YVihL66YiXLN+R+0/WbPoFOtlczGjVO5jNKw6YzyD4tRgNY3vsnx7YMGgE9zraQOx+NDlDc6HCLlWs38pT/gwm+UeuQa9JEsv/1BHDrX5u8EhU8kv2xg3jm0c8YqUj6YK0J1V0oXYkb8hbub5kdfz5jkUp+UrJHWfNIotjRbZ8nUoaC+RsfBgsaD0XqVjH9uWkCLQe1UylPeI6SarthF34bXelr9VW+k5KtN3P73Owktk6MDbULtyDtWAIhOvYGcuYB9pzkee51j79GTC8lNobQG//0ZWzCC</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://eosc-testbed.vega.izum.si/Artifact/SOAP/" index="1" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://eosc-testbed.vega.izum.si/Shibboleth.sso/SLO/Redirect/" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eosc-testbed.vega.izum.si/Shibboleth.sso/SLO/PSOT" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eosc-testbed.vega.izum.si/Shibboleth.sso/SAML2/POST" index="0" isDefault="true" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">eosc-testbed</md:ServiceName>
+        <md:ServiceName xml:lang="sl">eosc-testbed</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">eosc-testbed</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="sl">eosc-testbed</md:ServiceDescription>
+        <md:RequestedAttribute Name="mail" />
+        <md:RequestedAttribute Name="displayName" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Institut informacijskih znanosti, Maribor</md:OrganizationName>
+      <md:OrganizationName xml:lang="sl">Institut informacijskih znanosti, Maribor</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Institut informacijskih znanosti, Maribor</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="sl">Institut informacijskih znanosti, Maribor</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://eosc-testbed.vega.izum.si</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sl">https://eosc-testbed.vega.izum.si</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Danilo</md:GivenName>
+      <md:SurName>zimsek</md:SurName>
+      <md:EmailAddress>mailto:danilo.zimsek@izum.si</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Danilo</md:GivenName>
+      <md:SurName>zimsek</md:SurName>
+      <md:EmailAddress>mailto:danilo.zimsek@izum.si</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Danilo</md:GivenName>
+      <md:SurName>zimsek</md:SurName>
+      <md:EmailAddress>mailto:danilo.zimsek@izum.si</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

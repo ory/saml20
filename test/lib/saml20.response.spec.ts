@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import { validate } from '../../lib/response';
+import { validate, WrapError } from '../../lib/response';
 import fs from 'fs';
 import { SignedXml } from 'xml-crypto';
 
@@ -76,9 +76,9 @@ describe('lib.saml20.response', function () {
         inResponseTo: inResponseTo,
         ...sha2Options,
       }),
-      (err: any) => {
+      (err: WrapError) => {
         assert.strictEqual(err.message, 'Invalid assertion.');
-        assert.match(err.inner.message, /signature algorithm '.*rsa-sha1' is not allowed/);
+        assert.match(err.inner?.message as string, /signature algorithm '.*rsa-sha1' is not allowed/);
         return true;
       }
     );
@@ -92,8 +92,8 @@ describe('lib.saml20.response', function () {
         inResponseTo: inResponseTo,
         allowedHashAlgorithms: sha2Options.allowedHashAlgorithms,
       }),
-      (err: any) => {
-        assert.match(err.inner.message, /digest algorithm '.*sha1' is not allowed/);
+      (err: WrapError) => {
+        assert.match(err.inner?.message as string, /digest algorithm '.*sha1' is not allowed/);
         return true;
       }
     );
@@ -112,9 +112,12 @@ describe('lib.saml20.response', function () {
         bypassExpiration: true,
         inResponseTo: inResponseTo,
       }),
-      (err: any) => {
+      (err: WrapError) => {
         assert.strictEqual(err.message, 'Invalid assertion.');
-        assert.match(err.inner.message, /SignedInfo declares 1500 References; at most 16 are allowed/);
+        assert.match(
+          err.inner?.message as string,
+          /SignedInfo declares 1500 References; at most 16 are allowed/
+        );
         return true;
       }
     );
@@ -131,8 +134,8 @@ describe('lib.saml20.response', function () {
         inResponseTo: inResponseTo,
         maxSignatureReferences: 20,
       }),
-      (err: any) => {
-        assert.match(err.inner.message, /signature value .* is incorrect/);
+      (err: WrapError) => {
+        assert.match(err.inner?.message as string, /signature value .* is incorrect/);
         return true;
       }
     );

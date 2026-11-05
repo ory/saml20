@@ -1,0 +1,121 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.lnu.se/idp/shibboleth" xml:base="swamid-1.0/idp.lnu.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">lnu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIEmzCCA4OgAwIBAgILAQAAAAABJCUIvfswDQYJKoZIhvcNAQEFBQAwXzELMAkG
+A1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlv
+bmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA5
+MTAwNTEzMzEwNVoXDTEyMTAwNTEzMzEwNVowTDELMAkGA1UEBhMCU0UxGzAZBgNV
+BAoTEkhvZ3Nrb2xhbiBpIEthbG1hcjELMAkGA1UECxMCSVQxEzARBgNVBAMTCmlk
+cC5sbnUuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRORVY50+Y
+2rmvFJS4HSE3EZKXb0UpVj2CfW9D4Vlww78CiqV0KV8HW53XHYlOUK7S+I94adaG
+XoXq19HjqjRi8979qfqzKwICRlkVFBnWkY7N5vo//pStClwdTNv+OihlDY+IA9HN
+QXrWjWTzHCbRguYBEmR0gp7l4tlqILkOCCx1yT5uia4EiJvrSFoIV/iYTQBLaGkc
+ZdO109GqUx5UJB5XxgUoT0k0rOgg1OHsOvkNGOV4/HzkwWUGIaJy462LlLBcmlXg
+IHfDCMH6lg9pBLig4nDlM2W0KzvMID7zagxFJG+K3eMjdkoK1mK12TTz24bifDpf
+XPnbSRKpkLYpAgMBAAGjggFpMIIBZTBQBgNVHSAESTBHMEUGByqGSLE+AQAwOjA4
+BggrBgEFBQcCARYsaHR0cDovL3d3dy5nbG9iYWxzaWduLm5ldC9yZXBvc2l0b3J5
+L2Nwcy5jZm0wDgYDVR0PAQH/BAQDAgWgMB8GA1UdIwQYMBaAFGVloz3XOxGjCgcl
+N8lCSlt2d1DhMB0GA1UdDgQWBBQCNc1rrFMLNldAEde83Hr98intIzA6BgNVHR8E
+MzAxMC+gLaArhilodHRwOi8vY3JsLmdsb2JhbHNpZ24ubmV0L2VkdWNhdGlvbmFs
+LmNybDBPBggrBgEFBQcBAQRDMEEwPwYIKwYBBQUHMAKGM2h0dHA6Ly9zZWN1cmUu
+Z2xvYmFsc2lnbi5uZXQvY2FjZXJ0L2VkdWNhdGlvbmFsLmNydDAdBgNVHSUEFjAU
+BggrBgEFBQcDAQYIKwYBBQUHAwIwFQYDVR0RBA4wDIIKaWRwLmxudS5zZTANBgkq
+hkiG9w0BAQUFAAOCAQEAkvJr6ePi1/sSyKtaf1xdOGwde1AteooA0Z9CxG6Ddz2v
+fPbpffm08gnhXr8T2zFnjZN6r1ac3kBFSKQRWOfJiLWwjmJ6wbRYCVDjeTN++Tdf
+IZVsj7l5uyGfM2FjKwRd79Qy33KOb4KtcwgkUs6yqScb0Eeew9q+flkJItaEloaL
+nsANXWIYSHmsKeMX/1M+TqMOmUCOExgqTr4yHou54m2SdxcMGJgJp2jcmdF6gbjo
+091ewSnuK+fccVratYgDd4EX3J6uZQnICjIAJ9e44Ab1WhBPQ0Aa+W/52qjbT4yK
+1qXbJLIBEw2yRiL7ayAgirIbuJUR/7+zQVxYX9NyJw==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lnu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lnu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.lnu.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.lnu.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.lnu.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.lnu.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">lnu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIEmzCCA4OgAwIBAgILAQAAAAABJCUIvfswDQYJKoZIhvcNAQEFBQAwXzELMAkG
+A1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlv
+bmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA5
+MTAwNTEzMzEwNVoXDTEyMTAwNTEzMzEwNVowTDELMAkGA1UEBhMCU0UxGzAZBgNV
+BAoTEkhvZ3Nrb2xhbiBpIEthbG1hcjELMAkGA1UECxMCSVQxEzARBgNVBAMTCmlk
+cC5sbnUuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRORVY50+Y
+2rmvFJS4HSE3EZKXb0UpVj2CfW9D4Vlww78CiqV0KV8HW53XHYlOUK7S+I94adaG
+XoXq19HjqjRi8979qfqzKwICRlkVFBnWkY7N5vo//pStClwdTNv+OihlDY+IA9HN
+QXrWjWTzHCbRguYBEmR0gp7l4tlqILkOCCx1yT5uia4EiJvrSFoIV/iYTQBLaGkc
+ZdO109GqUx5UJB5XxgUoT0k0rOgg1OHsOvkNGOV4/HzkwWUGIaJy462LlLBcmlXg
+IHfDCMH6lg9pBLig4nDlM2W0KzvMID7zagxFJG+K3eMjdkoK1mK12TTz24bifDpf
+XPnbSRKpkLYpAgMBAAGjggFpMIIBZTBQBgNVHSAESTBHMEUGByqGSLE+AQAwOjA4
+BggrBgEFBQcCARYsaHR0cDovL3d3dy5nbG9iYWxzaWduLm5ldC9yZXBvc2l0b3J5
+L2Nwcy5jZm0wDgYDVR0PAQH/BAQDAgWgMB8GA1UdIwQYMBaAFGVloz3XOxGjCgcl
+N8lCSlt2d1DhMB0GA1UdDgQWBBQCNc1rrFMLNldAEde83Hr98intIzA6BgNVHR8E
+MzAxMC+gLaArhilodHRwOi8vY3JsLmdsb2JhbHNpZ24ubmV0L2VkdWNhdGlvbmFs
+LmNybDBPBggrBgEFBQcBAQRDMEEwPwYIKwYBBQUHMAKGM2h0dHA6Ly9zZWN1cmUu
+Z2xvYmFsc2lnbi5uZXQvY2FjZXJ0L2VkdWNhdGlvbmFsLmNydDAdBgNVHSUEFjAU
+BggrBgEFBQcDAQYIKwYBBQUHAwIwFQYDVR0RBA4wDIIKaWRwLmxudS5zZTANBgkq
+hkiG9w0BAQUFAAOCAQEAkvJr6ePi1/sSyKtaf1xdOGwde1AteooA0Z9CxG6Ddz2v
+fPbpffm08gnhXr8T2zFnjZN6r1ac3kBFSKQRWOfJiLWwjmJ6wbRYCVDjeTN++Tdf
+IZVsj7l5uyGfM2FjKwRd79Qy33KOb4KtcwgkUs6yqScb0Eeew9q+flkJItaEloaL
+nsANXWIYSHmsKeMX/1M+TqMOmUCOExgqTr4yHou54m2SdxcMGJgJp2jcmdF6gbjo
+091ewSnuK+fccVratYgDd4EX3J6uZQnICjIAJ9e44Ab1WhBPQ0Aa+W/52qjbT4yK
+1qXbJLIBEw2yRiL7ayAgirIbuJUR/7+zQVxYX9NyJw==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lnu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lnu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">LNU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Linnéuniversitetet</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.lnu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Linnéuniversitetet</md:Company>
+    <md:EmailAddress>tomas.hautala@vxu.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

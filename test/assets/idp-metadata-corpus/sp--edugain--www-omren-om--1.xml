@@ -1,0 +1,74 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://masader.idm.oclc.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.omren.om" registrationInstant="2022-12-14T14:28:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.omren.om/wp-content/uploads/2019/10/OMREN_Federation_policies_1.3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://login.masader.idm.oclc.org/Shibboleth.sso/DS" index="1" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">ezproxy</mdui:DisplayName>
+          <mdui:Description xml:lang="en">ezproxy</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.masader.om/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.masader.om/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="94" width="409" xml:lang="en">https://www.masader.om/sites/default/files/Masader_Logo.PNG</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIID/DCCAuSgAwIBAgIBAjANBgkqhkiG9w0BAQsFADBhMR8wHQYDVQQDFBYqLm1h
+c2FkZXIuaWRtLm9jbGMub3JnMQswCQYDVQQGEwJVSzENMAsGA1UEChMET0NMQzEi
+MCAGCSqGSIb3DQEJARYTc3VwcG9ydC11a0BvY2xjLm9yZzAeFw0yMTAzMDExNTU5
+NDNaFw0zMTAzMDExNTU5NDNaMGExHzAdBgNVBAMUFioubWFzYWRlci5pZG0ub2Ns
+Yy5vcmcxCzAJBgNVBAYTAlVLMQ0wCwYDVQQKEwRPQ0xDMSIwIAYJKoZIhvcNAQkB
+FhNzdXBwb3J0LXVrQG9jbGMub3JnMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEA1AeqL0/QYOCAfh6qXuPzA+mFm5YNIu37i3qsWkrtBV0gtVGS0xJZ447J
+W2wlVDHHNsDhf6a9sSa0ozSuJiNS4xXlPbH33bLdwZFv4zoUbLi5jMtWqlNLxaye
+c0DmBU2cMnttssFXFrwxDUHSsZKeBohXefsDodwY3Z8UeUPF+cWxO03PpiMd89ta
+1MaVErRkW9vRN5vIAahPfKaLpbyIGn/tF7A7fH2pW199nagMhBYAI1dhpjOtzlfx
+O8V7kV6eTxmOLH50UvCNU2zXpVVXK4SyDiyAZydL0Ujq5ePnSwD+YrYOmD+1peJ5
+JYP7MgCNjd6SEWHiyaN0a3xFTOw8RwIDAQABo4G+MIG7MB0GA1UdDgQWBBSc5Vyr
+is4i+2/U82dfZwySmNDafzCBiwYDVR0jBIGDMIGAgBSc5Vyris4i+2/U82dfZwyS
+mNDaf6FlpGMwYTEfMB0GA1UEAxQWKi5tYXNhZGVyLmlkbS5vY2xjLm9yZzELMAkG
+A1UEBhMCVUsxDTALBgNVBAoTBE9DTEMxIjAgBgkqhkiG9w0BCQEWE3N1cHBvcnQt
+dWtAb2NsYy5vcmeCAQIwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEA
+UcMKk5vRmdC0/w8BsFuah7kXifOEruq/+6ITRClsHvP9Qp/JfyweYRn5C49v9ODl
+IqMRPVMMP1YyNUoqX+I4UWtB4MmiQKOSeXu6eOA60ysbnsIsOFQjxLLldt27i04W
+viksNFW/5eiC3C5kJMmumK0l0NtmLv7axh6F127fImC6KyVCgflO8Y1iQb1yoSKu
+nVy2xYFpV3kV5J29vKwvyn0dFsEXb6lkfaj1Nn6CMXDq9CXq1vYUwwoutqvyxWz9
+o/gk4Cl1Ghnoxqb9vamMkmkDcmJSw50wtEDwEqwKiqSOqz1+IzicJbjuR9qKzPpD
+F7UnfQkyM8Cqekl3MRXFoA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.masader.idm.oclc.org/Shibboleth.sso/SAML2/POST" index="1" isDefault="true" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://login.masader.idm.oclc.org/Shibboleth.sso/SAML2/Artifact" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.masader.idm.oclc.org/Shibboleth.sso/SAML/POST" index="3" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.masader.idm.oclc.org/Shibboleth.sso/SAML/Artifact" index="4" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ezproxy</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ezproxy</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.masader.om/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>aisha</md:GivenName>
+      <md:SurName>aisha</md:SurName>
+      <md:EmailAddress>mailto:aisha@omren.om</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>aisha</md:GivenName>
+      <md:SurName>aisha</md:SurName>
+      <md:EmailAddress>mailto:aisha@omren.om</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>aisha</md:GivenName>
+      <md:SurName>aisha</md:SurName>
+      <md:EmailAddress>mailto:aisha@omren.om</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

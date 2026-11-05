@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:req-attr="urn:oasis:names:tc:SAML:protocol:ext:req-attr" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://erasmuslogin.pum.edu.pl/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://aai.pionier.net.pl" registrationInstant="2023-05-10T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://aai.pionier.net.pl/en/index.php?page=rps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">pum.edu.pl</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="pl">Pomorski Uniwersytet Medyczny w Szczecinie</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Pomeranian Medical University in Szczecin</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="pl">https://www.pum.edu.pl</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.pum.edu.pl/studies_in_english</mdui:InformationURL>
+          <mdui:Logo height="146" width="579">https://erasmuslogin.pum.edu.pl/idp/images/logo-pum.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIESDCCArCgAwIBAgIVAKL4GbevrY0hCWn6/6DJCQrdtdwoMA0GCSqGSIb3DQEB CwUAMCIxIDAeBgNVBAMMF2VyYXNtdXNsb2dpbi5wdW0uZWR1LnBsMB4XDTIyMDMx MDE5MjA1N1oXDTQyMDMxMDE5MjA1N1owIjEgMB4GA1UEAwwXZXJhc211c2xvZ2lu LnB1bS5lZHUucGwwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQDCjYXV e3yLn9JROroWzXyUXSJqknPQ4fkRVYTJ4tjKf4uMuXWiFeKs3vrIsKlJ9/GqotmF Kwmt2xdhCHY/PJSZWYMHAAJU8xwgSDHlzq5J+5iAWeXO4sxEN4C9q9mo03xVPg8b 0l4uUuDFk92pcpn64kW3pft4LITOAURYScEDZ0rbAoXooxi+0kGVSO8dZNI2ru9E 8Jyub6dC8saBCvnEDFIMCK+7Psij3ImpScjksmUfxNT5HkVjclCu/mCp6IWTZC6B LJmQrDJ7ztmIaDI33AwFLkPkSYRcKwjaZvmOQDD/mt/b33s8Hi2ZH5c4HcL6vltE 3ioq8H40EQ0ZLtqWTJHkYDZQj+I3+vZXjL8kdngGOCuEdJ4wkeqzOBvBGDbebomK dX680kaUk4/If95Q/wMstlxMP2/Rhv4t5lHwXrpBubiIZ7SNS7cSIMXzKLqCWk63 KRAH5Mao3Ev8j8rvPAAcQxd3GPWY5MxvWhOy91e6eLJawn6xnjzSzY0SeDkCAwEA AaN1MHMwHQYDVR0OBBYEFCMSUZSz+AYyWWoPy13ViXCT5t7nMFIGA1UdEQRLMEmC F2VyYXNtdXNsb2dpbi5wdW0uZWR1LnBshi5odHRwczovL2VyYXNtdXNsb2dpbi5w dW0uZWR1LnBsL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBCwUAA4IBgQBSlth+ QICnw2UER5frvPmgSCemlVptASAnlOGGtcNQf8FGnS+LXcEAx0D95GtJSN1GcyVk Bad+9Vra0GfnmNhq9FDI8yICZxXeQk2lCXhkSA+p0OwFI2kZ+GAqmS2Yl0Kj/dp8 Psuu/prt7WS2FMt85uTN3ZoqJVtjDP6tyUfARiGxyAHSO6ggSdttYD+9RTU8v4cV Yc2+YIfB3FjFNvws+vxDChOU0IzL4IKOnPxbMPUA3Lt2as9oOnOVnzndgWdCY97e qwpdm+rUuagxYQKluwMGNeO7TTyeKQ2GN7W4WZYdNUFb3Nn3m1gsFin8IYZJLNoB ycQZLZVNFdSMnGOjxJP1RWkipCm7epHGxaF9pySpma3kZ0MPksIStYZQG2Y1kTou JVF2TGrjNB7ZgZ2EVMmhZDi8k8LRDBb6cRTAOXg/5a6ZmZCEinWBdGtgYqJD7uoq zTlccDsBAcpWnBwqpbuD6U1fuKbSwzYlFfnOuziv+xk+SSapSFUVDQmEw+U= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIESDCCArCgAwIBAgIVAOq1qNPmwRwzE5BJE3o5BurwSRaaMA0GCSqGSIb3DQEB CwUAMCIxIDAeBgNVBAMMF2VyYXNtdXNsb2dpbi5wdW0uZWR1LnBsMB4XDTIyMDMx MDE5MTkyNFoXDTQyMDMxMDE5MTkyNFowIjEgMB4GA1UEAwwXZXJhc211c2xvZ2lu LnB1bS5lZHUucGwwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCXaIF5 NnI/xD7JMCy8y7CTgKopwGW55JtS/IYU6ssRVFygqAvR/vOEt821jHPtJCj4o0Dg 3w6hLDxoPqvEJ34fuYJRVPEoJUsVQKstOMLgvStn+rqUbwj5MOpihxQ2n4nwaxeV FcGEw/8GWk8PRfhmgYRn5vkZOpcDZOxtd6Dzin5nSHr/YhWKkagekDThMg/DkLxF 3ViwWs04cbqlzHPHpW9Dc/7ERgfmKl5rNEioZi4Szpa7njOreWB7rkiZGjzBRYGy z2oX0XPWYlZ88Ml3pyorKLxjvMd8/oM4mmKbotC4WHY/Ib/4DX561PPNriUKPHww WOjdZzrXguFaTsXmGxu/+wNi9WcsUXKlFPNAvTBB/JCikaxfow41dY73ueDBajxz AB5YTn9wnVcHwB29L3XXCGfubSQ3NnNdXfWK+qXrhPpbuvV7gecVyXqKm6GuWf5w 5TZvx9fj72cpXVbBt/rpNS/ntNIDfNLrCHyddNbSz+G66YZRovz+Dh9RUf8CAwEA AaN1MHMwHQYDVR0OBBYEFJ0rogC0lkxONgf/UtPlDaLb7T+bMFIGA1UdEQRLMEmC F2VyYXNtdXNsb2dpbi5wdW0uZWR1LnBshi5odHRwczovL2VyYXNtdXNsb2dpbi5w dW0uZWR1LnBsL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBCwUAA4IBgQACcwK+ O2YifqqEffFh6/RZpkbPM3hw4iUvr7MMUUDON7Ecns/EmNgzCYyKVEK8R+xsjLbS Vm+PJjv5xiAG8WGWZdxOHmpIqq8jKe0o6P+Izq40t9vKsKg8VK2WhKbHptvefAZy ZO2Bxb59Kh1rjZy36OIYAnD43Mu451T4Hhh83iDdHmZNwK9aX50SQ3Mz5W24aDNY PQY4rnu3FWmaq902RXIIgz2IXzDZsW5JwsGvpvzCzP1W0tEDfTndWeLKmjcuUUH1 LY4WStKoqjiovvAs3MKv3fJUOdnRuUXzlqccIM5CkzDUgKpEeyBOBTf6Oix3pipK Zz0+XneAYNUIEj4V25K5J/Hxhvox2gOEmYi9iBADU2QqlmUlZpLOI/7su6fGAhBE yEmiUhhqZVhhxV4SbEaIx0eSlXTSchxxYtpLJgZpPwK038lIBYGmt2Y++qCeAs4d 5y1imzhi2RC8tD6bcyknjIev1hvcmvVYpaaQ6E5rMKh93+xkO4mcMVBsAVg= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIESDCCArCgAwIBAgIVANeVDEGpmhjl9SxCnFTUwYRjLFz3MA0GCSqGSIb3DQEB CwUAMCIxIDAeBgNVBAMMF2VyYXNtdXNsb2dpbi5wdW0uZWR1LnBsMB4XDTIyMDMx MDE5MTkyNFoXDTQyMDMxMDE5MTkyNFowIjEgMB4GA1UEAwwXZXJhc211c2xvZ2lu LnB1bS5lZHUucGwwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQC92Wj7 IUVtLvKlvQrrbbFxXysTrh6kq4MnAAT0QMuhGArqwKQJ4JT0pqyISOSKzoTf59XK P7L5C0zLUOu5VbI40WtLWTu73sTbkthm3MtlKa44qcOhtXZo7FqLfjQsbrMDL8eh NGoI4kpB53bhf3B3RpWQXql1W9sZmeyxNHpUriQMxTWjhgYsL1oCMWSSTW6bqoLp nGwE6ATJ5f+1ngpniDADPNn0e50SlcsfFnRaTNlGwaNlTKjDLOCk3UVXfS4xbhY0 z0eP/Jl0W4rE/ra85o4rEbHXZpge68peXfEEUgijosAO3WULK0wPwj22TjXgBnYR /738tmuBGVqid4JOtKrVrtagCmK2RT325GLZzZmAcoA7QVcd/KgZdVIsz5RLc6og 5YwKsi6Fn+W9SC0RX5yrMBYIpupU84+4sRLS2PlBWBAWT9CUMJDC/1P7saEDjjds UGhH16YGpP2nd6Dqbaix8W3I/j/u2eNj+CaOFLamjFEWS7q1ccpy+1YiHekCAwEA AaN1MHMwHQYDVR0OBBYEFExy+BC9o+4cJpHtrclfpW6Y5938MFIGA1UdEQRLMEmC F2VyYXNtdXNsb2dpbi5wdW0uZWR1LnBshi5odHRwczovL2VyYXNtdXNsb2dpbi5w dW0uZWR1LnBsL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBCwUAA4IBgQAv6QYc QG79fFEa1eqTpGSnl3Q3uVMNZTWw/Q66HkgUPg7mDC5UXwwiEAMnimcywA0I71MY f6q4pzYcYGMq7XcuW3KatrdcNrBDplVpLZZOtXKYV+kjvnD6SW8GMlxC3rInwgIA 3DQanEElHoelCu21craDNXSnZhv/SM5v0PwwwpWnM3/mQ7sUeEguNe0n2O1mC1/1 m/qLjvMbHztjAs+DoV284iU1ISNJcBjD7iOobY2jn4jAQWfb4IEWeRLfbRiiCGdw 5O9mmE4MlWMbkrXlfCcv0bigmhk65Y4RGAUCyNShwhtfVbOB8BnVRU4/KgVTcLcz CkudSxnq3oXiw5A3UEbyMfbEEDQCsTxG3XqzMkVmhNLQlcWZYx8oJmS2VLYA9X1e Yi8Un7x1TOZNFNc6bR9dKGMkm5OnDV8qhFNJa0YXqP5Sbq9+6CbzQgboUa+vamev sHSYnuvgIPxERKLRjXHhYZlRsTI290PpssYzVIhPpr7QAn5NiB4hjZSbfnw= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://erasmuslogin.pum.edu.pl/idp/profile/SAML2/Redirect/SSO" req-attr:supportsRequestedAttributes="true" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://erasmuslogin.pum.edu.pl/idp/profile/SAML2/POST-SimpleSign/SSO" req-attr:supportsRequestedAttributes="true" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://erasmuslogin.pum.edu.pl/idp/profile/SAML2/POST/SSO" req-attr:supportsRequestedAttributes="true" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="pl">Pomorski Uniwersytet Medyczny w Szczecinie</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Pomeranian Medical University in Szczecin</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="pl">Pomorski Uniwersytet Medyczny w Szczecinie</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Pomeranian Medical University in Szczecin</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="pl">https://www.pum.edu.pl</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.pum.edu.pl/studies_in_english</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Administrator</md:GivenName>
+      <md:EmailAddress>mailto:wdadmin@pum.edu.pl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

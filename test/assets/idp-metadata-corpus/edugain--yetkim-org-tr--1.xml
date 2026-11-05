@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://kimlik.ulakbim.gov.tr/simplesaml/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="https://yetkim.org.tr/" registrationInstant="2011-10-01T08:30:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="tr">https://yetkim.org.tr/doc/YETKIM-MRPS-TR-v1.0.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="en">https://yetkim.org.tr/doc/YETKIM-MRPS-EN-v1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kimlik.ulakbim.gov.tr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="tr">ULAKBİM</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">ULAKBIM</mdui:DisplayName>
+          <mdui:Description xml:lang="tr">ULAKBİM Kimlik Sağlayıcı</mdui:Description>
+          <mdui:Description xml:lang="en">ULAKBIM IdP</mdui:Description>
+          <mdui:Logo width="100" height="63">https://kimlik.ulakbim.gov.tr/img/ulakbim_100x63.png</mdui:Logo>
+          <mdui:Logo width="38" height="24">https://kimlik.ulakbim.gov.tr/img/ulakbim_38x24.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDsTCCApmgAwIBAgIJAOzqyAV90H7ZMA0GCSqGSIb3DQEBCwUAMG8xCzAJBgNVBAYTAlRSMQ8wDQYDVQQHDAZBbmthcmExGDAWBgNVBAoMD1RVQklUQUsgVUxBS0JJTTEPMA0GA1UEAwwGS0lNTElLMSQwIgYJKoZIhvcNAQkBFhVraW1saWtAdWxha2JpbS5nb3YudHIwHhcNMTkwMTA0MDYzNzIzWhcNMjkwMTAzMDYzNzIzWjBvMQswCQYDVQQGEwJUUjEPMA0GA1UEBwwGQW5rYXJhMRgwFgYDVQQKDA9UVUJJVEFLIFVMQUtCSU0xDzANBgNVBAMMBktJTUxJSzEkMCIGCSqGSIb3DQEJARYVa2ltbGlrQHVsYWtiaW0uZ292LnRyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0X7KDWAB1wjiP+g5BZdV2g9WhdT2Xm18t/lX5EQME8G9TdSQn5VVIQ5YMfW5TNu9KhuMGEnkjHviLRg449Osb6D7ld6aysDHbsl5qdD30lMjtyqDcGYMD64QluFZBoF8AyfNXi72zcUE5Owvi9GyJ9IvT20aLIQCQzd6cGb0vn77e4n4D/eCGkzNXwyxjViuxc0CQQIo83wgHorgYZ5ibZCV5UPYO2bYgvzKbco7ka4bad0cxfHEbiu5ljXW3mEzfpNBcl/3oJawtXfkECTei4OG6VgA658SNHugiZUGKH9HoFSb2DhnZuDlvJQPy21CcM+tfkBC+54KfaZXceFZ5wIDAQABo1AwTjAdBgNVHQ4EFgQUqiDUQ9FcT6+SYCyUlxDypAInzWkwHwYDVR0jBBgwFoAUqiDUQ9FcT6+SYCyUlxDypAInzWkwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAs3mwNvK7H3640cnXGfTrVobEJOwEiF5S9DbiZFYXOufYbDHFYaJzg/1ishGxJlArqMLlcDK0CCTsdO+yXnkCwKCoogvrWQMp5o++aBCZgYNen+3U8YnODnYiOuuasE365Vmw5R8UQ4eJiyYI28JLtoseTtOnacOO70o+BDZQl5GrClcU+rdqq51wazJjIj191eMpQ6A5s+pjqkNUfALMKMLSFJGw8gEw3sCzT+nG7CwKikJtcwwhcypG8qpA0PIcCW4J2DIO7KSK3JX15Rak42akXVy+mhrtgu3vvFfU9VPr8DZb8I+7EfkabbknH/dUbxawS91s6xus8CX8uHGFsA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDsTCCApmgAwIBAgIJAOzqyAV90H7ZMA0GCSqGSIb3DQEBCwUAMG8xCzAJBgNVBAYTAlRSMQ8wDQYDVQQHDAZBbmthcmExGDAWBgNVBAoMD1RVQklUQUsgVUxBS0JJTTEPMA0GA1UEAwwGS0lNTElLMSQwIgYJKoZIhvcNAQkBFhVraW1saWtAdWxha2JpbS5nb3YudHIwHhcNMTkwMTA0MDYzNzIzWhcNMjkwMTAzMDYzNzIzWjBvMQswCQYDVQQGEwJUUjEPMA0GA1UEBwwGQW5rYXJhMRgwFgYDVQQKDA9UVUJJVEFLIFVMQUtCSU0xDzANBgNVBAMMBktJTUxJSzEkMCIGCSqGSIb3DQEJARYVa2ltbGlrQHVsYWtiaW0uZ292LnRyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0X7KDWAB1wjiP+g5BZdV2g9WhdT2Xm18t/lX5EQME8G9TdSQn5VVIQ5YMfW5TNu9KhuMGEnkjHviLRg449Osb6D7ld6aysDHbsl5qdD30lMjtyqDcGYMD64QluFZBoF8AyfNXi72zcUE5Owvi9GyJ9IvT20aLIQCQzd6cGb0vn77e4n4D/eCGkzNXwyxjViuxc0CQQIo83wgHorgYZ5ibZCV5UPYO2bYgvzKbco7ka4bad0cxfHEbiu5ljXW3mEzfpNBcl/3oJawtXfkECTei4OG6VgA658SNHugiZUGKH9HoFSb2DhnZuDlvJQPy21CcM+tfkBC+54KfaZXceFZ5wIDAQABo1AwTjAdBgNVHQ4EFgQUqiDUQ9FcT6+SYCyUlxDypAInzWkwHwYDVR0jBBgwFoAUqiDUQ9FcT6+SYCyUlxDypAInzWkwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAs3mwNvK7H3640cnXGfTrVobEJOwEiF5S9DbiZFYXOufYbDHFYaJzg/1ishGxJlArqMLlcDK0CCTsdO+yXnkCwKCoogvrWQMp5o++aBCZgYNen+3U8YnODnYiOuuasE365Vmw5R8UQ4eJiyYI28JLtoseTtOnacOO70o+BDZQl5GrClcU+rdqq51wazJjIj191eMpQ6A5s+pjqkNUfALMKMLSFJGw8gEw3sCzT+nG7CwKikJtcwwhcypG8qpA0PIcCW4J2DIO7KSK3JX15Rak42akXVy+mhrtgu3vvFfU9VPr8DZb8I+7EfkabbknH/dUbxawS91s6xus8CX8uHGFsA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kimlik.ulakbim.gov.tr/simplesaml/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kimlik.ulakbim.gov.tr/simplesaml/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="tr">TÜBİTAK-ULAKBİM</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">TUBITAK-ULAKBIM</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="tr">TÜBİTAK-ULAKBİM</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">TUBITAK-ULAKBIM</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="tr">http://ulakbim.tubitak.gov.tr</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://ulakbim.tubitak.gov.tr/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Kimlik</md:GivenName>
+      <md:SurName>Yoneticisi</md:SurName>
+      <md:EmailAddress>mailto:kimlik@ulakbim.gov.tr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

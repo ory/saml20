@@ -1,0 +1,232 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://e.modern-a.bg/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://bif.bren.bg" registrationInstant="2022-11-24T03:08:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://bif.bren.bg/wp-content/uploads/2020/12/MRPS_BIF_V1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://e.modern-a.bg/Shibboleth.sso/Login" />
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://e.modern-a.bg/Shibboleth.sso/Login" />
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://e.modern-a.bg/Shibboleth.sso/Login" index="1" />
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://e.modern-a.bg/Shibboleth.sso/Login" index="2" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">MODERN-A: Moodle</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="bg">МОДЕРН-А: Moodle</mdui:DisplayName>
+          <mdui:Description xml:lang="en">MODERN-A: „MODERNization in partnership through digitization of the Academic ecosystem“ is a project under the Operational Program "Science and Education for Intelligent Growth", co-financed by the European Social Fund. The main goal of the project is to increase the quality of higher education within the partner network by creating a successful model for sustainable cooperation aimed at modernizing the higher education system.</mdui:Description>
+          <mdui:Description xml:lang="bg">МОДЕРН-А: „МОДЕРНизация в партньорство чрез дигитализация на Академичната екосистема“ е проект по Оперативна програма „Наука и образование за интелигентен растеж“, съфинансирана от Европейския социален фонд. Основната цел на проекта е да повиши качеството на висшето образование в партньорската мрежа чрез създаване на успешен модел за устойчиво сътрудничество, насочено към модернизиране на системата за висше образование.</mdui:Description>
+          <mdui:Keywords xml:lang="en">MODERN-A, e-elearning, courses, student, moodle</mdui:Keywords>
+          <mdui:Keywords xml:lang="bg">МОДЕРН-А, електронно обучение, курсове, студент, moodle</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://e.modern-a.bg/mod/page/view.php?id=3297&amp;lang=en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="bg">https://e.modern-a.bg/mod/page/view.php?id=3297&amp;lang=bg</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://e.modern-a.bg/mod/page/view.php?id=3299&amp;lang=en</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="bg">https://e.modern-a.bg/mod/page/view.php?id=3299&amp;lang=bg</mdui:PrivacyStatementURL>
+          <mdui:Logo height="194" width="495">https://e.modern-a.bg/pluginfile.php/1/theme_eguru/logo/1668074336/modern-a.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>e.modern-a.bg</ds:KeyName>
+          <ds:KeyName>https://e.modern-a.bg/shibboleth</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEGzCCAoOgAwIBAgIUD04ALmSeAmfuMdACeEobXCGOt3MwDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAxMNZS5tb2Rlcm4tYS5iZzAeFw0yMTA4MzEwODMxMzJaFw0z
+MTA4MjkwODMxMzJaMBgxFjAUBgNVBAMTDWUubW9kZXJuLWEuYmcwggGiMA0GCSqG
+SIb3DQEBAQUAA4IBjwAwggGKAoIBgQDFteqFe3EC6ZNle9hmmE5asoqfC8tAhTsy
+VQPIT40/G+Z9xFByk/Zi6V/HgrhJUJ8DVRioTs2opkr6aDpwCXPPpGhPPQRZnKUg
+y4Xr1hCnDuqosH0MNdNFikavWCWJn1LGQxiDL/ABUpaNMfD6RoQ9TChbA3SAKrVv
+c4hDZP1QiAQrF2odseGrP0l+5tYHwrTV+4p9E+Ld6N+CEFoe3MSLqJW47kG01zfS
+IOVlf8InQVpv0644xd9avAXN96RfglzCyfAY8H02PObFZREpYfVQVgLZNrmDUjJV
+Y2DPdXipr4Ah9L0dVT1ysu8sM29Bx1lOfUkMQuEByECYnrDqZcP6zPAGObNJqjXC
+fchYyh38xAJIIhCbL83qv7hSpXdHI5uPDs7/oeU+1lNlPp7Z7Rwr1fqyw4dYiHqZ
+eRHLR+3rfOvXjsP3WI/5oIUVl/+L2hyAq0USR1tA1s6GGptuY0LfyukCfJ6bxuTI
+ph9Oy6dtKvNLDpBeyWVmEDtPLTgdMIcCAwEAAaNdMFswOgYDVR0RBDMwMYINZS5t
+b2Rlcm4tYS5iZ4YgaHR0cHM6Ly9lLm1vZGVybi1hLmJnL3NoaWJib2xldGgwHQYD
+VR0OBBYEFBMPGtde3j8HRBLS2zm6Ms1y8NRwMA0GCSqGSIb3DQEBCwUAA4IBgQBe
+Q20jILMsJnoUTclHhhIR8171knUPD0lvOxzqmOOZICNacCETwoKr3wQDFNh8b8+L
+OFtzPmTx+gtK0idee4y69uVH3aNKojh82snN5tIAXRaag/K7Ev7VMQKbyIG42lQ7
+JlbeKimNE8rqZcfMo8LigfRHIT1+jAC4pEawVPslwClAZd4b3N+KhpCqjdzTuIhS
+w1SZATEGesv5zoZvPFG97ao8ZpMPXWKcOw3X4sgyN98aIGGiS9j63sMAtP+WcnC0
+8olNCA7yIisk7LWqFXVQilJXLeoQwELl5IWqRhn7+NpZnPcF1g0Yeqii6dMbjRJr
+OxjDf2H7RswuEVpuKz6muWZO1tzZknQC5UD2w+v6mZRiuHGTKCnrfgHBWY5p4mwC
+zjmQ0i8ScM5Jl3XWWCm0rH+3d9k/y9X/vM2IXajl4mJ4pKuDviNwmvagrHd6kovh
+XFqHpvQagRhCeMzWloeqbs3ocqkwl2iuXXKF3hcVs2s/NGFT8YySYgF5SDD/QmQ=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>e.modern-a.bg</ds:KeyName>
+          <ds:KeyName>https://e.modern-a.bg/shibboleth</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEGzCCAoOgAwIBAgIUVzn1A/QcRWe+IiDvZWTYi9gcacQwDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAxMNZS5tb2Rlcm4tYS5iZzAeFw0yMTA4MzEwODMxMjZaFw0z
+MTA4MjkwODMxMjZaMBgxFjAUBgNVBAMTDWUubW9kZXJuLWEuYmcwggGiMA0GCSqG
+SIb3DQEBAQUAA4IBjwAwggGKAoIBgQCtMsgv/Z9Cgbx7H1rHR3oS1z1IEF4uEdCy
+KTwIX7yVrSCWrmABUiC0Ge2rSgapihOI9dFutJ3SEvod5t0KbiY9cr97Pftlocwy
+7rUIdDCjhR/9shTSc3ZSpZ8fHwedLodjpMJbV0ogbJTTzt3tNuh7mimwl/vViUlF
+4679Im1WbDFf6h5+h0GxXmiQvMJkaIJ6Zq7wApx+3FqbW0fUZ2r0rUIJzsVEhevN
+f7nZe+ITPBiw3DDfCq/z7MB0PM5ZVHyMeoL31TBd1Tw5skCZko5VyD53HioV6K11
+GczfGoIxdcLLU65lzy9WM4kWFFNotG2g0mgLzo1WL6wkesjl8kRChSmScaKA3r2i
+GRGOm24Kt4NNwykS3+Feearpk/mktUDrZ9fwzY4ZhO/5So76dWjcSETgWkYmcqtC
+hOjWcu34pMZBJp88xo21UHLHQ73Va0IIjDeOYNvrRbPXkFAG3acew4Hd9xLX0M5p
+h8AwzQxpSGpC0qei+dXPaToR6p1zz1sCAwEAAaNdMFswOgYDVR0RBDMwMYINZS5t
+b2Rlcm4tYS5iZ4YgaHR0cHM6Ly9lLm1vZGVybi1hLmJnL3NoaWJib2xldGgwHQYD
+VR0OBBYEFJNsWGm/gP9PPoqWTg5TlJMtDv/9MA0GCSqGSIb3DQEBCwUAA4IBgQBk
+EFHvBfIqOZ6dhMXf+h5fv1Y0GycRD7jtDfp5cPicBdup1hMQEtqLlv2o4cVaJrmJ
+lQYqONfZQa11Cjzhpe4R3wP83SxIqDGMM9bkdG6tUHBmS7FqB4wYp5Yvr2bOqk6p
+Fg3HMMrvyVZW/umd6gw0ODKD3clmwHgQShzI5ZFEbKgW0mY94ws1lhWxoDzo7dVZ
+Yh+LEEhz6xfDlGSUA7VLFuN19r09k4bZcp/JVcjj+LKLL6xuCxs8oslRvRN+bzmu
+inpfdQyNy8zc7XYZH/qMHoTQNocGRJHKCeAUjI0yKPg/CFTFQR0HQFxODlECkfai
+EikPQpCgLgwX48jiNoeb0F8GLJ7Wbw7HZlJ6JDsO30laZ3gu3tP10q5IShoQdOHH
+dkTF/SUNzaOwqGCIal2dxb9KEA1TgV6mnRsfeAgmQGU8xxkwKO45mgwQjJ+cLcF6
+HH4AX2DqgZN2KHZ+hMwW2xfzNP9jeEMgpT9dZGprV0hVrylMY0cFAUosDYP0bng=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes192-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes256-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep" />
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>e.modern-a.bg</ds:KeyName>
+          <ds:KeyName>https://e.modern-a.bg/shibboleth</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEGzCCAoOgAwIBAgIUD04ALmSeAmfuMdACeEobXCGOt3MwDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAxMNZS5tb2Rlcm4tYS5iZzAeFw0yMTA4MzEwODMxMzJaFw0z
+MTA4MjkwODMxMzJaMBgxFjAUBgNVBAMTDWUubW9kZXJuLWEuYmcwggGiMA0GCSqG
+SIb3DQEBAQUAA4IBjwAwggGKAoIBgQDFteqFe3EC6ZNle9hmmE5asoqfC8tAhTsy
+VQPIT40/G+Z9xFByk/Zi6V/HgrhJUJ8DVRioTs2opkr6aDpwCXPPpGhPPQRZnKUg
+y4Xr1hCnDuqosH0MNdNFikavWCWJn1LGQxiDL/ABUpaNMfD6RoQ9TChbA3SAKrVv
+c4hDZP1QiAQrF2odseGrP0l+5tYHwrTV+4p9E+Ld6N+CEFoe3MSLqJW47kG01zfS
+IOVlf8InQVpv0644xd9avAXN96RfglzCyfAY8H02PObFZREpYfVQVgLZNrmDUjJV
+Y2DPdXipr4Ah9L0dVT1ysu8sM29Bx1lOfUkMQuEByECYnrDqZcP6zPAGObNJqjXC
+fchYyh38xAJIIhCbL83qv7hSpXdHI5uPDs7/oeU+1lNlPp7Z7Rwr1fqyw4dYiHqZ
+eRHLR+3rfOvXjsP3WI/5oIUVl/+L2hyAq0USR1tA1s6GGptuY0LfyukCfJ6bxuTI
+ph9Oy6dtKvNLDpBeyWVmEDtPLTgdMIcCAwEAAaNdMFswOgYDVR0RBDMwMYINZS5t
+b2Rlcm4tYS5iZ4YgaHR0cHM6Ly9lLm1vZGVybi1hLmJnL3NoaWJib2xldGgwHQYD
+VR0OBBYEFBMPGtde3j8HRBLS2zm6Ms1y8NRwMA0GCSqGSIb3DQEBCwUAA4IBgQBe
+Q20jILMsJnoUTclHhhIR8171knUPD0lvOxzqmOOZICNacCETwoKr3wQDFNh8b8+L
+OFtzPmTx+gtK0idee4y69uVH3aNKojh82snN5tIAXRaag/K7Ev7VMQKbyIG42lQ7
+JlbeKimNE8rqZcfMo8LigfRHIT1+jAC4pEawVPslwClAZd4b3N+KhpCqjdzTuIhS
+w1SZATEGesv5zoZvPFG97ao8ZpMPXWKcOw3X4sgyN98aIGGiS9j63sMAtP+WcnC0
+8olNCA7yIisk7LWqFXVQilJXLeoQwELl5IWqRhn7+NpZnPcF1g0Yeqii6dMbjRJr
+OxjDf2H7RswuEVpuKz6muWZO1tzZknQC5UD2w+v6mZRiuHGTKCnrfgHBWY5p4mwC
+zjmQ0i8ScM5Jl3XWWCm0rH+3d9k/y9X/vM2IXajl4mJ4pKuDviNwmvagrHd6kovh
+XFqHpvQagRhCeMzWloeqbs3ocqkwl2iuXXKF3hcVs2s/NGFT8YySYgF5SDD/QmQ=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>e.modern-a.bg</ds:KeyName>
+          <ds:KeyName>https://e.modern-a.bg/shibboleth</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEGzCCAoOgAwIBAgIUVzn1A/QcRWe+IiDvZWTYi9gcacQwDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAxMNZS5tb2Rlcm4tYS5iZzAeFw0yMTA4MzEwODMxMjZaFw0z
+MTA4MjkwODMxMjZaMBgxFjAUBgNVBAMTDWUubW9kZXJuLWEuYmcwggGiMA0GCSqG
+SIb3DQEBAQUAA4IBjwAwggGKAoIBgQCtMsgv/Z9Cgbx7H1rHR3oS1z1IEF4uEdCy
+KTwIX7yVrSCWrmABUiC0Ge2rSgapihOI9dFutJ3SEvod5t0KbiY9cr97Pftlocwy
+7rUIdDCjhR/9shTSc3ZSpZ8fHwedLodjpMJbV0ogbJTTzt3tNuh7mimwl/vViUlF
+4679Im1WbDFf6h5+h0GxXmiQvMJkaIJ6Zq7wApx+3FqbW0fUZ2r0rUIJzsVEhevN
+f7nZe+ITPBiw3DDfCq/z7MB0PM5ZVHyMeoL31TBd1Tw5skCZko5VyD53HioV6K11
+GczfGoIxdcLLU65lzy9WM4kWFFNotG2g0mgLzo1WL6wkesjl8kRChSmScaKA3r2i
+GRGOm24Kt4NNwykS3+Feearpk/mktUDrZ9fwzY4ZhO/5So76dWjcSETgWkYmcqtC
+hOjWcu34pMZBJp88xo21UHLHQ73Va0IIjDeOYNvrRbPXkFAG3acew4Hd9xLX0M5p
+h8AwzQxpSGpC0qei+dXPaToR6p1zz1sCAwEAAaNdMFswOgYDVR0RBDMwMYINZS5t
+b2Rlcm4tYS5iZ4YgaHR0cHM6Ly9lLm1vZGVybi1hLmJnL3NoaWJib2xldGgwHQYD
+VR0OBBYEFJNsWGm/gP9PPoqWTg5TlJMtDv/9MA0GCSqGSIb3DQEBCwUAA4IBgQBk
+EFHvBfIqOZ6dhMXf+h5fv1Y0GycRD7jtDfp5cPicBdup1hMQEtqLlv2o4cVaJrmJ
+lQYqONfZQa11Cjzhpe4R3wP83SxIqDGMM9bkdG6tUHBmS7FqB4wYp5Yvr2bOqk6p
+Fg3HMMrvyVZW/umd6gw0ODKD3clmwHgQShzI5ZFEbKgW0mY94ws1lhWxoDzo7dVZ
+Yh+LEEhz6xfDlGSUA7VLFuN19r09k4bZcp/JVcjj+LKLL6xuCxs8oslRvRN+bzmu
+inpfdQyNy8zc7XYZH/qMHoTQNocGRJHKCeAUjI0yKPg/CFTFQR0HQFxODlECkfai
+EikPQpCgLgwX48jiNoeb0F8GLJ7Wbw7HZlJ6JDsO30laZ3gu3tP10q5IShoQdOHH
+dkTF/SUNzaOwqGCIal2dxb9KEA1TgV6mnRsfeAgmQGU8xxkwKO45mgwQjJ+cLcF6
+HH4AX2DqgZN2KHZ+hMwW2xfzNP9jeEMgpT9dZGprV0hVrylMY0cFAUosDYP0bng=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes192-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes256-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep" />
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://e.modern-a.bg/Shibboleth.sso/Artifact/SOAP" index="1" />
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://e.modern-a.bg/Shibboleth.sso/Artifact/SOAP" index="2" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://e.modern-a.bg/Shibboleth.sso/SLO/SOAP" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://e.modern-a.bg/Shibboleth.sso/SLO/Redirect" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://e.modern-a.bg/Shibboleth.sso/SLO/POST" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://e.modern-a.bg/Shibboleth.sso/SLO/Artifact" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://e.modern-a.bg/Shibboleth.sso/SAML2/POST" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://e.modern-a.bg/Shibboleth.sso/SAML2/POST-SimpleSign" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://e.modern-a.bg/Shibboleth.sso/SAML2/Artifact" index="3" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://e.modern-a.bg/Shibboleth.sso/SAML2/ECP" index="4" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://e.modern-a.bg/Shibboleth.sso/SAML/POST" index="5" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://e.modern-a.bg/Shibboleth.sso/SAML/Artifact" index="6" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://e.modern-a.bg/Shibboleth.sso/SAML2/POST" index="7" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://e.modern-a.bg/Shibboleth.sso/SAML2/POST-SimpleSign" index="8" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://e.modern-a.bg/Shibboleth.sso/SAML2/Artifact" index="9" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://e.modern-a.bg/Shibboleth.sso/SAML2/ECP" index="10" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://e.modern-a.bg/Shibboleth.sso/SAML/POST" index="11" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://e.modern-a.bg/Shibboleth.sso/SAML/Artifact" index="12" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">MODERN-A: Moodle</md:ServiceName>
+        <md:ServiceName xml:lang="bg">МОДЕРН-А: Moodle</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">MODERN-A: „MODERNization in partnership through digitization of the Academic ecosystem“ is a project under the Operational Program "Science and Education for Intelligent Growth", co-financed by the European Social Fund. The main goal of the project is to increase the quality of higher education within the partner network by creating a successful model for sustainable cooperation aimed at modernizing the higher education system.</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="bg">МОДЕРН-А: „МОДЕРНизация в партньорство чрез дигитализация на Академичната екосистема“ е проект по Оперативна програма „Наука и образование за интелигентен растеж“, съфинансирана от Европейския социален фонд. Основната цел на проекта е да повиши качеството на висшето образование в партньорската мрежа чрез създаване на успешен модел за устойчиво сътрудничество, насочено към модернизиране на системата за висше образование.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="bg">Софийски университет "Св. Климент Охридски"</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Sofia University "St. Kliment Ohridski"</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="bg">МОДЕРН-А: Moodle предоставен от Софийски университет "Св. Климент Охридски"</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">MODERN-A: Moodle provided by the Sofia University "St. Kliment Ohridski"</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="bg">https://www.uni-sofia.bg/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.uni-sofia.bg/index.php/eng</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Atanas</md:GivenName>
+      <md:SurName>Georgiev</md:SurName>
+      <md:EmailAddress>mailto:atanas@fmi.uni-sofia.bg</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

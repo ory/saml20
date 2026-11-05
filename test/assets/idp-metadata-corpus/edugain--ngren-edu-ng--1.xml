@@ -1,0 +1,132 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.akum.edu.ng/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://ngren.edu.ng/">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://ngrenid.ngren.edu.ng/wp-content/uploads/2025/03/mrps.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">akum.edu.ng</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Abdulkadir Kure University, Minna</mdui:DisplayName>
+          <mdui:Description xml:lang="en">idp.akum.edu.ng</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://akum.edu.ng</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://akum.edu.ng</mdui:PrivacyStatementURL>
+          <mdui:Logo width="480" height="129" xml:lang="en">https://www.akum.edu.ng/uploads/images/logo-1774885180.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEMzCCApugAwIBAgIVAN7N4RHLiGZHDgbE7bJobLMbPisEMA0GCSqGSIb3DQEB
+CwUAMBoxGDAWBgNVBAMMD2lkcC5ha3VtLmVkdS5uZzAeFw0yNjA5MTkwNjM4Mjda
+Fw00NjA5MTkwNjM4MjdaMBoxGDAWBgNVBAMMD2lkcC5ha3VtLmVkdS5uZzCCAaIw
+DQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAJU1tlyoHq2MnQH5SaTFXohmwdJQ
+HPMqePegS2oxmtDhuuV522T8uEl03sdFCAj6IUrlOrv82AZWkw4Qq4sjy7zMocwh
+7m4woXYRT+xzm4Zxvlfv3VLeJZnD7VyxL7af/SLY+hos0GWXM68tB+RXDt06/M5V
+ReR3QnK2O3TcHWGguQXaEVcQ3rU4fi9z08XKRSSFYYDKB6T7zlXRT/idM/4Aw+aU
+h/maWnwtyl12GrBU6OLtVTPew4Po+9zkvVfvdlRdBI0bwi7T5qN/3GEr+SaFm04f
+BTvXAXZVX0UQeJwfS/i4YvmEzOer5FYfds05Z2iOFxfca5qUY+2xtVbXkfJHNtgp
+jOyaHBAgsQ/aXwT7XNGun+dUZBR2B/YAZ/N8L4wo1TRv0xI3yspaUbbArPuPqEf6
+xmphk9S2dErdMtTASKrhFoWTMICW6GXypdOfkJgH3pY1kPuhPe9VyuLVGYsuu1q2
+PW39NQ/wXL1j+O3s+yG6OgyABPYpubNEnu3elQIDAQABo3AwbjAdBgNVHQ4EFgQU
+VNkim4H8KPErBgrNpYYAv8WC4TcwQgYDVR0RBDswOYIPaWRwLmFrdW0uZWR1Lm5n
+hiZodHRwczovL2lkcC5ha3VtLmVkdS5uZy9pZHAvc2hpYmJvbGV0aDAJBgNVHRME
+AjAAMA0GCSqGSIb3DQEBCwUAA4IBgQBpg5WP9Uu8p2uMQqUzIsPLrDwj2JMAYog6
+6oe09xoYFhpFRLPTpZXskRpJmaSXAgipnOkQwykBJOIHsTM7j/kmwN/YXg3Wp53z
+EECadGkuDrSW3czb2TYBtrEwxQJJGi/npkrT2fOLNKdZRx3CgrzY7hJGgBSFIQTl
+brSS80rpJLZlYvGvrhw7AvuBW/MBr2U52PkY1/03V9p+W/cnebUZ63RpEBLOjUqO
+2Xu2vP1pZkY0E4uMX6IZrIhwq57AFzveObaCrrkQDEnNq88M0XW1aY7J1NSGqlK2
+HarErJFKyY5u6RIB/P6OPSuO/PpOOMU4ST/ixluSNu9gIq75qNGxangaO/E3pccv
+0UpZipXjPRV1aLEM7iTSqRlGXjdPFxqQQbpC4XpfpQ9B8P7vqYFfpJXqxE6r6a27
+WKqTGz+yM9/A0LmIRHU0EVtoFaU96LY/PWXUEMLCIp1FT3OL97wYOs3qvw1p4RLU
+ZwX9QxxqEd253aO4EkWEitUKK869D0I=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEMjCCApqgAwIBAgIUUEx7FW8YbeMjWo6t2eDpE/ydZUQwDQYJKoZIhvcNAQEL
+BQAwGjEYMBYGA1UEAwwPaWRwLmFrdW0uZWR1Lm5nMB4XDTI2MDkxOTA2MzgyNloX
+DTQ2MDkxOTA2MzgyNlowGjEYMBYGA1UEAwwPaWRwLmFrdW0uZWR1Lm5nMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAqOCMsoYRkx3IMiNcRkM/EDHH0m1J
+Bav7B5bjC6ekFgBVYPbXuH+6Za2StMfGnLLahP8R5/Hq30+N7cCUnulTuqEF5Vab
+2PmJNNsRnNLoBT83dlEXDjkt2sg+W6zWPJ0yKNRrbuKqEAJYtcOb99O1TnhXjEbZ
+yrFzT0EUND9pe3Ez19mJMSubtk6Xuac8QzYRtyGtIll2tmlqWg9SOhYJPF138IE4
+nVjNPXDdKlgjXXOWphfLb4bKj+WNwBKjjthMoVQPpIr3kUANpAJQ+RPk7dncC9vf
+718re4R0Z69qu32PZ7tdnW2WXHN2rCbzbJ+o2iGfNe/cExWaq/C1K8qxBbyet+xT
+hc4wdznKbtMzDINlL9WYdUDIM/7hMx45mQ3o9Q9MN/dlfQECy3TfvQKCFv5s1AKk
+aYO+U7gV8gOQ0Rycki+4S+OIN4lAryrxBzi63uFfjk4fAA70eQjB5sklyqAiO/zq
+/TcRAckpvqaneyrqLKUMikvB/MfRublMfnw7AgMBAAGjcDBuMB0GA1UdDgQWBBTp
+wb9jScRKlUbWmrG/+VZDLgwGczBCBgNVHREEOzA5gg9pZHAuYWt1bS5lZHUubmeG
+Jmh0dHBzOi8vaWRwLmFrdW0uZWR1Lm5nL2lkcC9zaGliYm9sZXRoMAkGA1UdEwQC
+MAAwDQYJKoZIhvcNAQELBQADggGBAIy9RjmcgZNz3xv33X0KMo2AJ6LfH9PukoLt
+LhhVshwMhFor4dnjuJowDjBleLCDswEpuPT7xsgLc9z93E3LJV1UGZEWpRaFM8cK
+ZHc6RY6sWzu1MM7yJFaweOKRPXT+kxVx8N/lMUOu84xQQQQHdBxdZnQ4vciEUPYn
+4auq2VLFJxn7Q6lKZb0JIm5EDQRorYXC7ULOINbzL3BONquoifqd6u9rO+xz/PsI
+STU5adMtJHUp8VyOqyTcOeJip67EP/ppfcwB9YFjaLfgFuyOprEG2BOIYYXeXqoT
+KOzb/8GpRbi8aDwi+Ma35Tvx3PaeWFS/+92N8pA8Y4Rf8xjwWoFnb5LqK0T99gr7
+jcBMdmbfvnghRojl0SRgBNalE1yNGhKAlBVsnDpK6BY7C8LCLb97hRUZcqo19k/F
+5K2VuXXmH/sid9+jBsGgY2krRij4PKeQ8WLfmSUOWv/nQ1/RlsQyfNDpl182HtKs
+Z0Mq96CaVUc3kwQ4UCSZNe8QCHCQKg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEMjCCApqgAwIBAgIUTcIEA367gzYCdQEw1KsjSK/IcIQwDQYJKoZIhvcNAQEL
+BQAwGjEYMBYGA1UEAwwPaWRwLmFrdW0uZWR1Lm5nMB4XDTI2MDkxOTA2MzgyN1oX
+DTQ2MDkxOTA2MzgyN1owGjEYMBYGA1UEAwwPaWRwLmFrdW0uZWR1Lm5nMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAo+sx+315U40HVg6QAkocLyVEmV6E
+lZGhFqkAAej2PZerbjAdKTh3RRayC9qV+2SF9vK49SX6TLNsGnt0LOLQmmL7EMuc
+IlOY1RsfOnOeXUkzA8JOsFukhSuhcCV4DykQmFnPIUCTt7NO8jXwrQnEp1JqOJrg
+SCs29yawYNil1cutosKpqTkTbVwvi9HTcGAJ+lJPjn7ZfIX3DJ3ItmvlOFPtTZki
+H/4yyjKL/MFA40QIBmvCVri1PVPlBcr8oQGJUI92XuWyfod9usthP7Fo0OpaIcST
+OaWOqhCFAj6bVPC8VJA2xmfkzkVadc6Y4Z2eLphFpDkgncny8OP8nclJaR4iEn7v
+YXODYvQkw+zB2a/blR51btskoohKoKxN2p2yT0NeS3oJzBG+Grexf7DMWdr02xS7
+3FHW45NBoKZZ++3RelQJGoBe7641UA8INe+WFGENFsaX+YofkUQlqj8rrZyXCJS0
+NXTQPa14Itrdjv6BdOOdH6jX4WinOsFEo6wbAgMBAAGjcDBuMB0GA1UdDgQWBBQs
+bjRUhiAg3yXARj1ASAMQKjwGADBCBgNVHREEOzA5gg9pZHAuYWt1bS5lZHUubmeG
+Jmh0dHBzOi8vaWRwLmFrdW0uZWR1Lm5nL2lkcC9zaGliYm9sZXRoMAkGA1UdEwQC
+MAAwDQYJKoZIhvcNAQELBQADggGBAIkXUhNclMo2bZBGWKPnNOOPh0xUZNhXO5pt
+9xUzAiLFEzwM8kQXEvQCd4YaRK2nLqHuG8ek1nTo3+ZiKn2CUysmErdQED4ACYjA
+omgcwYzGzdtEZKNrL3vQJNJB/QslOFcgTE8ep9b0j4Ekj/WVw9GD71fO8c6ED5uW
+McjFXhIJ/6m0gYMKbUWKkaL7Wtcz+NTorZIX3PQCp8Z0ptsJ58Di16SOq1/7JSd+
+zTrAqNYNEoUCCB0zEzr410jgdUMD3z4vL1/OS64y7ZE6YED0Z5L5KIu1iM4ry/E8
+46PmiWWvOzqTjWbvcEI+PkE7eO5MY06Xs/0GqjdSb8hdb2QF8W3lJYyZwDnmccjq
+ef4vuZ8EYWGvIwtnpvEGKUX6+gfSxt/GCIRKl7Ku9PDmgW48nmfw8VwvOBUW6IjV
+XguB6V63RHl19esSJl/GSVaB3gszBUYsHNsNZFi53Um/J6cJOCDxvrihZTi2M9LE
+kwaSixNPHYa/ASW5eLldCxUnuH82lQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.akum.edu.ng/idp/profile/SAML2/POST/SLO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.akum.edu.ng/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.akum.edu.ng/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.akum.edu.ng/idp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Abdulkadir Kure University, Minna</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">AKUM</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://akum.edu.ng</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Umar Ramadan</md:GivenName>
+      <md:SurName>Zakari</md:SurName>
+      <md:EmailAddress>mailto:umarzaks@akum.edu.ng</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Yusuf</md:GivenName>
+      <md:SurName>Giwa</md:SurName>
+      <md:EmailAddress>mailto:yusufgiwa@akum.edu.ng</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

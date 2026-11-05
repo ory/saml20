@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://signon.hh.se/idp/shibboleth" xml:base="swamid-1.0/signon.hh.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hh.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDHDCCAgSgAwIBAgIVANvNFOWJZe9T3CpX7Sk5ZKgztjMgMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDHNpZ25vbi5oaC5zZTAeFw0wOTA5MTYwODM0MjZaFw0y
+OTA5MTYwODM0MjZaMBcxFTATBgNVBAMTDHNpZ25vbi5oaC5zZTCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAIdi7+4jvkJyhmR/IHjVKV0TOJ1TBw5x8FXo
+VVDkZdixmiT/YVp6kfRsKL6yWlNKEm7X6kcrJ+xKUNYUi9n8p1uloS6tBhfG37pC
+Xt7fi7imSi882T4fUYzCR3cVAbe8k6L8UKIdWdNVGIkvXzgeBZh/qHCnvyjtF1Bd
+4mEUHh55KieKVmKCYD7TE4T14tE4xSBf7L9Dna4U9aM7Ne+xeHSW/rGGALtfZhIr
+DOZLZSBCIAzBhzwuDb2h7xYBrCBF7QEWInI8tkQPa/g/sS/5xH+nTGO0RAWY9EWu
+2V2HN3hp3/nX8smCSIKRyxWzLJ29htCrsljTLSvFVOstCU0NI/8CAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMc2lnbm9uLmhoLnNlhiNodHRwczovL3NpZ25vbi5oaC5zZS9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUQJ23SW9pFtWUbgw5WcI2qK7YSZAwDQYJ
+KoZIhvcNAQEFBQADggEBAIAl6LBd5IzC+1MxH293vgBeVnIJvRNAp0vn4BqyHgX0
+3i4lqzw/g8hj+va7kOfr1VidYoS3ur5YYnoVC7muILBy8uNeXGaRNeh7xRJHb+HF
+7eEjWvDrj2RQtaED3+1INj2bl5gR4vEt5VkWh6TVU40x4ea0V97Vm4ZO416b9L6I
+06Hp/H4L2oHEJUMdOfxhlipIXZeAxZ2lSHmGspfNRCybLAs/raVGBvq1/RSpRS+X
+vAXrKY9loLQYkufnJ3GlXmbn3eFOyxmA11Q9xTukB8qno9QI2KMxUH8N2cG0vYXB
+CXwK7XzaaZnKkk8K3Hgodpmh+2CIkt0nGwYXAFyb6RE=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://signon.hh.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://signon.hh.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://signon.hh.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://signon.hh.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://signon.hh.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://signon.hh.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hh.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDHDCCAgSgAwIBAgIVANvNFOWJZe9T3CpX7Sk5ZKgztjMgMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDHNpZ25vbi5oaC5zZTAeFw0wOTA5MTYwODM0MjZaFw0y
+OTA5MTYwODM0MjZaMBcxFTATBgNVBAMTDHNpZ25vbi5oaC5zZTCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAIdi7+4jvkJyhmR/IHjVKV0TOJ1TBw5x8FXo
+VVDkZdixmiT/YVp6kfRsKL6yWlNKEm7X6kcrJ+xKUNYUi9n8p1uloS6tBhfG37pC
+Xt7fi7imSi882T4fUYzCR3cVAbe8k6L8UKIdWdNVGIkvXzgeBZh/qHCnvyjtF1Bd
+4mEUHh55KieKVmKCYD7TE4T14tE4xSBf7L9Dna4U9aM7Ne+xeHSW/rGGALtfZhIr
+DOZLZSBCIAzBhzwuDb2h7xYBrCBF7QEWInI8tkQPa/g/sS/5xH+nTGO0RAWY9EWu
+2V2HN3hp3/nX8smCSIKRyxWzLJ29htCrsljTLSvFVOstCU0NI/8CAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMc2lnbm9uLmhoLnNlhiNodHRwczovL3NpZ25vbi5oaC5zZS9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUQJ23SW9pFtWUbgw5WcI2qK7YSZAwDQYJ
+KoZIhvcNAQEFBQADggEBAIAl6LBd5IzC+1MxH293vgBeVnIJvRNAp0vn4BqyHgX0
+3i4lqzw/g8hj+va7kOfr1VidYoS3ur5YYnoVC7muILBy8uNeXGaRNeh7xRJHb+HF
+7eEjWvDrj2RQtaED3+1INj2bl5gR4vEt5VkWh6TVU40x4ea0V97Vm4ZO416b9L6I
+06Hp/H4L2oHEJUMdOfxhlipIXZeAxZ2lSHmGspfNRCybLAs/raVGBvq1/RSpRS+X
+vAXrKY9loLQYkufnJ3GlXmbn3eFOyxmA11Q9xTukB8qno9QI2KMxUH8N2cG0vYXB
+CXwK7XzaaZnKkk8K3Hgodpmh+2CIkt0nGwYXAFyb6RE=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://signon.hh.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://signon.hh.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">HH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Högskolan i Halmstad</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.hh.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Högskolan i Halmstad</md:Company>
+    <md:EmailAddress>Magnus.Moren@hh.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

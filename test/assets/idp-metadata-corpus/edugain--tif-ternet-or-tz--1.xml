@@ -1,0 +1,126 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.ku.ac.tz/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://tif.ternet.or.tz/">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://tif.ternet.or.tz/storage/attachments/674eb2e8c54c4_EduGAIN%20Policy%20v2.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ku.ac.tz</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Kairuki University (KU)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">The IDP of KU</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.hkmu.ac.tz/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.hkmu.ac.tz/</mdui:PrivacyStatementURL>
+          <mdui:Logo width="80" height="80" xml:lang="en">https://idp.ku.ac.tz/path/to/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEHDCCAoSgAwIBAgIVAMwwTci4LMKX07LPdA3Z9ovPdnnSMA0GCSqGSIb3DQEB
+CwUAMBcxFTATBgNVBAMMDGlkcC5rdS5hYy50ejAeFw0yNDA5MDIxMjUxMDRaFw00
+NDA5MDIxMjUxMDRaMBcxFTATBgNVBAMMDGlkcC5rdS5hYy50ejCCAaIwDQYJKoZI
+hvcNAQEBBQADggGPADCCAYoCggGBAKg0pmg8B3+5932Dgg13/rnIKDhaIROZhD/3
+PyZuOKvazXee78igB21ti+hnh2u8WsjlqC6Ix67MiC9bWWQSZlIu2KF9bojpAEpV
+nhQy0RxO4xzsKNVFp6E2kpDQq92HJNTXG9xsm3C9xVa5wVCpLCXRi3dX2KB5BZyA
+6+fZihfPJFfEa3oNtVCDRZbdsjZYue/J7hITjuZ2lWYIaPLaXTBGeL6RppQ0DQOp
+qNirlfBLlGOw+sTTbqxi4hqqBJbN/OFJMPwZkEg1e5JrP70kcL5jzGyNCETCLkca
+WLo1WCukmA+iEES9B1KDBTdbiimIURKLmvRjI/WhZe7vEoxUf/rzUtH0hoT15BK2
+ckplsv1IZ+v7lXIbuH23YpVRxlc/oT6KDy/jMSJ9FsB2rCaS2KRBB1Nco5U/ai82
+C9wu9Xzw04ILSv/7+ZTAq54jGXJjhLEwS4zkr9PLrL6e9vWX3ZfHbxpShWJWZyvv
+4uVsVpcCEVHS7SgeWyLbzZaDE/zIqQIDAQABo18wXTAdBgNVHQ4EFgQU93F90LKu
+mzZ0bpCjgr/sAl8m/xYwPAYDVR0RBDUwM4IMaWRwLmt1LmFjLnR6hiNodHRwczov
+L2lkcC5rdS5hYy50ei9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAYEA
+ZhnRjj639xEiIkZf2qvaKcD6LGa2wzPSGPb78e1JVyQJGjLJwpC46emyUCRI3JAV
+X6mYUEKFXOh7HpNn4ne/mIrWy9vsrUkbXySU0d0yulKos2HyoLgocB/OKGqYUh1K
+zhcnR3qkRETWmD/jJwA1svPr2I5qBFzkZ8Kh/xm7YHQe1L6H4Tx4OXQ42iUGEAYc
+HW3fTUt425fOIN4c/JORAjKEITpEbOC4NHNqKbVsLGapMFkpl6x72vwGw/gAu5HF
+dnVA5g2ac0Bbbw1+Gm+N34Hs89Vs9lx9iARGSoXnQdMeOTLaBMVhAHWHfYWJx7rt
+Rx89WHQm4aIv9454vjLFpKi1/BiG0sMwUjmCzuzJj7K82Sd8/9f1H/Ld8AZ81nbD
+SDAaTRJpkspll1aX0869rUawr8qoCJBjrdVx2iXhS+2pfKUGn59c/1GIr0hBPyr1
+svMvGFFBmuhANflReE1p2y8wsEz9leNO0lG0QvOFV9vHmnw7RCGsnGGyO7FBSotk
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEHDCCAoSgAwIBAgIVAKqIverLCwbsOxfpkOQ2d25tqYAzMA0GCSqGSIb3DQEB
+CwUAMBcxFTATBgNVBAMMDGlkcC5rdS5hYy50ejAeFw0yNDA5MDIxMjUxMDNaFw00
+NDA5MDIxMjUxMDNaMBcxFTATBgNVBAMMDGlkcC5rdS5hYy50ejCCAaIwDQYJKoZI
+hvcNAQEBBQADggGPADCCAYoCggGBAM3SWG0Prffuig1JxOY6zb6HqNGtGbNZv7mY
+hzCoMwLQ50B3V+ziSdeBHk0buQTx4UZCm16fL3s25NavK2/bKR0pguPH8MH0A4Ch
+mjeAKWjd5i0MPSpNevyJrJaohyKwpfSkE47V7dhOAjEKMLEi4nJXR+BG/gbkgNx+
+pYgvRmGIHnCeSozinkHPS5Z2FARznvrKhop7rg8qf0uMbBQHTatlgX6AzTl2bK0o
+VDWZR7oRDh7QEb96jPCHO06t+M9woprQq/sqk1oBdXqsAYwyZN2foBWSkZkU1VFa
+AcSExWannVinyQOLYiqwURSb/vkmG3fZovEBB/YJiILQHiYfz1Y+joNIHRE25d1N
+553VX/U25684XmzdDAHqU2/sJWPcsMQojPzlimim5Xl0IbUr3DiDO88hs3tVs8Xp
+5t26S41NjAeFb/RflA11TY/13xz3nKu3uaC3QOrCSHxA2pETJ60//gOXpnRl9ieH
+6GjQFsZuaxUCwCeQm3HKRfmT85hqcQIDAQABo18wXTAdBgNVHQ4EFgQUs0rOCe0a
+7XiJBw7UDZssBLyjG30wPAYDVR0RBDUwM4IMaWRwLmt1LmFjLnR6hiNodHRwczov
+L2lkcC5rdS5hYy50ei9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAYEA
+NuCY/F7Fl96+VQ+rLcETmzlxFDD5AlCG98Islu8fdIMaPBJGFmBcY/BU2w8ScVwa
+tALqbSPouMPntQ2/LzmwTdb64ObYlc1tFAxyQlnKaKPcZKIBeZfFVZJmAXO9cwIj
+fkmEp3XLsykN/SSM7liEn7ISTgAE8SaMVrECD24CZsFhJxyTNq2VDGh/aixg9Irg
+zi4sCiVkNjgj0y0VMzidAjSfPUdRP4IYGJtZnu74xy4k+YyswEpvfcL1VrewCLEu
+DoPO/Kt9JWbOPc29nKj5NJnjR1JBcQgdR8y6fjwhCgnyik9PCQQiVsT5hq7icGG/
+SsIGw2EmytzV+U0eBkCWaeqQhQR4yrszOBr/oN/dH7K1uJmmCfqbqBmaPkPcSe7N
+xpX5f4CWMOGoIyJOfc5i39HHp+IytcgM4hFUD5C0PI4Nm4V7+oIGKimjlcd5NdcT
+4YHD6r6bBuDI5q6O/WgrXilMxV2nokhYcZWt4vtIsCJnxPaz0ZWAasrXkucHQbDn
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEHDCCAoSgAwIBAgIVANMjJEglATl9HDwsBnD4EcABmNeVMA0GCSqGSIb3DQEB
+CwUAMBcxFTATBgNVBAMMDGlkcC5rdS5hYy50ejAeFw0yNDA5MDIxMjUxMDNaFw00
+NDA5MDIxMjUxMDNaMBcxFTATBgNVBAMMDGlkcC5rdS5hYy50ejCCAaIwDQYJKoZI
+hvcNAQEBBQADggGPADCCAYoCggGBAOgNG1Hn9GRJCAH2hM/xDh612fh40Shgq/bf
+9iu+TQZz+3nC/Tz8WIIrR0a3SKzjfrq7Rnl52TCFupFOf5VVCf/BYfqyGFJyjmJP
+KfZJb/5GMqAZDzzhJg/nBY8R3n+gGa0MtRnZPuMyQMNpQhD1SEpAD56qMDs96eV0
+y/BsJhnv1qT9iRlWjv5UZyZTVM5sb/wIKieMknWITWiXLEux1R7zU+VSkQgcxHFC
+X8TWV46RP3UwhIeroDGQR/hh4nqcm3SwSTJG9FHtP0ngpfWJ/YiwLW5H6cU+qQZt
+JqEriwwdAWuG9WETvpyJ+sStXqf51j4IUCJYZdG9Js+HjJXop0Zsr2BXK183nbx9
+NHy3tHst+92Tj2FUcFIetzuKtFAJEQP7Sv6xrZb5hSmTmdEuhb2CJ6jwpYXn+Yyw
+L7Txlkr5NUK2y8BWu3innPKMKq88Z6xvRlM9uffKvZtkOPC4HBR9699Z94uWf1/H
+TR4apNluPnbjsr9ZXutz/ASzHn8dFQIDAQABo18wXTAdBgNVHQ4EFgQUtFYfHfXB
+lkScMwn0k+gF6WH5mXgwPAYDVR0RBDUwM4IMaWRwLmt1LmFjLnR6hiNodHRwczov
+L2lkcC5rdS5hYy50ei9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOCAYEA
+2v+Ekhnl3FDINuFY/hoV1AjPF2CkC/uhRAA7bPR3rR+vE7pzFvsv4IsZH/+SH4rn
+ffpWYiSH4L9JRsCNYW50ziDFO4XGs1utlgs9WwErNl6XUHZkG1yG2qc6AIRgT1Jo
+wf2gMOTTQWYm92Mj5Jo1cUHIb1DVxrEDH1u84YR8U2+xnxPcCzY4XIxoM7VES63V
+K7Srq3bSPnsa1CapqpHnHS0rpiOYe/PPFk187xWyqyeb2QPGoPhPfK8kaSsPA4f2
+5GpsyKuC6KgfNO0lpFjj1X+jduJxERKqs4UMCPuqQ8KHcu7eDLckoIlVU3VabBdm
+J/jk8w9j2Lvmksb1X7OezJo4ufHG8IYsBXvlC+OObjlHy7wtB6D3HxxlQOEkgVJJ
+w+D6qOvOH0qiQ2e6A5w3qro86DeEYKw6Az1zi76aMvcIOU/jo/l8e321KFjwgf9C
+ak5dl0qvi7q8KGslmqQrjbW07YiB80IT/TG58sRo1OZjtv4ZIheGq4V2YAzVs4av
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ku.ac.tz/idp/profile/SAML2/SOAP/ArtifactResolution" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ku.ac.tz/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ku.ac.tz/idp/profile/SAML2/POST/SLO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ku.ac.tz/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ku.ac.tz/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ku.ac.tz/idp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Kairuki University (KU)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Kairuki University (KU)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.hkmu.ac.tz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Kaizilege</md:GivenName>
+      <md:SurName>Karoma</md:SurName>
+      <md:EmailAddress>mailto:kaizilege.karoma@ku.ac.tz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

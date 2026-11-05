@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://cafe.idor.org/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2026-03-03T15:20:05Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">https://svn.cafe.rnp.br/repos/CAFe/termos_politicas_CAFe/mrps.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">idor.org</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">IDOR - Instituto D'Or</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IDOR - Instituto D'Or</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IDOR - Instituto D'Or</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IDOR - Instituto D'Or</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.rededorsaoluiz.com.br/instituto/idor/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">https://www.rededorsaoluiz.com.br/instituto/idor/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDETCCAfmgAwIBAgIUa2yKF1dG6cDzyWQxo+ua2gMcXB4wDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAwwNY2FmZS5pZG9yLm9yZzAeFw0yNjAzMDkyMDA3NDZaFw0y
+OTAzMDgyMDA3NDZaMBgxFjAUBgNVBAMMDWNhZmUuaWRvci5vcmcwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC1Is8mgf18sC2Pt2Jsf0r5gNq91ddV4tYF
+wWN8hxi7WMItODf2eCHV9V0nM8Q33gmqk8KYZJMKz2/mBEp0ih6s2fPOClXJgOVn
+g85Gi5IIPR7nl16N3Z2k5LuEjEp23QE55cubkEfHDX+9wIWReZ68/cfQQsN2TxLc
+wRRZX8cwpiC2b2hU8ninY9o/P3pdYG3ZvgLTkFJrcpCCXAJJFJtSlG6D85qR7JS8
+DDefGVBf65pNlrfGIyBI0O5h3PpatJHfhAIVyRFXiyLp0wIEoAywCtZHTqb8Qt43
+tiguOWJJSV+f4KHWVtk4j/8zdoHcI9YMhZcBJ61lDmHyQ/A4sHqnAgMBAAGjUzBR
+MB0GA1UdDgQWBBR/3QaE++EjCpsOsqiefzXxxIieBzAfBgNVHSMEGDAWgBR/3QaE
+++EjCpsOsqiefzXxxIieBzAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUA
+A4IBAQCME3MdQUq1Aw5gx59KoSWlxEko73y8K/B3ZBrVyOAFGq1zeiIgEPxoCJvE
+dU4yeBPU6OT51xEZDICPxVeHis+xyRC+7u+/wgUrj8BLPd5l6jVkhvWngx0Rw5Qm
+QVhWzI2cI0Pt3mTQEaK5cH7BjbSFlxuK6X1TQj94G1Feal690R+r9soD7brWPrYt
+ogXWxQtHIETL2m77z0gjIPRyrqgW4A7U4fgfr2RvZwDA8TUSSHmv8HOGG7rKQ7hi
+LkXiqHC7IZlh3CnPWSkDfULLYmXmSpQoHvd614NfbJaKraPGYMlTCTozTw7MJzYr
+VUNKaMktkcAtdQERHphXX+AEj8ky</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.idor.org:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.idor.org:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.idor.org/idp/profile/Shibboleth/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.idor.org/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.idor.org/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.idor.org/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">idor.org</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDETCCAfmgAwIBAgIUa2yKF1dG6cDzyWQxo+ua2gMcXB4wDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAwwNY2FmZS5pZG9yLm9yZzAeFw0yNjAzMDkyMDA3NDZaFw0y
+OTAzMDgyMDA3NDZaMBgxFjAUBgNVBAMMDWNhZmUuaWRvci5vcmcwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC1Is8mgf18sC2Pt2Jsf0r5gNq91ddV4tYF
+wWN8hxi7WMItODf2eCHV9V0nM8Q33gmqk8KYZJMKz2/mBEp0ih6s2fPOClXJgOVn
+g85Gi5IIPR7nl16N3Z2k5LuEjEp23QE55cubkEfHDX+9wIWReZ68/cfQQsN2TxLc
+wRRZX8cwpiC2b2hU8ninY9o/P3pdYG3ZvgLTkFJrcpCCXAJJFJtSlG6D85qR7JS8
+DDefGVBf65pNlrfGIyBI0O5h3PpatJHfhAIVyRFXiyLp0wIEoAywCtZHTqb8Qt43
+tiguOWJJSV+f4KHWVtk4j/8zdoHcI9YMhZcBJ61lDmHyQ/A4sHqnAgMBAAGjUzBR
+MB0GA1UdDgQWBBR/3QaE++EjCpsOsqiefzXxxIieBzAfBgNVHSMEGDAWgBR/3QaE
+++EjCpsOsqiefzXxxIieBzAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUA
+A4IBAQCME3MdQUq1Aw5gx59KoSWlxEko73y8K/B3ZBrVyOAFGq1zeiIgEPxoCJvE
+dU4yeBPU6OT51xEZDICPxVeHis+xyRC+7u+/wgUrj8BLPd5l6jVkhvWngx0Rw5Qm
+QVhWzI2cI0Pt3mTQEaK5cH7BjbSFlxuK6X1TQj94G1Feal690R+r9soD7brWPrYt
+ogXWxQtHIETL2m77z0gjIPRyrqgW4A7U4fgfr2RvZwDA8TUSSHmv8HOGG7rKQ7hi
+LkXiqHC7IZlh3CnPWSkDfULLYmXmSpQoHvd614NfbJaKraPGYMlTCTozTw7MJzYr
+VUNKaMktkcAtdQERHphXX+AEj8ky</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.idor.org:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.idor.org:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IDOR - Instituto D'Or</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">IDOR - Instituto D'Or</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IDOR - Instituto D'Or</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">IDOR - Instituto D'Or</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.rededorsaoluiz.com.br/instituto/idor/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">https://www.rededorsaoluiz.com.br/instituto/idor/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Felipe Teixeira</md:GivenName>
+      <md:EmailAddress>mailto:fellipe.teixeira@idor.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Felipe Teixeira</md:GivenName>
+      <md:EmailAddress>mailto:fellipe.teixeira@idor.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Felipe Teixeira</md:GivenName>
+      <md:EmailAddress>mailto:fellipe.teixeira@idor.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

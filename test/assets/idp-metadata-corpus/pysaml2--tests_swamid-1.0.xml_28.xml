@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.mah.se/idp/shibboleth" xml:base="swamid-1.0/idp.mah.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">mah.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDFDCCAfygAwIBAgIVAPnyQUYFvhTnodaw9FJqcA/57Yh5MA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5tYWguc2UwHhcNMTAwOTI5MDczODU0WhcNMzAw
+OTI5MDczODU0WjAVMRMwEQYDVQQDEwppZHAubWFoLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAgaMWnEn2Fhn7xNG/PFpKOkACs3I9Rd2AspSE0NPD
+q3EuNx50kXrfeRxFsSntWy1PTQ8XYI1FONZx3l21CSmwsNSYa4coAsHC8U4yBN9b
+c1f/Q+7KQod+Q08cWJ75aiw0zvRl547bWfh0n5v1L21G+0fFUvY/6t5gN/HgHJZA
+9jZNZwVSzteivEmgooiJqXaUM7njWs15Ee1pTO6ib4w8eYj3AJuhWe58W3+Rc6xk
+5u5H/3LZiPMHiTnrqG2Ux+gFJStc5PXWO6NxiCOWtDufmJ6OcPrGkVMJ8LoZvQ1J
+OThRimq3OmaATe03wGqTRP3xHXqRSQPlXEIb86sSPnDU5wIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAubWFoLnNlhiFodHRwczovL2lkcC5tYWguc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFHwHbhAp4egiLmh0CawPk430y+D8MA0GCSqGSIb3DQEB
+BQUAA4IBAQA0Hxjvk2Muuzwgyv8Nhvmeb43+qwvqIa+rCSJxZpEpR5xGyMLTApLL
+oRYlPGQIQUj8u8HFtcdRVmc/OWG0NhyBe9OiwFjcGlsdINZiyYm+4whwRrbt6/dn
+ykhKvjQMhX2x/0SjyrA/LjifpZB3VMN6qdRrGY082I7X5tZmmqyoWk/rED4WxL3u
++j+6GUcWJOdPBAO4uBqUGzw9tvjXHE2nm5eQlKkk+138vFHkeb1fDrDthXuN9f03
+Ttm2GRc6B4kC8/rlYS5Li9yd8QY1yGPnbgLlW5lxOZbJQxdwiUcGCRDoUB1BC9NY
+dXq/XDc8QAGFHMyk/P0r1H6pT5HJQfH7
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.mah.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.mah.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.mah.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.mah.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.mah.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.mah.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">mah.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDFDCCAfygAwIBAgIVAPnyQUYFvhTnodaw9FJqcA/57Yh5MA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5tYWguc2UwHhcNMTAwOTI5MDczODU0WhcNMzAw
+OTI5MDczODU0WjAVMRMwEQYDVQQDEwppZHAubWFoLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAgaMWnEn2Fhn7xNG/PFpKOkACs3I9Rd2AspSE0NPD
+q3EuNx50kXrfeRxFsSntWy1PTQ8XYI1FONZx3l21CSmwsNSYa4coAsHC8U4yBN9b
+c1f/Q+7KQod+Q08cWJ75aiw0zvRl547bWfh0n5v1L21G+0fFUvY/6t5gN/HgHJZA
+9jZNZwVSzteivEmgooiJqXaUM7njWs15Ee1pTO6ib4w8eYj3AJuhWe58W3+Rc6xk
+5u5H/3LZiPMHiTnrqG2Ux+gFJStc5PXWO6NxiCOWtDufmJ6OcPrGkVMJ8LoZvQ1J
+OThRimq3OmaATe03wGqTRP3xHXqRSQPlXEIb86sSPnDU5wIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAubWFoLnNlhiFodHRwczovL2lkcC5tYWguc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFHwHbhAp4egiLmh0CawPk430y+D8MA0GCSqGSIb3DQEB
+BQUAA4IBAQA0Hxjvk2Muuzwgyv8Nhvmeb43+qwvqIa+rCSJxZpEpR5xGyMLTApLL
+oRYlPGQIQUj8u8HFtcdRVmc/OWG0NhyBe9OiwFjcGlsdINZiyYm+4whwRrbt6/dn
+ykhKvjQMhX2x/0SjyrA/LjifpZB3VMN6qdRrGY082I7X5tZmmqyoWk/rED4WxL3u
++j+6GUcWJOdPBAO4uBqUGzw9tvjXHE2nm5eQlKkk+138vFHkeb1fDrDthXuN9f03
+Ttm2GRc6B4kC8/rlYS5Li9yd8QY1yGPnbgLlW5lxOZbJQxdwiUcGCRDoUB1BC9NY
+dXq/XDc8QAGFHMyk/P0r1H6pT5HJQfH7
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.mah.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.mah.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+
+    <md:Organization>
+    <md:OrganizationName xml:lang="en">MAH</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Malmö Högskola</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.mah.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Robert</md:GivenName>
+    <md:SurName>Faling</md:SurName>
+    <md:EmailAddress>robert.faling@mah.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

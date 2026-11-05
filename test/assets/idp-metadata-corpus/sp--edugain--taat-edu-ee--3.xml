@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:taat="http://www.eenet.ee/EENet/urn" entityID="https://plutof.ut.ee/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://taat.edu.ee" registrationInstant="2019-11-05T12:58:18.000Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://taat.edu.ee/main/documents/?lang=en</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <taat:taat>
+        <taat:active>yes</taat:active>
+        <taat:AttributeNameFormat />
+        <taat:modified>2019-11-05T13:02:06Z</taat:modified>
+        <taat:RegistrationInstant2>2019-11-05T12:58:18Z</taat:RegistrationInstant2>
+        <taat:type>saml20-sp</taat:type>
+        <taat:eid>170</taat:eid>
+        <taat:env>prodaccepted</taat:env>
+      </taat:taat>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">PlutoF</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="et">PlutoF</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID3jCCAsYCCQDqUYjqgNkHczANBgkqhkiG9w0BAQUFADCBsDELMAkGA1UEBhMCRUUxETAPBgNVBAgMCFRhcnR1bWFhMQ4wDAYDVQQHDAVUYXJ0dTEcMBoGA1UECgwTVW5pdmVyc2l0eSBvZiBUYXJ0dTEfMB0GA1UECwwWTmF0dXJhbCBIaXN0b3J5IE11c2V1bTEdMBsGA1UEAwwUaHR0cHM6Ly9wbHV0b2YudXQuZWUxIDAeBgkqhkiG9w0BCQEWEWluZm9AcGx1dG9mLnV0LmVlMB4XDTE5MTAwMzA3NDAwMVoXDTIyMTAwMjA3NDAwMVowgbAxCzAJBgNVBAYTAkVFMREwDwYDVQQIDAhUYXJ0dW1hYTEOMAwGA1UEBwwFVGFydHUxHDAaBgNVBAoME1VuaXZlcnNpdHkgb2YgVGFydHUxHzAdBgNVBAsMFk5hdHVyYWwgSGlzdG9yeSBNdXNldW0xHTAbBgNVBAMMFGh0dHBzOi8vcGx1dG9mLnV0LmVlMSAwHgYJKoZIhvcNAQkBFhFpbmZvQHBsdXRvZi51dC5lZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMAmbTNuNQLJJBmz6zJOuh2eTb4k9S/rvlXh04xDfhCJVSEJ9W19IJ2AR0L1VF4NwLRBiydshgAqYpc+njwJBb7DwktaeSRCecutkycXtJiqOcX+6xuYXvNZohw5N437R8e4VxRHLROwYOKXkBY80I7T6qSWDZlQnBfIMdCBUPeLY1kDwCbSmZeqyh0idoSiTIEUoDHGBsG7O/HSWGWWkufVY9jOqwI61xUu7Q7RJsW+NSvP2HXEyTYwJcajs5jEhqzd1RK7pW9eur33xENrYIvZibBBKgVEFNeA1xYp5CmVfmJBUihUoaDuhKKyqZRM4U3khFO+uDC/Rb0UVnYSFj8CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAftZTGxbq7cWYk12pgJfvKEE3rffIzHCiVt/hLm3ObR5kdP0NCqqN0dpfO3pa7TWqmuT1+d+34nv+ZmryMSAtWZvrF0YorUeXaL6FqxK7M/xCIA9WzXHgcX6NKeTFmhJv3Jlp7KzhRNrU2UOsMY7iyciMIV3lrk1Pw8yc+Fd1RWfDI/nJTGnrngMYDlyHkooT8O/gzRbYzhcIKdFKXVxhbEPo7N38/7CPgYijD/TE7XPT8UCQOihkkMhz8oY/pwdJ24G/hnx8QTTGzTHiWrM/u4YekUUyFcG8DHkcAZz6VkdckP1BYUzELBaeA4ECMWqbCQF+UqFVum8J4XiMhKCNsg==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://api.plutof.ut.ee/social/complete/saml/" index="1" />
+      <md:AttributeConsumingService index="1" isDefault="true">
+        <md:ServiceName xml:lang="et">PlutoF</md:ServiceName>
+        <md:ServiceName xml:lang="en">PlutoF</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Description missing ...'https://plutof.ut.ee/'</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="cn" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="preferredLanguage" Name="urn:oid:2.16.840.1.113730.3.1.39" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">PlutoF</md:OrganizationName>
+      <md:OrganizationName xml:lang="et">PlutoF</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">PlutoF Data management and Publishing Platform</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="et">PlutoF andmehalduse ja publitseerimise platvorm</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://plutof.ut.ee</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="et">https://plutof.ut.ee</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>TAAT</md:GivenName>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>mailto:eenet@eenet.ee</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

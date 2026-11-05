@@ -1,0 +1,41 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shib-idp.kau.se/identity" xml:base="swamid-1.0/shib-idp.kau.se.xml">
+  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+    <md:Extensions>
+      <shibmd:Scope>kau.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEPTCCAyWgAwIBAgILAQAAAAABGTNtk4cwDQYJKoZIhvcNAQEFBQAwXzELMAkGA1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlvbmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA4MDQwOTEzNDM0OVoXDTExMDQwOTEzNDM0OVowbTELMAkGA1UEBhMCU0UxETAPBgNVBAgTCFZhcm1sYW5kMREwDwYDVQQHEwhLYXJsc3RhZDEeMBwGA1UEChMVS2FybHN0YWRzIHVuaXZlcnNpdGV0MRgwFgYDVQQDEw9zaGliLWlkcC5rYXUuc2UwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKOQIKbkk/FiMrF0SnFnN+leGueG0+qQMczfPQuUkTp1y+nhtIuvD+3t2pzPsuUcHtArrJjBKPg3Mp5Tt8cHWNdRl1j6l0TN1Rtk+1rmyMck5HZp1b296ldPtyCzon/txPB356CiT6KvW/iHY0hAiupIKdlWLK360ZGqThCPext1AgMBAAGjggFuMIIBajBQBgNVHSAESTBHMEUGByqGSLE+AQAwOjA4BggrBgEFBQcCARYsaHR0cDovL3d3dy5nbG9iYWxzaWduLm5ldC9yZXBvc2l0b3J5L2Nwcy5jZm0wDgYDVR0PAQH/BAQDAgWgMB8GA1UdIwQYMBaAFGVloz3XOxGjCgclN8lCSlt2d1DhMB0GA1UdDgQWBBRUfoCGld9kbPhwSgnkIMv3jWpxODA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLmdsb2JhbHNpZ24ubmV0L2VkdWNhdGlvbmFsLmNybDBPBggrBgEFBQcBAQRDMEEwPwYIKwYBBQUHMAKGM2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5uZXQvY2FjZXJ0L2VkdWNhdGlvbmFsLmNydDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGgYDVR0RBBMwEYIPc2hpYi1pZHAua2F1LnNlMA0GCSqGSIb3DQEBBQUAA4IBAQAI/dNIi3iuS6nw4Tll1ZCc3kuHyG5In67CmtjO0owGmkh/4+B+ZHA37U5SZeKYPliiNqjUX6rlz4WYtvj/wFcAXSbcbgVRWkCVTkYahWL4DysGEanzeTJvWgcnJXix1JO6nifJYw8nJEBhuZrmrEuDj/5EmkekkGxRgGA9QgLSsYCnzkcm71R3PNO+rvSiBzY8MeIgiS96Jpe09iafVA0/w1Q8pyhLdLa8KWl80Rjjo/JVi34LECLwq9emIXIxNTr6ot3WdamoIZtEVOVbdwPoEAlekE87VJ2w7Y/yMqFz6bLp4cQ91PQZG91Y2NtQY4RBFCci5LO0dlcJTF2kMxkT</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp.kau.se:8443/shibboleth-idp/AA" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+  </md:AttributeAuthorityDescriptor>
+  <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+    <md:Extensions>
+      <shibmd:Scope>kau.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEPTCCAyWgAwIBAgILAQAAAAABGTNtk4cwDQYJKoZIhvcNAQEFBQAwXzELMAkGA1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlvbmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA4MDQwOTEzNDM0OVoXDTExMDQwOTEzNDM0OVowbTELMAkGA1UEBhMCU0UxETAPBgNVBAgTCFZhcm1sYW5kMREwDwYDVQQHEwhLYXJsc3RhZDEeMBwGA1UEChMVS2FybHN0YWRzIHVuaXZlcnNpdGV0MRgwFgYDVQQDEw9zaGliLWlkcC5rYXUuc2UwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKOQIKbkk/FiMrF0SnFnN+leGueG0+qQMczfPQuUkTp1y+nhtIuvD+3t2pzPsuUcHtArrJjBKPg3Mp5Tt8cHWNdRl1j6l0TN1Rtk+1rmyMck5HZp1b296ldPtyCzon/txPB356CiT6KvW/iHY0hAiupIKdlWLK360ZGqThCPext1AgMBAAGjggFuMIIBajBQBgNVHSAESTBHMEUGByqGSLE+AQAwOjA4BggrBgEFBQcCARYsaHR0cDovL3d3dy5nbG9iYWxzaWduLm5ldC9yZXBvc2l0b3J5L2Nwcy5jZm0wDgYDVR0PAQH/BAQDAgWgMB8GA1UdIwQYMBaAFGVloz3XOxGjCgclN8lCSlt2d1DhMB0GA1UdDgQWBBRUfoCGld9kbPhwSgnkIMv3jWpxODA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLmdsb2JhbHNpZ24ubmV0L2VkdWNhdGlvbmFsLmNybDBPBggrBgEFBQcBAQRDMEEwPwYIKwYBBQUHMAKGM2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5uZXQvY2FjZXJ0L2VkdWNhdGlvbmFsLmNydDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGgYDVR0RBBMwEYIPc2hpYi1pZHAua2F1LnNlMA0GCSqGSIb3DQEBBQUAA4IBAQAI/dNIi3iuS6nw4Tll1ZCc3kuHyG5In67CmtjO0owGmkh/4+B+ZHA37U5SZeKYPliiNqjUX6rlz4WYtvj/wFcAXSbcbgVRWkCVTkYahWL4DysGEanzeTJvWgcnJXix1JO6nifJYw8nJEBhuZrmrEuDj/5EmkekkGxRgGA9QgLSsYCnzkcm71R3PNO+rvSiBzY8MeIgiS96Jpe09iafVA0/w1Q8pyhLdLa8KWl80Rjjo/JVi34LECLwq9emIXIxNTr6ot3WdamoIZtEVOVbdwPoEAlekE87VJ2w7Y/yMqFz6bLp4cQ91PQZG91Y2NtQY4RBFCci5LO0dlcJTF2kMxkT</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp.kau.se/shibboleth-idp/Artifact" index="1" isDefault="true" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib-idp.kau.se/shibboleth-idp/SSO" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">KAU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Karlstad university</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.kau.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Karlstad university</md:Company>
+    <md:EmailAddress>paul.scott@kau.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

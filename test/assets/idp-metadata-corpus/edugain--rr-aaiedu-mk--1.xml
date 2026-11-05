@@ -1,0 +1,76 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.uklo.edu.mk/realms/UKLO">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://rr.aaiedu.mk" registrationInstant="2025-01-22T11:32:00Z" />
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uklo.edu.mk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University St. Kliment Ohridski - Bitola</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="mk">Универзитет Св. Климент Охридски - Битола</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for University St. Kliment Ohridski - Bitola</mdui:Description>
+          <mdui:Description xml:lang="mk">Идентитет провајдер за Универзитет Св. Климент Охридски - Битола</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.uklo.edu.mk</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="mk">https://www.uklo.edu.mk</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.uklo.edu.mk/privacy</mdui:PrivacyStatementURL>
+          <mdui:Logo width="250" height="89" xml:lang="en">https://uklo.edu.mk/wp-content/uploads/2023/05/uklo_en_logo__250.png</mdui:Logo>
+          <mdui:Logo width="500" height="175" xml:lang="mk">https://uklo.edu.mk/wp-content/uploads/2021/06/uklo-logo-500.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>uklo.edu.mk</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIClzCCAX8CBgGUsz1FgDANBgkqhkiG9w0BAQsFADAPMQ0wCwYDVQQDDARVS0xP
+MB4XDTI1MDEyOTE4MDM0NFoXDTM1MDEyOTE4MDUyNFowDzENMAsGA1UEAwwEVUtM
+TzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ2UWA717XURR3s9LyzI
+yij3tCpjlxREJNOV4E5zXD71Z0gYrEO9c+Fq7ScwR5pneLnvN6zDWjJQPzzKSmNt
+YvDWKmDU7UtwZCR4nAyu4VJzedP/2lPQ4mZizobnm9+CPIayMGNSH72LAdMUa+wS
+9GFTwtdACoWVZK//JeMYy2CWXcRDZr9S8uiWwoaRxNFJoRCcFl++PQdVZY07FxPI
+UcB7LdXD0VkOIM6vqJ+fYCDU3pCm7zM5J+BKjC3xFjmuFNx4SZJCBdMOKPlYq1L3
+OkLc8RwVsgeZpucRpV6vddyrEgfm7c72Vo1q7h0zhBbKBTmXTkYvhILjuhTP91hb
+KLMCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAP9eiX53JbMszucr1fYyZ4ElTupCg
+L3DAddawQc8lwfL01888m7b2uSNCeOouNVO4lewdpYoBYFUePAJNkhEZ0+iPvOEe
++ofuFQLIhddY+lauku2uVa94CujrxYEajHbhQTmlaGdU1zFfn1cbOXW9i9TXHL+o
+uZOdscbqpIvNikGnfk6HTvDi+Q6lp0sGKIoJRNSa0CzvnzHJzQGL/S2ICef2kL1k
+uAAahHW4THH39ZPydRhXfRUZftmG+xWIuyLeKn5bsudmZNECHUmuxz6kz1cviBV6
+4tFWeGnSS3wBQ09ZTFAZzhqdnMztKEnsuEX5pm88crkRhwKTNLomAN15iQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uklo.edu.mk/realms/UKLO/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uklo.edu.mk/realms/UKLO/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uklo.edu.mk/realms/UKLO/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://idp.uklo.edu.mk/realms/UKLO/protocol/saml" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uklo.edu.mk/realms/UKLO/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uklo.edu.mk/realms/UKLO/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uklo.edu.mk/realms/UKLO/protocol/saml" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="mk">Универзитет Св. Климент Охридски - Битола</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University St. Kliment Ohridski - Bitola</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="mk">Универзитет Св. Климент Охридски - Битола</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University St. Kliment Ohridski - Bitola</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="mk">https://uklo.edu.mk/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://uklo.edu.mk/?lang=en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ilija</md:GivenName>
+      <md:SurName>Jolevski</md:SurName>
+      <md:EmailAddress>mailto:ilija.jolevski@uklo.edu.mk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Ilija</md:GivenName>
+      <md:SurName>Jolevski</md:SurName>
+      <md:EmailAddress>mailto:ilija.jolevski@uklo.edu.mk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

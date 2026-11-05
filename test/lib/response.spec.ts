@@ -657,9 +657,9 @@ describe('validate() edge cases', function () {
     assert.strictEqual(profile.assertionId, '_first');
   });
 
-  // sanitizeXML strips &#xd; after the DOM parser's DTD check, so it can
-  // assemble a DTD keyword that only the xml2js guard sees.
-  it('rejects a DTD keyword that sanitizeXML assembles before xml2js', async function () {
+  // validate() parses the document once before sanitizeXML strips &#xd; and
+  // once after, so the second parse must catch a DTD keyword it assembles.
+  it('rejects a DTD keyword that sanitizeXML assembles', async function () {
     for (const inner of ['<!-- <!DOC&#xd;TYPE x> -->', '<![CDATA[<!EN&#xD;TITY x>]]>']) {
       await assert.rejects(
         validate(buildResponse(inner), { publicKey: testIdpCert, audience: SP }),
@@ -670,18 +670,6 @@ describe('validate() edge cases', function () {
         }
       );
     }
-  });
-
-  it('wraps a document that the DOM parser accepts but xml2js rejects', async function () {
-    await assert.rejects(
-      validate(buildResponse('<x>a & b</x>'), { publicKey: testIdpCert, audience: SP }),
-      (error: WrapError) => {
-        assert(error instanceof WrapError);
-        assert.strictEqual(error.message, 'An error occurred trying to parse XML assertion.');
-        assert.match((error.inner as Error).message, /Invalid character in entity name/);
-        return true;
-      }
-    );
   });
 
   it('rejects a signed Response without an Assertion', async function () {
@@ -825,7 +813,7 @@ describe('validate() on an unsigned response', function () {
       validate(buildResponse(buildAssertion()), { audience: SP, publicKey: testIdpCert }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'Invalid assertion.');
-        assert.strictEqual(error.inner.message, 'invalid signature: no Signature element found');
+        assert.strictEqual(error.inner?.message, 'invalid signature: no Signature element found');
         return true;
       }
     );
@@ -846,7 +834,7 @@ describe('validate() error handling', function () {
         (error: WrapError) => {
           assert(error instanceof WrapError);
           assert.strictEqual(error.message, 'An error occurred trying to validate the assertion.');
-          assert.strictEqual(error.inner.message, 'boom');
+          assert.strictEqual(error.inner?.message, 'boom');
           return true;
         }
       );
@@ -866,7 +854,7 @@ describe('validate() error handling', function () {
       }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'An error occurred during assertion replay validation.');
-        assert.strictEqual(error.inner.message, 'store unavailable');
+        assert.strictEqual(error.inner?.message, 'store unavailable');
         return true;
       }
     );

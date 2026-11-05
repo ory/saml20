@@ -1,0 +1,56 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://sts.windows.net/aa363858-7642-431c-849a-8a4bff5dbde3/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.maeen.sa" registrationInstant="2025-01-12T19:39:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.maeen.sa/wp-content/uploads/2019/05/Maeen_Federation_MRPS_en-v1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dah.edu.sa</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Dar Al-Hekma University - 2</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Dar Al-Hekma University - 2</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.dah.edu.sa/</mdui:InformationURL>
+          <mdui:Logo width="400" height="400">https://www.maeen.sa/wp-content/uploads/2023/03/dah.jpg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIC8DCCAdigAwIBAgIQHAPdd/Xm7KRATWwGZr02fzANBgkqhkiG9w0BAQsFADA0
+MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZp
+Y2F0ZTAeFw0yNjAxMTQwNzE4MjhaFw0yOTAxMTQwNzE4MjhaMDQxMjAwBgNVBAMT
+KU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAosv0VoMDlP+EXuMK5mAvyvWVHTNp
+qfPagqP7AXvWXES5dQYYBgEBsuN3LToazs/f9i1d93hdvlxvRQ19Myg+UiiZt/Nj
+o8lEJ50888gkdHcnhjyYxszgTfgPzDOrgtAZYpybwIzLkabuBO5fWJqlE52QYqhp
+LdVqVhsRvlpAFdpFdLES1h5Ei3f4FMqSxxqYm7K8AN8Y1gOm6aAInD8qVyQMjLYa
+tKZ3oOpE2PPU4Sk7lr9b3db+VkfWq1PKHJjrS/r+M42qqU9mFF4fKDuJ3rc8i7r/
+yvT1y+ru7gY1PjNT+x5PGk4zH4Aw/wrsvYlkcMgg63IbHdAMdCRmkAI1IQIDAQAB
+MA0GCSqGSIb3DQEBCwUAA4IBAQAqZhzaUj0xk8SRbHqAFfWPD5iICpFIkuq2u5VU
+nAWuJoovX7To9X3gmEN1B78G0QXHkNkqw4R54/uNj1T4qM6hNiV859Pp69NAvSRs
+EsCkDXfR/i4mqc7LRdMOjTe3PhiX2sRBLtls0LASm7NgucjuotfABO77GpQsDvwm
+flYQvJFD8fh/9ypH9t4iupDot6OVnbefi3Ve0DeEBsvIxib8qc/mlzCR6fqpC7tz
+wjs4LAfW4l4GMBIedhVHv3ehdpzEa/5CWEuLUbxV8zAlHeROP6uyVFhEGrSzxdGL
+r+vsH+YSj4m6xQvXEQoR86aLbQc/5RijrkeF9UnNBLruYnl1
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/aa363858-7642-431c-849a-8a4bff5dbde3/saml2" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/aa363858-7642-431c-849a-8a4bff5dbde3/saml2" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.microsoftonline.com/aa363858-7642-431c-849a-8a4bff5dbde3/saml2" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Dar Al-Hekma University - 2</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Dar Al-Hekma University - 2</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.dah.edu.sa/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT</md:GivenName>
+      <md:SurName>Security</md:SurName>
+      <md:EmailAddress>mailto:ITSecurity@dah.edu.sa</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

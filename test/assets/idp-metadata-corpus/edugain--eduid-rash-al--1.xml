@@ -1,0 +1,44 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.rash.al/simplesaml/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://eduid.rash.al" registrationInstant="2019-06-25T11:28:03Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.rash.al/wp-content/uploads/eduID-Albania-Federation-Policy.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" errorURL="https://idp.rash.al/simplesaml/module.php/core/error/ERRORURL_CODE?ts=ERRORURL_TS&amp;rp=ERRORURL_RP&amp;tid=ERRORURL_TID&amp;ctx=ERRORURL_CTX">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">rash.al</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Albanian Academic Network - RASH</mdui:DisplayName>
+          <mdui:Description xml:lang="en">RASH main IdP</mdui:Description>
+          <mdui:Logo width="240" height="103" xml:lang="en">https://idp.rash.al/simplesaml/rash_logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE2TCCA0GgAwIBAgIJAK5F+P5BK3Z4MA0GCSqGSIb3DQEBCwUAMIGCMQswCQYDVQQGEwJBTDEQMA4GA1UECAwHQWxiYW5pYTEPMA0GA1UEBwwGVElyYW5lMQ0wCwYDVQQKDARSQVNIMQ0wCwYDVQQLDARSQVNIMRQwEgYDVQQDDAtpZHAucmFzaC5hbDEcMBoGCSqGSIb3DQEJARYNa21hbGlAcmFzaC5hbDAeFw0xOTA2MTgxNDE5MzhaFw0yOTA2MTcxNDE5MzhaMIGCMQswCQYDVQQGEwJBTDEQMA4GA1UECAwHQWxiYW5pYTEPMA0GA1UEBwwGVElyYW5lMQ0wCwYDVQQKDARSQVNIMQ0wCwYDVQQLDARSQVNIMRQwEgYDVQQDDAtpZHAucmFzaC5hbDEcMBoGCSqGSIb3DQEJARYNa21hbGlAcmFzaC5hbDCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMHMkjIVD7FRljv50yZaK8mdfudzmmBiex8xww/TiGTVaP2/feXmmo8FMJrWtrPWIgZwvQ7Y4nUe9+CphRNaVT5g1dNkHB6IVy2wqvQNbz87hsu0qw075ypNj7dMd3Bhb1s8SH+9WkCCzxf1yo+ozqshH8JSCjZ0J7LGEogVyFhxZhQmbRBBPoy8rU+BapnhD+7R74jPT/9RndXsvO9UEsrLRnI0mWj1ob6a+0pY0DvKNPFkjsfoXOClAkXi+YUf8buIXUpocHc9TAnx8kKi0hDwn9t4RvE0wJXVPRrnua83/CnvgKZ39GAVijNxXrn7HC2DV+FI+GRYjSmcwf/2Z0TByEesKuLAmLiOyEhHB9ZVT6IVhlTnq4saykbSRBsByeprfUUJABsgB/t/JSxoXmsAVfve2sZEnUXZQvX6AnbHnn3+1PSH/1qFWyH/Ed1fSibKErsiaUHONAMUB4cIruAvGq0ji5BmdzIYGTgBbOaYKvCRP4sdnl74NlD03d6DfwIDAQABo1AwTjAdBgNVHQ4EFgQU/Jboe19ubhGd/fSss9xTPmhBH7AwHwYDVR0jBBgwFoAU/Jboe19ubhGd/fSss9xTPmhBH7AwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAHeznYvUVXKq0ZgXdjiEjEyyZ+2dDgZwWWxte9phmmDwIOAkyivZbaU0ZSTSM2sVHojs261/DcFj4SQ+QVlDNdQFnv7Sya8n3944P+7yDZ1Y8PnCxSXAn0RRW1qyRyec/vEg/iPeZmBsdPQ/gcCn86gXnm0vbc21phwq/QEkzOVuWWtqrkJywxtY3a9ah2+ZcYXvf6AgnLTOOdyx4zJbO6xhceXiSVMaSEcy/bq5R3s91jTr24BDf22KPdJGBICgwyhP0TmTZQwgZVBebDi6yehXU2bAdI5y7wgYYnYyw6QIqBaPkqqLHjqZt87GEnrXOyLWw8VaSPW8zoLfz5IatwZ2tn5HE8XBnHr7e+3yWsGTcnpLCxainGqtXkN4d9E75f3fG6mn5NHDwe1ZdmtUu1QVQVrLPuDJuE7sLl2xCiXQxnl1MfsiFO/MUsQnhz/yw2fsb66ZcGYzpGNZQ2TtZvSzDpIurDvXUg02MzC9KmjGEPb+255DCoeh6OkG3CIIp</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE2TCCA0GgAwIBAgIJAK5F+P5BK3Z4MA0GCSqGSIb3DQEBCwUAMIGCMQswCQYDVQQGEwJBTDEQMA4GA1UECAwHQWxiYW5pYTEPMA0GA1UEBwwGVElyYW5lMQ0wCwYDVQQKDARSQVNIMQ0wCwYDVQQLDARSQVNIMRQwEgYDVQQDDAtpZHAucmFzaC5hbDEcMBoGCSqGSIb3DQEJARYNa21hbGlAcmFzaC5hbDAeFw0xOTA2MTgxNDE5MzhaFw0yOTA2MTcxNDE5MzhaMIGCMQswCQYDVQQGEwJBTDEQMA4GA1UECAwHQWxiYW5pYTEPMA0GA1UEBwwGVElyYW5lMQ0wCwYDVQQKDARSQVNIMQ0wCwYDVQQLDARSQVNIMRQwEgYDVQQDDAtpZHAucmFzaC5hbDEcMBoGCSqGSIb3DQEJARYNa21hbGlAcmFzaC5hbDCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMHMkjIVD7FRljv50yZaK8mdfudzmmBiex8xww/TiGTVaP2/feXmmo8FMJrWtrPWIgZwvQ7Y4nUe9+CphRNaVT5g1dNkHB6IVy2wqvQNbz87hsu0qw075ypNj7dMd3Bhb1s8SH+9WkCCzxf1yo+ozqshH8JSCjZ0J7LGEogVyFhxZhQmbRBBPoy8rU+BapnhD+7R74jPT/9RndXsvO9UEsrLRnI0mWj1ob6a+0pY0DvKNPFkjsfoXOClAkXi+YUf8buIXUpocHc9TAnx8kKi0hDwn9t4RvE0wJXVPRrnua83/CnvgKZ39GAVijNxXrn7HC2DV+FI+GRYjSmcwf/2Z0TByEesKuLAmLiOyEhHB9ZVT6IVhlTnq4saykbSRBsByeprfUUJABsgB/t/JSxoXmsAVfve2sZEnUXZQvX6AnbHnn3+1PSH/1qFWyH/Ed1fSibKErsiaUHONAMUB4cIruAvGq0ji5BmdzIYGTgBbOaYKvCRP4sdnl74NlD03d6DfwIDAQABo1AwTjAdBgNVHQ4EFgQU/Jboe19ubhGd/fSss9xTPmhBH7AwHwYDVR0jBBgwFoAU/Jboe19ubhGd/fSss9xTPmhBH7AwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAHeznYvUVXKq0ZgXdjiEjEyyZ+2dDgZwWWxte9phmmDwIOAkyivZbaU0ZSTSM2sVHojs261/DcFj4SQ+QVlDNdQFnv7Sya8n3944P+7yDZ1Y8PnCxSXAn0RRW1qyRyec/vEg/iPeZmBsdPQ/gcCn86gXnm0vbc21phwq/QEkzOVuWWtqrkJywxtY3a9ah2+ZcYXvf6AgnLTOOdyx4zJbO6xhceXiSVMaSEcy/bq5R3s91jTr24BDf22KPdJGBICgwyhP0TmTZQwgZVBebDi6yehXU2bAdI5y7wgYYnYyw6QIqBaPkqqLHjqZt87GEnrXOyLWw8VaSPW8zoLfz5IatwZ2tn5HE8XBnHr7e+3yWsGTcnpLCxainGqtXkN4d9E75f3fG6mn5NHDwe1ZdmtUu1QVQVrLPuDJuE7sLl2xCiXQxnl1MfsiFO/MUsQnhz/yw2fsb66ZcGYzpGNZQ2TtZvSzDpIurDvXUg02MzC9KmjGEPb+255DCoeh6OkG3CIIp</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.rash.al/simplesaml/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.rash.al/simplesaml/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RASH EDUID</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">RASH EDUID</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://eduid.rash.al/wp-content/uploads/eduID-Albania-Federation-Policy.pdf</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Adriatik Allamani</md:GivenName>
+      <md:EmailAddress>mailto:it@rash.al</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

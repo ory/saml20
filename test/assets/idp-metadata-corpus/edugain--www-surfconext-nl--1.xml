@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://sts.windows.net/ddf292db-23df-4367-b11b-bd324b58e5bb/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.surfconext.nl/" registrationInstant="2015-04-29T12:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://wiki.surfnet.nl/display/eduGAIN/EduGAIN</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cito.nl</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="nl">Cito</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Cito</mdui:DisplayName>
+          <mdui:Description xml:lang="nl">Cito</mdui:Description>
+          <mdui:Description xml:lang="en">Cito</mdui:Description>
+          <mdui:Logo height="160" width="200">https://static.surfconext.nl/logos/idp/cito_logo.png</mdui:Logo>
+          <mdui:Keywords xml:lang="en">cito</mdui:Keywords>
+          <mdui:Keywords xml:lang="nl">cito</mdui:Keywords>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE5zCCA0+gAwIBAgIUIJeRiN7bgv0apHl2FId0MnX50AwwDQYJKoZIhvcNAQELBQAwgYIxCzAJBgNVBAYTAk5MMRAwDgYDVQQIDAdVdHJlY2h0MRAwDgYDVQQHDAdVdHJlY2h0MRIwEAYDVQQKDAlTVVJGIEIuVi4xEzARBgNVBAsMClNVUkZjb25leHQxJjAkBgNVBAMMHWVuZ2luZS5zdXJmY29uZXh0Lm5sIDIwMjMwNTAzMB4XDTIzMDUwMzEwMDkwNFoXDTI4MDUwMjEwMDkwNFowgYIxCzAJBgNVBAYTAk5MMRAwDgYDVQQIDAdVdHJlY2h0MRAwDgYDVQQHDAdVdHJlY2h0MRIwEAYDVQQKDAlTVVJGIEIuVi4xEzARBgNVBAsMClNVUkZjb25leHQxJjAkBgNVBAMMHWVuZ2luZS5zdXJmY29uZXh0Lm5sIDIwMjMwNTAzMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAmarOz3JN7K2rZJxR5Oy061oRh3aZ3zmM8jbUaztSXNJwmZaN+AZjnowSkyT9MRRDLn4ZX1hy1f4kQOhf8BxU9TxK1ATviGUegpT2fUa3HR3JQyi8zMSjS3aGJxwokE4uST10SI1fV4aG8SsbKb0tzaH22eT6wJHgvfFs7iSOZdcI7kvXEGLPP7VIfRaiKqIxDT5DcUe0QX5F1zcPPniazSCwW81Ta2xZnwrXKJiXwgl3K2SrBBN7ss/qmSRpBT1pLvBiIDbM8n8fp8+lGQzX6DcGqJA7+5+UryRIY5f6ZzJs5qUNzTdLQLE82xaZsyhJVQrVkuXk5ufCXOa5izspTnVMOgu56FH0b0iwvpEwq1OAtrWoj/CIOZt0VsTB4cn00sATWjV/ss33iauEqSsb8e7THIZfF2nZ5QBG3mUynsyTTU5cxouTQ+UdISvdAOhrV5a4j/d5rbqplVFjCm0KNCIz/tnNIQpGDvmk9vMn9Z52tJ9gQYo/rv4pUGxKu7yTAgMBAAGjUzBRMB0GA1UdDgQWBBSLXQ3uF1SkIkMTdXl9Om/jn3asZjAfBgNVHSMEGDAWgBSLXQ3uF1SkIkMTdXl9Om/jn3asZjAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQBX1rZrm9EakYBnr64BRTKEZ3bIju7CvdbDo2kJMJkLN94qndkwntiECJ53M5lEzR96MrYs20Puqs3/OuJPyJ6CyUM3fsYR8fgXqapgVdyf8nLCAKM+HjhbLZzbkrdLeo+szeBbYV0XDotz4j/oLPnnJDNSDx9pW61woXdqJI8EYu61+IZ+VV6VBChfxZmtVeFU8aaK2tQn498Dy5Jf4zibtmuBmx5DMNQLG4onOG6wp4WEvy6XEEyXz+ve6KtJP9tBbxbIsJX0mfRP8w1pX8ttWUGGfCSb+YlX2NgdIayVxg8UjW1BrjQnDX6+f8ENn3980J74LTRF2QdDtM5DtPHPzOfsUsTl7A1DMs9+86z9Y69XyFWMExZoouSo2a8krTW1fqXhmN1nuzndrcrkHd6sVZy7ikcrpXYdcxhn20mNRO1erqBGue/UyHRpNCUGvTIDx6U6VW9wDrN4gXp8HFygyAqN6bpvnATbHbOqGB2nA04PZRklBqlod0mZCq4Z1pQ=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://engine.surfconext.nl/authentication/idp/single-sign-on/key:20230503/ff8491bd50f1ca0d9a93fd7da57b3d29" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cito</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cito</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cito.nl</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>SURFconext support</md:GivenName>
+      <md:EmailAddress>mailto:support@surfconext.nl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SURFconext support</md:GivenName>
+      <md:EmailAddress>mailto:support@surfconext.nl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SURFconext support</md:GivenName>
+      <md:EmailAddress>mailto:help@surfconext.nl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>SURFcert</md:GivenName>
+      <md:EmailAddress>mailto:cert@surfcert.nl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

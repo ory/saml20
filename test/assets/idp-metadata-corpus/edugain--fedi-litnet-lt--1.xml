@@ -1,0 +1,86 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.utenos-kolegija.lt/SAML/IdP">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://fedi.litnet.lt" registrationInstant="2014-10-09T07:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://fedi.litnet.lt/en/information/policy</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="lt">https://fedi.litnet.lt/lt/informacija/tvarka</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">utenos-kolegija.lt</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="lt">Utenos kolegija</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Utenos kolegija</mdui:DisplayName>
+          <mdui:Description xml:lang="lt">Utenos kolegijos vieningas prisijungimas</mdui:Description>
+          <mdui:Description xml:lang="en">Single sign-on for Utenos kolegija</mdui:Description>
+          <mdui:InformationURL xml:lang="lt">https://login.utenos-kolegija.lt/?lang=lt</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://login.utenos-kolegija.lt/?lang=en</mdui:InformationURL>
+          <mdui:Logo width="100" height="100">https://login.utenos-kolegija.lt/static/logo/logo_100.png</mdui:Logo>
+          <mdui:Logo width="256" height="256">https://login.utenos-kolegija.lt/static/logo/logo_256.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:55.5,25.6</mdui:GeolocationHint>
+          <mdui:IPHint>2001:778:e27f::/48</mdui:IPHint>
+          <mdui:IPHint>193.219.181.192/26</mdui:IPHint>
+          <mdui:IPHint>193.219.181.176/28</mdui:IPHint>
+          <mdui:DomainHint>utenos-kolegija.lt</mdui:DomainHint>
+          <mdui:DomainHint>ukolegija.lt</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIExjCCAq6gAwIBAgIIP/dtSlC5bQswDQYJKoZIhvcNAQELBQAwIzEhMB8GA1UE
+AwwYbG9naW4udXRlbm9zLWtvbGVnaWphLmx0MB4XDTI0MDkwNjEzNTc0NVoXDTQ0
+MDkwNjEzNTc0NVowIzEhMB8GA1UEAwwYbG9naW4udXRlbm9zLWtvbGVnaWphLmx0
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArP06hU1hqnTPtQuiOKeV
+BOAp14u4dsHCmdrB0fEQLj2b364xRIyzqO9nmIl2e0Ewn4P+ZuwiIY0WWHq1vRo0
+aDPVDz5oZCU4SPUEgpQ0l8gIQA5u2Hoae5/rQe/BnhpTHiaFWsNrbJFMZirI3Hcp
+VIrUkk4Sh6Zd14uElYl0IDSt0ZgDzBe582Gekjh9lH2n9WIPpMtIl+dMbIdfbOWk
+PoHPyR577xjcflyJNFn/84+rg/jNISOTnCumOvXFMX3iF2kHtnCzUzjKUyjx3EdE
+ddU7wWZw4YZyB4qPxDhMf/GadGHm1lB/TpeHOlgfOZ3aiGfdF5xRKhrQsBS4lz46
+0pYtCX6WTB5L9ohesaXiVaU2qzFT0c0XpqiK6A6h3A21DSdzgHaFqXGdRJq5FsJR
+2WudiunJvBtVqrEj9oIaFo3jZe4JLhfQ031sd9xeGzlnCe1jPvpIUzwwYVE61qCH
+I8rut5YhxhFdJi7wApvOW543t/V06UPf3NUCzTYrQ57dOVzp0eoyp7wlwfDaeTFZ
+hvtt4M5Xmjve98U02kJYYRcyEoRCChja6kmQlIIenobGl0/KLMR8aTl8MXdR1i2Y
+/jef0l3hU/AVL/7EAMBIF63QN9sPG1H/9biZx08NW+ymMdW4vmLnoyLH5r+R4fLk
+YDtf6qAjBSHQW9BvHO40K7cCAwEAATANBgkqhkiG9w0BAQsFAAOCAgEAmr1u23J0
+d5/gqhOXCgSpLOUMQLf8KeoFs8uqV4gnf+KHlVbJeFV3HnaEB8gAkyVrg4CUKMNQ
+u/7Xb3rBsk0VzedkDFWQUF3BBmdNCPl4dT7Xtqv+UVlOaoFvlg9msQPfnFpDtJOb
+pKAAiTE2GEV1GHfzJrjOmrTWqvmmH3MGgo2aiafBswTD77WQc6Ij2kG9albOJbbs
+stpbx20nfvH1KRX02ELDVN6E6ksWAWFrbUObuRJ871s1VcX2x7UEArd1Xi/xizEr
+D6TbabqYfdjkdD0CaHBzkMQggNi9rkozfM6m9nYs3B4iUkwWV6NsVut2mBHBk0j1
+3AEKt06a99THYziOavN7BZjwRlnnNOeYa0zsATsAK15Z3ai3/0YD6Hzslrcmww6N
+++x1tDUGJ0xDNfZkFZPvLxsRfzwfqp0aM4Dr9I01demZnHRsRsNUpCazzWtdBmjx
+R/FSOSPJ5Va+Aqa44tAY/H58EIZZK8qbli74MSakT+w4KRzV+hSt+aay+PMLRxNV
+ko/W6G3b1/BPI8zZuOmqfi2wHVc6HnFaBUxNI6w60PQymBRR5KnA73ywX+E8THye
+1Pk5JiGnPQbItfpsAcgfcaAxk69wVK0gSG146ixxLNFFAfWY35Ow9DGbVg1w530J
+QR0ZQz1wf8qihbTGznVOWKoQVXTRX4J7t+Q=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.utenos-kolegija.lt/SAML/SingleLogout" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.utenos-kolegija.lt/SAML/SingleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.utenos-kolegija.lt/SAML/SingleSignOn" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.utenos-kolegija.lt/SAML/SingleSignOn" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="lt">Utenos kolegija</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Utenos kolegija</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="lt">Utenos kolegija</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Utenos kolegija</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="lt">https://www.utenos-kolegija.lt/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.utenos-kolegija.lt/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mantas</md:GivenName>
+      <md:SurName>Mikulėnas</md:SurName>
+      <md:EmailAddress>mailto:sso@utenos-kolegija.lt</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

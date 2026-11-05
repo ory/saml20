@@ -55,7 +55,7 @@ describe('saml20.attacks.wrapping', function () {
       }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'Invalid assertion.');
-        assert.match(error.inner?.message, /signature wrapping attack/);
+        assert.match(error.inner?.message as string, /signature wrapping attack/);
         return true;
       }
     );
@@ -72,7 +72,7 @@ describe('saml20.attacks.wrapping', function () {
       }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'Invalid assertion.');
-        assert.match(error.inner?.message, /signature wrapping attack/);
+        assert.match(error.inner?.message as string, /signature wrapping attack/);
         return true;
       }
     );

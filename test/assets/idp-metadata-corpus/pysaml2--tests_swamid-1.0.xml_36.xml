@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.du.se/idp/shibboleth" xml:base="swamid-1.0/login.du.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">du.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDGDCCAgCgAwIBAgIVAPJo+xMJRgt7yTXfyDqsZSyRFE0zMA0GCSqGSIb3DQEB
+BQUAMBYxFDASBgNVBAMTC2xvZ2luLmR1LnNlMB4XDTExMDIwNDEzMzg1MloXDTMx
+MDIwNDEzMzg1MlowFjEUMBIGA1UEAxMLbG9naW4uZHUuc2UwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQCKFHqKqppmo8B66lFgTbIQDdDNqlBpsrhjZx4m
+l4ay7TR/Q9JhxJCpsg3fttFyYbG6pl4PViMMt6jagpYYMBlBBKGUDefAT95oAcBN
+eRlkTxXfXG4XCS1phIIc6H9Kt8HwFadqLIgx+9ICCuyTZicPIwnUBt+TS4A+hz6k
+8KA87QWvnhteMHpu4UjIL8YRUAdNbFbRV9AuOmaR9HP11yueQd3B+5XnTt8x+JaO
+yWgsbUvBeGKIXPtGm70UgXeBi32vr6LtP5s2ijtj4zORMh5dxAkrjE0hO96E3D6Y
+riLlccqVMGTYhweDuIE4HJA+sY8vFXxSTsL193erJ6ooBUWxAgMBAAGjXTBbMDoG
+A1UdEQQzMDGCC2xvZ2luLmR1LnNlhiJodHRwczovL2xvZ2luLmR1LnNlL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBTYD58W7KLBxdd1F6vo5xlukwwdOTANBgkqhkiG
+9w0BAQUFAAOCAQEAXZRof2FZml44oPJ+2GkhIIK0U2t143xH4Z4J2iPbTjQyNfeo
+eusGj+AvLkdkHLisqz8HTQC93sSYwPrQ1PMrqwAmnJZkhcySTto15Rgi5yNWsUFU
+E5RfYEcGj1P2R+uxUpCZ3qf9usCpGf5ao5rCoOjxtxGyv3PqDFTBwkjheuASpsug
+KnPqLMWV0RL1gmJhfAoCbhm+rM8FZZLXloDuV+Xzb0OmjruPupqtTJpHVBkaQ3OI
+2FIPaCf07HjPPcy4s9mQJGq9TEBKJ+WWwoT5ZvhYErkO7m2iQNsXUqCk/dt2Tp7e
+GqI848rh0Iif5MpxnsYQ/mxwDirbsler7jpF0Q==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.du.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.du.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.du.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.du.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.du.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.du.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">du.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDGDCCAgCgAwIBAgIVAPJo+xMJRgt7yTXfyDqsZSyRFE0zMA0GCSqGSIb3DQEB
+BQUAMBYxFDASBgNVBAMTC2xvZ2luLmR1LnNlMB4XDTExMDIwNDEzMzg1MloXDTMx
+MDIwNDEzMzg1MlowFjEUMBIGA1UEAxMLbG9naW4uZHUuc2UwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQCKFHqKqppmo8B66lFgTbIQDdDNqlBpsrhjZx4m
+l4ay7TR/Q9JhxJCpsg3fttFyYbG6pl4PViMMt6jagpYYMBlBBKGUDefAT95oAcBN
+eRlkTxXfXG4XCS1phIIc6H9Kt8HwFadqLIgx+9ICCuyTZicPIwnUBt+TS4A+hz6k
+8KA87QWvnhteMHpu4UjIL8YRUAdNbFbRV9AuOmaR9HP11yueQd3B+5XnTt8x+JaO
+yWgsbUvBeGKIXPtGm70UgXeBi32vr6LtP5s2ijtj4zORMh5dxAkrjE0hO96E3D6Y
+riLlccqVMGTYhweDuIE4HJA+sY8vFXxSTsL193erJ6ooBUWxAgMBAAGjXTBbMDoG
+A1UdEQQzMDGCC2xvZ2luLmR1LnNlhiJodHRwczovL2xvZ2luLmR1LnNlL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBTYD58W7KLBxdd1F6vo5xlukwwdOTANBgkqhkiG
+9w0BAQUFAAOCAQEAXZRof2FZml44oPJ+2GkhIIK0U2t143xH4Z4J2iPbTjQyNfeo
+eusGj+AvLkdkHLisqz8HTQC93sSYwPrQ1PMrqwAmnJZkhcySTto15Rgi5yNWsUFU
+E5RfYEcGj1P2R+uxUpCZ3qf9usCpGf5ao5rCoOjxtxGyv3PqDFTBwkjheuASpsug
+KnPqLMWV0RL1gmJhfAoCbhm+rM8FZZLXloDuV+Xzb0OmjruPupqtTJpHVBkaQ3OI
+2FIPaCf07HjPPcy4s9mQJGq9TEBKJ+WWwoT5ZvhYErkO7m2iQNsXUqCk/dt2Tp7e
+GqI848rh0Iif5MpxnsYQ/mxwDirbsler7jpF0Q==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.du.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.du.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">DU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Högskolan Dalarna</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.du.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Högskolan Dalarna</md:Company>
+    <md:EmailAddress>dempa@du.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

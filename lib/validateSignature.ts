@@ -208,8 +208,7 @@ const hasValidSignature = (
       };
       try {
         valid = signed.checkSignature(xml);
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (err) {
+      } catch {
         //noop
       }
       if (valid) {

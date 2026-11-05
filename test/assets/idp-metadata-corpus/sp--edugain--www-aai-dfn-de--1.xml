@@ -1,0 +1,150 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" entityID="https://dorsch.hogrefe.com">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2020-09-17T06:42:53Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/fileadmin/documents/mrps_dfn-aai_1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">dorsch.hogrefe.com</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">dorsch.hogrefe.com</mdui:DisplayName>
+          <mdui:Description xml:lang="de">SingleSignOn dorsch.hogrefe.com</mdui:Description>
+          <mdui:Description xml:lang="en">SingleSignOn dorsch.hogrefe.com</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="de">https://dorsch.hogrefe.com/ueber-uns/datenschutz</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>dorsch.hogrefe.com</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=dorsch.hogrefe.com</ds:X509SubjectName>
+            <ds:X509Certificate>MIIEJDCCAoygAwIBAgIUFXaoCspmSupZBHWq1yWwsMY7qV8wDQYJKoZIhvcNAQEL
+BQAwHTEbMBkGA1UEAxMSZG9yc2NoLmhvZ3JlZmUuY29tMB4XDTIzMTAwOTEyNDIw
+OVoXDTI2MTIwNzEyNDIwOVowHTEbMBkGA1UEAxMSZG9yc2NoLmhvZ3JlZmUuY29t
+MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAzAee97ezu4X3sRnV4geZ
+fWY86h0urUEPLa5/ZbNA9dmiJ7x8hcS8vUQXNo4gXbkl0f+23PxLa7wFl+23knbJ
+fPVALPDYwkdXxnRl9iu/Ikg4Q7OhAllJPWax90uVzGsE2vNADZfc0PC0bCRs06Nx
+Il2mihfkPlKQVibdllxjRQap+KXChIHU1OoV/qTU6rULcydFQgz86Diom/fNWjiq
+mU8ZuIUxPuOqPAxfuId56Ga9RT9RQk8eAh8A2j954LiqwAjB7slay4+56nJ8s+Ns
+lxvoDF+gEHyRMDVEdW8R+p2R1Xf4EZ63R4+n9z4cOKTfckGnzMebinKxmDuKdDaA
+GZq4d7/ZdNI7ZrurF7QZiQe/ao/AyHwD5I/BM4TvbMsOLNIum7XhgPcvkCQ4ZzVu
+faVnASOlMNfT8qeviuHYwSI/Jh6M6rPN2CNBa0//m40g0ct4JhQWBP8sOg/zrVgF
+2FcgpnTWJaznHjU0EwSeC99YH3phxPxzbHqH0MOW16EzAgMBAAGjXDBaMDkGA1Ud
+EQQyMDCCEmRvcnNjaC5ob2dyZWZlLmNvbYYaaHR0cHM6Ly9kb3JzY2guaG9ncmVm
+ZS5jb20wHQYDVR0OBBYEFCzPmKvc9Ej/UAYoYQswRd/TF2tzMA0GCSqGSIb3DQEB
+CwUAA4IBgQCwgIQBn8v12BYM+WRPq/mD+35sD5GZtVT5Q8FPH4N708dxyQnwjgVd
+30jivlR2YpWTzlyAbpLapnaeMA7FciqxAUdVdN7VrDIKlADSR5b+32vLisCXXxf/
+C5TxyiSTmpL2mMf11TaKdXr+eP8ngG/wkE7RoxHxXjfcSwRKNbzBMBPQ2pLSZyp8
+7DJz2SAJwFt7VTTezyspTcXc8o68csqCk92jCa1ShP+TgofySIkLDWKVYu6UMjWC
+DJTWlJrxstnQOPC9SHABvT9PuWzB47esVy28lx7OpD3oVPjalTB0ueBoUCFc2bHt
+MkOQZvIuBrlw20yFZHv8f/Bta3BlJSVpxjWzgA0zBGi6wg4cj4EYL9XrIz4FDrZq
+QRXYsS8vOFsD9P9NW6ARI2CULt8asvKiw5chDRkUMPvp9wURWG4DKrrAY7uHNOi0
+1lNxF7vfLbUAXY3qKTOQOaWXYmo6bf6/3IS5tLwHIPJWVtogC+yTN/HvNTLKlhz3
+IBekNa0+HSo=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>dorsch.hogrefe.com</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=dorsch.hogrefe.com</ds:X509SubjectName>
+            <ds:X509Certificate>MIIEJDCCAoygAwIBAgIUFXaoCspmSupZBHWq1yWwsMY7qV8wDQYJKoZIhvcNAQEL
+BQAwHTEbMBkGA1UEAxMSZG9yc2NoLmhvZ3JlZmUuY29tMB4XDTIzMTAwOTEyNDIw
+OVoXDTI2MTIwNzEyNDIwOVowHTEbMBkGA1UEAxMSZG9yc2NoLmhvZ3JlZmUuY29t
+MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAzAee97ezu4X3sRnV4geZ
+fWY86h0urUEPLa5/ZbNA9dmiJ7x8hcS8vUQXNo4gXbkl0f+23PxLa7wFl+23knbJ
+fPVALPDYwkdXxnRl9iu/Ikg4Q7OhAllJPWax90uVzGsE2vNADZfc0PC0bCRs06Nx
+Il2mihfkPlKQVibdllxjRQap+KXChIHU1OoV/qTU6rULcydFQgz86Diom/fNWjiq
+mU8ZuIUxPuOqPAxfuId56Ga9RT9RQk8eAh8A2j954LiqwAjB7slay4+56nJ8s+Ns
+lxvoDF+gEHyRMDVEdW8R+p2R1Xf4EZ63R4+n9z4cOKTfckGnzMebinKxmDuKdDaA
+GZq4d7/ZdNI7ZrurF7QZiQe/ao/AyHwD5I/BM4TvbMsOLNIum7XhgPcvkCQ4ZzVu
+faVnASOlMNfT8qeviuHYwSI/Jh6M6rPN2CNBa0//m40g0ct4JhQWBP8sOg/zrVgF
+2FcgpnTWJaznHjU0EwSeC99YH3phxPxzbHqH0MOW16EzAgMBAAGjXDBaMDkGA1Ud
+EQQyMDCCEmRvcnNjaC5ob2dyZWZlLmNvbYYaaHR0cHM6Ly9kb3JzY2guaG9ncmVm
+ZS5jb20wHQYDVR0OBBYEFCzPmKvc9Ej/UAYoYQswRd/TF2tzMA0GCSqGSIb3DQEB
+CwUAA4IBgQCwgIQBn8v12BYM+WRPq/mD+35sD5GZtVT5Q8FPH4N708dxyQnwjgVd
+30jivlR2YpWTzlyAbpLapnaeMA7FciqxAUdVdN7VrDIKlADSR5b+32vLisCXXxf/
+C5TxyiSTmpL2mMf11TaKdXr+eP8ngG/wkE7RoxHxXjfcSwRKNbzBMBPQ2pLSZyp8
+7DJz2SAJwFt7VTTezyspTcXc8o68csqCk92jCa1ShP+TgofySIkLDWKVYu6UMjWC
+DJTWlJrxstnQOPC9SHABvT9PuWzB47esVy28lx7OpD3oVPjalTB0ueBoUCFc2bHt
+MkOQZvIuBrlw20yFZHv8f/Bta3BlJSVpxjWzgA0zBGi6wg4cj4EYL9XrIz4FDrZq
+QRXYsS8vOFsD9P9NW6ARI2CULt8asvKiw5chDRkUMPvp9wURWG4DKrrAY7uHNOi0
+1lNxF7vfLbUAXY3qKTOQOaWXYmo6bf6/3IS5tLwHIPJWVtogC+yTN/HvNTLKlhz3
+IBekNa0+HSo=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>dorsch.hogrefe.com</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=dorsch.hogrefe.com</ds:X509SubjectName>
+            <ds:X509Certificate>MIIEJDCCAoygAwIBAgIUVgehdPDcqJ5SmaDpbAijE83C2yowDQYJKoZIhvcNAQEL
+BQAwHTEbMBkGA1UEAxMSZG9yc2NoLmhvZ3JlZmUuY29tMB4XDTI0MTExNDA5MTg0
+NVoXDTI4MDExMzA5MTg0NVowHTEbMBkGA1UEAxMSZG9yc2NoLmhvZ3JlZmUuY29t
+MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAxx1b+nOXOXyAQ6sE0OSD
+ZF/54FHmrVGGkJ1i+Ohe/iKvivZhu2qEKwCRSnABNL8WmMDafnfI5SNecO16RXuS
+sE49mdlIGNhYhBPa2FMrIbAuM3pe6/CHzIoc+RoTwxgoHCzctl3sUb1c2I3L8Yil
+iACbin5lteMg11hCRTPgP4GXssuNeWTAwiissyyI9AC9gEuaADxUfWPsvfZKoc2u
+ZECrHE7nEH3DCykAWte0SFHx6h20DgIQSOTbgd/RMpxahYTWaPgOZeAmIEhAH77y
+wdLr0uwyGwpo/o2LlYMBHRHfO/c0ppA5XcS8zHSqB7uAfqR3RpSIFOHuLK0tRRrA
+ubVgk9OqzYUDUgKGCIOzgbqvyUcn/1xxGNLhVduu/LBCCAJXSelRSD9ZkR6IL4Jd
+FYPkFRI7zwblAXRJIg1Z+ksCcOsI5b5ZoziE4EM2RAKygMbrlwM9LEoqpD2WSRJ7
+G+Y42bPVSClBWBg77sIiGUNRft9FPlvnIa38rL4rL/95AgMBAAGjXDBaMDkGA1Ud
+EQQyMDCCEmRvcnNjaC5ob2dyZWZlLmNvbYYaaHR0cHM6Ly9kb3JzY2guaG9ncmVm
+ZS5jb20wHQYDVR0OBBYEFGzl3u8M5qu4+2fOekQBrIzr/Bg5MA0GCSqGSIb3DQEB
+CwUAA4IBgQAMmIrKZcQQ3wS+hju9jKYMeao/Cu6LuSzMFAULgCbg+SL5Cu+mJD4z
+vcuOuepGuuR2r0bg/aGm0dYxflXX0V9kgyLfcVD8lKJoDHHbyDF0zRwz1b7gPyIb
+UOsz8UVjWWLVm1W277J4B+LtlOPIraJgwY//CiPV20jFc1lVNqhi+4qwDrmiPj3T
+Csojrq/K8HAgrL2tcEV5SkS0LTVPMgT2n/mNjVVcHGtYv/dtbLSuOGhKqgVwlIY4
+KddRU643GDdpRTtOxphV0vZkPsHj3SwGCB76tS7AxaiBsgpnaqmpSoRVZ4pYhMZQ
+16ot2uJleeXe3tLdHTxNOCBltH8nU5ApAzIgUkIyIeEt3wSkyaF6oFmgXY1kShix
+HlsRas8VzHTPhHtAOYnbqk+Klhk4yD34wcw4uTXmvgFMMEUZwPEFvqL5swVZyo1x
+Qp1+h419VBsBKsD3S8ZQpXr7yklMxTNzKmJGteuo/i6NsAMs/kXxCCmJ8nlE+O5X
+sxkyBlqsFt0=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dorsch.hogrefe.com/shibboleth/sls.shibboleth" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dorsch.hogrefe.com/shibboleth/acs.shibboleth" index="1" />
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">dorsch.hogrefe.com</md:ServiceName>
+        <md:ServiceName xml:lang="en">dorsch.hogrefe.com</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">SingleSignOn dorsch.hogrefe.com</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">SingleSignOn dorsch.hogrefe.com</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonEntitlement" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e559</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e559</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Hogrefe Verlag GmbH &amp; Co. KG</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Hogrefe Publishing GmbH</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">https://www.hogrefe.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://eu.hogrefe.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Rudi</md:GivenName>
+      <md:SurName>Kassel</md:SurName>
+      <md:EmailAddress>mailto:kassel@weitkamper.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Rudi</md:GivenName>
+      <md:SurName>Kassel</md:SurName>
+      <md:EmailAddress>mailto:kassel@weitkamper.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Rudi</md:GivenName>
+      <md:SurName>Kassel</md:SurName>
+      <md:EmailAddress>mailto:kassel@weitkamper.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

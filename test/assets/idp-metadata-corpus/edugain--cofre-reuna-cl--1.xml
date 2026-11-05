@@ -1,0 +1,41 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://accounts.google.com/o/saml2?idpid=C02lagku5">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cofre.reuna.cl" registrationInstant="2026-10-27T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="es">http://cofre.reuna.cl</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">mail.pucv.cl</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Pontificia Universidad Católica de Valparaíso (Alumnos)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">Pontificia Universidad Católica de Valparaíso (Alumnos)</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+            MIIDdjCCAl6gAwIBAgIGAZjirzuVMA0GCSqGSIb3DQEBCwUAMHwxFDASBgNVBAoTC0dvb2dsZSBJ bmMuMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MQ8wDQYDVQQDEwZHb29nbGUxGTAXBgNVBAsTEEdv b2dsZSBXb3Jrc3BhY2UxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMB4XDTI1MDgy NTE5MjMxMFoXDTMwMDgyNDE5MjMxMFowfDEUMBIGA1UEChMLR29vZ2xlIEluYy4xFjAUBgNVBAcT DU1vdW50YWluIFZpZXcxDzANBgNVBAMTBkdvb2dsZTEZMBcGA1UECxMQR29vZ2xlIFdvcmtzcGFj ZTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwggEiMA0GCSqGSIb3DQEBAQUAA4IB DwAwggEKAoIBAQDs3Ir4F2CqzkSi30fx6AuE6clWnxO9bHnFyQbshF4UHKBHSI4DYecUlh+hqSFR ki3nzytBApO0MPv4N5jYAe1tH4Nsz0RfxmJQP1hPOkzkOWlDSpH+ogscA7v3CCGJyUI53YWHkK7C OTcqM3RjTBbdDzyLmjvWH7/AYEpTfrzoey8ARk4QrlbItxm398TzBevUUgMb6d/T0mhm4ge2zeXO QP/6HS1tU6zNNdxRVGtnmziZ2bFRmJ68wfOAhAeWh6yx32ry9Z6GzTWV2V09cPBz3Tnqh9/ux1q7 g1HvPEIuQYNsXPOzHpofAt+KZt8SKnC5v8luN7Y3EVJ2U2yAT4MXAgMBAAEwDQYJKoZIhvcNAQEL BQADggEBAFKbjbHP1QfCRxHSMEc0/gjAEwYDTNg7eawfPM53qv8+ulTFa4+8ypsco267UIMloiCB X2QQ0nSObQLxeHQSHeF6qptUg0I7TkWITAzp8PQJN+lJV7+XXS5obSOxaBY5KKlilvooRnF30dty ALXmXPhUuoYqQynExlPWTFo6wgdwzGiXXGslLRjK9XGeeSHUEnqejPdL7vtT93rk9VQwGg3B14Ip vMeJLVhs84Y65kJeH97xbk0oWOFX3KoiJM5hTdgQGJ0BgaqGvltrYrHm4aCjhuOAWX9hmst196uS EBt0PyvhzXdesf2yJVEfadSJUMyfxeKPGBpeR+x4hei+haY=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>
+      urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+    </md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://accounts.google.com/o/saml2/idp?idpid=C02lagku5" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://accounts.google.com/o/saml2/idp?idpid=C02lagku5" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="es">Pontificia Universidad Católica de Valparaíso (Alumnos)</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Pontificia Universidad Católica de Valparaíso (Alumnos)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Pontificia Universidad Católica de Valparaíso (Alumnos)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.pucv.cl/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Admin</md:GivenName>
+      <md:EmailAddress>mailto:dir.dsic@pucv.cl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,147 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp-test.unige.ch/idp/shibboleth">
+        <md:IDPSSODescriptor errorURL="http://www.unige.ch/dinf/ntic/aai/errors/error-origin.php" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">idp-test.unige.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">University of Geneva Test
+                        Identity Provider
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="fr">Test IdP Université de
+                        Genève
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">University of Geneva Test
+                        Identity Provider
+                    </mdui:Description>
+                    <mdui:Description xml:lang="fr">Serveur d'identité de test
+                        pour l'Université de Genève
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>idp-test.unige.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDJDCCAgygAwIBAgIJALL0Kn3hano8MA0GCSqGSIb3DQEBBQUAMBwxGjAYBgNV
+                            BAMTEWlkcC10ZXN0LnVuaWdlLmNoMB4XDTEzMDQyNTE0MjAyNFoXDTE2MDQyNDE0
+                            MjAyNFowHDEaMBgGA1UEAxMRaWRwLXRlc3QudW5pZ2UuY2gwggEiMA0GCSqGSIb3
+                            DQEBAQUAA4IBDwAwggEKAoIBAQDbLg923TLf4avPnvC3xrtyzpPFjNasmlpifhwG
+                            UTvJ1e5OzWp/OHgOXv7LUVLtNOgh931RD29cygtn6jisevYP3eN30VcenAPe/9kE
+                            aO+GI+dLpySdxaVsMDg14nY9gBGIwauph2BPkOsbf+s7Dq2GSunbONnzAgEfhUbW
+                            iAAASKh/JeYDsUFKK+ULG8fqxpFUPaf5LsIPfbIBfRXfTKDyxEI4Enz77y33YaUG
+                            BcAuqotQdIm3idnfBf5/6GbTeiqD+/DsizvFk/T5C1+bvbnBUZ6gqCWTZcW1zbP/
+                            bnTpp7+mO7BMgpz/RkLhNhNvVTrQr+r9iVGKDo+qgv6U/BSRAgMBAAGjaTBnMEYG
+                            A1UdEQQ/MD2CEWlkcC10ZXN0LnVuaWdlLmNohihodHRwczovL2lkcC10ZXN0LnVu
+                            aWdlLmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQuPoeUx9GShdFeho3B6QKV
+                            P91tgzANBgkqhkiG9w0BAQUFAAOCAQEArZLjW6oW/x/rXGQXqiOC2oU5gP7VGgUr
+                            Rco5+mj241hXv06+clwMs1Ia5zP4L6JvQJH/g6lnC7zr/gKE0FqMqAMOJJVt2TtD
+                            juD6MU6oHopvTY+SS1YrskGglky6QcavFtlTVdhV61K9xHDzZj9vEF7pOAW+mpSH
+                            /vv/d7GZQrADlzQ9vQvAp07O3tQhbO4r0TRYE2++VbRFSPt0mDK2tOzmcRnIZ/rx
+                            nik91QoRuD8dow7/cnHXwCQcg55tqlCJ/56SJ+kGK/XKd8SzCLrUOaXiD1ntXxzY
+                            k6vImnwvRaJM7t2u2Zff9Zs5TYoNw1mb67EQOqTCi6huiwGcUH77FQ==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-test.unige.ch/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.unige.ch/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp-test.unige.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-test.unige.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-test.unige.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp-test.unige.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">idp-test.unige.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDJDCCAgygAwIBAgIJALL0Kn3hano8MA0GCSqGSIb3DQEBBQUAMBwxGjAYBgNV
+                            BAMTEWlkcC10ZXN0LnVuaWdlLmNoMB4XDTEzMDQyNTE0MjAyNFoXDTE2MDQyNDE0
+                            MjAyNFowHDEaMBgGA1UEAxMRaWRwLXRlc3QudW5pZ2UuY2gwggEiMA0GCSqGSIb3
+                            DQEBAQUAA4IBDwAwggEKAoIBAQDbLg923TLf4avPnvC3xrtyzpPFjNasmlpifhwG
+                            UTvJ1e5OzWp/OHgOXv7LUVLtNOgh931RD29cygtn6jisevYP3eN30VcenAPe/9kE
+                            aO+GI+dLpySdxaVsMDg14nY9gBGIwauph2BPkOsbf+s7Dq2GSunbONnzAgEfhUbW
+                            iAAASKh/JeYDsUFKK+ULG8fqxpFUPaf5LsIPfbIBfRXfTKDyxEI4Enz77y33YaUG
+                            BcAuqotQdIm3idnfBf5/6GbTeiqD+/DsizvFk/T5C1+bvbnBUZ6gqCWTZcW1zbP/
+                            bnTpp7+mO7BMgpz/RkLhNhNvVTrQr+r9iVGKDo+qgv6U/BSRAgMBAAGjaTBnMEYG
+                            A1UdEQQ/MD2CEWlkcC10ZXN0LnVuaWdlLmNohihodHRwczovL2lkcC10ZXN0LnVu
+                            aWdlLmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQuPoeUx9GShdFeho3B6QKV
+                            P91tgzANBgkqhkiG9w0BAQUFAAOCAQEArZLjW6oW/x/rXGQXqiOC2oU5gP7VGgUr
+                            Rco5+mj241hXv06+clwMs1Ia5zP4L6JvQJH/g6lnC7zr/gKE0FqMqAMOJJVt2TtD
+                            juD6MU6oHopvTY+SS1YrskGglky6QcavFtlTVdhV61K9xHDzZj9vEF7pOAW+mpSH
+                            /vv/d7GZQrADlzQ9vQvAp07O3tQhbO4r0TRYE2++VbRFSPt0mDK2tOzmcRnIZ/rx
+                            nik91QoRuD8dow7/cnHXwCQcg55tqlCJ/56SJ+kGK/XKd8SzCLrUOaXiD1ntXxzY
+                            k6vImnwvRaJM7t2u2Zff9Zs5TYoNw1mb67EQOqTCi6huiwGcUH77FQ==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIFIDCCBAigAwIBAgIUFeZHf5ZUeR5LPSo4Vhp3ZjEhBtIwDQYJKoZIhvcNAQEL
+                            BQAwTTELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxIzAh
+                            BgNVBAMTGlF1b1ZhZGlzIEdsb2JhbCBTU0wgSUNBIEcyMB4XDTEzMTIxODA4Mzk1
+                            NVoXDTE1MTIxODA4Mzg1OFowgbAxEzARBgsrBgEEAYI3PAIBAxMCQ0gxGjAYBgNV
+                            BA8TEUdvdmVybm1lbnQgRW50aXR5MRMwEQYDVQQFEwoxODcyLTEwLTE5MQswCQYD
+                            VQQGEwJDSDEPMA0GA1UECBMGR2VuZXZlMQ8wDQYDVQQHEwZHZW5ldmUxHTAbBgNV
+                            BAoTFFVuaXZlcnNpdGUgZGUgR2VuZXZlMRowGAYDVQQDExFpZHAtdGVzdC51bmln
+                            ZS5jaDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALXq+do5873fiGAH
+                            zxhBnN7Ewz5hdlmNuS/MEG633CQatCFYAftEyPXrhPgMyAQBQRXZK2aZWUo099mw
+                            K9NU4utBeoDmQzxtXD3y1CMg1+z23xseSUVe/dQTx71QoWSis7/2D1P0DvxJG5/k
+                            O5HwDWUfxRUmwK1BfoJrm0oLy1b/FO1S5VzsdSg+iKz53NI260DKz4mb/qH+jfnH
+                            RxE1TWGrrcl/LJFRhxhnVYxh5+XI8ntwO6RNTosdj2yqIB6HRuFG3+z69UOqhAGJ
+                            4iE7Om9Erni0LWZK9K+YI2RiiQC9kePO0eNh1PRQUSVNiaXSyaMJNKcKf/G8wIxC
+                            MJ3HrQsCAwEAAaOCAZIwggGOMHMGCCsGAQUFBwEBBGcwZTAqBggrBgEFBQcwAYYe
+                            aHR0cDovL29jc3AucXVvdmFkaXNnbG9iYWwuY29tMDcGCCsGAQUFBzAChitodHRw
+                            Oi8vdHJ1c3QucXVvdmFkaXNnbG9iYWwuY29tL3F2c3NsZzIuY3J0MFEGA1UdIARK
+                            MEgwRgYMKwYBBAG+WAACZAECMDYwNAYIKwYBBQUHAgEWKGh0dHA6Ly93d3cucXVv
+                            dmFkaXNnbG9iYWwuY29tL3JlcG9zaXRvcnkwHAYDVR0RBBUwE4IRaWRwLXRlc3Qu
+                            dW5pZ2UuY2gwCwYDVR0PBAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+                            BQcDAjAfBgNVHSMEGDAWgBSRGWKtWxenMPvw3jklsb2MubhRJzA6BgNVHR8EMzAx
+                            MC+gLaArhilodHRwOi8vY3JsLnF1b3ZhZGlzZ2xvYmFsLmNvbS9xdnNzbGcyLmNy
+                            bDAdBgNVHQ4EFgQU0E6yqNTRG67RdlGjSS+Js82zjI4wDQYJKoZIhvcNAQELBQAD
+                            ggEBAE7g35IrWQ97j6xnyIRqFSPueJ9Wq7E+IYUss+TSSdUhoSAGVNKohdjCqEy0
+                            vQb5JpTwB6fdKIhbSJ3YtC97vXQWeAYbNn4/+pWqshf7oR1O0sykc5w3GR80jFMp
+                            XwmKdMYoM3LmmuOSqH0ASJJylmski8K1uEuiWA//38/kYu3ECCUHP2USMFTDVKBL
+                            gWpIqzJb5+muJoSIdqpu2T52jL4oBLxagktAfXC2eI//U7xkDZhZLWxne1iuLEJ+
+                            9DjORBToRgcuvjyHS3NFDWd52nzBScSMB/qm5GvDvV878rrgTFrcm9VM4VD0n8wC
+                            TnUaCB7bP3UsHbCc4reE430E8Xk=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-test.unige.ch/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.unige.ch/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">idp-test.unige.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">University of Geneva Test
+                Identity Provider
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="fr">Test IdP Université de
+                Genève
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.idp-test.unige.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

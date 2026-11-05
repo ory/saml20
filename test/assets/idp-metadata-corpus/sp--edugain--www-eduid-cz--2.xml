@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://cas1.cuni.cz/cas/sp/edugain/metadata">
+    <md:Extensions>
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#hmac-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#hmac-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#hmac-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#hmac-sha1" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2024-10-02T14:44:04Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Test SP at cas1.cuni.cz / eduGAIN</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Testovací SP na cas1.cuni.cz / eduGAIN</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Test SP at cas1.cuni.cz for CAS development in eduGAIN</mdui:Description>
+          <mdui:Description xml:lang="cs">Testovací SP na cas1.cuni.cz pro vývoj CAS pro eduGAIN</mdui:Description>
+          <mdui:Logo height="40" width="41">https://ldap.cuni.cz/images/UK_logo_40.png</mdui:Logo>
+          <mdui:Logo height="89" width="91">https://ldap.cuni.cz/images/UK_logo.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.cuni.cz/UKENG-1.html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.cuni.cz/</mdui:InformationURL>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://cas1.cuni.cz/cas/login?client_name=edugain" />
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIClTCCAX2gAwIBAgIBATANBgkqhkiG9w0BAQUFADAOMQwwCgYDVQQDDANjYXMwHhcNMjMwNDIw
+MTMwMzQ5WhcNNDMwNDE1MTMwMzQ5WjAOMQwwCgYDVQQDDANjYXMwggEiMA0GCSqGSIb3DQEBAQUA
+A4IBDwAwggEKAoIBAQCDKL6Jnty3TLU5VvEimuL1Xcq3VOs64Wp2Men6rCBV2jiLm6WQ+vXYRcFq
+ihUgHgJGqz2eBmbFyF7IQctu8R0KUyqvl8L66KYqtN5W/IjHtXXV2kOM/FSFaXqdOYi+hsnQEmMg
+fFQcuesbn9uq3Shb/G7Nnq9DqwqqK+HcN4ix6z4pXn3pZh0sNSuTZ/dKcJZP1JdmasG3Y5dqPorY
+gLBfixx0jx/b5Gvnn5Wm5J2BX6TkW50flVs1TZtrpu8q7Rc63G2uhFjlAbLsJdDNBvOSbOMKEHAI
+HEFmHBQ2dEpdAY4KPYVhFaQ6DWisFkrw3T/uxtRn4TFzfGiLZgxaLgZfAgMBAAEwDQYJKoZIhvcN
+AQEFBQADggEBADuyt/aC0InqI22CbaWcW8xMOBcqLSu3tS8oIkOdUqKfxyNnqW2lmwE/Hm94X8oM
+mzaT/z7TDdJYy2gTkoaWUkYajN8GP/GyeC9yawEQ85pW953+e10eJpdDubJ15Fx4KS3nXcgZEDAB
+Jr3nAkdcka/+4raDS3B3T6+xeK+wRSVVI/+sN/Qm/3+ESbVHb7h28Triqe4YX8f0wWmOTjSoPLfo
+I8GnxOpF4jn/FyEQl03Il7NOulomsv2EIm4r9Ii11+0ZjbCEttMM5P3xN5iYp70myHkKVUAnvIuT
+Pv+58muqc0T2Stqxh/cQx/ZVzRYOHjQz0g+skYB6TCOWmD1F7BI=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIClTCCAX2gAwIBAgIBATANBgkqhkiG9w0BAQUFADAOMQwwCgYDVQQDDANjYXMwHhcNMjMwNDIw
+MTMwMzQ5WhcNNDMwNDE1MTMwMzQ5WjAOMQwwCgYDVQQDDANjYXMwggEiMA0GCSqGSIb3DQEBAQUA
+A4IBDwAwggEKAoIBAQCDKL6Jnty3TLU5VvEimuL1Xcq3VOs64Wp2Men6rCBV2jiLm6WQ+vXYRcFq
+ihUgHgJGqz2eBmbFyF7IQctu8R0KUyqvl8L66KYqtN5W/IjHtXXV2kOM/FSFaXqdOYi+hsnQEmMg
+fFQcuesbn9uq3Shb/G7Nnq9DqwqqK+HcN4ix6z4pXn3pZh0sNSuTZ/dKcJZP1JdmasG3Y5dqPorY
+gLBfixx0jx/b5Gvnn5Wm5J2BX6TkW50flVs1TZtrpu8q7Rc63G2uhFjlAbLsJdDNBvOSbOMKEHAI
+HEFmHBQ2dEpdAY4KPYVhFaQ6DWisFkrw3T/uxtRn4TFzfGiLZgxaLgZfAgMBAAEwDQYJKoZIhvcN
+AQEFBQADggEBADuyt/aC0InqI22CbaWcW8xMOBcqLSu3tS8oIkOdUqKfxyNnqW2lmwE/Hm94X8oM
+mzaT/z7TDdJYy2gTkoaWUkYajN8GP/GyeC9yawEQ85pW953+e10eJpdDubJ15Fx4KS3nXcgZEDAB
+Jr3nAkdcka/+4raDS3B3T6+xeK+wRSVVI/+sN/Qm/3+ESbVHb7h28Triqe4YX8f0wWmOTjSoPLfo
+I8GnxOpF4jn/FyEQl03Il7NOulomsv2EIm4r9Ii11+0ZjbCEttMM5P3xN5iYp70myHkKVUAnvIuT
+Pv+58muqc0T2Stqxh/cQx/ZVzRYOHjQz0g+skYB6TCOWmD1F7BI=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cas1.cuni.cz/cas/login?client_name=edugain&amp;logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cas1.cuni.cz/cas/login?client_name=edugain&amp;logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cas1.cuni.cz/cas/login?client_name=edugain&amp;logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cas1.cuni.cz/cas/login?client_name=edugain&amp;logoutendpoint=true" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cas1.cuni.cz/cas/login?client_name=edugain" index="0" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="cs">Univerzita Karlova</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Charles University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="cs">Univerzita Karlova</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Charles University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cuni.cz/UKENG-1.html</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://www.cuni.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Michal</md:GivenName>
+      <md:SurName>Vocu</md:SurName>
+      <md:EmailAddress>mailto:michal@cuni.cz</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michal</md:GivenName>
+      <md:SurName>Vocu</md:SurName>
+      <md:EmailAddress>mailto:michal@cuni.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,40 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://accounts.google.com/o/saml2?idpid=C02ws9ruj">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.lu" registrationInstant="2021-06-25T07:30:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.lu/media/eduid-mrps-10.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <shibmd:Scope regexp="false">luxsb.lu</shibmd:Scope>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Luxembourg School of Business</mdui:DisplayName>
+          <mdui:Logo width="200" height="80" xml:lang="en">https://luxsb.lu/sw-content/themes/sw/img/logo.svg</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>luxsb.lu</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDdDCCAlygAwIBAgIGAXKFCCbaMA0GCSqGSIb3DQEBCwUAMHsxFDASBgNVBAoTC0dvb2dsZSBJ bmMuMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MQ8wDQYDVQQDEwZHb29nbGUxGDAWBgNVBAsTD0dv b2dsZSBGb3IgV29yazELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwHhcNMjAwNjA1 MTUwOTU5WhcNMjUwNjA0MTUwOTU5WjB7MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEWMBQGA1UEBxMN TW91bnRhaW4gVmlldzEPMA0GA1UEAxMGR29vZ2xlMRgwFgYDVQQLEw9Hb29nbGUgRm9yIFdvcmsx CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A MIIBCgKCAQEA+SbB70X3TeNKGuLH7726Rr24JOOJPP9CIuj7eEIKdAKVg+bMaiFzlbxdeJPCuxsS S6xDGv1+CmUmFNbywAa+8pyqReQ3jFNqS2LFq1ulY1iJgZfLt06zNhj62dKUQx0/63uYbaNqkqHd bped74qBddAdZEc0590rUieRKF676F4i5HxtUWrb6PnyX2tjMGBZpD2YGymgBsy3vzEf/LhC7nek prU8fJf5Pq3owCFbDfz3UcneNbzckv2NZBu5/FJ07dgbhC8hj3SaIbe6yLLmLKzlN038XwcSwX25 sZlU/nX5YoF1bqwtg5X1cj042S/WmYADVse16oCJMFoUaKyHSwIDAQABMA0GCSqGSIb3DQEBCwUA A4IBAQDgpyBfv5xpj87To41zWov7g9Uqd3ZV+9u1nBHA3bkXCuFhdVmWPD4JNJGfmKeOTVM1azC5 tnY7EpFd8X9DkIYNGiWYQt1BPuO0zcJfA24MCCGd4veTugTiePSFN+gcoZb8Ii48POd3vB/NinAN /1u3UGx96NSM6PdijpxKQ3isoY5XjTsdLXEQvIddhHVFQOKHSUZhf1XEBtbn4yAeRBNZBiMsummD 23fcCraR76y5X3dIWR6VBgcqeQQ7bHrDpbKMejvSvmsu+fHAb8E0PtRSnDmvTYa+YySZ9jserbqO qQQwIf0BTn8AHBk9Xf5kuuRpEP+5kysoWodwVePiUs57</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://accounts.google.com/o/saml2/idp?idpid=C02ws9ruj" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://accounts.google.com/o/saml2/idp?idpid=C02ws9ruj" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Luxembourg School of Business</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Luxembourg School of Business</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.luxsb.lu</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>LSB</md:GivenName>
+      <md:SurName>Role-Account</md:SurName>
+      <md:EmailAddress>mailto:info@luxsb.lu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

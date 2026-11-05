@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://auth.unitbv.ro/simplesaml/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.roedu.net" registrationInstant="2020-02-11T12:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://eduid.roedu.net/wp-content/uploads/2019/03/RoEduNet-Metadata_Registration-v0.7.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unitbv.ro</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="ro">Universitatea Transilvania din Brasov</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Transilvania University of Brasov</mdui:DisplayName>
+          <mdui:Description xml:lang="ro">Acest IdP deserveste Universitatea Transilvania din Brasov</mdui:Description>
+          <mdui:Description xml:lang="en">This Identity Provider (IdP) serves Transilvania University of Brasov</mdui:Description>
+          <mdui:InformationURL xml:lang="ro">https://www.unitbv.ro</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.unitbv.ro/en</mdui:InformationURL>
+          <mdui:Logo height="59" width="150" xml:lang="en">https://www.unitbv.ro/images/home_one_page/UNIVTB.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEpTCCAw2gAwIBAgIUWKWj+LDvv2WiaZJX8yaEVHeXUhAwDQYJKoZIhvcNAQELBQAwYjELMAkGA1UEBhMCUk8xDzANBgNVBAcMBkJyYXNvdjEuMCwGA1UECgwlVW5pdmVyc2l0YXRlYSBUcmFuc2lsdmFuaWEgZGluIEJyYXNvdjESMBAGA1UECwwJQmlyb3VsIElUMB4XDTIwMDIxMDIxMTUxNFoXDTMwMDIwOTIxMTUxNFowYjELMAkGA1UEBhMCUk8xDzANBgNVBAcMBkJyYXNvdjEuMCwGA1UECgwlVW5pdmVyc2l0YXRlYSBUcmFuc2lsdmFuaWEgZGluIEJyYXNvdjESMBAGA1UECwwJQmlyb3VsIElUMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA5ehqoomuoK31F6zyMYV4VndBeZHW/2oJM6vXQ30lo/jcZieDSV8pVFMt/m3Afqu3AjYqv0H58AFfkEfRBLWdNAnnf1RlbXTwPYWVs+pBAsRHRlYfdSk+OLYzDZD/ujxIhMgJjrCDxP6oROADPfZjTFD2t0UcTTYcajpKQpq7fzhTwtAlByMpWUSr+T5aFJ6UaU5sh0EaBT5TNM5COYehCqx1Nw6ZOCPz75Bit/bsj+sbVaBooX1lsz8JqwsVQdk+8NrwBakHbx/yBniMwj/kHIGJufhoyvOo/TenRiM/lXDwectjOOupbV9Itb3v3iN3oMIYywjdSO9AKcKFVLbG5OhZWcoePG3xtIJshJAFVeLFtHUP7or38x768VUOKcCTinQzrYq7kyWjyZhN01p7zDzofTyTT8l8gGZhQXndSRxyDQnHJpN05HJ4WvyspYXjMXJuYbbbocwZy39+WKYktLfeakgCnQAurLpDh4FO8cyisdTC/WkqZueM1BWD/XvPAgMBAAGjUzBRMB0GA1UdDgQWBBQjpQlG6d8M3K1prRz0gVlQL1bcuzAfBgNVHSMEGDAWgBQjpQlG6d8M3K1prRz0gVlQL1bcuzAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQBC8R4sGZB8KiqjIiwYZGyjjVCVpiet47ncmoe04pTqPYeR1YzpSTlY91wveEchBSv9QCvUDcyRV5eT847B2jGu5jCCQN8Uch1bGsEai+1Savc+uqpiQaKd4PUoJnWshHGEp1Ra6VmJThbnz8Ir+g8KS/kDFFc6dzxPUdNu7ZFs61wlcxftk2Selll8AzTOVWSDJjJiFgN+cwy+qdl2/qfLn12r9QNCMCGwBqy97ebEWdUjPv0vo2RTZp2Y4ON2EnVF02ALle2Xa/N884uuhbf7jlTNFWtzkSWuNS8b26kGI0ZjIA4Y/di5hrLdq8XIEx7t3IPh3U+61RTnGuT6+VWSUQ9/i2qN/EgO3KR6J/A2jSgSVOamQF/BAjTqS2i96LSWLGIrwCvKtjKroD82zBdgCV5KK0Ki47zi4vJV5CiwUd/nrjFOCQVHIw31lblg3roZO/MfEuNeZ/QttZrufMQfmct8vlWL/FQ1kdOYdmUo+LJ168tQ4wIwvWOswv09Ybc=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEpTCCAw2gAwIBAgIUWKWj+LDvv2WiaZJX8yaEVHeXUhAwDQYJKoZIhvcNAQELBQAwYjELMAkGA1UEBhMCUk8xDzANBgNVBAcMBkJyYXNvdjEuMCwGA1UECgwlVW5pdmVyc2l0YXRlYSBUcmFuc2lsdmFuaWEgZGluIEJyYXNvdjESMBAGA1UECwwJQmlyb3VsIElUMB4XDTIwMDIxMDIxMTUxNFoXDTMwMDIwOTIxMTUxNFowYjELMAkGA1UEBhMCUk8xDzANBgNVBAcMBkJyYXNvdjEuMCwGA1UECgwlVW5pdmVyc2l0YXRlYSBUcmFuc2lsdmFuaWEgZGluIEJyYXNvdjESMBAGA1UECwwJQmlyb3VsIElUMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA5ehqoomuoK31F6zyMYV4VndBeZHW/2oJM6vXQ30lo/jcZieDSV8pVFMt/m3Afqu3AjYqv0H58AFfkEfRBLWdNAnnf1RlbXTwPYWVs+pBAsRHRlYfdSk+OLYzDZD/ujxIhMgJjrCDxP6oROADPfZjTFD2t0UcTTYcajpKQpq7fzhTwtAlByMpWUSr+T5aFJ6UaU5sh0EaBT5TNM5COYehCqx1Nw6ZOCPz75Bit/bsj+sbVaBooX1lsz8JqwsVQdk+8NrwBakHbx/yBniMwj/kHIGJufhoyvOo/TenRiM/lXDwectjOOupbV9Itb3v3iN3oMIYywjdSO9AKcKFVLbG5OhZWcoePG3xtIJshJAFVeLFtHUP7or38x768VUOKcCTinQzrYq7kyWjyZhN01p7zDzofTyTT8l8gGZhQXndSRxyDQnHJpN05HJ4WvyspYXjMXJuYbbbocwZy39+WKYktLfeakgCnQAurLpDh4FO8cyisdTC/WkqZueM1BWD/XvPAgMBAAGjUzBRMB0GA1UdDgQWBBQjpQlG6d8M3K1prRz0gVlQL1bcuzAfBgNVHSMEGDAWgBQjpQlG6d8M3K1prRz0gVlQL1bcuzAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQBC8R4sGZB8KiqjIiwYZGyjjVCVpiet47ncmoe04pTqPYeR1YzpSTlY91wveEchBSv9QCvUDcyRV5eT847B2jGu5jCCQN8Uch1bGsEai+1Savc+uqpiQaKd4PUoJnWshHGEp1Ra6VmJThbnz8Ir+g8KS/kDFFc6dzxPUdNu7ZFs61wlcxftk2Selll8AzTOVWSDJjJiFgN+cwy+qdl2/qfLn12r9QNCMCGwBqy97ebEWdUjPv0vo2RTZp2Y4ON2EnVF02ALle2Xa/N884uuhbf7jlTNFWtzkSWuNS8b26kGI0ZjIA4Y/di5hrLdq8XIEx7t3IPh3U+61RTnGuT6+VWSUQ9/i2qN/EgO3KR6J/A2jSgSVOamQF/BAjTqS2i96LSWLGIrwCvKtjKroD82zBdgCV5KK0Ki47zi4vJV5CiwUd/nrjFOCQVHIw31lblg3roZO/MfEuNeZ/QttZrufMQfmct8vlWL/FQ1kdOYdmUo+LJ168tQ4wIwvWOswv09Ybc=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.unitbv.ro/simplesaml/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.unitbv.ro/simplesaml/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="ro">Universitatea Transilvania din Brasov</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Transilvania University of Brasov</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="ro">Universitatea Transilvania din Brasov</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Transilvania University of Brasov</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="ro">https://www.unitbv.ro</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.unitbv.ro/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Administrator</md:GivenName>
+      <md:EmailAddress>mailto:it@unitbv.ro</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

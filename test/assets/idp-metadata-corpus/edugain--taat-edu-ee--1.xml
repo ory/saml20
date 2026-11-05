@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:taat="http://www.eenet.ee/EENet/urn" entityID="https://memm.hep.kbfi.ee/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://taat.edu.ee" registrationInstant="2013-11-06T12:37:03.000Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://taat.edu.ee/main/documents/?lang=en</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <taat:taat>
+        <taat:active>yes</taat:active>
+        <taat:AttributeNameFormat />
+        <taat:modified>2017-10-13T16:40:33Z</taat:modified>
+        <taat:RegistrationInstant2>2013-11-06T12:37:03Z</taat:RegistrationInstant2>
+        <taat:type>saml20-idp</taat:type>
+        <taat:eid>14</taat:eid>
+        <taat:env>prodaccepted</taat:env>
+      </taat:taat>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:Description xml:lang="en">KBFI</mdui:Description>
+          <mdui:Description xml:lang="et">KBFI</mdui:Description>
+          <mdui:DisplayName xml:lang="en">KBFI</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="et">KBFI</mdui:DisplayName>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">kbfi.ee</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFQjCCBCqgAwIBAgIQDBcjaBL4uCDNMx6F7jqhfTANBgkqhkiG9w0BAQsFADBkMQswCQYDVQQGEwJOTDEWMBQGA1UECBMNTm9vcmQtSG9sbGFuZDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExGDAWBgNVBAMTD1RFUkVOQSBTU0wgQ0EgMzAeFw0xNzAyMTQwMDAwMDBaFw0yMDAyMTkxMjAwMDBaMH8xCzAJBgNVBAYTAkVFMQ4wDAYDVQQIEwVIYXJqdTEQMA4GA1UEBxMHVGFsbGlubjE2MDQGA1UECgwtS2VlbWlsaXNlIGphIEJpb2xvb2dpbGlzZSBGw7zDvHNpa2EgSW5zdGl0dXV0MRYwFAYDVQQDDA0qLmhlcC5rYmZpLmVlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwAU9F1fA43Z5+qa/DKuAalO4swxe6N+KkQb7XyjsV31W6N7SPL1y1yDZxA2XGwzso1RfHjYPCYoDZt3/iUAGuIE4jGL6MDasvO/Cc7+9q5PQQ09kvLUsXLj6oEw2nmMI1h6QEZLvTtiiPobkVPV/un8W5BXZt67S5Ezryj7R6zblVsWsGXm+f44dc9YilkbFkZF7xSWzxfUADEH1N2DruSi8cxF8KTxvu9S6/qXgUaTdrle+ETsgeRMoOvHtSjxpfzAWYSNfRtEy2L3Z7ZRTg2KmGJFLNLgEhZnpwuFBzloJz8D/VBpjH6I0w+Jm5qSzC2z1+0wNiwNZ5Wsj7+gRVQIDAQABo4IB0zCCAc8wHwYDVR0jBBgwFoAUZ/2IIBQnmMcJ0iUZu+lREWN1UGIwHQYDVR0OBBYEFPvK3qEaUfvh6BpG9xR45/aKvZEFMCUGA1UdEQQeMByCDSouaGVwLmtiZmkuZWWCC2hlcC5rYmZpLmVlMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwawYDVR0fBGQwYjAvoC2gK4YpaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL1RFUkVOQVNTTENBMy5jcmwwL6AtoCuGKWh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9URVJFTkFTU0xDQTMuY3JsMEwGA1UdIARFMEMwNwYJYIZIAYb9bAEBMCowKAYIKwYBBQUHAgEWHGh0dHBzOi8vd3d3LmRpZ2ljZXJ0LmNvbS9DUFMwCAYGZ4EMAQICMG4GCCsGAQUFBwEBBGIwYDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMDgGCCsGAQUFBzAChixodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVEVSRU5BU1NMQ0EzLmNydDAMBgNVHRMBAf8EAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQB+PYItfF2b6AE5djuK9wm9ruFc1q/LMMhxfEqid4Y0qimVTOBNnSJ62wkv6jy+I4pgmoe+nVaYpfwh1Ze6SQCl/AAl1O3ebs+3Y5tEF10KdpH1Xke7rz4bTm1r8bqGdDih4ePHML6gSrM8KSivXa4RWbISpppY+eu0enAXaezCGZGMDIFaGCBh7yuIu0mlib6+BOUdNjA4me6zMRmLZfUjkY3KC+HnvPdLOYaUpcLMqfQfVQ4S/UlXQ9fe4FB7KWbkZtpQPH948HNR3MnIIK4s7PpO8Q2udoQ2WFxPl0lzGfAqTPbldXCQY2/KZ5ipzeOxpy5lZj1XroL3ViOiLw+s</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://memm.hep.kbfi.ee/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://memm.hep.kbfi.ee/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">KBFI</md:OrganizationName>
+      <md:OrganizationName xml:lang="et">KBFI</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">KBFI</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="et">KBFI</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://hep.kbfi.ee</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="et">https://hep.kbfi.ee</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>TAAT</md:GivenName>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>mailto:eenet@eenet.ee</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  
