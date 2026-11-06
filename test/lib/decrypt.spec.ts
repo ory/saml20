@@ -1,6 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import { decryptXml } from '../../lib/decrypt';
+import { SP_ENCRYPTION_ALGORITHMS } from '../../lib/metadata';
 import { validate } from '../../lib/response';
 import { multiRootedXMLError, WrapError } from '../../lib/utils';
 import * as xmlenc from 'xml-encryption';
@@ -68,6 +69,27 @@ describe('decrypt.ts', function () {
     `;
     assert.throws(() => decryptXml(multipleAssertionsXml, options), { message: 'Multiple Assertion.' });
   });
+
+  for (const encryptionAlgorithm of SP_ENCRYPTION_ALGORITHMS) {
+    it(`decrypts an assertion encrypted with advertised ${encryptionAlgorithm}`, async function () {
+      const encrypted = await promisify(xmlenc.encrypt)(
+        '<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_a" Version="2.0"/>',
+        {
+          rsa_pub: testIdpCert,
+          pem: testIdpCert,
+          encryptionAlgorithm,
+          keyEncryptionAlgorithm: 'http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p',
+        }
+      );
+      const response =
+        '<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="_r" Version="2.0">' +
+        `<saml:EncryptedAssertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">${encrypted}</saml:EncryptedAssertion>` +
+        '</samlp:Response>';
+      const { assertion, decrypted } = decryptXml(response, { privateKey: testIdpPrivateKey });
+      assert.strictEqual(decrypted, true);
+      assert(assertion.includes('<saml:Assertion '));
+    });
+  }
 
   describe('errors after decryption', function () {
     const encryptToResponse = async (plaintext: string) => {

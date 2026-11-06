@@ -244,6 +244,13 @@ const createIdPMetadataXML = ({
   return buildXml(nodes, { encoding: 'UTF-8', standalone: false, pretty: true });
 };
 
+// Most preferred first. CBC stays for Entra ID, which encrypts with aes256-cbc.
+const SP_ENCRYPTION_ALGORITHMS = [
+  'http://www.w3.org/2009/xmlenc11#aes256-gcm',
+  'http://www.w3.org/2009/xmlenc11#aes128-gcm',
+  'http://www.w3.org/2001/04/xmlenc#aes256-cbc',
+];
+
 const createSPMetadataXML = ({
   entityId,
   publicKeyString,
@@ -287,9 +294,7 @@ const createSPMetadataXML = ({
           },
         },
       },
-      'md:EncryptionMethod': {
-        '@Algorithm': 'http://www.w3.org/2001/04/xmlenc#aes256-cbc',
-      },
+      'md:EncryptionMethod': SP_ENCRYPTION_ALGORITHMS.map((algorithm) => ({ '@Algorithm': algorithm })),
     });
   }
 
@@ -317,5 +322,5 @@ const createSPMetadataXML = ({
   return buildXml(nodes, { encoding: 'UTF-8', standalone: false, pretty: true });
 };
 
-export { parseMetadata, createIdPMetadataXML, createSPMetadataXML };
+export { parseMetadata, createIdPMetadataXML, createSPMetadataXML, SP_ENCRYPTION_ALGORITHMS };
 export type { ParseMetadataOptions, ParsedMetadata, MetadataEndpoints };
