@@ -79,6 +79,8 @@ describe('decrypt.ts', function () {
           pem: testIdpCert,
           encryptionAlgorithm,
           keyEncryptionAlgorithm: 'http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p',
+          disallowEncryptionWithInsecureAlgorithm: false,
+          warnInsecureAlgorithm: false,
         }
       );
       const response =
