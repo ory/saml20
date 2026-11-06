@@ -1,8 +1,9 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import { decryptXml } from '../../lib/decrypt';
+import { SP_ENCRYPTION_ALGORITHMS } from '../../lib/metadata';
 import { validate } from '../../lib/response';
-import { multiRootedXMLError, WrapError } from '../../lib/utils';
+import { multiRootedXMLError, parseFromString, WrapError } from '../../lib/utils';
 import * as xmlenc from 'xml-encryption';
 import { promisify } from 'util';
 import fs from 'fs';
@@ -68,6 +69,35 @@ describe('decrypt.ts', function () {
     `;
     assert.throws(() => decryptXml(multipleAssertionsXml, options), { message: 'Multiple Assertion.' });
   });
+
+  for (const encryptionAlgorithm of SP_ENCRYPTION_ALGORITHMS) {
+    it(`decrypts an assertion encrypted with advertised ${encryptionAlgorithm}`, async function () {
+      const plaintext =
+        '<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_a" Version="2.0">' +
+        '<saml:Issuer>https://idp.example.com</saml:Issuer>' +
+        '</saml:Assertion>';
+      const encrypted = await promisify(xmlenc.encrypt)(plaintext, {
+        rsa_pub: testIdpCert,
+        pem: testIdpCert,
+        encryptionAlgorithm,
+        keyEncryptionAlgorithm: 'http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p',
+        disallowEncryptionWithInsecureAlgorithm: false,
+        warnInsecureAlgorithm: false,
+      });
+      const response =
+        '<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="_r" Version="2.0">' +
+        `<saml:EncryptedAssertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">${encrypted}</saml:EncryptedAssertion>` +
+        '</samlp:Response>';
+      const { assertion, decrypted } = decryptXml(response, { privateKey: testIdpPrivateKey });
+      assert.strictEqual(decrypted, true);
+      const assertions = parseFromString(assertion)!.getElementsByTagNameNS(
+        'urn:oasis:names:tc:SAML:2.0:assertion',
+        'Assertion'
+      );
+      assert.strictEqual(assertions.length, 1);
+      assert.strictEqual(assertions[0].toString(), parseFromString(plaintext)!.documentElement!.toString());
+    });
+  }
 
   describe('errors after decryption', function () {
     const encryptToResponse = async (plaintext: string) => {

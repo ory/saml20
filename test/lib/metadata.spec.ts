@@ -283,7 +283,12 @@ describe('metadata.ts', function () {
     });
 
     assert.strictEqual(!!res, true);
-    assert(res.includes('md:EncryptionMethod'));
+    const advertised = [...res.matchAll(/<md:EncryptionMethod Algorithm="([^"]+)"/g)].map((m) => m[1]);
+    assert.deepStrictEqual(advertised, [
+      'http://www.w3.org/2009/xmlenc11#aes256-gcm',
+      'http://www.w3.org/2009/xmlenc11#aes128-gcm',
+      'http://www.w3.org/2001/04/xmlenc#aes256-cbc',
+    ]);
   });
 
   it(`createSPMetadataXML with authnRequestsSigned true`, async () => {
