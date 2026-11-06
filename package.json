@@ -62,12 +62,7 @@
     "tsx": "4.23.15",
     "typescript": "7.0.2"
   },
-  "overrides": {
-    "release-it": {
-      "undici": ">=6.24.0"
-    },
-    "unicorn-magic": "0.2.0"
-  },
+  "overrides": {},
   "engines": {
     "node": ">=22.12.0"
   }
