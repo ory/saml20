@@ -12,19 +12,63 @@ export type EncryptedResponse = {
   responseSigned: boolean;
 };
 
-const algorithm = (expression: string, context: Node): string | undefined => {
-  const [attr] = select(expression, context) as Attr[];
-  return attr?.value;
+// These lookups mirror xml-encryption's (lib/dom-select.js), so the algorithms
+// reported are those of the EncryptedData and EncryptedKey it decrypted with.
+const elementChildren = (node: Node | null | undefined, localName: string): Element[] => {
+  const found: Element[] = [];
+  for (let n = node?.firstChild; n; n = n.nextSibling) {
+    if (n.nodeType === n.ELEMENT_NODE && (n as Element).localName === localName) {
+      found.push(n as Element);
+    }
+  }
+  return found;
 };
 
-const describe = (xml: Document, encryptedAssertion: Node): EncryptedResponse => {
-  const method = `*[local-name(.)='EncryptionMethod']/@Algorithm`;
+// Every element of root's subtree, root included, in document order.
+const subtree = (root: Element): Element[] => {
+  const found: Element[] = [];
+  const stack = [root];
+  while (stack.length) {
+    const node = stack.pop()!;
+    found.push(node);
+    const kids: Element[] = [];
+    for (let n = node.firstChild; n; n = n.nextSibling) {
+      if (n.nodeType === n.ELEMENT_NODE) {
+        kids.push(n as Element);
+      }
+    }
+    stack.push(...kids.reverse());
+  }
+  return found;
+};
+
+const encryptedKeyOf = (encryptedData: Element): Element | undefined => {
+  const [keyInfo] = elementChildren(encryptedData, 'KeyInfo');
+  const [nested] = elementChildren(keyInfo, 'EncryptedKey');
+  if (nested) {
+    return nested;
+  }
+  const uri = elementChildren(keyInfo, 'RetrievalMethod')[0]?.getAttribute('URI');
+  if (!uri || uri.charAt(0) !== '#' || uri.length < 2) {
+    return undefined;
+  }
+  const parent = encryptedData.parentNode;
+  const scope = parent && parent.nodeType === parent.ELEMENT_NODE ? (parent as Element) : encryptedData;
+  const matches = subtree(scope).filter(
+    (node) => node.localName === 'EncryptedKey' && node.getAttribute('Id') === uri.substring(1)
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+};
+
+const methodOf = (element: Element | undefined): string | undefined =>
+  elementChildren(element, 'EncryptionMethod')[0]?.getAttribute('Algorithm') ?? undefined;
+
+const describe = (xml: Document, encryptedAssertion: Element): EncryptedResponse => {
+  const encryptedData = subtree(encryptedAssertion).find((node) => node.localName === 'EncryptedData');
   return {
-    dataAlgorithm: algorithm(`./*[local-name(.)='EncryptedData']/${method}`, encryptedAssertion),
-    keyTransportAlgorithm: algorithm(`.//*[local-name(.)='EncryptedKey']/${method}`, encryptedAssertion),
-    responseSigned:
-      // @ts-expect-error missing Node properties are not needed
-      select(`/*/*[local-name(.)='Signature']`, xml).length > 0,
+    dataAlgorithm: methodOf(encryptedData),
+    keyTransportAlgorithm: encryptedData ? methodOf(encryptedKeyOf(encryptedData)) : undefined,
+    responseSigned: elementChildren(xml.documentElement, 'Signature').length > 0,
   };
 };
 
@@ -67,7 +111,7 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptO
     throw new Error('Undefined Encryption Assertion.');
   }
 
-  const encrypted = options.reportEncryption ? describe(xml, encryptedAssertions[0]) : undefined;
+  const encrypted = options.reportEncryption ? describe(xml, encryptedAssertions[0] as Element) : undefined;
   const assertionNode = parseFromString(decrypted);
   xml.documentElement.removeChild(encryptedAssertions[0]);
   // @ts-expect-error missing Node properties are not needed

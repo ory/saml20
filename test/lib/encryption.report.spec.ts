@@ -48,12 +48,57 @@ const signThenEncrypt = async (assertion: string) => {
   return signed.replace(ASSERTION, await encrypted(signed.match(ASSERTION)![0]));
 };
 
+const XMLENC = 'http://www.w3.org/2001/04/xmlenc#';
+const ENCRYPTED_KEY = /<e:EncryptedKey[\s\S]*<\/e:EncryptedKey>/;
+const unusedKey = (id: string) =>
+  `<e:EncryptedKey xmlns:e="${XMLENC}" Id="${id}"><e:EncryptionMethod Algorithm="urn:unused-algorithm"/>` +
+  '<e:CipherData><e:CipherValue>AAAA</e:CipherValue></e:CipherData></e:EncryptedKey>';
+
+// The encrypted assertion with an EncryptedKey xml-encryption does not use put first in it.
+const withUnusedKeyFirst = (fragment: string) =>
+  fragment.replace('<saml:EncryptedAssertion>', `<saml:EncryptedAssertion>${unusedKey('_unused')}`);
+
+// The key moved out of KeyInfo to beside the EncryptedData, where a RetrievalMethod points to it,
+// after an unused one.
+const withRetrievedKey = (fragment: string) => {
+  const key = fragment.match(ENCRYPTED_KEY)![0].replace('<e:EncryptedKey ', '<e:EncryptedKey Id="_used" ');
+  return fragment
+    .replace(ENCRYPTED_KEY, `<RetrievalMethod Type="${XMLENC}EncryptedKey" URI="#_used"/>`)
+    .replace('<saml:EncryptedAssertion>', `<saml:EncryptedAssertion>${unusedKey('_unused')}`)
+    .replace('</saml:EncryptedAssertion>', `${key}</saml:EncryptedAssertion>`);
+};
+
 const placement = async (xml: string) => (await validate(xml, options())).encryption?.signaturePlacement;
 
 describe('validate reportEncryption', function () {
   it('reports the algorithms the response names', async function () {
     const profile = await validate(await encryptThenSign(buildAssertion()), options());
     assert.deepStrictEqual(profile.encryption, {
+      dataAlgorithm: AES128_CBC,
+      keyTransportAlgorithm: RSA_OAEP_MGF1P,
+      signaturePlacement: 'response',
+    });
+  });
+
+  it('reports the key the assertion was decrypted with, not the first one in it', async function () {
+    const xml = signXml(buildResponse(withUnusedKeyFirst(await encrypted(buildAssertion()))), RESPONSE_XPATH);
+    assert.match(xml, /urn:unused-algorithm/);
+    assert.strictEqual((await validate(xml, options())).encryption?.keyTransportAlgorithm, RSA_OAEP_MGF1P);
+  });
+
+  it('nor a second one inside its KeyInfo', async function () {
+    const fragment = (await encrypted(buildAssertion())).replace(
+      '</e:EncryptedKey>',
+      `</e:EncryptedKey>${unusedKey('_unused')}`
+    );
+    const xml = signXml(buildResponse(fragment), RESPONSE_XPATH);
+    assert.strictEqual((await validate(xml, options())).encryption?.keyTransportAlgorithm, RSA_OAEP_MGF1P);
+  });
+
+  it('follows a RetrievalMethod to the key it names', async function () {
+    const xml = signXml(buildResponse(withRetrievedKey(await encrypted(buildAssertion()))), RESPONSE_XPATH);
+    assert.match(xml, /<RetrievalMethod/);
+    assert.deepStrictEqual((await validate(xml, options())).encryption, {
       dataAlgorithm: AES128_CBC,
       keyTransportAlgorithm: RSA_OAEP_MGF1P,
       signaturePlacement: 'response',
