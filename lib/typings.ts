@@ -19,6 +19,19 @@ export interface AssertedNameID {
   spNameQualifier?: string;
 }
 
+// How an encrypted assertion was protected, as validate() reports it when
+// asked to with ValidateOptions.reportEncryption.
+export interface AssertionEncryption {
+  // The EncryptionMethod Algorithm URIs of the EncryptedData and of the
+  // EncryptedKey, as the response names them; undefined when it names none.
+  dataAlgorithm?: string;
+  keyTransportAlgorithm?: string;
+  // 'response' when the signature verifies over the response as received,
+  // encrypted assertion included; 'assertion_only' when it verifies only
+  // once the assertion is decrypted.
+  signaturePlacement: 'response' | 'assertion_only';
+}
+
 export interface SAMLProfile {
   // The first <Audience> in document order, or undefined when there is none.
   audience?: string;
@@ -37,6 +50,10 @@ export interface SAMLProfile {
   // implement one-time replay protection keyed by assertionId until notOnOrAfter.
   assertionId?: string;
   notOnOrAfter?: string;
+  // Set when ValidateOptions.reportEncryption is true and the assertion that
+  // validated was encrypted; left out when another assertion in the response
+  // makes that uncertain.
+  encryption?: AssertionEncryption;
 }
 
 // Identifiers from the signed assertion passed to a caller-supplied replay
@@ -81,4 +98,8 @@ export interface ValidateOptions extends ValidateSignatureOptions {
   bypassExpiration?: boolean;
   // One-time-use check: return true when the assertion was already used.
   assertionReplayValidator?: (info: AssertionReplayInfo) => boolean | Promise<boolean>;
+  // Report how an encrypted assertion was protected, in SAMLProfile.encryption.
+  // A response whose assertion and response are both signed costs one more
+  // signature verification; every other response costs nothing extra.
+  reportEncryption?: boolean;
 }
