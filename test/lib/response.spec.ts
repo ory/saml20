@@ -377,6 +377,97 @@ describe('response.ts', function () {
 
     assert.strictEqual(parsed.sessionIndex, json.sessionIndex);
   });
+
+  it('Should create a SAML response with an emailAddress NameID by default', async function () {
+    const json = {
+      audience: 'http://sp.example.com/demo1/metadata.php',
+      issuer: 'http://idp.example.com/metadata.php',
+      acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+      claims: { email: 'jackson@example.com', raw: {} },
+      requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
+    };
+
+    const parsed = await validate(await createSAMLResponse(json), {
+      audience: json.audience,
+      publicKey: testIdpPublicKey,
+    });
+
+    assert.deepStrictEqual(parsed.nameId, {
+      value: 'jackson@example.com',
+      format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    });
+  });
+
+  it('Should create a SAML response with the given NameID and format', async function () {
+    const json = {
+      audience: 'http://sp.example.com/demo1/metadata.php',
+      issuer: 'http://idp.example.com/metadata.php',
+      acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+      claims: { email: 'jackson@example.com', raw: {} },
+      requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
+      nameId: {
+        value: '_a3f1c0de9b8e4f7d',
+        format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+      },
+    };
+
+    const parsed = await validate(await createSAMLResponse(json), {
+      audience: json.audience,
+      publicKey: testIdpPublicKey,
+    });
+
+    assert.deepStrictEqual(parsed.nameId, json.nameId);
+  });
+
+  it('Should send a NameID given without a format as unspecified', async function () {
+    const json = {
+      audience: 'http://sp.example.com/demo1/metadata.php',
+      issuer: 'http://idp.example.com/metadata.php',
+      acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+      claims: { email: 'jackson@example.com', raw: {} },
+      requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
+      nameId: { value: 'jackson' },
+    };
+
+    const parsed = await validate(await createSAMLResponse(json), {
+      audience: json.audience,
+      publicKey: testIdpPublicKey,
+    });
+
+    assert.deepStrictEqual(parsed.nameId, {
+      value: 'jackson',
+      format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
+    });
+  });
+
+  it('Should use the given NameID when claims.email is omitted', async function () {
+    const json = {
+      audience: 'http://sp.example.com/demo1/metadata.php',
+      issuer: 'http://idp.example.com/metadata.php',
+      acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+      claims: { raw: {} },
+      requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+      privateKey: testIdpPrivateKey,
+      publicKey: testIdpPublicKey,
+      nameId: {
+        value: '_a3f1c0de9b8e4f7d',
+        format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+      },
+    };
+
+    const parsed = await validate(await createSAMLResponse(json), {
+      audience: json.audience,
+      publicKey: testIdpPublicKey,
+    });
+
+    assert.deepStrictEqual(parsed.nameId, json.nameId);
+  });
 });
 it('parseIssuer should return the correct issuer value', async function () {
   const rawAssertion = fs.readFileSync('./test/assets/saml20.validResponse.xml').toString();
