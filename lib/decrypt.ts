@@ -2,7 +2,31 @@ import { select } from 'xpath';
 import * as xmlenc from 'xml-encryption';
 import { parseFromString, WrapError } from './utils';
 
-type DecryptOptions = { privateKey?: string };
+type DecryptOptions = { privateKey?: string; reportEncryption?: boolean };
+
+// What the encrypted response shows before decryption.
+export type EncryptedResponse = {
+  dataAlgorithm?: string;
+  keyTransportAlgorithm?: string;
+  // Whether the Response element itself carries a signature.
+  responseSigned: boolean;
+};
+
+const algorithm = (expression: string, context: Node): string | undefined => {
+  const [attr] = select(expression, context) as Attr[];
+  return attr?.value;
+};
+
+const describe = (xml: Document, encryptedAssertion: Node): EncryptedResponse => {
+  const method = `*[local-name(.)='EncryptionMethod']/@Algorithm`;
+  return {
+    dataAlgorithm: algorithm(`./*[local-name(.)='EncryptedData']/${method}`, encryptedAssertion),
+    keyTransportAlgorithm: algorithm(`.//*[local-name(.)='EncryptedKey']/${method}`, encryptedAssertion),
+    responseSigned:
+      // @ts-expect-error missing Node properties are not needed
+      select(`/*/*[local-name(.)='Signature']`, xml).length > 0,
+  };
+};
 
 const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptOptions) => {
   if (!Array.isArray(encryptedAssertions)) {
@@ -43,17 +67,18 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptO
     throw new Error('Undefined Encryption Assertion.');
   }
 
+  const encrypted = options.reportEncryption ? describe(xml, encryptedAssertions[0]) : undefined;
   const assertionNode = parseFromString(decrypted);
   xml.documentElement.removeChild(encryptedAssertions[0]);
   // @ts-expect-error missing Node properties are not needed
   xml.documentElement.appendChild(assertionNode!.childNodes[0]);
 
-  return { assertion: xml.toString(), decrypted: true };
+  return { assertion: xml.toString(), decrypted: true, encrypted };
 };
 const decryptXml = (
   entireXML: string,
   options: DecryptOptions
-): { assertion: string; decrypted: boolean } => {
+): { assertion: string; decrypted: boolean; encrypted?: EncryptedResponse } => {
   if (!entireXML) {
     throw new Error('Undefined Assertion.');
   }
