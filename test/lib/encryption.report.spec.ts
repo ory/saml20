@@ -3,6 +3,7 @@ import assert from 'node:assert';
 import fs from 'fs';
 import { validate } from '../../lib/response';
 import { sign } from '../../lib/sign';
+import { decryptXml } from '../../lib/decrypt';
 import { verifyRootSignature, verifySignature } from '../../lib/validateSignature';
 import {
   ACS,
@@ -185,6 +186,22 @@ describe('validate reportEncryption', function () {
       () => verifyRootSignature(buildResponse(signedAssertion()), testIdpCert, undefined),
       /no Signature/
     );
+  });
+
+  it('handles an element with more children than a function call takes arguments', async function () {
+    const wide = `<samlp:Extensions>${'<x/>'.repeat(130_000)}</samlp:Extensions>`;
+    const xml = buildResponse(await encrypted(buildAssertion())).replace(
+      '<samlp:Status>',
+      `${wide}<samlp:Status>`
+    );
+    const { encrypted: report } = decryptXml(xml, { privateKey: testIdpKey, reportEncryption: true });
+    assert.deepStrictEqual(report, {
+      dataAlgorithm: AES128_CBC,
+      keyTransportAlgorithm: RSA_OAEP_MGF1P,
+      responseId: '_response-1',
+      responseSigned: false,
+      assertionCount: 1,
+    });
   });
 
   it('is not reported unless asked for', async function () {
