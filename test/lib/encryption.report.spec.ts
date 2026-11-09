@@ -1,8 +1,9 @@
-import { describe, it } from 'node:test';
+import { describe, it, type TestContext } from 'node:test';
 import assert from 'node:assert';
 import fs from 'fs';
-import { validate } from '../../lib/response';
+import { encryptionReporting, validate } from '../../lib/response';
 import { sign } from '../../lib/sign';
+import { decryptXml, encryptionReport } from '../../lib/decrypt';
 import { verifyRootSignature, verifySignature } from '../../lib/validateSignature';
 import {
   ACS,
@@ -185,6 +186,57 @@ describe('validate reportEncryption', function () {
       () => verifyRootSignature(buildResponse(signedAssertion()), testIdpCert, undefined),
       /no Signature/
     );
+  });
+
+  it('handles an element with more children than a function call takes arguments', async function () {
+    const wide = `<samlp:Extensions>${'<x/>'.repeat(130_000)}</samlp:Extensions>`;
+    const xml = buildResponse(await encrypted(buildAssertion())).replace(
+      '<samlp:Status>',
+      `${wide}<samlp:Status>`
+    );
+    const { encrypted: report } = decryptXml(xml, { privateKey: testIdpKey, reportEncryption: true });
+    assert.deepStrictEqual(report, {
+      dataAlgorithm: AES128_CBC,
+      keyTransportAlgorithm: RSA_OAEP_MGF1P,
+      responseId: '_response-1',
+      responseSigned: false,
+      assertionCount: 1,
+    });
+  });
+
+  describe('a report that fails to be produced is left out', function () {
+    const failing = () => {
+      throw new Error('report failed');
+    };
+
+    const assertValidatesWithoutReport = async (xml: string) => {
+      const profile = await validate(xml, options());
+      assert.strictEqual(profile.assertionId, '_assertion-1');
+      assert.strictEqual(profile.encryption, undefined);
+    };
+
+    it('when the encrypted assertion cannot be described', async function (t: TestContext) {
+      const xml = buildResponse(await encrypted(signedAssertion()));
+      t.mock.method(encryptionReport, 'describe', failing);
+      const decrypted = decryptXml(xml, { privateKey: testIdpKey, reportEncryption: true });
+      assert.strictEqual(decrypted.decrypted, true);
+      assert.strictEqual(decrypted.encrypted, undefined);
+      await assertValidatesWithoutReport(xml);
+    });
+
+    it('when the assertions cannot be counted', async function (t: TestContext) {
+      const xml = buildResponse(await encrypted(signedAssertion()));
+      t.mock.method(encryptionReport, 'countAssertions', failing);
+      const decrypted = decryptXml(xml, { privateKey: testIdpKey, reportEncryption: true });
+      assert.strictEqual(decrypted.decrypted, true);
+      assert.strictEqual(decrypted.encrypted, undefined);
+      await assertValidatesWithoutReport(xml);
+    });
+
+    it('when the report cannot be put together', async function (t: TestContext) {
+      t.mock.method(encryptionReporting, 'report', failing);
+      await assertValidatesWithoutReport(await encryptThenSign(signedAssertion()));
+    });
   });
 
   it('is not reported unless asked for', async function () {

@@ -27,6 +27,14 @@ const elementChildren = (node: Node | null | undefined, localName: string): Elem
   return found;
 };
 
+const attempt = <T>(fn: () => T): T | undefined => {
+  try {
+    return fn();
+  } catch {
+    return undefined;
+  }
+};
+
 // Every element of root's subtree, root included, in document order.
 const subtree = (root: Element): Element[] => {
   const found: Element[] = [];
@@ -34,13 +42,11 @@ const subtree = (root: Element): Element[] => {
   while (stack.length) {
     const node = stack.pop()!;
     found.push(node);
-    const kids: Element[] = [];
-    for (let n = node.firstChild; n; n = n.nextSibling) {
+    for (let n = node.lastChild; n; n = n.previousSibling) {
       if (n.nodeType === n.ELEMENT_NODE) {
-        kids.push(n as Element);
+        stack.push(n as Element);
       }
     }
-    stack.push(...kids.reverse());
   }
   return found;
 };
@@ -75,6 +81,12 @@ const describe = (xml: Document, encryptedAssertion: Element): Omit<EncryptedRes
     responseSigned: elementChildren(xml.documentElement, 'Signature').length > 0,
   };
 };
+
+const countAssertions = (xml: Document): number =>
+  subtree(xml.documentElement).filter((node) => node.localName === 'Assertion').length;
+
+// Called through this object so tests can make each step fail.
+export const encryptionReport = { describe, countAssertions };
 
 const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptOptions) => {
   if (!Array.isArray(encryptedAssertions)) {
@@ -115,16 +127,21 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptO
     throw new Error('Undefined Encryption Assertion.');
   }
 
-  const described = options.reportEncryption ? describe(xml, encryptedAssertions[0] as Element) : undefined;
+  // The report is telemetry, so failing to produce one never fails decryption.
+  const described = options.reportEncryption
+    ? attempt(() => encryptionReport.describe(xml, encryptedAssertions[0] as Element))
+    : undefined;
   const assertionNode = parseFromString(decrypted);
   xml.documentElement.removeChild(encryptedAssertions[0]);
   // @ts-expect-error missing Node properties are not needed
   xml.documentElement.appendChild(assertionNode!.childNodes[0]);
 
-  const encrypted = described && {
-    ...described,
-    assertionCount: subtree(xml.documentElement).filter((node) => node.localName === 'Assertion').length,
-  };
+  const encrypted =
+    described &&
+    attempt(() => ({
+      ...described,
+      assertionCount: encryptionReport.countAssertions(xml),
+    }));
   return { assertion: xml.toString(), decrypted: true, encrypted };
 };
 const decryptXml = (

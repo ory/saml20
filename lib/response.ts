@@ -147,16 +147,22 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
   }
 
   const profile = parseAttributes(assertion);
-  const encryption = options.reportEncryption
-    ? reportEncryption({
+  let encryption: AssertionEncryption | undefined;
+  if (options.reportEncryption) {
+    // The report is telemetry, so failing to produce one never fails validation.
+    try {
+      encryption = encryptionReporting.report({
         signedEncrypted,
         encrypted,
         assertionSigned: !assertionObj?.Response,
         original: originalAssertion,
         options,
         signatureOptions,
-      })
-    : undefined;
+      });
+    } catch {
+      encryption = undefined;
+    }
+  }
   if (encryption) {
     profile.encryption = encryption;
   }
@@ -206,6 +212,9 @@ const reportEncryption = ({
     signaturePlacement: covered ? 'response' : 'assertion_only',
   };
 };
+
+// Called through this object so tests can make it fail.
+export const encryptionReporting = { report: reportEncryption };
 
 const rootSignatureCoversCiphertext = (
   original: string,
