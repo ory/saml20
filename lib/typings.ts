@@ -50,8 +50,9 @@ export interface SAMLProfile {
   // implement one-time replay protection keyed by assertionId until notOnOrAfter.
   assertionId?: string;
   notOnOrAfter?: string;
-  // Set when the assertion was encrypted and ValidateOptions.reportEncryption
-  // is true.
+  // Set when ValidateOptions.reportEncryption is true and the assertion that
+  // validated was encrypted; left out when another assertion in the response
+  // makes that uncertain.
   encryption?: AssertionEncryption;
 }
 

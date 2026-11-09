@@ -4,12 +4,15 @@ import { parseFromString, WrapError } from './utils';
 
 type DecryptOptions = { privateKey?: string; reportEncryption?: boolean };
 
-// What the encrypted response shows before decryption.
+// What the encrypted response shows before decryption, and how many
+// assertions it holds once decrypted.
 export type EncryptedResponse = {
   dataAlgorithm?: string;
   keyTransportAlgorithm?: string;
-  // Whether the Response element itself carries a signature.
+  // The root element's ID, and whether it carries a signature itself.
+  responseId?: string;
   responseSigned: boolean;
+  assertionCount: number;
 };
 
 // These lookups mirror xml-encryption's (lib/dom-select.js), so the algorithms
@@ -63,11 +66,12 @@ const encryptedKeyOf = (encryptedData: Element): Element | undefined => {
 const methodOf = (element: Element | undefined): string | undefined =>
   elementChildren(element, 'EncryptionMethod')[0]?.getAttribute('Algorithm') ?? undefined;
 
-const describe = (xml: Document, encryptedAssertion: Element): EncryptedResponse => {
+const describe = (xml: Document, encryptedAssertion: Element): Omit<EncryptedResponse, 'assertionCount'> => {
   const encryptedData = subtree(encryptedAssertion).find((node) => node.localName === 'EncryptedData');
   return {
     dataAlgorithm: methodOf(encryptedData),
     keyTransportAlgorithm: encryptedData ? methodOf(encryptedKeyOf(encryptedData)) : undefined,
+    responseId: xml.documentElement.getAttribute('ID') ?? undefined,
     responseSigned: elementChildren(xml.documentElement, 'Signature').length > 0,
   };
 };
@@ -111,12 +115,16 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptO
     throw new Error('Undefined Encryption Assertion.');
   }
 
-  const encrypted = options.reportEncryption ? describe(xml, encryptedAssertions[0] as Element) : undefined;
+  const described = options.reportEncryption ? describe(xml, encryptedAssertions[0] as Element) : undefined;
   const assertionNode = parseFromString(decrypted);
   xml.documentElement.removeChild(encryptedAssertions[0]);
   // @ts-expect-error missing Node properties are not needed
   xml.documentElement.appendChild(assertionNode!.childNodes[0]);
 
+  const encrypted = described && {
+    ...described,
+    assertionCount: subtree(xml.documentElement).filter((node) => node.localName === 'Assertion').length,
+  };
   return { assertion: xml.toString(), decrypted: true, encrypted };
 };
 const decryptXml = (

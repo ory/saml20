@@ -1,6 +1,6 @@
 import type { AssertionEncryption, SAMLProfile, ValidateOptions } from './typings';
 import { getVersion } from './getVersion';
-import { verifySignature, sanitizeXML } from './validateSignature';
+import { verifySignature, verifyRootSignature, sanitizeXML } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
 import { decryptXml } from './decrypt';
 import type { EncryptedResponse } from './decrypt';
@@ -109,12 +109,10 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
   }
 
   let signedXml = checkSignature(rawAssertion, options, signatureOptions);
-  let verifiedEncrypted = false;
 
   if (decAssertion && !signedXml) {
     // try the fallback verification where signature has been generated on the encrypted SAML by some IdPs (like OpenAthens)
     signedXml = checkSignature(originalAssertion, options, signatureOptions);
-    verifiedEncrypted = !!signedXml;
   }
 
   if (!signedXml) {
@@ -125,7 +123,10 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
   // in the case of Response XML, we have to handle the Responses with the encrypted SAML Responses
   // so let's use the previous helper function to decrypt response once again (if it is one)
   // if no decryption occured, then decryptedSignedXml is just signedXml
-  const { assertion: decryptedSignedXml } = decryptXml(signedXml, { privateKey: options.privateKey });
+  const { assertion: decryptedSignedXml, encrypted: signedEncrypted } = decryptXml(signedXml, {
+    privateKey: options.privateKey,
+    reportEncryption: options.reportEncryption,
+  });
 
   const assertionObj = xmlToJs(decryptedSignedXml); // this is our assertion object
 
@@ -146,72 +147,86 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
   }
 
   const profile = parseAttributes(assertion);
-  if (encrypted) {
-    profile.encryption = describeEncryption(encrypted, {
-      verifiedEncrypted,
-      assertionSigned: !assertionObj?.Response,
-      original: originalAssertion,
-      options,
-      signatureOptions,
-    });
+  const encryption = options.reportEncryption
+    ? reportEncryption({
+        signedEncrypted,
+        encrypted,
+        assertionSigned: !assertionObj?.Response,
+        original: originalAssertion,
+        options,
+        signatureOptions,
+      })
+    : undefined;
+  if (encryption) {
+    profile.encryption = encryption;
   }
   return profile;
 };
 
-// The signature that validated is known to cover the ciphertext when it was
-// verified over the encrypted response, and known not to when it was a
-// Response signature verified only once decrypted. A signed assertion leaves
-// the Response's own signature unchecked, so that one is verified here.
-const describeEncryption = (
-  { dataAlgorithm, keyTransportAlgorithm, responseSigned }: EncryptedResponse,
-  {
-    verifiedEncrypted,
-    assertionSigned,
-    original,
-    options,
-    signatureOptions,
-  }: {
-    verifiedEncrypted: boolean;
-    assertionSigned: boolean;
-    original: string;
-    options: ValidateOptions;
-    signatureOptions: ValidateSignatureOptions;
+// How the assertion that validated was protected, or undefined when that
+// assertion was not encrypted or cannot be told apart from another one.
+const reportEncryption = ({
+  signedEncrypted,
+  encrypted,
+  assertionSigned,
+  original,
+  options,
+  signatureOptions,
+}: {
+  signedEncrypted?: EncryptedResponse;
+  encrypted?: EncryptedResponse;
+  assertionSigned: boolean;
+  original: string;
+  options: ValidateOptions;
+  signatureOptions: ValidateSignatureOptions;
+}): AssertionEncryption | undefined => {
+  // The signed content held the ciphertext the assertion was decrypted from.
+  if (signedEncrypted) {
+    return {
+      dataAlgorithm: signedEncrypted.dataAlgorithm,
+      keyTransportAlgorithm: signedEncrypted.keyTransportAlgorithm,
+      signaturePlacement: 'response',
+    };
   }
-): AssertionEncryption => {
+  // Otherwise the assertion was read in plaintext from the signed content,
+  // which is the decrypted one only when no other assertion is present.
+  if (!encrypted || encrypted.assertionCount !== 1) {
+    return undefined;
+  }
+  // A signed assertion leaves the Response's own signature unchecked, so that
+  // one is verified here; a Response verified only once decrypted never
+  // covered the ciphertext.
   const covered =
-    verifiedEncrypted ||
-    (responseSigned &&
-      assertionSigned &&
-      responseSignatureCoversCiphertext(original, options, signatureOptions));
+    assertionSigned &&
+    encrypted.responseSigned &&
+    rootSignatureCoversCiphertext(original, encrypted.responseId, options, signatureOptions);
   return {
-    dataAlgorithm,
-    keyTransportAlgorithm,
+    dataAlgorithm: encrypted.dataAlgorithm,
+    keyTransportAlgorithm: encrypted.keyTransportAlgorithm,
     signaturePlacement: covered ? 'response' : 'assertion_only',
   };
 };
 
-const responseSignatureCoversCiphertext = (
+const rootSignatureCoversCiphertext = (
   original: string,
+  responseId: string | undefined,
   options: ValidateOptions,
   signatureOptions: ValidateSignatureOptions
 ): boolean => {
   let signed: string | null;
   try {
-    signed = verifySignature(original, options.publicKey, options.thumbprint, signatureOptions);
+    signed = verifyRootSignature(original, options.publicKey, options.thumbprint, signatureOptions);
   } catch {
     return false;
   }
-  if (!signed) {
-    return false;
-  }
-  const doc = parseFromString(signed);
-  if (!doc) {
+  const root = signed ? parseFromString(signed)?.documentElement : undefined;
+  if (!root || !responseId || root.localName !== 'Response' || root.getAttribute('ID') !== responseId) {
     return false;
   }
   const covering = select(
     "/*[local-name(.)='Response']/*[local-name(.)='EncryptedAssertion']",
     // @ts-expect-error missing Node properties are not needed
-    doc
+    root.ownerDocument
   ) as Node[];
   return covering.length > 0;
 };

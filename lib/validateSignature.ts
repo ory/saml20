@@ -159,21 +159,25 @@ const assertBoundedReferences = (signature: Node, options?: ValidateSignatureOpt
   }
 };
 
+const ROOT_SIGNATURE = `/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`;
+
 const hasValidSignature = (
   xml: string,
   cert: string | null | undefined,
   certThumbprint: string | null | undefined,
-  options?: ValidateSignatureOptions
+  options?: ValidateSignatureOptions,
+  rootSignatureOnly = false
 ): string | null => {
   const doc = parseFromString(xml);
   // @ts-expect-error missing Node properties are not needed
   const selectNodes = (expression: string) => select(expression, doc!) as Node[];
-  let signature =
-    selectNodes(`/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0] ||
-    selectNodes(`/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0] ||
-    selectNodes(`/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0];
+  let signature = rootSignatureOnly
+    ? selectNodes(ROOT_SIGNATURE)?.[0]
+    : selectNodes(`/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0] ||
+      selectNodes(ROOT_SIGNATURE)?.[0] ||
+      selectNodes(`/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0];
 
-  if (!signature) {
+  if (!signature && !rootSignatureOnly) {
     signature = selectNodes("//*[local-name(.)='Signature']")?.[0];
   }
 
@@ -267,6 +271,15 @@ const verifySignature = (
   return hasValidSignature(sanitizeXML(xml), cert, certThumbprint, options);
 };
 
+// verifySignature for the signature that is a child of the root element,
+// whichever other signatures the document holds.
+const verifyRootSignature = (
+  xml: string,
+  cert: string | null | undefined,
+  certThumbprint: string | null | undefined,
+  options?: ValidateSignatureOptions
+): string | null => hasValidSignature(sanitizeXML(xml), cert, certThumbprint, options, true);
+
 // Returns the signed XML, which is what callers must read from; throws when
 // the signature does not verify.
 const validateSignature = (
@@ -286,4 +299,4 @@ const sanitizeXML = (xml: string) => {
   return xml.replace(/&#x(d|D);/gi, '');
 };
 
-export { validateSignature, verifySignature, sanitizeXML };
+export { validateSignature, verifySignature, verifyRootSignature, sanitizeXML };

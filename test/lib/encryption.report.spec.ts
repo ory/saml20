@@ -3,6 +3,7 @@ import assert from 'node:assert';
 import fs from 'fs';
 import { validate } from '../../lib/response';
 import { sign } from '../../lib/sign';
+import { verifyRootSignature, verifySignature } from '../../lib/validateSignature';
 import {
   ACS,
   ASSERTION_XPATH,
@@ -139,6 +140,51 @@ describe('validate reportEncryption', function () {
         '<ds:Reference URI="#_response-1"/></ds:SignedInfo></ds:Signature>-->'
     );
     assert.strictEqual(await placement(xml), 'assertion_only');
+  });
+
+  it('describes the assertion that validated: one from a signed nested response', async function () {
+    const nested = signXml(
+      buildResponse(
+        await encryptAssertion(
+          buildAssertion({ id: '_nested' }),
+          'http://www.w3.org/2009/xmlenc11#aes256-gcm'
+        )
+      ).replace('ID="_response-1"', 'ID="_response-nested"'),
+      RESPONSE_XPATH
+    ).replace(/^<\?xml[^>]*>/, '');
+    const outer = buildResponse(await encrypted(buildAssertion({ id: '_outer' })));
+    const profile = await validate(
+      outer.replace('</samlp:Response>', `${nested}</samlp:Response>`),
+      options()
+    );
+    assert.strictEqual(profile.assertionId, '_nested');
+    assert.deepStrictEqual(profile.encryption, {
+      dataAlgorithm: 'http://www.w3.org/2009/xmlenc11#aes256-gcm',
+      keyTransportAlgorithm: RSA_OAEP_MGF1P,
+      signaturePlacement: 'response',
+    });
+  });
+
+  it('is not reported when the assertion that validated was in plaintext beside an encrypted one', async function () {
+    const both = buildResponse(
+      signXml(buildAssertion({ id: '_plain' }), ASSERTION_XPATH).replace(/^<\?xml[^>]*>/, '') +
+        (await encrypted(buildAssertion({ id: '_encrypted' })))
+    );
+    for (const xml of [both, signXml(both, RESPONSE_XPATH)]) {
+      const profile = await validate(xml, options());
+      assert.strictEqual(profile.assertionId, '_plain');
+      assert.strictEqual(profile.encryption, undefined);
+    }
+  });
+
+  it("verifyRootSignature checks the root element's signature, whichever other one comes first", function () {
+    const xml = signXml(buildResponse(signedAssertion()), RESPONSE_XPATH);
+    assert.match(verifySignature(xml, testIdpCert, undefined)!, /^<saml:Assertion/);
+    assert.match(verifyRootSignature(xml, testIdpCert, undefined)!, /^<samlp:Response/);
+    assert.throws(
+      () => verifyRootSignature(buildResponse(signedAssertion()), testIdpCert, undefined),
+      /no Signature/
+    );
   });
 
   it('is not reported unless asked for', async function () {
