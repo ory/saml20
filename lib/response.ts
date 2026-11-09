@@ -151,7 +151,7 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
   if (options.reportEncryption) {
     // The report is telemetry, so failing to produce one never fails validation.
     try {
-      encryption = reportEncryption({
+      encryption = encryptionReporting.report({
         signedEncrypted,
         encrypted,
         assertionSigned: !assertionObj?.Response,
@@ -212,6 +212,9 @@ const reportEncryption = ({
     signaturePlacement: covered ? 'response' : 'assertion_only',
   };
 };
+
+// Called through this object so tests can make it fail.
+export const encryptionReporting = { report: reportEncryption };
 
 const rootSignatureCoversCiphertext = (
   original: string,

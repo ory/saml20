@@ -82,6 +82,12 @@ const describe = (xml: Document, encryptedAssertion: Element): Omit<EncryptedRes
   };
 };
 
+const countAssertions = (xml: Document): number =>
+  subtree(xml.documentElement).filter((node) => node.localName === 'Assertion').length;
+
+// Called through this object so tests can make each step fail.
+export const encryptionReport = { describe, countAssertions };
+
 const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptOptions) => {
   if (!Array.isArray(encryptedAssertions)) {
     throw new Error('Undefined Encrypted Assertion.');
@@ -123,7 +129,7 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptO
 
   // The report is telemetry, so failing to produce one never fails decryption.
   const described = options.reportEncryption
-    ? attempt(() => describe(xml, encryptedAssertions[0] as Element))
+    ? attempt(() => encryptionReport.describe(xml, encryptedAssertions[0] as Element))
     : undefined;
   const assertionNode = parseFromString(decrypted);
   xml.documentElement.removeChild(encryptedAssertions[0]);
@@ -134,7 +140,7 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptO
     described &&
     attempt(() => ({
       ...described,
-      assertionCount: subtree(xml.documentElement).filter((node) => node.localName === 'Assertion').length,
+      assertionCount: encryptionReport.countAssertions(xml),
     }));
   return { assertion: xml.toString(), decrypted: true, encrypted };
 };
