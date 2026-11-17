@@ -59,7 +59,7 @@ const issuer = saml.parseIssuer(rawResponse);
 
 ### saml.parseResponse(rawResponse)
 
-Parses a SAML Response once and returns `{ xml, document, issuer }`, where `issuer` is what `parseIssuer()` returns. Pass the result to `validate()` in place of the raw response, and it reuses the parse instead of parsing the response again. The result is frozen and can be validated more than once.
+Parses a SAML Response once and returns `{ xml, issuer }`, where `issuer` is what `parseIssuer()` returns. Pass the result to `validate()` in place of the raw response, and it reuses the parse instead of parsing the response again. The parsed document stays inside the library, so nothing outside it can change what `validate()` reads. The result is frozen and can be validated more than once.
 
 ```javascript
 const parsed = saml.parseResponse(rawResponse);

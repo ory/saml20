@@ -31,11 +31,12 @@ const nameFormatUri = [
 // parseResponse.
 export type ParsedResponse = {
   readonly xml: string;
-  readonly document: Document;
   readonly issuer: string | undefined;
 };
 
-const parsedResponses = new WeakSet<ParsedResponse>();
+// The document parsed from each result's xml. Kept out of the result: a DOM cannot be frozen, and one a
+// caller changed would be read for the status while the signature is checked against xml.
+const parsedDocuments = new WeakMap<ParsedResponse, Document>();
 
 const parseResponse = (rawAssertion: string): ParsedResponse => {
   if (!rawAssertion) {
@@ -50,8 +51,8 @@ const parseResponse = (rawAssertion: string): ParsedResponse => {
   ) as Node[];
   const issuer = issuerValue && issuerValue.length > 0 ? issuerValue[0].textContent?.toString() : undefined;
 
-  const parsed = Object.freeze({ xml: rawAssertion, document, issuer });
-  parsedResponses.add(parsed);
+  const parsed = Object.freeze({ xml: rawAssertion, issuer });
+  parsedDocuments.set(parsed, document);
 
   return parsed;
 };
@@ -62,8 +63,7 @@ const validate = async (
   response: string | ParsedResponse,
   options: ValidateOptions
 ): Promise<SAMLProfile> => {
-  // Only a response parseResponse made is trusted to hold the document parsed from its own XML.
-  const parsed = typeof response === 'string' || !parsedResponses.has(response) ? undefined : response;
+  const parsedDocument = typeof response === 'string' ? undefined : parsedDocuments.get(response);
   let rawAssertion = typeof response === 'string' ? response : response?.xml;
   const originalAssertion = rawAssertion;
   if (!rawAssertion) {
@@ -109,7 +109,7 @@ const validate = async (
   };
 
   // parseFromString reports a multi-rooted document as multiRootedXMLError.
-  const document = parsed?.document ?? (parseFromString(rawAssertion) as unknown as Document);
+  const document = parsedDocument ?? (parseFromString(rawAssertion) as unknown as Document);
 
   const {
     assertion: decryptedResponse,

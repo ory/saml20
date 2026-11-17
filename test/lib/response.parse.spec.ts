@@ -78,6 +78,17 @@ describe('parseResponse()', function () {
   it('cannot be changed', function () {
     assert.ok(Object.isFrozen(parseResponse(signed)));
   });
+
+  it('keeps the document it validates to itself', async function () {
+    const failed = buildResponse(
+      signXml(buildAssertion(), ASSERTION_XPATH),
+      'urn:oasis:names:tc:SAML:2.0:status:Requester'
+    );
+    const parsed = parseResponse(failed);
+
+    assert.deepStrictEqual(Object.keys(parsed).sort(), ['issuer', 'xml']);
+    await assert.rejects(validate(parsed, options()), { message: 'Invalid Status Code (Requester).' });
+  });
 });
 
 describe('validate() parses', function () {
