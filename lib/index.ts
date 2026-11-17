@@ -12,7 +12,8 @@ import {
 } from './request';
 import type { DecodeBase64Options } from './request';
 import { stripCertHeaderAndFooter, certToPEM } from './cert';
-import { createSAMLResponse, validate, parseIssuer, WrapError } from './response';
+import { createSAMLResponse, validate, parseIssuer, parseResponse, WrapError } from './response';
+import type { ParsedResponse } from './response';
 import { parseMetadata, createIdPMetadataXML, createSPMetadataXML } from './metadata';
 import { createPostForm } from './post';
 import { sign } from './sign';
@@ -45,6 +46,7 @@ export default {
   validateSignature,
   DEFAULT_MAX_SIGNATURE_REFERENCES,
   parseIssuer,
+  parseResponse,
   WrapError,
   containsDoctype,
   parseLogoutResponse,
@@ -75,6 +77,7 @@ export {
   validateSignature,
   DEFAULT_MAX_SIGNATURE_REFERENCES,
   parseIssuer,
+  parseResponse,
   WrapError,
   containsDoctype,
   parseLogoutResponse,
@@ -92,6 +95,7 @@ export type {
   AssertionEncryption,
 } from './typings';
 export type { ParseMetadataOptions, ParsedMetadata, MetadataEndpoints } from './metadata';
+export type { ParsedResponse };
 
 export type {
   ParsedLogoutResponse,

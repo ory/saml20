@@ -26,6 +26,7 @@ const api = [
   'parseLogoutRequest',
   'parseLogoutResponse',
   'parseMetadata',
+  'parseResponse',
   'parseSAMLRequest',
   'request',
   'samlRequestDecodeError',

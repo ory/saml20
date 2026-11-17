@@ -144,25 +144,30 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptO
     }));
   return { assertion: xml.toString(), decrypted: true, encrypted };
 };
+const encryptedAssertionsOf = (xml: unknown) =>
+  select(
+    "/*[contains(local-name(), 'Response')]/*[local-name(.)='EncryptedAssertion']",
+    // @ts-expect-error missing Node properties are not needed
+    xml
+  ) as Node[];
+
+// `parsed` is entireXML already parsed; it is only read, never changed.
 const decryptXml = (
   entireXML: string,
-  options: DecryptOptions
+  options: DecryptOptions,
+  parsed?: Document
 ): { assertion: string; decrypted: boolean; encrypted?: EncryptedResponse } => {
   if (!entireXML) {
     throw new Error('Undefined Assertion.');
   }
 
-  const xml = parseFromString(entireXML);
+  const xml = parsed ?? parseFromString(entireXML);
 
-  const encryptedAssertions = select(
-    "/*[contains(local-name(), 'Response')]/*[local-name(.)='EncryptedAssertion']",
+  if (encryptedAssertionsOf(xml).length >= 1) {
+    // Decryption rewrites the document it is given.
+    const own = parsed ? parseFromString(entireXML) : xml;
     // @ts-expect-error missing Node properties are not needed
-    xml!
-  ) as Node[];
-
-  if (encryptedAssertions.length >= 1) {
-    // @ts-expect-error missing Node properties are not needed
-    return assertion(xml!, encryptedAssertions, options);
+    return assertion(own!, encryptedAssertionsOf(own), options);
   }
 
   return { assertion: entireXML, decrypted: false };

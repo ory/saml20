@@ -27,24 +27,44 @@ const nameFormatUri = [
   'urn:mace:dir:attribute-def:jpegPhoto',
 ];
 
-const parseIssuer = (rawAssertion: string) => {
+// A SAML response parsed once, so reading its Issuer and validating it share the parse. Made only by
+// parseResponse.
+export type ParsedResponse = {
+  readonly xml: string;
+  readonly document: Document;
+  readonly issuer: string | undefined;
+};
+
+const parsedResponses = new WeakSet<ParsedResponse>();
+
+const parseResponse = (rawAssertion: string): ParsedResponse => {
   if (!rawAssertion) {
     throw new Error('rawAssertion is required.');
   }
 
-  const xml = parseFromString(rawAssertion);
+  const document = parseFromString(rawAssertion) as unknown as Document;
 
   const issuerValue = select(
     "/*[contains(local-name(), 'Response')]/*[local-name(.)='Issuer']",
-    // @ts-expect-error missing Node properties are not needed
-    xml!
+    document
   ) as Node[];
-  if (issuerValue && issuerValue.length > 0) {
-    return issuerValue[0].textContent?.toString();
-  }
+  const issuer = issuerValue && issuerValue.length > 0 ? issuerValue[0].textContent?.toString() : undefined;
+
+  const parsed = Object.freeze({ xml: rawAssertion, document, issuer });
+  parsedResponses.add(parsed);
+
+  return parsed;
 };
 
-const validate = async (rawAssertion: string, options: ValidateOptions): Promise<SAMLProfile> => {
+const parseIssuer = (rawAssertion: string) => parseResponse(rawAssertion).issuer;
+
+const validate = async (
+  response: string | ParsedResponse,
+  options: ValidateOptions
+): Promise<SAMLProfile> => {
+  // Only a response parseResponse made is trusted to hold the document parsed from its own XML.
+  const parsed = typeof response === 'string' || !parsedResponses.has(response) ? undefined : response;
+  let rawAssertion = typeof response === 'string' ? response : response?.xml;
   const originalAssertion = rawAssertion;
   if (!rawAssertion) {
     throw new Error('rawAssertion is required.');
@@ -94,7 +114,7 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     assertion: decryptedResponse,
     decrypted: decAssertion,
     encrypted,
-  } = decryptXml(rawAssertion, options);
+  } = decryptXml(rawAssertion, options, parsed?.document);
   rawAssertion = decryptedResponse;
 
   // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention
@@ -562,4 +582,4 @@ const createSAMLResponse = async ({
   return signedXml;
 };
 
-export { createSAMLResponse, validate, parseIssuer, WrapError };
+export { createSAMLResponse, validate, parseIssuer, parseResponse, WrapError };
