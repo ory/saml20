@@ -72,3 +72,35 @@ describe('parseResponse()', function () {
     assert.ok(Object.isFrozen(parseResponse(signed)));
   });
 });
+
+describe('validate() parses', function () {
+  // How many times each distinct string was parsed while validating.
+  const parsesDuring = async (
+    t: { mock: { method: typeof import('node:test').mock.method } },
+    run: () => Promise<unknown>
+  ) => {
+    const original = DOMParser.prototype.parseFromString;
+    const counts = new Map<string, number>();
+    t.mock.method(
+      DOMParser.prototype,
+      'parseFromString',
+      function (this: DOMParser, xml: string, mime: string) {
+        counts.set(xml, (counts.get(xml) ?? 0) + 1);
+        return original.call(this, xml, mime as never);
+      }
+    );
+    await run();
+    return counts;
+  };
+
+  it('the signed content once when it holds no encrypted assertion', async function (t) {
+    const assertion = signXml(buildAssertion(), ASSERTION_XPATH);
+    const counts = await parsesDuring(t, () => validate(buildResponse(assertion), options()));
+
+    const signedContent = [...counts.keys()].filter((xml) => xml.startsWith('<saml:Assertion'));
+    assert.deepStrictEqual(
+      signedContent.map((xml) => counts.get(xml)),
+      [1]
+    );
+  });
+});

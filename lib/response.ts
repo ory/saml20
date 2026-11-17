@@ -108,13 +108,14 @@ const validate = async (
     maxSignatureReferences: options.maxSignatureReferences,
   };
 
-  // decryptXml parses with parseFromString, which already reports any
-  // multi-rooted document as multiRootedXMLError.
+  // parseFromString reports a multi-rooted document as multiRootedXMLError.
+  const document = parsed?.document ?? (parseFromString(rawAssertion) as unknown as Document);
+
   const {
     assertion: decryptedResponse,
     decrypted: decAssertion,
     encrypted,
-  } = decryptXml(rawAssertion, options, parsed?.document);
+  } = decryptXml(rawAssertion, options, document);
   rawAssertion = decryptedResponse;
 
   // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention

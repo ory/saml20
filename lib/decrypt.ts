@@ -161,6 +161,12 @@ const decryptXml = (
     throw new Error('Undefined Assertion.');
   }
 
+  // An EncryptedAssertion element cannot be written without its name: DTDs, and with them entities, are
+  // refused. Text without the name needs no parse to show there is nothing to decrypt.
+  if (!parsed && !entireXML.includes('EncryptedAssertion')) {
+    return { assertion: entireXML, decrypted: false };
+  }
+
   const xml = parsed ?? parseFromString(entireXML);
 
   if (encryptedAssertionsOf(xml).length >= 1) {
