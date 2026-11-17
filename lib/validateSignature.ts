@@ -166,9 +166,10 @@ const hasValidSignature = (
   cert: string | null | undefined,
   certThumbprint: string | null | undefined,
   options?: ValidateSignatureOptions,
-  rootSignatureOnly = false
+  rootSignatureOnly = false,
+  parsed?: Document
 ): string | null => {
-  const doc = parseFromString(xml);
+  const doc = parsed ?? parseFromString(xml);
   // @ts-expect-error missing Node properties are not needed
   const selectNodes = (expression: string) => select(expression, doc!) as Node[];
   let signature = rootSignatureOnly
@@ -258,17 +259,28 @@ const hasValidSignature = (
 
 // Returns null when the signature does not verify, and throws when the
 // document cannot be checked at all; validate() retries only on null.
+// `parsed` is xml already parsed. It is used only when sanitizeXML leaves xml as it is, and is only read.
 const verifySignature = (
   xml: string,
   cert: string | null | undefined,
   certThumbprint: string | null | undefined,
-  options?: ValidateSignatureOptions
+  options?: ValidateSignatureOptions,
+  parsed?: Document
 ): string | null => {
   if (cert && certThumbprint) {
     throw new Error('You should provide either cert or certThumbprint, not both');
   }
 
-  return hasValidSignature(sanitizeXML(xml), cert, certThumbprint, options);
+  const sanitized = sanitizeXML(xml);
+
+  return hasValidSignature(
+    sanitized,
+    cert,
+    certThumbprint,
+    options,
+    false,
+    sanitized === xml ? parsed : undefined
+  );
 };
 
 // verifySignature for the signature that is a child of the root element,

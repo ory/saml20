@@ -128,11 +128,16 @@ const validate = async (
     throw statusError;
   }
 
-  let signedXml = checkSignature(rawAssertion, options, signatureOptions);
+  let signedXml = checkSignature(
+    rawAssertion,
+    options,
+    signatureOptions,
+    decAssertion ? undefined : document
+  );
 
   if (decAssertion && !signedXml) {
     // try the fallback verification where signature has been generated on the encrypted SAML by some IdPs (like OpenAthens)
-    signedXml = checkSignature(originalAssertion, options, signatureOptions);
+    signedXml = checkSignature(originalAssertion, options, signatureOptions, document);
   }
 
   if (!signedXml) {
@@ -266,10 +271,11 @@ const rootSignatureCoversCiphertext = (
 const checkSignature = (
   xml: string,
   options: ValidateOptions,
-  signatureOptions: ValidateSignatureOptions
+  signatureOptions: ValidateSignatureOptions,
+  parsed?: Document
 ): string | null => {
   try {
-    return verifySignature(xml, options.publicKey, options.thumbprint, signatureOptions);
+    return verifySignature(xml, options.publicKey, options.thumbprint, signatureOptions, parsed);
   } catch (e) {
     const error = new WrapError('Invalid assertion.');
     error.inner = e as Error;

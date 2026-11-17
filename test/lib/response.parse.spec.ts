@@ -59,6 +59,13 @@ describe('parseResponse()', function () {
     assert.strictEqual(parses.mock.callCount(), separately - 1);
   });
 
+  it('can be validated more than once', async function () {
+    const parsed = parseResponse(signed);
+
+    const first = await validate(parsed, options());
+    assert.deepStrictEqual(await validate(parsed, options()), first);
+  });
+
   it('can be validated more than once when the assertion is encrypted', async function () {
     const parsed = parseResponse(encrypted);
     const decrypting = options({ privateKey: testIdpKey });
@@ -109,6 +116,13 @@ describe('validate() parses', function () {
     const counts = await parsesDuring(t, () => validate(response, options()));
 
     assert.ok((counts.get(response) ?? 0) <= 2, `parsed ${counts.get(response)} times`);
+  });
+
+  it('the response once when its signature is checked', async function (t) {
+    const response = buildResponse(signXml(buildAssertion(), ASSERTION_XPATH));
+    const counts = await parsesDuring(t, () => validate(response, options()));
+
+    assert.strictEqual(counts.get(response), 1);
   });
 
   it('still rejects a bare ampersand outside the signed content', async function () {
