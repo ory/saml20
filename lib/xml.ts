@@ -136,12 +136,14 @@ const withoutOpaqueSpans = (xml: string): string => {
 // tolerates most of these; the XML specification does not.
 const bareAmpersand = /&(?!(?:[A-Za-z_:][\w.:-]*|#\d+|#x[0-9A-Fa-f]+);)/;
 
+const hasBareAmpersand = (xml: string) => bareAmpersand.test(withoutOpaqueSpans(xml));
+
 const xmlToObject = (xml: string, options: XmlObjectOptions): XmlNode | null => {
   xml = xml.replace(/^\uFEFF/, '').replace(misplacedDeclaration, '$1');
   if (xml.trim() === '') {
     return null;
   }
-  if (bareAmpersand.test(withoutOpaqueSpans(xml))) {
+  if (hasBareAmpersand(xml)) {
     throw new Error('Invalid XML.');
   }
   const root = parseFromString(xml, undeclaredPrefixes(xml)).documentElement as unknown as Element;
@@ -207,5 +209,5 @@ const buildXml = (nodes: object, { pretty, ...declaration }: BuildOptions = {}):
   return escapeNormalizedWhitespace(xml);
 };
 
-export { xmlToObject, buildXml };
+export { xmlToObject, buildXml, hasBareAmpersand, stripPrefix };
 export type { XmlObjectOptions, XmlNode, XmlValue };

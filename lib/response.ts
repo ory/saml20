@@ -7,7 +7,7 @@ import type { EncryptedResponse } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
 import { parseFromString, WrapError, generateId, getAttribute } from './utils';
-import { xmlToObject, buildXml } from './xml';
+import { xmlToObject, buildXml, hasBareAmpersand, stripPrefix } from './xml';
 import type { XmlNode, XmlValue } from './xml';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS, XML_SCHEMA_INSTANCE_NS, XML_SCHEMA_NS } from './constants';
@@ -118,13 +118,12 @@ const validate = async (
   } = decryptXml(rawAssertion, options, document);
   rawAssertion = decryptedResponse;
 
-  // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention
-  const responseObj = xmlToJs(rawAssertion);
-
   // Stop on a non-Success status. Carrying on would run signature checks and,
   // worse, the caller's replay validator, which may record the assertion as
   // used even though the response is rejected here.
-  const statusError = getStatusCodeError(responseObj);
+  const statusError = readsAsParsed(rawAssertion, decAssertion)
+    ? getStatusCodeError(document, rawAssertion)
+    : getStatusCodeErrorOf(xmlToJs(rawAssertion));
   if (statusError) {
     throw statusError;
   }
@@ -359,16 +358,53 @@ const xmlToJs = (rawAssertion: string) => {
   }
 };
 
-// Returns an error for a top-level StatusCode other than Success, or undefined
-// when the status is Success or absent.
-const getStatusCodeError = (responseObj: XmlNode | null): Error | undefined => {
-  const statusValue = getAttribute<string | undefined>(responseObj, 'Response.Status.StatusCode.@.Value');
+// The response text is the one `document` was parsed from, unchanged by decryption and by sanitizeXML,
+// which xmlToJs applies. Only then is the document read in place of xmlToJs.
+const readsAsParsed = (rawAssertion: string, decrypted: boolean) =>
+  !decrypted && sanitizeXML(rawAssertion) === rawAssertion;
+
+// The element's one child element of this name, as xmlToObject names them: without the prefix. Undefined
+// when there is none, or more than one.
+const onlyChild = (element: Element | undefined, name: string): Element | undefined => {
+  let found: Element | undefined;
+  for (let node = element?.firstChild; node; node = node.nextSibling) {
+    if (node.nodeType === 1 && stripPrefix((node as Element).tagName) === name) {
+      if (found) {
+        return undefined;
+      }
+      found = node as Element;
+    }
+  }
+  return found;
+};
+
+const statusCodeError = (statusValue: string | undefined | null): Error | undefined => {
   const status = statusValue ? statusValue.split(':').pop() : undefined;
 
   if (status && status !== 'Success') {
     return new Error(`Invalid Status Code (${status}).`);
   }
   return undefined;
+};
+
+// Returns an error for a top-level StatusCode other than Success, or undefined
+// when the status is Success or absent.
+const getStatusCodeErrorOf = (responseObj: XmlNode | null): Error | undefined =>
+  statusCodeError(getAttribute<string | undefined>(responseObj, 'Response.Status.StatusCode.@.Value'));
+
+// getStatusCodeErrorOf for the document parsed from `xml`, read as xmlToJs would: xmlToJs refuses a bare
+// ampersand that the parser lets through, and does not descend into a child element that is not alone.
+const getStatusCodeError = (document: Document, xml: string): Error | undefined => {
+  if (hasBareAmpersand(xml)) {
+    const error = new WrapError('An error occurred trying to parse XML assertion.');
+    error.inner = new Error('Invalid XML.');
+    throw error;
+  }
+  const root = document.documentElement ?? undefined;
+  const response = root && stripPrefix(root.tagName) === 'Response' ? root : undefined;
+  const statusCode = onlyChild(onlyChild(response, 'Status'), 'StatusCode');
+
+  return statusCodeError(statusCode?.hasAttribute('Value') ? statusCode.getAttribute('Value') : undefined);
 };
 
 /*

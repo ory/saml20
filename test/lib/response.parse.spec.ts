@@ -103,4 +103,31 @@ describe('validate() parses', function () {
       [1]
     );
   });
+
+  it('the response for its status without building objects from it', async function (t) {
+    const response = buildResponse(signXml(buildAssertion(), ASSERTION_XPATH));
+    const counts = await parsesDuring(t, () => validate(response, options()));
+
+    assert.ok((counts.get(response) ?? 0) <= 2, `parsed ${counts.get(response)} times`);
+  });
+
+  it('still rejects a bare ampersand outside the signed content', async function () {
+    const response = buildResponse(signXml(buildAssertion(), ASSERTION_XPATH)).replace(
+      '</samlp:Response>',
+      '<samlp:Extensions>a & b</samlp:Extensions></samlp:Response>'
+    );
+
+    await assert.rejects(validate(response, options()), {
+      message: 'An error occurred trying to parse XML assertion.',
+    });
+  });
+
+  it('still reads the status of a response that is not a success', async function () {
+    const response = buildResponse(
+      signXml(buildAssertion(), ASSERTION_XPATH),
+      'urn:oasis:names:tc:SAML:2.0:status:Requester'
+    );
+
+    await assert.rejects(validate(response, options()), { message: 'Invalid Status Code (Requester).' });
+  });
 });
