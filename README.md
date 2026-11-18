@@ -57,6 +57,19 @@ Returns the `Issuer` of a SAML Response without validating anything. Use it to f
 const issuer = saml.parseIssuer(rawResponse);
 ```
 
+### saml.parseResponse(rawResponse)
+
+Parses a SAML Response once and returns `{ xml, issuer }`, where `issuer` is what `parseIssuer()` returns. Pass the result to `validate()` in place of the raw response, and it reuses the parse instead of parsing the response again. The parsed document stays inside the library, so nothing outside it can change what `validate()` reads. The result is frozen and can be validated more than once.
+
+```javascript
+const parsed = saml.parseResponse(rawResponse);
+const profile = await saml.validate(parsed, {
+  publicKey: certificateFor(parsed.issuer),
+  audience,
+  inResponseTo,
+});
+```
+
 ### saml.validateSignature(xml, publicKey, thumbprint, options?)
 
 Verifies the XML signature on `xml` and returns the signed XML. Read the document from that return value, not from `xml`: only the signed content is covered. It throws when the signature is invalid or cannot be checked; a signature that does not verify fails with `invalid signature: the signature does not verify`. Pass either `publicKey` (one certificate, or several separated by commas for key rotation) or `thumbprint`, not both.

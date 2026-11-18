@@ -7,7 +7,7 @@ import type { EncryptedResponse } from './decrypt';
 import { select } from 'xpath';
 import saml20 from './saml20';
 import { parseFromString, WrapError, generateId, getAttribute } from './utils';
-import { xmlToObject, buildXml } from './xml';
+import { xmlToObject, buildXml, hasBareAmpersand, stripPrefix } from './xml';
 import type { XmlNode, XmlValue } from './xml';
 import { sign } from './sign';
 import { ASSERTION_NS, PROTOCOL_NS, XML_SCHEMA_INSTANCE_NS, XML_SCHEMA_NS } from './constants';
@@ -27,24 +27,44 @@ const nameFormatUri = [
   'urn:mace:dir:attribute-def:jpegPhoto',
 ];
 
-const parseIssuer = (rawAssertion: string) => {
+// A SAML response parsed once, so reading its Issuer and validating it share the parse. Made only by
+// parseResponse.
+export type ParsedResponse = {
+  readonly xml: string;
+  readonly issuer: string | undefined;
+};
+
+// The document parsed from each result's xml. Kept out of the result: a DOM cannot be frozen, and one a
+// caller changed would be read for the status while the signature is checked against xml.
+const parsedDocuments = new WeakMap<ParsedResponse, Document>();
+
+const parseResponse = (rawAssertion: string): ParsedResponse => {
   if (!rawAssertion) {
     throw new Error('rawAssertion is required.');
   }
 
-  const xml = parseFromString(rawAssertion);
+  const document = parseFromString(rawAssertion) as unknown as Document;
 
   const issuerValue = select(
     "/*[contains(local-name(), 'Response')]/*[local-name(.)='Issuer']",
-    // @ts-expect-error missing Node properties are not needed
-    xml!
+    document
   ) as Node[];
-  if (issuerValue && issuerValue.length > 0) {
-    return issuerValue[0].textContent?.toString();
-  }
+  const issuer = issuerValue && issuerValue.length > 0 ? issuerValue[0].textContent?.toString() : undefined;
+
+  const parsed = Object.freeze({ xml: rawAssertion, issuer });
+  parsedDocuments.set(parsed, document);
+
+  return parsed;
 };
 
-const validate = async (rawAssertion: string, options: ValidateOptions): Promise<SAMLProfile> => {
+const parseIssuer = (rawAssertion: string) => parseResponse(rawAssertion).issuer;
+
+const validate = async (
+  response: string | ParsedResponse,
+  options: ValidateOptions
+): Promise<SAMLProfile> => {
+  const parsedDocument = typeof response === 'string' ? undefined : parsedDocuments.get(response);
+  let rawAssertion = typeof response === 'string' ? response : response?.xml;
   const originalAssertion = rawAssertion;
   if (!rawAssertion) {
     throw new Error('rawAssertion is required.');
@@ -88,31 +108,36 @@ const validate = async (rawAssertion: string, options: ValidateOptions): Promise
     maxSignatureReferences: options.maxSignatureReferences,
   };
 
-  // decryptXml parses with parseFromString, which already reports any
-  // multi-rooted document as multiRootedXMLError.
+  // parseFromString reports a multi-rooted document as multiRootedXMLError.
+  const document = parsedDocument ?? (parseFromString(rawAssertion) as unknown as Document);
+
   const {
     assertion: decryptedResponse,
     decrypted: decAssertion,
     encrypted,
-  } = decryptXml(rawAssertion, options);
+  } = decryptXml(rawAssertion, options, document);
   rawAssertion = decryptedResponse;
-
-  // rawAssertion is our SAML Response. However, we still call it rawAssertion because of legacy naming convention
-  const responseObj = xmlToJs(rawAssertion);
 
   // Stop on a non-Success status. Carrying on would run signature checks and,
   // worse, the caller's replay validator, which may record the assertion as
   // used even though the response is rejected here.
-  const statusError = getStatusCodeError(responseObj);
+  const statusError = readsAsParsed(rawAssertion, decAssertion)
+    ? getStatusCodeError(document, rawAssertion)
+    : getStatusCodeErrorOf(xmlToJs(rawAssertion));
   if (statusError) {
     throw statusError;
   }
 
-  let signedXml = checkSignature(rawAssertion, options, signatureOptions);
+  let signedXml = checkSignature(
+    rawAssertion,
+    options,
+    signatureOptions,
+    decAssertion ? undefined : document
+  );
 
   if (decAssertion && !signedXml) {
     // try the fallback verification where signature has been generated on the encrypted SAML by some IdPs (like OpenAthens)
-    signedXml = checkSignature(originalAssertion, options, signatureOptions);
+    signedXml = checkSignature(originalAssertion, options, signatureOptions, document);
   }
 
   if (!signedXml) {
@@ -246,10 +271,11 @@ const rootSignatureCoversCiphertext = (
 const checkSignature = (
   xml: string,
   options: ValidateOptions,
-  signatureOptions: ValidateSignatureOptions
+  signatureOptions: ValidateSignatureOptions,
+  parsed?: Document
 ): string | null => {
   try {
-    return verifySignature(xml, options.publicKey, options.thumbprint, signatureOptions);
+    return verifySignature(xml, options.publicKey, options.thumbprint, signatureOptions, parsed);
   } catch (e) {
     const error = new WrapError('Invalid assertion.');
     error.inner = e as Error;
@@ -338,16 +364,53 @@ const xmlToJs = (rawAssertion: string) => {
   }
 };
 
-// Returns an error for a top-level StatusCode other than Success, or undefined
-// when the status is Success or absent.
-const getStatusCodeError = (responseObj: XmlNode | null): Error | undefined => {
-  const statusValue = getAttribute<string | undefined>(responseObj, 'Response.Status.StatusCode.@.Value');
+// The response text is the one `document` was parsed from, unchanged by decryption and by sanitizeXML,
+// which xmlToJs applies. Only then is the document read in place of xmlToJs.
+const readsAsParsed = (rawAssertion: string, decrypted: boolean) =>
+  !decrypted && sanitizeXML(rawAssertion) === rawAssertion;
+
+// The element's one child element of this name, as xmlToObject names them: without the prefix. Undefined
+// when there is none, or more than one.
+const onlyChild = (element: Element | undefined, name: string): Element | undefined => {
+  let found: Element | undefined;
+  for (let node = element?.firstChild; node; node = node.nextSibling) {
+    if (node.nodeType === 1 && stripPrefix((node as Element).tagName) === name) {
+      if (found) {
+        return undefined;
+      }
+      found = node as Element;
+    }
+  }
+  return found;
+};
+
+const statusCodeError = (statusValue: string | undefined | null): Error | undefined => {
   const status = statusValue ? statusValue.split(':').pop() : undefined;
 
   if (status && status !== 'Success') {
     return new Error(`Invalid Status Code (${status}).`);
   }
   return undefined;
+};
+
+// Returns an error for a top-level StatusCode other than Success, or undefined
+// when the status is Success or absent.
+const getStatusCodeErrorOf = (responseObj: XmlNode | null): Error | undefined =>
+  statusCodeError(getAttribute<string | undefined>(responseObj, 'Response.Status.StatusCode.@.Value'));
+
+// getStatusCodeErrorOf for the document parsed from `xml`, read as xmlToJs would: xmlToJs refuses a bare
+// ampersand that the parser lets through, and does not descend into a child element that is not alone.
+const getStatusCodeError = (document: Document, xml: string): Error | undefined => {
+  if (hasBareAmpersand(xml)) {
+    const error = new WrapError('An error occurred trying to parse XML assertion.');
+    error.inner = new Error('Invalid XML.');
+    throw error;
+  }
+  const root = document.documentElement ?? undefined;
+  const response = root && stripPrefix(root.tagName) === 'Response' ? root : undefined;
+  const statusCode = onlyChild(onlyChild(response, 'Status'), 'StatusCode');
+
+  return statusCodeError(statusCode?.hasAttribute('Value') ? statusCode.getAttribute('Value') : undefined);
 };
 
 /*
@@ -562,4 +625,4 @@ const createSAMLResponse = async ({
   return signedXml;
 };
 
-export { createSAMLResponse, validate, parseIssuer, WrapError };
+export { createSAMLResponse, validate, parseIssuer, parseResponse, WrapError };
