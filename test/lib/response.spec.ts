@@ -612,7 +612,9 @@ describe('validate() with an assertion encrypted before the Response was signed'
         'Destination="https://evil.example.com/acs"'
       );
       assert.notStrictEqual(tampered, signedEncrypted);
-      await assert.rejects(validate(tampered, options({ publicKey })));
+      await assert.rejects(validate(tampered, options({ publicKey })), {
+        message: 'Invalid assertion signature.',
+      });
     });
 
     it(`still checks the audience with ${label}`, async function () {
@@ -632,7 +634,8 @@ describe('validate() with an assertion encrypted before the Response was signed'
 
   it('rejects the encrypted Response when none of the certificates is trusted', async function () {
     await assert.rejects(
-      validate(signedEncrypted, options({ publicKey: [certificate, certificate].join(',') }))
+      validate(signedEncrypted, options({ publicKey: [certificate, certificate].join(',') })),
+      /Invalid assertion/
     );
   });
 
