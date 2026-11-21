@@ -220,7 +220,10 @@ const hasValidSignature = (
         break;
       }
     }
-    if (!valid) {
+    // A digest mismatch must reach validate()'s original encrypted-response
+    // fallback, just as it does with a single certificate. Still throw if
+    // every verification attempt threw instead of returning false.
+    if (!valid && valid !== false) {
       throw new Error('invalid signature: Failed to verify signature against all the certificates provided.');
     }
   } else {
