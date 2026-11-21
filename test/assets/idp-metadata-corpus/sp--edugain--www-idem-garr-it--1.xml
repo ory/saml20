@@ -1,0 +1,159 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://idemidp.polito.it/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2025-05-26T08:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/raw/idem-mrps-1.0.md</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://idemidp.polito.it/Shibboleth.sso/Login" />
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://idemidp.polito.it/Shibboleth.sso/Login" index="1" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">EduGateway Polito</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">EduGateway Polito</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Allows access to contents reserved to the IDEM/eduGAIN federated members</mdui:Description>
+          <mdui:Description xml:lang="it">Permette di accedere ai contenuti riservati ai membri della federazione IDEM/eduGAIN</mdui:Description>
+          <mdui:Keywords xml:lang="en">PoliTO
+Politecnico di Torino</mdui:Keywords>
+          <mdui:Keywords xml:lang="it">PoliTO
+Politecnico di Torino</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://idemidp.polito.it/info/?lang=en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="it">https://idemidp.polito.it/info/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://idemidp.polito.it/info/privacy?lang=en</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="it">https://idemidp.polito.it/info/privacy</mdui:PrivacyStatementURL>
+          <mdui:Logo height="109" width="248">https://idp.polito.it/polito.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEBTCCAm2gAwIBAgIUXfZdRogHz4919obF2d9UHgz5R98wDQYJKoZIhvcNAQEL
+BQAwHDEaMBgGA1UEAxMRaWRlbWlkcC5wb2xpdG8uaXQwHhcNMjUwMjAzMTY0MzMw
+WhcNMzUwMjAxMTY0MzMwWjAcMRowGAYDVQQDExFpZGVtaWRwLnBvbGl0by5pdDCC
+AaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMSxgfUc2z0464Hu0XZYL1b2
+7GrZGNqdr5oCNBjyBXp0q4vBVBQMYifUnC53UPY/GNSVLWS3KRfU++kknRZkRxh4
+0pBLxj6d0LzGch8SNvUgcff4WFl+xB4v1QfOZxtErIAfAfe6+8zFFdUQSmp7Y5dz
+xG7boY7QjueECDbv2OuZGXFLmP3b9gMYTUt064ZmHTIAfyDLtOCRZ83NOJYlsAOD
+Xea2lsl8j11q/p8yNVoDBSyiSm20h4sCsm6rCetj0w/vXfpDHhfMPVj8pAnbAKcT
+ypLTg2O+/wuCPGcuAEbYsRyn8hPvwK85j2UMyWxMKmVGh9Zzl9yOp/8IrNNdEmfZ
+uNqZ4rfnzodvf2oEqJLDiMI32dowo+yXzGiavVmmSLKVoW9DV3uCII/Sa2E8NQ49
+P3q+O4ysD1MHSfLaocF5p4gKVuDsZreULqBWRIHvGLpmeb+oY5+uC9ick4jO5dbe
+oYpL7F9/pj9XwKUDxL2heFoMoSuxNz/+g/J6vh+9OQIDAQABoz8wPTAcBgNVHREE
+FTATghFpZGVtaWRwLnBvbGl0by5pdDAdBgNVHQ4EFgQUuaPkdqmQuB3YRDvPBOlI
+12IWJxkwDQYJKoZIhvcNAQELBQADggGBAIbtMU7qkDiWK+Tc++o5fMQklzKrIcSY
+IjgN/R2bKFKrEvCADSs854jUwASX8bZh0z9jZzZfd/BbHA1qwxgtGR59GbYt90bb
+XqL3NxbmrtWpPab4H+tsXdtYmWswJtvJJ1TPmAJRZcaMI+T2TREar/SXIk/JLYv0
+WlxsKaW50z6XUbw5jewq3SceKbcHC4EKlF/rYclcYt3Iogw4ymbtpDl/kTwUlZCT
+JXzu5V6yQ5tI5bCcfEjUBQDTFeYVQAbZXvNrfOZ0D5oKXj/islxXVSEQgcRHUmlX
+FwGmrlqPkfvlSnNpIYfECuEaQg+jlErQXB578V4tH/dZgpCsTobqF490jzJeeOKq
+8yZIx6+UU5/F7cQDwf75Q7vhr/0RZMQl+irZPuC+4cpBKXnsEfK4PtrpbGkUXkMn
+t4UpEfyhuggmQ41FDjHVkiqy6BvZVQEuznQjWs+Yg6WGawxuCxbrH6B9tnJaXaET
+jAWvwYobS2qfhXqDcJzqch+IGgH4wgRyRA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEBTCCAm2gAwIBAgIUSCVRf2m5aFx/3P8vftNAH2/OBGAwDQYJKoZIhvcNAQEL
+BQAwHDEaMBgGA1UEAxMRaWRlbWlkcC5wb2xpdG8uaXQwHhcNMjUwMjAzMTY0MzQz
+WhcNMzUwMjAxMTY0MzQzWjAcMRowGAYDVQQDExFpZGVtaWRwLnBvbGl0by5pdDCC
+AaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMrKBDN839XUX7MrUhQqFZJ6
+MN+Un8awl1uWKiM54/Vcx7cWjP9VsHEjmYF47iiAZhQrPJ6KF/WXu6neC6qfJ0Kz
+OzfrKbAVkWhUtQFKdCkoiIr+Tp8UB6DPZx9miHe/e8raiu/oH9Ez2WJN8rK/1PKb
+xGaDsbQmFrszRyFa52+BwZX7tCaHaAstg0wAtWcDOVdolq64ek5HomamNoSyZE4i
+o9MvTJFvDLIFXIM/15k58R60czkYU8tHIhEwbSKRnCOGiFG33eAOiVXNqV4LOl9n
+ZHPL3Nwzw3S3LUVz9mIDHj5vYnLGYoP3d8bF9ueuxAJO7U85C4oA4woqbhVCoKYo
+PX6LaKnArNzKCOyZYSwtNF3mgnmShh0V+GgxLBYXs5pykqf5jVZXQ3/2Oj9NN3P/
+SOUQsbmp3u9mHak3yG8+CkcKAhjTh+ahZyl0XixHV8iewaot80N4E6YlUhLjXi5y
+QdKeVkca7kWXN23v9Zl3fUk/lijH5FhpHDeRv2UUAQIDAQABoz8wPTAcBgNVHREE
+FTATghFpZGVtaWRwLnBvbGl0by5pdDAdBgNVHQ4EFgQUfkOR+Y7I9a2PdiJmrVUf
+u06tqlAwDQYJKoZIhvcNAQELBQADggGBAKZ6rxBY8fW2dtDPsQO78dzQkLpjXX85
+9B/6vTBnLMAvE3PC9Di/Gr6Ogp7i/YNcvh6UAEqaZWqIilDhrSxvwK8zOx+Oq0UQ
+Y8FItnhd4nNSZyUTThyIHaGuwhNqNNpQ7t5s+KJObny+1nlQBruthJJ7p4Zwx6YN
+cs34k2IbEq6WneR2NZQZyeSN/S7tDsV6ZwMZd+XmmyljgphoaQ4o3AtHQQpA93j0
+4205y1LuA5Ez8OfMSFLQti+BurJ+GrSLvQJUdAZ1O8Uw6y/FXMzfBekX8VIAviUG
+fDxQfOnKI8sSfVipUZZJVT+m3xU62IVRVQPYQd3BfxEhVKD3RNDP1JrDrln1MU6G
+XAhr5yjKZXCIo+G0gQ29c1LcmEi7n7dHTYoL0Ip3hqFST+Usi/AyxuGlUL1lJAiX
+FcWGJfs7NSgF2q4MnTY53VZLtS4qfs16ekX/8QCRB5ou8Ssr62IdqGrLdNdmFlu5
+cLN7Pj54TGVpYADugxrOblr9FDYHHOSV+Q==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes192-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes256-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idemidp.polito.it/Shibboleth.sso/Artifact/SOAP" index="1" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://idemidp.polito.it/Shibboleth.sso/SLO/Artifact" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idemidp.polito.it/Shibboleth.sso/SLO/POST" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idemidp.polito.it/Shibboleth.sso/SLO/Redirect" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idemidp.polito.it/Shibboleth.sso/SLO/SOAP" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://idemidp.polito.it/Shibboleth.sso/SAML2/Artifact" index="3" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://idemidp.polito.it/Shibboleth.sso/SAML2/ECP" index="4" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idemidp.polito.it/Shibboleth.sso/SAML2/POST" index="5" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idemidp.polito.it/Shibboleth.sso/SAML2/POST-SimpleSign" index="6" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">EduGateway Polito</md:ServiceName>
+        <md:ServiceName xml:lang="it">EduGateway Polito</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Allows access to contents reserved to the IDEM/eduGAIN federated members</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="it">Permette di accedere ai contenuti riservati ai membri della federazione IDEM/eduGAIN</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="schacPersonalUniqueID" Name="urn:oid:1.3.6.1.4.1.25178.1.2.15" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="schacDateOfBirth" Name="urn:oid:1.3.6.1.4.1.25178.1.2.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="schacPlaceOfBirth" Name="urn:oid:1.3.6.1.4.1.25178.1.2.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrimaryAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.5" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="it">Politecnico di Torino</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Politecnico di Torino</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="it">Risorsa erogata da Politecnico di Torino</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Resource provided by Politecnico di Torino</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="it">https://www.polito.it</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.polito.it</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrea</md:GivenName>
+      <md:SurName>Garzena</md:SurName>
+      <md:EmailAddress>mailto:andrea.garzena@polito.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

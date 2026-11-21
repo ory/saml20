@@ -1,0 +1,75 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://satosa.eduid.hu/saml/proxy_saml2_backend.xml">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.hu" registrationInstant="2024-07-29T12:45:25Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://metadata.eduid.hu/eduid.hu-mrps-v2.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.hu/category/registered-by-eduidhu</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Pro-M OIDC -SAML SATOSA Gateway</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="hu">Pro-M OIDC -SAML SATOSA Gateway</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Pro-M SATOSA</mdui:Description>
+          <mdui:Description xml:lang="hu">Pro-M SATOSA</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://kifu.gov.hu</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="hu">https://kifu.gov.hu</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://kifu.gov.hu/wp-content/uploads/2022/03/2017_34_adatvedelmi_es_adatbiztonsagi_szabalyzat_0.pdf</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="hu">https://kifu.gov.hu/wp-content/uploads/2022/03/2017_34_adatvedelmi_es_adatbiztonsagi_szabalyzat_0.pdf</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>example.com</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDDTCCAfWgAwIBAgIUcIIBkOAmIGA/gjLTPmmx2sd/tBgwDQYJKoZIhvcNAQELBQAwFjEUMBIGA1UEAwwLZXhhbXBsZS5jb20wHhcNMjQwNzA5MDcxOTUxWhcNMzQwNzA3MDcxOTUxWjAWMRQwEgYDVQQDDAtleGFtcGxlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ6VzMVHC/9cjETLJhtx4I3z0bq9n7fNX0gzrj8FXkuAm6D30jACqxt+FwcKZtChXCUX0IgcixgCz0UzQiP/QvZINt6qlAOtW0fzAFFx87HwnJ7Bj/MpkbXy5Y9jhhVwA698dk7zAs4IhHnH1DojqYRsDaqtnIYAnb755xHXUOYafE5WNXPz8jVCvFpFUlQIHx8I1kZZxW3PM7CV2otbFlmu+vquf2KPHTJUrpRbGS6mYobcCP89HgO3q8vCeXu7qIqJxJeJh9+OPH+ZAUM0jwxW46wwyHzauBuZZe2I9y1Xli0R94WFgGfSO85Rw3tyIK0beiPW26xrfF/jA89uSg0CAwEAAaNTMFEwHQYDVR0OBBYEFBV+lXdbvVVh9nTziU11DZA+BREXMB8GA1UdIwQYMBaAFBV+lXdbvVVh9nTziU11DZA+BREXMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBABDGtJpOAUaB30mGzBiaRUxvPW9+GU0fhJxnMEn3Lt/tOPGC51yHwpshCuYF3mlhbXD0X30bWZLXfqLepDN9W9BaxrQMSrziiRrcu1i1y9cHCD8wHDe0MUjqfd+8TfcgZU3csvITwJl7oz6I1MVfli3oF5857GzN7kyypbL6X3ibNdXUFzR5pG51Asg/YOxaAs/ZVgdIs3CRiiq+NiSinMWztTjD2HK8PW8jodTqgzX7E5wJsA22xEPmmPRV2hGL1JVwk8xXjzkKYVr0vX7yIUqC6YiO4aCgjt1g7ip56JgYHGNTLpa3ZnBlhvfb3HVfhOu3symQnv66HJVvPeY+Eqc=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://satosa.eduid.hu/saml/acs/post" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://satosa.eduid.hu/saml/acs/redirect" index="1" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="hu">Pro-M OIDC -SAML SATOSA Gateway</md:ServiceName>
+        <md:ServiceName xml:lang="en">Pro-M OIDC -SAML SATOSA Gateway</md:ServiceName>
+        <md:ServiceDescription xml:lang="hu">Pro-M SATOSA</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">Pro-M SATOSA</md:ServiceDescription>
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="eduPersonTargetedID" isRequired="true" />
+        <md:RequestedAttribute Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="givenName" />
+        <md:RequestedAttribute Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="cn" />
+        <md:RequestedAttribute Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="email" />
+        <md:RequestedAttribute Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="displayName" />
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="eduPersonScopedAffiliation" />
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="eduPersonPrincipalName" />
+        <md:RequestedAttribute Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="surname" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="hu">NIIF - Nemzeti Információs Infrastruktúra Fejlesztési Intézet</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">NIIF Institute - National Information Infrastructure Development</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="hu">NIIF - Nemzeti Információs Infrastruktúra Fejlesztési Intézet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">NIIF Institute - National Information Infrastructure Development</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="hu">http://www.niif.hu</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.niif.hu/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Technical</md:GivenName>
+      <md:SurName>Technical</md:SurName>
+      <md:EmailAddress>mailto:aai@niif.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical</md:GivenName>
+      <md:SurName>Technical</md:SurName>
+      <md:EmailAddress>mailto:aai@niif.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support</md:GivenName>
+      <md:SurName>Support</md:SurName>
+      <md:EmailAddress>mailto:aai@niif.hu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

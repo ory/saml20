@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibbo.ltu.se/idp/shibboleth" xml:base="swamid-1.0/shibbo.ltu.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">ltu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUP6+KvKtryxxdtAf12hYO26nsSrMwDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNc2hpYmJvLmx0dS5zZTAeFw0wOTEwMjcxMTUyMDNaFw0y
+OTEwMjcxMDUyMDNaMBgxFjAUBgNVBAMTDXNoaWJiby5sdHUuc2UwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCZNYF4pQz13p+ghYGwBZFa/IjzXgLxpM4n
+KJ15+pCqabsxo3VJsnXgnu0monCvx7qFC+1HVfMHAj795wdq0yywGvuUiMI4ncCj
+GWi2ED3VZaZr+mpr+UW2OScWawvli/oN8vs/P1G59ykgEjtRWQ+4ndHumuHXWh7e
+3uUZA+1t/iV6EaIyaIIyDx//83skBEWDIgqZb/IVAGOFh1BUWqZBR2m6PG6ryLX/
+2opHozlbvMlWSZ1RqCmjEuCUCcgm93CS4saGZZmNt1qnt87vDY1V49Iwjin9ORr0
+PX6Ls8lUc4OWWYu+UZlOr6RTi8ravy0OOWnOJiLNnGlhgpI1MXW9AgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDXNoaWJiby5sdHUuc2WGJGh0dHBzOi8vc2hpYmJvLmx0dS5z
+ZS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU+e389gsAkX7kVDwQ360GaU31H50w
+DQYJKoZIhvcNAQEFBQADggEBAAO2nuaLdYOmmj2HaMe7mwRBP7T6zcmSD/HGQ3Wu
+3jqMh2Iws2OW07P+TH9I64Ok/7nzud9ZphqkR71Isq7WiFRMa90dI9PSjVuf2Bp7
+ia0JP50WEAWHivmopL7eCeBWwF06zb5XpVWmsydlIizO6akOvK1vZEsWMBlDvu7h
+iY+1cCt6dGBggGgMiiTLb5MtHZEgS2AEFgT0SXMX/xZS46mb71eFoEt+F0UlQMip
+w0QVWkaY5DYbQq2Jq2x2hb2Ge38Rcrn05ebHraDuNsyKkiJqNIA0/+BSSDzHZIEA
+B2BEejurB8CAdtQkwfCKCSFl7spaJzSGPq/dt4yO4qSslJA=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibbo.ltu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibbo.ltu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.ltu.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.ltu.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibbo.ltu.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.ltu.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">ltu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUP6+KvKtryxxdtAf12hYO26nsSrMwDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNc2hpYmJvLmx0dS5zZTAeFw0wOTEwMjcxMTUyMDNaFw0y
+OTEwMjcxMDUyMDNaMBgxFjAUBgNVBAMTDXNoaWJiby5sdHUuc2UwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCZNYF4pQz13p+ghYGwBZFa/IjzXgLxpM4n
+KJ15+pCqabsxo3VJsnXgnu0monCvx7qFC+1HVfMHAj795wdq0yywGvuUiMI4ncCj
+GWi2ED3VZaZr+mpr+UW2OScWawvli/oN8vs/P1G59ykgEjtRWQ+4ndHumuHXWh7e
+3uUZA+1t/iV6EaIyaIIyDx//83skBEWDIgqZb/IVAGOFh1BUWqZBR2m6PG6ryLX/
+2opHozlbvMlWSZ1RqCmjEuCUCcgm93CS4saGZZmNt1qnt87vDY1V49Iwjin9ORr0
+PX6Ls8lUc4OWWYu+UZlOr6RTi8ravy0OOWnOJiLNnGlhgpI1MXW9AgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDXNoaWJiby5sdHUuc2WGJGh0dHBzOi8vc2hpYmJvLmx0dS5z
+ZS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU+e389gsAkX7kVDwQ360GaU31H50w
+DQYJKoZIhvcNAQEFBQADggEBAAO2nuaLdYOmmj2HaMe7mwRBP7T6zcmSD/HGQ3Wu
+3jqMh2Iws2OW07P+TH9I64Ok/7nzud9ZphqkR71Isq7WiFRMa90dI9PSjVuf2Bp7
+ia0JP50WEAWHivmopL7eCeBWwF06zb5XpVWmsydlIizO6akOvK1vZEsWMBlDvu7h
+iY+1cCt6dGBggGgMiiTLb5MtHZEgS2AEFgT0SXMX/xZS46mb71eFoEt+F0UlQMip
+w0QVWkaY5DYbQq2Jq2x2hb2Ge38Rcrn05ebHraDuNsyKkiJqNIA0/+BSSDzHZIEA
+B2BEejurB8CAdtQkwfCKCSFl7spaJzSGPq/dt4yO4qSslJA=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibbo.ltu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibbo.ltu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+ 
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">LTU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Luleå tekniska universitet</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.ltu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Luleå tekniska universitet</md:Company>
+    <md:EmailAddress>Magnus.Jacobsson@ltu.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

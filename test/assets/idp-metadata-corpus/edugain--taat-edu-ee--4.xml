@@ -1,0 +1,52 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:taat="http://www.eenet.ee/EENet/urn" entityID="https://idp.taltech.ee/simplesaml/module.php/saml/idp/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://taat.edu.ee" registrationInstant="2024-03-14T10:24:35.000Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://taat.edu.ee/main/documents/?lang=en</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <taat:taat>
+        <taat:active>yes</taat:active>
+        <taat:AttributeNameFormat />
+        <taat:modified>2024-05-20T09:02:22Z</taat:modified>
+        <taat:RegistrationInstant2>2024-03-14T10:24:35Z</taat:RegistrationInstant2>
+        <taat:redirect.sign>1</taat:redirect.sign>
+        <taat:type>saml20-idp</taat:type>
+        <taat:eid>205</taat:eid>
+        <taat:env>prodaccepted</taat:env>
+      </taat:taat>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:Description xml:lang="en">TalTech</mdui:Description>
+          <mdui:Description xml:lang="et">TalTech</mdui:Description>
+          <mdui:DisplayName xml:lang="en">TalTech</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="et">TalTech</mdui:DisplayName>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">ttu.ee</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFpTCCA42gAwIBAgIUHMKvNtJ0xskQ/fESuT0pRSMVeGowDQYJKoZIhvcNAQELBQAwYTELMAkGA1UEBhMCRUUxETAPBgNVBAgMCEhhcmp1bWFhMRAwDgYDVQQHDAdUYWxsaW5uMRAwDgYDVQQKDAdUYWxUZWNoMRswGQYDVQQDDBJpZHB0ZXN0LnRhbHRlY2guZWUwIBcNMjMxMTE2MTQxMDEwWhgPMjA1MTEwMjMxNDEwMTBaMGExCzAJBgNVBAYTAkVFMREwDwYDVQQIDAhIYXJqdW1hYTEQMA4GA1UEBwwHVGFsbGlubjEQMA4GA1UECgwHVGFsVGVjaDEbMBkGA1UEAwwSaWRwdGVzdC50YWx0ZWNoLmVlMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAyqh/fZ3jza7ipfsVGtVuo3xNZkcdrvgekQoH3zGSz8Qgu82IOKijyBulFoUlOvl1gNPhY1kCsE424IU1fcQq7SWdMGrZHFyvUIM8KxzIGXP5YWAayS21KzgUpJOivHOyp2txKlNBjoa9vmIVzy7QHY8rLK/X5CseH2Bte9CbxfN7Bvcph5qZWneT6xL6/iWKAWeSx9hbiJez7JeWU/nGLVMushaNTn8nyjTbRS5lqOlYTmYXIpNXaGiNotF1AupSCkaNPpsgwk6pwmhrOdfiud4v/P5OfUiT7sfDsoaERN8WJK6Df5XkumtaF4VhspUE7JhjeDI4JSoSEq2coeA3abIcJbja8psL3X2iFYHZaQ3oN3OKoqwUnxLNXN8JDhvmZ4px0VzcwZtRLDFeTJ7JWvVF55g7mrk6nbwSEqN7NoCn2MjHmeqYqjpmKjChKm8T1cR5HErkpZrbzTfvOGA3waZdlH3R+stIuc9iZ2HsjNrnC8r98g6daI+p44DCKgXxg+cxwkpuB6FFZocru2hlAPcv98qMU6VKEYMA/blszZl31T6PwJZe2vMmo0DffNE5sQI5QYNE0oLrSdJ/Pl6V7K8Y/h+RaaJ2aWy0qR24S78CPATjKGwgjCMxnWaCHGoihEBMSPIbJfhUZlAKIexalxQc8pcv3ir3u9hoLzCB8rsCAwEAAaNTMFEwHQYDVR0OBBYEFPXHrnuuW32ZRIenpgf0mYsbDUw8MB8GA1UdIwQYMBaAFPXHrnuuW32ZRIenpgf0mYsbDUw8MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggIBAAsLKZ9nFNFzj+kPt+ciavQAVMcsJSZhiIMsHze/joU7NhpUG9cIYXzX9Upuo2IhLGAfBVgOfKHVrk07qsefPwEqDXl3kl2RZuzMglMpcMrMO4IWkv5FiPe9cgVtcQp7YF/y9wtY2XoV8VWThZ4kSrbAifrH8013y/f6C7m+ok+23Tqbg5SUr5rCd1PvSwq3X7vlwOwTXR4ZPbCwaIDlFvOt3NPqIhfZTbt4CIP+Ysyp4jUZFacNN6DmCCUfrf+V2QPh/71Ay83ise3iLSl3ggbmj/YWZy0Z45/sWhSOmTIsYzgEX1VcEizpHIonkmyV81t6YbbpXTBvhAz7VY5kaq+PndNMbGCZwcXIbq6/Osk3TXdc/2DTqsp+Q/zz6jhpjVi/WOby7tgeYxkNTOhb/hBgb3GEQKMnvL25kIOGckBn8OLNlopGqZNrd7c0aSg6JgYaMZPSIgOr6SKEH2AfT23WliOxxNkIo5vOaqDawkNlUJJox8tE2ZJ/7nOkTwp2KujXl4ALBqx7PchxSv36H8b/KHzUyrndYW3s4bmfFJ/VspI9CpIoYysxHpVrB5nCqiczjT/PtJm9xvdL1iyr9ptlEWfnan/kG45QKJGAXRWHaDEwjFGcfTMMlNDT5E9UqHqt/hitFsuplR4qBBUMmuqMX9gZITXIFMebHb11fqjY</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.taltech.ee/simplesaml/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.taltech.ee/simplesaml/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">TalTech</md:OrganizationName>
+      <md:OrganizationName xml:lang="et">TalTech</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">TalTech</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="et">TalTech</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://taltech.ee/en</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="et">https://taltech.ee</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>TAAT</md:GivenName>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>mailto:eenet@eenet.ee</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

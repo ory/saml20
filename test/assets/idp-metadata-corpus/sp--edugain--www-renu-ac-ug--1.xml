@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://filesender.renu.ac.ug/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.renu.ac.ug" registrationInstant="2025-01-13T15:58:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://rif.renu.ac.ug/docs/rifp.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Filesender</mdui:DisplayName>
+          <mdui:Description xml:lang="en">FileSender is a service that allows authorized users to store and send files to any Internet user who has access to e-mail and an appropriately configured web browser. It is primarily of interest to users who need to send files larger than those allowed by e-mail systems (typically limited to 10MB to 20MB depending on the e-mail system).</mdui:Description>
+          <mdui:Keywords xml:lang="en">filesender, data sharing, file transfer</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://filesender.org/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://rif.renu.ac.ug/</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFCzCCA3OgAwIBAgIUFZW9M6cMJtLik/ETm1HeJILmOcUwDQYJKoZIhvcNAQEL
+BQAwgZQxCzAJBgNVBAYTAlVHMQ8wDQYDVQQIDAZVZ2FuZGExEDAOBgNVBAcMB0th
+bXBhbGExDTALBgNVBAoMBFJFTlUxEDAOBgNVBAsMB3N5c3RlbXMxHjAcBgNVBAMM
+FWZpbGVzZW5kZXIucmVudS5hYy51ZzEhMB8GCSqGSIb3DQEJARYSc3lzdGVtc0By
+ZW51LmFjLnVnMB4XDTIzMDQyNDA4NTMxNloXDTMzMDQyMzA4NTMxNlowgZQxCzAJ
+BgNVBAYTAlVHMQ8wDQYDVQQIDAZVZ2FuZGExEDAOBgNVBAcMB0thbXBhbGExDTAL
+BgNVBAoMBFJFTlUxEDAOBgNVBAsMB3N5c3RlbXMxHjAcBgNVBAMMFWZpbGVzZW5k
+ZXIucmVudS5hYy51ZzEhMB8GCSqGSIb3DQEJARYSc3lzdGVtc0ByZW51LmFjLnVn
+MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA1LUCDJI5+hXnEJJt6BrN
+vsJ21I9/X0eC75QK3oYPxTavzx7AD75hnuO1CFCn4L4UH9b2yhPlMgPN4xMwTkli
+s2QIuaWpFdzHygQZOPzvi7kyc8Kd+Bz78Zd05NRqi12pz1rHhiFBVXkYi3da1iJg
+l4T896WilA1kYlwdPbhCpMQYMvCw3WIUD7hPTAYXH6woK8Ka/d67Wh5LAoM2Hu4W
+XMibpn8eHwpTxEO+Yq110rDKS3qLrTSlHHCu6+jMvSqL2Zy/MyJx116mR6fFPYgx
+q9x1oIkCeCinARXhktfQTl9/BfX8dBTRb8qsKdu45AMFyYKpZPjpEWQu3MWAaw2G
+ZALQjyfcFO6PLqzzgdl2CMBk8l423dyNYn042Uf2Jy9V9ExKn4B6gKTq+sJaJJKd
+an9eMd9QAXl1EcN+hj0TiDRAwMucBeFH3s+IHlFaO1Jx9LcVTq/GbAdZzgnRtWCE
+YozgGWp05tQU/WUx/65PO4IMycmg+iScdGL+CwT0aExTAgMBAAGjUzBRMB0GA1Ud
+DgQWBBRkkgoawjoG5Hu0Rvvs1xPef66M6DAfBgNVHSMEGDAWgBRkkgoawjoG5Hu0
+Rvvs1xPef66M6DAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQBg
+hQKMN6vrZx0r+oskXylkeJfvBhkPOJ8olveaMO3wUvaNJZQBIXfkqPBlsQvrSgKX
+tYMZR/4Ql5OeeGijBOCnv3Eou5nm2MSyOYRPxiigBlYL5oKo9kEIm2cFciLO1knl
+8nyedHvsz/fc4B4FvUGlQfoNEGgo/ScMJavqYE4qJpuf9qx/D5Xo4tYLKuaRYJcS
+LRzG6Fv0+phZaiQzRBO/xJwVFYSZ0FlrH3cEDk8SB0j8k+mdWIFc3OMsBT5O+yEh
+TBvOUg/lnrPvIQNS0LF3G7wTldOhovAu4ItFNV1S7y1mWpAO4CSc3hhSCdKRy4FU
+rcTMgU1KMLRnoOXXZkHnCKBBCPBFNiikGBaZbQC9vrbsiqDfUW8xNlMAEmZLm/kg
+GYJsYWD3F8yeJr3S/x8JNSlhQOuJDET09ms2CDx1E+2THu603WodMeuzI3jNIQCr
+N3KPf9/GIxHUduUSTYJDRDs0Y4rPPujUwguqMZ9rNVX1neyRvHnBCB1Kc61kBiE=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFCzCCA3OgAwIBAgIUFZW9M6cMJtLik/ETm1HeJILmOcUwDQYJKoZIhvcNAQEL
+BQAwgZQxCzAJBgNVBAYTAlVHMQ8wDQYDVQQIDAZVZ2FuZGExEDAOBgNVBAcMB0th
+bXBhbGExDTALBgNVBAoMBFJFTlUxEDAOBgNVBAsMB3N5c3RlbXMxHjAcBgNVBAMM
+FWZpbGVzZW5kZXIucmVudS5hYy51ZzEhMB8GCSqGSIb3DQEJARYSc3lzdGVtc0By
+ZW51LmFjLnVnMB4XDTIzMDQyNDA4NTMxNloXDTMzMDQyMzA4NTMxNlowgZQxCzAJ
+BgNVBAYTAlVHMQ8wDQYDVQQIDAZVZ2FuZGExEDAOBgNVBAcMB0thbXBhbGExDTAL
+BgNVBAoMBFJFTlUxEDAOBgNVBAsMB3N5c3RlbXMxHjAcBgNVBAMMFWZpbGVzZW5k
+ZXIucmVudS5hYy51ZzEhMB8GCSqGSIb3DQEJARYSc3lzdGVtc0ByZW51LmFjLnVn
+MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA1LUCDJI5+hXnEJJt6BrN
+vsJ21I9/X0eC75QK3oYPxTavzx7AD75hnuO1CFCn4L4UH9b2yhPlMgPN4xMwTkli
+s2QIuaWpFdzHygQZOPzvi7kyc8Kd+Bz78Zd05NRqi12pz1rHhiFBVXkYi3da1iJg
+l4T896WilA1kYlwdPbhCpMQYMvCw3WIUD7hPTAYXH6woK8Ka/d67Wh5LAoM2Hu4W
+XMibpn8eHwpTxEO+Yq110rDKS3qLrTSlHHCu6+jMvSqL2Zy/MyJx116mR6fFPYgx
+q9x1oIkCeCinARXhktfQTl9/BfX8dBTRb8qsKdu45AMFyYKpZPjpEWQu3MWAaw2G
+ZALQjyfcFO6PLqzzgdl2CMBk8l423dyNYn042Uf2Jy9V9ExKn4B6gKTq+sJaJJKd
+an9eMd9QAXl1EcN+hj0TiDRAwMucBeFH3s+IHlFaO1Jx9LcVTq/GbAdZzgnRtWCE
+YozgGWp05tQU/WUx/65PO4IMycmg+iScdGL+CwT0aExTAgMBAAGjUzBRMB0GA1Ud
+DgQWBBRkkgoawjoG5Hu0Rvvs1xPef66M6DAfBgNVHSMEGDAWgBRkkgoawjoG5Hu0
+Rvvs1xPef66M6DAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQBg
+hQKMN6vrZx0r+oskXylkeJfvBhkPOJ8olveaMO3wUvaNJZQBIXfkqPBlsQvrSgKX
+tYMZR/4Ql5OeeGijBOCnv3Eou5nm2MSyOYRPxiigBlYL5oKo9kEIm2cFciLO1knl
+8nyedHvsz/fc4B4FvUGlQfoNEGgo/ScMJavqYE4qJpuf9qx/D5Xo4tYLKuaRYJcS
+LRzG6Fv0+phZaiQzRBO/xJwVFYSZ0FlrH3cEDk8SB0j8k+mdWIFc3OMsBT5O+yEh
+TBvOUg/lnrPvIQNS0LF3G7wTldOhovAu4ItFNV1S7y1mWpAO4CSc3hhSCdKRy4FU
+rcTMgU1KMLRnoOXXZkHnCKBBCPBFNiikGBaZbQC9vrbsiqDfUW8xNlMAEmZLm/kg
+GYJsYWD3F8yeJr3S/x8JNSlhQOuJDET09ms2CDx1E+2THu603WodMeuzI3jNIQCr
+N3KPf9/GIxHUduUSTYJDRDs0Y4rPPujUwguqMZ9rNVX1neyRvHnBCB1Kc61kBiE=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.renu.ac.ug/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.renu.ac.ug/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.renu.ac.ug/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="1" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">Filesender</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">FileSender is a service that allows authorized users to store and send files to any Internet user who has access to e-mail and an appropriately configured web browser. It is primarily of interest to users who need to send files larger than those allowed by e-mail systems (typically limited to 10MB to 20MB depending on the e-mail system).</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="transientId" Name="urn:oid:1.2.3.4.5.6.7.8.9.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Research and Education Network for Uganda</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">RENU</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.renu.ac.ug</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>RENU</md:GivenName>
+      <md:SurName>Systems</md:SurName>
+      <md:EmailAddress>mailto:systems@renu.ac.ug</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

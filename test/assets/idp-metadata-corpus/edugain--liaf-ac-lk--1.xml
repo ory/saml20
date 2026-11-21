@@ -1,0 +1,148 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.seu.ac.lk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://liaf.ac.lk" registrationInstant="2025-10-30T17:14:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://liaf.ac.lk/docs/IdentityFederationPolicy-LIAFv1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">seu.ac.lk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">South Eastern University of Sri Lanka</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for South Eastern University of Sri Lanka</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://seu.ac.lk</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://liaf.ac.lk/docs/data_protection_profile_LEARN.pdf</mdui:PrivacyStatementURL>
+          <mdui:Logo width="80" height="80" xml:lang="en">https://idp.seu.ac.lk/idp/images/logo2.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIDCCAoigAwIBAgIVAMn6Qvyno5HgSy02gScnspCFN97bMA0GCSqGSIb3DQEB
+CwUAMBgxFjAUBgNVBAMMDWlkcC5zZXUuYWMubGswHhcNMjUxMDMwMTY1MzExWhcN
+NDUxMDMwMTY1MzExWjAYMRYwFAYDVQQDDA1pZHAuc2V1LmFjLmxrMIIBojANBgkq
+hkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAi4cx2HS/F1CSWc2iS52hucLsiHksMS4j
+TAHlWn6HUjKai6Us6FPLBc1+m3YY/BlZpC+b+sxjoPU0G9L6YV2/acL7z7b7FNTa
+4Qu+HLBtZA9/jjFAruoFemcQNRXAv42bRI108Xs8ZufKvN7UG8phKDFfQKNF4wKH
+d/VzX69NljjML8F/LNCs6og4dB1q+8HYBgtvSOQX1IQ5RCjalTg0/+ziI6gsG2zL
+HTnr2Rm7B0x2qO7E0h0KPEcyrU4JIiMQgfhdzgZmPc/Zhgo5ZFlQfIxH/X2uAXa+
+yYXj+m+6pG/1PRMnBdwFaPOF5eMi2IMKUGCA4Q2SXgROlWFFfe4ZsYcbmbzw4QSl
+L78XHQkxygYledClrlUXTW7UgZwfYvxLLagKi8dKsN5kArdl9KoPtxIq5w/6iVgh
+dBsXkHs47dMDkboLwGnA5VP3J8u5+6ypfgjBgJo9H3IyA6GprUdXOQpHi2cSi9hr
+OuN6ZV0FlHeCtKjwXrnpYnXKTRZ9P7DdAgMBAAGjYTBfMB0GA1UdDgQWBBSdwvun
+ZO9MEBd++VhDAiDIAhng0jA+BgNVHREENzA1gg1pZHAuc2V1LmFjLmxrhiRodHRw
+czovL2lkcC5zZXUuYWMubGsvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQAD
+ggGBAFSMdl3+wGzH5rdpGUEojDjOBWYElls2v9HIX1kijaPGOMW5xFGp1FNqP/O+
+YudoHWGmWdV/dpRffPZYWGM5BhJrwwtaGM4Kc9vknpwquO06sUW7m01mRaucsmHn
+LHr36uMlucbRc6HWHiRPvUOOPN1uF450lBH3qBkARSalwyZrrADZuTA0kCggppSh
+RThC5sjp8y4a9TZypLkhxKnmcfcJwnF35E1zDOCwBVGuIAmqklEhVcIdujgGfNMq
+oTp78UwHc3xm7ghDsNwk/zG9ER1j7e6oGXyub/yJiF3G5tyg8lQo68vPkNdlagrk
+vjPHGaswiDxYAkCNi6rfvlppRYi5mTtLs6e91jGVYgTZ/7p3OOfYDzttyhWSHriz
+5k6ASj3IGsMLQIPFIOXcIXjyfG/t3uc/PFyrTbZQznssFFXUzCYMBLJZXkEVoYv7
+wNlZry1Yq2ypCftUObH7HyODMNNsvJWNSpkdqnzYrLMYL6eXN73flX4SjP6OzPbe
+B6tHuA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEHzCCAoegAwIBAgIUTXRCXeyKzBp8C5XvILIpBP9OgVYwDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAwwNaWRwLnNldS5hYy5sazAeFw0yNTEwMzAxNjUzMDlaFw00
+NTEwMzAxNjUzMDlaMBgxFjAUBgNVBAMMDWlkcC5zZXUuYWMubGswggGiMA0GCSqG
+SIb3DQEBAQUAA4IBjwAwggGKAoIBgQCbDGaoacqEs6bvIBtknyRAf4N6RRb+c22F
+BcjIkWBc2MnJex3EC7z0gp5fHq98zxrwQ+XX9oA/p3pkBg+GnVTRrGdVoyHDvDVK
+TmDIKT9uWo4LA7a5FlpEcESnjvWsOHH7Z1hazsZyJJuKCqO4vYQcJSdgWFZqNcsC
+eoCYivqPeLxxGdH3nl4EQJjTJiiBYxQMlmGg8h5342dvjdNhqYamS0kaCG6thHgI
+761xMkGYIj3an5DVEo1Xdz5mbxJx7NsxNw5huLX4e4vdtDDXWDLsawR4/JXZJIb0
+SSjpLePCU6fkeZX8xyF2Bq6cgCjEad2LW1Zmn3c33WvIB8V24mTDkm4FVOG8ndCw
+/4ONiFYl401EIliyfF5naLfdMwfP23OZ6dDmooZR9BYaFqTtnPyIuWCqJSNHLKky
+tsRWrPQXH3ejYq/vZJ2DgPbOLMp+f+NmLxTT50Qe+L5x3ZsG/cqMMxSANwOKaU8J
+Fw3T7rQEDo6je84FnPZ7c5t8EII3I6ECAwEAAaNhMF8wHQYDVR0OBBYEFGv5yltp
+PvkbZAbqx/uFHjo4vLC0MD4GA1UdEQQ3MDWCDWlkcC5zZXUuYWMubGuGJGh0dHBz
+Oi8vaWRwLnNldS5hYy5say9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOC
+AYEASYN46Nex52bk6OvnqKSIBoMYJkCH3/tqOCfDytB6WtoHU87pigE53Pek7+Ol
+QSi9uOjHXSWQpyRLKRid0RdclI7esIroxxy1MXOEy/g4qb+dxL8O4L7a20Nt6FL8
+FhKd3RumkP1M02X9CvoVMRVEzd9QazPboQU+8i3BzLUV64poPOE4ZenL/rxuob50
+3N1dyOtx/yGzIYsJdf7ec8pF52INoPNhNKoyJLK2LYJJV8txWiUDcgDFrXXQQjCB
+D1+S7xGy4GgwUCgxjZd1unG0oGbTVcCtg40M4kbqxoIgIh2tqobT1gq+5iNgDZ1o
+KD+V39cywnZ/9b2x1y01PIQVg0OnRBrmmu1Ar32pz3kO6Q/e7m0HG9nI/irwKyuv
+w6JRP8i6lp7M5YzBUoKNk4V8Sl5Sg0ZTiucImwlq3T7G0CIK7GzYPb2A3AsCyTVY
+ROogqPFS1pn5/uP7gf2A8+tk3vDsjEz1VmoHJGfEbnvwzDm3urcyKtldz5ciDaMC
+Ztqs
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIDCCAoigAwIBAgIVAORIkam6Sf12n4AHQfLNhXA3YbkCMA0GCSqGSIb3DQEB
+CwUAMBgxFjAUBgNVBAMMDWlkcC5zZXUuYWMubGswHhcNMjUxMDMwMTY1MzExWhcN
+NDUxMDMwMTY1MzExWjAYMRYwFAYDVQQDDA1pZHAuc2V1LmFjLmxrMIIBojANBgkq
+hkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAsLHdpk6Kdd7m+pfyhuLQsJOvt2f2J3sX
+l12RJl196j5sSZeXbftD2ue0yrMzLU0qYhjhFRP/LKjHPq2yNgeXXcEjKAMXgJQe
+yL+eLLxAlEE3gUPtOVM3d2nKgsCGkfIi1QqzTIweMqa1pnlaWTKlrLO5wUC/Xkof
+JeHRpsn1VBvD0/hABVOKDoBIvrlexdI4Er0I/qS7HjEEwVoyNcvXp+RSgoB3jRJr
+XIL6kzD2/BIgzAgi3ECMhjO6S2QYsOKG5T4ld3zTwgkb2jBcL44Lhsx3HlhOWdO1
+sovl21+5eBtGqo0K8tkYoXxJXeIlRFwa3Jst0Oc6CvUhH8Yf7b1seGsxJE6HGdlN
+BIzKzegDNPJgnleAmeGg0/u4Y9b61H4j4Lok6XU7ATN6pqvxEzBlqtHJUMOpHllh
+dRHPWG+d/07Kntrh2dXc3daibK2CCGrCj9Fn+0iV5RR0bgEZBNiHMc8zVPYZOh9E
+RKAkPQmrYPFCLc7cJtfJCqGu8xTfGDrPAgMBAAGjYTBfMB0GA1UdDgQWBBQO/LXo
+pm2fRz3YdFA5IlwMb7v9mzA+BgNVHREENzA1gg1pZHAuc2V1LmFjLmxrhiRodHRw
+czovL2lkcC5zZXUuYWMubGsvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQAD
+ggGBAELmvIvSvYAzXuO0EZnu7mAY8ONpKMLMySBg9qFlga8NjyHMfD87sC67/Shg
+Aba5P5JTfmIIgzRTSxBhkcJ+Z2N7bt/TIW9cbkYHmOG7WdtX5jNmh5MjNL9rL1ma
+UHA21ImkHN5YH9Ii+UUTQJ6ppWN5+GQ7+3IhhreSpL7Re36KbjFY7ch7QKW7kyfc
+tRmZya4x5h8G8uBiRCv7kas/t7vNMlRlqw56WGfOf0YP7psQVBNIr7aDF3ZnBmAV
+BfjdPvZIT8kVYMaVtVBr7l/83+VgVs0uzLO5/J1kt4AnDBRYaVjq2zroW1eW2zLG
+skOFlaHbfQ2wm7arxtsp04w9g6w1GzromdO4f3Q1JSGAbfuouyCptVZ6sn0zL4U3
+C5Qm6Rb7QAW/BoWpKvxHdt2wZrQz3I+4nKET6gipwTAoKNo2XnHMCg+t2SiQFpd2
+VZ2KhSxd3+XMFaZd7m3hwEfkaF4nS/va4hrB0N4Ginj7G9XwmreHAXsmHRCbSMUE
+l3Y69A==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.seu.ac.lk/idp/profile/SAML2/SOAP/ArtifactResolution" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.seu.ac.lk/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.seu.ac.lk/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.seu.ac.lk/idp/profile/SAML2/POST/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">South Eastern University of Sri Lanka</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">South Eastern University of Sri Lanka</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://seu.ac.lk</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mohomad</md:GivenName>
+      <md:SurName>shamil</md:SurName>
+      <md:EmailAddress>mailto:ahmshamil@seu.ac.lk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Mohomad</md:GivenName>
+      <md:SurName>Shamil</md:SurName>
+      <md:EmailAddress>mailto:ahmshamil@seu.ac.lk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Mohomad</md:GivenName>
+      <md:SurName>Shamil</md:SurName>
+      <md:EmailAddress>mailto:ahmshamil@seu.ac.lk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,231 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="http://adfs.noc-science.at/adfs/services/trust">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.at" registrationInstant="2011-10-07T12:00:23Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.at/policy/mdrps/20140606</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:profiles:subject-id:req" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>any</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Bundesministerium für Frauen, Wissenschaft und Forschung</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Austrian Federal Ministry of Women, Science and Research</mdui:DisplayName>
+          <mdui:Description xml:lang="de">BM.FWF Extranet</mdui:Description>
+          <mdui:Description xml:lang="en">BM.FWF Extranet</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="de">https://www.bmfwf.gv.at/datenschutz.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://web.archive.org/web/20250121122330/https://www.bmbwf.gv.at/en/Ministry/Information/Data-protection.html</mdui:PrivacyStatementURL>
+          <mdui:Logo width="250" height="85" xml:lang="de">https://eduid.at/logos/bmfwf.png</mdui:Logo>
+          <mdui:Logo width="250" height="120" xml:lang="en">https://eduid.at/logos/bmfwf-en.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFIjCCAwqgAwIBAgIQRTODHFbi9L1Hjo4uP74JlTANBgkqhkiG9w0BAQsFADAp
+MScwJQYDVQQDDB5ub2Mtc2NpZW5jZS5hdC1Ub2tlbkVuY3J5cHRpb24wHhcNMjYw
+MjAyMTEzMDI0WhcNMzYwMTMxMTEzMDI0WjApMScwJQYDVQQDDB5ub2Mtc2NpZW5j
+ZS5hdC1Ub2tlbkVuY3J5cHRpb24wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIK
+AoICAQDiT2XJ0sho8SRBydJlUtAkNLzpUL7vQit5QhL8Dfw7Px1gn3g5cMS6+nkR
+Mm3Q8qhsM7YcY7LeoX++dIEflUzTViRaF+x5clU/lF/6XbiMoJTs27Mfp1SMwVFy
+dIm7Bg3En926KamvWkWA2fCHIODNsuM/Oe15ubpEWvF065yGBbn0TORk3afmdQYJ
+4dyr0p0q8OuZr+MOQTL2BoMxS/iwjNIFxbOD3ONnEXVd9zqddP+NS18hYF0l15P4
+rqCEVU6mv9UVFmhz0Rh2Wk50WDsRSJnyMFDU1IGeVKy0rz7iN4Ai5hnb1h73A2tr
+EhA82DK9isWxprdV+SytoCojkFYrW1vHuw1aJrB47leg/iqNwf9xNHgmGW8HmW30
+sJwy6TURe+buYn3Ia9m+fy8MfYJh7sJ4ISnFsUuHtz8xn42K6arDyCuzr/hK1yrR
+0WkdZs2aq8iFZOTqjeIK2jWfshuZcjm9w5/IK35TbHFzYmEf4p8YVRq1tcWfdnTQ
+cETEzQVpbEB1AfHcDT9hAGbI5u3Tb+IbWF9Im4IHGqPqVmZLDf4abuKAYeMGyjSV
+SclhNwgJ3E7lQZOuXpGMWqj6u0aLHePdw6LputXqb3u8oKKHctSgPRR4WririsAG
+QWpndzzlaFtJbM+QLzzrQaYDECZLogxMnoonsq8x9l4u9l4ssQIDAQABo0YwRDAO
+BgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwHQYDVR0OBBYEFGHf
+KRzuv8HlcA6IaEMUktMiMYpXMA0GCSqGSIb3DQEBCwUAA4ICAQAc9MiG8QtiF5kR
+g9bTSH3zCGVtbJWdtBV3F9LwOdbnQ+2jcjB7mR4MX6Xsuyuh4j5BiubYK+eImqnW
+GVhw8djhzmDO9leGG3VTZYh9kfvZqwrZPkfwv9I4ukvbr2UuTC2fWO+DuwIEmwnt
+YGFDYtzBZ53YuDnkOogYZKj3sA+k1wNcUm2Hxj1pLkB+mW6NA6cX/8s4Z8AMZP8S
+d329tWweP1+KCbbON+rwgWzKtcPAyDjYTY5+og6jlxZUzLYQpSAzzLRk2HKJnFzW
+699QKKlJs67z65JsMuRIM9yO3WkaH8T58DEUVmLe1aX0sLIwCx2/m/2n6VS+gqCS
+XI/UTvnP3WsJ/8RP5M/xFa2DrWjSmEvuWvXokP9EVzsbKCwJTGqOKBkR0pei+FHG
+PGXGpeEYugh8rG+ABeLxC8Ubj0oPm2mz6HjNEeM5V8F9iBve31KZSVwMfIrGmjdc
+MJYA6yzwfyR4T4h8yTAxoTA6Lpii+Ntd3IE7MBUsUUByP/jekLxyGjjqttSW8MM1
+MdEjzgRAMKkRMiVEbVHVuQlLSnd2sAaE55NsBwjvbP9eN0oZ3UhJ1qnqOlGQZyg3
+q6o2iEKo9BJkHzAJOLGlvGxfbtf1e3Sb01EbES3S3XtUKbf3CzvYdbx98ec81NDD
+1Jt8OmqBiONixjyLv8Yba3swJV/QQw==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFHDCCAwSgAwIBAgIQK1MOQBDGHIRJuLoQ2fpJujANBgkqhkiG9w0BAQsFADAm
+MSQwIgYDVQQDDBtub2Mtc2NpZW5jZS5hdC1Ub2tlblNpZ25pbmcwHhcNMjYwMjAy
+MTEyOTM1WhcNMzYwMTMxMTEyOTM1WjAmMSQwIgYDVQQDDBtub2Mtc2NpZW5jZS5h
+dC1Ub2tlblNpZ25pbmcwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCa
+vufLo/OxW8WJIWZjtjAC9ui/spSCDxQpSNyzJ3VJmMynRfUxSKU1OfDxvwQ2rz51
+Ua0PFvP/7xUkU5tE+nxOTxkqb1W6nlztG3u1k1w4os1++YkEsUtR1HilDjORJ0gm
+DEzXDo0ztiq7zChUkT5yR33xmUIS+rWcMyxW29v5I0rqtbv0TwjwUEEzj48sk7AH
+sr6mk00Qp5ghhLW8XUESZaWd0zGioifxcQh4PS90yajheUnDHl4iAlfDZPkw0FGW
+zlH6dHf2Gi/Bd7YfXGRGoEzQG5PULePMSgVm7NAL6bN0jK1l4K6kTSGNGTs+Q5CX
++XFzcBkfXVFoDldpIk+RrysDmQjEzq1YCfPfEKTm1FvDYKhTdD9unKqZfG1Gr/jg
+Ve7pz2PugeM8Ih4YQRs3ExZs90qvJEv4YdNvvSXw+DiVg3T+R2qvyQ6DRjq1cP/A
+6Y+UFNpQqGHf7aHkHh8MCeNkpvKjnUgThQQ+9SgyevL7U8cLVDfb73iSMUBCdu6K
+QWOnDR2Uywo18Og/kxZeIJmTqkX0UHEx0dihXe+/BIfcjR7AUyf43Yk1MDT0pZvJ
+MTIHIKVEYqnAM1IXLnolmlJMcx51deja0qEcmJ7Jr3IgO50yeZNamjvq7JOwv4GT
+WMvbhXcwbaTz4BIXPrOdOvpIQww014Y6d0MXvjS6kQIDAQABo0YwRDAOBgNVHQ8B
+Af8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwHQYDVR0OBBYEFERTHdjDJGWA
+5PUHJL6hNuIi7A6NMA0GCSqGSIb3DQEBCwUAA4ICAQBJUGWc5OhYHyOeeb5SLXPb
+ToRp+nKf26DDROeiZOcWi1HMMyd11E3uPLrkxxEDZUYUKlE6fXxZ1aMYAJfHvi/N
+gFvgQym9ZYZKsdCK/oL+GTOVZKqCWjTJs+ZYKGPbI0q7x/fhKs8QVkyFVGzXmwbf
++7heLGQPP2GDDEP2DShtogr2iJbUB5VKahUnzrA2uYDfG4Xf2/MQTKrGiOsCt9Sn
+/Y2zpQ6PckipwJYCZGAFehuA4GIT0fS2kuJZs3Y4/0WmR4pTn7IHFl8/ocfUMI06
+yYKbJiNBNerG2D699xm9uw7L2NSfI2Hl17FIqDQTxbmU3iWfD01cjDF/Rpkjbh1A
+mUi/9Q0zf6s/vIpIOPJ+5PyUTuVkThDngSX7dwKXndH9am7GARrwKquN9U0gFCQN
+cTldLymoKu/FWq4DnPHWh9SxFI/cKC62aTFiwZezuNw1uy9ojaFSLuZ6SlX5tsnJ
+I0XrSrDOnPt3E1Ozx7BmOYh3uQ7W3/UYpnxIc58E+ErwKj0tNLjx4ztVY5dtm7Yc
+6A1fc6wtcx3DNNA+mVlsx4IXJBSu9pg+fcd+uocpOlqS6Zq/765+LS6rSD6QGqBU
+CjFDXiykOdXW7DdFRAsr7pbNGpikxbeg9yfKj30e1jRdF2imQ5yWFKoeVG1+i5E+
+7IqB9e4LOKJYmu/7+neo6g==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.noc-science.at/adfs/ls/" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.noc-science.at/adfs/ls/" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.noc-science.at/adfs/ls/" index="0" isDefault="true" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adfs.noc-science.at/adfs/ls/" index="1" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="de">Bundesministerium für Bildung, Wissenschaft, Forschung</md:ServiceName>
+        <md:ServiceName xml:lang="en">Austrian Federal Ministry of Education, Science and Research</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bmfwf.gv.at</shibmd:Scope>
+        <shibmd:Scope regexp="false">bmbwf.gv.at</shibmd:Scope>
+        <shibmd:Scope regexp="false">bmwf.gv.at</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Bundesministerium für Frauen, Wissenschaft und Forschung</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Austrian Federal Ministry of Women, Science and Research</mdui:DisplayName>
+          <mdui:Keywords xml:lang="de">bmwf bmbwf bmfwf</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">bmwf bmbwf bmfwf</mdui:Keywords>
+          <mdui:Logo width="250" height="85" xml:lang="de">https://eduid.at/logos/bmfwf.png</mdui:Logo>
+          <mdui:Logo width="250" height="120" xml:lang="en">https://eduid.at/logos/bmfwf-en.png</mdui:Logo>
+          <mdui:Logo width="16" height="16">https://eduid.at/logos/gv.at-icon.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>bmfwf.gv.at</mdui:DomainHint>
+          <mdui:DomainHint>bmbwf.gv.at</mdui:DomainHint>
+          <mdui:DomainHint>bmwf.gv.at</mdui:DomainHint>
+          <mdui:DomainHint>noc-science.at</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFIjCCAwqgAwIBAgIQRTODHFbi9L1Hjo4uP74JlTANBgkqhkiG9w0BAQsFADAp
+MScwJQYDVQQDDB5ub2Mtc2NpZW5jZS5hdC1Ub2tlbkVuY3J5cHRpb24wHhcNMjYw
+MjAyMTEzMDI0WhcNMzYwMTMxMTEzMDI0WjApMScwJQYDVQQDDB5ub2Mtc2NpZW5j
+ZS5hdC1Ub2tlbkVuY3J5cHRpb24wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIK
+AoICAQDiT2XJ0sho8SRBydJlUtAkNLzpUL7vQit5QhL8Dfw7Px1gn3g5cMS6+nkR
+Mm3Q8qhsM7YcY7LeoX++dIEflUzTViRaF+x5clU/lF/6XbiMoJTs27Mfp1SMwVFy
+dIm7Bg3En926KamvWkWA2fCHIODNsuM/Oe15ubpEWvF065yGBbn0TORk3afmdQYJ
+4dyr0p0q8OuZr+MOQTL2BoMxS/iwjNIFxbOD3ONnEXVd9zqddP+NS18hYF0l15P4
+rqCEVU6mv9UVFmhz0Rh2Wk50WDsRSJnyMFDU1IGeVKy0rz7iN4Ai5hnb1h73A2tr
+EhA82DK9isWxprdV+SytoCojkFYrW1vHuw1aJrB47leg/iqNwf9xNHgmGW8HmW30
+sJwy6TURe+buYn3Ia9m+fy8MfYJh7sJ4ISnFsUuHtz8xn42K6arDyCuzr/hK1yrR
+0WkdZs2aq8iFZOTqjeIK2jWfshuZcjm9w5/IK35TbHFzYmEf4p8YVRq1tcWfdnTQ
+cETEzQVpbEB1AfHcDT9hAGbI5u3Tb+IbWF9Im4IHGqPqVmZLDf4abuKAYeMGyjSV
+SclhNwgJ3E7lQZOuXpGMWqj6u0aLHePdw6LputXqb3u8oKKHctSgPRR4WririsAG
+QWpndzzlaFtJbM+QLzzrQaYDECZLogxMnoonsq8x9l4u9l4ssQIDAQABo0YwRDAO
+BgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwHQYDVR0OBBYEFGHf
+KRzuv8HlcA6IaEMUktMiMYpXMA0GCSqGSIb3DQEBCwUAA4ICAQAc9MiG8QtiF5kR
+g9bTSH3zCGVtbJWdtBV3F9LwOdbnQ+2jcjB7mR4MX6Xsuyuh4j5BiubYK+eImqnW
+GVhw8djhzmDO9leGG3VTZYh9kfvZqwrZPkfwv9I4ukvbr2UuTC2fWO+DuwIEmwnt
+YGFDYtzBZ53YuDnkOogYZKj3sA+k1wNcUm2Hxj1pLkB+mW6NA6cX/8s4Z8AMZP8S
+d329tWweP1+KCbbON+rwgWzKtcPAyDjYTY5+og6jlxZUzLYQpSAzzLRk2HKJnFzW
+699QKKlJs67z65JsMuRIM9yO3WkaH8T58DEUVmLe1aX0sLIwCx2/m/2n6VS+gqCS
+XI/UTvnP3WsJ/8RP5M/xFa2DrWjSmEvuWvXokP9EVzsbKCwJTGqOKBkR0pei+FHG
+PGXGpeEYugh8rG+ABeLxC8Ubj0oPm2mz6HjNEeM5V8F9iBve31KZSVwMfIrGmjdc
+MJYA6yzwfyR4T4h8yTAxoTA6Lpii+Ntd3IE7MBUsUUByP/jekLxyGjjqttSW8MM1
+MdEjzgRAMKkRMiVEbVHVuQlLSnd2sAaE55NsBwjvbP9eN0oZ3UhJ1qnqOlGQZyg3
+q6o2iEKo9BJkHzAJOLGlvGxfbtf1e3Sb01EbES3S3XtUKbf3CzvYdbx98ec81NDD
+1Jt8OmqBiONixjyLv8Yba3swJV/QQw==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFHDCCAwSgAwIBAgIQK1MOQBDGHIRJuLoQ2fpJujANBgkqhkiG9w0BAQsFADAm
+MSQwIgYDVQQDDBtub2Mtc2NpZW5jZS5hdC1Ub2tlblNpZ25pbmcwHhcNMjYwMjAy
+MTEyOTM1WhcNMzYwMTMxMTEyOTM1WjAmMSQwIgYDVQQDDBtub2Mtc2NpZW5jZS5h
+dC1Ub2tlblNpZ25pbmcwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCa
+vufLo/OxW8WJIWZjtjAC9ui/spSCDxQpSNyzJ3VJmMynRfUxSKU1OfDxvwQ2rz51
+Ua0PFvP/7xUkU5tE+nxOTxkqb1W6nlztG3u1k1w4os1++YkEsUtR1HilDjORJ0gm
+DEzXDo0ztiq7zChUkT5yR33xmUIS+rWcMyxW29v5I0rqtbv0TwjwUEEzj48sk7AH
+sr6mk00Qp5ghhLW8XUESZaWd0zGioifxcQh4PS90yajheUnDHl4iAlfDZPkw0FGW
+zlH6dHf2Gi/Bd7YfXGRGoEzQG5PULePMSgVm7NAL6bN0jK1l4K6kTSGNGTs+Q5CX
++XFzcBkfXVFoDldpIk+RrysDmQjEzq1YCfPfEKTm1FvDYKhTdD9unKqZfG1Gr/jg
+Ve7pz2PugeM8Ih4YQRs3ExZs90qvJEv4YdNvvSXw+DiVg3T+R2qvyQ6DRjq1cP/A
+6Y+UFNpQqGHf7aHkHh8MCeNkpvKjnUgThQQ+9SgyevL7U8cLVDfb73iSMUBCdu6K
+QWOnDR2Uywo18Og/kxZeIJmTqkX0UHEx0dihXe+/BIfcjR7AUyf43Yk1MDT0pZvJ
+MTIHIKVEYqnAM1IXLnolmlJMcx51deja0qEcmJ7Jr3IgO50yeZNamjvq7JOwv4GT
+WMvbhXcwbaTz4BIXPrOdOvpIQww014Y6d0MXvjS6kQIDAQABo0YwRDAOBgNVHQ8B
+Af8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwHQYDVR0OBBYEFERTHdjDJGWA
+5PUHJL6hNuIi7A6NMA0GCSqGSIb3DQEBCwUAA4ICAQBJUGWc5OhYHyOeeb5SLXPb
+ToRp+nKf26DDROeiZOcWi1HMMyd11E3uPLrkxxEDZUYUKlE6fXxZ1aMYAJfHvi/N
+gFvgQym9ZYZKsdCK/oL+GTOVZKqCWjTJs+ZYKGPbI0q7x/fhKs8QVkyFVGzXmwbf
++7heLGQPP2GDDEP2DShtogr2iJbUB5VKahUnzrA2uYDfG4Xf2/MQTKrGiOsCt9Sn
+/Y2zpQ6PckipwJYCZGAFehuA4GIT0fS2kuJZs3Y4/0WmR4pTn7IHFl8/ocfUMI06
+yYKbJiNBNerG2D699xm9uw7L2NSfI2Hl17FIqDQTxbmU3iWfD01cjDF/Rpkjbh1A
+mUi/9Q0zf6s/vIpIOPJ+5PyUTuVkThDngSX7dwKXndH9am7GARrwKquN9U0gFCQN
+cTldLymoKu/FWq4DnPHWh9SxFI/cKC62aTFiwZezuNw1uy9ojaFSLuZ6SlX5tsnJ
+I0XrSrDOnPt3E1Ozx7BmOYh3uQ7W3/UYpnxIc58E+ErwKj0tNLjx4ztVY5dtm7Yc
+6A1fc6wtcx3DNNA+mVlsx4IXJBSu9pg+fcd+uocpOlqS6Zq/765+LS6rSD6QGqBU
+CjFDXiykOdXW7DdFRAsr7pbNGpikxbeg9yfKj30e1jRdF2imQ5yWFKoeVG1+i5E+
+7IqB9e4LOKJYmu/7+neo6g==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.noc-science.at/adfs/ls/" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.noc-science.at/adfs/ls/" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.noc-science.at/adfs/ls/" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.noc-science.at/adfs/ls/" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">Bundesministerium für Frauen, Wissenschaft und Forschung</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Austrian Federal Ministry of Women, Science and Research</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Bundesministerium für Frauen, Wissenschaft und Forschung</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Austrian Federal Ministry of Women, Science and Research</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">https://www.bmfwf.gv.at/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.bmfwf.gv.at/en.html</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>BMFWF</md:GivenName>
+      <md:SurName>IDP admin</md:SurName>
+      <md:EmailAddress>mailto:admin.adfs@noc-science.at</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

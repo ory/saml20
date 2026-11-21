@@ -1,0 +1,92 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-idp.switch.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">switch.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDMDCCAhigAwIBAgIVAOciquNqxiiKEV0YeqnQ8AUDI6eNMA0GCSqGSIb3DQEB
+                            BQUAMBwxGjAYBgNVBAMTEWFhaS1pZHAuc3dpdGNoLmNoMB4XDTA5MTEyMDE0MzIx
+                            OFoXDTEyMTEyMDE0MzIxOFowHDEaMBgGA1UEAxMRYWFpLWlkcC5zd2l0Y2guY2gw
+                            ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDDp5/CQ0vmqqK1qY9B6nDz
+                            QG287swX7SiKQU9l3kTAYJH5v/n2oG6btLQ/k9zx0PC/Bwm+D4Gnm4e3j+I+Co+g
+                            BiK4YNEC8mA0T07i2ZlSk2iF9ivOsGwoB5UEkxqIOupuwhXcXoeavDrVp5uQVuHC
+                            762erJipGN25eFfy/LkXVxLvt7CP2nMSH+bZUe+O7McdmyIJ+ONS8zeeWWkSriRg
+                            b0Md9qGaIFPlY5U7nNmDouL4eJcH0NPc6N24KN/hZmpbXzDDganUBQjsIUV7O0W0
+                            T+u76p1yzXLN25/ZNzpjChjaLYsVOERK6j4XWrtC4SZecvrrUI9wj2dZr2mU4GV/
+                            AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWFhaS1pZHAuc3dpdGNoLmNohihodHRwczov
+                            L2FhaS1pZHAuc3dpdGNoLmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSSyZnV
+                            pDy6IQ3MyunxX3cqUaG6aDANBgkqhkiG9w0BAQUFAAOCAQEAsdDWrdQziz7TleNC
+                            P2pCtC6hmx65SXTIDPv0AROoT4SQK5a7AqeWIR8hKBvdyHn8gWF8ZmfqOHaCJB+m
+                            FHFnrU8a604mzm83BFepn7DqqepzXgGA7cZ9wtzJ2INDd4bd28WV1uX4FHLdREdu
+                            2s6K2z/ZR2Ml+yPmdrX2HyvxX6OESQ11E6mctoZ8XybEAHtUqEcwyw2LmjfbJqFg
+                            XGqh9ufJ+F9kjbPgr4U2+SqKVv9ySBl5Vvd+Hw8h6B54DuhnpDs6gaD1F6H+bP0K
+                            4HATC2qVPlN/ktjKSlWjITI/cFKClEokYP9oxr5dhv+CZOKTPVec62yChhpsxvNm
+                            fpY9LQ==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-idp.switch.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-idp.switch.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-idp.switch.ch/idp/profile/Shibboleth/SSO" />
+
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-idp.switch.ch/idp/profile/SAML2/POST/SSO" />
+
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-idp.switch.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-idp.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">switch.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDMDCCAhigAwIBAgIVAOciquNqxiiKEV0YeqnQ8AUDI6eNMA0GCSqGSIb3DQEB
+                            BQUAMBwxGjAYBgNVBAMTEWFhaS1pZHAuc3dpdGNoLmNoMB4XDTA5MTEyMDE0MzIx
+                            OFoXDTEyMTEyMDE0MzIxOFowHDEaMBgGA1UEAxMRYWFpLWlkcC5zd2l0Y2guY2gw
+                            ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDDp5/CQ0vmqqK1qY9B6nDz
+                            QG287swX7SiKQU9l3kTAYJH5v/n2oG6btLQ/k9zx0PC/Bwm+D4Gnm4e3j+I+Co+g
+                            BiK4YNEC8mA0T07i2ZlSk2iF9ivOsGwoB5UEkxqIOupuwhXcXoeavDrVp5uQVuHC
+                            762erJipGN25eFfy/LkXVxLvt7CP2nMSH+bZUe+O7McdmyIJ+ONS8zeeWWkSriRg
+                            b0Md9qGaIFPlY5U7nNmDouL4eJcH0NPc6N24KN/hZmpbXzDDganUBQjsIUV7O0W0
+                            T+u76p1yzXLN25/ZNzpjChjaLYsVOERK6j4XWrtC4SZecvrrUI9wj2dZr2mU4GV/
+                            AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWFhaS1pZHAuc3dpdGNoLmNohihodHRwczov
+                            L2FhaS1pZHAuc3dpdGNoLmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSSyZnV
+                            pDy6IQ3MyunxX3cqUaG6aDANBgkqhkiG9w0BAQUFAAOCAQEAsdDWrdQziz7TleNC
+                            P2pCtC6hmx65SXTIDPv0AROoT4SQK5a7AqeWIR8hKBvdyHn8gWF8ZmfqOHaCJB+m
+                            FHFnrU8a604mzm83BFepn7DqqepzXgGA7cZ9wtzJ2INDd4bd28WV1uX4FHLdREdu
+                            2s6K2z/ZR2Ml+yPmdrX2HyvxX6OESQ11E6mctoZ8XybEAHtUqEcwyw2LmjfbJqFg
+                            XGqh9ufJ+F9kjbPgr4U2+SqKVv9ySBl5Vvd+Hw8h6B54DuhnpDs6gaD1F6H+bP0K
+                            4HATC2qVPlN/ktjKSlWjITI/cFKClEokYP9oxr5dhv+CZOKTPVec62yChhpsxvNm
+                            fpY9LQ==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-idp.switch.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-idp.switch.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">switch.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">SWITCH [aai-idp.switch.ch]
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.switch.ch
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+    

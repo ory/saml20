@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-login.tw.switch.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">tw.switch.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Thomas Weller IDP
+                        tw.switch.ch
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">IdP of: tw.switch.ch
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDRDCCAiygAwIBAgIVALI+IE8Gu4p/XCJU+EXXvq09CqPHMA0GCSqGSIb3DQEB
+                            BQUAMCExHzAdBgNVBAMTFmFhaS1sb2dpbi50dy5zd2l0Y2guY2gwHhcNMTMwNzA5
+                            MTE1MTMwWhcNMTYwNzA5MTE1MTMwWjAhMR8wHQYDVQQDExZhYWktbG9naW4udHcu
+                            c3dpdGNoLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs+sk0U4C
+                            wjRyjU9bOcvg9k3d7BDdj3uBPXQGy1DizL6Fdf5pRLjZbZoWJQK2I2UKUvtEp65v
+                            yugsDLqvjj0xchhh59Jqj0vD3VUOwbdwrJHPNZ/I3DeqNZX4ryERxXViGQiozEQn
+                            jnQ439forsyKH9Y/O4F454SL78FDd70ANjli3mHplbpvJCSnTu2apf77ewS/j/Ej
+                            iGGao3mLAykwVDXar9YcLuRyeMBYWCdO4on7cbKS0aJ2w9Tlze4sjrJlbEPAO3z/
+                            0KWDke/0ElcW3T/C0x/MU4NaWB1W9AhxJw5+GNBqtbPyls8hGV8Ky/IuqWxVutR5
+                            yw6zJ5nvLzjdmQIDAQABo3MwcTBQBgNVHREESTBHghZhYWktbG9naW4udHcuc3dp
+                            dGNoLmNohi1odHRwczovL2FhaS1sb2dpbi50dy5zd2l0Y2guY2gvaWRwL3NoaWJi
+                            b2xldGgwHQYDVR0OBBYEFHZW5WG7oNu1XdL3SZ/pWNVb667zMA0GCSqGSIb3DQEB
+                            BQUAA4IBAQCTO+Chm4LU1pSS7qHXhej1BmoEu95brcJbrDHu+X3lYKDd/PlgBdfA
+                            wTgytlYuzrk3KfqFbIDL4gIPavqUpcc0mMr8YbiABJeP2WYznH32zO81kCl610Ev
+                            /rRbexy6lQ0/biAkVqY7vZChnsZoI2G66sMCVrTr3gFomCXFFeiZuMTt7nINt4j8
+                            /UVp9ga6ToQnMJeMXvpD7wSNY5j5xBMw2gRDl+28YvevPY1O6ggyn3w+jdKJrLZL
+                            lKhbRZ22S16FoiWPeH2RlZHGgeip2GfvfUxR4RqqVilPNhWYcfEVbSl78v1wdtnV
+                            zdiOPuP2oh9z2/Ubb8fV8zoo5SMgkrNo
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-login.tw.switch.ch/idp/profile/SAML2/Redirect/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-login.tw.switch.ch/idp/profile/SAML2/POST/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-login.tw.switch.ch:8443/idp/profile/SAML2/SOAP/SLO" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-login.tw.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-login.tw.switch.ch/idp/profile/SAML2/POST/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">tw.switch.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDRDCCAiygAwIBAgIVALI+IE8Gu4p/XCJU+EXXvq09CqPHMA0GCSqGSIb3DQEB
+                            BQUAMCExHzAdBgNVBAMTFmFhaS1sb2dpbi50dy5zd2l0Y2guY2gwHhcNMTMwNzA5
+                            MTE1MTMwWhcNMTYwNzA5MTE1MTMwWjAhMR8wHQYDVQQDExZhYWktbG9naW4udHcu
+                            c3dpdGNoLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs+sk0U4C
+                            wjRyjU9bOcvg9k3d7BDdj3uBPXQGy1DizL6Fdf5pRLjZbZoWJQK2I2UKUvtEp65v
+                            yugsDLqvjj0xchhh59Jqj0vD3VUOwbdwrJHPNZ/I3DeqNZX4ryERxXViGQiozEQn
+                            jnQ439forsyKH9Y/O4F454SL78FDd70ANjli3mHplbpvJCSnTu2apf77ewS/j/Ej
+                            iGGao3mLAykwVDXar9YcLuRyeMBYWCdO4on7cbKS0aJ2w9Tlze4sjrJlbEPAO3z/
+                            0KWDke/0ElcW3T/C0x/MU4NaWB1W9AhxJw5+GNBqtbPyls8hGV8Ky/IuqWxVutR5
+                            yw6zJ5nvLzjdmQIDAQABo3MwcTBQBgNVHREESTBHghZhYWktbG9naW4udHcuc3dp
+                            dGNoLmNohi1odHRwczovL2FhaS1sb2dpbi50dy5zd2l0Y2guY2gvaWRwL3NoaWJi
+                            b2xldGgwHQYDVR0OBBYEFHZW5WG7oNu1XdL3SZ/pWNVb667zMA0GCSqGSIb3DQEB
+                            BQUAA4IBAQCTO+Chm4LU1pSS7qHXhej1BmoEu95brcJbrDHu+X3lYKDd/PlgBdfA
+                            wTgytlYuzrk3KfqFbIDL4gIPavqUpcc0mMr8YbiABJeP2WYznH32zO81kCl610Ev
+                            /rRbexy6lQ0/biAkVqY7vZChnsZoI2G66sMCVrTr3gFomCXFFeiZuMTt7nINt4j8
+                            /UVp9ga6ToQnMJeMXvpD7wSNY5j5xBMw2gRDl+28YvevPY1O6ggyn3w+jdKJrLZL
+                            lKhbRZ22S16FoiWPeH2RlZHGgeip2GfvfUxR4RqqVilPNhWYcfEVbSl78v1wdtnV
+                            zdiOPuP2oh9z2/Ubb8fV8zoo5SMgkrNo
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-login.tw.switch.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">tw.switch.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Thomas Weller IDP
+                tw.switch.ch
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.tw.switch.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

@@ -1,0 +1,148 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.ceiia.com/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.fccn.pt" registrationInstant="2025-02-19T19:46:13Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://rctsfederation.fccn.pt/rctsaai/metadata-registration-practice-statement-en</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="pt">http://rctsfederation.fccn.pt/rctsaai/metadata-registration-practice-statement-pt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ceiia.com</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="pt">CEiiA – Centro de Engenharia e Desenvolvimento</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">CEiiA – Centro de Engenharia e Desenvolvimento</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="pt">https://ceiia.com</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://ceiia.com</mdui:InformationURL>
+          <mdui:Logo height="192" width="256">https://static.rctsaai.pt/media/idp/ceiia.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>ceiia.com</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEHzCCAoegAwIBAgIUL+zCUrxFoBrVF5c2UOXhj9+/8JkwDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAwwNaWRwLmNlaWlhLmNvbTAeFw0yNTAyMTkxNjA1MDFaFw00
+NTAyMTkxNjA1MDFaMBgxFjAUBgNVBAMMDWlkcC5jZWlpYS5jb20wggGiMA0GCSqG
+SIb3DQEBAQUAA4IBjwAwggGKAoIBgQDW3m7bRH5i0cZuqdjo+DDe96LAOqXpE6Pr
+bntUCC+hASlShDd21YPrvJzxRj7E2r/OaVVQMBLn/pxONZYlcgf3E/wPIkrx44vo
+yOOL2HS7Ut1VRyW559EWqBmO6FhTVLIZCewzi9ps711VC5+m5BD9Bbo+aEytccod
+6p404Bvq0e0woOuOJmvAqffUZouhgdCr9H6wzCXsugi+bCJHlOTueZV5qF0wVfWF
+et1CLcNh+YfBrBNDuXJUbgo7yUMtID1dByqveho1dMTvRjPOaYiA1dJFj1KX5IYU
+voYjfo++ZNXMQ6qQnMmvPcriRUgE4kVsLZmbQrb60y2eWsLGoeHN1bCfYkilonrD
+Evfk3/Xugpi4C8BFOtnU8iSOitb4YIPs0l5VK7k2zPkE6iBhDRehq0EU2rAMcqgW
+T6FgRT0y/bUHnbn/5okPoKoFlR5bdsc324ZBM0HgF6x3nKR/Ku4z8Gx5tr+MW6D1
+q/WGczqUJmZSA2QtKREY8HmiXht9sHcCAwEAAaNhMF8wHQYDVR0OBBYEFI31vwrX
+0cIRHLDAQGizI7jvn+Y8MD4GA1UdEQQ3MDWCDWlkcC5jZWlpYS5jb22GJGh0dHBz
+Oi8vaWRwLmNlaWlhLmNvbS9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQsFAAOC
+AYEAzjP/twRnIDApp9O8PQ4JNao4EGjAMwET+gmssECY71nziuiLENw+z2BF4iql
+BAGKyH6Wp8IoKeoMIkgcIgecr3hW/vdpOQD/YH5XgI3czFk8yo6wvqgcpo9eZcMr
+OwDEIeMcMJb2DnU6BM830bKDlw6s8QD17pknlpFmTsFzfVsz/H6xA0s9h57dEnNP
+BbEvmSqSvfIC1h8JXSLMg4yD3FhyBNQQSyP+qEU/uR8txYaRfcbmdIyur7SiVEtG
+XKtnD0UmIg+Wi1vOE/sYKVHcsFQPkpYQPHfnf3foQtZVdT3hwvai360XKRpJ3OKk
+vpX3zO6/HKTHDHqmOFv/UqMCwXkaH+2hoSLrxZ/vWLcMiKiwahsidWNTqR/1+m0i
+7WuLVcq/TwVvNE5U8rDpZ8071OMKNU+I6KQt1sjleYIsqQWV35ni31Q+M8Z63En4
+RMFJhbY6B/Iiwbv/9j0nd6s+TF4mD67lt2+wVHnq/DFUZg9FYHgU0nTYelrDhO2Q
+NrOC
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#camellia256-cbc" />
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIDCCAoigAwIBAgIVAJOeRNdcDVMTd5ooSEI5zgJwIuNmMA0GCSqGSIb3DQEB
+CwUAMBgxFjAUBgNVBAMMDWlkcC5jZWlpYS5jb20wHhcNMjUwMjE5MTYwNDU5WhcN
+NDUwMjE5MTYwNDU5WjAYMRYwFAYDVQQDDA1pZHAuY2VpaWEuY29tMIIBojANBgkq
+hkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAttq8/5CA6jdBw/tCcdE1uLiBuspqvN/M
+cFVV7ypvfyZmNPmA8uVp3fQZHegVqp3cLFEhQ5C06dJy9s1EH161aVTvvhAkmj73
+IyHFe7lLwza9Ug8LeUDpmIxyuYGMj1CY9uZpwGiBnJS0+D3Drx3uS9rA/ruflb7a
+7eVpKJpQqyCN88+U9GTpHrXPC96CTnjHvPyOLx78tY/zUPXpM/Efeeez0cRprx1L
+VyJ5UGsZjLtK48kqd4zRXsIWRHLiD3IMuFu8k8d0U8sEVv7gi8N8cBNYbk3fKk4H
+7QqsXKpo8z2b25S4JOd89sXPwnXO3F9SSCBTpeOE8chTE8Wpjnatk5ONbw5TBFyW
+UbKOC5FHoLvFRdtchBmeLNBfDl608WgDgmAWXEXcBRu/y6z/hZnfNfgheNpVn3c+
+JRrMKnNRXzqKjQZvA+RkGAOOQVyFvkG4AvpOYkN7tdrYlybxe0L6h2kBUsi2gkCO
+M3E4j3DwuAVqLoUm9qx4C+/Fhtxdg7J5AgMBAAGjYTBfMB0GA1UdDgQWBBRHoCP7
+uMyyQIrcZ15ipB1RxwWsnDA+BgNVHREENzA1gg1pZHAuY2VpaWEuY29thiRodHRw
+czovL2lkcC5jZWlpYS5jb20vaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQAD
+ggGBAAeXKh6Zyu4FerWIkRIzxwHBcVrOr4wHA0oRcjwnXKppn52lkx3y2EQUIc9u
+x3oxn1ty/Vh5Ui8tT4uZNagAbJitAigE89cgqW5c5OJk4kUmXP4YBDEmT0Fz3jUd
+wUqARz/5Euyn6EzkeJDyBoW0g6FCVvoObK2SUx4hotnihUYIYeP8gTbDlk23qyzE
+LXTxyNhKLMhTqXU62PMEdRbZ/AFKnydddBNyMDdu7MOW9jUeI/vDAXMTTTsibvTk
+hxaNN8d0c5+YiHhgMP4aM5WcG3ww5hz4ECrSkxsbMYX9R5Jz+pXPOH1qbZnSXzUF
+O+a+4HmddGKESfCcUn1Uf3BHggAGhdmHpcWJdEZgwQcwfFYeyRAY07dhbUU/Kau+
+7qC3w5/wmia1YzBdh6l1x7kVqAym+arY++cNISNWkkzP6dwt3i2MKIw7o0bR1kUf
+HZQaTkR1jcdEQH70faBX9Fj4CqXLOsgqUqB/2WauS4JsvWMw5pjnqWyFxPixFM+W
+C7RmwQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIDCCAoigAwIBAgIVAIvTkET9+9Skz9mZs1RIB+sL5dgcMA0GCSqGSIb3DQEB
+CwUAMBgxFjAUBgNVBAMMDWlkcC5jZWlpYS5jb20wHhcNMjUwMjE5MTYwNTAwWhcN
+NDUwMjE5MTYwNTAwWjAYMRYwFAYDVQQDDA1pZHAuY2VpaWEuY29tMIIBojANBgkq
+hkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAzADEdUFvskhKUYmStQXCKTEVK/C7UXi1
+oW+e2kwJRz2f7bFB9CdQF4gEA7ROTjy0pGphArlv8HcW//+6uXIbNFaRa09XXw+M
+H2Py/Yjok9MXXKg4/2k4SUsoOpKmQbUwHDsubyNwZnCQvPKFajHL6+NIt6PH7K4u
+q8QTZmpwAMtdPgy7W0K5U0Sr7VUAualSNZ2sbC9txn7kMEmpzOIi2q3rYhggZeN/
+0kYzjMtoY5MI4grYunH+hjt3oyWZDCR7/DctOK7eu1H1+FkbJ5GWIVVPO89ZvVa+
+4KRRQ8Z9fQ1YPboUmt2pfTituYFroW3orKGqsEXRIt3ZJay3BYLUPbF3h9U5k1zF
+iq1Gi/9D7REE1Rc1F80R1EIYaPdeePcAjbx640LUxSydBCQu7bXVG1vAL0LFF4LP
+EYE1geqcuf7st3UepcLEQ32Hfon77DtNQ78UXnxA1ElU4EkLrSHyYiauAJUKLXid
+dXr6EaXari0y6pgHlG2OYxW9ybnxu8PhAgMBAAGjYTBfMB0GA1UdDgQWBBQrzos8
+hfhBl0BOhyJtNn5Pwfh/vjA+BgNVHREENzA1gg1pZHAuY2VpaWEuY29thiRodHRw
+czovL2lkcC5jZWlpYS5jb20vaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQELBQAD
+ggGBAJbEnEwJrUGiFXvuTr6oLDMMvlZC25WxHQZWsOZfw3r8vOJkZHQs20Lxo4RM
+15T6RjHm7IjyS9EpsAdd12xjoRKcItWCO2ApSPwZoo28O99klpS2lFQ8vxJQPUry
+W25+gwBJt9rEvJ9drlK0P5NaF49jN3Fek64GqY57/VvSt6s4mFo5i1Zk+XKs+M+F
+YCDdnaVgavqBVqLwKbaM055Po5TenTB3Z06GOjap+S6xIpfnvRGlvvrlT2FGJyEM
+z7NSiv8F6riUFM/qnzql8j9EDnsFakLSsMMZYatQQ1foIRACZ3fave+Nc6j2PEfj
+o2Rr4hy4jVtmFlOnA9IFbHoLFmlZnGcjYavIw7RWKEZItn147MfxOxzG3WaUqu+H
+KGpiXASKCRzpo99OGpUGvmhQ4lc32cMxZilXjNmMd439I5it8qHGlLWjoiR/ykVI
+Fjt1NQ7c1cO5gIi6h0boc5vgU0HOHRIoFRGpiXSWk7I1/sDmDV+fHWsWbZ7bqeDP
+KjAH7A==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ceiia.com/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ceiia.com/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ceiia.com/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ceiia.com/idp/profile/Shibboleth/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="pt">CEiiA – Centro de Engenharia e Desenvolvimento</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">CEiiA – Centro de Engenharia e Desenvolvimento</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="pt">CEiiA – Centro de Engenharia e Desenvolvimento</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">CEiiA – Centro de Engenharia e Desenvolvimento</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="pt">https://ceiia.com</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://ceiia.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:SurName>CEiiA</md:SurName>
+      <md:EmailAddress>mailto:info.sistemas@ceiia.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Alisson</md:GivenName>
+      <md:SurName>Minosso</md:SurName>
+      <md:EmailAddress>mailto:alisson.minosso@ceiia.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Alisson</md:GivenName>
+      <md:SurName>Minosso</md:SurName>
+      <md:EmailAddress>mailto:alisson.minosso@ceiia.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

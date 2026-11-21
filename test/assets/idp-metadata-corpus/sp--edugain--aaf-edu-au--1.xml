@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://liv.asn.au/oa/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://aaf.edu.au" registrationInstant="2023-10-23T06:06:38Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://aaf.edu.au/media/metadata/aaf-mdrps-v1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Law Institute of Victoria - LIJ</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Law Institute Journal</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.liv.asn.au/Web/Law_Institute_Journal_and_News/Web/LIJ/Magazines/Current_Issue.aspx</mdui:InformationURL>
+        </mdui:UIInfo>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.openathens.net/saml/2/auth" index="1" isDefault="false" />
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509SubjectName>OU=9b0a2aba-1a0e-45fc-997b-82286b89e1bd,O=Law Institute of Victoria,CN=liv.asn.au</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDWDCCAkCgAwIBAgIQmwoquhoORfyZe4Ioa4nhvTANBgkqhkiG9w0BAQsFADBo
+MRMwEQYDVQQDDApsaXYuYXNuLmF1MSIwIAYDVQQKDBlMYXcgSW5zdGl0dXRlIG9m
+IFZpY3RvcmlhMS0wKwYDVQQLDCQ5YjBhMmFiYS0xYTBlLTQ1ZmMtOTk3Yi04MjI4
+NmI4OWUxYmQwHhcNMjMwNzA1MDk0NDI2WhcNMzMwNzA1MDk0NDI2WjBoMRMwEQYD
+VQQDDApsaXYuYXNuLmF1MSIwIAYDVQQKDBlMYXcgSW5zdGl0dXRlIG9mIFZpY3Rv
+cmlhMS0wKwYDVQQLDCQ5YjBhMmFiYS0xYTBlLTQ1ZmMtOTk3Yi04MjI4NmI4OWUx
+YmQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDE2C9wYKxt98WdJo4M
+j93ZK27DHaJ1HrT3B7LyOETo+g9MKMxAvaQUjKOYbI+e4naeGeXofxREh59EyYT4
+TbmhikOAN/533rfB77FqXaPn0Cu2Wcvv0DpvV0Hk2bCZLw/+741E3uDn/d8Uam3N
+1DETVX3Efoj5vgZ+KgOM/CYE5g2pqOxqYXnYwb7pvWVDL0A8MmbBce/BbidBoLvX
+wu47ukf8CM24QRRKqrQKggQGkC6npCq0bLZNcVCy0Tn0RlxDNcanCRVPP9JxMHhz
+vhbXYcGoXcs8YR9tWOsaM3XqSKJvWHIgiBoZff6Rsqhr19ka+6SYglFVsUqtJ6qs
+y9RdAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAAvRhwzDjdBcSh6Grv9sUbKmQ9vc
+XE70vq8o3GJ8ST8Lm8mGn1Yyox6Z6vwgw+PJ3d6pOIQhKa82/CNOVzsFAVP8xxAE
+hEzEioIya/D3Zhn4WEUw2nAAWSP+U9dlzlI9pR4nOMJMYBhc9LCp9/wwP6sOHF0g
+6dozkssZKAWbqWwOAGkNSM/jdNOlyb6sUGKTj/2AGAn9r9dbq3JfkF7cVW5vZc54
+DWDii3qN1cUeMhx4glRTLmtKwMuECj2kD4z3Ee40dQUki3/B8FT9C5BA7TgCzELl
+WXDDTMyLmdfx2Dk6lVFtlZkLOHSSN6nME1E6gNOGJU+SvtcpjsAcqZDoSaM=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509SubjectName>OU=9b0a2aba-1a0e-45fc-997b-82286b89e1bd,O=Law Institute of Victoria,CN=liv.asn.au</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDWDCCAkCgAwIBAgIQmwoquhoORfyZe4Ioa4nhvTANBgkqhkiG9w0BAQsFADBo
+MRMwEQYDVQQDDApsaXYuYXNuLmF1MSIwIAYDVQQKDBlMYXcgSW5zdGl0dXRlIG9m
+IFZpY3RvcmlhMS0wKwYDVQQLDCQ5YjBhMmFiYS0xYTBlLTQ1ZmMtOTk3Yi04MjI4
+NmI4OWUxYmQwHhcNMjMwNzA1MDk0NDI2WhcNMzMwNzA1MDk0NDI2WjBoMRMwEQYD
+VQQDDApsaXYuYXNuLmF1MSIwIAYDVQQKDBlMYXcgSW5zdGl0dXRlIG9mIFZpY3Rv
+cmlhMS0wKwYDVQQLDCQ5YjBhMmFiYS0xYTBlLTQ1ZmMtOTk3Yi04MjI4NmI4OWUx
+YmQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDE2C9wYKxt98WdJo4M
+j93ZK27DHaJ1HrT3B7LyOETo+g9MKMxAvaQUjKOYbI+e4naeGeXofxREh59EyYT4
+TbmhikOAN/533rfB77FqXaPn0Cu2Wcvv0DpvV0Hk2bCZLw/+741E3uDn/d8Uam3N
+1DETVX3Efoj5vgZ+KgOM/CYE5g2pqOxqYXnYwb7pvWVDL0A8MmbBce/BbidBoLvX
+wu47ukf8CM24QRRKqrQKggQGkC6npCq0bLZNcVCy0Tn0RlxDNcanCRVPP9JxMHhz
+vhbXYcGoXcs8YR9tWOsaM3XqSKJvWHIgiBoZff6Rsqhr19ka+6SYglFVsUqtJ6qs
+y9RdAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAAvRhwzDjdBcSh6Grv9sUbKmQ9vc
+XE70vq8o3GJ8ST8Lm8mGn1Yyox6Z6vwgw+PJ3d6pOIQhKa82/CNOVzsFAVP8xxAE
+hEzEioIya/D3Zhn4WEUw2nAAWSP+U9dlzlI9pR4nOMJMYBhc9LCp9/wwP6sOHF0g
+6dozkssZKAWbqWwOAGkNSM/jdNOlyb6sUGKTj/2AGAn9r9dbq3JfkF7cVW5vZc54
+DWDii3qN1cUeMhx4glRTLmtKwMuECj2kD4z3Ee40dQUki3/B8FT9C5BA7TgCzELl
+WXDDTMyLmdfx2Dk6lVFtlZkLOHSSN6nME1E6gNOGJU+SvtcpjsAcqZDoSaM=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connect.openathens.net/liv.asn.au/9b0a2aba-1a0e-45fc-997b-82286b89e1bd/auth/rcv/saml2/post" index="1" isDefault="true" />
+      <md:AttributeConsumingService index="1" isDefault="true">
+        <md:ServiceName xml:lang="en">Law Institute of Victoria - LIJ</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">liv.asn.au</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Law Institute of Victoria</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://liv.asn.au/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Law Institute of Victoria</md:Company>
+      <md:GivenName>Maya</md:GivenName>
+      <md:SurName>Thomas</md:SurName>
+      <md:EmailAddress>mailto:mthomas@liv.asn.au</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Law Institute of Victoria</md:Company>
+      <md:GivenName>Maya</md:GivenName>
+      <md:SurName>Thomas</md:SurName>
+      <md:EmailAddress>mailto:mthomas@liv.asn.au</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:Company>Law Institute of Victoria</md:Company>
+      <md:GivenName>Maya</md:GivenName>
+      <md:SurName>Thomas</md:SurName>
+      <md:EmailAddress>mailto:mthomas@liv.asn.au</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

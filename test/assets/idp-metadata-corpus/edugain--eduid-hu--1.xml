@@ -1,0 +1,63 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.atomki.hu/idp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.hu" registrationInstant="2025-04-01T12:17:35Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://metadata.eduid.hu/eduid.hu-mrps-v2.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.hu/category/registered-by-eduidhu</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">atomki.hu</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">ATOMKI</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="hu">ATOMKI</mdui:DisplayName>
+          <mdui:Description xml:lang="en">ATOMKI</mdui:Description>
+          <mdui:Description xml:lang="hu">ATOMKI</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.atomki.hu?en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="hu">http://www.atomki.hu</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.atomki.hu/en/privacy-policy</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="hu">https://www.atomki.hu/adatvedelmi-szabalyzat</mdui:PrivacyStatementURL>
+          <mdui:Logo width="120" height="120">https://atomki.hu/arcula/EDUID_LOGO.jpg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>https://idp.atomki.hu/proxy2federation</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC2zCCAcMCBgGVbZAHLDANBgkqhkiG9w0BAQsFADAxMS8wLQYDVQQDDCZodHRwczovL2lkcC5hdG9ta2kuaHUvcHJveHkyZmVkZXJhdGlvbjAeFw0yNTAzMDYyMjIzMzBaFw0zNTAzMDYyMjI1MTBaMDExLzAtBgNVBAMMJmh0dHBzOi8vaWRwLmF0b21raS5odS9wcm94eTJmZWRlcmF0aW9uMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxdukB5793qArZDunkoH9g7FfaJu6ZQnTaZHnwflh1OBrUZhUEYGcJ+MVyM18tDV6Dd+Orha1OjHzDnlEGgnBSWp6NBplhnJYJLeVOzS7rs4HHHDz7OEbWXf59WuNIUUM4A6+3UMBXuN0nWN79+uv1/PcbJvzpYHfq58QCrFIyzfnc6hlf5gDk1HGJPSF2eqQB30YIOWIef5euw1tiNjavD4tv04vgPQkmuVDK9y3BKaGwb3T7PKYO6hUmB/v7NnSj9BGr3Owl8mwM3YvdATJKiWoMvVWKSH0pY8GVvSg5gA7Rlw0QyyKyB8xkpDpsrUYTc3CaeTp7Gon0r3M/yFGrwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBXDmEM7F4ijBKzqDS0HDngkk2SfgMN0yCGdc/Ve3y3RfTQRZxCUAP327W16xqIkzTj408vFNVUXRobL07KTFSWcwMQrWB2y8x4yo0QAZwt9LJ7Sna3CLoOdOmxW02GFVZoRhQkRN6lukTMtukPNAAGUJYhvrXc+kSK5J2pP8frugaJ5VYI4niHqlKCFgMkDA+RN5ZagTwztQzoPttv8Hpo4Hce23/NEnvP3s/naOmtUw14t6HVmBJpkp2m9ggkKaekJYJsASIhEBoL0MizKnzjBiC94q/m5xEkJ1BOVwGrtQ1lUKifbhOm10P3I22nvylUiyU1k1tQD1U2e9RFrgU1</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.atomki.hu/simplesaml/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.atomki.hu/simplesaml/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="hu">Atommagkutató Intézet</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">ATOMKI - Institute for Nuclear Research</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="hu">Atommagkutató Intézet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">ATOMKI - Institute for Nuclear Research</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="hu">http://www.atomki.hu</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.atomki.hu?en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>ATOMKI IT ATOMKI IT</md:GivenName>
+      <md:SurName>ATOMKI IT ATOMKI IT</md:SurName>
+      <md:EmailAddress>mailto:it@atomki.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>ATOMKI IT ATOMKI IT</md:GivenName>
+      <md:SurName>ATOMKI IT ATOMKI IT</md:SurName>
+      <md:EmailAddress>mailto:it@rt.atomki.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>ATOMKI IT ATOMKI IT</md:GivenName>
+      <md:SurName>ATOMKI IT ATOMKI IT</md:SurName>
+      <md:EmailAddress>mailto:it@atomki.hu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

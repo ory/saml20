@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shib-idp.humber.ca/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.canarie.ca" registrationInstant="2021-05-13T18:47:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.canarie.ca/federation-operator-practice-metadata-registration-practice-statement/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="fr">https://www.canarie.ca/fr/pratique-recommandee-pour-les-exploitants-de-la-federation-inscription-des-metadonnees/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">humber.ca</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Humber College</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Humber College</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://humber.ca/about-humber/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://humber.ca/privacy-policy</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIJALE2gJJ0qvqBMA0GCSqGSIb3DQEBCwUAMB0xGzAZBgNV
+BAMMEnNoaWItaWRwLmh1bWJlci5jYTAeFw0yMTA1MDcxMzUyNTZaFw0yNjA1MDYx
+MzUyNTZaMB0xGzAZBgNVBAMMEnNoaWItaWRwLmh1bWJlci5jYTCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAKVKZlTAuJ8EObfiwjgnYEFZeDCcQz9Y2uPj
+NDnDUfcYaMyD4jAU3GGt9bxhfKbC3kYj/h/fY3MDe/fIB1d7p9MK1QIixlqOMfa9
+NnxHbkdlKWH2SXNOVDRmWh1dL4PiTJIKrrMKbU9HMBa28o/7SvnoQixg9HE+dEnR
+AGWYkmyLU64hFZUJ5UDsaqE8i2AuFNRwWR/LM6yKD6uAOmy4xZheKPV+bOibuCLL
+CE0v2mCfTE2/yFGUU4uh33nrZwklkcFeTL/TOJCuE+4IVStNCJwiNQBQqvp3UhB4
+2f7Zlg1dqHj7u38E9eeqznLtyOgPux0TqaN4bLZ+DSls7Thg8AUCAwEAAaNrMGkw
+SAYDVR0RBEEwP4ISc2hpYi1pZHAuaHVtYmVyLmNhhilodHRwczovL3NoaWItaWRw
+Lmh1bWJlci5jYS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUNsRmucGmSoO9ZOuq
+V7Jydypn/sQwDQYJKoZIhvcNAQELBQADggEBACSSAwKn2JQFMGbPZqn4jPFGQ2oC
+LappWNwsykMwPWK2MG+Iv8KTs3TmsqhgcUImhG1l8N9sKMzXU1e5VmgK/J19H/hh
+IfuvkJBGv3KhAs4eK3ButgBpnXhz3eo17X7K1poYfhZGvagf70RjdjJzjAAhFQkN
+gpMRID26r6p7C8BwOdfkMFRsQxs9MvT3dAQkegfMmmgm8qnt0rCxifIKK+GRNVfI
+V139nmCw5XjeBC291XzmkIjZHQQyuBJix/r9PpTGooXvttd8L4uV/PkwxAds4/sm
+18LP+vf0BEY0tSfwevmm/kCVXtkCgOsV3CUxtwvDXF8kETQlCb3PbElipBs=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-idp.humber.ca/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-idp.humber.ca/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-idp.humber.ca/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp.humber.ca/idp/profile/SAML2/SOAP/ECP" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Humber College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Humber College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://humber.ca/about-humber/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Will</md:GivenName>
+      <md:SurName>Queiros</md:SurName>
+      <md:EmailAddress>mailto:Will.Queiros@humber.ca</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

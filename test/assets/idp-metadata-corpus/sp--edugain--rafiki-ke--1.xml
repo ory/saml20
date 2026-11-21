@@ -1,0 +1,115 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://ignite.kenet.or.ke/iam/sso/metadata/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://rafiki.ke" registrationInstant="2025-09-01T08:11:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://rafiki.ke/sites/default/files/2022-01/RAFIKI_Identity_Federation_Policy.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#ripemd160" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-ripemd160" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">KENET Ignite</mdui:DisplayName>
+          <mdui:Description xml:lang="en">KENET research information and services</mdui:Description>
+          <mdui:Keywords xml:lang="en">KENET, Ignite, Research</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://ignite.kenet.or.ke</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIECTCCAvGgAwIBAgIUbL6hypbUNj9KWmWP1UYPr2sF7BEwDQYJKoZIhvcNAQEL
+BQAwgZMxCzAJBgNVBAYTAktFMRAwDgYDVQQIDAdOYWlyb2JpMRAwDgYDVQQHDAdO
+YWlyb2JpMQ4wDAYDVQQKDAVLRU5FVDENMAsGA1UECwwETlJFTjEbMBkGA1UEAwwS
+aWduaXRlLmtlbmV0Lm9yLmtlMSQwIgYJKoZIhvcNAQkBFhVld2FueW9ueWlAa2Vu
+ZXQub3Iua2UwHhcNMjUwNzIxMTMzMDU0WhcNMzUwNzE5MTMzMDU0WjCBkzELMAkG
+A1UEBhMCS0UxEDAOBgNVBAgMB05haXJvYmkxEDAOBgNVBAcMB05haXJvYmkxDjAM
+BgNVBAoMBUtFTkVUMQ0wCwYDVQQLDAROUkVOMRswGQYDVQQDDBJpZ25pdGUua2Vu
+ZXQub3Iua2UxJDAiBgkqhkiG9w0BCQEWFWV3YW55b255aUBrZW5ldC5vci5rZTCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANdLKM7kk9zSGLHzu+JiDyo1
+oP0Iy3P3D8WUcX+uhS6WQrkaagPuNiEHsWYDux/WEakqlTwY3cD/kpuDWa3gEl4L
+Hz97sN8PbZrKDVSbk/I9sbZxnGIlWZvMyisvEvZ4dZofu8wJnu2VcSiXPKQZpUqc
+x96phfXFt1u1e/1Sol7jSDrDShA5O88R4MTUSfEHjA7nb1gruTowdtpf1zb8x/9F
+JqAfxP+VJykR1EADJXTPGMEZspBO5XxF6IhIUNUqsJHyO7qVuuFw3H6FWUmKUR6y
+N7hstRBe5J1hSQBQ1d7fyGJBTMDjvXC4EfASG1v3hFSrn8eiMSK98OLsTadS/XMC
+AwEAAaNTMFEwHQYDVR0OBBYEFIe8ZyVgGiQtm7EA+db4FX8mG2TvMB8GA1UdIwQY
+MBaAFIe8ZyVgGiQtm7EA+db4FX8mG2TvMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZI
+hvcNAQELBQADggEBAFPTKKeoclTl3tKm3KYNoM6Lf0YiXdE4VgvCTDbBfZeiRyLp
+SYFndURXkU0KBQHpeJCnleNlnt12mluOklC/m/dc/Uw4pas/GM6WM01iJe90n6H5
+z+CAz8xaLJIR98JZycL/vFuFxu2lPigEJLYHZgiFycyGXTy+Semyiez/vEzhmepn
+aRX0h4VLxqh0JWCcnXAQmuZC01bpHOGBjuIhHwkdt+ezQVeZuJ6kBCDfWaUy+M2k
+oUezQCpg8QJezLwHl2fGWc7P8FUe9MDOOT3u9qTRFzNTV2fCKeEslzlz6xWfRASF
+vDBb0RoNaX0w7xtIdE7zvh05Vi6IBXkZe0hr8s8=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIECTCCAvGgAwIBAgIUbL6hypbUNj9KWmWP1UYPr2sF7BEwDQYJKoZIhvcNAQEL
+BQAwgZMxCzAJBgNVBAYTAktFMRAwDgYDVQQIDAdOYWlyb2JpMRAwDgYDVQQHDAdO
+YWlyb2JpMQ4wDAYDVQQKDAVLRU5FVDENMAsGA1UECwwETlJFTjEbMBkGA1UEAwwS
+aWduaXRlLmtlbmV0Lm9yLmtlMSQwIgYJKoZIhvcNAQkBFhVld2FueW9ueWlAa2Vu
+ZXQub3Iua2UwHhcNMjUwNzIxMTMzMDU0WhcNMzUwNzE5MTMzMDU0WjCBkzELMAkG
+A1UEBhMCS0UxEDAOBgNVBAgMB05haXJvYmkxEDAOBgNVBAcMB05haXJvYmkxDjAM
+BgNVBAoMBUtFTkVUMQ0wCwYDVQQLDAROUkVOMRswGQYDVQQDDBJpZ25pdGUua2Vu
+ZXQub3Iua2UxJDAiBgkqhkiG9w0BCQEWFWV3YW55b255aUBrZW5ldC5vci5rZTCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANdLKM7kk9zSGLHzu+JiDyo1
+oP0Iy3P3D8WUcX+uhS6WQrkaagPuNiEHsWYDux/WEakqlTwY3cD/kpuDWa3gEl4L
+Hz97sN8PbZrKDVSbk/I9sbZxnGIlWZvMyisvEvZ4dZofu8wJnu2VcSiXPKQZpUqc
+x96phfXFt1u1e/1Sol7jSDrDShA5O88R4MTUSfEHjA7nb1gruTowdtpf1zb8x/9F
+JqAfxP+VJykR1EADJXTPGMEZspBO5XxF6IhIUNUqsJHyO7qVuuFw3H6FWUmKUR6y
+N7hstRBe5J1hSQBQ1d7fyGJBTMDjvXC4EfASG1v3hFSrn8eiMSK98OLsTadS/XMC
+AwEAAaNTMFEwHQYDVR0OBBYEFIe8ZyVgGiQtm7EA+db4FX8mG2TvMB8GA1UdIwQY
+MBaAFIe8ZyVgGiQtm7EA+db4FX8mG2TvMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZI
+hvcNAQELBQADggEBAFPTKKeoclTl3tKm3KYNoM6Lf0YiXdE4VgvCTDbBfZeiRyLp
+SYFndURXkU0KBQHpeJCnleNlnt12mluOklC/m/dc/Uw4pas/GM6WM01iJe90n6H5
+z+CAz8xaLJIR98JZycL/vFuFxu2lPigEJLYHZgiFycyGXTy+Semyiez/vEzhmepn
+aRX0h4VLxqh0JWCcnXAQmuZC01bpHOGBjuIhHwkdt+ezQVeZuJ6kBCDfWaUy+M2k
+oUezQCpg8QJezLwHl2fGWc7P8FUe9MDOOT3u9qTRFzNTV2fCKeEslzlz6xWfRASF
+vDBb0RoNaX0w7xtIdE7zvh05Vi6IBXkZe0hr8s8=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ignite.kenet.or.ke/iam/sso/ls/" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ignite.kenet.or.ke/iam/sso/ls/post" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ignite.kenet.or.ke/iam/sso/acs/" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Kenya Education Network</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Kenya Education Network (KENET)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://kenet.or.ke</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>KENET</md:GivenName>
+      <md:SurName>Support</md:SurName>
+      <md:EmailAddress>mailto:sysadmins@kenet.or.ke</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Emanuel</md:GivenName>
+      <md:SurName>Wanyonyi</md:SurName>
+      <md:EmailAddress>mailto:ewanyonyi@kenet.or.ke</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

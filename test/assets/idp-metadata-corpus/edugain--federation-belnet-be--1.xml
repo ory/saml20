@@ -1,0 +1,139 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://secure.etnic.be/nidp/saml2/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://federation.belnet.be/" registrationInstant="2012-03-27T12:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://federation.belnet.be/files/Belnet-metadata-registration-practice-statement.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDSTCCAjGgAwIBAgIUeVm6unysnVugsQTvtGHPmuRd78IwDQYJKoZIhvcNAQELBQAwOTEaMBgG A1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExGzAZBgNVBAoUEnByZF9uYW1fbWd0MDFfdHJlZTAeFw0y NTA0MTgxNjIwMDlaFw0zNzA5MDgxNjIwMDlaMEAxFTATBgNVBAMMDHRlc3Rfc2lnbmluZzEWMBQG A1UECwwNYWNjZXNzTWFuYWdlcjEPMA0GA1UECgwGbm92ZWxsMIIBIjANBgkqhkiG9w0BAQEFAAOC AQ8AMIIBCgKCAQEA2G6WY1z629ZYGeKXpN7AqWoSWReq4wbQU1w1tfP1Vn95SkMrQOnC8pTXTyWf vuLaVqJkcrwTJypPmiV/EgrkZXw+bLRWZzAvazsZOq6f1kx5bMLWWfL7IlvCeWi7dS2jex95ieon RJvAcmNI+xnWXkGZNFMDQEv4UJmn8Cq4wexdKWUbQGVunvMx93Z7WUh87daFIjjMPX3JBzAL0Od6 5CkYh9X6s9rzcc/N/mcqwQcPvMFaAW7BIypG/hbgCXQZqnodH/Px39TAgiNYpGV/cpxz3Xc+wqrG Pp0vyTCZ6du2gqvYclosalUIEQlowieUvQyt1zP+NTYA/9It/1GG0QIDAQABo0IwQDAdBgNVHQ4E FgQUH+2O91LEv3J9QxkBENSYV6hS2Z8wHwYDVR0jBBgwFoAUJ51nSeg02Z3MGz2J/zYji4c9kj4w DQYJKoZIhvcNAQELBQADggEBAGPFc9XbP8WJZLJia/DKqCYIXAU9KoxRvAJVBoGWVjtZrOwTVKhP ajQ9aPfJ71sZ+YfZBaVKP/FbmhP8YaTw09nRQagWwU+x6QLppo79Gpxv1b83ztF4GSgcNjc/sxch 923w0e5Ht0ubSIZrQbeCId3/31TXuuB/6w2k+22tdKZmvNWDHI0y+fEhTSse2jurvT7T38UmvPM9 d72kmKBP4LwwlJtWLfokXZz1zcV9mPaO+gAsJlB85/JpoLZtSjqzcF9j80y2xgjF/3tW0PJsasFR LLLuHyYFGIo+SiH65n9yqUXr3x7EjmdKjfJutWBuntWpv11ms7Vr3cGjSgDx4ik=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDTDCCAjSgAwIBAgIUeVm6unysnVugsQTvtGHPmuRd78AwDQYJKoZIhvcNAQELBQAwOTEaMBgG A1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExGzAZBgNVBAoUEnByZF9uYW1fbWd0MDFfdHJlZTAeFw0y NTA0MTgxNjE5NTRaFw0zNzA5MDgxNjE5NTRaMEMxGDAWBgNVBAMMD3Rlc3RfZW5jcnlwdGlvbjEW MBQGA1UECwwNYWNjZXNzTWFuYWdlcjEPMA0GA1UECgwGbm92ZWxsMIIBIjANBgkqhkiG9w0BAQEF AAOCAQ8AMIIBCgKCAQEApa7qA4TNBkbrYVChf7IXyY0ugnyWXJ3o8E0b3XHs/BFXK77OfTy8oGC2 ijJX3hoToEp+J4fHF2WU7TQgkNJtmJBVl1EspXEIhUyk/H624JYuiqiUKUbtcbj5ohIfsI5IZBxZ iwyuelcT1DEeXyvDXRorN2F68xiszgZETOfHXeZLrFvVarHH+tVC0yf/ckEGWWssB0YLZCggoCRG 8qibM3UncZp+HteKpKqnp5BCuejK7ucotdgsyGAKWTNYd3xRR3l0JQqcpGHKq0tBgsfe79NkKDGd RxN5hN0AUCyLtQ4KfKI1iptIev0sCg5gVw3U4Ji624hgnKfHRt1cFVvECQIDAQABo0IwQDAdBgNV HQ4EFgQU4BvI2My0gs/eRRMgfHw9mC+JzDswHwYDVR0jBBgwFoAUJ51nSeg02Z3MGz2J/zYji4c9 kj4wDQYJKoZIhvcNAQELBQADggEBABRyCyshspL4+jUK2ceXX1P1Aq7AY3HYlzqmDz3/KWt9JCr5 dLILIZvQ9nZowqCjkWiXRHQ706V0k3gr+t/NkmP/yJDXRjPC74DKZ1YbbyBZ74G42SKKkEBgEDc+ k68PI/fNLzAnSUm2nkwQ2fRDLP8O7ETP+zjufa51sfhF+HBO52hHpc0VB1plmahU2KGggRE8LevD 1QP4lhbMJvcbwZDEv0g5zaXWdyNAyXsoGhWVQH9P7JQ2FwJ73bX1yVQwfVOiQ8IUrD82pjWR0SE2 DS3OplDVBnntxITQfxlWjnzXTN/VA8DruAmD2LPDzt9C920Z6ymabg1z22vWl3//W+4= 
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/soap" />
+      <md:AssertionIDRequestService Binding="urn:oasis:names:tc:SAML:2.0:bindings:URI" Location="https://secure.etnic.be/nidp/saml2/assertion" />
+      <md:AssertionIDRequestService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/soap" />
+    </md:AttributeAuthorityDescriptor>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">etnic.be</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">FWB</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Ministère de la Fédération Wallonie - Bruxelles.</mdui:Description>
+          <mdui:Logo height="16" width="16">https://www.federation-wallonie-bruxelles.be/uploads/pics/favicon-16x16.png</mdui:Logo>
+          <mdui:Logo height="73" width="75">https://www.federation-wallonie-bruxelles.be/uploads/pics/dv_1.jpg</mdui:Logo>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.federation-wallonie-bruxelles.be/footer-general/portail-legal/#c647</mdui:PrivacyStatementURL>
+          <mdui:InformationURL xml:lang="en">https://www.federation-wallonie-bruxelles.be/a-propos-de-la-federation/apropos/</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>77.246.241.0/24</mdui:IPHint>
+          <mdui:DomainHint>federation-wallonie-bruxelles.be</mdui:DomainHint>
+          <mdui:DomainHint>cfwb.be</mdui:DomainHint>
+          <mdui:DomainHint>etnic.be</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:4.3592046,50.8637168</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDTDCCAjSgAwIBAgIUeVm6unysnVugsQTvtGHPmuRd78AwDQYJKoZIhvcNAQELBQAwOTEaMBgG A1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExGzAZBgNVBAoUEnByZF9uYW1fbWd0MDFfdHJlZTAeFw0y NTA0MTgxNjE5NTRaFw0zNzA5MDgxNjE5NTRaMEMxGDAWBgNVBAMMD3Rlc3RfZW5jcnlwdGlvbjEW MBQGA1UECwwNYWNjZXNzTWFuYWdlcjEPMA0GA1UECgwGbm92ZWxsMIIBIjANBgkqhkiG9w0BAQEF AAOCAQ8AMIIBCgKCAQEApa7qA4TNBkbrYVChf7IXyY0ugnyWXJ3o8E0b3XHs/BFXK77OfTy8oGC2 ijJX3hoToEp+J4fHF2WU7TQgkNJtmJBVl1EspXEIhUyk/H624JYuiqiUKUbtcbj5ohIfsI5IZBxZ iwyuelcT1DEeXyvDXRorN2F68xiszgZETOfHXeZLrFvVarHH+tVC0yf/ckEGWWssB0YLZCggoCRG 8qibM3UncZp+HteKpKqnp5BCuejK7ucotdgsyGAKWTNYd3xRR3l0JQqcpGHKq0tBgsfe79NkKDGd RxN5hN0AUCyLtQ4KfKI1iptIev0sCg5gVw3U4Ji624hgnKfHRt1cFVvECQIDAQABo0IwQDAdBgNV HQ4EFgQU4BvI2My0gs/eRRMgfHw9mC+JzDswHwYDVR0jBBgwFoAUJ51nSeg02Z3MGz2J/zYji4c9 kj4wDQYJKoZIhvcNAQELBQADggEBABRyCyshspL4+jUK2ceXX1P1Aq7AY3HYlzqmDz3/KWt9JCr5 dLILIZvQ9nZowqCjkWiXRHQ706V0k3gr+t/NkmP/yJDXRjPC74DKZ1YbbyBZ74G42SKKkEBgEDc+ k68PI/fNLzAnSUm2nkwQ2fRDLP8O7ETP+zjufa51sfhF+HBO52hHpc0VB1plmahU2KGggRE8LevD 1QP4lhbMJvcbwZDEv0g5zaXWdyNAyXsoGhWVQH9P7JQ2FwJ73bX1yVQwfVOiQ8IUrD82pjWR0SE2 DS3OplDVBnntxITQfxlWjnzXTN/VA8DruAmD2LPDzt9C920Z6ymabg1z22vWl3//W+4=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDSTCCAjGgAwIBAgIUeVm6unysnVugsQTvtGHPmuRd78IwDQYJKoZIhvcNAQELBQAwOTEaMBgG A1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExGzAZBgNVBAoUEnByZF9uYW1fbWd0MDFfdHJlZTAeFw0y NTA0MTgxNjIwMDlaFw0zNzA5MDgxNjIwMDlaMEAxFTATBgNVBAMMDHRlc3Rfc2lnbmluZzEWMBQG A1UECwwNYWNjZXNzTWFuYWdlcjEPMA0GA1UECgwGbm92ZWxsMIIBIjANBgkqhkiG9w0BAQEFAAOC AQ8AMIIBCgKCAQEA2G6WY1z629ZYGeKXpN7AqWoSWReq4wbQU1w1tfP1Vn95SkMrQOnC8pTXTyWf vuLaVqJkcrwTJypPmiV/EgrkZXw+bLRWZzAvazsZOq6f1kx5bMLWWfL7IlvCeWi7dS2jex95ieon RJvAcmNI+xnWXkGZNFMDQEv4UJmn8Cq4wexdKWUbQGVunvMx93Z7WUh87daFIjjMPX3JBzAL0Od6 5CkYh9X6s9rzcc/N/mcqwQcPvMFaAW7BIypG/hbgCXQZqnodH/Px39TAgiNYpGV/cpxz3Xc+wqrG Pp0vyTCZ6du2gqvYclosalUIEQlowieUvQyt1zP+NTYA/9It/1GG0QIDAQABo0IwQDAdBgNVHQ4E FgQUH+2O91LEv3J9QxkBENSYV6hS2Z8wHwYDVR0jBBgwFoAUJ51nSeg02Z3MGz2J/zYji4c9kj4w DQYJKoZIhvcNAQELBQADggEBAGPFc9XbP8WJZLJia/DKqCYIXAU9KoxRvAJVBoGWVjtZrOwTVKhP ajQ9aPfJ71sZ+YfZBaVKP/FbmhP8YaTw09nRQagWwU+x6QLppo79Gpxv1b83ztF4GSgcNjc/sxch 923w0e5Ht0ubSIZrQbeCId3/31TXuuB/6w2k+22tdKZmvNWDHI0y+fEhTSse2jurvT7T38UmvPM9 d72kmKBP4LwwlJtWLfokXZz1zcV9mPaO+gAsJlB85/JpoLZtSjqzcF9j80y2xgjF/3tW0PJsasFR LLLuHyYFGIo+SiH65n9yqUXr3x7EjmdKjfJutWBuntWpv11ms7Vr3cGjSgDx4ik= 
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDSTCCAjGgAwIBAgIUeVm6unysnVugsQTvtGHPmuRd78IwDQYJKoZIhvcNAQELBQAwOTEaMBgG A1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExGzAZBgNVBAoUEnByZF9uYW1fbWd0MDFfdHJlZTAeFw0y NTA0MTgxNjIwMDlaFw0zNzA5MDgxNjIwMDlaMEAxFTATBgNVBAMMDHRlc3Rfc2lnbmluZzEWMBQG A1UECwwNYWNjZXNzTWFuYWdlcjEPMA0GA1UECgwGbm92ZWxsMIIBIjANBgkqhkiG9w0BAQEFAAOC AQ8AMIIBCgKCAQEA2G6WY1z629ZYGeKXpN7AqWoSWReq4wbQU1w1tfP1Vn95SkMrQOnC8pTXTyWf vuLaVqJkcrwTJypPmiV/EgrkZXw+bLRWZzAvazsZOq6f1kx5bMLWWfL7IlvCeWi7dS2jex95ieon RJvAcmNI+xnWXkGZNFMDQEv4UJmn8Cq4wexdKWUbQGVunvMx93Z7WUh87daFIjjMPX3JBzAL0Od6 5CkYh9X6s9rzcc/N/mcqwQcPvMFaAW7BIypG/hbgCXQZqnodH/Px39TAgiNYpGV/cpxz3Xc+wqrG Pp0vyTCZ6du2gqvYclosalUIEQlowieUvQyt1zP+NTYA/9It/1GG0QIDAQABo0IwQDAdBgNVHQ4E FgQUH+2O91LEv3J9QxkBENSYV6hS2Z8wHwYDVR0jBBgwFoAUJ51nSeg02Z3MGz2J/zYji4c9kj4w DQYJKoZIhvcNAQELBQADggEBAGPFc9XbP8WJZLJia/DKqCYIXAU9KoxRvAJVBoGWVjtZrOwTVKhP ajQ9aPfJ71sZ+YfZBaVKP/FbmhP8YaTw09nRQagWwU+x6QLppo79Gpxv1b83ztF4GSgcNjc/sxch 923w0e5Ht0ubSIZrQbeCId3/31TXuuB/6w2k+22tdKZmvNWDHI0y+fEhTSse2jurvT7T38UmvPM9 d72kmKBP4LwwlJtWLfokXZz1zcV9mPaO+gAsJlB85/JpoLZtSjqzcF9j80y2xgjF/3tW0PJsasFR LLLuHyYFGIo+SiH65n9yqUXr3x7EjmdKjfJutWBuntWpv11ms7Vr3cGjSgDx4ik= 
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/soap" index="0" isDefault="true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.etnic.be/nidp/saml2/slo" ResponseLocation="https://secure.etnic.be/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://secure.etnic.be/nidp/saml2/slo" ResponseLocation="https://secure.etnic.be/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/soap" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.etnic.be/nidp/saml2/rni" ResponseLocation="https://secure.etnic.be/nidp/saml2/rni_return" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://secure.etnic.be/nidp/saml2/rni" ResponseLocation="https://secure.etnic.be/nidp/saml2/rni_return" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/soap" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.etnic.be/nidp/saml2/sso" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://secure.etnic.be/nidp/saml2/sso" />
+      <md:NameIDMappingService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/soap" />
+    </md:IDPSSODescriptor>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDSTCCAjGgAwIBAgIUeVm6unysnVugsQTvtGHPmuRd78IwDQYJKoZIhvcNAQELBQAwOTEaMBgG A1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExGzAZBgNVBAoUEnByZF9uYW1fbWd0MDFfdHJlZTAeFw0y NTA0MTgxNjIwMDlaFw0zNzA5MDgxNjIwMDlaMEAxFTATBgNVBAMMDHRlc3Rfc2lnbmluZzEWMBQG A1UECwwNYWNjZXNzTWFuYWdlcjEPMA0GA1UECgwGbm92ZWxsMIIBIjANBgkqhkiG9w0BAQEFAAOC AQ8AMIIBCgKCAQEA2G6WY1z629ZYGeKXpN7AqWoSWReq4wbQU1w1tfP1Vn95SkMrQOnC8pTXTyWf vuLaVqJkcrwTJypPmiV/EgrkZXw+bLRWZzAvazsZOq6f1kx5bMLWWfL7IlvCeWi7dS2jex95ieon RJvAcmNI+xnWXkGZNFMDQEv4UJmn8Cq4wexdKWUbQGVunvMx93Z7WUh87daFIjjMPX3JBzAL0Od6 5CkYh9X6s9rzcc/N/mcqwQcPvMFaAW7BIypG/hbgCXQZqnodH/Px39TAgiNYpGV/cpxz3Xc+wqrG Pp0vyTCZ6du2gqvYclosalUIEQlowieUvQyt1zP+NTYA/9It/1GG0QIDAQABo0IwQDAdBgNVHQ4E FgQUH+2O91LEv3J9QxkBENSYV6hS2Z8wHwYDVR0jBBgwFoAUJ51nSeg02Z3MGz2J/zYji4c9kj4w DQYJKoZIhvcNAQELBQADggEBAGPFc9XbP8WJZLJia/DKqCYIXAU9KoxRvAJVBoGWVjtZrOwTVKhP ajQ9aPfJ71sZ+YfZBaVKP/FbmhP8YaTw09nRQagWwU+x6QLppo79Gpxv1b83ztF4GSgcNjc/sxch 923w0e5Ht0ubSIZrQbeCId3/31TXuuB/6w2k+22tdKZmvNWDHI0y+fEhTSse2jurvT7T38UmvPM9 d72kmKBP4LwwlJtWLfokXZz1zcV9mPaO+gAsJlB85/JpoLZtSjqzcF9j80y2xgjF/3tW0PJsasFR LLLuHyYFGIo+SiH65n9yqUXr3x7EjmdKjfJutWBuntWpv11ms7Vr3cGjSgDx4ik= 
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDTDCCAjSgAwIBAgIUeVm6unysnVugsQTvtGHPmuRd78AwDQYJKoZIhvcNAQELBQAwOTEaMBgG A1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExGzAZBgNVBAoUEnByZF9uYW1fbWd0MDFfdHJlZTAeFw0y NTA0MTgxNjE5NTRaFw0zNzA5MDgxNjE5NTRaMEMxGDAWBgNVBAMMD3Rlc3RfZW5jcnlwdGlvbjEW MBQGA1UECwwNYWNjZXNzTWFuYWdlcjEPMA0GA1UECgwGbm92ZWxsMIIBIjANBgkqhkiG9w0BAQEF AAOCAQ8AMIIBCgKCAQEApa7qA4TNBkbrYVChf7IXyY0ugnyWXJ3o8E0b3XHs/BFXK77OfTy8oGC2 ijJX3hoToEp+J4fHF2WU7TQgkNJtmJBVl1EspXEIhUyk/H624JYuiqiUKUbtcbj5ohIfsI5IZBxZ iwyuelcT1DEeXyvDXRorN2F68xiszgZETOfHXeZLrFvVarHH+tVC0yf/ckEGWWssB0YLZCggoCRG 8qibM3UncZp+HteKpKqnp5BCuejK7ucotdgsyGAKWTNYd3xRR3l0JQqcpGHKq0tBgsfe79NkKDGd RxN5hN0AUCyLtQ4KfKI1iptIev0sCg5gVw3U4Ji624hgnKfHRt1cFVvECQIDAQABo0IwQDAdBgNV HQ4EFgQU4BvI2My0gs/eRRMgfHw9mC+JzDswHwYDVR0jBBgwFoAUJ51nSeg02Z3MGz2J/zYji4c9 kj4wDQYJKoZIhvcNAQELBQADggEBABRyCyshspL4+jUK2ceXX1P1Aq7AY3HYlzqmDz3/KWt9JCr5 dLILIZvQ9nZowqCjkWiXRHQ706V0k3gr+t/NkmP/yJDXRjPC74DKZ1YbbyBZ74G42SKKkEBgEDc+ k68PI/fNLzAnSUm2nkwQ2fRDLP8O7ETP+zjufa51sfhF+HBO52hHpc0VB1plmahU2KGggRE8LevD 1QP4lhbMJvcbwZDEv0g5zaXWdyNAyXsoGhWVQH9P7JQ2FwJ73bX1yVQwfVOiQ8IUrD82pjWR0SE2 DS3OplDVBnntxITQfxlWjnzXTN/VA8DruAmD2LPDzt9C920Z6ymabg1z22vWl3//W+4= 
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/spsoap" index="0" isDefault="true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.etnic.be/nidp/saml2/spslo" ResponseLocation="https://secure.etnic.be/nidp/saml2/spslo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://secure.etnic.be/nidp/saml2/spslo" ResponseLocation="https://secure.etnic.be/nidp/saml2/spslo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/spsoap" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.etnic.be/nidp/saml2/sprni" ResponseLocation="https://secure.etnic.be/nidp/saml2/sprni_return" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://secure.etnic.be/nidp/saml2/sprni" ResponseLocation="https://secure.etnic.be/nidp/saml2/sprni_return" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.etnic.be/nidp/saml2/spsoap" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.etnic.be/nidp/saml2/spassertion_consumer" index="0" isDefault="true" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://secure.etnic.be/nidp/saml2/spassertion_consumer" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ETNIC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Etnic-Production</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">www.etnic.be</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>ETNIC</md:Company>
+      <md:GivenName>Serge</md:GivenName>
+      <md:SurName>TELLIER</md:SurName>
+      <md:EmailAddress>mailto:philippe.leonard@etnic.be</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

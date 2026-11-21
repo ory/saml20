@@ -1,0 +1,147 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="http://adfs.ju.se/adfs/services/trust">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/" registrationInstant="2018-01-23T10:24:36Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://swamid.se/policy/mdrps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al1</saml:AttributeValue>
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al2</saml:AttributeValue>
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al3</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://myacademicid.org/entity-categories/esi</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/code-of-conduct/v2</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/personalized</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/anonymous</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/pseudonymous</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:Description xml:lang="en">This service is used for login to services at Jönköping University.</mdui:Description>
+          <mdui:Description xml:lang="sv">Denna applikation används för inloggning till tjänster hos Jönköping University.</mdui:Description>
+          <mdui:DisplayName xml:lang="en">Jönköping University</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sv">Jönköping University</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">http://ju.se/en/it-helpdesk.html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sv">http://ju.se/it-helpdesk.html</mdui:InformationURL>
+          <mdui:Logo xml:lang="en" height="88" width="197">https://account.win.hj.se/JU_A_sv_Swamid.png</mdui:Logo>
+          <mdui:Logo xml:lang="sv" height="88" width="197">https://account.win.hj.se/JU_A_sv_Swamid.png</mdui:Logo>
+          <mdui:PrivacyStatementURL xml:lang="en">http://ju.se/en/it-helpdesk/faq---manuals/my-user-account/other/joint-web-login-service.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="sv">http://ju.se/it-helpdesk/faq---manualer/mitt-anvandarkonto/ovrigt/gemensam-inloggningstjanst.html</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC1jCCAb6gAwIBAgIQTyYeY+viq6VAnXNlpdWo9zANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDExxBREZTIEVuY3J5cHRpb24gLSBhZGZzLmp1LnNlMB4XDTE3MDExOTEzMDc1NFoXDTI3MDExNzEzMDc1NFowJzElMCMGA1UEAxMcQURGUyBFbmNyeXB0aW9uIC0gYWRmcy5qdS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKdGLVnbXSmzyWarNprPDDZ5WbD9Hq31kscc6OTLh6CsxQIs5xWODrMloC0o4T5hVGDRz8MONhd2kg8zJttlM82sn8gtZQ7oToQmINJFcLcqT3UJlwZMSWWdxTyJE82S38y/4td6AC8WFmzWM8fEfJoLLB9LMotEw/jZGQvLjb2IeF83TONyXwTnOqNR7mvtqKOagDY4Yw9pkFIjjqcS6ZmWn4LOQMCvVFnUSCAYMRYpCzjvyUN4cjq63WFhtRpuYEExQb6s8Hf4zZBD5B7Qm9CTaiUyWd9zl/IuFLmHIAvkyPpBOsOWQm/7WCNDuEf6OP+TGHrpWs7qz8zY2jadLLsCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAb74Nbfv4Uu09TEFdEvILRQK3favoN6qWf8Nm3GcigsL4aWm8h/rr6lwG9uW6rwTivrFFCNz6xm10+Wrk4Tdki9h5LqtOflb3pb/vDhO2Gtxc6VSSFgflAnnKpEaGgseS4hQH8Wv7rdta25tjjjekxzeJc+OpPWHov/4aMJYDJyAuFEWXgxzRP9oN9AeW7bYj5h8ujJ8iBs36w2eMrV9DjKY1OSkotkxMjb2sJvxe09HOjZxQxrsiupnoG6nzHs8uaGBrCcsJLv8wZrPP6y7gIxKs7UI2qBMs9tTQMy1gaTAX3g17lg9zZVE0LMOSJPllH9A36w6zVOE8HpPtRLIzGg==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC0DCCAbigAwIBAgIQGbaE3+X1YYdHklQ4dW3+LTANBgkqhkiG9w0BAQsFADAkMSIwIAYDVQQDExlBREZTIFNpZ25pbmcgLSBhZGZzLmp1LnNlMB4XDTE3MDExOTEzMDc1NloXDTI3MDExNzEzMDc1NlowJDEiMCAGA1UEAxMZQURGUyBTaWduaW5nIC0gYWRmcy5qdS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMnc6vqVRrc+t6WRVO+xjGbrfJEBF97ebTz/3miuHuzaWVsfzVsO+u+rd7sGXOOnZJ7mwFObfcvi63D07DPOjF++3/KygobjhT1yKeWK8HPj2iM75ceHKSciSY7caLwlW+O64gex410XQTmqBvcX1BpWNZkE2oFbdob3B27j+bDlrFo631FM8luO8faVAmvV0EudpzBkmuoSDkK94VN6AWzuUqWybCY3sEiydbh+JncFxyIH6grKs+Pc3DAplMo3HphB4RyY2WIeHyreCoKgb71PWu/BLM92t7h5S5DnhvUbZBv13gP6Uq6RJgj8jlNS3ZlNNZS8NLOV2TzR3cd5LJ8CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEARi0HtjfOnJeaAdAGcVY0KPulzHkGszVyvEs5QMDv5u0NI9D0U/FnEeMaqdEwGKma6YetcbQrCEoNm0cR3Z9FPs6qzahahj0uxjggX5NkP89w9PLeZnEm+prcwsCb9NVNq0dN7TtiInjOh3nA+pDzQD9E6rD4Q1zV68p8+zFa+7vW3/pUc72wN+GQD2x8LF89VbuAegGoLx1VIbcStV6s78G0HpZEWhraepBh1W2OFRZ1avKPO68wvHyhHZD2Uz6O7WIrD5nMhyuH+OUEeMX55qtD+TIIslc51+uGEeCwd9Yrbuu126oxt4duKBVpBan+P+BASVFtEMON41soGgmN/A==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.ju.se/adfs/ls/" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.ju.se/adfs/ls/" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.ju.se/adfs/ls/" index="0" isDefault="true" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adfs.ju.se/adfs/ls/" index="1" />
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">Jönköping University - Login service</md:ServiceName>
+        <md:ServiceName xml:lang="sv">Jönköping University - Gemensam inloggningstjänst</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="norEduPersonNIN" Name="urn:oid:1.3.6.1.4.1.2428.90.1.5" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonAssurance" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.11" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" errorURL="https://idp.ju.se/?errorurl_code=ERRORURL_CODE&amp;errorurl_ts=ERRORURL_TS&amp;errorurl_rp=ERRORURL_RP&amp;errorurl_tid=ERRORURL_TID&amp;errorurl_ctx=ERRORURL_CTX">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hj.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:Description xml:lang="en">The Jönköping University Identity Provider is used by employees and students at the university.</mdui:Description>
+          <mdui:Description xml:lang="sv">Inloggningstjänst för anställda och studenter vid Jönköping University.</mdui:Description>
+          <mdui:DisplayName xml:lang="en">Jönköping University</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sv">Jönköping University</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">http://ju.se/en.html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sv">http://ju.se</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://ju.se/en/it-helpdesk/faq---manuals/my-user-account/other/joint-web-login-service.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="sv">http://ju.se/it-helpdesk/faq---manualer/mitt-anvandarkonto/ovrigt/gemensam-inloggningstjanst.html</mdui:PrivacyStatementURL>
+          <mdui:Logo xml:lang="en" height="88" width="197">https://account.win.hj.se/JU_A_sv_Swamid.png</mdui:Logo>
+          <mdui:Logo xml:lang="sv" height="88" width="197">https://account.win.hj.se/JU_A_sv_Swamid.png</mdui:Logo>
+          <mdui:Keywords xml:lang="en">ju hj hogskolan+i+jonkoping jonkoping+university</mdui:Keywords>
+          <mdui:Keywords xml:lang="sv">ju hj hogskolan+i+jonkoping jonkoping+university</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:57.7783,14.1633</mdui:GeolocationHint>
+          <mdui:DomainHint>hj.se</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC1jCCAb6gAwIBAgIQTyYeY+viq6VAnXNlpdWo9zANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDExxBREZTIEVuY3J5cHRpb24gLSBhZGZzLmp1LnNlMB4XDTE3MDExOTEzMDc1NFoXDTI3MDExNzEzMDc1NFowJzElMCMGA1UEAxMcQURGUyBFbmNyeXB0aW9uIC0gYWRmcy5qdS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKdGLVnbXSmzyWarNprPDDZ5WbD9Hq31kscc6OTLh6CsxQIs5xWODrMloC0o4T5hVGDRz8MONhd2kg8zJttlM82sn8gtZQ7oToQmINJFcLcqT3UJlwZMSWWdxTyJE82S38y/4td6AC8WFmzWM8fEfJoLLB9LMotEw/jZGQvLjb2IeF83TONyXwTnOqNR7mvtqKOagDY4Yw9pkFIjjqcS6ZmWn4LOQMCvVFnUSCAYMRYpCzjvyUN4cjq63WFhtRpuYEExQb6s8Hf4zZBD5B7Qm9CTaiUyWd9zl/IuFLmHIAvkyPpBOsOWQm/7WCNDuEf6OP+TGHrpWs7qz8zY2jadLLsCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAb74Nbfv4Uu09TEFdEvILRQK3favoN6qWf8Nm3GcigsL4aWm8h/rr6lwG9uW6rwTivrFFCNz6xm10+Wrk4Tdki9h5LqtOflb3pb/vDhO2Gtxc6VSSFgflAnnKpEaGgseS4hQH8Wv7rdta25tjjjekxzeJc+OpPWHov/4aMJYDJyAuFEWXgxzRP9oN9AeW7bYj5h8ujJ8iBs36w2eMrV9DjKY1OSkotkxMjb2sJvxe09HOjZxQxrsiupnoG6nzHs8uaGBrCcsJLv8wZrPP6y7gIxKs7UI2qBMs9tTQMy1gaTAX3g17lg9zZVE0LMOSJPllH9A36w6zVOE8HpPtRLIzGg==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC0DCCAbigAwIBAgIQGbaE3+X1YYdHklQ4dW3+LTANBgkqhkiG9w0BAQsFADAkMSIwIAYDVQQDExlBREZTIFNpZ25pbmcgLSBhZGZzLmp1LnNlMB4XDTE3MDExOTEzMDc1NloXDTI3MDExNzEzMDc1NlowJDEiMCAGA1UEAxMZQURGUyBTaWduaW5nIC0gYWRmcy5qdS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMnc6vqVRrc+t6WRVO+xjGbrfJEBF97ebTz/3miuHuzaWVsfzVsO+u+rd7sGXOOnZJ7mwFObfcvi63D07DPOjF++3/KygobjhT1yKeWK8HPj2iM75ceHKSciSY7caLwlW+O64gex410XQTmqBvcX1BpWNZkE2oFbdob3B27j+bDlrFo631FM8luO8faVAmvV0EudpzBkmuoSDkK94VN6AWzuUqWybCY3sEiydbh+JncFxyIH6grKs+Pc3DAplMo3HphB4RyY2WIeHyreCoKgb71PWu/BLM92t7h5S5DnhvUbZBv13gP6Uq6RJgj8jlNS3ZlNNZS8NLOV2TzR3cd5LJ8CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEARi0HtjfOnJeaAdAGcVY0KPulzHkGszVyvEs5QMDv5u0NI9D0U/FnEeMaqdEwGKma6YetcbQrCEoNm0cR3Z9FPs6qzahahj0uxjggX5NkP89w9PLeZnEm+prcwsCb9NVNq0dN7TtiInjOh3nA+pDzQD9E6rD4Q1zV68p8+zFa+7vW3/pUc72wN+GQD2x8LF89VbuAegGoLx1VIbcStV6s78G0HpZEWhraepBh1W2OFRZ1avKPO68wvHyhHZD2Uz6O7WIrD5nMhyuH+OUEeMX55qtD+TIIslc51+uGEeCwd9Yrbuu126oxt4duKBVpBan+P+BASVFtEMON41soGgmN/A==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.ju.se/adfs/ls/" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.ju.se/adfs/ls/" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.ju.se/adfs/ls/" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.ju.se/adfs/ls/" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Jönköping University</md:OrganizationName>
+      <md:OrganizationName xml:lang="sv">Stiftelsen Högskolan i Jönköping</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Jönköping University</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="sv">Högskolan i Jönköping</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ju.se</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sv">http://www.ju.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:Company>Jönköping University</md:Company>
+      <md:SurName>IT-Helpdesk</md:SurName>
+      <md:EmailAddress>mailto:swamid@ju.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 36 101112</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Jönköping University</md:Company>
+      <md:SurName>Jan-Erik Larsson</md:SurName>
+      <md:EmailAddress>mailto:swamid@ju.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 36 101494</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Jönköping University</md:Company>
+      <md:SurName>Stefan Kindh</md:SurName>
+      <md:EmailAddress>mailto:swamid@ju.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 36 101170</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:Company>Jönköping University</md:Company>
+      <md:GivenName>Jan-Erik</md:GivenName>
+      <md:SurName>Larsson</md:SurName>
+      <md:EmailAddress>mailto:jan-erik.larsson@ju.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 36 101494</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

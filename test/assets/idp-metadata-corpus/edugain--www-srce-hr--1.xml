@@ -1,0 +1,304 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.aaiedu.hr/edugain/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>https://myacademicid.org/entity-categories/esi</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.srce.hr" registrationInstant="2012-01-01T08:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="hr">http://www.aaiedu.hr/docs/AAI@EduHr-pravilnik-ver1.3.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">acmt.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">adu.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">agr.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">algebra.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">alu.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ampeu.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">arhitekt.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">arhiv.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">asoo.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">aspira.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">azoo.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">azvo.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">bak.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">bc-institut.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">bernays.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">bfm.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">bizg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">bolnica-karlovac.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">bolnica-srebrnjak.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">bolnica-zadar.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">callegari.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">carnet.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ci-sdz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">dhz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">dimm.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">diplomacija.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">djkbf.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">dkd.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">eduid.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">efos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">efst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">efzg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">eihp.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">eizg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">eoc.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">epsz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">erf.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">etfos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">evtos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fazos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fdmz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fer.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fesb.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ffos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ffrz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ffst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ffzg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fhs.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fkit.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fkz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">foi.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">foozos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fpz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fpzg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">fsb.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ftrr.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">geof.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">gfos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">gfv.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">gkka.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">gkri.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">gkvk.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">gkzd.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">grad.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">gradst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">grf.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">gskos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">h-r-z.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hatz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hazu.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hck.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hera.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hgi-cgs.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hhi.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hpm.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hrzz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hsin.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hvu-morh.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">hzjz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">iarh.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">idi.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ief.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ifs.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ifzg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">igh.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ihjj.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ijf.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">imi.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">imin.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">imz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">inantro.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">inter1.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">inter2.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">inter3.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">inter4.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">invictus.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">iptpo.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ipu.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">irb.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">irmo.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">isp.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">iv.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">izor.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">iztzg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kb-merkur.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbc-rijeka.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbc-zagreb.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbcsm.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbd.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbf.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbf-st.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbo.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbsd.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kbsplit.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kdb.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kif.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kifos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">kifst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">koncar-institut.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">krs.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ktf-split.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">libertas.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">lzmk.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">matica.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">mato.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">medils.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">mef.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">mefos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">mefst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">mev.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">muza.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">mzos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ncvvo.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">nsk.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">nsz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">nszssh.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">obhpknin.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">obrtnicko-uciliste.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">oikon.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pak.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">par.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pbf.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pesg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pfst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pharma.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pilar.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pmf.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pmfst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">poljinos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pou.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pou-amc.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pou-libar.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pounovak.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pouvinkovci.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pozeska-bolnica.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pravo.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pravos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pravst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">prirodoslovni.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ptfos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">public.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">pvzg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">rgn.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">rvs.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">scka.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">scri.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">scsi.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">scst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">scvz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">sczg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">selvita.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">sfzg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">simet.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">skole.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">skolski-sport.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">snz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">sois-ft.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">srce.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">stampar.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">stin.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">stucos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">stucsb.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">sumfak.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">sumins.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">suvag.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">svkatarina.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">svkst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">tera.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">tfmvi.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">thalassotherapia-opatija.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ttf.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">tvz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">uaos.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">uciliste-ambitio.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">uciliste-brod.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">uciliste-cibalae.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">uciliste-janus.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">uciliste-maestro.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ucp.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ufzg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">umas.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unicath.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unidu.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unin.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unios.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unipu.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">uniri.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unisb.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unist.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">univern.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unizd.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">unizg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vef.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">veinst.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">velegs-nikolatesla.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">veleknin.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">veleri.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vevu.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vguk.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vhzk.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">visokaskolaarca.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vps-minerva.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vs-securus.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vsfp.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vsig.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vsite.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vss.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vub.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vuka.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vus.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vuv.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">vvg.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">zastita-prirode-dnz.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">zkzd.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">zlatnavrata.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">zsem.hr</shibmd:Scope>
+        <shibmd:Scope regexp="false">zvu.hr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">AAI@EduHr Single Sign-On Service</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="hr">AAI@EduHr sustav jedinstvene autentikacije korisnika</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Central Login Service for the AAI@EduHr Federation with implemented Single Sign-On Feature</mdui:Description>
+          <mdui:Description xml:lang="hr">Centralni autentikacijski servis AAI@EduHr federacije s implementiranim sustavom jedinstvene autentikacije korisnika</mdui:Description>
+          <mdui:Logo width="196" height="49">https://login.aaiedu.hr/edugain/module.php/aaieduhrtheme/assets/aaieduhr_logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE8TCCA1mgAwIBAgIUHmiNQLyUJbl9cwqM6lJkKfHzTMcwDQYJKoZIhvcNAQELBQAwgYcxCzAJBgNVBAYTAkhSMQ8wDQYDVQQIDAZaYWdyZWIxDzANBgNVBAcMBlphZ3JlYjESMBAGA1UECgwJQUFJQEVkdUhyMQwwCgYDVQQLDANBQUkxGDAWBgNVBAMMD2xvZ2luLmFhaWVkdS5ocjEaMBgGCSqGSIb3DQEJARYLYWFpQHNyY2UuaHIwHhcNMjMwNTAyMDY1ODA4WhcNMzMwNTAxMDY1ODA4WjCBhzELMAkGA1UEBhMCSFIxDzANBgNVBAgMBlphZ3JlYjEPMA0GA1UEBwwGWmFncmViMRIwEAYDVQQKDAlBQUlARWR1SHIxDDAKBgNVBAsMA0FBSTEYMBYGA1UEAwwPbG9naW4uYWFpZWR1LmhyMRowGAYJKoZIhvcNAQkBFgthYWlAc3JjZS5ocjCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMsKFB6Np2oBGq4TS0L5RKm3svIFWHY029nmBwTXwPGoptfJ1JEw9oYKWTTaBu24bZp2ffOvO90/gvNO08Wg3pJcn95d5NCEY13XNogCU/JmH+DfUMVSFSuzxcIphXd4xOahRBQYRHytGhV14mjAj4qrQYceC5EKM9ESAiJkLdrq7rcC/zv3XL0329pf6OsmRKuWv3OYnvGJqkZ6R7ArhREJbncnTbSBcXN//+cDFRog2GZPfcDQU/67wtcFMWQQ2QI8U/7cnLjzTVz4DoXdsltihKmVVptJKztpq6sx05KSFVyHwDVyeXsUI70T96HAPTrArM1X0TkPd7CjxYb17trVZL7vDsQDnVnHi/2NtaZxIlDdW4Z8s5EG3XIc6vugHshGAFLiZPmguNWES5NTrU4awOL93vKz5fNq4BQ2Kq2R1nYChAdLCDLT+HYjzHwBIlbHtF/gHkpLh98Q1aemQr1pX4TLlOFCcP32WRI2tR/Yhtjv5SiAmxqBsEveuWGrTwIDAQABo1MwUTAdBgNVHQ4EFgQU2i6ViqqYXMPU40sa4Ssi2Z0xGVkwHwYDVR0jBBgwFoAU2i6ViqqYXMPU40sa4Ssi2Z0xGVkwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAA/H0D8io3K97kRfx1k9Nn0PosxbXouCBtPDx0JaWS3qaqfWwVQBus514MndrAZQuF3hTQoDvWEDfQcHZXTJ923dJsddkB6oPyEdm4n3knraJ2ZQy62/Fkm60t0e2fsjaEhCrWP8F66PNtVqLPadxM1rnDFB8aGgwyinvEiDiyJzwUPz/BAoM2nmV3dStAnIBO5+0FvPQDoXMI9/XCPZka9AjRrSMCSIEaua/gLGie2jMOiPfRxRrUvZp5tC6zHZwlQGLWcRXtZmay2RjtCwdAWp0OGRMewgS3KjC+4/R6l7zNSd3dO9FbT4YoKciBpis2atRA+yLMgaC7ulCXV8K+mLA/clNPVhinHdoG467J8KxYBgnkZGFskrBr+z5DILab5syjxJp564tts1544dWgpY0oQxxFGnSSRqMHZVJLRgqw5GE5nt0UfUrqX5YQQGIwz2qldrP/eYvLRZSJM8GLDlWUSQLL38vnKYcP9QklmFoLbe0t1Mnkz3BMKree16e</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE8TCCA1mgAwIBAgIUHmiNQLyUJbl9cwqM6lJkKfHzTMcwDQYJKoZIhvcNAQELBQAwgYcxCzAJBgNVBAYTAkhSMQ8wDQYDVQQIDAZaYWdyZWIxDzANBgNVBAcMBlphZ3JlYjESMBAGA1UECgwJQUFJQEVkdUhyMQwwCgYDVQQLDANBQUkxGDAWBgNVBAMMD2xvZ2luLmFhaWVkdS5ocjEaMBgGCSqGSIb3DQEJARYLYWFpQHNyY2UuaHIwHhcNMjMwNTAyMDY1ODA4WhcNMzMwNTAxMDY1ODA4WjCBhzELMAkGA1UEBhMCSFIxDzANBgNVBAgMBlphZ3JlYjEPMA0GA1UEBwwGWmFncmViMRIwEAYDVQQKDAlBQUlARWR1SHIxDDAKBgNVBAsMA0FBSTEYMBYGA1UEAwwPbG9naW4uYWFpZWR1LmhyMRowGAYJKoZIhvcNAQkBFgthYWlAc3JjZS5ocjCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMsKFB6Np2oBGq4TS0L5RKm3svIFWHY029nmBwTXwPGoptfJ1JEw9oYKWTTaBu24bZp2ffOvO90/gvNO08Wg3pJcn95d5NCEY13XNogCU/JmH+DfUMVSFSuzxcIphXd4xOahRBQYRHytGhV14mjAj4qrQYceC5EKM9ESAiJkLdrq7rcC/zv3XL0329pf6OsmRKuWv3OYnvGJqkZ6R7ArhREJbncnTbSBcXN//+cDFRog2GZPfcDQU/67wtcFMWQQ2QI8U/7cnLjzTVz4DoXdsltihKmVVptJKztpq6sx05KSFVyHwDVyeXsUI70T96HAPTrArM1X0TkPd7CjxYb17trVZL7vDsQDnVnHi/2NtaZxIlDdW4Z8s5EG3XIc6vugHshGAFLiZPmguNWES5NTrU4awOL93vKz5fNq4BQ2Kq2R1nYChAdLCDLT+HYjzHwBIlbHtF/gHkpLh98Q1aemQr1pX4TLlOFCcP32WRI2tR/Yhtjv5SiAmxqBsEveuWGrTwIDAQABo1MwUTAdBgNVHQ4EFgQU2i6ViqqYXMPU40sa4Ssi2Z0xGVkwHwYDVR0jBBgwFoAU2i6ViqqYXMPU40sa4Ssi2Z0xGVkwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAA/H0D8io3K97kRfx1k9Nn0PosxbXouCBtPDx0JaWS3qaqfWwVQBus514MndrAZQuF3hTQoDvWEDfQcHZXTJ923dJsddkB6oPyEdm4n3knraJ2ZQy62/Fkm60t0e2fsjaEhCrWP8F66PNtVqLPadxM1rnDFB8aGgwyinvEiDiyJzwUPz/BAoM2nmV3dStAnIBO5+0FvPQDoXMI9/XCPZka9AjRrSMCSIEaua/gLGie2jMOiPfRxRrUvZp5tC6zHZwlQGLWcRXtZmay2RjtCwdAWp0OGRMewgS3KjC+4/R6l7zNSd3dO9FbT4YoKciBpis2atRA+yLMgaC7ulCXV8K+mLA/clNPVhinHdoG467J8KxYBgnkZGFskrBr+z5DILab5syjxJp564tts1544dWgpY0oQxxFGnSSRqMHZVJLRgqw5GE5nt0UfUrqX5YQQGIwz2qldrP/eYvLRZSJM8GLDlWUSQLL38vnKYcP9QklmFoLbe0t1Mnkz3BMKree16e</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.aaiedu.hr/edugain/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.aaiedu.hr/edugain/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">AAI@EduHr</md:OrganizationName>
+      <md:OrganizationName xml:lang="hr">AAI@EduHr</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">AAI@EduHr - Croatian Research and Education Federation</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="hr">AAI@EduHr - Autentikacijska i autorizacijska infrastruktura sustava znanosti i visokog obrazovanja u Republici Hrvatskoj</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.aaiedu.hr/en</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="hr">http://www.aaiedu.hr</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>AAI@EduHr Federation Operations Team</md:GivenName>
+      <md:EmailAddress>mailto:aai@srce.hr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:Company>Srce</md:Company>
+      <md:GivenName>AAI@EduHr</md:GivenName>
+      <md:EmailAddress>mailto:aai@srce.hr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>AAI@EduHr</md:GivenName>
+      <md:SurName>team</md:SurName>
+      <md:EmailAddress>mailto:aosi@aaiedu.hr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

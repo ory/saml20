@@ -1,0 +1,76 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://data.danubius-ri.eu/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.roedu.net" registrationInstant="2025-05-29T08:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.roedu.net/wp-content/uploads/2019/03/RoEduNet-Metadata_Registration-v0.7.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">DANUBIUS Data Portal</mdui:DisplayName>
+          <mdui:Description xml:lang="en">This Service Provider is used for logging into the DANUBIUS Data Portal</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://data.danubius-ri.eu/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://unibuc.ro/wp-content/uploads/2022/09/Politica-de-confidentialitate-2022en.pdf</mdui:PrivacyStatementURL>
+          <mdui:Logo height="82" width="240" xml:lang="en">https://sp.unibuc.ro/logos/danubius-ri.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFHTCCAwWgAwIBAgIUezmznz8TMcROXjE8kOj5f0FsQg0wDQYJKoZIhvcNAQEL
+BQAwHjEcMBoGA1UEAwwTZGF0YS5kYW51Yml1cy1yaS5ldTAeFw0yNTA1MjExNjUy
+MjFaFw0zNTA1MTkxNjUyMjFaMB4xHDAaBgNVBAMME2RhdGEuZGFudWJpdXMtcmku
+ZXUwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCpoyzjKLoEANLjCu68
+3qCSC8meYXXxqCs+X9A9BOEs6/2AYzYMurwAxvXhjgDOFQ4l025hKChgtynRMio7
+ok6O4j8UBVSz5iL6KyvV+G9GtD60sZjH9Yoe9m33FopoXA3dLs4TIrA3vBP/WxIQ
+P4Dsazz1vdCZ0rPnOwHHgPP36caKxUjMFWTexpY9+x6OY3dBAyAqnWpW4kYsF43b
+sYre5q4SumPCnPjQnacvKJ4V4epOb4mIZZdGVWo52BpWpfWg1doB7+uXglVdKqXi
+VO02lCpaPesSGveZo6IbTdajnojIZoA7KQ941cWUMuPY1g4hRx+SFTkZqzIG4eUF
+9Yca9dk2xKuH9fn2P54BT144jObtfn2sX1epR+PEzOxaKVaIwHBqdckqUwHXMoAF
+s+cJ/BeDett3HMUiu8YvKUF40Y4kgM6VVRNleieuqyWCBYZSYAoVrD76buVdFFBC
+q3UByV9R81XZqnXz2nqdtSQ/HieSmC8a9ovEshMT6lugQhK5ZCbDcYEim4Q0kTLn
+CkgS8/+YLNu9vrwESjevaAhX7MKp2mTBlt9D0LcDvo4fxCf+MSRA2juPwopw2GIy
+4Bj4TdveRQK57+QCbyYIrqRx+TIAXrnUolKogkUeJ/IDNF+608WQG58JeEALiyDN
+vxmYNmZkf/gE/4nSnxvWCLwhFwIDAQABo1MwUTAdBgNVHQ4EFgQU7GjlCzj1zsKQ
+NRq1f4KJAsM/CkswHwYDVR0jBBgwFoAU7GjlCzj1zsKQNRq1f4KJAsM/CkswDwYD
+VR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAgEAIcb7QGzXoS71og7BEiE6
+67rRRDX5soto/Tz7sETlK/dBYm7hTtR40KkggWw/PSKcq7Hxmdvmah0+uOf6Xpq4
+M0JN1+tE4zdGgIxwfWJm8djQRkbW7HVIs7FN5b0VjdC2Z6aYNRZEpwnbNmUJ+hds
+AfMWGi+6cNPXa+cGJV2XpuLu3ajWdfzsxkI9Py8k8+Sm1nT3jRxERBKDbdpAYeMr
+D81NZD1ayKl2/wIh4F7XzssuQIsL8TGosHpuYJ4kUPjbVaV3Vg97m6ZEO8L68UG+
+NayfjtM2RqujwHHgCM2GZun7L5N64twWIrq0wge8zRN91j9rpPeqb4s3idtTnT/9
+yaed2Dp+Uen5IOxNvG3WHsYF5jpAiLtZk9gBsTq2CuGdrasJ5pXUbeL6xYUJZ7vq
+gONaNoiyVUdyngLsyt75HtWWZmldNxU1JBLsHFevnhgKzZ7J9SSBzKBJmNSqI7hT
+9U4N/LfKWXKObkhBWArD+M87BJ+PBwt15l6phiONgbHGtbu39lgtz7xyCXJOyXlm
+gyfjBax5UT/6837vI/5h4LEnT8ssdhykwKCnpdD5jHAHNyULLsmbwEcsxwZ8bSYj
+hOYdT9tYDuddYFHu/BbzlYFqpWd8fUGBx57PQSBW/XONHpVHs+1um4vyoK5S+RcO
+n4jvULZrSqGbD4x15YOKNYY=
+          </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://data.danubius-ri.eu/acs" index="0" />
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">DANUBIUS Data Portal</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="cn" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">DANUBIUS RI</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">DANUBIUS Research Infrastructure</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://danubius-ri.eu/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:rares.cristea@unibuc.ro</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

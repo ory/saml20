@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.it.gu.se/idp/shibboleth" xml:base="swamid-1.0/idp.it.gu.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">gu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUGLU4YqWFYHboh+F+iLNYkBw8XNAwDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMaWRwLml0Lmd1LnNlMB4XDTA5MDgyNDExMzA1OFoXDTI5
+MDgyNDExMzA1OFowFzEVMBMGA1UEAxMMaWRwLml0Lmd1LnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEApOVkzaHuTCe+7lf79UnQ5iQ/8OLbJpwOxPTF
+wEPIHbMMU/aCVnxoZnwNApblqvpP2uOsQvh8d0uDv2iVC5BMN0ff9M+9rN7D/gAo
+L+w8CmWiHRudKyZLu8Gu89SGxyQ59AVCbJzGaEE9h/CmMYHCj/ONJ8mtjG9uw6u+
+Vj+L8PHXsPHQsLvcl3/D7duIYH/xHRbPzXS0imux+r/OcSCR3aCPCx3uuAfVPxGS
+9Y/ifynV586V3szIM7O15SeXKenFMKjQhzA23ZPcHhDSxWnVGUDWFDRDNAXfD7BF
+KRBCaUlWZvczqsV3eGtW8XgOmuW/7yJT5REfrrSLOKprAK8yoQIDAQABo18wXTA8
+BgNVHREENTAzggxpZHAuaXQuZ3Uuc2WGI2h0dHBzOi8vaWRwLml0Lmd1LnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSpKDUl7ZRxhQ1/HRmVbFd+NbwxmzANBgkq
+hkiG9w0BAQUFAAOCAQEAXfaYlHQj4KRaJmMbWFV0XyNUlHNio8010vLv3t6WztlZ
+jZFL/hTQIFhmYEA04Davdk+1/1JvcRePSpg2VCxT/QwHyOR3eimmQ6FKXWls/zO/
+V01sJrlLdf/53pzXYsVSOf50UK+GtrSB3hhzrFmeaBALOysGqk2h2/UdYISXxa/e
+MyQ/aOI5u+0Wlq2RdIXF8MrtnwBTRhNXLcXYzz4fPsdjd4TmmJLQLXLmFLE/IA+/
+CP9nuvekzvPla7AXlXPwPvbUunwZIZkN3aHzMY/08FKIYRLb9VmqInKXw8tIBSqG
+MoX9SCDPBh2j39QZupTaPkylXDshurod7B2XtXdHPg==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.it.gu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.it.gu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.it.gu.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.it.gu.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.it.gu.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.it.gu.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">gu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUGLU4YqWFYHboh+F+iLNYkBw8XNAwDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMaWRwLml0Lmd1LnNlMB4XDTA5MDgyNDExMzA1OFoXDTI5
+MDgyNDExMzA1OFowFzEVMBMGA1UEAxMMaWRwLml0Lmd1LnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEApOVkzaHuTCe+7lf79UnQ5iQ/8OLbJpwOxPTF
+wEPIHbMMU/aCVnxoZnwNApblqvpP2uOsQvh8d0uDv2iVC5BMN0ff9M+9rN7D/gAo
+L+w8CmWiHRudKyZLu8Gu89SGxyQ59AVCbJzGaEE9h/CmMYHCj/ONJ8mtjG9uw6u+
+Vj+L8PHXsPHQsLvcl3/D7duIYH/xHRbPzXS0imux+r/OcSCR3aCPCx3uuAfVPxGS
+9Y/ifynV586V3szIM7O15SeXKenFMKjQhzA23ZPcHhDSxWnVGUDWFDRDNAXfD7BF
+KRBCaUlWZvczqsV3eGtW8XgOmuW/7yJT5REfrrSLOKprAK8yoQIDAQABo18wXTA8
+BgNVHREENTAzggxpZHAuaXQuZ3Uuc2WGI2h0dHBzOi8vaWRwLml0Lmd1LnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSpKDUl7ZRxhQ1/HRmVbFd+NbwxmzANBgkq
+hkiG9w0BAQUFAAOCAQEAXfaYlHQj4KRaJmMbWFV0XyNUlHNio8010vLv3t6WztlZ
+jZFL/hTQIFhmYEA04Davdk+1/1JvcRePSpg2VCxT/QwHyOR3eimmQ6FKXWls/zO/
+V01sJrlLdf/53pzXYsVSOf50UK+GtrSB3hhzrFmeaBALOysGqk2h2/UdYISXxa/e
+MyQ/aOI5u+0Wlq2RdIXF8MrtnwBTRhNXLcXYzz4fPsdjd4TmmJLQLXLmFLE/IA+/
+CP9nuvekzvPla7AXlXPwPvbUunwZIZkN3aHzMY/08FKIYRLb9VmqInKXw8tIBSqG
+MoX9SCDPBh2j39QZupTaPkylXDshurod7B2XtXdHPg==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.it.gu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.it.gu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">GU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Göteborgs universitet</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.gu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Göteborgs universitet</md:Company>
+    <md:EmailAddress>pablo.millet@gu.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

@@ -1,0 +1,89 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://lekythos.library.ucy.ac.cy/login">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://cif.cynet.ac.cy" registrationInstant="2023-05-04T12:13:00Z" />
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">LEKYTHOS</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="el">ΛΗΚΥΘΟΣ</mdui:DisplayName>
+          <mdui:Description xml:lang="en">The digital collections of the University of Cyprus.</mdui:Description>
+          <mdui:Description xml:lang="el">Ψηφιακές συλλογές του Πανεπιστημίου Κύπρου.</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="en">https://library.ucy.ac.cy/information/library-policy/gdpr-lekythos-repository/?lang=en</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="el">https://library.ucy.ac.cy/information/library-policy/gdpr-lekythos-repository/</mdui:PrivacyStatementURL>
+          <mdui:Logo xml:lang="en" width="140" height="60">https://lekythos.library.ucy.ac.cy/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIENjCCAp6gAwIBAgIJAIOTbJyaB+v/MA0GCSqGSIb3DQEBCwUAMCExHzAdBgNV
+BAMTFmxla3l0aG9zLmxpYi51Y3kuYWMuY3kwIBcNMjMwNDI0MDc1NzU0WhgPMjA1
+MzA0MTYwNzU3NTRaMCExHzAdBgNVBAMTFmxla3l0aG9zLmxpYi51Y3kuYWMuY3kw
+ggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQDUsRLhneja9RPkbkdY90i0
+VUn23tqtjYyRO8GZ214xh65rrLmv78fsejnpemg7N3I9wMvSBXGFaJshG5fnLn0R
+EtqiDu3Z7sk7+xsJXMOzEt4SoMSl667l8X87OuPA4wiUeLri8GRIWbrlFd6IAxF0
+P8oBF6izWk0iJ3rdyHdhnEr44EpzQb1WcR30ZrkyCwuECow03lkjSl4rlwC016L8
+wCqI2v5AGGJ0UORTnvwRFPDB7iMdpU7Qvbt0x/HH4jdazOm8oOP/VgAdWkcjHtL3
+qTsn8B6yKuI/D3G5Pyl0XYyhnA2RHM6aywW0Z6SasIkjYGdcwWiHEbEj6MEePtxt
+B0AOArXwXOaykO8Wuhvyr1+94U81EkKo4fLjxZ1CZ8Ny+K1Wuexzt3c45ElXJR6U
+du3catxBVFA1ZB/27LgKNsoZvxvuLUvkCDho5T91kav9s9oUIlCPMz3tBTanGoyN
+SSp8mOSSwC3GTVHruSqGveZS+FUHbDRh+sxIePr75dECAwEAAaNvMG0wTAYDVR0R
+BEUwQ4IWbGVreXRob3MubGliLnVjeS5hYy5jeYYpaHR0cHM6Ly9sZWt5dGhvcy5s
+aWIudWN5LmFjLmN5L3NoaWJib2xldGgwHQYDVR0OBBYEFGB+Zg8M78SnKUCLE/UV
+Pg8yrdkUMA0GCSqGSIb3DQEBCwUAA4IBgQA+DR2KefvzQcnB6dBAkov3+zIruMB2
+c4sGD21PZoXAXQOIUCxFh/vKpDQDVWYyIMa4l0HY/uXRVhUjHr7oQTikXgD+W2fI
+WTLheWYV5nDyxdXdP0xMcszhsyAWfUDvi3KodyD99N0YgSyQOhbuhjpLbxv5Fkbs
+XVFuKP/lRP0kBIlCun+tdbryP9L6OeoBAjVplPObEbB7Bhg8Br9LqpId2jK4Iug3
+gkmwBhLQ8aAJYV0TX74PIOUT7OotI3dPFNYS/XjBlC79RBIpI5EMijwO4ZrAXQKC
+6zJhLy3zg4QzJ0HBzK2vnnjlICL5DZiDIRvIlCZ4/GwvweeUV43JretnSxtIT0l7
+EDTjeGuFcfORIffdz/TthzVJiZh7AYXK3DwU5g2fMczYjFN3j8nOPD7Qr91sNDiT
+E0sEOJHKPdDMQJ8iUprWeO4ORNYq6g3Y0x4JBDwyv9w23cVSU/zhNnjC4FZt9BpH
+f7t55sFtNsjrGNe5tYdYqVJlFhXmE3f3htU=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/Artifact/SOAP" index="1" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/SLO/Redirect" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/SLO/POST" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/SLO/SOAP" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/SLO/Artifact" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/SAML2/POST" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/SAML2/POST-SimpleSign" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/SAML2/Artifact" index="3" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://lekythos.library.ucy.ac.cy/Shibboleth.sso/SAML2/ECP" index="4" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">LEKYTHOS</md:ServiceName>
+        <md:ServiceName xml:lang="el">ΛΗΚΥΘΟΣ</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">The digital collections of the University of Cyprus.</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="el">Ψηφιακές συλλογές του Πανεπιστημίου Κύπρου.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="el">Πανεπιστήμιο Κύπρου</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University of Cyprus</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="el">Πανεπιστήμιο Κύπρου</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Cyprus</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="el">https://www.ucy.ac.cy/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.ucy.ac.cy/?lang=en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ioanna</md:GivenName>
+      <md:SurName>Papachristodoulou</md:SurName>
+      <md:EmailAddress>mailto:papachristodoulou.ioanna@ucy.ac.cy</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

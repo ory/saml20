@@ -1,0 +1,97 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://edumeetsso.ngren.edu.ng/satosa/Saml2Backend/saml2/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://ngren.edu.ng/">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://ngrenid.ngren.edu.ng/wp-content/uploads/2025/03/mrps.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://edumeetsso.ngren.edu.ng/satosa/Saml2Backend/disco" index="1" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">NgREN eduMEET Federation Gateway</mdui:DisplayName>
+          <mdui:Description xml:lang="en">NgREN eduMEET is a national video-conferencing and virtual collaboration service provided by the Nigerian Research and Education Network (NgREN) for education and research institutions in Nigeria. It enables institutions to conduct secure online meetings, virtual classes, webinars, presentations, and collaborative sessions through a web browser, with integration into the NgREN federated identity infrastructure for institutional single sign-on.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://ngren.edu.ng</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://ngren.edu.ng</mdui:PrivacyStatementURL>
+          <mdui:Logo width="226" height="56" xml:lang="en">https://www.ngren.edu.ng/assets/img/logo/ngren_logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDRTCCAi2gAwIBAgIUHh83JMdHYnGMbm2Oj5x68iua6SEwDQYJKoZIhvcNAQEL
+BQAwMjEwMC4GA1UEAwwnZWR1bWVldHNzby5uZ3Jlbi5lZHUubmcgU0FNTCBFbmNy
+eXB0aW9uMB4XDTI2MDkwNTE4NTE0N1oXDTM2MDkwMjE4NTE0N1owMjEwMC4GA1UE
+AwwnZWR1bWVldHNzby5uZ3Jlbi5lZHUubmcgU0FNTCBFbmNyeXB0aW9uMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsEOeitUdTQAu3Ed+4rZTorvg8OtG
+amSsP9ogwOcFrzUmvgBhgPozYuTsyNWrYHlesXeLDvIlpgtAIPwG7NYGnjOuP7gk
+kUU1IFxDkQddRJPi+nVbptGjckB4GbjJkT+nO+Bs6SvCbsg32xocBnAspi9BSzNh
+nESazFAQR1rHpqKiBJrDJokXJwOdJ9ha0rQREH1UA1EvQMsirpt4zahMGu5w3TKK
+e5joPg5URqCA3H4Ltk1ETZicL8X+b+9PNU5MscKXd12DkpqaqOxfk/FV81UIAeng
+dbcyONtLDUfWDMEZjmqCUfbvAbuQcuJ1R78nLw8W3J/WDcHH1nIiMewXGQIDAQAB
+o1MwUTAdBgNVHQ4EFgQUaF+ce4C8SRcIuY9Q1NPq2MP20fswHwYDVR0jBBgwFoAU
+aF+ce4C8SRcIuY9Q1NPq2MP20fswDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0B
+AQsFAAOCAQEANx7C8mNxTjA9xEXV9mlxG+BI1YkuwdPN2VEIhwyVNTTJn6nwNXOd
+YR+YiK5eqwYMpu4yg+OKZB5aq3/lJM9QsPT6qKSz1+EGSp8fpOvoRMmiOJmYGX2S
+sL8QplXpZnpCN7ov2I7XsHXJV9bc2yeUbLPa15nSvccktsd0+9svOlt2qrMY/5oy
+DdyyCsqQKqiTz6VfxoeZPxRxmrqhTb4s3wKwfDtD9VSmpzG/vZs8L9S+9tDlkfDw
+q2q2JbQT2uVtz10acG6+9AaLh50tCq1SlsSWXbI8dcrQqjYtszu7wnAV1ZnzTpwr
+4GVcwaKX58GMCGhhWHJJFm4P9zvQ+Vn08g==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDRTCCAi2gAwIBAgIUHh83JMdHYnGMbm2Oj5x68iua6SEwDQYJKoZIhvcNAQEL
+BQAwMjEwMC4GA1UEAwwnZWR1bWVldHNzby5uZ3Jlbi5lZHUubmcgU0FNTCBFbmNy
+eXB0aW9uMB4XDTI2MDkwNTE4NTE0N1oXDTM2MDkwMjE4NTE0N1owMjEwMC4GA1UE
+AwwnZWR1bWVldHNzby5uZ3Jlbi5lZHUubmcgU0FNTCBFbmNyeXB0aW9uMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsEOeitUdTQAu3Ed+4rZTorvg8OtG
+amSsP9ogwOcFrzUmvgBhgPozYuTsyNWrYHlesXeLDvIlpgtAIPwG7NYGnjOuP7gk
+kUU1IFxDkQddRJPi+nVbptGjckB4GbjJkT+nO+Bs6SvCbsg32xocBnAspi9BSzNh
+nESazFAQR1rHpqKiBJrDJokXJwOdJ9ha0rQREH1UA1EvQMsirpt4zahMGu5w3TKK
+e5joPg5URqCA3H4Ltk1ETZicL8X+b+9PNU5MscKXd12DkpqaqOxfk/FV81UIAeng
+dbcyONtLDUfWDMEZjmqCUfbvAbuQcuJ1R78nLw8W3J/WDcHH1nIiMewXGQIDAQAB
+o1MwUTAdBgNVHQ4EFgQUaF+ce4C8SRcIuY9Q1NPq2MP20fswHwYDVR0jBBgwFoAU
+aF+ce4C8SRcIuY9Q1NPq2MP20fswDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0B
+AQsFAAOCAQEANx7C8mNxTjA9xEXV9mlxG+BI1YkuwdPN2VEIhwyVNTTJn6nwNXOd
+YR+YiK5eqwYMpu4yg+OKZB5aq3/lJM9QsPT6qKSz1+EGSp8fpOvoRMmiOJmYGX2S
+sL8QplXpZnpCN7ov2I7XsHXJV9bc2yeUbLPa15nSvccktsd0+9svOlt2qrMY/5oy
+DdyyCsqQKqiTz6VfxoeZPxRxmrqhTb4s3wKwfDtD9VSmpzG/vZs8L9S+9tDlkfDw
+q2q2JbQT2uVtz10acG6+9AaLh50tCq1SlsSWXbI8dcrQqjYtszu7wnAV1ZnzTpwr
+4GVcwaKX58GMCGhhWHJJFm4P9zvQ+Vn08g==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edumeetsso.ngren.edu.ng/satosa/Saml2Backend/logout/post" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://edumeetsso.ngren.edu.ng/satosa/Saml2Backend/logout/redirect" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edumeetsso.ngren.edu.ng/satosa/Saml2Backend/acs/post" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edumeetsso.ngren.edu.ng/satosa/Saml2Backend/acs/redirect" index="2" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">NgREN eduMEET Federation Gateway</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">NgREN eduMEET is a national video-conferencing and virtual collaboration service provided by the Nigerian Research and Education Network (NgREN) for education and research institutions in Nigeria. It enables institutions to conduct secure online meetings, virtual classes, webinars, presentations, and collaborative sessions through a web browser, with integration into the NgREN federated identity infrastructure for institutional single sign-on.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Nigerian Research and Education Network</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">NgREN</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://ngren.edu.ng</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Femi</md:GivenName>
+      <md:SurName>Ogundele</md:SurName>
+      <md:EmailAddress>mailto:faogundele@ngren.edu.ng</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Oluwatobi</md:GivenName>
+      <md:SurName>Fowora</md:SurName>
+      <md:EmailAddress>mailto:oafowora@ngren.edu.ng</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idplab.brain-tec.ch">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">brain-tec.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Test IdP at brain-tec.ch
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Test IdP at brain-tec.ch
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDNzCCAh+gAwIBAgIUKtMU0UMRNiO/XxbpxvfCb4J7vLEwDQYJKoZIhvcNAQEF
+                            BQAwHjEcMBoGA1UEAxMTaWRwbGFiLmJyYWluLXRlYy5jaDAeFw0xMzA4MDgxMzQz
+                            MTlaFw0xNjA4MDgxMzQzMTlaMB4xHDAaBgNVBAMTE2lkcGxhYi5icmFpbi10ZWMu
+                            Y2gwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSdddcWuznKScEXhw2
+                            MGHcyQ1KosHX3M22DyE3m9q47hM7azFglt1EkjLCrCzEgT17E3n5XOMY823PHyJD
+                            HYiAuhPcOXHtcHs76rPcOHhfJBpbBktGXMvNw2VNDkE3JsE+Ic2mX7WgZ39KwOt5
+                            om5LTKfr3XbjVpo2vvwv9ymWOLWGOpBwI+wPtBTS4NibNfSgAwgJAUrm8t0Z8HkK
+                            pEWzKEnL2we+OzRdTe+P3d8IQqtk3G0wYObg6qulFNeVIKGrvhDdixJ4HVl/KJEv
+                            SWN1Ux5HygmRg1u/5H8A/RU6Qfge+sYJScfrOFgmr11jrb4pqqWglqRNDxZM2jnU
+                            Nv/tAgMBAAGjbTBrMEoGA1UdEQRDMEGCE2lkcGxhYi5icmFpbi10ZWMuY2iGKmh0
+                            dHBzOi8vaWRwbGFiLmJyYWluLXRlYy5jaC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4E
+                            FgQURZREXOL+pEivSTn7TotKuxlkoN4wDQYJKoZIhvcNAQEFBQADggEBACq9SNYq
+                            xZtjYxAf6m2i8eVhb7nhrFnVbqtmqpukQQWh2DE6GsHHEgBwXqpb8J8vY0qw+uUU
+                            PV4E6oDlcPmputiBTOqRLnYd23fBZV+qLgSmcbyVvrj/ROsoxMeytOM91gZiyJzk
+                            2p+SAvOrK34gHoPdF06HClkoviniofHxQUBvWcUYZUFKFLwgFcGy0K+tjmw46yXy
+                            AihNCIFPMyH8T5vBuxbywV6yDpnx2F+PD10alRTalAexBfpR2vEKby6lequjy9E/
+                            3U5CzZi9yls6XxvbSTtdMaXB565jp8V/lq9qJGp4hKlWPEQSS/t/IoSvXwk6R3XR
+                            vQnx1b+TqDIHNUI=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idplab.brain-tec.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idplab.brain-tec.ch/idp/profile/SAML2/POST/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">brain-tec.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDNzCCAh+gAwIBAgIUKtMU0UMRNiO/XxbpxvfCb4J7vLEwDQYJKoZIhvcNAQEF
+                            BQAwHjEcMBoGA1UEAxMTaWRwbGFiLmJyYWluLXRlYy5jaDAeFw0xMzA4MDgxMzQz
+                            MTlaFw0xNjA4MDgxMzQzMTlaMB4xHDAaBgNVBAMTE2lkcGxhYi5icmFpbi10ZWMu
+                            Y2gwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSdddcWuznKScEXhw2
+                            MGHcyQ1KosHX3M22DyE3m9q47hM7azFglt1EkjLCrCzEgT17E3n5XOMY823PHyJD
+                            HYiAuhPcOXHtcHs76rPcOHhfJBpbBktGXMvNw2VNDkE3JsE+Ic2mX7WgZ39KwOt5
+                            om5LTKfr3XbjVpo2vvwv9ymWOLWGOpBwI+wPtBTS4NibNfSgAwgJAUrm8t0Z8HkK
+                            pEWzKEnL2we+OzRdTe+P3d8IQqtk3G0wYObg6qulFNeVIKGrvhDdixJ4HVl/KJEv
+                            SWN1Ux5HygmRg1u/5H8A/RU6Qfge+sYJScfrOFgmr11jrb4pqqWglqRNDxZM2jnU
+                            Nv/tAgMBAAGjbTBrMEoGA1UdEQRDMEGCE2lkcGxhYi5icmFpbi10ZWMuY2iGKmh0
+                            dHBzOi8vaWRwbGFiLmJyYWluLXRlYy5jaC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4E
+                            FgQURZREXOL+pEivSTn7TotKuxlkoN4wDQYJKoZIhvcNAQEFBQADggEBACq9SNYq
+                            xZtjYxAf6m2i8eVhb7nhrFnVbqtmqpukQQWh2DE6GsHHEgBwXqpb8J8vY0qw+uUU
+                            PV4E6oDlcPmputiBTOqRLnYd23fBZV+qLgSmcbyVvrj/ROsoxMeytOM91gZiyJzk
+                            2p+SAvOrK34gHoPdF06HClkoviniofHxQUBvWcUYZUFKFLwgFcGy0K+tjmw46yXy
+                            AihNCIFPMyH8T5vBuxbywV6yDpnx2F+PD10alRTalAexBfpR2vEKby6lequjy9E/
+                            3U5CzZi9yls6XxvbSTtdMaXB565jp8V/lq9qJGp4hKlWPEQSS/t/IoSvXwk6R3XR
+                            vQnx1b+TqDIHNUI=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idplab.brain-tec.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">brain-tec.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Test IdP at brain-tec.ch
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.brain-tec.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

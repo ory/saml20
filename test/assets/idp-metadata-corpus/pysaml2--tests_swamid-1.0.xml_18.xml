@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://vmidgw.miun.se/idp/shibboleth" xml:base="swamid-1.0/vmidgw.miun.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">miun.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAPHtItYHI9B2lBySyOcXbvJyO3g7MA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDnZtaWRndy5taXVuLnNlMB4XDTA5MTAyOTEyMDQxMloX
+DTI5MTAyOTEyMDQxMlowGTEXMBUGA1UEAxMOdm1pZGd3Lm1pdW4uc2UwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCUpp7w/M9xt+QmzsVWyAKKISbmaInZ
+QX4DNep5kS9SgA0GX7Cl8otK8gy+8Ezu32nyc142Lmoz2JzfeHOuAZCwpXH0yLXe
+urL1HzmGftJ0TD1JEmJjKw1wQUjcFQMLtsmBv3ojn6tG7FTZVhBcunfputIX+K0L
+BUKrZCShShgquJxEWxEg2o6BzbIE7BgYxUwdDQ0NTjOpBB7XwbBqqjIAzKPvMjJX
+07xNrRfbJpOr9zekYWyjWUqdhVncQi3xK75iquIKcrjXvbLIUcl7qLSjNgvfuUee
+MvPr/F1PA3QOB1B0EYqoUD6jf/4HYr85xvZWrz18AjmLR07VxNuAngJHAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDnZtaWRndy5taXVuLnNlhiVodHRwczovL3ZtaWRndy5t
+aXVuLnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTc3zYTOorpuyNzQqNZpy7m
+4ppK9zANBgkqhkiG9w0BAQUFAAOCAQEAefQmUr2yV8lZXjSn3M5CWOAa+MDVLckh
+LFJ46QBqlUf/7gbhsW+/N9BlrAEa2WiBczK/RxbvodGHZP8kfVFosYba4pe/0keQ
+bS03mvRlMAiP047mAHIXVZszLDYgrBcjhP5p+xozzYVE4Ku8A5v3klILuNNwu5OW
+hMrFcqaddz+0w/FAWlhgNqgEToUbR2xWQh5yVGZ9vkcj0priytnsBIZZWJsdlpaH
+EwQmOmY1IlHM1SSucXdJpfVc1epYD/s2fOyy+orDvK8Gh1wO7nYByGrS14Vl/gkx
+6hs9Dgk3r873PhGOHDlxxZllIH782RtYUv4QKs/MqiZQeKoDa6YjIQ==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://vmidgw.miun.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vmidgw.miun.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://vmidgw.miun.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vmidgw.miun.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://vmidgw.miun.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vmidgw.miun.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">miun.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAPHtItYHI9B2lBySyOcXbvJyO3g7MA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDnZtaWRndy5taXVuLnNlMB4XDTA5MTAyOTEyMDQxMloX
+DTI5MTAyOTEyMDQxMlowGTEXMBUGA1UEAxMOdm1pZGd3Lm1pdW4uc2UwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCUpp7w/M9xt+QmzsVWyAKKISbmaInZ
+QX4DNep5kS9SgA0GX7Cl8otK8gy+8Ezu32nyc142Lmoz2JzfeHOuAZCwpXH0yLXe
+urL1HzmGftJ0TD1JEmJjKw1wQUjcFQMLtsmBv3ojn6tG7FTZVhBcunfputIX+K0L
+BUKrZCShShgquJxEWxEg2o6BzbIE7BgYxUwdDQ0NTjOpBB7XwbBqqjIAzKPvMjJX
+07xNrRfbJpOr9zekYWyjWUqdhVncQi3xK75iquIKcrjXvbLIUcl7qLSjNgvfuUee
+MvPr/F1PA3QOB1B0EYqoUD6jf/4HYr85xvZWrz18AjmLR07VxNuAngJHAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDnZtaWRndy5taXVuLnNlhiVodHRwczovL3ZtaWRndy5t
+aXVuLnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTc3zYTOorpuyNzQqNZpy7m
+4ppK9zANBgkqhkiG9w0BAQUFAAOCAQEAefQmUr2yV8lZXjSn3M5CWOAa+MDVLckh
+LFJ46QBqlUf/7gbhsW+/N9BlrAEa2WiBczK/RxbvodGHZP8kfVFosYba4pe/0keQ
+bS03mvRlMAiP047mAHIXVZszLDYgrBcjhP5p+xozzYVE4Ku8A5v3klILuNNwu5OW
+hMrFcqaddz+0w/FAWlhgNqgEToUbR2xWQh5yVGZ9vkcj0priytnsBIZZWJsdlpaH
+EwQmOmY1IlHM1SSucXdJpfVc1epYD/s2fOyy+orDvK8Gh1wO7nYByGrS14Vl/gkx
+6hs9Dgk3r873PhGOHDlxxZllIH782RtYUv4QKs/MqiZQeKoDa6YjIQ==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://vmidgw.miun.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vmidgw.miun.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+ 
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">MIUN</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Mittuniversitetet</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.miun.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Mittuniversitetet</md:Company>
+    <md:EmailAddress>Ove.Olander@miun.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

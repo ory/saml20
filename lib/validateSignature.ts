@@ -159,21 +159,26 @@ const assertBoundedReferences = (signature: Node, options?: ValidateSignatureOpt
   }
 };
 
+const ROOT_SIGNATURE = `/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`;
+
 const hasValidSignature = (
   xml: string,
   cert: string | null | undefined,
   certThumbprint: string | null | undefined,
-  options?: ValidateSignatureOptions
+  options?: ValidateSignatureOptions,
+  rootSignatureOnly = false,
+  parsed?: Document
 ): string | null => {
-  const doc = parseFromString(xml);
+  const doc = parsed ?? parseFromString(xml);
   // @ts-expect-error missing Node properties are not needed
   const selectNodes = (expression: string) => select(expression, doc!) as Node[];
-  let signature =
-    selectNodes(`/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0] ||
-    selectNodes(`/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0] ||
-    selectNodes(`/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0];
+  let signature = rootSignatureOnly
+    ? selectNodes(ROOT_SIGNATURE)?.[0]
+    : selectNodes(`/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0] ||
+      selectNodes(ROOT_SIGNATURE)?.[0] ||
+      selectNodes(`/*/*/*/*[local-name(.)='Signature' and namespace-uri(.)='${XMLDSIG_NS}']`)?.[0];
 
-  if (!signature) {
+  if (!signature && !rootSignatureOnly) {
     signature = selectNodes("//*[local-name(.)='Signature']")?.[0];
   }
 
@@ -208,8 +213,7 @@ const hasValidSignature = (
       };
       try {
         valid = signed.checkSignature(xml);
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (err) {
+      } catch {
         //noop
       }
       if (valid) {
@@ -255,18 +259,38 @@ const hasValidSignature = (
 
 // Returns null when the signature does not verify, and throws when the
 // document cannot be checked at all; validate() retries only on null.
+// `parsed` is xml already parsed. It is used only when sanitizeXML leaves xml as it is, and is only read.
 const verifySignature = (
   xml: string,
   cert: string | null | undefined,
   certThumbprint: string | null | undefined,
-  options?: ValidateSignatureOptions
+  options?: ValidateSignatureOptions,
+  parsed?: Document
 ): string | null => {
   if (cert && certThumbprint) {
     throw new Error('You should provide either cert or certThumbprint, not both');
   }
 
-  return hasValidSignature(sanitizeXML(xml), cert, certThumbprint, options);
+  const sanitized = sanitizeXML(xml);
+
+  return hasValidSignature(
+    sanitized,
+    cert,
+    certThumbprint,
+    options,
+    false,
+    sanitized === xml ? parsed : undefined
+  );
 };
+
+// verifySignature for the signature that is a child of the root element,
+// whichever other signatures the document holds.
+const verifyRootSignature = (
+  xml: string,
+  cert: string | null | undefined,
+  certThumbprint: string | null | undefined,
+  options?: ValidateSignatureOptions
+): string | null => hasValidSignature(sanitizeXML(xml), cert, certThumbprint, options, true);
 
 // Returns the signed XML, which is what callers must read from; throws when
 // the signature does not verify.
@@ -287,4 +311,4 @@ const sanitizeXML = (xml: string) => {
   return xml.replace(/&#x(d|D);/gi, '');
 };
 
-export { validateSignature, verifySignature, sanitizeXML };
+export { validateSignature, verifySignature, verifyRootSignature, sanitizeXML };

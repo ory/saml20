@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://kafegw.snu.ac.kr/idp/simplesamlphp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://kafe.kreonet.net" registrationInstant="2024-06-25T02:30:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.kafe.or.kr/kafe-mrps-v1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://kafe.kreonet.net/jurisdiction" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>KR</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">snu.ac.kr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Seoul National University</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Seoul National University</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.snu.ac.kr</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://en.snu.ac.kr/upload/footer/privacy.pdf</mdui:PrivacyStatementURL>
+          <mdui:Logo height="20" width="68">https://kafegw.snu.ac.kr/snu_small_logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDrjCCApYCCQCoF30L8St0PDANBgkqhkiG9w0BAQsFADCBmDEMMAoGA1UEChMD
+U05VMSswKQYDVQQLEyJJbmZvcm1hdGlvbiBTeXN0ZW1zIGFuZCBUZWNobm9sb2d5
+MSMwIQYJKoZIhvcNAQkBFhRjb2xsYXJwYXJrQHNudS5hYy5rcjEOMAwGA1UEBxMF
+U2VvdWwxCzAJBgNVBAYTAktSMRkwFwYDVQQDExBrYWZlZ3cuc251LmFjLmtyMB4X
+DTE4MDYwNDAzNDQwNVoXDTI4MDYwMzAzNDQwNVowgZgxDDAKBgNVBAoTA1NOVTEr
+MCkGA1UECxMiSW5mb3JtYXRpb24gU3lzdGVtcyBhbmQgVGVjaG5vbG9neTEjMCEG
+CSqGSIb3DQEJARYUY29sbGFycGFya0BzbnUuYWMua3IxDjAMBgNVBAcTBVNlb3Vs
+MQswCQYDVQQGEwJLUjEZMBcGA1UEAxMQa2FmZWd3LnNudS5hYy5rcjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBANn5c/nitASiXM2DQuWkdAqnoTE9dPHI
+juOq/9CK8sMnfnA650Yf9zQEAJCqQHEsy7FQ+n+xdzi1J8Usw3/hlAGYWKAHx2Hc
+UvtdbQc6ypmh5TUT2itRUYee0ltEEY4ZHsWFVHWqaE01a3kvWIXRkS9N9PUSZNH+
+IIqXzl3QiklHC2SDfYRC+80DSCEz/pYU4P1MiPwuG+1QY00jl4wIOyTqK91GBmru
+oryhjtn3lO2xVTK8wHeNpiTq8oGKZ7g68q0wRh43EWUMGzf7a+Aaj4G2KN2e0vQ+
+Pb6RDjeuYNYQwH2IE7plr2xbHGUBCRpFiaWPbiE/s+K+1tcQB8eKuVkCAwEAATAN
+BgkqhkiG9w0BAQsFAAOCAQEArq2sb0uEXCVGp4jc96coXSvok0RC8fg5g/39Jf8a
+e2QstTXeNGSpO89pigTcXYDy63LKGDREghoFm1BOsvqltJqbq1s5i++BEv6gRyiw
+UISKgE+5sojhp34zsOgKCD5AkYzogrqp3h85Upm03Sf3yfG0gOF59HDBb8fElV0y
+dIyeAShCThefWsLooQKGAtAbSTk7BjPICcjEUrJxdKG270Bw8PSjWd7JkJE7vFu1
+bqNaJqwp9ZTu4Tyv9ewqy2YsiMGbOb0XUyonHG82bYdyKqccMsGeyoiZGsxQC4ZF
+QOlzY+T5XSBo6PXfV3b7LyjT2mIRYdXINffg+xgb6KKtjw==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDrjCCApYCCQCoF30L8St0PDANBgkqhkiG9w0BAQsFADCBmDEMMAoGA1UEChMD
+U05VMSswKQYDVQQLEyJJbmZvcm1hdGlvbiBTeXN0ZW1zIGFuZCBUZWNobm9sb2d5
+MSMwIQYJKoZIhvcNAQkBFhRjb2xsYXJwYXJrQHNudS5hYy5rcjEOMAwGA1UEBxMF
+U2VvdWwxCzAJBgNVBAYTAktSMRkwFwYDVQQDExBrYWZlZ3cuc251LmFjLmtyMB4X
+DTE4MDYwNDAzNDQwNVoXDTI4MDYwMzAzNDQwNVowgZgxDDAKBgNVBAoTA1NOVTEr
+MCkGA1UECxMiSW5mb3JtYXRpb24gU3lzdGVtcyBhbmQgVGVjaG5vbG9neTEjMCEG
+CSqGSIb3DQEJARYUY29sbGFycGFya0BzbnUuYWMua3IxDjAMBgNVBAcTBVNlb3Vs
+MQswCQYDVQQGEwJLUjEZMBcGA1UEAxMQa2FmZWd3LnNudS5hYy5rcjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBANn5c/nitASiXM2DQuWkdAqnoTE9dPHI
+juOq/9CK8sMnfnA650Yf9zQEAJCqQHEsy7FQ+n+xdzi1J8Usw3/hlAGYWKAHx2Hc
+UvtdbQc6ypmh5TUT2itRUYee0ltEEY4ZHsWFVHWqaE01a3kvWIXRkS9N9PUSZNH+
+IIqXzl3QiklHC2SDfYRC+80DSCEz/pYU4P1MiPwuG+1QY00jl4wIOyTqK91GBmru
+oryhjtn3lO2xVTK8wHeNpiTq8oGKZ7g68q0wRh43EWUMGzf7a+Aaj4G2KN2e0vQ+
+Pb6RDjeuYNYQwH2IE7plr2xbHGUBCRpFiaWPbiE/s+K+1tcQB8eKuVkCAwEAATAN
+BgkqhkiG9w0BAQsFAAOCAQEArq2sb0uEXCVGp4jc96coXSvok0RC8fg5g/39Jf8a
+e2QstTXeNGSpO89pigTcXYDy63LKGDREghoFm1BOsvqltJqbq1s5i++BEv6gRyiw
+UISKgE+5sojhp34zsOgKCD5AkYzogrqp3h85Upm03Sf3yfG0gOF59HDBb8fElV0y
+dIyeAShCThefWsLooQKGAtAbSTk7BjPICcjEUrJxdKG270Bw8PSjWd7JkJE7vFu1
+bqNaJqwp9ZTu4Tyv9ewqy2YsiMGbOb0XUyonHG82bYdyKqccMsGeyoiZGsxQC4ZF
+QOlzY+T5XSBo6PXfV3b7LyjT2mIRYdXINffg+xgb6KKtjw==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kafegw.snu.ac.kr/saml/module.php/saml/idp/singleLogout" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kafegw.snu.ac.kr/saml/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kafegw.snu.ac.kr/saml/module.php/saml/idp/singleSignOnService" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kafegw.snu.ac.kr/saml/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Seoul National University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Seoul National University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.snu.ac.kr/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Administrator</md:GivenName>
+      <md:EmailAddress>mailto:ercc_infra@snu.ac.kr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Security</md:GivenName>
+      <md:EmailAddress>mailto:ym0427@snu.ac.kr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

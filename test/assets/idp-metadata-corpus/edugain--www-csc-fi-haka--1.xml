@@ -1,0 +1,77 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://sso.utu.fi/auth/realms/fed">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.csc.fi/haka">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://wiki.eduuni.fi/display/CSCHAKA/Joining+and+registrations</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/code-of-conduct/v2</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://clarin.eu/category/clarin-member</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/sirtfi2</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">utu.fi</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Turku</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sv">Åbo universitet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="fi">Turun yliopisto</mdui:DisplayName>
+          <mdui:Keywords xml:lang="sv">utu.fi, UTU</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">utu.fi, UTU</mdui:Keywords>
+          <mdui:Keywords xml:lang="fi">utu.fi, UTU</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>utu.fi</mdui:DomainHint>
+          <mdui:DomainHint>utu</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDQjCCAioCCQDf+TZTUyi3SzANBgkqhkiG9w0BAQsFADBjMQswCQYDVQQGEwJGSTEOMAwGA1UEBwwFVHVya3UxGDAWBgNVBAoMD1R1cnVuIHlsaW9waXN0bzEVMBMGA1UECwwMRGlnaXBhbHZlbHV0MRMwEQYDVQQDDApzc28udXR1LmZpMB4XDTIzMDUxMjA3NDI0MloXDTI4MDUxMDA3NDI0MlowYzELMAkGA1UEBhMCRkkxDjAMBgNVBAcMBVR1cmt1MRgwFgYDVQQKDA9UdXJ1biB5bGlvcGlzdG8xFTATBgNVBAsMDERpZ2lwYWx2ZWx1dDETMBEGA1UEAwwKc3NvLnV0dS5maTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALHwhqZ1vuEWtv3sc+iWAu4UY+84Fjq6Ex6vpwwL8Wn00AYXPnSLwLSpG5dR0MMFEicG96QLQjouxdwA9SZjmERzLWWwn+aTg8ggNfcRC/NyLr7cSPmINeInljH1jR8MpObAE7kTT0uIHOx16RNLJ7auSdltbKBSNZ/c8WMj23IxQ1LXRGXRuMo93sh19kybtdW2XzzX0CdpaefOKxOcnmU+TumwF6+a3wtMyMRo00IHQmLw1HqhOsASMHqQ9PSbX/SNj6PhyWvMdK9P60+hJK+fKr9zW3f9Sn99oTv0Vp89eIpSOuUGvFHmLwJW/yOVVmCvfMLXYRDIqdHyebffv+cCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAYVS9ysNCBBuZfuhvUbeciGY0oRP2UcfOlPmmSuxFmKuN4Da3/Vej6akXi+mtFGIEm2o6TwJyH0Lvdt4Zo7g6AdOprP7yxTGLSt4mfxMh2p1+YxGraRe11WmZwxosmowJKsixDV6KARR7T+PmQlPe4Sh37Qa1iqOKrUo0cdqyNMN+N8tQMCL0xveaCuQe47Oet1NX1q8ccxAP3GnywC8g+1gdJPA2RNNyQU0580LcoFWJRKgfZupfSDrUldjMQVFtLqDDkOIJ+mL+rTYn8ilozF/aUZNuAmeRwPNx0Ursv9MlENQTTmrKjnxQv5zhQ7m+z2jug13CYNQoERnPiftJcg==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.utu.fi/auth/realms/fed/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.utu.fi/auth/realms/fed/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.utu.fi/auth/realms/fed/protocol/saml" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.utu.fi/auth/realms/fed/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.utu.fi/auth/realms/fed/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.utu.fi/auth/realms/fed/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.utu.fi/auth/realms/fed/protocol/saml" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="fi">Turun yliopisto</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University of Turku</md:OrganizationName>
+      <md:OrganizationName xml:lang="sv">Åbo universitet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="fi">Turun yliopisto</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Turku</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="sv">Åbo universitet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="fi">http://www.utu.fi/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.utu.fi/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sv">http://www.utu.fi/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:EmailAddress>mailto:aai@utu.fi</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:aai@utu.fi</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:EmailAddress>mailto:helpdesk@utu.fi</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>UTU CSIRT</md:GivenName>
+      <md:EmailAddress>mailto:security@utu.fi</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

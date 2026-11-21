@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.protectnetwork.org/protectnetwork-idp" xml:base="swamid-1.0/idp.protectnetwork.org.xml">
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">idp.protectnetwork.org</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIICxzCCAjCgAwIBAgIBATANBgkqhkiG9w0BAQUFADCBkTELMAkGA1UEBhMCVVMx
+DjAMBgNVBAgTBVRleGFzMRcwFQYDVQQKEw45U3RhciBSZXNlYXJjaDEXMBUGA1UE
+CxMOUHJvdGVjdE5ldHdvcmsxGjAYBgNVBAMTEVByb3RlY3ROZXR3b3JrIENBMSQw
+IgYJKoZIhvcNAQkBFhVjYUBwcm90ZWN0bmV0d29yay5vcmcwHhcNMDcwMjE0MjA1
+ODA4WhcNMTcwMjExMjA1ODA4WjCBhzELMAkGA1UEBhMCVVMxDjAMBgNVBAgTBVRl
+eGFzMQ8wDQYDVQQHEwZBdXN0aW4xHTAbBgNVBAoTFDlTdGFyIFJlc2VhcmNoLCBJ
+bmMuMRcwFQYDVQQLEw5Qcm90ZWN0TmV0d29yazEfMB0GA1UEAxMWaWRwLnByb3Rl
+Y3RuZXR3b3JrLm9yZzBcMA0GCSqGSIb3DQEBAQUAA0sAMEgCQQDQt4HC/EHIKS8a
++Qd/4JE20wR91v5N7jh8ScDw6DvZ5RcvHQngXCk6FfCFUAev/dZxR31U4RpvFzCb
+j3sGB+G1AgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5T
+U0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBTRRyiPTvIDunJKy1+h
+mlkgl7/G+zAfBgNVHSMEGDAWgBQtFNiF4X/xTkU36JaWVCh08bzGgDANBgkqhkiG
+9w0BAQUFAAOBgQAm3BTIwg6Lxk3EAoLR2cDfb+jNWAtls7q077Mw3tMXxnuoi0uS
+o+LC6bPdPjC9YKujSKF34Au0s7y9bfXspClfCmyuviYVOrpVUze2h2MfHUVsKEUo
+/uivLYuMZjNp6Yrt90AoKPLPF6vU6gLAn6nsR7bhsdIqSXD/93r8HFV3NA==
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.protectnetwork.org:8443/protectnetwork-idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.protectnetwork.org:8443/protectnetwork-idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.protectnetwork.org/protectnetwork-idp/profile/Shibboleth/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.protectnetwork.org/protectnetwork-idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.protectnetwork.org/protectnetwork-idp/profile/SAML2/POST-SimpleSign/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.protectnetwork.org/protectnetwork-idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+	
+        <md:Extensions>
+            <shibmd:Scope regexp="false">idp.protectnetwork.org</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIICxzCCAjCgAwIBAgIBATANBgkqhkiG9w0BAQUFADCBkTELMAkGA1UEBhMCVVMx
+DjAMBgNVBAgTBVRleGFzMRcwFQYDVQQKEw45U3RhciBSZXNlYXJjaDEXMBUGA1UE
+CxMOUHJvdGVjdE5ldHdvcmsxGjAYBgNVBAMTEVByb3RlY3ROZXR3b3JrIENBMSQw
+IgYJKoZIhvcNAQkBFhVjYUBwcm90ZWN0bmV0d29yay5vcmcwHhcNMDcwMjE0MjA1
+ODA4WhcNMTcwMjExMjA1ODA4WjCBhzELMAkGA1UEBhMCVVMxDjAMBgNVBAgTBVRl
+eGFzMQ8wDQYDVQQHEwZBdXN0aW4xHTAbBgNVBAoTFDlTdGFyIFJlc2VhcmNoLCBJ
+bmMuMRcwFQYDVQQLEw5Qcm90ZWN0TmV0d29yazEfMB0GA1UEAxMWaWRwLnByb3Rl
+Y3RuZXR3b3JrLm9yZzBcMA0GCSqGSIb3DQEBAQUAA0sAMEgCQQDQt4HC/EHIKS8a
++Qd/4JE20wR91v5N7jh8ScDw6DvZ5RcvHQngXCk6FfCFUAev/dZxR31U4RpvFzCb
+j3sGB+G1AgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5T
+U0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBTRRyiPTvIDunJKy1+h
+mlkgl7/G+zAfBgNVHSMEGDAWgBQtFNiF4X/xTkU36JaWVCh08bzGgDANBgkqhkiG
+9w0BAQUFAAOBgQAm3BTIwg6Lxk3EAoLR2cDfb+jNWAtls7q077Mw3tMXxnuoi0uS
+o+LC6bPdPjC9YKujSKF34Au0s7y9bfXspClfCmyuviYVOrpVUze2h2MfHUVsKEUo
+/uivLYuMZjNp6Yrt90AoKPLPF6vU6gLAn6nsR7bhsdIqSXD/93r8HFV3NA==
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.protectnetwork.org:8443/protectnetwork-idp/profile/SAML1/SOAP/AttributeQuery" />
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.protectnetwork.org:8443/protectnetwork-idp/profile/SAML2/SOAP/AttributeQuery" />
+
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+    </md:AttributeAuthorityDescriptor>
+  <md:Organization>                                                                                                                                                                                                           
+    <md:OrganizationName xml:lang="en">ProtectNetwork</md:OrganizationName>                                                                                                                                                      
+    <md:OrganizationDisplayName xml:lang="en">ProtectNetwork</md:OrganizationDisplayName>                                                                                                                                        
+    <md:OrganizationURL xml:lang="en">http://www.protectnetwork.com/</md:OrganizationURL>                                                                                                                                        
+  </md:Organization>                                                                                                                                                                                                          
+  <md:ContactPerson contactType="technical">                                                                                                                                                                                  
+    <md:SurName>Technical Contact</md:SurName>                                                                                                                                                                                   
+    <md:EmailAddress>support@protectnetwork.org</md:EmailAddress>                                                                                                                                                                
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

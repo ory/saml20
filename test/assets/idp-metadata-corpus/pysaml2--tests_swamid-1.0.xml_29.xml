@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp2.kau.se/idp/shibboleth" xml:base="swamid-1.0/idp2.kau.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">kau.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDFzCCAf+gAwIBAgIUUONxidNrozH1GiZ1VI/uwwgWM8cwDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwMi5rYXUuc2UwHhcNMTAxMDEzMTM1MjM0WhcNMzAx
+MDEzMTM1MjM0WjAWMRQwEgYDVQQDEwtpZHAyLmthdS5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAILFxLkJloiLact4UjsWKH98lOkzm6VE2t9GQtUe
+DRYCY5prnaDRmsumqmMYLMZXT6DCT99oNLeeBeBfB+8JwqraYhDanGiRAENTrlbs
+jUTx4p5BYTBuo0rGpVZ8MBi++f8ainvxPI4LGVc02upuG7lhWnjaui2qpKQf9hFB
+mqnjgL2ohS/Jhzo7q5XiEtsTtoD4ssUMabbzK9Zc5x6/txxJVAaicOHhqgXhFkkD
+AfC86PbWim6S8BpX0f8ERcYYKAm58ES/tpgZeImVmIIyHAIHPukjUKXNzuDKh9qa
+3LXp5moCeQKI385mw1BnkwTTqdwZ0Y5QHdYIMfB59VuUPm0CAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwMi5rYXUuc2WGImh0dHBzOi8vaWRwMi5rYXUuc2UvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFLywmXKV+OaPFHmRtKgA7vepw1CtMA0GCSqGSIb3
+DQEBBQUAA4IBAQBRG+Zr9oXM/S7WHGRlTuwcXLEqy1jETAre9e2JUJLCYeEQdUor
+W5fETZtgs1DwGvfuquLRFxvIGtnIgELy1Q9eDGszursIl+cY6kv72pl+wP+QvI0U
+GWysjsYepf78eRQ4sNKn/m+2p7ZBfLFixNdTn1nvIGSaPX+8SnOrYfrqLYXZVZuF
+HntH8R43Oh0amq0BYWSJOhhmT4nxpvwwQCETd+RTqyB0SDtXnjYKv7j505JEBltt
+GLzVTSRgddMNMJEIMmpc6L9XAwW1IObqe3HcLewUmWZgtGKnq1Dd1XPtTRjvQPg9
+7FShqSitkM9DR4N7PbfMlbcB71JnezGMtokE
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.kau.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.kau.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.kau.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.kau.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.kau.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.kau.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">kau.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDFzCCAf+gAwIBAgIUUONxidNrozH1GiZ1VI/uwwgWM8cwDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwMi5rYXUuc2UwHhcNMTAxMDEzMTM1MjM0WhcNMzAx
+MDEzMTM1MjM0WjAWMRQwEgYDVQQDEwtpZHAyLmthdS5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAILFxLkJloiLact4UjsWKH98lOkzm6VE2t9GQtUe
+DRYCY5prnaDRmsumqmMYLMZXT6DCT99oNLeeBeBfB+8JwqraYhDanGiRAENTrlbs
+jUTx4p5BYTBuo0rGpVZ8MBi++f8ainvxPI4LGVc02upuG7lhWnjaui2qpKQf9hFB
+mqnjgL2ohS/Jhzo7q5XiEtsTtoD4ssUMabbzK9Zc5x6/txxJVAaicOHhqgXhFkkD
+AfC86PbWim6S8BpX0f8ERcYYKAm58ES/tpgZeImVmIIyHAIHPukjUKXNzuDKh9qa
+3LXp5moCeQKI385mw1BnkwTTqdwZ0Y5QHdYIMfB59VuUPm0CAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwMi5rYXUuc2WGImh0dHBzOi8vaWRwMi5rYXUuc2UvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFLywmXKV+OaPFHmRtKgA7vepw1CtMA0GCSqGSIb3
+DQEBBQUAA4IBAQBRG+Zr9oXM/S7WHGRlTuwcXLEqy1jETAre9e2JUJLCYeEQdUor
+W5fETZtgs1DwGvfuquLRFxvIGtnIgELy1Q9eDGszursIl+cY6kv72pl+wP+QvI0U
+GWysjsYepf78eRQ4sNKn/m+2p7ZBfLFixNdTn1nvIGSaPX+8SnOrYfrqLYXZVZuF
+HntH8R43Oh0amq0BYWSJOhhmT4nxpvwwQCETd+RTqyB0SDtXnjYKv7j505JEBltt
+GLzVTSRgddMNMJEIMmpc6L9XAwW1IObqe3HcLewUmWZgtGKnq1Dd1XPtTRjvQPg9
+7FShqSitkM9DR4N7PbfMlbcB71JnezGMtokE
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.kau.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.kau.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+    
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">KAU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Karlstad University (SAML2)</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.kau.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Paul</md:GivenName>
+    <md:SurName>Scott</md:SurName>
+    <md:EmailAddress>paul.scott@kau.se</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Magnus</md:GivenName>
+    <md:SurName>Olsson</md:SurName>
+    <md:EmailAddress>magnus.olsson@kau.se</md:EmailAddress>
+  </md:ContactPerson>
+
+</md:EntityDescriptor>
+  

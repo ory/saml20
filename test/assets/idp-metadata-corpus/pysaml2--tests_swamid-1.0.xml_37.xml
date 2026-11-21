@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.irf.se/idp/shibboleth" xml:base="swamid-1.0/idp.irf.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">irf.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDFDCCAfygAwIBAgIVAPBjklkGoYOts1Thq2Tib2SW7KLrMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5pcmYuc2UwHhcNMTEwMjE1MDgwODE2WhcNMTQw
+MjE1MDgwODE2WjAVMRMwEQYDVQQDEwppZHAuaXJmLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAjjNXbUusdmeG5NOtfesU+e9bWSNnjakDy738JFRd
+1gOEHC5WRiQDpD0PLBNotYz3yxrtq9mv/pJ5zc83JpO9C99sNpsehdhhAdUscl1c
+BaGpv9RuL/5IHttH2JPEP5Evj4Txp+Cxl9c1C47mUT2BVdDbu24aSrSd+x9tKVs/
+u2rmaRrBFshPe1n6h8pLedI3nEmPNIMh+qklkpG3TWS13KLYZkX5yDahCOcEGe1P
+IjTB75Z8CWUiKCOB3vk2YtcCS7y4bZ23KYcNPUF88Dfkmxjg6LsCfzBfaVKKWdTD
+cEeSmu8Q3SUA6s6NRdgl1TZzr7VUvG7SGqEZmwf+e/ZGVwIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAuaXJmLnNlhiFodHRwczovL2lkcC5pcmYuc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFFSIYI0CtNOkIx0HH4EyfiV5rQaTMA0GCSqGSIb3DQEB
+BQUAA4IBAQAEiYbUXCNu1kTFfRSYeD02223t1YYmBSUjzvOnKrpJQbyRKxl7hwTp
+baTmxKu4n8wawUSTzlD8tpZe2wKbAAoE7K2TO89uAKLwTUj3V/oh5qy40DVxNOm7
+9tjhkt0ZVOvFdlBxw+LA/mYTg0H6IcqIcpXEgBenVXK1/RDT5ZEyDT0K/1Badyii
+mYoOgJsxQc5+NrGhkqSnw4kSwH5seBEqs5eq/260BjFErYuMvWbElxnMkh/FUJ4T
+F84dF7JlnXcS7kJj9sVwzWyEzR4GlpZQLTuucQqAWabMtOe8VDBkTIAj5xdNJgZp
+dJt1/U0DjbFQsA/iA4d9R6U7wKQ6rbi2
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.irf.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.irf.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.irf.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.irf.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.irf.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.irf.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">irf.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDFDCCAfygAwIBAgIVAPBjklkGoYOts1Thq2Tib2SW7KLrMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5pcmYuc2UwHhcNMTEwMjE1MDgwODE2WhcNMTQw
+MjE1MDgwODE2WjAVMRMwEQYDVQQDEwppZHAuaXJmLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAjjNXbUusdmeG5NOtfesU+e9bWSNnjakDy738JFRd
+1gOEHC5WRiQDpD0PLBNotYz3yxrtq9mv/pJ5zc83JpO9C99sNpsehdhhAdUscl1c
+BaGpv9RuL/5IHttH2JPEP5Evj4Txp+Cxl9c1C47mUT2BVdDbu24aSrSd+x9tKVs/
+u2rmaRrBFshPe1n6h8pLedI3nEmPNIMh+qklkpG3TWS13KLYZkX5yDahCOcEGe1P
+IjTB75Z8CWUiKCOB3vk2YtcCS7y4bZ23KYcNPUF88Dfkmxjg6LsCfzBfaVKKWdTD
+cEeSmu8Q3SUA6s6NRdgl1TZzr7VUvG7SGqEZmwf+e/ZGVwIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAuaXJmLnNlhiFodHRwczovL2lkcC5pcmYuc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFFSIYI0CtNOkIx0HH4EyfiV5rQaTMA0GCSqGSIb3DQEB
+BQUAA4IBAQAEiYbUXCNu1kTFfRSYeD02223t1YYmBSUjzvOnKrpJQbyRKxl7hwTp
+baTmxKu4n8wawUSTzlD8tpZe2wKbAAoE7K2TO89uAKLwTUj3V/oh5qy40DVxNOm7
+9tjhkt0ZVOvFdlBxw+LA/mYTg0H6IcqIcpXEgBenVXK1/RDT5ZEyDT0K/1Badyii
+mYoOgJsxQc5+NrGhkqSnw4kSwH5seBEqs5eq/260BjFErYuMvWbElxnMkh/FUJ4T
+F84dF7JlnXcS7kJj9sVwzWyEzR4GlpZQLTuucQqAWabMtOe8VDBkTIAj5xdNJgZp
+dJt1/U0DjbFQsA/iA4d9R6U7wKQ6rbi2
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.irf.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.irf.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">IRF</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Institutet för Rymdfysik</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.irf.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Mats</md:GivenName>
+    <md:SurName>Luspa</md:SurName>
+    <md:EmailAddress>matsl@irf.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

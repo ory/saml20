@@ -1,0 +1,56 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" entityID="https://edumeet.rash.al/kc/realms/edumeet">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://eduid.rash.al" registrationInstant="2026-10-13T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.rash.al/wp-content/uploads/eduID-Albania-Federation-Policy.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">eduMEET – RASH</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Videoconferencing service for the Albanian research and education community</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="en">https://eduid.rash.al/edumeet-privacy.html</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>iGLxtdsR8zE8Z2p7NaX4Gk2jrWhVrgJwOb08zDL_dzQ</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIICnTCCAYUCBgGhNKsAnTANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdlZHVtZWV0MB4XDTI2MTAxMzA5NDgwNFoXDTM2MTAxMzA5NDk0NFowEjEQMA4GA1UEAwwHZWR1bWVldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOGvZIowDdwjjGMxv4EPBeqRjaR61U/FAAsru+RlL/CMzJxp2mSWUlI0cQzR7TS7T6+NtcYlDPlEuOnjaWR55bYp2ZKx7Zi7Lb9146RIFQdScFvcYJfqhJsWrZD73Hs/mi+XsWs0Muzu4xsBejHkN6yY6pnOa8gfAfrHEE80XcDWp4UlXpUHwq1sXYpVPJYZppzEEYd59S1eqrIBQCOP46XZpe4NEukII7nzgPxuOQdYtoEay1his304lVII4fzRwIB4k8CtSOD5hXkAZip3AiulK4XWYCps1heTSAFTFR2CVtpFSNo4MjF4TeDINxObxpQWVIjBU1ormRab9xgnwp8CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAJqCub8gYdvhtgPXqqTJYQ5BGsxJvXqtYoC1Mn5UKSAC/bggvwztXAbh29Q5rFf4md+s5yZLwZWuxJUepA7E0eGAhnM9OMLzB7IRZwcPfzdyj6PHksTnzoOsNB18nY0tpZ12DqZr/VONcza/psuDazBK2rjOlPgu/5zwB2os2cIGogJlpOYIjByJ+XR8r8RLlqwQKeQ6RLo2/ZSn9qyN0Yr0DrBoICSxWTCBAsFO2bTKFLLLd2cziT3IvMeXc82TLjdsJmIk1Yi51rKRZL0s7Teph0oHeY8xypiW8/6kzXlx/Bz3xkJv1cIBRiSEKVjDMA2JOx43gZ+2JTteLyeYsTQ==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edumeet.rash.al/kc/realms/edumeet/broker/rash/endpoint" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://edumeet.rash.al/kc/realms/edumeet/broker/rash/endpoint" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edumeet.rash.al/kc/realms/edumeet/broker/rash/endpoint" index="1" isDefault="true" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edumeet.rash.al/kc/realms/edumeet/broker/unitir/endpoint" index="2" />
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">eduMEET RASH</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RASH EDUID</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">RASH EDUID</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://eduid.rash.al/wp-content/uploads/eduID-Albania-Federation-Policy.pdf</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Adriatik</md:GivenName>
+      <md:SurName>Allamani</md:SurName>
+      <md:EmailAddress>mailto:it@rash.al</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Adriatik</md:GivenName>
+      <md:SurName>Allamani</md:SurName>
+      <md:EmailAddress>mailto:it@rash.al</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>RASH CSIRT</md:GivenName>
+      <md:EmailAddress>mailto:csirt@rash.al</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

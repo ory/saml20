@@ -1,0 +1,116 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://apacfilesender.asia/simplesaml/module.php/saml/sp/metadata.php/default-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://tigerfed.net.bd" registrationInstant="2024-05-06T06:56:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://tigerfed.net.bd/assets/upload/IdentityFederationPolicy-v1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">APAC FileSender</mdui:DisplayName>
+          <mdui:Description xml:lang="en">APAC Filesender is a software that is used to send a large file to someone, have that file available for download for a certain number of downloads and/or a certain amount of time, and after that automatically delete the file. The software is not intended as a permanent file publishing platform.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://apacfilesender.asia/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://apacfilesender.asia/privacy</mdui:PrivacyStatementURL>
+          <mdui:Logo height="78" width="332">data:image/png;base64,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</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFBTCCA22gAwIBAgIUIH9925y/axHo58Jm2gsUzyqdgfIwDQYJKoZIhvcNAQEL
+BQAwgZExCzAJBgNVBAYTAkJEMQ4wDAYDVQQIDAVEaGFrYTEOMAwGA1UEBwwFRGhh
+a2ExDjAMBgNVBAoMBUJkUkVOMREwDwYDVQQLDAhTb2Z0d2FyZTETMBEGA1UEAwwK
+RmlsZVNlbmRlcjEqMCgGCSqGSIb3DQEJARYbc3VwcG9ydEBhcGFjZmlsZXNlbmRl
+ci5hc2lhMB4XDTI0MDUwNDIwMzI0OVoXDTM0MDUwNDIwMzI0OVowgZExCzAJBgNV
+BAYTAkJEMQ4wDAYDVQQIDAVEaGFrYTEOMAwGA1UEBwwFRGhha2ExDjAMBgNVBAoM
+BUJkUkVOMREwDwYDVQQLDAhTb2Z0d2FyZTETMBEGA1UEAwwKRmlsZVNlbmRlcjEq
+MCgGCSqGSIb3DQEJARYbc3VwcG9ydEBhcGFjZmlsZXNlbmRlci5hc2lhMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEArN7PA60MOBCGG/uWl4WPPw03n9qf
+g+hC9MQtVyfep/keYA8sUyCo58rszL+sZRJMoxQ++vVB28tAMg/Nvb6ed9yS//FP
+A501EP8qaDZY9XI5Ith02NWO9Y7tdBwUd6vySJ3+DEk92wvayY5qOoWaLG1FpxW+
+c7NrHZI34kQ13b1YGvHgD0lybmNsL3bCcGx/E9+YBC65Bi0cGWN/837YggeW6PJu
+OmYl70tLMOOtiyqfLXZmeaYWE8f39ok1MHiCkG7TIWOsnMM8h5H5xrZxScpeDZa5
+7Yg9AaS4i9yL7b4YJlXyBZ7ju0Zk6UklKJHLhcjsyxQs/lqAgfkA23KWkgJ/qIm7
+MEq/AgE3aGbl56kciGVhcUPl1yKBKzb4fO/vWftw/SFfqIIfeVgLKFuCsc0b0+YB
+rFol++xM7cduKTIBhst7MiyJ99bVAZ8UPhZ6/PiwHdrpNMLnV16SNq2iUbRQTJyA
+Au0My5OVl9lfkkH/5IN9qoOu/0ljrBC/qPBLAgMBAAGjUzBRMB0GA1UdDgQWBBQm
+n8ZpzUAk0ZtFTbXyBK09wU9yxjAfBgNVHSMEGDAWgBQmn8ZpzUAk0ZtFTbXyBK09
+wU9yxjAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQCYRjZmtQo5
+4qxYRj2finC0JhreExGw6yH/EsfaD6hQM33QpP5QPZMDZvqHxbmsHAPSabmGRj+8
+RilHoVpPIpVbhXRClX1E2DN0h9bT0Al9hSdsajsy3pRtUAAZR5U9I/WUI6kKUQ0L
+A3sh81TC8HyDOjaIsjrmXLiRPLzi//w6+7RvNmUMJKrUWKCTrSH8mmAktp338G5Z
+5sUjHVrb8/D6+iNKQi+6Xw2TCG9OdDI8baH/4UPoomK5qjqSW+4w5c+W91uYsksQ
+k05BleUJcPZdhadTmIYRxH36SCtr4DngT0IU0bW10D7wIR8Wd9t2XY0Ujv5JtqLK
+Rxkh8tsK+sySrs1UwyzgRosPxvCcxlrmprjl77Ez/ifsQxZtEiKSkolaUiM0Gjh7
+VJn4eHQweZD6qctAZvc8KlncCScVUNLueuHMr14yaFkK2PplrjQZElK0VBnnHhHe
+R5c7gUbClQ1L2MCEDHXicld5EoU6z0r2eObiYDUX/KZo64XZtAHgvYo=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFBTCCA22gAwIBAgIUIH9925y/axHo58Jm2gsUzyqdgfIwDQYJKoZIhvcNAQEL
+BQAwgZExCzAJBgNVBAYTAkJEMQ4wDAYDVQQIDAVEaGFrYTEOMAwGA1UEBwwFRGhh
+a2ExDjAMBgNVBAoMBUJkUkVOMREwDwYDVQQLDAhTb2Z0d2FyZTETMBEGA1UEAwwK
+RmlsZVNlbmRlcjEqMCgGCSqGSIb3DQEJARYbc3VwcG9ydEBhcGFjZmlsZXNlbmRl
+ci5hc2lhMB4XDTI0MDUwNDIwMzI0OVoXDTM0MDUwNDIwMzI0OVowgZExCzAJBgNV
+BAYTAkJEMQ4wDAYDVQQIDAVEaGFrYTEOMAwGA1UEBwwFRGhha2ExDjAMBgNVBAoM
+BUJkUkVOMREwDwYDVQQLDAhTb2Z0d2FyZTETMBEGA1UEAwwKRmlsZVNlbmRlcjEq
+MCgGCSqGSIb3DQEJARYbc3VwcG9ydEBhcGFjZmlsZXNlbmRlci5hc2lhMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEArN7PA60MOBCGG/uWl4WPPw03n9qf
+g+hC9MQtVyfep/keYA8sUyCo58rszL+sZRJMoxQ++vVB28tAMg/Nvb6ed9yS//FP
+A501EP8qaDZY9XI5Ith02NWO9Y7tdBwUd6vySJ3+DEk92wvayY5qOoWaLG1FpxW+
+c7NrHZI34kQ13b1YGvHgD0lybmNsL3bCcGx/E9+YBC65Bi0cGWN/837YggeW6PJu
+OmYl70tLMOOtiyqfLXZmeaYWE8f39ok1MHiCkG7TIWOsnMM8h5H5xrZxScpeDZa5
+7Yg9AaS4i9yL7b4YJlXyBZ7ju0Zk6UklKJHLhcjsyxQs/lqAgfkA23KWkgJ/qIm7
+MEq/AgE3aGbl56kciGVhcUPl1yKBKzb4fO/vWftw/SFfqIIfeVgLKFuCsc0b0+YB
+rFol++xM7cduKTIBhst7MiyJ99bVAZ8UPhZ6/PiwHdrpNMLnV16SNq2iUbRQTJyA
+Au0My5OVl9lfkkH/5IN9qoOu/0ljrBC/qPBLAgMBAAGjUzBRMB0GA1UdDgQWBBQm
+n8ZpzUAk0ZtFTbXyBK09wU9yxjAfBgNVHSMEGDAWgBQmn8ZpzUAk0ZtFTbXyBK09
+wU9yxjAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQCYRjZmtQo5
+4qxYRj2finC0JhreExGw6yH/EsfaD6hQM33QpP5QPZMDZvqHxbmsHAPSabmGRj+8
+RilHoVpPIpVbhXRClX1E2DN0h9bT0Al9hSdsajsy3pRtUAAZR5U9I/WUI6kKUQ0L
+A3sh81TC8HyDOjaIsjrmXLiRPLzi//w6+7RvNmUMJKrUWKCTrSH8mmAktp338G5Z
+5sUjHVrb8/D6+iNKQi+6Xw2TCG9OdDI8baH/4UPoomK5qjqSW+4w5c+W91uYsksQ
+k05BleUJcPZdhadTmIYRxH36SCtr4DngT0IU0bW10D7wIR8Wd9t2XY0Ujv5JtqLK
+Rxkh8tsK+sySrs1UwyzgRosPxvCcxlrmprjl77Ez/ifsQxZtEiKSkolaUiM0Gjh7
+VJn4eHQweZD6qctAZvc8KlncCScVUNLueuHMr14yaFkK2PplrjQZElK0VBnnHhHe
+R5c7gUbClQ1L2MCEDHXicld5EoU6z0r2eObiYDUX/KZo64XZtAHgvYo=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://apacfilesender.asia/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://apacfilesender.asia/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://apacfilesender.asia/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="1" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">APAC FileSender</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">APAC Filesender is a software that is used to send a large file to someone, have that file available for download for a certain number of downloads and/or a certain amount of time, and after that automatically delete the file. The software is not intended as a permanent file publishing platform.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="organizationName" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">APAC FileSender</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">APAC FileSender</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://apacfilesender.asia/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>FileSender</md:GivenName>
+      <md:SurName>Administrator</md:SurName>
+      <md:EmailAddress>mailto:support@apacfilesender.asia</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibb1.hj.se/idp/shibboleth" xml:base="swamid-1.0/shibb1.hj.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hj.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUB7TrKFw9b8VuoROWwTsp8hJE5oowDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMc2hpYmIxLmhqLnNlMB4XDTA5MTAxMzA3MjcyNVoXDTI5
+MTAxMzA3MjcyNVowFzEVMBMGA1UEAxMMc2hpYmIxLmhqLnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk5R5pnnBvG4o7SW4uekwfFNvAvGSAGUf9lOu
+f7ui6bIi2J0j4mIJXbeVdGsUbXCFUKwoJB9AfBfQm/9V3Szwxk5qHoTOFOH0Y0MS
+FCimnTUv4j2lIeab980784pyfDD2dBgMzsWmFra8JXg6Y66Ag3TXTYQOX1Bodr6W
+Lff27tYfoEiUqfL1WRE3KeH2EzVaTf53zHrMwlbAifB+jhdA7AIJw9gGpMuUpzB4
+sPR5tD/M/SUJPIz37YyGbmpI3pqGoabpvZ8bBWut4Z1EnUFtd7fIwt5UMbFc4i5/
+gUL3jKpDHO7mKfZq8BstcWkgzZ1x0HHRWZFFzfowQytvHea3ewIDAQABo18wXTA8
+BgNVHREENTAzggxzaGliYjEuaGouc2WGI2h0dHBzOi8vc2hpYmIxLmhqLnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBS2nNJVvFq4dsSheCENArwBFmDmCzANBgkq
+hkiG9w0BAQUFAAOCAQEAEg326B4J0RirwToLWX/dAa5nTC2mkbzpbVnTTb06mFLp
+ZEo7uIRiucdqAFhQKN6zo0GdxRnTq+9SClFxLhiuJlG7AhnoQEVe63cyVdNcmQNs
+fkeZrOpWJvTz8tWBmhmhwgMmvUgSsJE9VGBgthyoU0W46y6sQv8/fkGz4d6ThXL1
+6BXs5VYnwyXH0q5N98XvDTOEz4u892/jdWIXVsgxipFMcnAI+Kq81w0n1leqthoK
+Fk3SN7U4Ui90TIxZGaNG/HIZTPwJWcbk/m9gLl+N8d1NYqzy4u4lnNYnZWca6WZ8
+nh4O/8qRXaXavKrASZvA1gmVGaA90C6rtK+zuVkU3g==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibb1.hj.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibb1.hj.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibb1.hj.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibb1.hj.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibb1.hj.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibb1.hj.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hj.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUB7TrKFw9b8VuoROWwTsp8hJE5oowDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMc2hpYmIxLmhqLnNlMB4XDTA5MTAxMzA3MjcyNVoXDTI5
+MTAxMzA3MjcyNVowFzEVMBMGA1UEAxMMc2hpYmIxLmhqLnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk5R5pnnBvG4o7SW4uekwfFNvAvGSAGUf9lOu
+f7ui6bIi2J0j4mIJXbeVdGsUbXCFUKwoJB9AfBfQm/9V3Szwxk5qHoTOFOH0Y0MS
+FCimnTUv4j2lIeab980784pyfDD2dBgMzsWmFra8JXg6Y66Ag3TXTYQOX1Bodr6W
+Lff27tYfoEiUqfL1WRE3KeH2EzVaTf53zHrMwlbAifB+jhdA7AIJw9gGpMuUpzB4
+sPR5tD/M/SUJPIz37YyGbmpI3pqGoabpvZ8bBWut4Z1EnUFtd7fIwt5UMbFc4i5/
+gUL3jKpDHO7mKfZq8BstcWkgzZ1x0HHRWZFFzfowQytvHea3ewIDAQABo18wXTA8
+BgNVHREENTAzggxzaGliYjEuaGouc2WGI2h0dHBzOi8vc2hpYmIxLmhqLnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBS2nNJVvFq4dsSheCENArwBFmDmCzANBgkq
+hkiG9w0BAQUFAAOCAQEAEg326B4J0RirwToLWX/dAa5nTC2mkbzpbVnTTb06mFLp
+ZEo7uIRiucdqAFhQKN6zo0GdxRnTq+9SClFxLhiuJlG7AhnoQEVe63cyVdNcmQNs
+fkeZrOpWJvTz8tWBmhmhwgMmvUgSsJE9VGBgthyoU0W46y6sQv8/fkGz4d6ThXL1
+6BXs5VYnwyXH0q5N98XvDTOEz4u892/jdWIXVsgxipFMcnAI+Kq81w0n1leqthoK
+Fk3SN7U4Ui90TIxZGaNG/HIZTPwJWcbk/m9gLl+N8d1NYqzy4u4lnNYnZWca6WZ8
+nh4O/8qRXaXavKrASZvA1gmVGaA90C6rtK+zuVkU3g==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibb1.hj.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibb1.hj.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">HJ</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Högskolan i Jönköping</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.hj.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Högskolan i Jönköping</md:Company>
+    <md:EmailAddress>Stefan.Kindh@hj.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

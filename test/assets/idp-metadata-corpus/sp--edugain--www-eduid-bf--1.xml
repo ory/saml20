@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://drive.fasoren.bf/index.php/apps/user_saml/saml/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.eduid.bf" registrationInstant="2025-08-29T16:48:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.eduid.bf/docs/MRPS-eduid-bf-v1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">FasoREN Drive</mdui:DisplayName>
+          <mdui:Description xml:lang="en">FasoREN Drive</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://drive.fasoren.bf/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://fasoren.bf/services.html</mdui:PrivacyStatementURL>
+          <mdui:Logo height="149" width="374">https://wacren.net/wp-content/uploads/2021/03/Logo-FasoREN.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFzzCCA7cCFFInDn/NjDf2tTrrqWpfSj+eUfMMMA0GCSqGSIb3DQEBCwUAMIGj
+MQswCQYDVQQGEwJCRjEQMA4GA1UECAwHS0FESU9HTzEUMBIGA1UEBwwLT1VBR0FE
+T1VHT1UxEDAOBgNVBAoMB0Zhc29SRU4xEDAOBgNVBAsMB0Zhc29SRU4xGTAXBgNV
+BAMMEGRyaXZlLmZhc29yZW4uYmYxLTArBgkqhkiG9w0BCQEWHmtvdWRvdXNzb3Uu
+b3VhdHRhcmFAd2FjcmVuLm5ldDAeFw0yNTA4MjkxNTM2MzFaFw0zNTA4MjcxNTM2
+MzFaMIGjMQswCQYDVQQGEwJCRjEQMA4GA1UECAwHS0FESU9HTzEUMBIGA1UEBwwL
+T1VBR0FET1VHT1UxEDAOBgNVBAoMB0Zhc29SRU4xEDAOBgNVBAsMB0Zhc29SRU4x
+GTAXBgNVBAMMEGRyaXZlLmZhc29yZW4uYmYxLTArBgkqhkiG9w0BCQEWHmtvdWRv
+dXNzb3Uub3VhdHRhcmFAd2FjcmVuLm5ldDCCAiIwDQYJKoZIhvcNAQEBBQADggIP
+ADCCAgoCggIBAMQ9vIo574P7pOo89gQwjcnV1EJhJL4z97y9jToQIkonVaKSpS2Q
+C4kr4EDa0tkzoh2yc462eU9bu3A/oXXyRGlqvJNpT7rvuGrQarh3BXQFCeud1yNP
+i99l/g3Hq4GuXr8YqBlb0in3BEFlDcG1PeTntkuOTGYfjuPxRbRO6EOzdR2xFl5i
+x9LCv3d8kj8Oh6oy+s1N+H0wVkj3SD/1k8bWGIu0iB68QKklCoqRHTm+TLLqKdke
+tyhzcMYChoylJPo9c16N3zI4FjgUJ+lj6LG/bu4vzO2XMsbQZFjAI7sbnNSM0495
+Kdnq1gl9OsVWeyf4ToxmmVE3O+i6Lp90wPGjsztmTjENuuN69pG8Com/TtLT7Uyw
+qzUnER7W1wCh2fXBvxbOtG94aPO/J8ipPLtV+F4knd4EKvUrvlBCrxy4fzIZ6ygK
+ByckRuuoZ93SycN5NNvVANylZiF5XxcFgWPcKu54KCTXpnBJxCFasmV18hDzBGfB
+HN4rQlQj4Dog4rmf2NZ9DtxWS3wfFRqh3t15ef1rUbuAcGnHY39HaOaiVgrKaqx+
+zLoR0VHi3GmZQ8MIm3rqB9Tgzy6/7i3bj2ZAUYv5pvR47cfq6iVxlnETlQoaHjiN
+fy5FjmrH3s0gDkk3aWk83kDkq8z6UvhIJ4ae/flIAUt7jr3hD9N7N2WrAgMBAAEw
+DQYJKoZIhvcNAQELBQADggIBADA78XvmxbUnOaxO4Hv5+/TNBZRXKzWXhAyAAGMB
+cMn4y2V4ae2wjlBayKEgqUIAl3Hl5/e9Hgs/PFKGzRJ1mBMIRG9bK4AILqM+4rda
+68ROC6dDTcFSn8/dp2xVsCr9nsgApHy9U/DJHk4nte/dFB/NWKUw+Hq4orQ7+7Li
+ZBVlyczJvG1nXTNsaLgheqaZRwuKuKiw9LXZwpSA1rymaVQ1VCNN/tDzPVgUli7D
+rVWzBx6M4/7kLcvOpLJXj4HsmPQF59flsabIysg+ho/7MyxxkSG7aHUF2ofCBGUe
+cyjxRhf8lUubX1V0cCBQLNZ4CY5xODp//xPIGHTVq2jRIfyInCQ2CIHDK9QTV8an
+43PWYrg0ISdKk7OSJvorPK3peeEOugDb7aEwUPP8rZw0xlX14ieDGm6BAp+WPb/L
+vN6PdvYabXwi/UhBWeAwpceEddqkdWeNpHcZ6jeI6pnmDZ9dtFxSrrdcLWHFWgAP
+1s1aw+A0SSBmtRkgTdaO1ObddSl3PNEHf0roFsoOp9m4wGRoV6ndwxuI/SjhVyT8
+wDLpp23QEDFKF1Yc21ja72DKeSvZpPKWM7T3uBe1oOkCwHbUW9qSVxFTP2h5921a
+9Hz9siPgBzAz+AqE2mjKXjX75jG2EmDzEpGKJg7iOnkIE0QskL9rM/wHCP+tAHdH
+LvG5
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://drive.fasoren.bf/index.php/apps/user_saml/saml/sls" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:encrypted</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://drive.fasoren.bf/index.php/apps/user_saml/saml/acs" index="1" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">FasoREN Drive</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">FasoREN Drive</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">FasoREN</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Burkina Faso Research and Education Network</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://fasoren.bf</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Koudoussou</md:GivenName>
+      <md:SurName>OUATTARA</md:SurName>
+      <md:EmailAddress>mailto:koudoussou.ouattara@wacren.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Seydou</md:GivenName>
+      <md:SurName>KONSIMBO</md:SurName>
+      <md:EmailAddress>mailto:support@fasoren.bf</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

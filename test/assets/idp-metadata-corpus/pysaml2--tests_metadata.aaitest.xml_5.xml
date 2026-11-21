@@ -1,0 +1,133 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://tlogin.usi.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.unisi.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Universita della Svizzera
+                        Italiana
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="it">Universita della Svizzera
+                        Italiana
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Universita della Svizzera
+                        italiana
+                    </mdui:Description>
+                    <mdui:Description xml:lang="it">Universita della Svizzera
+                        italiana
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>test.unisi.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIFMzCCBBugAwIBAgIUIfV8lsrh4IoNDfLVA3nrQRcsqMgwDQYJKoZIhvcNAQEF
+                            BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+                            BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+                            IEdsb2JhbCBTU0wgSUNBMB4XDTEzMDIyMDEyMzUwN1oXDTE2MDIyMDEyMzUwN1ow
+                            dDELMAkGA1UEBhMCQ0gxDzANBgNVBAgTBlRpY2lubzEPMA0GA1UEBxMGTHVnYW5v
+                            MSswKQYDVQQKEyJVbml2ZXJzaXRhIGRlbGxhIFN2aXp6ZXJhIEl0YWxpYW5hMRYw
+                            FAYDVQQDEw10bG9naW4udXNpLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+                            CgKCAQEA58oRf8LkT2+ELlFwr9NR0MaZMv0IaNAyR4EdxSTFcVtOtvC996Dg3BP5
+                            YjN0P2IqK9I0ly0iWhoQWGwBbuYyCxdkNjtGRYd8EurtHFT/NgDeze2wg07cb7ET
+                            vZizWT59+PwXnoJQGbjsNNkQaGy5C2sxLHkVFud1RSXiFNsYsU7AfMEGBmCU3DfM
+                            pwlpejESnJOszuiDqVd7qn88WWmIyNbF1yTz/UBxFt+uQP6ClnuV0Wm5OpFgSe0C
+                            FVrPOtYC8A99WDOo5S6c9Flcw/7EgTPuywwez8kmjDZMYJ8fVdY/R8f/SxsE34U/
+                            iDgevxV+BdhDt+3Lj/4Cz6LiYfKpqQIDAQABo4IBxDCCAcAwdAYIKwYBBQUHAQEE
+                            aDBmMCoGCCsGAQUFBzABhh5odHRwOi8vb2NzcC5xdW92YWRpc2dsb2JhbC5jb20w
+                            OAYIKwYBBQUHMAKGLGh0dHA6Ly90cnVzdC5xdW92YWRpc2dsb2JhbC5jb20vcXZz
+                            c2xpY2EuY3J0MEkGA1UdEQRCMECCDXRsb2dpbi51c2kuY2iCD3Rsb2dpbi51bmlz
+                            aS5jaIINdG5ldGlkLnVzaS5jaIIPdG5ldGlkLnVuaXNpLmNoMFEGA1UdIARKMEgw
+                            RgYMKwYBBAG+WAACZAEBMDYwNAYIKwYBBQUHAgEWKGh0dHA6Ly93d3cucXVvdmFk
+                            aXNnbG9iYWwuY29tL3JlcG9zaXRvcnkwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQW
+                            MBQGCCsGAQUFBwMBBggrBgEFBQcDAjAfBgNVHSMEGDAWgBQyTaFP6vCumbbumwcs
+                            hAgRUIvifjA7BgNVHR8ENDAyMDCgLqAshipodHRwOi8vY3JsLnF1b3ZhZGlzZ2xv
+                            YmFsLmNvbS9xdnNzbGljYS5jcmwwHQYDVR0OBBYEFBVaq74iVTYpuQVxwmcFc/ia
+                            iQzsMA0GCSqGSIb3DQEBBQUAA4IBAQA9NQ7hWwGh9xnh445gWz/1vA11XF06TBKB
+                            WbLNEddp/25oWaxNz1fnpgwSTKkcSR56sB1OG/ZdDB47+26qQcsuCTkZkZ9oCX50
+                            JliCjWTEEHu3jXcOID3tM18hitVppLjQvDrmINHrWkbhAKHAAloJMJdisFZphLyt
+                            kir36Qu3E0LkfBoLGRq3aIZP09iC+z/kXKeKaHT+kCGj6tKc77HwnMDTP8tQTvCU
+                            F7aBzBcyRXmmpkboQwS2q9NWQ9E3aph7i0v9Lf7OEqpc1qGxGlsba2csmvJmzWLl
+                            nHkR2zVzrgTHYd16p4FADqG2NXlt6lL8O1MEQ2179ttO4qDqkteX
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://tlogin.usi.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://tlogin.usi.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://tlogin.usi.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://tlogin.usi.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tlogin.usi.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://tlogin.usi.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.unisi.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIFMzCCBBugAwIBAgIUIfV8lsrh4IoNDfLVA3nrQRcsqMgwDQYJKoZIhvcNAQEF
+                            BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+                            BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+                            IEdsb2JhbCBTU0wgSUNBMB4XDTEzMDIyMDEyMzUwN1oXDTE2MDIyMDEyMzUwN1ow
+                            dDELMAkGA1UEBhMCQ0gxDzANBgNVBAgTBlRpY2lubzEPMA0GA1UEBxMGTHVnYW5v
+                            MSswKQYDVQQKEyJVbml2ZXJzaXRhIGRlbGxhIFN2aXp6ZXJhIEl0YWxpYW5hMRYw
+                            FAYDVQQDEw10bG9naW4udXNpLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+                            CgKCAQEA58oRf8LkT2+ELlFwr9NR0MaZMv0IaNAyR4EdxSTFcVtOtvC996Dg3BP5
+                            YjN0P2IqK9I0ly0iWhoQWGwBbuYyCxdkNjtGRYd8EurtHFT/NgDeze2wg07cb7ET
+                            vZizWT59+PwXnoJQGbjsNNkQaGy5C2sxLHkVFud1RSXiFNsYsU7AfMEGBmCU3DfM
+                            pwlpejESnJOszuiDqVd7qn88WWmIyNbF1yTz/UBxFt+uQP6ClnuV0Wm5OpFgSe0C
+                            FVrPOtYC8A99WDOo5S6c9Flcw/7EgTPuywwez8kmjDZMYJ8fVdY/R8f/SxsE34U/
+                            iDgevxV+BdhDt+3Lj/4Cz6LiYfKpqQIDAQABo4IBxDCCAcAwdAYIKwYBBQUHAQEE
+                            aDBmMCoGCCsGAQUFBzABhh5odHRwOi8vb2NzcC5xdW92YWRpc2dsb2JhbC5jb20w
+                            OAYIKwYBBQUHMAKGLGh0dHA6Ly90cnVzdC5xdW92YWRpc2dsb2JhbC5jb20vcXZz
+                            c2xpY2EuY3J0MEkGA1UdEQRCMECCDXRsb2dpbi51c2kuY2iCD3Rsb2dpbi51bmlz
+                            aS5jaIINdG5ldGlkLnVzaS5jaIIPdG5ldGlkLnVuaXNpLmNoMFEGA1UdIARKMEgw
+                            RgYMKwYBBAG+WAACZAEBMDYwNAYIKwYBBQUHAgEWKGh0dHA6Ly93d3cucXVvdmFk
+                            aXNnbG9iYWwuY29tL3JlcG9zaXRvcnkwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQW
+                            MBQGCCsGAQUFBwMBBggrBgEFBQcDAjAfBgNVHSMEGDAWgBQyTaFP6vCumbbumwcs
+                            hAgRUIvifjA7BgNVHR8ENDAyMDCgLqAshipodHRwOi8vY3JsLnF1b3ZhZGlzZ2xv
+                            YmFsLmNvbS9xdnNzbGljYS5jcmwwHQYDVR0OBBYEFBVaq74iVTYpuQVxwmcFc/ia
+                            iQzsMA0GCSqGSIb3DQEBBQUAA4IBAQA9NQ7hWwGh9xnh445gWz/1vA11XF06TBKB
+                            WbLNEddp/25oWaxNz1fnpgwSTKkcSR56sB1OG/ZdDB47+26qQcsuCTkZkZ9oCX50
+                            JliCjWTEEHu3jXcOID3tM18hitVppLjQvDrmINHrWkbhAKHAAloJMJdisFZphLyt
+                            kir36Qu3E0LkfBoLGRq3aIZP09iC+z/kXKeKaHT+kCGj6tKc77HwnMDTP8tQTvCU
+                            F7aBzBcyRXmmpkboQwS2q9NWQ9E3aph7i0v9Lf7OEqpc1qGxGlsba2csmvJmzWLl
+                            nHkR2zVzrgTHYd16p4FADqG2NXlt6lL8O1MEQ2179ttO4qDqkteX
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://tlogin.usi.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://tlogin.usi.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">test.unisi.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Universita della Svizzera
+                Italiana
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="it">Universita della Svizzera
+                Italiana
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="it">http://www.test.unisi.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

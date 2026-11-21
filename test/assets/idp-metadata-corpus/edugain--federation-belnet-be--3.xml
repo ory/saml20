@@ -1,0 +1,118 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="http://adfs.ilvo.be/adfs/services/trust">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://federation.belnet.be/" registrationInstant="2012-03-27T12:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://federation.belnet.be/files/Belnet-metadata-registration-practice-statement.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ilvo.be</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Instituut voor Landbouw-, Visserij- en Voedingsonderzoek</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IDP ADFS van Ilvo</mdui:Description>
+          <mdui:Logo height="32" width="32">https://ilvo.vlaanderen.be/assets/dist/img/favicons/favicon-32x32.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://ilvo.vlaanderen.be/assets/dist/img/favicons/favicon-16x16.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>193.190.112.77/32</mdui:IPHint>
+          <mdui:DomainHint>ilvo.be</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:50.980647192322344,3.778816298591661</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIE2jCCAsKgAwIBAgIQJbos2cvTcoBIQXJPA5siQTANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDEx5BREZTIEVuY3J5cHRpb24gLSBhZGZzLmlsdm8uYmUwHhcNMjYwMTA4MDcwODAxWhcNMjcwMTA4MDcwODAxWjApMScwJQYDVQQDEx5BREZTIEVuY3J5cHRpb24gLSBhZGZzLmlsdm8uYmUwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC19M8Lm81xqfpvz3hzp5Fs7+NTamlRGV5Gb2A25BdnINi2gdU/lRVtqqeLT6+Byy+lqJOiJX8iu1tGIa5ou4mYm/s52oiOHb6S4jcXKSb9sPwDyh8vsLL8cy9v/VqBdJCNNpcD/gL2omwy1/j//L4b8NhRBjFkAAyCaVOUdmqhXH+sBYFBHLA8ZoVI8VyP0OD6fez5HD5ne445w7SiSkO1LtT0SlDppiJ5C0kePN3MXKIwYTXcWvK9zGYBhd13KxHsL/Ctdegy6TRsiL4EdK3RGoxX0ls4iQGvCyddeNjfmzD+B3Z5ww0iv/fTzblPw0AEuLLmGPOEkJRUHa2uS4ssp4K88qsgtrS6eIp91K3JoqlwoqMJXuqRgjeS/pupntpB3Bhi1MK2/oehKWpc1Wc3jsZfM0D+NwaRw4YHyTWV27pCT2GVHFYQId7L86ighnVdNp/SeOBvbjnqdM7iaSKunGSKMsn9GBkWwKmwxh1zR1VkLRbXx/oMVLswNSn8QVuAva+E8UkBx4bBevLM2SO8NYGjQ0/ZP4Esm0FlNlM4KiCkEWF0Yo04fZPH5L1eL1Ylqxp5fPMvfyrFK9RDytWBHHBV8y5lQvGrQkq9/5GAK2EoZISEvD9jLFx8PrAbozT63f2EOW3oElHIxVdr/QhqRau/NGu4I/87vOQVXytFGQIDAQABMA0GCSqGSIb3DQEBCwUAA4ICAQAN4dhpUsIqf2OwWwx1HfnIN6oVtCOPYfcYAm5YGhYHBLtc/PYmJ2OLfjNHEb6r1jmy3lB9TC62ANHPYQVMBTJk/xl/2oVC+0OMSo5hVat+itDyHcrec0Ak9mGEi08pmHLFOkyNNRHSRZFUkZYYsg3qDS7pkxofCt38HpPZgGgrO0RMJFmYKAy3d/XMOWX7Pn97a12xDxdlH3/yphwybDBXyYQIQ/hxGTv+hI6qpAnjAyMQLrgXkRgtyqxvAX6IRsshJSyYkD1XaUZcZO8XWg1ZB5aGaAzscQfDSDyrRPOXg/aXV5hkzb8NsfVRCFU7bilnuTRndPxVzjS9VZ0JBf5BRnHKhELQtT6PQ1DusIWoWnMuJpqZs5tZcs3Pdd4YmcIcJees619H6i542DXvC1+EH9OeRKqZL79IJO/ki35n+uebCNwXC80cMKulJET8hDUrPVqyQZFu0KHHrrR+bm/4j2hAJeFS8k5B3vF9pZsbx04+bKdIcR0l+5d0LiPVTOo8B8PKMi7qu43uM1Ete0uvol/LYyd+LaN2HiQashRBm7ob+T5bhKRW2Zj7oPNoLY7Kqn6ExZra765m/uow3MsDrRfAF5VRpNAp7AmPyw4FXlBmbn0xVkYRx/nm8JjrKU2ESQvkXdR282bs9815TUcD4OdFzehlCSoE97J0at9kTw== </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> MIIE1DCCArygAwIBAgIQS0wiq6MT4ItE2nhAeZbP8TANBgkqhkiG9w0BAQsFADAmMSQwIgYDVQQDExtBREZTIFNpZ25pbmcgLSBhZGZzLmlsdm8uYmUwHhcNMjYwMTA4MDcwNzQ2WhcNMjcwMTA4MDcwNzQ2WjAmMSQwIgYDVQQDExtBREZTIFNpZ25pbmcgLSBhZGZzLmlsdm8uYmUwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC+RiVODEHMLOjTIhkAYAfOsS/A5lXSKOdC73cmpDCWp06yTOHwcbjO+eOORsEr3CjXCm4JuuWZtw6/CS4MZTqh4Avu2Xieeq4pY1WIU0/wcdhqXmPHfE0h3dm1nUQunhswPG+9onyDn5mPGt1WBbVIrSU1X/bRwvCI70iBnmcXGOuNgsDY7PTvXzAS9+vawQ+NBJVZkninJA997fiCCaQw/Fxg/Ec+gRpl7Ckz/dZBx6fHEbsPcg+gwHuS1+MDX7XBP5VRV/WqwyiUJQ36ugfsHmbinoAGm3K2SHdfawYdT1w32A2LJlZq0u0otTf7hw3yYgPpHKNDTW1i98ev0FjOYeNpguxIL/E30mERNfH9RsbXjyFphvaTLVIRg/Zo7KHu6iHDiLHOUzvFGuZQkZNXmMPhJ+2CBdFQdoWwwPbqtkC1kUKNoG0ichgJcjpfq3wgyhd/B5SM4ybduxXJRJrjnmYNVTgnL2kWMauNzYVCEiR620nlWQiRygaO2OV5CdhtgjISJ3M93SMNrAwkFPdq9DZOJwDpSXSkl8nWl2YrlhVy2oOCvvGelnHcVdTUbRdnqZ/Be6yi++gUxf6RlkX0/GgWRwzloVHGfp1n4RCpCbsOP6qG/s9FUvgB2N+gi8jHNKbhIsnOVMcjKagKFYHoqF4ZTwBZgnlw1dO2mkhYNQIDAQABMA0GCSqGSIb3DQEBCwUAA4ICAQBHPd0z5iJjRZt8zNe0NYgEIilKm1uiSED1MalzJVbK6E9tZf3Z42jwjjeAGQjgur10955N7Wc4/6je6jqlazCjdOLCLDX06zXGV5lUiTDYtXHDiTNRIblKDLWJdAQs5VHDF39y7njKE4Fh/Gy1AqWIP1jknaDYOQ6sc9cDwtKW7kklaKVm0ZBJQWnpkpNZP68/96umRKATGOR/psJWNBvp2WV05YJJ/iSYx6ask+t1Fk+eTQA7mBQ2aa9jgo0hwGyn7s1wAh9OMY2WHHhon7WxbU8QTm6fq9lH4nUEcANAFYLuHJBXUa/RgmiYa8/wo/kaqMfsvMVO+Ok+tt8YXTwc8bR0369m6DO8VkC+bPDs71qPlrUG9thpjSXLnnYjIhWxmgzoDPr7AykSQPso6FZaFXuR7h0GqemTy5uTEpgP8z1lAKQOMbc707PgNTqZ+ljjVPCBkh8He8/IjGvMpku63IeLamnIbUOn10HHkVrALEnnTL2GKZ7YPTQdsx3NoaFqO7xYpBLT06EagsOeCrJd/UFGkznxVO9yD6S8WLzt8q4LgavwGJrISLIIRzMh6Q+ffIFyaqYqctsgYtqorBHGuk/S0eD8qUM/l4apqbbvKL6tln1FDqxdOdZUv8aLqGJor8MWEKCqSjOdhnrxlhhJCbSlrE9nhXFeb/J7wmhtLw== </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.ilvo.be/adfs/ls/" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.ilvo.be/adfs/ls/" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.ilvo.be/adfs/ls/" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.ilvo.be/adfs/ls/" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="E-Mail Address" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Given Name" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="UPN" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/claims/CommonName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Common Name" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/claims/EmailAddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="AD FS 1.x E-Mail Address" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/claims/Group" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Group" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/claims/UPN" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="AD FS 1.x UPN" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Role" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Surname" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="PPID" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name ID" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication time stamp" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication method" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only group SID" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only primary SID" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only primary group SID" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Group SID" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Primary group SID" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Primary SID" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Windows account name" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/devicecontext/claims/isregistereduser" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Is Registered User" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Device Identifier" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/devicecontext/claims/registrationid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Device Registration Identifier" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/devicecontext/claims/displayname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Device Registration DisplayName" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/devicecontext/claims/ostype" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Device OS type" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/devicecontext/claims/osversion" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Device OS Version" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Is Managed Device" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Forwarded Client IP" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Client Application" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-user-agent" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Client User Agent" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-ip" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Client IP" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Endpoint Path" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-proxy" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Proxy" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/requestcontext/claims/relyingpartytrustid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Application Identifier" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/applicationpolicy" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Application policies" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/authoritykeyidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authority Key Identifier" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/basicconstraints" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Basic Constraint" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/eku" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Enhanced Key Usage" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/issuer" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Issuer" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/issuername" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Issuer Name" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/keyusage" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Key Usage" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/notafter" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Not After" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/notbefore" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Not Before" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/certificatepolicy" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Certificate Policies" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/rsa" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Public Key" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/rawdata" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Certificate Raw Data" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/san" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Subject Alternative Name" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/serialnumber" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Serial Number" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/signaturealgorithm" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Signature Algorithm" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/subject" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Subject" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/subjectkeyidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Subject Key Identifier" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/subjectname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Subject Name" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/certificatetemplateinformation" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="V2 Template Name" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/extension/certificatetemplatename" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="V1 Template Name" />
+      <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/thumbprint" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Thumbprint" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/12/certificatecontext/field/x509version" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="X.509 Version" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Inside Corporate Network" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2012/01/passwordexpirationtime" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Password Expiration Time" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2012/01/passwordexpirationdays" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Password Expiration Days" />
+      <saml:Attribute Name="http://schemas.microsoft.com/ws/2012/01/passwordchangeurl" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Update Password URL" />
+      <saml:Attribute Name="http://schemas.microsoft.com/claims/authnmethodsreferences" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication Methods References" />
+      <saml:Attribute Name="http://schemas.microsoft.com/2012/01/requestcontext/claims/client-request-id" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Client Request ID" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Instituut voor Landbouw-, Visserij- en Voedingsonderzoek</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ILVO</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en"> http://www.ilvo.vlaanderen.be </md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Koen</md:GivenName>
+      <md:SurName>Gryspeerdt</md:SurName>
+      <md:EmailAddress>mailto:it@ilvo.vlaanderen.be</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

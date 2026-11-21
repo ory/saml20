@@ -1,0 +1,52 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://auth.ap.edu.pl">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://aai.pionier.net.pl" registrationInstant="2023-01-02T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://aai.pionier.net.pl/en/index.php?page=rps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ap.edu.pl</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Polonia University in Czestochowa</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pl">Akademia Polonijna w Częstochowie</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Polonia University in Czestochowa IdP</mdui:Description>
+          <mdui:Description xml:lang="pl">Akademia Polonijna w Częstochowie IdP</mdui:Description>
+          <mdui:Logo height="180" width="180" xml:lang="en">https://ap.edu.pl/wp-content/uploads/2022/10/logo_edugain.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFWzCCA0OgAwIBAgIUQsOJ6LFI/N9Jz251uzGFLojN2HcwDQYJKoZIhvcNAQELBQAwPTELMAkGA1UEBhMCUEwxEzARBgNVBAgMClNvbWUtU3RhdGUxGTAXBgNVBAoMEEFtZXJpY2FuU29mdHdhcmUwHhcNMjAwNjE1MTY1NDUzWhcNMzQwMjIyMTY1NDUzWjA9MQswCQYDVQQGEwJQTDETMBEGA1UECAwKU29tZS1TdGF0ZTEZMBcGA1UECgwQQW1lcmljYW5Tb2Z0d2FyZTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAKW/EBhvzBWt/5wq4E383quWS1rH3OmyjQ3u5aFDHQFQ1uX9r//L0mz7Ugn8ONbx2MbhKe16YLT83QyeV2uNG/Q+xNG9yGuhCDUZYRZd9khzKJzuazjzlyGMn//mq7GdsWKH4OAKuvej7lxK5gfNd6AAQ2grLKTbIsyPeOgJR0U9ZVG9BiQSDqsX5LZnU0iO4/CdZ0HOiASDQfj/+kblt5L3J2jApZ3AavwLGJ+5kTcbTWuFdBnvYEdzTvw+uVtPt1ViGeDTnW0cODVL69jc9/9eB0rLh8Q/h6iJSe4R9wUF13sN+fip2Su/kpYUckiBcK3iNJhhItFs4BvEZAQZzKoay602Z80F1ee+zGd7CDXu4/MrznUf3KXUUgGaO5VthBHrnCUKx+nGU/I8C51Xbp+wJ8/FhlABA6CIX8VpUzi6LX6nwtdTXDIzYqqKOo39MNMHPhAeJ9k4MVCsHXhcRQ6KoPZtLBiQNNZGwCH+A207OCokgmr+pDU9PKVVUt9n3nX4Ds3G3TzUqaqxu4fJ3u7zIXLqh1bcDMjEuf4izqVpdMqagI7zE6DerPyoeO2a5YQx8fNIyopN6MRJ7gJ7yUUP6eubL7wsEBLbZxbzdxzT9UPImOptG0n3fES9orzWuZ0YUkTn2xxSDMiRNcp7raMloOpTivF1xZWxBN+Lnnv9AgMBAAGjUzBRMB0GA1UdDgQWBBR6hYdv5i3sZmj0WNDEVcJHbag4uTAfBgNVHSMEGDAWgBR6hYdv5i3sZmj0WNDEVcJHbag4uTAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4ICAQBdqB7QnHI/Avc57h+Nc1AQyHZY9M9IOmb9uGJXImEGc1ksRdvvKOl2r7Q5cV/2uzC7bX6ljxQb1KC1tJSnQmFJ+OgtJ+fIHvjbNiNBYTUE0+u9LHdCzfBxQr0hvqfWzSIGkI9aTqUJ/gUKG+iAVxcZ/Ebi4oCBMG1d5ckfKmtwotUOO4knydls9T/Gw8KfLF05gbwY5fZLbtzBlFBH2lMe9ESxwdGh+u1G0IiIoGLOYQ2NmztAwwf+Yt9CxuT4+0CK/JqHy7pxc7RdxiorG0CAcCZSYqF6H3YB/bt6seQzrzF8xXk9ph0Bx3gfU3DSyDXwnQNQOk7mKqqQGUXuA//ChDxZCMaqxhs8Qr+1ZTrfKIO+hu2zlgLctjATHP8fwfUicrJ90BFj5ASmcb1Lq0CTjtfTErMqt22PUZWGreLv5JrNuUC+4klgQ4bgqkfVejxXrJU2vTJly43dySjZzTVocTzq6pO5nF/SoQ/VworMfU67NzDJqEHrE7DmBsQZnV9dfnI5cBCDL1wJKVNWEEsBP6TEqrBaNtrD6CCBNOqaLSkpwpwb1dqw7gAYdDgQ6TeJ+dTIufI1jD0uN+Dnmpgz/GJp4Zbp+l1jRuXk0WdyrEktplvim7TwEqO5x3SjPTxkUp/w/Yq4CCcQmiyCDqgj7j0+zR4x8JD6yq48JnDANA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://auth.ap.edu.pl/saml/ars" index="0" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.ap.edu.pl/saml/slo" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.ap.edu.pl/saml/slo" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://auth.ap.edu.pl/saml/slo" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.ap.edu.pl/saml/sso" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.ap.edu.pl/saml/sso" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://auth.ap.edu.pl/saml/sso" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Polonia University in Czestochowa</md:OrganizationName>
+      <md:OrganizationName xml:lang="pl">Akademia Polonijna w Częstochowie</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Polonia University in Czestochowa</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pl">Akademia Polonijna w Częstochowie </md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://ap.edu.pl/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pl">https://ap.edu.pl/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Serwis Dziekanat AP</md:Company>
+      <md:EmailAddress>mailto:kancelaria@ap.edu.pl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Serwis Dziekanat AP</md:Company>
+      <md:EmailAddress>mailto:kancelaria@ap.edu.pl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

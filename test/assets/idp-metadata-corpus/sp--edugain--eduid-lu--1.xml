@@ -1,0 +1,31 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" entityID="https://apps.lem.codes/saml/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.lu" registrationInstant="2026-05-22T13:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.lu/media/eduid-mrps-02.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD1GfNopSgzD6I2ZAU7v8iV1zqSB2UGdiUsbeIgM0bmp5OGTjmi4n9e0gSeu+7VtmD41V1XLzmY12pj2aEAfsDoozdisfvlazEQOId9kkmSQDdO2SJnSELDWTC579wRwgfsZ6L7eCRnJsBofsa2P+RGL93mic7eaNUYxN/jvBvQKSWCCvbJzjpV8nC7DbVcWGRME3bAXx0VnLFx3mGOPwJbTnVV0JRmyGx47JK3kUCg4nv3iJqPHD03/YZln+xQd0Rl2BUsYMOLuYC8qGzgB8lOhfpv7wFGobOUn4VzcMZat4U/1Prmg6/PKPOTe1UDU3EInBaVmvyCyl/KJlIcN4wFAgMBAAECggEAZyhP8Qgp/iujSx8XsMkMJDyc0x83ntuU07k/xeuu+J8pEQrVaT/I+eCMvz47zEjhUXmDupEOvcxUY8gR4kJ28LLZObnNWgaedMRGCkzKmDpczNvIhg28w7lDL87LIdI3QYFw8EPllmCR9Kj++2+ypPO6gjAYGDWpEq6xyIjAcAA+fDadQ5PUT7bR0uz0eJdf0fyamZlH/nLvA/Z8AGKLg4G0Rwgw3f3jwzmUSf5zWUkM1VDp+cOiZmcJ536iWTqw5O5mc6i/rUW6ilNE6ZI/VsKqfUNd8x6MtNy+NHNdZysU2b3XYItw1aC8MUmW3OHJ7tqs5RbwM/TtFF6kqLhFgQKBgQD/F18fLuYQ8/i7DVzBXoP44EICovF45wsu5N1v/Sa3p+eeH6oRAmTfu8QYQ5mLxyRpJeKgZBqQltsoOqnMum4eXBfzCgew1f695Pc8lrRiLmQu5Ftv6kBWBvQJKVJWpCvAMzghOYMfypfV0jsDOHNJSr7ywvp5ojNdC4+/WiB95QKBgQD1+XgRYyeSLftKsEX+h547nGjz1HroZBySxmvMCQnZ9Cm+zgMr/ZNI3YSgGdwqkv+WaXYX6rX58MMHnecPyBtWnmcfzdeD8FhWRaDXqbLzztuI9qKQZoBY6LaMRQ4vwvDlbF5Sk6qig688KNSCVAG8ZAbQdljGaqwuNt0/mKjzoQKBgG5ABq+ukGcBWx5VLyKwG+/j1QPYsu7jRNUWu5IcYrB71EJmQxWo6Do+qAkopmNgRZ9gbWuO+GBHox7nA95lMRTUDtHPIvXN95TRMf4w0HOiw0/1CIP9RaMozC5tepXRzMr8GCVb+w0xfaA/hZvluQYTVSYNGT6a2QI87frxFBv1AoGBAMUzkl1uP0Vk8/i3RgaAOA3WohYKHde+m2HZDodwH6PLqsQ8ajKUg8aBQlkRIoBHhf3S40jddbPCoLm0kJEIf1J8gHTxFH3E7S2NeRwuAziQeVVfVomqg+/D8saWfn8wLO3iaeSOWtkb9hunKGisbQ/aqdPrbdT1pMEQX2UjQSDBAoGAfN/8dU2VhdgReSw/EFI4oE/E9PEBgVIo/Wbw7U7kTGazu15ATi9KWeM1bmBrHaNHXwGdlO/q2ngh8ohtXPjYBahbyYgP+wTceRzHLGmoPT5b22/wNA60utYNF3wX2fgdh93jCl4hH35OTsHCGhtFNEQCiTb3TP9uZOMWdTlhTmg=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://apps.lem.codes/saml/acs.php" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Secondary School Ermesinde</md:OrganizationName>
+      <md:OrganizationName xml:lang="fr">Lycée Ermesinde</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Secondary School Ermesinde</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="fr">Lycée Ermesinde</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://lem.lu</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="fr">https://lem.lu</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Service Informatique LEM</md:GivenName>
+      <md:EmailAddress>mailto:informatique@lem.lu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

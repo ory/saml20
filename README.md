@@ -32,6 +32,7 @@ Verifies a SAML Response (or a lone Assertion) and resolves with the user's prof
 - `bypassExpiration` (optional). This flag indicates expiration validation bypass (useful for testing, not recommended in production environments);
 - `allowedSignatureAlgorithms` / `allowedHashAlgorithms` (optional). Algorithm allowlists forwarded to `validateSignature`, see below.
 - `maxSignatureReferences` (optional). Ceiling on `SignedInfo/Reference` elements, forwarded to `validateSignature`, see below.
+- `reportEncryption` (optional). When the assertion was encrypted, return how in `profile.encryption`: `dataAlgorithm` and `keyTransportAlgorithm`, the `EncryptionMethod` algorithm URIs of the `EncryptedData` and the `EncryptedKey`, and `signaturePlacement`, which is `response` when the signature verifies over the response as received, encrypted assertion included, and `assertion_only` when it verifies only once the assertion is decrypted. It describes the assertion that validated, and is left out when that assertion was not encrypted or another assertion in the response makes it uncertain which one was decrypted. It does not change which responses validate. A response with both its assertion and the `Response` signed costs one more signature verification.
 
 ```javascript
 const saml = require('@boxyhq/saml20').default;
@@ -54,6 +55,19 @@ Returns the `Issuer` of a SAML Response without validating anything. Use it to f
 
 ```javascript
 const issuer = saml.parseIssuer(rawResponse);
+```
+
+### saml.parseResponse(rawResponse)
+
+Parses a SAML Response once and returns `{ xml, issuer }`, where `issuer` is what `parseIssuer()` returns. Pass the result to `validate()` in place of the raw response, and it reuses the parse instead of parsing the response again. The parsed document stays inside the library, so nothing outside it can change what `validate()` reads. The result is frozen and can be validated more than once.
+
+```javascript
+const parsed = saml.parseResponse(rawResponse);
+const profile = await saml.validate(parsed, {
+  publicKey: certificateFor(parsed.issuer),
+  audience,
+  inResponseTo,
+});
 ```
 
 ### saml.validateSignature(xml, publicKey, thumbprint, options?)
@@ -96,6 +110,8 @@ var signedXml = saml.validateSignature(xml, publicKey, null, {
 - `strictAudienceValidation` is gone and audiences are always compared exactly. Before 2.0, without that option an `Audience` that merely started with the expected value was accepted (`https://sp.example.com/metadata.evil.example` passed for `https://sp.example.com/metadata`). If you relied on a prefix match, pass every accepted audience in `audience` instead.
 - `validateSignature()` throws when the signature does not verify, where it used to return `null`. It now either returns the signed XML or throws.
 - `audience` is required. Before 2.0, leaving it out skipped the audience check, so an assertion issued for any other service provider that trusts the same IdP was accepted.
+- `parseMetadata()`, `parseSAMLRequest()`, `parseLogoutRequest()` and `parseLogoutResponse()` parse with the same XML parser as `validate()` (`@xmldom/xmldom`) instead of `xml2js`. They now reject a document with more than one root element. A namespace prefix the document uses without declaring it is still accepted (prefixes play no part in the result), as is a certificate element that carries attributes. Text and attribute values get the line-ending and whitespace normalization XML requires, so a certificate pasted with CRLF line endings comes back with LF in `publicKey` (its `thumbprint` is unchanged). A malformed document fails with the parser's message, for example `missing root element` instead of `Non-whitespace before first tag.`, and an `&` that does not start a reference (`a & b`) fails with `Invalid XML.`
+- The XML that `request()`, `createSAMLResponse()`, `createLogoutRequest()`, `createLogoutResponse()`, `createIdPMetadataXML()` and `createSPMetadataXML()` produce is serialized by `xmlbuilder2` instead of `xmlbuilder`. The documents are the same except that a namespace declaration already in scope from an ancestor is not repeated on a descendant, and an element with empty text is written as `<a></a>` rather than `<a/>`. A `saml:Assertion` from `createSAMLResponse()` still declares every prefix it uses, so it stays self-contained when extracted from its `samlp:Response`.
 
 ## Tests
 

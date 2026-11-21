@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<md:EntityDescriptor entityID="https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931" ID="DUp57Bcq-y4RtkrRLyYj2fYxtqR" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+            MIIDrjCCApagAwIBAgIGAYqTP6JpMA0GCSqGSIb3DQEBCwUAMIGXMQswCQYDVQQG
+            EwJVUzEWMBQGA1UECgwNUGluZyBJZGVudGl0eTEWMBQGA1UECwwNUGluZyBJZGVu
+            dGl0eTFYMFYGA1UEAwxPUGluZ09uZSBTU08gQ2VydGlmaWNhdGUgZm9yIFdvcmtm
+            b3JjZSBTb2x1dGlvbiBFbnZpcm9ubWVudCBlZTRmNjBjMyBlbnZpcm9ubWVudDAe
+            Fw0yMzA5MTQxMDMyMTVaFw0yNDA5MTMxMDMyMTVaMIGXMQswCQYDVQQGEwJVUzEW
+            MBQGA1UECgwNUGluZyBJZGVudGl0eTEWMBQGA1UECwwNUGluZyBJZGVudGl0eTFY
+            MFYGA1UEAwxPUGluZ09uZSBTU08gQ2VydGlmaWNhdGUgZm9yIFdvcmtmb3JjZSBT
+            b2x1dGlvbiBFbnZpcm9ubWVudCBlZTRmNjBjMyBlbnZpcm9ubWVudDCCASIwDQYJ
+            KoZIhvcNAQEBBQADggEPADCCAQoCggEBAM1i4QO5bil5lpggldWl80bV4RSUuaZi
+            /saDnL5ULwmFk2l2noBIFCasAVhw8N9UdhVouO3gQyexdgDeQeE0XaAPC23QLB/g
+            0E9hxjYJbxOrA7efKnkDHIBCIrtDJfoqX0tmyTxSBg4Ci13NAi9ODjeJ+gG9qynU
+            KTpfPN/rCwifaN+8yKEVsVVnKUBmjIqtRGIf1A6NRE8Mw9NBk1hHE6fi8YHbnCnY
+            0noSygCJLgP4g+NM47u1Ph1NMoepLNJ/lF0ZYTBbjOm0uTHTORkxBBgYFBw1tTEv
+            SCAGiRkgQxNL6Q2ec0ZtXE4h/lMiN5bySvp7BOJcGBsxSKtLODu4LgMCAwEAATAN
+            BgkqhkiG9w0BAQsFAAOCAQEArGRww/reXNEPS31c5PEInD5a/NHbLaGXHxfz058e
+            on5i8QJ/HTV5x8WwAfVMlcccyVgVeLaqUdhC3B1UVAPepkKL4doTqXj/KgAt5bx6
+            GKSRSd0USftLLZFR0ZvVag4V0hHJNqekM+/s/ZPU+2S6PRJS2WwY5qotHpcfHCt0
+            luDMasOQMWcA/2S8O15RF6WQHLlOspfzT8f6/qVZF3A9+O6h9llGXy+zvpCHVD9t
+            ZbahKFXbq2bJoSV+qWxlfOj1j2bivMQg81i00MnjSdzeR9ksem/yizBa142FqQNs
+            n1N0lLDIxLpNtWskwJR+JvP1L1f0hbgrKxavIiSb7N5mpA==
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Location="https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/idp/slo" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/>
+    <md:SingleLogoutService Location="https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/idp/slo" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+    <md:SingleSignOnService Location="https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/idp/sso" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"/>
+    <md:SingleSignOnService Location="https://auth.pingone.asia/31b9afba-1900-4031-b170-ab494e8b5931/saml20/idp/sso" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"/>
+    <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" Name="saml_subject" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" Name="Role" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"/>
+  </md:IDPSSODescriptor>
+</md:EntityDescriptor>

@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://discovery.aira.cedia.edu.ec/saml/sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://minga.cedia.org.ec" registrationInstant="2026-05-07T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.cedia.edu.ec/en/minga</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="es">https://www.cedia.edu.ec/es/minga</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:profiles:subject-id:req" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>any</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Federated LLM</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">LLM Federado</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Federated LLM</mdui:Description>
+          <mdui:Description xml:lang="es">LLM Federado</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://aira.cedia.edu.ec</mdui:InformationURL>
+          <mdui:Logo height="160" width="200" xml:lang="en">https://static.cedia.edu.ec/logos/aira-250x50.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDZzCCAk+gAwIBAgIUbpPRtpzN8rtoniRXaIoStB+rMuEwDQYJKoZIhvcNAQELBQAwQzEkMCIGA1UEAwwbZGlzY292ZXJ5LmFpcmEuY2VkaWEuZWR1LmVjMQ4wDAYDVQQKDAVDRURJQTELMAkGA1UEBhMCRUMwHhcNMjYwNTA4MDQ0NDUyWhcNMjgwNTA3MDQ0NDUyWjBDMSQwIgYDVQQDDBtkaXNjb3ZlcnkuYWlyYS5jZWRpYS5lZHUuZWMxDjAMBgNVBAoMBUNFRElBMQswCQYDVQQGEwJFQzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN8qdMesx58JdNPUohSn8zgzHMlSCeFJhwoxzbkZCX7/JzYKMnSDoua5mObNPYRHT8zwtmrmwbAbWO82V/vhYrgzBuO2BvY9LsKlX8HZRGQYgDYOK8fq/2om0b+QB+vK2XmK/bsbQ5xt6W+EFtY7koQe6bB5Z7GIG6BYz2/T2gYp70SMEeUGYEuF3+2UqhiLVo6hAXjjPT75bpzAO313hBfwVRF7NHKazX69/Pu5IaPYNQWTUT/HgVnpuC9UG+elUN8vwdQyW6Zr2v/w4QKfdBXkF9bPa7pb3jok1bI9KUFF0HzNUvjycNe6+s9pcRmzhSpmNZRPrxIYLSNvdfkcCJECAwEAAaNTMFEwHQYDVR0OBBYEFE2AXij7ONZjg8pTOlgfzO05sMdnMB8GA1UdIwQYMBaAFE2AXij7ONZjg8pTOlgfzO05sMdnMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBADBSdTKC7fjVhBGaFSNmebbtoWSbVhwKsnIYI0DgjSy81PdXM5YsSe03AfI58D187WzNijjtEFWwXEUXqVv0juQyWxDF9D55WjSQr0hO5tL4xZm95mceZzcw0xsZpVphPLnG5Xq4flvaAnL65hwCACZviynyW0KRVUN7qeH1ieqYxNdasvBk+zP655MjqRTViYI/pK2zCQ4b1yKgMUw2b9RoF9VIV5GURWMG2DM4ZY576+suC8ktBg1BUZjXiQ7kFon3HolyrmNfKmGSRk2liUbZRxobFB28QgzVXs1pyYPvKoj7fi3bYOUhK1GnKmox/3mbO0lsF1j19Is5lUD+yYg=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://discovery.aira.cedia.edu.ec/saml/slo" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://discovery.aira.cedia.edu.ec/saml/acs" index="0" isDefault="true" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CEDIA</md:OrganizationName>
+      <md:OrganizationName xml:lang="es">CEDIA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Ecuadorian National Research and Education Network</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="es">Corporación Ecuatoriana para el Desarrollo de la Investigación y la Academia</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://minga.cedia.org.ec</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="es">https://minga.cedia.org.ec</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>CEDIA</md:Company>
+      <md:GivenName>CEDIA</md:GivenName>
+      <md:SurName>NOC</md:SurName>
+      <md:EmailAddress>mailto:noc@cedia.org.ec</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>CEDIA</md:Company>
+      <md:GivenName>CEDIA</md:GivenName>
+      <md:SurName>Support</md:SurName>
+      <md:EmailAddress>mailto:noc@cedia.org.ec</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>CEDIA</md:Company>
+      <md:GivenName>CEDIA</md:GivenName>
+      <md:SurName>Administration</md:SurName>
+      <md:EmailAddress>mailto:noc@cedia.org.ec</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

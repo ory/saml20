@@ -1,0 +1,178 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.th-koeln.de/nidp/saml2/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2020-06-23T08:05:43Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/fileadmin/documents/mrps_dfn-aai_1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">fh-koeln.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">th-koeln.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">TH Köln (Technische Hochschule Köln)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">TH Köln (University of Applied Sciences)</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Identity Provider der TH Köln.</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider of TH Köln (University of Applied Sciences)</mdui:Description>
+          <mdui:Logo height="384" width="709">https://www.th-koeln.de/img/logo.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://www.th-koeln.de/favicon.ico</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>login.th-koeln.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=login.th-koeln.de,OU=Campus IT,O=Technische Hochschule Koeln,L=Koeln,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIH8jCCBdqgAwIBAgIMLKLwwZ7vWeCs5ze3MA0GCSqGSIb3DQEBCwUAMIGVMQsw
+CQYDVQQGEwJERTFFMEMGA1UECgw8VmVyZWluIHp1ciBGb2VyZGVydW5nIGVpbmVz
+IERldXRzY2hlbiBGb3JzY2h1bmdzbmV0emVzIGUuIFYuMRAwDgYDVQQLDAdERk4t
+UEtJMS0wKwYDVQQDDCRERk4tVmVyZWluIENvbW11bml0eSBJc3N1aW5nIENBIDIw
+MjIwHhcNMjUwNzI1MTIwNjEwWhcNMjgxMDA3MTIwNjEwWjCBkTELMAkGA1UEBhMC
+REUxHDAaBgNVBAgME05vcmRyaGVpbi1XZXN0ZmFsZW4xDjAMBgNVBAcMBUtvZWxu
+MSQwIgYDVQQKDBtUZWNobmlzY2hlIEhvY2hzY2h1bGUgS29lbG4xEjAQBgNVBAsM
+CUNhbXB1cyBJVDEaMBgGA1UEAwwRbG9naW4udGgta29lbG4uZGUwggIiMA0GCSqG
+SIb3DQEBAQUAA4ICDwAwggIKAoICAQCi+AZaaCEr+gcR1zFj9oT0ytLN1WphUUDR
+xWjm8FmCDtwNQ/8p+Aby0ALFPJny4zZldPP0DVTschAGKBfJ1tcG3KBtQ8vsw2UF
+4FV49gSv6rnM5bF1hMTIoexLweN8edSK/d5jAU0iD+9n9jOBClA0m6h3A6gTUEsH
++Euwhboh+hWCpMBlJy0JyZAfePtBzGxXx1PC0+QX4brYJMd/FBdu/r5fWjn5fWvv
+FC97Bh8H5AEMVm6bSqSkDvzAkoIC8QPPdIDbbzlnBXNsv0REMATIEaf/k9EwKofn
++fWamQKURD1VBxZXuluWW2Ik7ybGAvM4513RVwIRSet/zJVHfMvr/7O0LM6uylG/
++wopTt3kjSe+u1d64iMj3ulJRnqEJIfwb8Go9YVB4NX1J/iK8Y7X7eAXo4np3MMN
+zRvMdO8KQmogRFJ682Yg4xSpx+pY4u5Hbmu0x6iA7wARf9cJ8fBrwBwM5dEXHWum
+U834+v9YT5coM1d8MtYJCvaE9CUU0mjt6ky6qMM6NxMe443hKtzfh9jmexaW4xc3
+swWOJqlGyL/h9KhEp+21Yf0GfjR/jsaiEqCN/EbU+ceCaT41Qw9REkWQLUqzoq6c
+cVWA6l/HdvkS9zWa5i3P4cP3wyzE+EYc4AVDRyAabg9PSl2JjyGIvkLlrHTOFEM6
+G3rWGlNpUwIDAQABo4ICQjCCAj4wCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAw
+HQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBSnpB+nqVOu
+6ErNaZzy5iKg5ZpeRTAfBgNVHSMEGDAWgBTEKF2LQ49StePtrKvcOHGIuIGMAzAc
+BgNVHREEFTATghFsb2dpbi50aC1rb2Vsbi5kZTCBmwYDVR0fBIGTMIGQMEagRKBC
+hkBodHRwOi8vY2RwMS5wY2EuZGZuLmRlL2Rmbi12ZXJlaW4tY29tbXVuaXR5LWNh
+L3B1Yi9jcmwvY2FjcmwuY3JsMEagRKBChkBodHRwOi8vY2RwMi5wY2EuZGZuLmRl
+L2Rmbi12ZXJlaW4tY29tbXVuaXR5LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMIHpBggr
+BgEFBQcBAQSB3DCB2TAzBggrBgEFBQcwAYYnaHR0cDovL29jc3AucGNhLmRmbi5k
+ZS9PQ1NQLVNlcnZlci9PQ1NQMFAGCCsGAQUFBzAChkRodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL2Rmbi12ZXJlaW4tY29tbXVuaXR5LWNhL3B1Yi9jYWNlcnQvY2FjZXJ0
+LmNydDBQBggrBgEFBQcwAoZEaHR0cDovL2NkcDIucGNhLmRmbi5kZS9kZm4tdmVy
+ZWluLWNvbW11bml0eS1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwGgYDVR0gBBMw
+ETAPBg0rBgEEAYGtIYIsAgEHMA0GCSqGSIb3DQEBCwUAA4ICAQC/A9s2ztjRPqXT
+O5lUtwnPJb4CM/isb5zR7LvCLqRxVsknfd+ZPLauNeF2HNBGf2UbQTmJwCuL0m7x
+RiWpXz/ekM6v0sTz1e+Qd1zHzbXQs5A4hovEe8PPTKrSjVK7yMXALYAp3XvkBMBZ
+FIwj6VcN3CT6Zrs0Zeu5Pr+oC+4K3/mAaghih5wSkITv3f7Ci3vcyOQ/9x4ck9cR
+ubrQyTaltByI6PSVUU8mS+GNLxMXDMhWU9T357EHJkwVln8FsqG1F3uMPV0AzZ+A
+gShzamuL+9nS+uWtGkP60bTxACVEC32f4vRGG727cV9vh6zMN8gZREQrdLsCh1R9
+qtHww9twvRb/hDRAwPlpItEKmVGPiaeo40j64Zna1xZkVzKnat3VrhL3+As5Sf1L
+9cA6igrdj1u1d487Rx1xUhglYaOoLCIrwr6se63MmNFGA6/fCZTVuaFIFpLagf2W
+o5iHoj0H3KIyRVSKITWHIyfnyAOYQWgJKFYc8/lwjkZqmO7Ryei8SgyGBep+eIeV
+v12AMaR9c0CNi0mYLyDP4IuibdaNVR0aZVDUt86Y7QNM/xHkY14jjUvxX08gXRuR
+hZtICvpX7HOiiBvOXKhkkX7xD/JelHwkkG6wiBIsbT8U9ZUnEdV9DDTeLziVCICN
+u5mt5kK/cjUuVw3XcntlTmfMNhY5ww==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.th-koeln.de/nidp/saml2/soap" index="0" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.th-koeln.de/nidp/saml2/slo" ResponseLocation="https://login.th-koeln.de/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.th-koeln.de/nidp/saml2/slo" ResponseLocation="https://login.th-koeln.de/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.th-koeln.de/nidp/saml2/soap" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.th-koeln.de/nidp/saml2/rni" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.th-koeln.de/nidp/saml2/rni" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.th-koeln.de/nidp/saml2/soap" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.th-koeln.de/nidp/saml2/sso" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.th-koeln.de/nidp/saml2/sso" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">fh-koeln.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">th-koeln.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">TH Köln (Technische Hochschule Köln)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">TH Köln (University of Applied Sciences)</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Identity Provider der TH Köln.</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider of TH Köln (University of Applied Sciences)</mdui:Description>
+          <mdui:Logo height="384" width="709">https://www.th-koeln.de/img/logo.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://www.th-koeln.de/favicon.ico</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>login.th-koeln.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=login.th-koeln.de,OU=Campus IT,O=Technische Hochschule Koeln,L=Koeln,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIH8jCCBdqgAwIBAgIMLKLwwZ7vWeCs5ze3MA0GCSqGSIb3DQEBCwUAMIGVMQsw
+CQYDVQQGEwJERTFFMEMGA1UECgw8VmVyZWluIHp1ciBGb2VyZGVydW5nIGVpbmVz
+IERldXRzY2hlbiBGb3JzY2h1bmdzbmV0emVzIGUuIFYuMRAwDgYDVQQLDAdERk4t
+UEtJMS0wKwYDVQQDDCRERk4tVmVyZWluIENvbW11bml0eSBJc3N1aW5nIENBIDIw
+MjIwHhcNMjUwNzI1MTIwNjEwWhcNMjgxMDA3MTIwNjEwWjCBkTELMAkGA1UEBhMC
+REUxHDAaBgNVBAgME05vcmRyaGVpbi1XZXN0ZmFsZW4xDjAMBgNVBAcMBUtvZWxu
+MSQwIgYDVQQKDBtUZWNobmlzY2hlIEhvY2hzY2h1bGUgS29lbG4xEjAQBgNVBAsM
+CUNhbXB1cyBJVDEaMBgGA1UEAwwRbG9naW4udGgta29lbG4uZGUwggIiMA0GCSqG
+SIb3DQEBAQUAA4ICDwAwggIKAoICAQCi+AZaaCEr+gcR1zFj9oT0ytLN1WphUUDR
+xWjm8FmCDtwNQ/8p+Aby0ALFPJny4zZldPP0DVTschAGKBfJ1tcG3KBtQ8vsw2UF
+4FV49gSv6rnM5bF1hMTIoexLweN8edSK/d5jAU0iD+9n9jOBClA0m6h3A6gTUEsH
++Euwhboh+hWCpMBlJy0JyZAfePtBzGxXx1PC0+QX4brYJMd/FBdu/r5fWjn5fWvv
+FC97Bh8H5AEMVm6bSqSkDvzAkoIC8QPPdIDbbzlnBXNsv0REMATIEaf/k9EwKofn
++fWamQKURD1VBxZXuluWW2Ik7ybGAvM4513RVwIRSet/zJVHfMvr/7O0LM6uylG/
++wopTt3kjSe+u1d64iMj3ulJRnqEJIfwb8Go9YVB4NX1J/iK8Y7X7eAXo4np3MMN
+zRvMdO8KQmogRFJ682Yg4xSpx+pY4u5Hbmu0x6iA7wARf9cJ8fBrwBwM5dEXHWum
+U834+v9YT5coM1d8MtYJCvaE9CUU0mjt6ky6qMM6NxMe443hKtzfh9jmexaW4xc3
+swWOJqlGyL/h9KhEp+21Yf0GfjR/jsaiEqCN/EbU+ceCaT41Qw9REkWQLUqzoq6c
+cVWA6l/HdvkS9zWa5i3P4cP3wyzE+EYc4AVDRyAabg9PSl2JjyGIvkLlrHTOFEM6
+G3rWGlNpUwIDAQABo4ICQjCCAj4wCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAw
+HQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBSnpB+nqVOu
+6ErNaZzy5iKg5ZpeRTAfBgNVHSMEGDAWgBTEKF2LQ49StePtrKvcOHGIuIGMAzAc
+BgNVHREEFTATghFsb2dpbi50aC1rb2Vsbi5kZTCBmwYDVR0fBIGTMIGQMEagRKBC
+hkBodHRwOi8vY2RwMS5wY2EuZGZuLmRlL2Rmbi12ZXJlaW4tY29tbXVuaXR5LWNh
+L3B1Yi9jcmwvY2FjcmwuY3JsMEagRKBChkBodHRwOi8vY2RwMi5wY2EuZGZuLmRl
+L2Rmbi12ZXJlaW4tY29tbXVuaXR5LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMIHpBggr
+BgEFBQcBAQSB3DCB2TAzBggrBgEFBQcwAYYnaHR0cDovL29jc3AucGNhLmRmbi5k
+ZS9PQ1NQLVNlcnZlci9PQ1NQMFAGCCsGAQUFBzAChkRodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL2Rmbi12ZXJlaW4tY29tbXVuaXR5LWNhL3B1Yi9jYWNlcnQvY2FjZXJ0
+LmNydDBQBggrBgEFBQcwAoZEaHR0cDovL2NkcDIucGNhLmRmbi5kZS9kZm4tdmVy
+ZWluLWNvbW11bml0eS1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwGgYDVR0gBBMw
+ETAPBg0rBgEEAYGtIYIsAgEHMA0GCSqGSIb3DQEBCwUAA4ICAQC/A9s2ztjRPqXT
+O5lUtwnPJb4CM/isb5zR7LvCLqRxVsknfd+ZPLauNeF2HNBGf2UbQTmJwCuL0m7x
+RiWpXz/ekM6v0sTz1e+Qd1zHzbXQs5A4hovEe8PPTKrSjVK7yMXALYAp3XvkBMBZ
+FIwj6VcN3CT6Zrs0Zeu5Pr+oC+4K3/mAaghih5wSkITv3f7Ci3vcyOQ/9x4ck9cR
+ubrQyTaltByI6PSVUU8mS+GNLxMXDMhWU9T357EHJkwVln8FsqG1F3uMPV0AzZ+A
+gShzamuL+9nS+uWtGkP60bTxACVEC32f4vRGG727cV9vh6zMN8gZREQrdLsCh1R9
+qtHww9twvRb/hDRAwPlpItEKmVGPiaeo40j64Zna1xZkVzKnat3VrhL3+As5Sf1L
+9cA6igrdj1u1d487Rx1xUhglYaOoLCIrwr6se63MmNFGA6/fCZTVuaFIFpLagf2W
+o5iHoj0H3KIyRVSKITWHIyfnyAOYQWgJKFYc8/lwjkZqmO7Ryei8SgyGBep+eIeV
+v12AMaR9c0CNi0mYLyDP4IuibdaNVR0aZVDUt86Y7QNM/xHkY14jjUvxX08gXRuR
+hZtICvpX7HOiiBvOXKhkkX7xD/JelHwkkG6wiBIsbT8U9ZUnEdV9DDTeLziVCICN
+u5mt5kK/cjUuVw3XcntlTmfMNhY5ww==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.th-koeln.de/nidp/saml2/soap" />
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e362</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e362</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">TH Köln (Technische Hochschule Köln)</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">TH Köln (University of Applied Sciences)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.th-koeln.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.th-koeln.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Marijan</md:GivenName>
+      <md:SurName>Gjoreski</md:SurName>
+      <md:EmailAddress>mailto:marijan.gjoreski@th-koeln.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Marijan</md:GivenName>
+      <md:SurName>Gjoreski</md:SurName>
+      <md:EmailAddress>mailto:marijan.gjoreski@th-koeln.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support</md:GivenName>
+      <md:SurName>Campus IT</md:SurName>
+      <md:EmailAddress>mailto:support@campus-it.th-koeln.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Marijan</md:GivenName>
+      <md:SurName>Gjoreski</md:SurName>
+      <md:EmailAddress>mailto:marijan.gjoreski@th-koeln.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

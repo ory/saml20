@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://testidp.chuv.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.chuv.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">CHUV Test IdP
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Test Identity Provider for
+                        CHUV
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>test.chuv.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDJzCCAg+gAwIBAgIUZlsTIuakV7Qh7923kRXc1f+1cKkwDQYJKoZIhvcNAQEF
+                            BQAwGjEYMBYGA1UEAxMPdGVzdGlkcC5jaHV2LmNoMB4XDTExMDkzMDE2NDEwOFoX
+                            DTE0MDkzMDE2NDEwOFowGjEYMBYGA1UEAxMPdGVzdGlkcC5jaHV2LmNoMIIBIjAN
+                            BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1n3xkz7s9urfLgZJ2OYF0/RB90Sp
+                            TDKmjxrep0J84s65I2MG0hmoko/0wKOpBRa3pCBicorCLNBuNqcU7SsMh1IEu7Mt
+                            RT9mznq5HEGVivK6beKzZ9ukImNT98hGAE1pC8d32Yoz7fh/dRAYQKo99gRxTWws
+                            ILK4QY37YSfSbhQFPoUcJz2b0usJW8T2uKk72EmKqv9NFxctK2IIPqd3ujt6OMxP
+                            aMZqREHKv1IfMkMh2TZaDkGeu3wE2qnclPlnn3vrEyFqhl9lve22ncqpypYdN5D/
+                            viPO4xMLey6PO0cuBxInTzaCgkaYha+ehu/zOFRFP342eI6Uvln12bLwzwIDAQAB
+                            o2UwYzBCBgNVHREEOzA5gg90ZXN0aWRwLmNodXYuY2iGJmh0dHBzOi8vdGVzdGlk
+                            cC5jaHV2LmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSwcq7VkYhSUqkKLbUD
+                            ydEm6GR7HjANBgkqhkiG9w0BAQUFAAOCAQEAv9UuV1320BINqA9O/ME6tLIJunsj
+                            1Bh/rHtzakYxZDya2gxhN0jWEhtNkzjgbIwANaFRroQrHCfA/ot9VmoSkdHBLBh9
+                            B9rundUpNJLCzyDpezNs7M/lMCssON6eXO2youwC9szlAsRF6AjxUyLU/6CpGooR
+                            +1TYLEYuHgHq4Ps1ck0o4/5uuVZIL+4vOHwOZoDAJVI3iZFZsruHbClLwfqx3/Wc
+                            kCuqTWdMahbIc7iYOHaQioMqzw8rJG1FKe/wF5QxE7WWYH0CaPuB78M3r8gFNQnS
+                            5wpTJ2iqjMwgKnQeP+qGslcUVo26hBmgJHbA+IGMSyZTdwjegsP+jiJGQg==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://testidp.chuv.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://testidp.chuv.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://testidp.chuv.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://testidp.chuv.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://testidp.chuv.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://testidp.chuv.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">test.chuv.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDJzCCAg+gAwIBAgIUZlsTIuakV7Qh7923kRXc1f+1cKkwDQYJKoZIhvcNAQEF
+                            BQAwGjEYMBYGA1UEAxMPdGVzdGlkcC5jaHV2LmNoMB4XDTExMDkzMDE2NDEwOFoX
+                            DTE0MDkzMDE2NDEwOFowGjEYMBYGA1UEAxMPdGVzdGlkcC5jaHV2LmNoMIIBIjAN
+                            BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1n3xkz7s9urfLgZJ2OYF0/RB90Sp
+                            TDKmjxrep0J84s65I2MG0hmoko/0wKOpBRa3pCBicorCLNBuNqcU7SsMh1IEu7Mt
+                            RT9mznq5HEGVivK6beKzZ9ukImNT98hGAE1pC8d32Yoz7fh/dRAYQKo99gRxTWws
+                            ILK4QY37YSfSbhQFPoUcJz2b0usJW8T2uKk72EmKqv9NFxctK2IIPqd3ujt6OMxP
+                            aMZqREHKv1IfMkMh2TZaDkGeu3wE2qnclPlnn3vrEyFqhl9lve22ncqpypYdN5D/
+                            viPO4xMLey6PO0cuBxInTzaCgkaYha+ehu/zOFRFP342eI6Uvln12bLwzwIDAQAB
+                            o2UwYzBCBgNVHREEOzA5gg90ZXN0aWRwLmNodXYuY2iGJmh0dHBzOi8vdGVzdGlk
+                            cC5jaHV2LmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSwcq7VkYhSUqkKLbUD
+                            ydEm6GR7HjANBgkqhkiG9w0BAQUFAAOCAQEAv9UuV1320BINqA9O/ME6tLIJunsj
+                            1Bh/rHtzakYxZDya2gxhN0jWEhtNkzjgbIwANaFRroQrHCfA/ot9VmoSkdHBLBh9
+                            B9rundUpNJLCzyDpezNs7M/lMCssON6eXO2youwC9szlAsRF6AjxUyLU/6CpGooR
+                            +1TYLEYuHgHq4Ps1ck0o4/5uuVZIL+4vOHwOZoDAJVI3iZFZsruHbClLwfqx3/Wc
+                            kCuqTWdMahbIc7iYOHaQioMqzw8rJG1FKe/wF5QxE7WWYH0CaPuB78M3r8gFNQnS
+                            5wpTJ2iqjMwgKnQeP+qGslcUVo26hBmgJHbA+IGMSyZTdwjegsP+jiJGQg==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://testidp.chuv.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://testidp.chuv.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">test.chuv.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">CHUV Test IdP
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.test.chuv.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

@@ -1,0 +1,129 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-test.hcuge.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">aai-test.hcuge.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">HUG Test IdP
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="fr">HUG Idp TEST
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Test IdP of Hôpitaux
+                        universitaires de Genève
+                    </mdui:Description>
+                    <mdui:Description xml:lang="fr">Service d'authentification
+                        AAI des Hôpitaux universtaires de Genève
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>hcuge.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIFMTCCBBmgAwIBAgIUdJzpT5gQKmg9tzw3OD7oYuI0NGwwDQYJKoZIhvcNAQEF
+                            BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+                            BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+                            IEdsb2JhbCBTU0wgSUNBMB4XDTEyMTAxNjA5NDQxNVoXDTE1MTAxNjA5NDQxNVow
+                            dzELMAkGA1UEBhMCQ0gxDzANBgNVBAgTBkdlbmV2ZTEPMA0GA1UEBxMGR2VuZXZl
+                            MSowKAYDVQQKEyFIb3BpdGF1eCB1bml2ZXJzaXRhaXJlcyBkZSBHZW5ldmUxGjAY
+                            BgNVBAMTEWFhaS10ZXN0LmhjdWdlLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+                            MIIBCgKCAQEAsPlJibpYaaGjQjnMHjMFxn1IWHjOvXljbml2UzwtWhdFSA+jOlnh
+                            znJ9i8XyTuuuD41ORRPKR7HTeCYb/sfKGjHn42j6Ejy9Vo+U5g50EGPIvmVvSJsA
+                            o0d+20ryUwO2+3XWWNJHvlqFlCiCTklmMjWcRcMkjGJnmKn1pOjXXttYmMgxCvmW
+                            A6WGF2xkegwsjZRnCIq7eFm7zSEVe7PK6UGSNuZm0ylp5QgKxSxSa2n7N9rk1j1w
+                            SGHiWHb95NWpE9iANAsWjijuauivG6Qo9WVKlxfrZ3XKiRmFOU8y48v6H7HIdiTy
+                            h7u/emJlilTrm7gxUzHwnmVidAAuVQrsSwIDAQABo4IBvzCCAbswdAYIKwYBBQUH
+                            AQEEaDBmMCoGCCsGAQUFBzABhh5odHRwOi8vb2NzcC5xdW92YWRpc2dsb2JhbC5j
+                            b20wOAYIKwYBBQUHMAKGLGh0dHA6Ly90cnVzdC5xdW92YWRpc2dsb2JhbC5jb20v
+                            cXZzc2xpY2EuY3J0MEQGA1UdEQQ9MDuCEWFhaS10ZXN0LmhjdWdlLmNoghFzY3Qt
+                            Zm9ybS5oY3VnZS5jaIITZWtpZHMtdGVzdC5oY3VnZS5jaDBRBgNVHSAESjBIMEYG
+                            DCsGAQQBvlgAAmQBATA2MDQGCCsGAQUFBwIBFihodHRwOi8vd3d3LnF1b3ZhZGlz
+                            Z2xvYmFsLmNvbS9yZXBvc2l0b3J5MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAU
+                            BggrBgEFBQcDAQYIKwYBBQUHAwIwHwYDVR0jBBgwFoAUMk2hT+rwrpm27psHLIQI
+                            EVCL4n4wOwYDVR0fBDQwMjAwoC6gLIYqaHR0cDovL2NybC5xdW92YWRpc2dsb2Jh
+                            bC5jb20vcXZzc2xpY2EuY3JsMB0GA1UdDgQWBBQTwQbOwRdDhiXnywmPdymK/Agp
+                            EjANBgkqhkiG9w0BAQUFAAOCAQEAItV2AoxIw7wFT3uKynuIz579/QGmJsYd7GHa
+                            CA7HhDMUppb3/d2fbgIcuUTC0GrCtyHTi1GNMhxLnrMCAuj6gJYus/3PP3eXX6P0
+                            KSJjkLofbU+3L1DIPmQyC7s6Mpa0rwMnk4upriifXDPCRTTHHNmpPe7Lwzhj+5Iz
+                            pWAV/fAUk67tY/OJGVw4WNtnQ0iLApGdyehX4BDIOW15ns/h1R6Xw1TwtFy9OwvI
+                            2nO+teBQxoXr0TPTzn2I26CPnFWdmkSfW/rhmulDm2HxL9gmfbjX6cYLHMeh0WHy
+                            9qnVZKc7fMQuaxnMNXvTg5d3vyqcg3g58lbQO9/D3mxvpFDuEw==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-test.hcuge.ch/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-test.hcuge.ch/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-test.hcuge.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-test.hcuge.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-test.hcuge.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-test.hcuge.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">aai-test.hcuge.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIFMTCCBBmgAwIBAgIUdJzpT5gQKmg9tzw3OD7oYuI0NGwwDQYJKoZIhvcNAQEF
+                            BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+                            BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+                            IEdsb2JhbCBTU0wgSUNBMB4XDTEyMTAxNjA5NDQxNVoXDTE1MTAxNjA5NDQxNVow
+                            dzELMAkGA1UEBhMCQ0gxDzANBgNVBAgTBkdlbmV2ZTEPMA0GA1UEBxMGR2VuZXZl
+                            MSowKAYDVQQKEyFIb3BpdGF1eCB1bml2ZXJzaXRhaXJlcyBkZSBHZW5ldmUxGjAY
+                            BgNVBAMTEWFhaS10ZXN0LmhjdWdlLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+                            MIIBCgKCAQEAsPlJibpYaaGjQjnMHjMFxn1IWHjOvXljbml2UzwtWhdFSA+jOlnh
+                            znJ9i8XyTuuuD41ORRPKR7HTeCYb/sfKGjHn42j6Ejy9Vo+U5g50EGPIvmVvSJsA
+                            o0d+20ryUwO2+3XWWNJHvlqFlCiCTklmMjWcRcMkjGJnmKn1pOjXXttYmMgxCvmW
+                            A6WGF2xkegwsjZRnCIq7eFm7zSEVe7PK6UGSNuZm0ylp5QgKxSxSa2n7N9rk1j1w
+                            SGHiWHb95NWpE9iANAsWjijuauivG6Qo9WVKlxfrZ3XKiRmFOU8y48v6H7HIdiTy
+                            h7u/emJlilTrm7gxUzHwnmVidAAuVQrsSwIDAQABo4IBvzCCAbswdAYIKwYBBQUH
+                            AQEEaDBmMCoGCCsGAQUFBzABhh5odHRwOi8vb2NzcC5xdW92YWRpc2dsb2JhbC5j
+                            b20wOAYIKwYBBQUHMAKGLGh0dHA6Ly90cnVzdC5xdW92YWRpc2dsb2JhbC5jb20v
+                            cXZzc2xpY2EuY3J0MEQGA1UdEQQ9MDuCEWFhaS10ZXN0LmhjdWdlLmNoghFzY3Qt
+                            Zm9ybS5oY3VnZS5jaIITZWtpZHMtdGVzdC5oY3VnZS5jaDBRBgNVHSAESjBIMEYG
+                            DCsGAQQBvlgAAmQBATA2MDQGCCsGAQUFBwIBFihodHRwOi8vd3d3LnF1b3ZhZGlz
+                            Z2xvYmFsLmNvbS9yZXBvc2l0b3J5MA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAU
+                            BggrBgEFBQcDAQYIKwYBBQUHAwIwHwYDVR0jBBgwFoAUMk2hT+rwrpm27psHLIQI
+                            EVCL4n4wOwYDVR0fBDQwMjAwoC6gLIYqaHR0cDovL2NybC5xdW92YWRpc2dsb2Jh
+                            bC5jb20vcXZzc2xpY2EuY3JsMB0GA1UdDgQWBBQTwQbOwRdDhiXnywmPdymK/Agp
+                            EjANBgkqhkiG9w0BAQUFAAOCAQEAItV2AoxIw7wFT3uKynuIz579/QGmJsYd7GHa
+                            CA7HhDMUppb3/d2fbgIcuUTC0GrCtyHTi1GNMhxLnrMCAuj6gJYus/3PP3eXX6P0
+                            KSJjkLofbU+3L1DIPmQyC7s6Mpa0rwMnk4upriifXDPCRTTHHNmpPe7Lwzhj+5Iz
+                            pWAV/fAUk67tY/OJGVw4WNtnQ0iLApGdyehX4BDIOW15ns/h1R6Xw1TwtFy9OwvI
+                            2nO+teBQxoXr0TPTzn2I26CPnFWdmkSfW/rhmulDm2HxL9gmfbjX6cYLHMeh0WHy
+                            9qnVZKc7fMQuaxnMNXvTg5d3vyqcg3g58lbQO9/D3mxvpFDuEw==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-test.hcuge.ch/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-test.hcuge.ch/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">aai-test.hcuge.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">HUG Test IdP
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="fr">HUG Idp TEST
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="fr">http://www.aai-test.hcuge.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

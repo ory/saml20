@@ -1,0 +1,102 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://dieng.switch.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">dieng.switch.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">AAI Shibboleth 2.x Test
+                        IdP
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Test Identity Provider in
+                        the AAI Test Federation only. It is built from SVN
+                        sources.
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>dieng.switch.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDHDCCAgSgAwIBAgIJAIlyL/mTx2CyMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+                            BAMTD2RpZW5nLnN3aXRjaC5jaDAeFw0xMzExMDYxMDE5MTlaFw0xNjExMDUxMDE5
+                            MTlaMBoxGDAWBgNVBAMTD2RpZW5nLnN3aXRjaC5jaDCCASIwDQYJKoZIhvcNAQEB
+                            BQADggEPADCCAQoCggEBAKeRl53oOaP0dnN5StZDohvEw0Nn04IrsRUdkLh3UxVO
+                            QRloO0r7GHptD9tCUyLv/o6uqe2+oVidRXxDV/E1LYuqbGFaNeGDANqSefTz1pcg
+                            ajbvHrE3rWv4muRjp6xIDX/C4E24sNSH9wOhCca/xZVLv6HeVQWg7qjj93cfWnHw
+                            3RQXKPUMN09u84qW66q1XAX5t2u4cCcHC5FaO9PF1KOIVkqPrvBrwJxoxMvSGbfe
+                            mMF6gAFHzg7fYdXK1/16Md3nS4AzoyzXZU+zHxLPFFgSdiMgo6gTiRsvwKfkMlTo
+                            vRfN4u7JIs9jifkmdP5eAEhSUx9hbAHsh+VoBJtX06sCAwEAAaNlMGMwQgYDVR0R
+                            BDswOYIPZGllbmcuc3dpdGNoLmNohiZodHRwczovL2RpZW5nLnN3aXRjaC5jaC9p
+                            ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUAgOmWBIalf6ukqz7/8YRy5c7RzkwDQYJ
+                            KoZIhvcNAQEFBQADggEBAJRT7+4WFea3+qjGVsJU+Lte1vzGhTaOyCMjp1otvRTm
+                            HNDyHbjDD5rIn7oxw6v7bOHpf/dv9XE8HYxT1DKhJbIKm8TSa+NwrB/4FVeGXBH7
+                            JP/+/jEYyMhZbbVm5e801Rq4pD7+qUg2UmTbaGmD7ggc0vqZ08jcDViXpvdAVndv
+                            KX7tMg2lzlvZ27SkhFvy6HIAv8UnjWGaXd5s/nMaxXO+l+zvj2eFrEoGCS1ypBQk
+                            5ZnZmRFYnlOA12DZ1rqddbbuLvUYaCIMryZs7htOk2EJgsTNHNpsAFQBgz4WwER+
+                            vh+cPxX4qE8JV8K6yMoInl/FkPkXO2kcSwa8uiu3lCc=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dieng.switch.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dieng.switch.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://dieng.switch.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dieng.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dieng.switch.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dieng.switch.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">dieng.switch.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDHDCCAgSgAwIBAgIJAIlyL/mTx2CyMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+                            BAMTD2RpZW5nLnN3aXRjaC5jaDAeFw0xMzExMDYxMDE5MTlaFw0xNjExMDUxMDE5
+                            MTlaMBoxGDAWBgNVBAMTD2RpZW5nLnN3aXRjaC5jaDCCASIwDQYJKoZIhvcNAQEB
+                            BQADggEPADCCAQoCggEBAKeRl53oOaP0dnN5StZDohvEw0Nn04IrsRUdkLh3UxVO
+                            QRloO0r7GHptD9tCUyLv/o6uqe2+oVidRXxDV/E1LYuqbGFaNeGDANqSefTz1pcg
+                            ajbvHrE3rWv4muRjp6xIDX/C4E24sNSH9wOhCca/xZVLv6HeVQWg7qjj93cfWnHw
+                            3RQXKPUMN09u84qW66q1XAX5t2u4cCcHC5FaO9PF1KOIVkqPrvBrwJxoxMvSGbfe
+                            mMF6gAFHzg7fYdXK1/16Md3nS4AzoyzXZU+zHxLPFFgSdiMgo6gTiRsvwKfkMlTo
+                            vRfN4u7JIs9jifkmdP5eAEhSUx9hbAHsh+VoBJtX06sCAwEAAaNlMGMwQgYDVR0R
+                            BDswOYIPZGllbmcuc3dpdGNoLmNohiZodHRwczovL2RpZW5nLnN3aXRjaC5jaC9p
+                            ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUAgOmWBIalf6ukqz7/8YRy5c7RzkwDQYJ
+                            KoZIhvcNAQEFBQADggEBAJRT7+4WFea3+qjGVsJU+Lte1vzGhTaOyCMjp1otvRTm
+                            HNDyHbjDD5rIn7oxw6v7bOHpf/dv9XE8HYxT1DKhJbIKm8TSa+NwrB/4FVeGXBH7
+                            JP/+/jEYyMhZbbVm5e801Rq4pD7+qUg2UmTbaGmD7ggc0vqZ08jcDViXpvdAVndv
+                            KX7tMg2lzlvZ27SkhFvy6HIAv8UnjWGaXd5s/nMaxXO+l+zvj2eFrEoGCS1ypBQk
+                            5ZnZmRFYnlOA12DZ1rqddbbuLvUYaCIMryZs7htOk2EJgsTNHNpsAFQBgz4WwER+
+                            vh+cPxX4qE8JV8K6yMoInl/FkPkXO2kcSwa8uiu3lCc=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dieng.switch.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dieng.switch.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">dieng.switch.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">AAI Shibboleth 2.x Test IdP
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.dieng.switch.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

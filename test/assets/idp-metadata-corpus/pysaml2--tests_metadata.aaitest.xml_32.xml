@@ -1,0 +1,57 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="gs4gt.awi.de">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">
+                    gs4gt.awi.de
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:KeyName>gs4gt.awi.de</ds:KeyName>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://gs4gt.awi.de/simplesaml/shib13/idp/SSOService.php" />
+
+        </md:IDPSSODescriptor>
+
+
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">
+                    gs4gt.awi.de
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:KeyName>gs4gt.awi.de</ds:KeyName>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://gs4gt.awi.de/simplesaml/shib13/idp/AAService.php" />
+
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="de">SimpleSAML Test IdP AWI
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="de">SimpleSAML Test IdP AWI
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="de">http://gs4gt.awi.de</md:OrganizationURL>
+        </md:Organization>
+
+        <md:ContactPerson contactType="technical">
+            <md:SurName>Joerg Matthes</md:SurName>
+            <md:EmailAddress>mailto:Joerg.Matthes@awi.de</md:EmailAddress>
+        </md:ContactPerson>
+        <md:ContactPerson contactType="support">
+            <md:SurName>Joerg Matthes</md:SurName>
+            <md:EmailAddress>mailto:Joerg.Matthes@awi.de</md:EmailAddress>
+        </md:ContactPerson>
+        <md:ContactPerson contactType="administrative">
+            <md:SurName>Joerg Matthes</md:SurName>
+            <md:EmailAddress>mailto:Joerg.Matthes@awi.de</md:EmailAddress>
+        </md:ContactPerson>
+    </md:EntityDescriptor>
+
+    

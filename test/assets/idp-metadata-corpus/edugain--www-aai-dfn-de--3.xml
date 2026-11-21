@@ -1,0 +1,288 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.h-brs.de/nidp/saml2/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2020-12-14T10:02:51Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/fileadmin/documents/mrps_dfn-aai_1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://aai.dfn.de/category/idm.nrw-member</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">h-brs.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Hochschule Bonn-Rhein-Sieg IDM</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Bonn-Rhein-Sieg University of Applied Sciences IDM</mdui:DisplayName>
+          <mdui:Description xml:lang="de">IDM H-BRS</mdui:Description>
+          <mdui:Description xml:lang="en">IDM H-BRS</mdui:Description>
+          <mdui:InformationURL xml:lang="de">https://idp.h-brs.de</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://idp.h-brs.de</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="de">https://idp.h-brs.de</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://idp.h-brs.de</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.h-brs.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.h-brs.de,O=Hochschule Bonn-Rhein-Sieg,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIIITCCBomgAwIBAgIQNro310dTTOyi/X3z5fDMUDANBgkqhkiG9w0BAQsFADBg
+MQswCQYDVQQGEwJHUjE3MDUGA1UECgwuSGVsbGVuaWMgQWNhZGVtaWMgYW5kIFJl
+c2VhcmNoIEluc3RpdHV0aW9ucyBDQTEYMBYGA1UEAwwPR0VBTlQgVExTIFJTQSAx
+MB4XDTI2MTAyMzA2NTMyNFoXDTI3MDUxMDA2NTMyM1owZzELMAkGA1UEBhMCREUx
+HDAaBgNVBAgME05vcmRyaGVpbi1XZXN0ZmFsZW4xIzAhBgNVBAoMGkhvY2hzY2h1
+bGUgQm9ubi1SaGVpbi1TaWVnMRUwEwYDVQQDDAxpZHAuaC1icnMuZGUwggIiMA0G
+CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC20EGtMkgkSIq2VwD5Y9KDJIm4Glza
+N5doRywPrdZp2TAeOnsbLfTLKsoCcLPqV/WsIh7/nbTe6R1lo4VAzfcunICn/jK9
+Rdv2ZNTtr3sIYQxLjjneDVqZkc5XxaZzwSGDv31qjFEJEAm2oJjcU1q8VFD8ioG7
+Di/ION2zKnt/5PQ/ca28fR/uLJHKKwkk9JvNkOGMMszXGfCr/Lrt3x4z7TZD8xMh
+S0EtBg+QIlsN76Tl9crAbmhkS2D7LmSy+QXTXAxbWPzdB7NUAIxlWytfN5nYKOxp
+RTXLQai79nArFO80JaphPzYU0vsiXRgCLrPgqo/o4vfzedkk3WOPJJXyAZdcu+6a
+mGy3vgVIDttZfSUpmTKJoM0oiaqys4cpzQy95fiMFhS8zoPrVqBxAIkYpk9QpxFA
+2BlNORJ8Vbzlka7vk+E3oLjKR0HyvJRbuLabnMb+RLG2xYtk7eMVewRbJlymnPXK
+eKR39H3H3SinO/7LFopaLNjtSZKgS2eCXt/UxGUz6s0CUy6xjgeTS+f5HnMt9Bef
+2AchOFTzgrjOu4UoXqsE6u7juk/QhhrHyN2u6EXa/oAayfpyrDkyIPM95D4QovvN
+czQy72DfNT9buSGDl+eVKuN3Se4POm8guN7Gprmv2n3BesRFVH38Oe3VzQhVk9j4
+bNrzZEDI+qiOVwIDAQABo4IDTjCCA0owDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAW
+gBSGAXI/jKlw4jEGUxbOAV9becg8OzBIBggrBgEFBQcBAQQ8MDowOAYIKwYBBQUH
+MAKGLGh0dHA6Ly9jcnQuaGFyaWNhLmdyL0hBUklDQS1HRUFOVC1UTFMtUjEuY2Vy
+MIGOBgNVHREEgYYwgYOCDGlkcC5oLWJycy5kZYIUc2VsZnNlcnZpY2UuaC1icnMu
+ZGWCDGFhZi5oLWJycy5kZYIMaWFtLmgtYnJzLmRlggxtZmEuaC1icnMuZGWCDG1p
+YS5oLWJycy5kZYIMaWRtLmgtYnJzLmRlghdzZWxmYWN0aXZhdGlvbi5oLWJycy5k
+ZTAtBgNVHSAEJjAkMAgGBmeBDAECAjAIBgYEAI96AQcwDgYMKwYBBAGBzxEBAQEC
+MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATA9BgNVHR8ENjA0MDKgMKAu
+hixodHRwOi8vY3JsLmhhcmljYS5nci9IQVJJQ0EtR0VBTlQtVExTLVIxLmNybDAd
+BgNVHQ4EFgQU2ydMA6ZWEZ1aQ/eOymtcyckObdYwDgYDVR0PAQH/BAQDAgWgMIIB
+gAYKKwYBBAHWeQIEAgSCAXAEggFsAWoAdwBgTJqven93XwHUBvySDciZ6wscffjJ
+Uhv6+hd3O5eLyQAAAaFnklcVAAAEAwBIMEYCIQCWmtWWIh584HUcrCve/dlUcigu
+biUS2uR7sIvvoxBZ9wIhALlFwoqWiRrGb1AqLjyQBRRdd+Zj9eIkjkufgS5hfDSw
+AHYARqI5Z8YNtkaHxm89+ZmUdpOmphEghFfVVefj0KHZtkYAAAGhZ5JXLQAABAMA
+RzBFAiAvQENOfyaN9TtQBuJcYqr862NDPdQ6Vli25qZGVQKUYQIhAIgrccoXsJaR
+xaDPNCI+fKmKIl1FNU26LqJzDaPffeeuAHcARMK9DOkUDmSlyUoBkwpaobs1lw4A
+7hEWiWgqHETXtWYAAAGhZ5JXAAAABAMASDBGAiEAoHdixM+97qFXOb01sMhuvB03
+aryWA97K1zE4IxtO4jkCIQC0amXwHe976Q3E3xeKhlv2kLI3E2sef01j9LYaqxRs
+HzANBgkqhkiG9w0BAQsFAAOCAYEAGUG8fZZn6Oy+9CohqYn5xuASJqpZeLbgs562
+Pv/5//w5Aeu8ke5a4FF5Ei+7c/12BUoKFGaHIVct6hoTnFY9ncCQAjfpb6xJVGHF
+gZ0kFFPH+cgfsVkzFhvS5gbI4R2OHdiSsw2YSSAJcfU4IP2jpFM3H5Uze2vPmOB/
+hK2WqA9eleH3BbAa44AP34qwqMkh6sIzJJcd9LcHKJ1ChNPqlAHodZHqfZCBKnkW
+vSvrHJI8hvGc5sL2KSGX/QyiBgvgifmkMQLrenVIY/148Oi9qEzInAzYLPYbyAfh
+ROSc3cAdP+2OsjsYSeUfOViM+cmwwPACVZw6nqNH3Pv/HDmewcfMmhz2oAB6/Vc1
+0vQ/eS4D1xPVgMa69PSo+f5FhGXMl9UojRkrNxhM5LsWC+0G6NMVbMDdMDvSrlKu
+VdXO6xNDUQX2z+nxfhrPR537kxwjPFcDcCGY/k43BGf4A1sz8vrN7ahbpc3p6H74
+Whe3Fm194IjZJr0S66s4pBn9qHui</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.h-brs.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.h-brs.de,O=Hochschule Bonn-Rhein-Sieg,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIIITCCBomgAwIBAgIQNro310dTTOyi/X3z5fDMUDANBgkqhkiG9w0BAQsFADBg
+MQswCQYDVQQGEwJHUjE3MDUGA1UECgwuSGVsbGVuaWMgQWNhZGVtaWMgYW5kIFJl
+c2VhcmNoIEluc3RpdHV0aW9ucyBDQTEYMBYGA1UEAwwPR0VBTlQgVExTIFJTQSAx
+MB4XDTI2MTAyMzA2NTMyNFoXDTI3MDUxMDA2NTMyM1owZzELMAkGA1UEBhMCREUx
+HDAaBgNVBAgME05vcmRyaGVpbi1XZXN0ZmFsZW4xIzAhBgNVBAoMGkhvY2hzY2h1
+bGUgQm9ubi1SaGVpbi1TaWVnMRUwEwYDVQQDDAxpZHAuaC1icnMuZGUwggIiMA0G
+CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC20EGtMkgkSIq2VwD5Y9KDJIm4Glza
+N5doRywPrdZp2TAeOnsbLfTLKsoCcLPqV/WsIh7/nbTe6R1lo4VAzfcunICn/jK9
+Rdv2ZNTtr3sIYQxLjjneDVqZkc5XxaZzwSGDv31qjFEJEAm2oJjcU1q8VFD8ioG7
+Di/ION2zKnt/5PQ/ca28fR/uLJHKKwkk9JvNkOGMMszXGfCr/Lrt3x4z7TZD8xMh
+S0EtBg+QIlsN76Tl9crAbmhkS2D7LmSy+QXTXAxbWPzdB7NUAIxlWytfN5nYKOxp
+RTXLQai79nArFO80JaphPzYU0vsiXRgCLrPgqo/o4vfzedkk3WOPJJXyAZdcu+6a
+mGy3vgVIDttZfSUpmTKJoM0oiaqys4cpzQy95fiMFhS8zoPrVqBxAIkYpk9QpxFA
+2BlNORJ8Vbzlka7vk+E3oLjKR0HyvJRbuLabnMb+RLG2xYtk7eMVewRbJlymnPXK
+eKR39H3H3SinO/7LFopaLNjtSZKgS2eCXt/UxGUz6s0CUy6xjgeTS+f5HnMt9Bef
+2AchOFTzgrjOu4UoXqsE6u7juk/QhhrHyN2u6EXa/oAayfpyrDkyIPM95D4QovvN
+czQy72DfNT9buSGDl+eVKuN3Se4POm8guN7Gprmv2n3BesRFVH38Oe3VzQhVk9j4
+bNrzZEDI+qiOVwIDAQABo4IDTjCCA0owDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAW
+gBSGAXI/jKlw4jEGUxbOAV9becg8OzBIBggrBgEFBQcBAQQ8MDowOAYIKwYBBQUH
+MAKGLGh0dHA6Ly9jcnQuaGFyaWNhLmdyL0hBUklDQS1HRUFOVC1UTFMtUjEuY2Vy
+MIGOBgNVHREEgYYwgYOCDGlkcC5oLWJycy5kZYIUc2VsZnNlcnZpY2UuaC1icnMu
+ZGWCDGFhZi5oLWJycy5kZYIMaWFtLmgtYnJzLmRlggxtZmEuaC1icnMuZGWCDG1p
+YS5oLWJycy5kZYIMaWRtLmgtYnJzLmRlghdzZWxmYWN0aXZhdGlvbi5oLWJycy5k
+ZTAtBgNVHSAEJjAkMAgGBmeBDAECAjAIBgYEAI96AQcwDgYMKwYBBAGBzxEBAQEC
+MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATA9BgNVHR8ENjA0MDKgMKAu
+hixodHRwOi8vY3JsLmhhcmljYS5nci9IQVJJQ0EtR0VBTlQtVExTLVIxLmNybDAd
+BgNVHQ4EFgQU2ydMA6ZWEZ1aQ/eOymtcyckObdYwDgYDVR0PAQH/BAQDAgWgMIIB
+gAYKKwYBBAHWeQIEAgSCAXAEggFsAWoAdwBgTJqven93XwHUBvySDciZ6wscffjJ
+Uhv6+hd3O5eLyQAAAaFnklcVAAAEAwBIMEYCIQCWmtWWIh584HUcrCve/dlUcigu
+biUS2uR7sIvvoxBZ9wIhALlFwoqWiRrGb1AqLjyQBRRdd+Zj9eIkjkufgS5hfDSw
+AHYARqI5Z8YNtkaHxm89+ZmUdpOmphEghFfVVefj0KHZtkYAAAGhZ5JXLQAABAMA
+RzBFAiAvQENOfyaN9TtQBuJcYqr862NDPdQ6Vli25qZGVQKUYQIhAIgrccoXsJaR
+xaDPNCI+fKmKIl1FNU26LqJzDaPffeeuAHcARMK9DOkUDmSlyUoBkwpaobs1lw4A
+7hEWiWgqHETXtWYAAAGhZ5JXAAAABAMASDBGAiEAoHdixM+97qFXOb01sMhuvB03
+aryWA97K1zE4IxtO4jkCIQC0amXwHe976Q3E3xeKhlv2kLI3E2sef01j9LYaqxRs
+HzANBgkqhkiG9w0BAQsFAAOCAYEAGUG8fZZn6Oy+9CohqYn5xuASJqpZeLbgs562
+Pv/5//w5Aeu8ke5a4FF5Ei+7c/12BUoKFGaHIVct6hoTnFY9ncCQAjfpb6xJVGHF
+gZ0kFFPH+cgfsVkzFhvS5gbI4R2OHdiSsw2YSSAJcfU4IP2jpFM3H5Uze2vPmOB/
+hK2WqA9eleH3BbAa44AP34qwqMkh6sIzJJcd9LcHKJ1ChNPqlAHodZHqfZCBKnkW
+vSvrHJI8hvGc5sL2KSGX/QyiBgvgifmkMQLrenVIY/148Oi9qEzInAzYLPYbyAfh
+ROSc3cAdP+2OsjsYSeUfOViM+cmwwPACVZw6nqNH3Pv/HDmewcfMmhz2oAB6/Vc1
+0vQ/eS4D1xPVgMa69PSo+f5FhGXMl9UojRkrNxhM5LsWC+0G6NMVbMDdMDvSrlKu
+VdXO6xNDUQX2z+nxfhrPR537kxwjPFcDcCGY/k43BGf4A1sz8vrN7ahbpc3p6H74
+Whe3Fm194IjZJr0S66s4pBn9qHui</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.h-brs.de/nidp/saml2/soap" index="0" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.h-brs.de/nidp/saml2/slo" ResponseLocation="https://idp.h-brs.de/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.h-brs.de/nidp/saml2/slo" ResponseLocation="https://idp.h-brs.de/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.h-brs.de/nidp/saml2/soap" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.h-brs.de/nidp/saml2/rni" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.h-brs.de/nidp/saml2/rni" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.h-brs.de/nidp/saml2/soap" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.h-brs.de/nidp/saml2/sso" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.h-brs.de/nidp/saml2/sso" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">h-brs.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Hochschule Bonn-Rhein-Sieg IDM</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Bonn-Rhein-Sieg University of Applied Sciences IDM</mdui:DisplayName>
+          <mdui:Description xml:lang="de">IDM H-BRS</mdui:Description>
+          <mdui:Description xml:lang="en">IDM H-BRS</mdui:Description>
+          <mdui:InformationURL xml:lang="de">https://idp.h-brs.de</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://idp.h-brs.de</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="de">https://idp.h-brs.de</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://idp.h-brs.de</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.h-brs.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.h-brs.de,O=Hochschule Bonn-Rhein-Sieg,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIIITCCBomgAwIBAgIQNro310dTTOyi/X3z5fDMUDANBgkqhkiG9w0BAQsFADBg
+MQswCQYDVQQGEwJHUjE3MDUGA1UECgwuSGVsbGVuaWMgQWNhZGVtaWMgYW5kIFJl
+c2VhcmNoIEluc3RpdHV0aW9ucyBDQTEYMBYGA1UEAwwPR0VBTlQgVExTIFJTQSAx
+MB4XDTI2MTAyMzA2NTMyNFoXDTI3MDUxMDA2NTMyM1owZzELMAkGA1UEBhMCREUx
+HDAaBgNVBAgME05vcmRyaGVpbi1XZXN0ZmFsZW4xIzAhBgNVBAoMGkhvY2hzY2h1
+bGUgQm9ubi1SaGVpbi1TaWVnMRUwEwYDVQQDDAxpZHAuaC1icnMuZGUwggIiMA0G
+CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC20EGtMkgkSIq2VwD5Y9KDJIm4Glza
+N5doRywPrdZp2TAeOnsbLfTLKsoCcLPqV/WsIh7/nbTe6R1lo4VAzfcunICn/jK9
+Rdv2ZNTtr3sIYQxLjjneDVqZkc5XxaZzwSGDv31qjFEJEAm2oJjcU1q8VFD8ioG7
+Di/ION2zKnt/5PQ/ca28fR/uLJHKKwkk9JvNkOGMMszXGfCr/Lrt3x4z7TZD8xMh
+S0EtBg+QIlsN76Tl9crAbmhkS2D7LmSy+QXTXAxbWPzdB7NUAIxlWytfN5nYKOxp
+RTXLQai79nArFO80JaphPzYU0vsiXRgCLrPgqo/o4vfzedkk3WOPJJXyAZdcu+6a
+mGy3vgVIDttZfSUpmTKJoM0oiaqys4cpzQy95fiMFhS8zoPrVqBxAIkYpk9QpxFA
+2BlNORJ8Vbzlka7vk+E3oLjKR0HyvJRbuLabnMb+RLG2xYtk7eMVewRbJlymnPXK
+eKR39H3H3SinO/7LFopaLNjtSZKgS2eCXt/UxGUz6s0CUy6xjgeTS+f5HnMt9Bef
+2AchOFTzgrjOu4UoXqsE6u7juk/QhhrHyN2u6EXa/oAayfpyrDkyIPM95D4QovvN
+czQy72DfNT9buSGDl+eVKuN3Se4POm8guN7Gprmv2n3BesRFVH38Oe3VzQhVk9j4
+bNrzZEDI+qiOVwIDAQABo4IDTjCCA0owDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAW
+gBSGAXI/jKlw4jEGUxbOAV9becg8OzBIBggrBgEFBQcBAQQ8MDowOAYIKwYBBQUH
+MAKGLGh0dHA6Ly9jcnQuaGFyaWNhLmdyL0hBUklDQS1HRUFOVC1UTFMtUjEuY2Vy
+MIGOBgNVHREEgYYwgYOCDGlkcC5oLWJycy5kZYIUc2VsZnNlcnZpY2UuaC1icnMu
+ZGWCDGFhZi5oLWJycy5kZYIMaWFtLmgtYnJzLmRlggxtZmEuaC1icnMuZGWCDG1p
+YS5oLWJycy5kZYIMaWRtLmgtYnJzLmRlghdzZWxmYWN0aXZhdGlvbi5oLWJycy5k
+ZTAtBgNVHSAEJjAkMAgGBmeBDAECAjAIBgYEAI96AQcwDgYMKwYBBAGBzxEBAQEC
+MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATA9BgNVHR8ENjA0MDKgMKAu
+hixodHRwOi8vY3JsLmhhcmljYS5nci9IQVJJQ0EtR0VBTlQtVExTLVIxLmNybDAd
+BgNVHQ4EFgQU2ydMA6ZWEZ1aQ/eOymtcyckObdYwDgYDVR0PAQH/BAQDAgWgMIIB
+gAYKKwYBBAHWeQIEAgSCAXAEggFsAWoAdwBgTJqven93XwHUBvySDciZ6wscffjJ
+Uhv6+hd3O5eLyQAAAaFnklcVAAAEAwBIMEYCIQCWmtWWIh584HUcrCve/dlUcigu
+biUS2uR7sIvvoxBZ9wIhALlFwoqWiRrGb1AqLjyQBRRdd+Zj9eIkjkufgS5hfDSw
+AHYARqI5Z8YNtkaHxm89+ZmUdpOmphEghFfVVefj0KHZtkYAAAGhZ5JXLQAABAMA
+RzBFAiAvQENOfyaN9TtQBuJcYqr862NDPdQ6Vli25qZGVQKUYQIhAIgrccoXsJaR
+xaDPNCI+fKmKIl1FNU26LqJzDaPffeeuAHcARMK9DOkUDmSlyUoBkwpaobs1lw4A
+7hEWiWgqHETXtWYAAAGhZ5JXAAAABAMASDBGAiEAoHdixM+97qFXOb01sMhuvB03
+aryWA97K1zE4IxtO4jkCIQC0amXwHe976Q3E3xeKhlv2kLI3E2sef01j9LYaqxRs
+HzANBgkqhkiG9w0BAQsFAAOCAYEAGUG8fZZn6Oy+9CohqYn5xuASJqpZeLbgs562
+Pv/5//w5Aeu8ke5a4FF5Ei+7c/12BUoKFGaHIVct6hoTnFY9ncCQAjfpb6xJVGHF
+gZ0kFFPH+cgfsVkzFhvS5gbI4R2OHdiSsw2YSSAJcfU4IP2jpFM3H5Uze2vPmOB/
+hK2WqA9eleH3BbAa44AP34qwqMkh6sIzJJcd9LcHKJ1ChNPqlAHodZHqfZCBKnkW
+vSvrHJI8hvGc5sL2KSGX/QyiBgvgifmkMQLrenVIY/148Oi9qEzInAzYLPYbyAfh
+ROSc3cAdP+2OsjsYSeUfOViM+cmwwPACVZw6nqNH3Pv/HDmewcfMmhz2oAB6/Vc1
+0vQ/eS4D1xPVgMa69PSo+f5FhGXMl9UojRkrNxhM5LsWC+0G6NMVbMDdMDvSrlKu
+VdXO6xNDUQX2z+nxfhrPR537kxwjPFcDcCGY/k43BGf4A1sz8vrN7ahbpc3p6H74
+Whe3Fm194IjZJr0S66s4pBn9qHui</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.h-brs.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.h-brs.de,O=Hochschule Bonn-Rhein-Sieg,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIIITCCBomgAwIBAgIQNro310dTTOyi/X3z5fDMUDANBgkqhkiG9w0BAQsFADBg
+MQswCQYDVQQGEwJHUjE3MDUGA1UECgwuSGVsbGVuaWMgQWNhZGVtaWMgYW5kIFJl
+c2VhcmNoIEluc3RpdHV0aW9ucyBDQTEYMBYGA1UEAwwPR0VBTlQgVExTIFJTQSAx
+MB4XDTI2MTAyMzA2NTMyNFoXDTI3MDUxMDA2NTMyM1owZzELMAkGA1UEBhMCREUx
+HDAaBgNVBAgME05vcmRyaGVpbi1XZXN0ZmFsZW4xIzAhBgNVBAoMGkhvY2hzY2h1
+bGUgQm9ubi1SaGVpbi1TaWVnMRUwEwYDVQQDDAxpZHAuaC1icnMuZGUwggIiMA0G
+CSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC20EGtMkgkSIq2VwD5Y9KDJIm4Glza
+N5doRywPrdZp2TAeOnsbLfTLKsoCcLPqV/WsIh7/nbTe6R1lo4VAzfcunICn/jK9
+Rdv2ZNTtr3sIYQxLjjneDVqZkc5XxaZzwSGDv31qjFEJEAm2oJjcU1q8VFD8ioG7
+Di/ION2zKnt/5PQ/ca28fR/uLJHKKwkk9JvNkOGMMszXGfCr/Lrt3x4z7TZD8xMh
+S0EtBg+QIlsN76Tl9crAbmhkS2D7LmSy+QXTXAxbWPzdB7NUAIxlWytfN5nYKOxp
+RTXLQai79nArFO80JaphPzYU0vsiXRgCLrPgqo/o4vfzedkk3WOPJJXyAZdcu+6a
+mGy3vgVIDttZfSUpmTKJoM0oiaqys4cpzQy95fiMFhS8zoPrVqBxAIkYpk9QpxFA
+2BlNORJ8Vbzlka7vk+E3oLjKR0HyvJRbuLabnMb+RLG2xYtk7eMVewRbJlymnPXK
+eKR39H3H3SinO/7LFopaLNjtSZKgS2eCXt/UxGUz6s0CUy6xjgeTS+f5HnMt9Bef
+2AchOFTzgrjOu4UoXqsE6u7juk/QhhrHyN2u6EXa/oAayfpyrDkyIPM95D4QovvN
+czQy72DfNT9buSGDl+eVKuN3Se4POm8guN7Gprmv2n3BesRFVH38Oe3VzQhVk9j4
+bNrzZEDI+qiOVwIDAQABo4IDTjCCA0owDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAW
+gBSGAXI/jKlw4jEGUxbOAV9becg8OzBIBggrBgEFBQcBAQQ8MDowOAYIKwYBBQUH
+MAKGLGh0dHA6Ly9jcnQuaGFyaWNhLmdyL0hBUklDQS1HRUFOVC1UTFMtUjEuY2Vy
+MIGOBgNVHREEgYYwgYOCDGlkcC5oLWJycy5kZYIUc2VsZnNlcnZpY2UuaC1icnMu
+ZGWCDGFhZi5oLWJycy5kZYIMaWFtLmgtYnJzLmRlggxtZmEuaC1icnMuZGWCDG1p
+YS5oLWJycy5kZYIMaWRtLmgtYnJzLmRlghdzZWxmYWN0aXZhdGlvbi5oLWJycy5k
+ZTAtBgNVHSAEJjAkMAgGBmeBDAECAjAIBgYEAI96AQcwDgYMKwYBBAGBzxEBAQEC
+MB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATA9BgNVHR8ENjA0MDKgMKAu
+hixodHRwOi8vY3JsLmhhcmljYS5nci9IQVJJQ0EtR0VBTlQtVExTLVIxLmNybDAd
+BgNVHQ4EFgQU2ydMA6ZWEZ1aQ/eOymtcyckObdYwDgYDVR0PAQH/BAQDAgWgMIIB
+gAYKKwYBBAHWeQIEAgSCAXAEggFsAWoAdwBgTJqven93XwHUBvySDciZ6wscffjJ
+Uhv6+hd3O5eLyQAAAaFnklcVAAAEAwBIMEYCIQCWmtWWIh584HUcrCve/dlUcigu
+biUS2uR7sIvvoxBZ9wIhALlFwoqWiRrGb1AqLjyQBRRdd+Zj9eIkjkufgS5hfDSw
+AHYARqI5Z8YNtkaHxm89+ZmUdpOmphEghFfVVefj0KHZtkYAAAGhZ5JXLQAABAMA
+RzBFAiAvQENOfyaN9TtQBuJcYqr862NDPdQ6Vli25qZGVQKUYQIhAIgrccoXsJaR
+xaDPNCI+fKmKIl1FNU26LqJzDaPffeeuAHcARMK9DOkUDmSlyUoBkwpaobs1lw4A
+7hEWiWgqHETXtWYAAAGhZ5JXAAAABAMASDBGAiEAoHdixM+97qFXOb01sMhuvB03
+aryWA97K1zE4IxtO4jkCIQC0amXwHe976Q3E3xeKhlv2kLI3E2sef01j9LYaqxRs
+HzANBgkqhkiG9w0BAQsFAAOCAYEAGUG8fZZn6Oy+9CohqYn5xuASJqpZeLbgs562
+Pv/5//w5Aeu8ke5a4FF5Ei+7c/12BUoKFGaHIVct6hoTnFY9ncCQAjfpb6xJVGHF
+gZ0kFFPH+cgfsVkzFhvS5gbI4R2OHdiSsw2YSSAJcfU4IP2jpFM3H5Uze2vPmOB/
+hK2WqA9eleH3BbAa44AP34qwqMkh6sIzJJcd9LcHKJ1ChNPqlAHodZHqfZCBKnkW
+vSvrHJI8hvGc5sL2KSGX/QyiBgvgifmkMQLrenVIY/148Oi9qEzInAzYLPYbyAfh
+ROSc3cAdP+2OsjsYSeUfOViM+cmwwPACVZw6nqNH3Pv/HDmewcfMmhz2oAB6/Vc1
+0vQ/eS4D1xPVgMa69PSo+f5FhGXMl9UojRkrNxhM5LsWC+0G6NMVbMDdMDvSrlKu
+VdXO6xNDUQX2z+nxfhrPR537kxwjPFcDcCGY/k43BGf4A1sz8vrN7ahbpc3p6H74
+Whe3Fm194IjZJr0S66s4pBn9qHui</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.h-brs.de/nidp/saml2/soap" />
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e450</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e450</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Hochschule Bonn-Rhein-Sieg</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Bonn-Rhein-Sieg University of Applied Sciences</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">https://www.h-brs.de/de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.h-brs.de/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>IAM Support</md:GivenName>
+      <md:EmailAddress>mailto:iam-support@h-brs.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>IAM Support</md:GivenName>
+      <md:EmailAddress>mailto:iam-support@h-brs.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IAM</md:GivenName>
+      <md:SurName>Support</md:SurName>
+      <md:EmailAddress>mailto:iam-support@h-brs.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IAM Support</md:GivenName>
+      <md:EmailAddress>mailto:iam-support@h-brs.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

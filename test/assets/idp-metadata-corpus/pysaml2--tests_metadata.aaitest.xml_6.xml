@@ -1,0 +1,128 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://dtaai.unil.ch/test/idp/shibboleth">
+        <md:IDPSSODescriptor errorURL="http://www.unil.ch/ci/page33_fr.html" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">unil.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Université de Lausanne
+                        Test
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="fr">Université de Lausanne
+                        Test
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Test HomeOrg for the
+                        University of Lausanne
+                    </mdui:Description>
+                    <mdui:Description xml:lang="fr">HomeOrg de test pour
+                        l'Université de Lausanne
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>unil.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIE9jCCA96gAwIBAgIUacN4WIQHca7EP9Y/DO2Udv3+ts8wDQYJKoZIhvcNAQEF
+                            BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+                            BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+                            IEdsb2JhbCBTU0wgSUNBMB4XDTExMDYyMjEyMTUyMVoXDTE0MDYyMTEyMTUyMVow
+                            aDELMAkGA1UEBhMCQ0gxDTALBgNVBAgTBFZhdWQxETAPBgNVBAcTCExhdXNhbm5l
+                            MR8wHQYDVQQKExZVbml2ZXJzaXRlIGRlIExhdXNhbm5lMRYwFAYDVQQDEw1kdGFh
+                            aS51bmlsLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1Qh8Kx3T
+                            m9WztjWD0pxUwG9WD6/SlHr3AHGDJ+47IHNL2VgiGrIr7IULySYMcJ8RwpFDQkbQ
+                            bpuihiUJK6GQcLO57cS2GGjCKmzVr6HaevwU2acRdXuQaxlj9BUwylpUwZwydxU4
+                            zdGt/dagfjilHJQNPvIOZTlLWH3LgegSDq2ah3xQUlFoD36l+4o2za/Qe83vQkoD
+                            9gyodgFtnnyunO8iesirr3/6ApMf6BILb4YIN2PMNensa1CHULFAelW6JJsFYWFT
+                            IbamEbFBUmNElUuBSLFpVP+d1VkOdvif1JMsPfQbb7wB/i43A0B92c+TG8b9Zdcn
+                            xu12Sunc2ySpFQIDAQABo4IBkzCCAY8wdAYIKwYBBQUHAQEEaDBmMCoGCCsGAQUF
+                            BzABhh5odHRwOi8vb2NzcC5xdW92YWRpc2dsb2JhbC5jb20wOAYIKwYBBQUHMAKG
+                            LGh0dHA6Ly90cnVzdC5xdW92YWRpc2dsb2JhbC5jb20vcXZzc2xpY2EuY3J0MBgG
+                            A1UdEQQRMA+CDWR0YWFpLnVuaWwuY2gwUQYDVR0gBEowSDBGBgwrBgEEAb5YAAJk
+                            AQEwNjA0BggrBgEFBQcCARYoaHR0cDovL3d3dy5xdW92YWRpc2dsb2JhbC5jb20v
+                            cmVwb3NpdG9yeTAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+                            CCsGAQUFBwMCMB8GA1UdIwQYMBaAFDJNoU/q8K6Ztu6bByyECBFQi+J+MDsGA1Ud
+                            HwQ0MDIwMKAuoCyGKmh0dHA6Ly9jcmwucXVvdmFkaXNnbG9iYWwuY29tL3F2c3Ns
+                            aWNhLmNybDAdBgNVHQ4EFgQUQXK9B2s2hEUkN8VMq+FYeHmlVU4wDQYJKoZIhvcN
+                            AQEFBQADggEBABxfDB4LsWhIN5MaInJl/2g4Fretfjp1WrwD2OPY6C3GRZ9GO6XB
+                            ta5Fvz2xj9dkA+RtV7Cwl5ZGESRc674W/f7fJQZZUoA1jCXtHU1zQRGo9XdW3QZA
+                            biLW34S93o8ShE+o8ecbZzeoK7EKg6/An09No2+/jtMLjH87DK56lQ0AKrFtTe4I
+                            SV0UcvjOam5smSUWXjou+4rs1xgJjc9e4wm3JWUmOWwLdL46g+dUMVmHbLexSI/R
+                            RhY2UEjvNtbEg5wCnSAjMrv/EmNyQ5cstrUTYmO9KdQm4YK6jJosJujSL60drW/Y
+                            nl5SBOLJjXBU4c3IlxiyeHK9hacydyBAfC8=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dtaai.unil.ch:8443/test/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dtaai.unil.ch:8443/test/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://dtaai.unil.ch/test/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dtaai.unil.ch/test/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dtaai.unil.ch/test/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dtaai.unil.ch/test/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">unil.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIE9jCCA96gAwIBAgIUacN4WIQHca7EP9Y/DO2Udv3+ts8wDQYJKoZIhvcNAQEF
+                            BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+                            BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+                            IEdsb2JhbCBTU0wgSUNBMB4XDTExMDYyMjEyMTUyMVoXDTE0MDYyMTEyMTUyMVow
+                            aDELMAkGA1UEBhMCQ0gxDTALBgNVBAgTBFZhdWQxETAPBgNVBAcTCExhdXNhbm5l
+                            MR8wHQYDVQQKExZVbml2ZXJzaXRlIGRlIExhdXNhbm5lMRYwFAYDVQQDEw1kdGFh
+                            aS51bmlsLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1Qh8Kx3T
+                            m9WztjWD0pxUwG9WD6/SlHr3AHGDJ+47IHNL2VgiGrIr7IULySYMcJ8RwpFDQkbQ
+                            bpuihiUJK6GQcLO57cS2GGjCKmzVr6HaevwU2acRdXuQaxlj9BUwylpUwZwydxU4
+                            zdGt/dagfjilHJQNPvIOZTlLWH3LgegSDq2ah3xQUlFoD36l+4o2za/Qe83vQkoD
+                            9gyodgFtnnyunO8iesirr3/6ApMf6BILb4YIN2PMNensa1CHULFAelW6JJsFYWFT
+                            IbamEbFBUmNElUuBSLFpVP+d1VkOdvif1JMsPfQbb7wB/i43A0B92c+TG8b9Zdcn
+                            xu12Sunc2ySpFQIDAQABo4IBkzCCAY8wdAYIKwYBBQUHAQEEaDBmMCoGCCsGAQUF
+                            BzABhh5odHRwOi8vb2NzcC5xdW92YWRpc2dsb2JhbC5jb20wOAYIKwYBBQUHMAKG
+                            LGh0dHA6Ly90cnVzdC5xdW92YWRpc2dsb2JhbC5jb20vcXZzc2xpY2EuY3J0MBgG
+                            A1UdEQQRMA+CDWR0YWFpLnVuaWwuY2gwUQYDVR0gBEowSDBGBgwrBgEEAb5YAAJk
+                            AQEwNjA0BggrBgEFBQcCARYoaHR0cDovL3d3dy5xdW92YWRpc2dsb2JhbC5jb20v
+                            cmVwb3NpdG9yeTAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+                            CCsGAQUFBwMCMB8GA1UdIwQYMBaAFDJNoU/q8K6Ztu6bByyECBFQi+J+MDsGA1Ud
+                            HwQ0MDIwMKAuoCyGKmh0dHA6Ly9jcmwucXVvdmFkaXNnbG9iYWwuY29tL3F2c3Ns
+                            aWNhLmNybDAdBgNVHQ4EFgQUQXK9B2s2hEUkN8VMq+FYeHmlVU4wDQYJKoZIhvcN
+                            AQEFBQADggEBABxfDB4LsWhIN5MaInJl/2g4Fretfjp1WrwD2OPY6C3GRZ9GO6XB
+                            ta5Fvz2xj9dkA+RtV7Cwl5ZGESRc674W/f7fJQZZUoA1jCXtHU1zQRGo9XdW3QZA
+                            biLW34S93o8ShE+o8ecbZzeoK7EKg6/An09No2+/jtMLjH87DK56lQ0AKrFtTe4I
+                            SV0UcvjOam5smSUWXjou+4rs1xgJjc9e4wm3JWUmOWwLdL46g+dUMVmHbLexSI/R
+                            RhY2UEjvNtbEg5wCnSAjMrv/EmNyQ5cstrUTYmO9KdQm4YK6jJosJujSL60drW/Y
+                            nl5SBOLJjXBU4c3IlxiyeHK9hacydyBAfC8=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dtaai.unil.ch:8443/test/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dtaai.unil.ch:8443/test/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">unil.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Université de Lausanne Test
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="fr">Université de Lausanne Test
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="fr">http://www.unil.ch/</md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

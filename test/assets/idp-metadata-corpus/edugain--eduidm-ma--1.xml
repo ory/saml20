@@ -1,0 +1,230 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://fid.usms.ac.ma/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://eduidm.ma" registrationInstant="2020-02-14T12:31:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.eduidm.ma/mrps-eduidm.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">usms.ac.ma</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">USMS</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="ar">جامعة السلطان مولاي سليمان</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Idp for usms.ac.ma</mdui:Description>
+          <mdui:Description xml:lang="ar">مزود الهوية لجامعة السلطان مولاي سليمان</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEJDCCAoygAwIBAgIVAI4C9gZiIwVKV7nK83K9rkoZGce9MA0GCSqGSIb3DQEB
+CwUAMBkxFzAVBgNVBAMMDmZpZC51c21zLmFjLm1hMB4XDTIwMDIxMjEyMDQwOFoX
+DTQwMDIxMjEyMDQwOFowGTEXMBUGA1UEAwwOZmlkLnVzbXMuYWMubWEwggGiMA0G
+CSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCURKxZD2iIz7TgnXdLJJ9g+5Yk2RmZ
+DG0bJwlmCai/dQ0WBlGuHwCSDGWLK+HjldZbYzOi4q5MJIChe7eQYLhSQqm+N1PB
+MyGOefd5x1RxlopvjYps1qAevl9vtmFwROK3eBEwUqKeXktF5AlpBhPM6KHqknsa
+tjAXiOnjwnBNFDYf0tsegz+OGmlJUvkL7vFBQmkpYTm7hj35igxUMTyAX3PHQkhj
+PK/DJbbR28cuPchG8+xvUzMOMC8mBahuULjRVxN317VEObXkId8V0SiF0l7SzG5E
+PK88vlZXpzVxQUWzxZKLCO5yF2NRrIJQjfCERN3ykI8U4EX1zaEqRrBsAEoDlKG9
+KdYj8+bq/bPFoGdQRUZLRE5a8TcjZf2pOxir/4yUQ4YQspRdqycif0SIFRoKm1rH
+iyauLqTxB602IN0FTBpVyflyNbz6sJTqqUy8pNwAPfylYSFIgJ8L3TVVn9AIRh3K
+o+BXlC+qPdAas93gSwNbKg4gOTkFzfSuJRECAwEAAaNjMGEwHQYDVR0OBBYEFD8W
+KgDeQm726V1EGqWNqyiDYwpUMEAGA1UdEQQ5MDeCDmZpZC51c21zLmFjLm1hhiVo
+dHRwczovL2ZpZC51c21zLmFjLm1hL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEB
+CwUAA4IBgQB/rNl73DTk+x5/GlAqKJZ4gjv+aTSVr4LYqlQ7g5nmv8919YMNzIqw
+ly5sEhL0pDHPXFv8krWG+zpvDSdkWVHHkMUqjgrUjwS+BJF9ebX/CcN+sDijSv29
+miD10ruTISZ0YaiTYTs9b7zCkUdEaexp5vhuTMzJinJ0oJS+fUyTRrvesBtEUK/3
+xq6cCh4NWbVUjJKGSb9iFyS5gJ+Yt2bB20YNQZEDqkdlspViSi4j6zujFpFeWLa5
+qIYZJaY6euO24h91NMXPUN8crZ/oRcUCzT5MnrIvnBKqpDXIwAWAHgOlSOed76ye
+Oyd6U/YlZu8A/s7fwQdh2HXcQaMb6Z+ZI7ifFoYnBZqhRmd1T3BcIDTe+d63xoOC
+3sNLw0cGO5xfFDG++RtHotqoddsG5qIXR0Uhy0vLoNbmH7Ewm4tpqUAoh8XYmMyW
+CmxSpwFbRYUxXxdv+Hm6oExwkd+zVLNq9Rlsj8fbRENdIoTBkCVkeBI8QrdC2uS1
+yv4ZqXKCQwE=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIzCCAougAwIBAgIUNKHgbPQBZdJhLrgFyDz8GDKChaMwDQYJKoZIhvcNAQEL
+BQAwGTEXMBUGA1UEAwwOZmlkLnVzbXMuYWMubWEwHhcNMjAwMjEyMTIwNDA1WhcN
+NDAwMjEyMTIwNDA1WjAZMRcwFQYDVQQDDA5maWQudXNtcy5hYy5tYTCCAaIwDQYJ
+KoZIhvcNAQEBBQADggGPADCCAYoCggGBAJd2x3gSOvA5Z794bhnRwnEkqAY1LKXv
+HIVavtCiy2jPs+Czpw4WgPDM9zeO0JLahv1DcghABqQCl9ENPXp5SRz/JHyTJJj5
+A/gdkaGoHdkIiJJItcCRpN6EJ/fp0VD5ZIpsTPhhu43GtR5B2UbTRyZuwfXnf60V
+tsXYT4oAM2+csl7I13LvoBIgStF1B9vWv2FDhh4ACeqmsgcl0voqiSzltFaKThDP
+RGqoOuG7yG5IvqKUoFS2VeOOX1StHf0zUg2lJxd8d7OFKAzvlNE7OjmuP6PDoWzE
+mDFppkXX0bjJ5+qrbn2pSXOs39RJV67ySDo7kgI06/FrI2dks668NUo0SOu6W9mY
+Q48zb4dgHWdIKWARYXsRo6DumknpKNBcFhMgXDaKfpZ3GCXH437TBkKYhypuhZZJ
+VbCZeLIFwuo90v4dElqV86NVDJhAraxLWT/CDzH3a9Ytticr6gSsn0yjIWrtGEEW
+qzezOvnVtZXw9gOi/4RNHnXbXpIhTaPigwIDAQABo2MwYTAdBgNVHQ4EFgQUo4W+
+lsZey/KAODi/st9FY0mqwhswQAYDVR0RBDkwN4IOZmlkLnVzbXMuYWMubWGGJWh0
+dHBzOi8vZmlkLnVzbXMuYWMubWEvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQEL
+BQADggGBAEksvZoBc+FkXb+oKV9Hae2KP5b/IAgV0y2zz3N6NtM9ran1izawBn1G
+ivS6PBcpX7MYNwSD/9yAm7t/kynyf6Z8Q5FEWqXx2mZzmaE6idFhWTApj6QsheGM
+czHOnn2mTYoRlJjgR7n135qZyS2iBdTheMz3wYo0GVNaAKKnVy/zHN4IpQJg0TVo
+9fdN4JmBpPStsU2DtSf14QN2ES+VrM4SoVlzwHz65zVXL8WDfexOtNHaai2xLObO
+EQoV/sunq5cETq/pklF+EPszPYjtUXuwN8wjNY2p/Bi4rcEsdOmJScn2Ngu4A8pb
+OPHf0m2O6vI2+V2kOAlUbSfIwCZqzmIh+pzNAj1s6egLfYA3bR015BASHH10FmGB
+oN43KPOwx2Z/fZyljqSXZ6PiLwuwzS9f2aJ0NlHggpDBBYTeUTkgJjzt337b2n2o
+2PbUQmXtr0puzjopH8npN8nP+GikFYokFTuXQg0O17+dkGO3OtVSBFBwfbnF9x3w
+pbmEwe9CHA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIzCCAougAwIBAgIUU6z2ZwWv/aL7uVGkGIq6j6ft0v0wDQYJKoZIhvcNAQEL
+BQAwGTEXMBUGA1UEAwwOZmlkLnVzbXMuYWMubWEwHhcNMjAwMjEyMTIwNDA3WhcN
+NDAwMjEyMTIwNDA3WjAZMRcwFQYDVQQDDA5maWQudXNtcy5hYy5tYTCCAaIwDQYJ
+KoZIhvcNAQEBBQADggGPADCCAYoCggGBAJzKixksrP9L7aRLweW3341rWXZDNTou
+r3KIP3NE31UiAbvdYyTpX1e8eR3hHA5h32valr2h+jzFzYna6EjvbuX909XSQkfv
+r617VyNp8qrOlIHeQU7SW0ZgWd9y6huLUFH11cv18/nHarAJNZHmIZWpuieNZ0v2
+L4GJKfUSMtY373tJCiFrXfJj91x2x1xo4WCRq1DdyXtFQc99OgIMDTcsZYPpTC5c
+rYmEKt3FFJhJKSvZ574xIGOT+rdDDqzu9bQpwq3rqRES2QWt+dl65rSPpNY6I7ZU
+yPUwYHha3o4Rd3HBs6cgi6/ouC//pf12FPQGOdMndOhgT1pA48SdwDnwugwnPMJr
+wcE4vrLnCJ5uFyqB2/V839WAf0TH5SvzuN5HBGSefpgC6MQEExXHS9OPb5jL6tan
+9ZrOgCyh251bTmSNeDhZxV7YztNWSusYbwlwC2UVYg7xPyrGYCDtPCrNkA4mG5zz
+vDXK1tHHbn9kYortgenHQNdO9Zh+du5MQwIDAQABo2MwYTAdBgNVHQ4EFgQU3JMC
+iUsNWvHuTuseLHKM1ChkdXQwQAYDVR0RBDkwN4IOZmlkLnVzbXMuYWMubWGGJWh0
+dHBzOi8vZmlkLnVzbXMuYWMubWEvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQEL
+BQADggGBAJbj/XY/IxwwO/yEHvS0z0VbB7Fp4zSaIruVUcM/+yoLo1OF4RI0ZjSA
+hDjZ+kCfZdZoNEWuDPrlFHBrEuzrj3wz6iZMipAvDoCKLTtTqVCtL8/TGi5Cwejy
+6yDwhHZ8ZTLomTFFhpkRRTLoJWnviGbhWWPgQYL0tcvfHUsIKmmZZ7WYBqLnHinN
++IxMHLFBCIKZO1Ns1AQBZBi0vzrvVwp2ww/ccqQ8bJ9VUE3LYVnF1SPE/oFUSLAa
+q6bvnAvL98yg4adLgHGSSz6jlu7P4NOzXKOGM199V8rjsFINjhUB4S6Mq+HeY04r
+Q9xCbv9d72LAw7gb7pfXP/Jsi/kbQ/PsmPXaOXWbWQxmqu+LIqyE17eTmRcfvadB
+EXvHqw4NwufLxpyrnoCxu24zJpFDZfo5blGpRsFBGl9Syijgjt7l0v0jJ/T4kIdC
+0iPn9ev27NdKVXPyBmLvcow6wt9p6UpRTK+yaJtx7HWWTFpWAJlPkTmVZPd2Mdq0
+Wi9oVOAZEg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://fid.usms.ac.ma:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://fid.usms.ac.ma:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://fid.usms.ac.ma/idp/profile/Shibboleth/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fid.usms.ac.ma/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://fid.usms.ac.ma/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fid.usms.ac.ma/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">usms.ac.ma</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEJDCCAoygAwIBAgIVAI4C9gZiIwVKV7nK83K9rkoZGce9MA0GCSqGSIb3DQEB
+CwUAMBkxFzAVBgNVBAMMDmZpZC51c21zLmFjLm1hMB4XDTIwMDIxMjEyMDQwOFoX
+DTQwMDIxMjEyMDQwOFowGTEXMBUGA1UEAwwOZmlkLnVzbXMuYWMubWEwggGiMA0G
+CSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCURKxZD2iIz7TgnXdLJJ9g+5Yk2RmZ
+DG0bJwlmCai/dQ0WBlGuHwCSDGWLK+HjldZbYzOi4q5MJIChe7eQYLhSQqm+N1PB
+MyGOefd5x1RxlopvjYps1qAevl9vtmFwROK3eBEwUqKeXktF5AlpBhPM6KHqknsa
+tjAXiOnjwnBNFDYf0tsegz+OGmlJUvkL7vFBQmkpYTm7hj35igxUMTyAX3PHQkhj
+PK/DJbbR28cuPchG8+xvUzMOMC8mBahuULjRVxN317VEObXkId8V0SiF0l7SzG5E
+PK88vlZXpzVxQUWzxZKLCO5yF2NRrIJQjfCERN3ykI8U4EX1zaEqRrBsAEoDlKG9
+KdYj8+bq/bPFoGdQRUZLRE5a8TcjZf2pOxir/4yUQ4YQspRdqycif0SIFRoKm1rH
+iyauLqTxB602IN0FTBpVyflyNbz6sJTqqUy8pNwAPfylYSFIgJ8L3TVVn9AIRh3K
+o+BXlC+qPdAas93gSwNbKg4gOTkFzfSuJRECAwEAAaNjMGEwHQYDVR0OBBYEFD8W
+KgDeQm726V1EGqWNqyiDYwpUMEAGA1UdEQQ5MDeCDmZpZC51c21zLmFjLm1hhiVo
+dHRwczovL2ZpZC51c21zLmFjLm1hL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEB
+CwUAA4IBgQB/rNl73DTk+x5/GlAqKJZ4gjv+aTSVr4LYqlQ7g5nmv8919YMNzIqw
+ly5sEhL0pDHPXFv8krWG+zpvDSdkWVHHkMUqjgrUjwS+BJF9ebX/CcN+sDijSv29
+miD10ruTISZ0YaiTYTs9b7zCkUdEaexp5vhuTMzJinJ0oJS+fUyTRrvesBtEUK/3
+xq6cCh4NWbVUjJKGSb9iFyS5gJ+Yt2bB20YNQZEDqkdlspViSi4j6zujFpFeWLa5
+qIYZJaY6euO24h91NMXPUN8crZ/oRcUCzT5MnrIvnBKqpDXIwAWAHgOlSOed76ye
+Oyd6U/YlZu8A/s7fwQdh2HXcQaMb6Z+ZI7ifFoYnBZqhRmd1T3BcIDTe+d63xoOC
+3sNLw0cGO5xfFDG++RtHotqoddsG5qIXR0Uhy0vLoNbmH7Ewm4tpqUAoh8XYmMyW
+CmxSpwFbRYUxXxdv+Hm6oExwkd+zVLNq9Rlsj8fbRENdIoTBkCVkeBI8QrdC2uS1
+yv4ZqXKCQwE=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIzCCAougAwIBAgIUNKHgbPQBZdJhLrgFyDz8GDKChaMwDQYJKoZIhvcNAQEL
+BQAwGTEXMBUGA1UEAwwOZmlkLnVzbXMuYWMubWEwHhcNMjAwMjEyMTIwNDA1WhcN
+NDAwMjEyMTIwNDA1WjAZMRcwFQYDVQQDDA5maWQudXNtcy5hYy5tYTCCAaIwDQYJ
+KoZIhvcNAQEBBQADggGPADCCAYoCggGBAJd2x3gSOvA5Z794bhnRwnEkqAY1LKXv
+HIVavtCiy2jPs+Czpw4WgPDM9zeO0JLahv1DcghABqQCl9ENPXp5SRz/JHyTJJj5
+A/gdkaGoHdkIiJJItcCRpN6EJ/fp0VD5ZIpsTPhhu43GtR5B2UbTRyZuwfXnf60V
+tsXYT4oAM2+csl7I13LvoBIgStF1B9vWv2FDhh4ACeqmsgcl0voqiSzltFaKThDP
+RGqoOuG7yG5IvqKUoFS2VeOOX1StHf0zUg2lJxd8d7OFKAzvlNE7OjmuP6PDoWzE
+mDFppkXX0bjJ5+qrbn2pSXOs39RJV67ySDo7kgI06/FrI2dks668NUo0SOu6W9mY
+Q48zb4dgHWdIKWARYXsRo6DumknpKNBcFhMgXDaKfpZ3GCXH437TBkKYhypuhZZJ
+VbCZeLIFwuo90v4dElqV86NVDJhAraxLWT/CDzH3a9Ytticr6gSsn0yjIWrtGEEW
+qzezOvnVtZXw9gOi/4RNHnXbXpIhTaPigwIDAQABo2MwYTAdBgNVHQ4EFgQUo4W+
+lsZey/KAODi/st9FY0mqwhswQAYDVR0RBDkwN4IOZmlkLnVzbXMuYWMubWGGJWh0
+dHBzOi8vZmlkLnVzbXMuYWMubWEvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQEL
+BQADggGBAEksvZoBc+FkXb+oKV9Hae2KP5b/IAgV0y2zz3N6NtM9ran1izawBn1G
+ivS6PBcpX7MYNwSD/9yAm7t/kynyf6Z8Q5FEWqXx2mZzmaE6idFhWTApj6QsheGM
+czHOnn2mTYoRlJjgR7n135qZyS2iBdTheMz3wYo0GVNaAKKnVy/zHN4IpQJg0TVo
+9fdN4JmBpPStsU2DtSf14QN2ES+VrM4SoVlzwHz65zVXL8WDfexOtNHaai2xLObO
+EQoV/sunq5cETq/pklF+EPszPYjtUXuwN8wjNY2p/Bi4rcEsdOmJScn2Ngu4A8pb
+OPHf0m2O6vI2+V2kOAlUbSfIwCZqzmIh+pzNAj1s6egLfYA3bR015BASHH10FmGB
+oN43KPOwx2Z/fZyljqSXZ6PiLwuwzS9f2aJ0NlHggpDBBYTeUTkgJjzt337b2n2o
+2PbUQmXtr0puzjopH8npN8nP+GikFYokFTuXQg0O17+dkGO3OtVSBFBwfbnF9x3w
+pbmEwe9CHA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEIzCCAougAwIBAgIUU6z2ZwWv/aL7uVGkGIq6j6ft0v0wDQYJKoZIhvcNAQEL
+BQAwGTEXMBUGA1UEAwwOZmlkLnVzbXMuYWMubWEwHhcNMjAwMjEyMTIwNDA3WhcN
+NDAwMjEyMTIwNDA3WjAZMRcwFQYDVQQDDA5maWQudXNtcy5hYy5tYTCCAaIwDQYJ
+KoZIhvcNAQEBBQADggGPADCCAYoCggGBAJzKixksrP9L7aRLweW3341rWXZDNTou
+r3KIP3NE31UiAbvdYyTpX1e8eR3hHA5h32valr2h+jzFzYna6EjvbuX909XSQkfv
+r617VyNp8qrOlIHeQU7SW0ZgWd9y6huLUFH11cv18/nHarAJNZHmIZWpuieNZ0v2
+L4GJKfUSMtY373tJCiFrXfJj91x2x1xo4WCRq1DdyXtFQc99OgIMDTcsZYPpTC5c
+rYmEKt3FFJhJKSvZ574xIGOT+rdDDqzu9bQpwq3rqRES2QWt+dl65rSPpNY6I7ZU
+yPUwYHha3o4Rd3HBs6cgi6/ouC//pf12FPQGOdMndOhgT1pA48SdwDnwugwnPMJr
+wcE4vrLnCJ5uFyqB2/V839WAf0TH5SvzuN5HBGSefpgC6MQEExXHS9OPb5jL6tan
+9ZrOgCyh251bTmSNeDhZxV7YztNWSusYbwlwC2UVYg7xPyrGYCDtPCrNkA4mG5zz
+vDXK1tHHbn9kYortgenHQNdO9Zh+du5MQwIDAQABo2MwYTAdBgNVHQ4EFgQU3JMC
+iUsNWvHuTuseLHKM1ChkdXQwQAYDVR0RBDkwN4IOZmlkLnVzbXMuYWMubWGGJWh0
+dHBzOi8vZmlkLnVzbXMuYWMubWEvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQEL
+BQADggGBAJbj/XY/IxwwO/yEHvS0z0VbB7Fp4zSaIruVUcM/+yoLo1OF4RI0ZjSA
+hDjZ+kCfZdZoNEWuDPrlFHBrEuzrj3wz6iZMipAvDoCKLTtTqVCtL8/TGi5Cwejy
+6yDwhHZ8ZTLomTFFhpkRRTLoJWnviGbhWWPgQYL0tcvfHUsIKmmZZ7WYBqLnHinN
++IxMHLFBCIKZO1Ns1AQBZBi0vzrvVwp2ww/ccqQ8bJ9VUE3LYVnF1SPE/oFUSLAa
+q6bvnAvL98yg4adLgHGSSz6jlu7P4NOzXKOGM199V8rjsFINjhUB4S6Mq+HeY04r
+Q9xCbv9d72LAw7gb7pfXP/Jsi/kbQ/PsmPXaOXWbWQxmqu+LIqyE17eTmRcfvadB
+EXvHqw4NwufLxpyrnoCxu24zJpFDZfo5blGpRsFBGl9Syijgjt7l0v0jJ/T4kIdC
+0iPn9ev27NdKVXPyBmLvcow6wt9p6UpRTK+yaJtx7HWWTFpWAJlPkTmVZPd2Mdq0
+Wi9oVOAZEg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://fid.usms.ac.ma:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="ar">جامعة السلطان مولاي سليمان بني ملال</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University Sultan Moulay Slimane</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="ar">جامعة السلطان مولاي سليمان</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">USMS</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="ar">https://www.usms.ac.ma/ar/node/747</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.usms.ac.ma/en/node/747</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ait Yacine</md:GivenName>
+      <md:SurName>Fatiha</md:SurName>
+      <md:EmailAddress>mailto:f.aityacine@usms.ma</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

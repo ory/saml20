@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-logon-test.hes-so.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">aai-logon-test.hes-so.ch
+                </shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">HES-SO Test IdP
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="fr">HES-SO Test IdP
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">HES-SO Test IdP
+                    </mdui:Description>
+                    <mdui:Description xml:lang="fr">HES-SO Test IdP
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>aai-logon-test.hes-so.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDQDCCAiigAwIBAgIJAMmsUlHMBNOJMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+                            BAMTGGFhaS1sb2dvbi10ZXN0Lmhlcy1zby5jaDAeFw0xMjAyMjAxMDQ0MDhaFw0x
+                            NTAyMTkxMDQ0MDhaMCMxITAfBgNVBAMTGGFhaS1sb2dvbi10ZXN0Lmhlcy1zby5j
+                            aDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ/6PD9qQnbccpQtcunZ
+                            C3bbC5XOyqkpNNc+Pp8/qBkgB7Xaioct9y5B15XaRN5TpbcpyZP0CQ4V+gNGZgya
+                            yxZmyrwQF7GjvQiUOI3Y7gu3BLc3LX9NFq2A+vM4hiSew91kLyXsWxr3ndst7jKL
+                            KnIBfe91/qqd1LJpg+bfmwF5rheB6RE9wFEkyYTzF3MQE4bGCgXV8rRfpJE+lNoo
+                            qUulqRzmbYo7ortKQvZHxCtj/i4jxeOvClSjlvuJgzmbmnUSpfYgRbtwKucDUu6D
+                            VhIvfTHMiMqPUXeYc+hnTLAJMAcjpLLeoN8ihFpOHKUh1EDTja1OVniBs+6VxyMM
+                            vdkCAwEAAaN3MHUwVAYDVR0RBE0wS4IYYWFpLWxvZ29uLXRlc3QuaGVzLXNvLmNo
+                            hi9odHRwczovL2FhaS1sb2dvbi10ZXN0Lmhlcy1zby5jaC9pZHAvc2hpYmJvbGV0
+                            aDAdBgNVHQ4EFgQUVaezXu5TOfZjC6BsfMXXwXiVJ2YwDQYJKoZIhvcNAQEFBQAD
+                            ggEBABXBjPitsJ+RYXErp4j2AM9XDx2CNe+BkiU0y/F33skHabZ3rtZsE4fEt8vd
+                            j5p12ZxxqURZwWzu7cSGajbXXL3ZKmils90k7ac0lvuX4pH/ytTqrOPSPD9YarRt
+                            2vd+hrRYeWv58WNNXQ8obFeUx91eaOY3uKsz6hQBmxGuMuxHzQNE9uA/IJ9fpS8U
+                            CTtP22NK7x0fy8r0eOqhYOAEjmMNoegQ3lxLI7ZeObP2ACkCWsGybCSuqntty4cQ
+                            6uS5sOes0lQ62yHOTsCQVJXSYJ3YNctjZIWiRY4/IcW+kmK/+tS4dX94hN4+qHX3
+                            6Y058ucSNQtIy0wzBXW36HY2F+8=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon-test.hes-so.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon-test.hes-so.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-logon-test.hes-so.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-logon-test.hes-so.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-logon-test.hes-so.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-logon-test.hes-so.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">aai-logon-test.hes-so.ch
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDQDCCAiigAwIBAgIJAMmsUlHMBNOJMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+                            BAMTGGFhaS1sb2dvbi10ZXN0Lmhlcy1zby5jaDAeFw0xMjAyMjAxMDQ0MDhaFw0x
+                            NTAyMTkxMDQ0MDhaMCMxITAfBgNVBAMTGGFhaS1sb2dvbi10ZXN0Lmhlcy1zby5j
+                            aDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ/6PD9qQnbccpQtcunZ
+                            C3bbC5XOyqkpNNc+Pp8/qBkgB7Xaioct9y5B15XaRN5TpbcpyZP0CQ4V+gNGZgya
+                            yxZmyrwQF7GjvQiUOI3Y7gu3BLc3LX9NFq2A+vM4hiSew91kLyXsWxr3ndst7jKL
+                            KnIBfe91/qqd1LJpg+bfmwF5rheB6RE9wFEkyYTzF3MQE4bGCgXV8rRfpJE+lNoo
+                            qUulqRzmbYo7ortKQvZHxCtj/i4jxeOvClSjlvuJgzmbmnUSpfYgRbtwKucDUu6D
+                            VhIvfTHMiMqPUXeYc+hnTLAJMAcjpLLeoN8ihFpOHKUh1EDTja1OVniBs+6VxyMM
+                            vdkCAwEAAaN3MHUwVAYDVR0RBE0wS4IYYWFpLWxvZ29uLXRlc3QuaGVzLXNvLmNo
+                            hi9odHRwczovL2FhaS1sb2dvbi10ZXN0Lmhlcy1zby5jaC9pZHAvc2hpYmJvbGV0
+                            aDAdBgNVHQ4EFgQUVaezXu5TOfZjC6BsfMXXwXiVJ2YwDQYJKoZIhvcNAQEFBQAD
+                            ggEBABXBjPitsJ+RYXErp4j2AM9XDx2CNe+BkiU0y/F33skHabZ3rtZsE4fEt8vd
+                            j5p12ZxxqURZwWzu7cSGajbXXL3ZKmils90k7ac0lvuX4pH/ytTqrOPSPD9YarRt
+                            2vd+hrRYeWv58WNNXQ8obFeUx91eaOY3uKsz6hQBmxGuMuxHzQNE9uA/IJ9fpS8U
+                            CTtP22NK7x0fy8r0eOqhYOAEjmMNoegQ3lxLI7ZeObP2ACkCWsGybCSuqntty4cQ
+                            6uS5sOes0lQ62yHOTsCQVJXSYJ3YNctjZIWiRY4/IcW+kmK/+tS4dX94hN4+qHX3
+                            6Y058ucSNQtIy0wzBXW36HY2F+8=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon-test.hes-so.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon-test.hes-so.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">aai-logon-test.hes-so.ch
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">HES-SO Test IdP
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="fr">HES-SO Test IdP
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="fr">
+                http://www.aai-logon-test.hes-so.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

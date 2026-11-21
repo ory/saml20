@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://aai-demo-idp.switch.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">aai-demo-idp.switch.ch
+                </shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">AAI Demo Home Organisation
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">AAI Demo Home Organisation
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>aai-demo-idp.switch.ch</mdui:DomainHint>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDODCCAiCgAwIBAgIJAOj+SVBfdrjdMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+                            BAMTFmFhaS1kZW1vLWlkcC5zd2l0Y2guY2gwHhcNMTMwMzE0MTQ0MTU2WhcNMTYw
+                            MzEzMTQ0MTU2WjAhMR8wHQYDVQQDExZhYWktZGVtby1pZHAuc3dpdGNoLmNoMIIB
+                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1vWuRxfHTbTONn48ziPqEd0I
+                            9WV0bCc9hboe2KzgX8SuCdOUkox4cPr9O3pm2WQU92qnHnqP4pIIKtp2srGjLtCU
+                            577kUriqWp3cSdA8IwYDR3O1Tc23PrQ3oCbgQJRW2cgpKK29flq8DE3DLyAXjmfV
+                            mUisO2D2uvg4twQwPLTOAUlfQ9sCJ9wr9cBAioha1fwZIR1WShXCKDNLFWIfhuzX
+                            njOIjfVzf5Xzlwfm533wPnTSoLjye55YBdzRefe5CtPkVKUscsU0xwTN0pJjs2XM
+                            BjRhBWJsWO2z1JIoWn7TOC7GMPy+j8tCEkbe/yLIiaPK4jZA9/f5TRmlF71LUwID
+                            AQABo3MwcTBQBgNVHREESTBHghZhYWktZGVtby1pZHAuc3dpdGNoLmNohi1odHRw
+                            czovL2FhaS1kZW1vLWlkcC5zd2l0Y2guY2gvaWRwL3NoaWJib2xldGgwHQYDVR0O
+                            BBYEFPJ0n7AYaxCWCc2209/JiTk2uXAiMA0GCSqGSIb3DQEBBQUAA4IBAQBBHFnn
+                            JugZmQ+0yvU+uj6+cC4L8rCdSjRorrsB0mGV2gS9ujN4sHkoX3Npirq9wHJ2nf6e
+                            dVvhG8PK/Zz8oO0o2icDx3noh9NXL0ZQ6QligcibJCHYzjWOJvA8sCNQ5mcOtvfR
+                            6O2hGWR5gFIg3qwGX1cX57X3gRvMKursLPamhdAxU611OQ48Dkczb3ZV5mWbBjqW
+                            /AuhN00ON/W4QY+K7tReLPAEvvhE0/5H4mVcyLro2Bzw4Ka+7ZcVg2wrm9H87JkN
+                            9GdReTkTrn7P+QTmId7acdrmfwux2URy3rq0zdWP/G0TpZ2ULPgrPnO/pjFZPsLx
+                            dvFIexgHRqhM3Jo4
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-demo-idp.switch.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-demo-idp.switch.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-demo-idp.switch.ch/idp/profile/SAML2/Redirect/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-demo-idp.switch.ch/idp/profile/SAML2/POST/SLO" />
+            <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-demo-idp.switch.ch/idp/profile/SAML2/SOAP/SLO" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-demo-idp.switch.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-demo-idp.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-demo-idp.switch.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-demo-idp.switch.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">aai-demo-idp.switch.ch
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDODCCAiCgAwIBAgIJAOj+SVBfdrjdMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+                            BAMTFmFhaS1kZW1vLWlkcC5zd2l0Y2guY2gwHhcNMTMwMzE0MTQ0MTU2WhcNMTYw
+                            MzEzMTQ0MTU2WjAhMR8wHQYDVQQDExZhYWktZGVtby1pZHAuc3dpdGNoLmNoMIIB
+                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1vWuRxfHTbTONn48ziPqEd0I
+                            9WV0bCc9hboe2KzgX8SuCdOUkox4cPr9O3pm2WQU92qnHnqP4pIIKtp2srGjLtCU
+                            577kUriqWp3cSdA8IwYDR3O1Tc23PrQ3oCbgQJRW2cgpKK29flq8DE3DLyAXjmfV
+                            mUisO2D2uvg4twQwPLTOAUlfQ9sCJ9wr9cBAioha1fwZIR1WShXCKDNLFWIfhuzX
+                            njOIjfVzf5Xzlwfm533wPnTSoLjye55YBdzRefe5CtPkVKUscsU0xwTN0pJjs2XM
+                            BjRhBWJsWO2z1JIoWn7TOC7GMPy+j8tCEkbe/yLIiaPK4jZA9/f5TRmlF71LUwID
+                            AQABo3MwcTBQBgNVHREESTBHghZhYWktZGVtby1pZHAuc3dpdGNoLmNohi1odHRw
+                            czovL2FhaS1kZW1vLWlkcC5zd2l0Y2guY2gvaWRwL3NoaWJib2xldGgwHQYDVR0O
+                            BBYEFPJ0n7AYaxCWCc2209/JiTk2uXAiMA0GCSqGSIb3DQEBBQUAA4IBAQBBHFnn
+                            JugZmQ+0yvU+uj6+cC4L8rCdSjRorrsB0mGV2gS9ujN4sHkoX3Npirq9wHJ2nf6e
+                            dVvhG8PK/Zz8oO0o2icDx3noh9NXL0ZQ6QligcibJCHYzjWOJvA8sCNQ5mcOtvfR
+                            6O2hGWR5gFIg3qwGX1cX57X3gRvMKursLPamhdAxU611OQ48Dkczb3ZV5mWbBjqW
+                            /AuhN00ON/W4QY+K7tReLPAEvvhE0/5H4mVcyLro2Bzw4Ka+7ZcVg2wrm9H87JkN
+                            9GdReTkTrn7P+QTmId7acdrmfwux2URy3rq0zdWP/G0TpZ2ULPgrPnO/pjFZPsLx
+                            dvFIexgHRqhM3Jo4
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-demo-idp.switch.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-demo-idp.switch.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">aai-demo-idp.switch.ch
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">AAI Demo Home Organisation
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.aai-demo-idp.switch.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

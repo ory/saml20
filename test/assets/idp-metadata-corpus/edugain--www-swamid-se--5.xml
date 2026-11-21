@@ -1,0 +1,175 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.hb.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/" registrationInstant="2017-04-21T10:28:32Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://swamid.se/policy/mdrps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al1</saml:AttributeValue>
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al2</saml:AttributeValue>
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al3</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" Name="http://macedir.org/entity-category-support">
+          <saml:AttributeValue>https://myacademicid.org/entity-categories/esi</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/anonymous</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/pseudonymous</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/personalized</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/code-of-conduct/v2</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" errorURL="https://swamiderror.hb.se/?errorurl_code=ERRORURL_CODE&amp;errorurl_ts=ERRORURL_TS&amp;errorurl_rp=ERRORURL_RP&amp;errorurl_tid=ERRORURL_TID&amp;errorurl_ctx=ERRORURL_CTX&amp;entityid=https://idp.hb.se/idp/shibboleth">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hb.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Högskolan i Borås</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Borås</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Gemensam inloggning för anställda och studenter vid Högskolan i Borås.</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for employees and students at Borås University.</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">https://www.hb.se/genvagar/om-webbplatsen/gemensam-inloggningstjanst/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.hb.se/en/shortcuts/about-the-site/single-sign-on-service/</mdui:InformationURL>
+          <mdui:Logo xml:lang="sv" height="71" width="350">https://logga.hb.se/HB_logo_sv_350px.png</mdui:Logo>
+          <mdui:Logo xml:lang="en" height="67" width="350">https://logga.hb.se/HB_logo_en_350px.png</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">hb högskolan+i+borås hogskolan+i+boras textilhogskolan textilhögskolan bibliotekshogskolan bibliotekshögskolan university+of+borås textile+university+of+borås university+of+boras textile+university+of+boras boras+university+of+library+scieence borås+university+of+library+science</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">hb högskolan+i+borås hogskolan+i+boras textilhogskolan textilhögskolan bibliotekshogskolan bibliotekshögskolan university+of+borås textile+university+of+borås university+of+boras textile+university+of+boras boras+university+of+library+scieence borås+university+of+library+science</mdui:Keywords>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.hb.se/en/shortcuts/about-the-site/privacy-policy/</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="sv">https://www.hb.se/genvagar/om-webbplatsen/integritetspolicy/</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>hb.se</mdui:DomainHint>
+          <mdui:IPHint>193.10.168.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.169.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.170.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.171.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.172.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.173.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.174.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.175.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.245.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.246.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.247.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.64.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.65.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.66.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.67.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.68.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.69.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.70.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.71.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.72.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.73.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:57.724368,12.939918</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE7jCCAtagAwIBAgIVAOYUZM0zUB7/ElZFFERtsrXKrs5YMA0GCSqGSIb3DQEB
+CwUAMBQxEjAQBgNVBAMMCWlkcC5oYi5zZTAeFw0yMjEyMTAxOTEwNTZaFw0zMjEy
+MTAxOTEwNTZaMBQxEjAQBgNVBAMMCWlkcC5oYi5zZTCCAiIwDQYJKoZIhvcNAQEB
+BQADggIPADCCAgoCggIBAKTBjJZFXeE6TY1ZPIj++2iLbIjO30NVTgjeuwSpUkiK
+WdbPE3gTyEI6EgVCy7iDxp1p9gSw0RxExEGA5KRqJWorMd3mEXWTf4SHp7uOIy7O
+J8WBqE0UuWuCY8q4ByZ4KC+CylFNhObAZG9PRJOJ/bIG319fY/Su1kzNypLf1h2w
+BJXM5DHBcqPv+7HF+MwpV0eoyXuHXAc857ldh+8RinzfOk77H5+zqE0ywIisDFLD
+eQ29gNWzFgvMghy4jBBCHU7GFFUuR/BBQlSowrGnZej0fRncHK8cvSvxIU8KRLmh
+RlykiOPCHm8MiIa/TJ8tgAQ5044qhrx/BWQ8uHPMUIMv8zrC9HdoFHrz3H+5NEYi
+gK00zzKoAcC5zZGKFyOB3qPE0DTX+mrxXX0NYE2rlkR0rXUiWfdYVXhnp6bZOJoA
+yXhcl0QG//U9/AsEUjOH+MqKkxjbH0tB5/x+C4LUbnYgG1/dbyKMBk7XS1IZAsSz
+R4FOmXI8ck3X94JsVX11wWeTnCxvodEE5OnV76Mmvg3k3UuGkNPtKnxPZyil20R3
+Iihtl/Zn9/KjhvGiO0/gz01OGswPhudJtZhnguf4Bapp50oAJEpIGQldfGvdGDEN
+48NsdSAAuQc44VtpumW01nhyq0v+h5DO8VrHZfBeBNYFzIPM0W8+sm7HAbcGBN0N
+AgMBAAGjNzA1MB0GA1UdDgQWBBTGVb6Zdk6HiQmWLM2hH4YZVl6R9TAUBgNVHREE
+DTALgglpZHAuaGIuc2UwDQYJKoZIhvcNAQELBQADggIBAGei1HYlxqXG1m6MGFtm
+5Uf95HMq9qA7RRPTM8+S822WNqAZl9tUdiLkrHP/iH7+1/8KjqhlHW54M7RRlQhu
+Ixb6SKp4hIFk9WCm6uZHCtmWE4eZwgCezp0ENpmXXz9/4P70F95kq9d+CTe+pFnB
+lDQQtxxWk05C5kjwEJ1HqubgKO/5OEdOE9/2nofyu2X8TLRArZjKHbZ7MaFLYGdF
+n7OXnLZRBybgddqSSyxTiEeWBSO2nyazBdzogiYhy5BsuHyZFgy0Ixx1dWrqgE0Z
+0j3gIkTeH1NKqslP3qCGsoI0zGGGHtlULMwqp1yhFfk03s/0KfKrkg1b6uN9yQGW
+iv1RJ77S3IAN7SZSd5slLbRm7kPC6OeEyhKBk3JDdNHpT7W43O4EccuYl9no7eBG
+AiFNYCAm4GTjapg268Me3Bpn6Sxrn0ONIM1410gMDvYvOUbvuL1FW8Ar4idVPgPR
+zCuWjqX3+225kpZ44nLloeEsx1EL3JGjo5RBScJfH4GsU9JVKfvZSlIc+rn8mf6y
+alUMbrX1ESgB0AlHxQt4XwyAqilGIA7yevE5KpfoWhb5E4W1mDLO2E+QGRH3Zo8g
+YnA8moDJE3mVOIaBMXZHptScEd9TbPYd8xOXTf8dpnr9/+EyhpCdHcsL0s73zGvY
+R17u+ZLh6q7ZL8grOV2cmboW</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE7jCCAtagAwIBAgIVAK9TocGkbu27kocUI2wmAd4f3RRJMA0GCSqGSIb3DQEB
+CwUAMBQxEjAQBgNVBAMMCWlkcC5oYi5zZTAeFw0yMjEyMTAxOTEwMTBaFw0zMjEy
+MTAxOTEwMTBaMBQxEjAQBgNVBAMMCWlkcC5oYi5zZTCCAiIwDQYJKoZIhvcNAQEB
+BQADggIPADCCAgoCggIBAJ52NiWPWp9PXJc7QKGbLkSZ3mB11UCv1EA6v19hdJD6
+ZFwMQzy0dZP1Ak17/dcpr7Sdb4fMOfCwNaCF0AoX+37nSFrpvFDQqUrH5tU9YhIC
+H1lZgxBdIJyyEwLmPSf2I0+kZ0IA7CsZrhOWJtZFl6UIGv3+4HQ/trmZbKA11xUe
+o5txqLGzQpeSaInt/b3sMSqPpsHtdnN3QD2yfcCNIV46kLisFS1K1SRfz2vStL67
+uwUMmf/JrqHwKoa3iF5Eq7B04EbXY+qFx4OsfZEJB9JyqhLgMaQw5k9kHgDtGK0k
+5G/fPeoHoM6WtKxJDGYCtrAU1FtwCfiiqCnqy6YFXuun4big48XD3z+P8rkZqjZR
+T1OB8uxAtV01K5CHy6YYqaltPJki/s3D19L5CuYHQKSrrPRJ/mAvDW9IAbougHM+
+MTT87xGgHQP9dUBB9Ovp6+Ck1hCoVFi7XuO3qIwbzVzyCjT00J0yI8C6VGXe4GOD
+WGCfVudfNFP02NxqotErBeypESgrMl1QoEJ62d/owRpBb1jFNq/6hKlN52DvmFNy
+4jnALiYAcg4H/lCRK6MUaFY072RORz5Eeb7GRAphZNl+GwOqlIiCpwzdhY2p3RqD
+DSBaCU4X5nqt1YQWfIWR9sCVgakuv19W1BpFzB3eJ9ooYLzh5fFzKYoyI9/0O4BB
+AgMBAAGjNzA1MB0GA1UdDgQWBBQBNHKBXOXnMBaWXKMsyADo9IG7TjAUBgNVHREE
+DTALgglpZHAuaGIuc2UwDQYJKoZIhvcNAQELBQADggIBADFK3LdeHIr66YdSrv51
+fy5ybcQJbsxNMWCmUNWcObNDjqlwH1VZL51GjXQ5GheAXCgWxCtTY65ttE5hR3Kp
+uxItVSgia9npP7vAEeBrY07yZItXlIOtz+GDqsua8Z39IK9GXa9f7a9q5LurUHZA
+kVVC9D9OY/JWbMUefLmc5R8AFPmrrMqEgwvqXgeujzCIti+Tp9X6I1sxA4X5Cby5
+jUrb4scXlWqH+mQ83FUn2mb/dDOjhV/hM7uv7KR4eHEEWih2M60jYDhzeXzbwp1a
+2Xod3B0g7Kk7I682fERMHnDzpcRxybYVPZwHzo1sfrJpspO0QK2OSZOH5pEcNYhL
+W/aeXKwvqlZ23l0DlEa51iGrRvqKy0dMh4vjC7pDxL6sJsF8XCfCaYMB+SEcT/rh
+gp/CVuy0WJ7876fmAHOrvIM2ciSzWQtINM/3W3hRsenX12/MIpcLXSeUST5TJm2q
+t/tZf+cxsj4NPI+i/Ba9v3DLnKvnFIGviCyxnYxMb26sElwpf52pgSCuLK6PTR7z
+FPaPk7oAQHwfrf0dS8hSr1Sz//cEII1e1id1yh/mFxvS5Sg4ZPND5//KhZ/bd9md
+eoLhA94GnVrAaIQRD0m/DxGNxe/mxtq5alAl/J1G5punm7b9OacD8uWwAdZtO9ty
+aLtt49myHKbt5+lsrnCgqff6</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hb.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hb.se/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hb.se/idp/profile/SAML2/POST/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hb.se/idp/profile/SAML2/POST-SimpleSign/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hb.se:8443/idp/profile/SAML2/SOAP/SLO" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hb.se/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hb.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hb.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Borås</md:OrganizationName>
+      <md:OrganizationName xml:lang="sv">Högskolan i Borås</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Högskolan i Borås</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Borås</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hb.se</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sv">http://www.hb.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>University of Borås</md:Company>
+      <md:SurName>IT</md:SurName>
+      <md:EmailAddress>mailto:it@hb.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 33 435 4690</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>University of Borås</md:Company>
+      <md:SurName>IT</md:SurName>
+      <md:EmailAddress>mailto:it@hb.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 33 435 4690</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>University of Borås</md:Company>
+      <md:SurName>IT</md:SurName>
+      <md:EmailAddress>mailto:it@hb.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 33 435 4690</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:Company>University of Borås</md:Company>
+      <md:GivenName>IRT HB</md:GivenName>
+      <md:EmailAddress>mailto:csirt@hb.se</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

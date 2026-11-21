@@ -1,0 +1,53 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://unicon.fedgw.com/gateway">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://incommon.org" />
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://id.incommon.org/category/registered-by-incommon</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor errorURL="https://www.unicon.net/Unicon's_IdP_Privacy_Policy/" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unicon.fedgw.com</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Unicon Gateway</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Unicon SAML proxy gateway</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.unicon.net/Unicon's_IdP_Privacy_Policy/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="30" width="200" xml:lang="en">https://unicon.fedgw.com/admin/image/unicon_logo_200.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIICqjCCAZICAQAwDQYJKoZIhvcNAQEFBQAwGzEZMBcGA1UEAwwQdW5pY29uLmZlZGd3LmNvbTAeFw0yMDAyMjYxNzE0MzNaFw0zMDAyMjMxNzE0MzNaMBsxGTAXBgNVBAMMEHVuaWNvbi5mZWRndy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC7v9Y0fRlgJKvsuhR0fxQfIW9u0cJrx6wldyQVIp8IIE1V1pURhhrFTBMr01Kzd1NE7mCPWohskfTqIa+2lHiWrz84VGdcE3MJwneAMPcieqTApBYF8JypzIdzZZHNVjM9OQj/p6IoRZGAgiKiOUcBbguehdVhBHifp3nm7/LJwbpgd6E9V4STAcPcnGTWdUKMbshDr22XxSGk5VjeKSaRVtg+8z/fzrbUUsYnxRSijM8537CZ/7qlLwNpnmsUvW0n8j1V7m1F/rOZbMzZJTN2JiNj+gqlw3YTfAwwzX1YJ7GreW7BJiOqhRnWpOC0qC1E35H1Vk7MMZjXy+hn0n8RAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAIoLonP7UDQ+G1dAjDTlxPeBzxQp3uw49C7SjJ0eXY2/BcpA5WOG73piMDBjnFHqXI5h6pcC69Enx96DZ+lZvtSniLjMxtOPgtys9VYqtCw6ZAw/CMQvzPSJ2MQtnCI6aVJnQIg7FakmrppZ8aaW2/xbPhVCYcsaMKQP1VPtZdzuxGHZnHDCQ6dYOZjV21hqxXmWJiA6rB0tcXwJMlHnYSV4o72q0aTIW7c394UQY4wiAzkLB7c17956NnYAFqdmEq+HmG4rYxoA7TkbN0FVaMQyZZSucozK17+ovIOejzbiUSXSxGr+bHUAjT+fAOxKmk5ZeQM+1XfBIEYfRapSEnU=
+          </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://unicon.fedgw.com/gateway/saml2/idp/SingleLogoutService.php" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://unicon.fedgw.com/gateway/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Unicon, Inc.</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Unicon, Inc.</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.unicon.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Jonathan Johnson</md:GivenName>
+      <md:EmailAddress>mailto:jsjohnson@unicon.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jonathan Johnson</md:GivenName>
+      <md:EmailAddress>mailto:jsjohnson@unicon.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Security Operations</md:GivenName>
+      <md:EmailAddress>mailto:sec-ops@unicon.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

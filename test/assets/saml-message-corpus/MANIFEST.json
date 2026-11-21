@@ -1,0 +1,5361 @@
+{
+  "description": "SAML protocol messages (Responses, Assertions, AuthnRequests, LogoutRequests, LogoutResponses) collected from open-source SAML libraries' test fixtures. storedAs records whether the upstream file was raw XML, base64, or base64+deflate; the file here is always the decoded XML. Many are deliberately invalid (signature wrapping, tampering, missing elements): those pin the rejection. Files prefixed protocol-- are per-product protocol examples (signed responses from Entra ID, Okta, Google Workspace, Auth0, AD FS, OneLogin, Keycloak and PingOne; an Okta IdP-initiated response; an AD FS encrypted assertion; WS-Federation and logout examples marked supplemental in their notes). keys/ holds the published, test-only SP private keys that decrypt the encrypted cases. validateOptions on an entry override the defaults (audience taken from the decrypted assertion, the verification certificate, and the key file).",
+  "documents": [
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-3971-8859-2-in-header-authnresponse.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-3971-8859-2-in-header-authnresponse.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-3971-utf-8-no-header-authnresponse.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-3971-utf-8-no-header-authnresponse.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-4489-encrypted-assertion-with-newlines.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-4489-encrypted-assertion-with-newlines.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-4552-saml20-aslo-response-via-extension.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-4552-saml20-aslo-response-via-extension.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-4790-Empty-attribute-value-last.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-4790-Empty-attribute-value-last.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-4790-Empty-attribute-value.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-4790-Empty-attribute-value.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-6412-response-with-proxy-restriction.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-6412-response-with-proxy-restriction.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-7316-noAtrributes.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-7316-noAtrributes.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-7316-withFalseAttributes.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-7316-withFalseAttributes.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_KEYCLOAK-7316-withTrueAttributes.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/KEYCLOAK-7316-withTrueAttributes.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml11-assertion-not-wellformed.xml",
+      "root": "Assertion",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml11-assertion-not-wellformed.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-assertion-advice.xml",
+      "root": "Assertion",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-assertion-advice.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-assertion-anytype-attribute-value.xml",
+      "root": "Assertion",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-assertion-anytype-attribute-value.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-assertion-dsakey.xml",
+      "root": "Assertion",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-assertion-dsakey.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-assertion-encrypted.xml",
+      "root": "EncryptedAssertion",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-assertion-encrypted.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-assertion-example.xml",
+      "root": "Assertion",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-assertion-example.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-assertion-nil-wrong-1.xml",
+      "root": "Assertion",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-assertion-nil-wrong-1.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-assertion-nil-wrong-2.xml",
+      "root": "Assertion",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-assertion-nil-wrong-2.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-attributequery-with-extension.xml",
+      "root": "AttributeQuery",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-attributequery-with-extension.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-attributequery.xml",
+      "root": "AttributeQuery",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-attributequery.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-authnrequest-invalid-namespace.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-authnrequest-invalid-namespace.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-authnrequest-invalid-per-xsd.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-authnrequest-invalid-per-xsd.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-authnrequest-with-extension.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-authnrequest-with-extension.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-authnrequest.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-authnrequest.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-encrypted-id-response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-encrypted-id-response.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-encrypted-signed-redirect-response-two-extensions.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-encrypted-signed-redirect-response-two-extensions.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-encrypted-signed-redirect-response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-encrypted-signed-redirect-response.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-logout-response-nested-status-deep.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-logout-response-nested-status-deep.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-logout-response-nested-status.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-logout-response-nested-status.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-logout-response-status-detail.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-logout-response-status-detail.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-logout-response-status.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-logout-response-status.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_parsers_saml_saml20-signed-logout-request.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/parsers/saml/saml20-signed-logout-request.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_saml_v2_util_saml20-response-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/saml/v2/util/saml20-response-assertion-signed.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "keycloak--saml-core_src_test_resources_org_keycloak_saml_processing_core_saml_v2_util_saml20-signed-response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/keycloak/keycloak",
+        "commit": "753cace",
+        "path": "saml-core/src/test/resources/org/keycloak/saml/processing/core/saml/v2/util/saml20-signed-response.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "responses/keycloak-assertion-signed",
+          "provider": "Keycloak",
+          "category": "signed-response",
+          "signaturePlacements": ["Assertion"]
+        }
+      ]
+    },
+    {
+      "file": "node-saml--test_static_logout_request_with_bad_expiration.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/logout_request_with_bad_expiration.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_logout_request_with_bad_signature.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/logout_request_with_bad_signature.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_logout_request_with_encrypted_name_id.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/logout_request_with_encrypted_name_id.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_logout_request_with_good_signature.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/logout_request_with_good_signature.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_logout_request_with_session_index.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/logout_request_with_session_index.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_response-with-uncomplete-attribute.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/response-with-uncomplete-attribute.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_response.root-signed.message-signed-double-subjectconfirmation.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/response.root-signed.message-signed-double-subjectconfirmation.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_response.root-signed.message-signed-empty-subjectconfirmation.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/response.root-signed.message-signed-empty-subjectconfirmation.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_response.root-signed.message-signed-no-subjectconfirmation.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/response.root-signed.message-signed-no-subjectconfirmation.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_logoutrequest.root-signed.duplicate-root-id.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/logoutrequest.root-signed.duplicate-root-id.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_logoutrequest.root-signed.reference-uri-without-hash.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/logoutrequest.root-signed.reference-uri-without-hash.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_logoutrequest.root-signed.signature-in-extensions.xml",
+      "root": "LogoutRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/logoutrequest.root-signed.signature-in-extensions.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-carries-assertion-signature.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-carries-assertion-signature.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-resigned-by-attacker-assertion-unsigned-attackers-cert-at-keyinfo.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-resigned-by-attacker-assertion-unsigned-attackers-cert-at-keyinfo.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed-2references.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed-2references.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed-transforms.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed-transforms.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed-twice.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed-twice.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed-uri-with-quote.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed-uri-with-quote.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed-uri-without-hash.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed-uri-without-hash.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-invalidly-signed-encrypted.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-invalidly-signed-encrypted.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-invalidly-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-invalidly-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-signed.1advice-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-signed.1advice-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-signed.1advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-signed.1advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-signed.2advice-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-signed.2advice-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-signed.2advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-signed.2advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-unsigned.1advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-unsigned.1advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-unsigned.2advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-unsigned.2advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-signed.multiple-root-elements.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-signed.multiple-root-elements.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-unsigned.assertion-signed-transforms.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-unsigned.assertion-signed-transforms.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-unsigned.assertion-signed.1advice-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-unsigned.assertion-signed.1advice-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-unsigned.assertion-signed.1advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-unsigned.assertion-signed.1advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-unsigned.assertion-signed.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-unsigned.assertion-signed.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-unsigned.assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-unsigned.assertion-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-unsigned.assertion-unsigned.1advice-unsigned.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-unsigned.assertion-unsigned.1advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-unsigned.assertion-unsigned.2advice-unsigned.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-unsigned.assertion-unsigned.2advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_invalid_response.root-unsigned.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/invalid/response.root-unsigned.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-signed.1advice-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-signed.1advice-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-signed.1advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-signed.1advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-signed.2advice-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-signed.2advice-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-signed.2advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-signed.2advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned-13-signature.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned-13-signature.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned-13.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned-13.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned-encrypted.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned-encrypted.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned-xd-signature.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned-xd-signature.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned-xd.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned-xd.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned.1advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned.1advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned.2advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned.2advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned.sha256-rsa-mgf1.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned.sha256-rsa-mgf1.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-signed.assertion-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-signed.assertion-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-unsigned.assertion-signed.1advice-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-unsigned.assertion-signed.1advice-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-unsigned.assertion-signed.1advice-unsigned.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-unsigned.assertion-signed.1advice-unsigned.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_signatures_valid_response.root-unsigned.assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/signatures/valid/response.root-unsigned.assertion-signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "node-saml--test_static_testshib_encrypted_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/node-saml/node-saml",
+        "commit": "3d083fb",
+        "path": "test/static/testshib encrypted response.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_logout_requests_invalids_invalid_issuer--291.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/logout_requests/invalids/invalid_issuer.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_logout_requests_invalids_invalid_issuer.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/logout_requests/invalids/invalid_issuer.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_logout_requests_invalids_invalid_xml.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/logout_requests/invalids/invalid_xml.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_logout_requests_invalids_no_nameId.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/logout_requests/invalids/no_nameId.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_logout_responses_invalids_invalid_xml.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/logout_responses/invalids/invalid_xml.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_decrypted_valid_encrypted_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/decrypted_valid_encrypted_assertion.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_expired_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/expired_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_bad_reference.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/bad_reference.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_duplicated_attributes_with_friendly_names.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/duplicated_attributes_with_friendly_names.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_empty_destination.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/empty_destination.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_empty_nameid.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/empty_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_encrypted_attrs.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/encrypted_attrs.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_issuer_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_issuer_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_issuer_message.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_issuer_message.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_sessionindex.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_sessionindex.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_strict_destination.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_strict_destination.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_subjectconfirmation_inresponse.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_subjectconfirmation_inresponse.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_subjectconfirmation_noa.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_subjectconfirmation_noa.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_subjectconfirmation_recipient.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_subjectconfirmation_recipient.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_unpaired_inresponsesto.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_unpaired_inresponsesto.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_invalid_xml.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/invalid_xml.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_no_authnstatement.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/no_authnstatement.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_no_conditions.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/no_conditions.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_no_issuer_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/no_issuer_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_no_issuer_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/no_issuer_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_no_key.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/no_key.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_no_subjectconfirmation_data.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/no_subjectconfirmation_data.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_no_subjectconfirmation_method.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/no_subjectconfirmation_method.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_no_value_nameid.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/no_value_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_not_before_failed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/not_before_failed.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_invalids_response_encrypted_attrs.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/invalids/response_encrypted_attrs.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_response1.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/response1.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_response6.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/response6.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_response_adfs1.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/response_adfs1.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_response_encrypted_nameid.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/response_encrypted_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_response_encrypted_nameid_encrypted_assertion2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/response_encrypted_nameid_encrypted_assertion2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_response_namespaces.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/response_namespaces.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_signed_assertion_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/signed_assertion_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_signed_encrypted_assertion_with_ns_problems.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/signed_encrypted_assertion_with_ns_problems.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_signed_message_response--300.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/signed_message_response.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_signed_message_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/signed_message_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_unsigned_response_with_miliseconds.xm.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/unsigned_response_with_miliseconds.xm.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "php-saml--tests_data_responses_wrong_spnamequalifier.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/onelogin/php-saml",
+        "commit": "c7ac7da",
+        "path": "tests/data/responses/wrong_spnamequalifier.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "polis--npm_test_identity-federation_data_request.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/identity-federation/data/request.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "polis--npm_test_identity-federation_data_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/identity-federation/data/response.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "polis--npm_test_sso_data_logout_response.xml",
+      "root": "LogoutResponse",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/sso/data/logout_response.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "polis--npm_test_sso_data_logout_response_failed.xml",
+      "root": "LogoutResponse",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/sso/data/logout_response_failed.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "polis--npm_test_sso_data_saml_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/ory/polis",
+        "commit": "e13ed65",
+        "path": "npm/test/sso/data/saml_response",
+        "license": "Apache-2.0",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "pysaml2--tests_attribute_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/attribute_response.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_eidas_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/eidas_response.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_okta_assertion.xml",
+      "root": "Assertion",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/okta_assertion",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_okta_response.xml",
+      "root": "EncryptedAssertion",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/okta_response.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_pre_enc.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/pre_enc.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_saml_false_signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/saml_false_signed.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_saml_hok.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/saml_hok.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_saml_hok_invalid.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/saml_hok_invalid.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_saml_signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/saml_signed.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_saml_unsigned.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/saml_unsigned.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_simplesamlphp_authnresponse.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/simplesamlphp_authnresponse.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_xmlsec1-keydata_signed-assertion-random-embedded-cert.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/xmlsec1-keydata/signed-assertion-random-embedded-cert.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_xmlsec1-keydata_signed-assertion-with-hmac.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/xmlsec1-keydata/signed-assertion-with-hmac.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_xmlsec1-keydata_signed-response-with-hmac.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/xmlsec1-keydata/signed-response-with-hmac.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_xsw_signed-xsw-assertion-assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/xsw/signed-xsw-assertion-assertion.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_xsw_signed-xsw-assertion-extensions.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/xsw/signed-xsw-assertion-extensions.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_xsw_signed-xsw-assertion-in-assertion-first-sig.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/xsw/signed-xsw-assertion-in-assertion-first-sig.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_xsw_signed-xsw-assertion-wrapper.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/xsw/signed-xsw-assertion-wrapper.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "pysaml2--tests_xsw_signed-xsw-response-in-response-first-sig.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/IdentityPython/pysaml2",
+        "commit": "2fb5b50",
+        "path": "tests/xsw/signed-xsw-response-in-response-first-sig.xml",
+        "license": "Apache-2.0",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_invalids_invalid_issuer--165.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/invalids/invalid_issuer.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_invalids_invalid_issuer.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/invalids/invalid_issuer.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_invalids_no_nameId.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/invalids/no_nameId.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_invalids_not_after_failed--167.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/invalids/not_after_failed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_invalids_not_after_failed.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/invalids/not_after_failed.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_logout_request--161.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/logout_request.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_logout_request.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/logout_request.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_logout_request_encrypted_nameid.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/logout_request_encrypted_nameid.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_logout_request_with_encoding.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/logout_request_with_encoding.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_requests_logout_request_with_sessionindex.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_requests/logout_request_with_sessionindex.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_responses_invalids_no_status.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_responses/invalids/no_status.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_responses_invalids_status_code_responder.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_responses/invalids/status_code_responder.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_responses_logout_response.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_responses/logout_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_responses_logout_response_deflated.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_responses/logout_response_deflated.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_responses_logout_response_with_encoding.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_responses/logout_response_with_encoding.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_logout_responses_logout_response_with_encoding_deflated.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/logout_responses/logout_response_with_encoding_deflated.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_requests_authn_request--158.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/requests/authn_request.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_requests_authn_request.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/requests/authn_request.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_adfs_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/adfs_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_decrypted_valid_encrypted_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/decrypted_valid_encrypted_assertion.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_double_signed_encrypted_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/double_signed_encrypted_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_double_signed_encrypted_assertion2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/double_signed_encrypted_assertion2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_double_signed_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/double_signed_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_double_signed_response2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/double_signed_response2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_expired_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/expired_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_bad_reference.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/bad_reference.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_duplicated_attributes.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/duplicated_attributes.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_empty_destination.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/empty_destination.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_empty_nameid.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/empty_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_encrypted_attrs.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/encrypted_attrs.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_encrypted_nameID_without_EncMethod.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/encrypted_nameID_without_EncMethod.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_encrypted_nameID_without_keyinfo.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/encrypted_nameID_without_keyinfo.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_invalid_audience.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/invalid_audience.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_invalid_issuer_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/invalid_issuer_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_invalid_issuer_message.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/invalid_issuer_message.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_invalid_sessionindex.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/invalid_sessionindex.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_invalid_subjectconfirmation_inresponse.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/invalid_subjectconfirmation_inresponse.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_invalid_subjectconfirmation_nb.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/invalid_subjectconfirmation_nb.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_invalid_subjectconfirmation_noa.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/invalid_subjectconfirmation_noa.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_invalid_subjectconfirmation_recipient.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/invalid_subjectconfirmation_recipient.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_authnstatement.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_authnstatement.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_key.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_key.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_nameid.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_saml2.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_saml2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_signature.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_signature.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_status.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_status.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_status_code.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_status_code.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_subjectconfirmation_data.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_subjectconfirmation_data.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_no_subjectconfirmation_method.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/no_subjectconfirmation_method.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_not_after_failed.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/not_after_failed.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_not_before_failed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/not_before_failed.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_response_encrypted_attrs.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/response_encrypted_attrs.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_signature_wrapping_attack2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/signature_wrapping_attack2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_invalids_signed_assertion_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/invalids/signed_assertion_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_no_audience.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/no_audience.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_pretty_decrypted_valid_encrypted_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/pretty_decrypted_valid_encrypted_assertion.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_pretty_signed_message_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/pretty_signed_message_response.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_response1_with_duplicate_attributes.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/response1_with_duplicate_attributes.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_response1_with_friendlyname.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/response1_with_friendlyname.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_response_encrypted_nameid.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/response_encrypted_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_response_with_nested_nameid_values.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/response_with_nested_nameid_values.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_response_without_assertion_reference_uri.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/response_without_assertion_reference_uri.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_response_without_reference_uri.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/response_without_reference_uri.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_signed_assertion_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/signed_assertion_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_signed_assertion_response2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/signed_assertion_response2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_signed_encrypted_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/signed_encrypted_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_signed_encrypted_assertion2.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/signed_encrypted_assertion2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_signed_message_encrypted_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/signed_message_encrypted_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_signed_message_encrypted_assertion2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/signed_message_encrypted_assertion2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_signed_message_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/signed_message_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_signed_message_response2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/signed_message_response2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_unsigned_assertion.xml",
+      "root": "Assertion",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/unsigned_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_unsigned_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/unsigned_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_unsigned_response_with_miliseconds.xm.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/unsigned_response_with_miliseconds.xm.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_valid_encrypted_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/valid_encrypted_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_valid_encrypted_assertion_encrypted_nameid.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/valid_encrypted_assertion_encrypted_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_valid_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/valid_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_valid_response2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/valid_response2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_valid_response_with_namequalifier.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/valid_response_with_namequalifier.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_valid_response_without_inresponseto.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/valid_response_without_inresponseto.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "python3-saml--tests_data_responses_valid_unsigned_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/python3-saml",
+        "commit": "52d2ac8",
+        "path": "tests/data/responses/valid_unsigned_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_logout_requests_invalid_slo_request.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/logout_requests/invalid_slo_request.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_logout_requests_slo_request.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/logout_requests/slo_request.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_logout_requests_slo_request_deflated.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/logout_requests/slo_request_deflated.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "ruby-saml--test_logout_requests_slo_request_encrypted_nameid.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/logout_requests/slo_request_encrypted_nameid.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_logout_requests_slo_request_with_name_id_format.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/logout_requests/slo_request_with_name_id_format.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_logout_requests_slo_request_with_session_index.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/logout_requests/slo_request_with_session_index.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_adfs_response_sha1.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/adfs_response_sha1.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_adfs_response_sha256.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/adfs_response_sha256.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_adfs_response_sha384.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/adfs_response_sha384.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_adfs_response_sha512.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/adfs_response_sha512.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_adfs_response_xmlns.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/adfs_response_xmlns.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_inclusive_namespaces.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/inclusive_namespaces.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_duplicated_attributes.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/duplicated_attributes.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_empty_destination.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/empty_destination.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_empty_nameid.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/empty_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_encrypted_new_attack.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/encrypted_new_attack.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_invalid_audience.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/invalid_audience.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_invalid_issuer_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/invalid_issuer_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_invalid_issuer_message.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/invalid_issuer_message.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_invalid_signature_position.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/invalid_signature_position.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_invalid_subjectconfirmation_inresponse.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/invalid_subjectconfirmation_inresponse.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_invalid_subjectconfirmation_nb.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/invalid_subjectconfirmation_nb.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_invalid_subjectconfirmation_noa.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/invalid_subjectconfirmation_noa.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_invalid_subjectconfirmation_recipient.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/invalid_subjectconfirmation_recipient.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_multiple_assertions.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/multiple_assertions.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_multiple_signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/multiple_signed.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_authnstatement.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_authnstatement.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_conditions.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_conditions.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_id.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_id.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_issuer_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_issuer_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_issuer_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_issuer_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_nameid.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_saml2.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_saml2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_signature.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_signature.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_status.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_status.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_status_code.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_status_code.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_subjectconfirmation_data.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_subjectconfirmation_data.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_no_subjectconfirmation_method.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/no_subjectconfirmation_method.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_response_invalid_signed_element.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/response_invalid_signed_element.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_response_with_concealed_signed_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/response_with_concealed_signed_assertion.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_response_with_doubled_signed_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/response_with_doubled_signed_assertion.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_signature_wrapping_attack.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/signature_wrapping_attack.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_status_code_responder.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/status_code_responder.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_status_code_responer_and_msg.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/status_code_responer_and_msg.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_invalids_wrong_spnamequalifier.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/invalids/wrong_spnamequalifier.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_no_signature_ns.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/no_signature_ns.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_open_saml_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/open_saml_response.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_assertion_wrapped.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_assertion_wrapped.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_audience_self_closed_tag.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_audience_self_closed_tag.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_double_status_code.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_double_status_code.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_encrypted_attrs.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_encrypted_attrs.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_encrypted_nameid.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_encrypted_nameid.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_eval.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_eval.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_no_cert_and_encrypted_attrs.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_no_cert_and_encrypted_attrs.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_node_text_attack.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_node_text_attack.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_node_text_attack2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_node_text_attack2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_node_text_attack3.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_node_text_attack3.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_ampersands.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_ampersands.xml",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_ds_namespace_at_the_root.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_ds_namespace_at_the_root.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_multiple_attribute_statements.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_multiple_attribute_statements.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_multiple_attribute_values.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_multiple_attribute_values.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_retrieval_method.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_retrieval_method.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_saml2_namespace.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_saml2_namespace.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_signed_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_signed_assertion_2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_signed_assertion_2.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_signed_assertion_3.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_signed_assertion_3.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_signed_message_and_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_signed_message_and_assertion.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_with_undefined_recipient.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_with_undefined_recipient.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_without_attributes.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_without_attributes.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_response_without_reference_uri.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/response_without_reference_uri.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_signed_message_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/signed_message_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_signed_message_encrypted_unsigned_assertion.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/signed_message_encrypted_unsigned_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_signed_nameid_in_atts.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/signed_nameid_in_atts.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_signed_response_with_undefined_recipient.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/signed_response_with_undefined_recipient.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_signed_unqual_nameid_in_atts.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/signed_unqual_nameid_in_atts.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_simple_saml_php.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/simple_saml_php.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_starfield_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/starfield_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_test_sign.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/test_sign.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_test_sign_saml2.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/test_sign_saml2.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_encrypted_adfs.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_encrypted_adfs.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_aes128_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_aes128_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_aes128gcm_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_aes128gcm_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_aes192_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_aes192_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_aes192gcm_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_aes192gcm_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_aes256_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_aes256_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_aes256gcm_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_aes256gcm_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_des192_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_des192_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_encrypted_assertion_without_saml_namespace.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_encrypted_assertion_without_saml_namespace.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_encrypted_signed_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_encrypted_signed_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_unsigned_message_encrypted_unsigned_assertion.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/unsigned_message_encrypted_unsigned_assertion.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_valid_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/valid_response.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_valid_response_with_formatted_x509certificate.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/valid_response_with_formatted_x509certificate.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "ruby-saml--test_responses_valid_response_without_x509certificate.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/SAML-Toolkits/ruby-saml",
+        "commit": "7c7dccd",
+        "path": "test/responses/valid_response_without_x509certificate.xml.base64",
+        "license": "MIT",
+        "storedAs": "base64+deflate"
+      }
+    },
+    {
+      "file": "saml--samlsp_testdata_expected_authn_request.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "samlsp/testdata/expected_authn_request.xml",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--samlsp_testdata_expected_authn_request_secure.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "samlsp/testdata/expected_authn_request_secure.xml",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestIDPCanHandleRequestWithExistingSession_decodedRequest.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPCanHandleRequestWithExistingSession_decodedRequest",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestIDPCanHandleUnencryptedResponse_request.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPCanHandleUnencryptedResponse_request",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestIDPCanHandleUnencryptedResponse_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPCanHandleUnencryptedResponse_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestIDPMakeResponse_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPMakeResponse_response.xml",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestIDPMarshalAssertion_encrypted_assertion.xml",
+      "root": "EncryptedAssertion",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPMarshalAssertion_encrypted_assertion",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestIDPNoDestination_request.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPNoDestination_request",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestIDPWriteResponse_RequestBuffer.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestIDPWriteResponse_RequestBuffer.xml",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestMakeArtifactResolveRequest.xml",
+      "root": "ArtifactResolve",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestMakeArtifactResolveRequest",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestMakeSignedArtifactResolveRequest.xml",
+      "root": "ArtifactResolve",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestMakeSignedArtifactResolveRequest",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestParseXMLArtifactResponse_assertion.xml",
+      "root": "Assertion",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestParseXMLArtifactResponse_assertion",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPCanHandleOktaResponseEncryptedAssertionBothSigned_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanHandleOktaResponseEncryptedAssertionBothSigned_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "encrypted/okta-both-signed",
+          "provider": "Okta",
+          "category": "encrypted-assertion",
+          "signaturePlacements": ["Response", "Assertion"]
+        }
+      ],
+      "validateOptions": {
+        "audience": "http://localhost:8000/saml/metadata",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMM\nCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTgw\nOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNV\nBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0\nMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TI\nOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0IZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajf\nzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2EJuHMXMS786UY5GfD+/n0\ngRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9GIckQsyF+\nfsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8\nBINv9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEB\nCwUAA4IBAQBypFox/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyV\naXrYoHwPoWYpok6MYddMkoo2YuPGW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+Paqm\ntHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARunVy/pIuLowXrQUCF0cccePD8j\nryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQhXU85OE5qXEY\n92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr\n-----END CERTIFICATE-----\n",
+        "bypassExpiration": true,
+        "privateKeyFile": "keys/crewjam-sp-private.pem"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPCanHandleOktaResponseEncryptedSignedAssertion_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanHandleOktaResponseEncryptedSignedAssertion_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "encrypted/okta-assertion-signed",
+          "provider": "Okta",
+          "category": "encrypted-assertion",
+          "signaturePlacements": ["Assertion"]
+        }
+      ],
+      "validateOptions": {
+        "audience": "http://localhost:8000/saml/metadata",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMM\nCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTgw\nOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNV\nBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0\nMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TI\nOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0IZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajf\nzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2EJuHMXMS786UY5GfD+/n0\ngRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9GIckQsyF+\nfsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8\nBINv9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEB\nCwUAA4IBAQBypFox/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyV\naXrYoHwPoWYpok6MYddMkoo2YuPGW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+Paqm\ntHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARunVy/pIuLowXrQUCF0cccePD8j\nryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQhXU85OE5qXEY\n92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr\n-----END CERTIFICATE-----\n",
+        "bypassExpiration": true,
+        "privateKeyFile": "keys/crewjam-sp-private.pem"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPCanHandleOktaSignedResponseEncryptedAssertion_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanHandleOktaSignedResponseEncryptedAssertion_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "encrypted/okta-response-signed",
+          "provider": "Okta",
+          "category": "encrypted-assertion",
+          "signaturePlacements": ["Response"]
+        }
+      ],
+      "validateOptions": {
+        "audience": "http://localhost:8000/saml/metadata",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIDpDCCAoygAwIBAgIGAWW0dDUQMA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQG\nEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNj\nbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMM\nCmRldi01MTMzOTQxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMTgw\nOTA3MTQzMjU5WhcNMjgwOTA3MTQzMzU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNV\nBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoM\nBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtNTEzMzk0\nMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEAoggcfiSRJ6PGoI8XHKUYd89/BPMmduzR365yUEKSK6TI\nOcA/jrnJzxWHT9PsvB4znaoEdg27dmX0IZ2I0bjSoyvp4BT8ZtsuqpamsJOFDajf\nzrU/dMLIQCwY0+38F+x/gNNL+BhYb6zmrdvomb7yqI2EJuHMXMS786UY5GfD+/n0\ngRSvd+DpIW8ZlsZMG/llyxO1ZccuUqzkbiVV4w1y5PMvSBL7BAWsTn9GIckQsyF+\nfsG0bKlN3JQjHmjFUrT0cnWkAJjGIVmmrp9NUWyc/SI01i6WlwcQsKw4PB7EU3J8\nBINv9mCGXpwp5vWXRdRGjTT4BmFm8lY0QXHqXa/2+QIDAQABMA0GCSqGSIb3DQEB\nCwUAA4IBAQBypFox/IaTXAKFsRQi6WUG0QiBLCR8eLhSUDF3xkgELkNYDErQKNyV\naXrYoHwPoWYpok6MYddMkoo2YuPGW6V4zDa0k0ulbzKlvbbZQpkzIJEj4dr+Paqm\ntHAe7C7YNkj4jlfJP6QdqMK+rCBVU3kCX2c/ARunVy/pIuLowXrQUCF0cccePD8j\nryej+cmm9jjHWmQNfHDMAv/vpGSXV2W3bzNALXxfCoKqU15ii6YQhXU85OE5qXEY\n92ab3D67gppte7eNn/G7D7cuAZhkt7wfLsjoCVK4bZOwxqUw6mPoXXFpkTnlSo86\np7wkbeii7Epjm5HcXTPPC7jd7ZOu3Hsr\n-----END CERTIFICATE-----\n",
+        "bypassExpiration": true,
+        "privateKeyFile": "keys/crewjam-sp-private.pem"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPCanHandleOneloginResponse_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanHandleOneloginResponse_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "responses/onelogin-response-signed",
+          "provider": "OneLogin",
+          "category": "signed-response",
+          "signaturePlacements": ["Response"]
+        }
+      ]
+    },
+    {
+      "file": "saml--testdata_TestSPCanProduceRedirectLogoutRequest_decodedRequest.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanProduceRedirectLogoutRequest_decodedRequest",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPCanProduceRedirectLogoutResponse_decodedResponse.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanProduceRedirectLogoutResponse_decodedResponse",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPCanProduceRedirectRequest_decoded_request.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanProduceRedirectRequest_decoded_request",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPCanProduceSignedRequestPostBinding_decodedRequest.xml",
+      "root": "AuthnRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPCanProduceSignedRequestPostBinding_decodedRequest",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPMultipleAssertions.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPMultipleAssertions",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPRealWorldAssertionSignedNotResponse_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPRealWorldAssertionSignedNotResponse_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPRealWorldKeyInfoHasRSAPublicKeyNotX509Cert_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPRealWorldKeyInfoHasRSAPublicKeyNotX509Cert_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestSPRejectsInjectedComment_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPRejectsInjectedComment_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      },
+      "alsoKnownAs": [
+        {
+          "id": "responses/google-response-signed",
+          "provider": "Google Workspace",
+          "category": "signed-response",
+          "signaturePlacements": ["Response"]
+        }
+      ]
+    },
+    {
+      "file": "saml--testdata_TestSPResponseWithNoIssuer_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestSPResponseWithNoIssuer_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--testdata_TestServiceProviderCanHandleSignedAssertionsResponse_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestServiceProviderCanHandleSignedAssertionsResponse_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationEightIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationEightIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationFiveIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationFiveIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationFourIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationFourIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationNineIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationNineIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationOneIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationOneIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationSevenIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationSevenIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationSixIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationSixIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationThreeIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationThreeIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--testdata_TestXswPermutationTwoIsRejected_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "testdata/TestXswPermutationTwoIsRejected_response",
+        "license": "BSD-2-Clause",
+        "storedAs": "base64"
+      }
+    },
+    {
+      "file": "saml--xmlenc_testdata_input.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "xmlenc/testdata/input.xml",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--xmlenc_testdata_input_gcm.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "xmlenc/testdata/input_gcm.xml",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--xmlenc_testdata_plaintext.xml",
+      "root": "Assertion",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "xmlenc/testdata/plaintext.xml",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "saml--xmlenc_testdata_plaintext_gcm.xml",
+      "root": "Assertion",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/crewjam/saml",
+        "commit": "3465403",
+        "path": "xmlenc/testdata/plaintext_gcm.xml",
+        "license": "BSD-2-Clause",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_dumpes_issuer_response.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/dumpes_issuer_response.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_failed_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/failed_response.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_false_signed_request_sha1.xml",
+      "root": "AuthnRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/false_signed_request_sha1.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_false_signed_request_sha256.xml",
+      "root": "AuthnRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/false_signed_request_sha256.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_false_signed_request_sha512.xml",
+      "root": "AuthnRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/false_signed_request_sha512.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_invalid_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/invalid_response.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_logout_request.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/logout_request.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_request.xml",
+      "root": "AuthnRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/request.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_response.xml",
+      "root": "Response",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/response.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_response_signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/response_signed.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_response_signed_cert1.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/response_signed_cert1.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_response_signed_cert2.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/response_signed_cert2.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_signed_request_sha1.xml",
+      "root": "AuthnRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/signed_request_sha1.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_signed_request_sha256.xml",
+      "root": "AuthnRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/signed_request_sha256.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_signed_request_sha512.xml",
+      "root": "AuthnRequest",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/signed_request_sha512.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_signed_response_sha1.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/signed_response_sha1.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_signed_response_sha256.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/signed_response_sha256.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "samlify--test_misc_signed_response_sha512.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "repo": "https://github.com/tngan/samlify",
+        "commit": "be4a2cd",
+        "path": "test/misc/signed_response_sha512.xml",
+        "license": "MIT",
+        "storedAs": "raw"
+      }
+    },
+    {
+      "file": "protocol--responses--entra-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "signed-response",
+        "origin": "published-test-user-documentation",
+        "sourceUrl": "https://docs.safe.security/docs/how-to-collect-har-sso-troubleshooting",
+        "transformation": "Extract XML lines 68-164 from returned source text; remove Markdown fence; normalize NBSP formatting spaces.",
+        "notes": "Published testUser@SafeTechnologyPvtLtd.onmicrosoft.com response. Article XML transcribed from source text; nonbreaking formatting spaces replaced inside XML tags. Assertion signature still verifies.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--responses--okta-both-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Okta",
+        "category": "signed-response",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "unchanged XML",
+        "notes": "",
+        "signaturePlacements": ["Response", "Assertion"]
+      }
+    },
+    {
+      "file": "protocol--responses--auth0-response-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Auth0",
+        "category": "signed-response",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "unchanged XML",
+        "notes": "Historical RSA-SHA1 signature; verify only as a legacy test fixture.",
+        "signaturePlacements": ["Response"]
+      }
+    },
+    {
+      "file": "protocol--responses--adfs-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "AD FS",
+        "category": "signed-response",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "Base64 decoded; decoded bytes otherwise unchanged",
+        "notes": "",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--responses--onelogin-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "OneLogin",
+        "category": "signed-response",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "unchanged XML",
+        "notes": "",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--responses--pingone-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "PingOne",
+        "category": "signed-response",
+        "origin": "official-api-response-example",
+        "sourceUrl": "https://developer.pingidentity.com/pingone-api/auth/saml-2.0/saml-resume.html",
+        "transformation": "Extract original hidden SAMLResponse Base64 value; decode without reformatting XML.",
+        "notes": "Success response from Ping Identity SAML resume API example; includes a signed assertion.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--idp-initiated--okta-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Okta",
+        "category": "idp-initiated",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/auth0/passport-wsfed-saml2",
+        "commit": "97b451a7e5718257109a3e1ec217a72b6ed04593",
+        "path": null,
+        "license": "MIT",
+        "transformation": "Extract the Base64 literal in the \"signed assertion from okta\" test and decode it; XML unchanged.",
+        "notes": "Both Response and SubjectConfirmationData lack InResponseTo; signature verifies. Original fixture uses a historical RSA-SHA1 signature.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--encrypted--adfs-assertion-signed.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": true,
+      "source": {
+        "provider": "AD FS",
+        "category": "encrypted-assertion",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/russellhaering/gosaml2",
+        "commit": "c47eb2cf608acefca2267302954d8a5ad3139605",
+        "path": null,
+        "license": "Apache-2.0",
+        "transformation": "Base64 decoded; decoded bytes otherwise unchanged",
+        "notes": "Upstream ADFS encryption key/certificate paths are symlinks to these Okta-named test files; correct key is established by successful decryption and assertion signature verification. A second IdP for encrypted assertion coverage; this is AD FS, not Entra.",
+        "signaturePlacements": ["Assertion"]
+      },
+      "validateOptions": {
+        "audience": "https://saml.test.nope/session/sso/saml/spentityid/dknhyszjl7",
+        "publicKey": "-----BEGIN CERTIFICATE-----\nMIIC2jCCAcKgAwIBAgIQNdNUIOmoKrFJNQadPV+9sTANBgkqhkiG9w0BAQsFADAp\nMScwJQYDVQQDEx5BREZTIFNpZ25pbmcgLSBmcy5zcHN0ZXN0Mi5jb20wHhcNMTYx\nMTAyMjIyOTE1WhcNMTcxMTAyMjIyOTE1WjApMScwJQYDVQQDEx5BREZTIFNpZ25p\nbmcgLSBmcy5zcHN0ZXN0Mi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\nAoIBAQCjjUuNwckrCQgaXAMzHLFMuxrG+dREwct+d5W6PlAxlh8jxijhWXeHMcpP\nnaDLkPhI6J5hva+2r/kJcIuz3c9wAHVIl6oQdSeH4lwbrD/bfCnu0lOmjgey/cY2\nlVTs4mfx1L7ejnUWd4ROfrHkhtFgqOYrJYir29ZOqojmCvaSQbqfjXAQmP8xvsFy\nYw0FNSURrt2ZZ9HTY1T6eJIrEJi0csgI4579IzYNyttwOfuM8rDrin2gTNTVTOE/\nlfXv2q7CGU67ErETCtmaJJvlqYmRLwT51Jxrf3KLTkAjxyE4uISTuzys/Y/ktxI6\nLQ3eFD/oRfTtA1V3pj96nxbxk2z3AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEZ5\nuUC+Djrx9XJlrGHwwhVShyDcEvloJzeZLnNvMC1Gfyq4enHaVE5ztnkLTvphym9+\nW9waFlVPHlIAXv3CKz9xbFWDtaXvD229pOGThDBCKo8o2vucHCo8gn+dUq0ZS+TV\nLpqeNoTpjfI4FQZ7BwDoILza6xdXHmDukui1btNFYYwhHzgMx1x1cz4VvBj5D+WW\nf13uClD2dkeasoZ4M9KH15Oy128tXhmzCw7ymsv3KC20CvHiqwGnYcybZdcIKQUT\naB3qCNW5ti44RxwmLF4tnuFONmPuH1Pet0Hnq6pWNBMsWNEPM9LRVoPLqDR3fmkL\n/mNtZZd4xG3Kgd1IbPc=\n-----END CERTIFICATE-----\n",
+        "bypassExpiration": true,
+        "privateKeyFile": "keys/gosaml2-sp-private.pem"
+      }
+    },
+    {
+      "file": "protocol--supplemental--entra-idp-initiated-parser-only.xml",
+      "root": "Response",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "parser-only",
+        "origin": "modified-upstream-test-fixture",
+        "repo": "https://github.com/Versent/saml2aws",
+        "commit": "65195ee65d15f68a7a12da97876f6efbb8618cca",
+        "path": null,
+        "license": "MIT",
+        "transformation": "unchanged XML",
+        "notes": "No InResponseTo, but upstream XML has modified dates/formatting and its assertion signature fails. Negative/parser coverage ONLY; not a positive Entra IdP-initiated capture.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--supplemental--wsfed-entra-placeholder.xml",
+      "root": "RequestSecurityTokenResponse",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "wsfed-parser-only",
+        "origin": "modified-upstream-test-fixture",
+        "repo": "https://github.com/dotnet/aspnetcore",
+        "commit": "f7d14ca402e8bb350148bfb64ad873e48c44f0b7",
+        "path": null,
+        "license": "MIT",
+        "transformation": "unchanged XML",
+        "notes": "WS-Trust February 2005 RequestSecurityTokenResponse wrapping SAML 2.0. X509Certificate is literal ThisIsAValidToken; upstream uses a mock token validator. Parser-only, not a cryptographic positive or pristine captured POST.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--supplemental--wsfed-wstrust13-signed.xml",
+      "root": "RequestSecurityTokenResponseCollection",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "Unconfirmed WS-Fed STS",
+        "category": "wsfed-signed-supplement",
+        "origin": "upstream-provider-test-fixture",
+        "repo": "https://github.com/auth0/passport-wsfed-saml2",
+        "commit": "97b451a7e5718257109a3e1ec217a72b6ed04593",
+        "path": null,
+        "license": "MIT",
+        "transformation": "unchanged XML",
+        "notes": "Signed SAML 1.1 inside WS-Trust 1.3 RequestSecurityTokenResponseCollection. Signature verifies; source does not establish this STS as AD FS or Entra.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--supplemental--wsfed-adfs-derived-envelope.xml",
+      "root": "RequestSecurityTokenResponse",
+      "signed": true,
+      "encrypted": false,
+      "source": {
+        "provider": "AD FS",
+        "category": "wsfed-derived-envelope",
+        "origin": "derived-envelope-around-genuine-adfs-assertion",
+        "repo": "https://github.com/auth0/passport-wsfed-saml2",
+        "commit": "97b451a7e5718257109a3e1ec217a72b6ed04593",
+        "path": null,
+        "license": "MIT",
+        "transformation": "Extract XML literal from test \"should validate an assertion from adfs\"; wrap unchanged signed assertion in a newly constructed WS-Trust 2005 RSTR/RequestedSecurityToken envelope.",
+        "notes": "The SAML 1.1 assertion is a public AD FS test capture and its signature verifies. The outer RSTR was constructed here. NOT an as-received AD FS wresult POST.",
+        "signaturePlacements": ["Assertion"]
+      }
+    },
+    {
+      "file": "protocol--supplemental--logout-sp-request-to-entra.xml",
+      "root": "LogoutRequest",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "logout-documentation-example",
+        "origin": "official-documentation-example",
+        "sourceUrl": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-out-saml-protocol",
+        "transformation": "Extract documentation XML code block without reformatting.",
+        "notes": "Documentation example only; not a raw Redirect/POST capture. Request is SP->Entra, response is Entra->SP. These two samples have different request IDs and are not a matched transaction.",
+        "signaturePlacements": []
+      }
+    },
+    {
+      "file": "protocol--supplemental--logout-entra-response.xml",
+      "root": "LogoutResponse",
+      "signed": false,
+      "encrypted": false,
+      "source": {
+        "provider": "Entra ID",
+        "category": "logout-documentation-example",
+        "origin": "official-documentation-example",
+        "sourceUrl": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-out-saml-protocol",
+        "transformation": "Extract documentation XML code block without reformatting.",
+        "notes": "Documentation example only; not a raw Redirect/POST capture. Request is SP->Entra, response is Entra->SP. These two samples have different request IDs and are not a matched transaction.",
+        "signaturePlacements": []
+      }
+    }
+  ]
+}

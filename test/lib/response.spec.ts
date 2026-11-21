@@ -489,6 +489,25 @@ it('parseIssuer should return undefined if Issuer element is missing', async fun
   assert.strictEqual(issuer, undefined);
 });
 
+it('keeps tabs and line feeds in claim names and values through a round trip', async function () {
+  const name = 'department\tcode';
+  const value = 'line 1\nline 2\ttabbed';
+  const response = await createSAMLResponse({
+    audience: 'http://sp.example.com/demo1/metadata.php',
+    issuer: 'http://idp.example.com/metadata.php',
+    acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+    claims: { email: 'jackson@example.com', raw: { [name]: value } },
+    requestId: '_request',
+    privateKey: testIdpPrivateKey,
+    publicKey: testIdpPublicKey,
+  });
+  const profile = await validate(response, {
+    audience: 'http://sp.example.com/demo1/metadata.php',
+    publicKey: testIdpPublicKey,
+  });
+  assert.strictEqual(profile.claims[name], value);
+});
+
 it('Should create a SAML response with nameFormat basic', async function () {
   const json = {
     audience: 'http://sp.example.com/demo1/metadata.php',
@@ -523,7 +542,7 @@ it('Should create a SAML response with nameFormat basic', async function () {
 
   assert.strictEqual(
     response.includes(
-      '<saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef></saml:AuthnContext></saml:AuthnStatement><saml:AttributeStatement xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"><saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">_ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7</saml:AttributeValue></saml:Attribute><saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">jackson@example.com</saml:AttributeValue></saml:Attribute><saml:Attribute Name="groups" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">admin,owner</saml:AttributeValue><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">user</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:0.9.2342.19200300.100.1.1</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:0.9.2342.19200300.100.1.3</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:2.5.4.42</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:2.5.4.4</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:2.5.4.12" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:2.5.4.12</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:0.9.2342.19200300.100.1.60" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:0.9.2342.19200300.100.1.60</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:uid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:uid</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:mail" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:mail</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:givenName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:givenName</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:sn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:sn</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:title" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:title</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:jpegPhoto" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:jpegPhoto</saml:AttributeValue></saml:Attribute></saml:AttributeStatement>'
+      '<saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef></saml:AuthnContext></saml:AuthnStatement><saml:AttributeStatement><saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">_ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7</saml:AttributeValue></saml:Attribute><saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">jackson@example.com</saml:AttributeValue></saml:Attribute><saml:Attribute Name="groups" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">admin,owner</saml:AttributeValue><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">user</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:0.9.2342.19200300.100.1.1</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:0.9.2342.19200300.100.1.3</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:2.5.4.42</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:2.5.4.4</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:2.5.4.12" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:2.5.4.12</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:oid:0.9.2342.19200300.100.1.60" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:oid:0.9.2342.19200300.100.1.60</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:uid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:uid</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:mail" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:mail</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:givenName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:givenName</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:sn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:sn</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:title" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:title</saml:AttributeValue></saml:Attribute><saml:Attribute Name="urn:mace:dir:attribute-def:jpegPhoto" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"><saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">urn:mace:dir:attribute-def:jpegPhoto</saml:AttributeValue></saml:Attribute></saml:AttributeStatement>'
     ),
     true
   );
@@ -748,9 +767,9 @@ describe('validate() edge cases', function () {
     assert.strictEqual(profile.assertionId, '_first');
   });
 
-  // sanitizeXML strips &#xd; after the DOM parser's DTD check, so it can
-  // assemble a DTD keyword that only the xml2js guard sees.
-  it('rejects a DTD keyword that sanitizeXML assembles before xml2js', async function () {
+  // validate() parses the document once before sanitizeXML strips &#xd; and
+  // once after, so the second parse must catch a DTD keyword it assembles.
+  it('rejects a DTD keyword that sanitizeXML assembles', async function () {
     for (const inner of ['<!-- <!DOC&#xd;TYPE x> -->', '<![CDATA[<!EN&#xD;TITY x>]]>']) {
       await assert.rejects(
         validate(buildResponse(inner), { publicKey: testIdpCert, audience: SP }),
@@ -761,18 +780,6 @@ describe('validate() edge cases', function () {
         }
       );
     }
-  });
-
-  it('wraps a document that the DOM parser accepts but xml2js rejects', async function () {
-    await assert.rejects(
-      validate(buildResponse('<x>a & b</x>'), { publicKey: testIdpCert, audience: SP }),
-      (error: WrapError) => {
-        assert(error instanceof WrapError);
-        assert.strictEqual(error.message, 'An error occurred trying to parse XML assertion.');
-        assert.match((error.inner as Error).message, /Invalid character in entity name/);
-        return true;
-      }
-    );
   });
 
   it('rejects a signed Response without an Assertion', async function () {
@@ -916,7 +923,7 @@ describe('validate() on an unsigned response', function () {
       validate(buildResponse(buildAssertion()), { audience: SP, publicKey: testIdpCert }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'Invalid assertion.');
-        assert.strictEqual(error.inner.message, 'invalid signature: no Signature element found');
+        assert.strictEqual(error.inner?.message, 'invalid signature: no Signature element found');
         return true;
       }
     );
@@ -937,7 +944,7 @@ describe('validate() error handling', function () {
         (error: WrapError) => {
           assert(error instanceof WrapError);
           assert.strictEqual(error.message, 'An error occurred trying to validate the assertion.');
-          assert.strictEqual(error.inner.message, 'boom');
+          assert.strictEqual(error.inner?.message, 'boom');
           return true;
         }
       );
@@ -957,7 +964,7 @@ describe('validate() error handling', function () {
       }),
       (error: WrapError) => {
         assert.strictEqual(error.message, 'An error occurred during assertion replay validation.');
-        assert.strictEqual(error.inner.message, 'store unavailable');
+        assert.strictEqual(error.inner?.message, 'store unavailable');
         return true;
       }
     );

@@ -1,0 +1,98 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.brookes.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-05-24T15:34:16Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Oxford Brookes University</mdui:DisplayName>
+          <mdui:Logo height="86" width="131">https://www.brookes.ac.uk/frontendresources/img/logo-print.png</mdui:Logo>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">brookes.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPzCCAiegAwIBAgIVAJUaJYwXesdgxfeIuyhEEzVnxSpLMA0GCSqGSIb3DQEB
+						CwUAMCExHzAdBgNVBAMMFnNzby50ZXN0LmJyb29rZXMuYWMudWswHhcNMjAwNzIz
+						MjMwMDAwWhcNNDAwNzI0MDAwMDAwWjAhMR8wHQYDVQQDDBZzc28udGVzdC5icm9v
+						a2VzLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlpCJ8nOz
+						rb4EBfW2A6D9fg1IgyiQWQQs8yurKClA+lhlXClLKjfQAsio/4tJGBDIoGmGRN10
+						i2BDa1sQPrD23SluldZKN0w85iRfwjqAjF1B1rKeSSvB1juTZ3GOq7mqRGHZIwaV
+						DdCyiQWkAb28/LXmkOi17e8xZuu/vQdhgrEXe1jt7J1FTbYg9v+0OpXwpeTJwsw3
+						sdMUWcB5Dd+fJxeZADIZfPnV/juIczIgnjEscoeHsUKBhOpD1MuL/9b++BFZp4R2
+						X5hdFm9OUCBEi+u9QUtM7RgTzx5oJsnzN7sEWKqdJCImUVPr0hzGZ9cO6WneNjvh
+						w41uQk2zjRITWwIDAQABo24wbDBLBgNVHREERDBCghZzc28udGVzdC5icm9va2Vz
+						LmFjLnVrhihodHRwczovL2lkcC5icm9va2VzLmFjLnVrL2lkcC9zaGliYm9sZXRo
+						MB0GA1UdDgQWBBShqU0t7KfNrqRSbJXdLu1nKL5U9zANBgkqhkiG9w0BAQsFAAOC
+						AQEAc2drlNDH+wElFTMZMEyxg28+ZHR3fGl8sQLQYF2/PnEgVqyZBcDtDT7S/uo1
+						MFx4BDk57MegIwe6HegbXouFGRQ7tQVdTCFc666X9sewr9iyAoDNAdnn97Jt1sGv
+						Cl1Vbq43C3BYEmmkk+cdRanmtaLRTU7yZQ4LzoLEiZKhJpOMWZ9oA7Hh1JXwqoW9
+						fGit2lWDyeAsjpUBwkmUqAfEV7qEHRGnj54mOwQB21o57eDcHouwosqsaYmGhOYE
+						noFH4loRIY1o1e/x4L3r4gOySX1sh4oLe6RWhQTV+XstQIIS4emFHfHlxuu9olJV
+						s0n7iSNMUTob+4tKgdouTuRk9A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.brookes.ac.uk:8443/idp/ARS.ssaml2" index="0" isDefault="true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.brookes.ac.uk/idp/SLO.saml2" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.brookes.ac.uk/idp/SLO.saml2" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.brookes.ac.uk/idp/SLO.saml2" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.brookes.ac.uk/idp/SLO.ssaml2" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.brookes.ac.uk/idp/SSO.saml2" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.brookes.ac.uk/idp/SSO.saml2" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.brookes.ac.uk/idp/SSO.saml2" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.brookes.ac.uk/idp/SSO.saml2" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">brookes.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPzCCAiegAwIBAgIVAJUaJYwXesdgxfeIuyhEEzVnxSpLMA0GCSqGSIb3DQEB
+						CwUAMCExHzAdBgNVBAMMFnNzby50ZXN0LmJyb29rZXMuYWMudWswHhcNMjAwNzIz
+						MjMwMDAwWhcNNDAwNzI0MDAwMDAwWjAhMR8wHQYDVQQDDBZzc28udGVzdC5icm9v
+						a2VzLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlpCJ8nOz
+						rb4EBfW2A6D9fg1IgyiQWQQs8yurKClA+lhlXClLKjfQAsio/4tJGBDIoGmGRN10
+						i2BDa1sQPrD23SluldZKN0w85iRfwjqAjF1B1rKeSSvB1juTZ3GOq7mqRGHZIwaV
+						DdCyiQWkAb28/LXmkOi17e8xZuu/vQdhgrEXe1jt7J1FTbYg9v+0OpXwpeTJwsw3
+						sdMUWcB5Dd+fJxeZADIZfPnV/juIczIgnjEscoeHsUKBhOpD1MuL/9b++BFZp4R2
+						X5hdFm9OUCBEi+u9QUtM7RgTzx5oJsnzN7sEWKqdJCImUVPr0hzGZ9cO6WneNjvh
+						w41uQk2zjRITWwIDAQABo24wbDBLBgNVHREERDBCghZzc28udGVzdC5icm9va2Vz
+						LmFjLnVrhihodHRwczovL2lkcC5icm9va2VzLmFjLnVrL2lkcC9zaGliYm9sZXRo
+						MB0GA1UdDgQWBBShqU0t7KfNrqRSbJXdLu1nKL5U9zANBgkqhkiG9w0BAQsFAAOC
+						AQEAc2drlNDH+wElFTMZMEyxg28+ZHR3fGl8sQLQYF2/PnEgVqyZBcDtDT7S/uo1
+						MFx4BDk57MegIwe6HegbXouFGRQ7tQVdTCFc666X9sewr9iyAoDNAdnn97Jt1sGv
+						Cl1Vbq43C3BYEmmkk+cdRanmtaLRTU7yZQ4LzoLEiZKhJpOMWZ9oA7Hh1JXwqoW9
+						fGit2lWDyeAsjpUBwkmUqAfEV7qEHRGnj54mOwQB21o57eDcHouwosqsaYmGhOYE
+						noFH4loRIY1o1e/x4L3r4gOySX1sh4oLe6RWhQTV+XstQIIS4emFHfHlxuu9olJV
+						s0n7iSNMUTob+4tKgdouTuRk9A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.brookes.ac.uk:8443/idp/attrsvc.ssaml2" />
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Oxford Brookes University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Oxford Brookes University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.brookes.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Service Desk</md:GivenName>
+      <md:EmailAddress>mailto:servicedesk@brookes.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>ITS Sysadmin</md:GivenName>
+      <md:EmailAddress>mailto:its-sysadmin@brookes.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

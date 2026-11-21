@@ -1,0 +1,138 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://start.ladok.se/lfp">
+    <md:Extensions>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/sirtfi2</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/category/personalized</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/code-of-conduct/v2</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="https://refeds.org/entity-selection-profile" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>eyJwcm9maWxlcyI6eyJlZHVnYWluIjp7ImVudGl0aWVzIjpbeyJpbmNsdWRlIjpmYWxzZSwibWF0Y2giOiJyZWdpc3RyYXRpb25BdXRob3JpdHkiLCJzZWxlY3QiOiJodHRwczovL29wZW5hdGhlbnMubmV0In1dLCJzdHJpY3QiOiB0cnVlfX19</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/" registrationInstant="2025-11-24T14:40:01Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://swamid.se/policy/mdrps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://start.ladok.se/Shibboleth.sso/Login" />
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://start.ladok.se/Shibboleth.sso/Login" index="1" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Ladok för personal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Ladok for employees</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Ladok är en central tjänst för studieadministration för studenter och personal vid svenska universitet och högskolor.</mdui:Description>
+          <mdui:Description xml:lang="en">Ladok is a central study administration service for students and employees at higher education institutions in Sweden.</mdui:Description>
+          <mdui:Logo xml:lang="sv" width="64" height="64">https://start.ladok.se/logo/ladok_sv.png</mdui:Logo>
+          <mdui:Logo xml:lang="en" width="64" height="64">https://start.ladok.se/logo/ladok_en.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="sv">https://ladokkonsortiet.se/vara-tjanster/systemet-ladok</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://ladokkonsortiet.se/in-english/about-us/the-ladok-system</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="sv">https://ladokkonsortiet.se/om-oss/policies-och-dokument/overforing-av-personuppgifter-till-ladok-i-samband-med-federerad-inloggning</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://ladokkonsortiet.se/in-english/about-us/policies-and-documents/transfer-of-personal-data-to-ladok-when-using-federated-login</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>https://start.ladok.se/lfp</ds:KeyName>
+          <ds:KeyName>start.ladok.se</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=start.ladok.se</ds:X509SubjectName>
+            <ds:X509Certificate>MIIE3TCCAsWgAwIBAgIRAI6Z0/LmCmYbVScNA/I9qfQwDQYJKoZIhvcNAQENBQAwGTEXMBUGA1UEAxMOc3RhcnQubGFkb2suc2UwHhcNMjUxMTIxMTM1MzAyWhcNMzUxMTE5MTM1MzAyWjAZMRcwFQYDVQQDEw5zdGFydC5sYWRvay5zZTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOhvzDppRkrLbpmbHekkumhGU6fgCcBzAGtT7QfwhXrIRDaw3BwIKigdcVw5yKXD+S0aEPDnWNF2dGV++YHvopBB9QTwUmu2QAj/PFHeKq3BttQVBLzVPIBnA7XsgccZHs6fC5cB+YPe3hPzcunoYcsM4MV/eiVafrksw/tFN3QGFMh7XDUInHcF2208u0xExgumHI7/2Tpv2NGVdYg4WwEVZmRDRpnUl56DiAQVIMTgVGf85OYQeGbFrdhsrpA+GpdIfeg8RFpIqNuVRcX7eKWLW+UQJEmsKq9zI2eAEB2yXqvzlPqPq/ZBMH/6ZY3QfqfXG5U+4SNXzh1h3aJuP0UBOEo4lXprJf1p1Jp7QLF/0r3CjS8nZIqENHgn6Yz+i9zcI0SVwznchRBjbsSWXEqoEvgdzXRqNmpXgIDgHJT8xtg3fJ9zbQ5fw0+s1Q4xgHW7kq8GB/Fdff3m8zMC7IgV5bBM32J9c51bo7jzvkthx9P2PJDaVEqzcYKaViSg/nZ7gRQkGFKDm+rXP2l75bMjVs+xccNMVCUUkRvjyh1aDy91Yhk9hbjsxX1tC00DiLhcv5O1NH0NCAEqALn5S+uRW2iwNgWzkLrV6EX59q0HHJE6BKaLDCb3d5ovgEvkEm+BTUL54+B7nR0fWlxcyWUzOTcGnPLmfLUZwpC1MMwbAgMBAAGjIDAeMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMA0GCSqGSIb3DQEBDQUAA4ICAQBLcBmCpVO9ej8BeFKk5DY6jh6NzzSo3zeB0rEGBCQN+6wflT0PooMJwxaE8AYOco/Ru0DD5EhSFlvPyx2YA/3wAJIiyIIsfMUMQigT8eVqIvLKy/h2wQDdZWMQUR/dEAUvCQb06mXuDN5EJpFDUGVsyoHAJSOxp1EgJWtNvyAeWbt47AmXeHkrx2zTVAfl8mwKCLBxrMe03YWEyPnNuMr7DEFAIl3tCGb6IabX2iz0SgcJj8BJ9kYcIFi47GjqXASnt2An91wMlYlwUSMModRnqZqX8g0KMeom/2nc7I/bFGxTi9/QD1Ti8pYv82it047AViYcjygJQL7aIqwrT3gcjny7+snhbGSfmsHKRaZAMNb6pJ1g9SIgKhz8IIxpfNUF47HKTJkc5d9nf9Ky/fqVGAmUhhRJH1AWBeU6Qdl0WyBLR88sX0EqYfOxBYG433QLRjd7VmN+rII68FT7Ckb68wG+oh47A0WZ4kLzBUFoBBBgif05OZE6Ss8gm6cscMT8qp8GRJschXeIu+1qqp55kzIdHlndnVN/mgAb4LXQUlMwRaJpfmEavbKOG7wBvIs7K1mmuvmNDTFc7OfbiDAh+D5pQSwHydKDUG8p6RHeKVB9v61b7UHb44cuB429fKnjdMVjnr+/BJm9PyK0EbYBYXtwGfxzyfMon8C7B6KUvQ==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>https://start.ladok.se/lfp</ds:KeyName>
+          <ds:KeyName>start.ladok.se</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=start.ladok.se</ds:X509SubjectName>
+            <ds:X509Certificate>MIIE3TCCAsWgAwIBAgIRAI6Z0/LmCmYbVScNA/I9qfQwDQYJKoZIhvcNAQENBQAwGTEXMBUGA1UEAxMOc3RhcnQubGFkb2suc2UwHhcNMjUxMTIxMTM1MzAyWhcNMzUxMTE5MTM1MzAyWjAZMRcwFQYDVQQDEw5zdGFydC5sYWRvay5zZTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOhvzDppRkrLbpmbHekkumhGU6fgCcBzAGtT7QfwhXrIRDaw3BwIKigdcVw5yKXD+S0aEPDnWNF2dGV++YHvopBB9QTwUmu2QAj/PFHeKq3BttQVBLzVPIBnA7XsgccZHs6fC5cB+YPe3hPzcunoYcsM4MV/eiVafrksw/tFN3QGFMh7XDUInHcF2208u0xExgumHI7/2Tpv2NGVdYg4WwEVZmRDRpnUl56DiAQVIMTgVGf85OYQeGbFrdhsrpA+GpdIfeg8RFpIqNuVRcX7eKWLW+UQJEmsKq9zI2eAEB2yXqvzlPqPq/ZBMH/6ZY3QfqfXG5U+4SNXzh1h3aJuP0UBOEo4lXprJf1p1Jp7QLF/0r3CjS8nZIqENHgn6Yz+i9zcI0SVwznchRBjbsSWXEqoEvgdzXRqNmpXgIDgHJT8xtg3fJ9zbQ5fw0+s1Q4xgHW7kq8GB/Fdff3m8zMC7IgV5bBM32J9c51bo7jzvkthx9P2PJDaVEqzcYKaViSg/nZ7gRQkGFKDm+rXP2l75bMjVs+xccNMVCUUkRvjyh1aDy91Yhk9hbjsxX1tC00DiLhcv5O1NH0NCAEqALn5S+uRW2iwNgWzkLrV6EX59q0HHJE6BKaLDCb3d5ovgEvkEm+BTUL54+B7nR0fWlxcyWUzOTcGnPLmfLUZwpC1MMwbAgMBAAGjIDAeMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMA0GCSqGSIb3DQEBDQUAA4ICAQBLcBmCpVO9ej8BeFKk5DY6jh6NzzSo3zeB0rEGBCQN+6wflT0PooMJwxaE8AYOco/Ru0DD5EhSFlvPyx2YA/3wAJIiyIIsfMUMQigT8eVqIvLKy/h2wQDdZWMQUR/dEAUvCQb06mXuDN5EJpFDUGVsyoHAJSOxp1EgJWtNvyAeWbt47AmXeHkrx2zTVAfl8mwKCLBxrMe03YWEyPnNuMr7DEFAIl3tCGb6IabX2iz0SgcJj8BJ9kYcIFi47GjqXASnt2An91wMlYlwUSMModRnqZqX8g0KMeom/2nc7I/bFGxTi9/QD1Ti8pYv82it047AViYcjygJQL7aIqwrT3gcjny7+snhbGSfmsHKRaZAMNb6pJ1g9SIgKhz8IIxpfNUF47HKTJkc5d9nf9Ky/fqVGAmUhhRJH1AWBeU6Qdl0WyBLR88sX0EqYfOxBYG433QLRjd7VmN+rII68FT7Ckb68wG+oh47A0WZ4kLzBUFoBBBgif05OZE6Ss8gm6cscMT8qp8GRJschXeIu+1qqp55kzIdHlndnVN/mgAb4LXQUlMwRaJpfmEavbKOG7wBvIs7K1mmuvmNDTFc7OfbiDAh+D5pQSwHydKDUG8p6RHeKVB9v61b7UHb44cuB429fKnjdMVjnr+/BJm9PyK0EbYBYXtwGfxzyfMon8C7B6KUvQ==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes192-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes256-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://start.ladok.se/Shibboleth.sso/Artifact/SOAP" index="1" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://start.ladok.se/Shibboleth.sso/SLO/SOAP" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://start.ladok.se/Shibboleth.sso/SLO/Redirect" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://start.ladok.se/Shibboleth.sso/SLO/POST" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://start.ladok.se/Shibboleth.sso/SLO/Artifact" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://start.ladok.se/Shibboleth.sso/NIM/SOAP" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://start.ladok.se/Shibboleth.sso/NIM/Redirect" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://start.ladok.se/Shibboleth.sso/NIM/POST" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://start.ladok.se/Shibboleth.sso/NIM/Artifact" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://start.ladok.se/Shibboleth.sso/SAML2/POST" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://start.ladok.se/Shibboleth.sso/SAML2/Artifact" index="3" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://start.ladok.se/Shibboleth.sso/SAML2/ECP" index="4" />
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="sv">Ladok för personal</md:ServiceName>
+        <md:ServiceName xml:lang="en">Ladok for employees</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonAssurance" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.11" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="sv">Umeå universitet</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Umea University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Ladokkonsortiet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Ladok Consortium</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="sv">https://ladokkonsortiet.se/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://ladokkonsortiet.se/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>ITS, Umeå universitet</md:Company>
+      <md:GivenName>Ladok Operations</md:GivenName>
+      <md:EmailAddress>mailto:ladokops.its@umu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46907866600</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>ITS, Umeå universitet</md:Company>
+      <md:GivenName>Ladok Operations</md:GivenName>
+      <md:EmailAddress>mailto:ladokops.its@umu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46907866600</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>ITS, Umeå universitet</md:Company>
+      <md:GivenName>Ladok-supporten</md:GivenName>
+      <md:EmailAddress>mailto:ladokops.its@umu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46907866600</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:Company>ITS, Umeå universitet</md:Company>
+      <md:GivenName>Ladok-supporten</md:GivenName>
+      <md:EmailAddress>mailto:ladokincident@its.umu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46907866600</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,75 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.mu-ucsf.org/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.renu.ac.ug" registrationInstant="2026-02-10T12:46:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://rif.renu.ac.ug/docs/rifp.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">idrc.ug</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Infectious Diseases Research Collaboration (IDRC)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Infectious Diseases Research Collaboration (IDRC) IDP</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.idrc-uganda.org/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.idrc-uganda.org/</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDHDCCAgSgAwIBAgIJAMnIqNca5nlOMA0GCSqGSIb3DQEBCwUAMBoxGDAWBgNV
+BAMMD2lkcC5tdS11Y3NmLm9yZzAeFw0yNTExMjQxNDA4MTlaFw0zMDExMjMxNDA4
+MTlaMBoxGDAWBgNVBAMMD2lkcC5tdS11Y3NmLm9yZzCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBALRXhv0L/Q/ZHB1m36B75Jt81khVtT8h6Ivt1Mm8PyfE
+r3+GXSmT2b6d66DGwDf9d0tszOWYBAdjZiidsqVFByJO3j7gQRwSclFjpjTO135T
+mIQw3sTCU3mM1RbLgmOePXU/VfnKK1wogONpYNtoLcZgzoiopy+evq1FqET84u6R
+K3MZMXOqW/VOR/YE+D8WbY7vJwGYBjWSwmx18kBNWNEmpJt70imNPM65t1EcJ0sK
+3SxWH3k0wx94C+vzZSCaH2TPZk0FtnS99baQlR/8iCBdyMk0HXEdK3kGlHFpVnww
+gMiQxZLwUaN8DlbVsRSzTIhluN5j1AyoL3N6l0O4eZUCAwEAAaNlMGMwQgYDVR0R
+BDswOYIPaWRwLm11LXVjc2Yub3JnhiZodHRwczovL2lkcC5tdS11Y3NmLm9yZy9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU0YWaxQAQrglJkN34LZ5qqduvHEkwDQYJ
+KoZIhvcNAQELBQADggEBAAH7VaCgXHJ3+Yv9aCc8ZzCvk+LvsJDOiAOxV0g+kX2l
+sgtdX0XS49QQxng8GCF6EUQ4xjts3r61vFj7zq8vBb2X2/Svbaa2Shejd7bZFXFB
+/KrFJ5cwfPhdfPLQC1J17NkD5apI6e90W17TwSemRKr9L73i4gf0IYI50RnpwzPx
+Qq1nH2XVCb72FD6GdkzmxuFgzVbyc/QgJdCLSz1aJnhCFEsZZDZUHf34irebC7iO
+t/lUM8qy4AK2KWpRsGD5lEypP25OxOrrczxMVqjw7/l1lVRsa7oILbttil0rHjfz
+Pdt//JNuECAZzckcvnlniSwA4MYRBy/egfIGrlXvXtw=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.mu-ucsf.org/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.mu-ucsf.org/idp/profile/SAML2/POST/SSO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.mu-ucsf.org/idp/profile/SAML2/SOAP/ECP" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.mu-ucsf.org/idp/profile/SAML2/Redirect/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.mu-ucsf.org/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.mu-ucsf.org/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.mu-ucsf.org/idp/profile/SAML2/SOAP/ECP" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Infectious Diseases Research Collaboration (IDRC)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Infectious Diseases Research Collaboration (IDRC) IDP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.idrc-uganda.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Fredrick</md:GivenName>
+      <md:SurName>Tamale</md:SurName>
+      <md:EmailAddress>mailto:ftamale@renu.ac.ug</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Derrick</md:GivenName>
+      <md:SurName>Ssemanda</md:SurName>
+      <md:EmailAddress>mailto:dssemanda@renu.ac.ug</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Daniel</md:GivenName>
+      <md:SurName>Kawuma</md:SurName>
+      <md:EmailAddress>mailto:dkawuma@renu.ac.ug</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,114 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.laife.lv/saml-idp">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/code-of-conduct/v2</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <eduidmd:RepublishRequest>
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo registrationAuthority="https://idp.laife.lv/">
+        <mdrpi:RegistrationPolicy xml:lang="lv">https://vpc.lv/wp-content/uploads/2026/07/eduGAIN_policy_v3LV.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" errorURL="https://idp.laife.lv/simplesaml/module.php/core/error/ERRORURL_CODE?ts=ERRORURL_TS&amp;rp=ERRORURL_RP&amp;tid=ERRORURL_TID&amp;ctx=ERRORURL_CTX">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">laife.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">vpc.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">rtu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">edu.rtu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">augstskola.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">eka.edu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">rsu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">sseriga.edu</shibmd:Scope>
+        <shibmd:Scope regexp="false">tsi.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">tti.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">kultura.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">lka.gov.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">lka.edu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">stud.lka.edu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">alberta-koledza.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">turiba.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">va.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">eudres.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">cfi.lu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">riseba.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">izm.gov.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">osi.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">niri.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">venta.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">365.venta.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">lbtu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">lu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">university.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">edu.lu.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">jvlma.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">lhei.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">bvk.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">lnb.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">id-test.lnb.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">bscresearch.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">rai.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">kki.lv</shibmd:Scope>
+        <shibmd:Scope regexp="false">bulduri.lv</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">LAIFE (Latvian academic identity federation)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="lv">LAIFE (Latvijas akadēmiskās identitātes federācija)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">LAIFE (Latvian academic identity federation)</mdui:Description>
+          <mdui:Description xml:lang="lv">LAIFE (Latvijas akadēmiskās identitātes federācija)</mdui:Description>
+          <mdui:InformationURL xml:lang="lv">https://vpc.lv/lv/edugain/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://vpc.lv/en/edugain/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://vpc.lv/wp-content/uploads/2026/07/eduGAIN_policy_v3LV.pdf</mdui:PrivacyStatementURL>
+          <mdui:Logo width="300" height="155">https://vpc.lv/wp-content/uploads/2025/01/LogoVPC_real.svg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFJzCCA4+gAwIBAgIUSVQzMLFhJz4zPOgE2ZISSW/LluMwDQYJKoZIhvcNAQELBQAwgaExCzAJBgNVBAYTAkxWMRMwEQYDVQQIDApTb21lLVN0YXRlMQ0wCwYDVQQHDARSaWdhMRkwFwYDVQQKDBBMYWlmZSBGZWRlcmF0aW9uMR0wGwYDVQQLDBRMYWlmZSBGZWRlcmF0aW9uIEh1YjEVMBMGA1UEAwwMaWRwLmxhaWZlLmx2MR0wGwYJKoZIhvcNAQkBFg5hYnVzZUBsYWlmZS5sdjAgFw0yMzA1MjkxMjMxNDNaGA8yMDUzMDUyMTEyMzE0M1owgaExCzAJBgNVBAYTAkxWMRMwEQYDVQQIDApTb21lLVN0YXRlMQ0wCwYDVQQHDARSaWdhMRkwFwYDVQQKDBBMYWlmZSBGZWRlcmF0aW9uMR0wGwYDVQQLDBRMYWlmZSBGZWRlcmF0aW9uIEh1YjEVMBMGA1UEAwwMaWRwLmxhaWZlLmx2MR0wGwYJKoZIhvcNAQkBFg5hYnVzZUBsYWlmZS5sdjCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAK8J+nKK9rvIUxtuW+VIHxZiUTd8tsj7sKj/gY0twEpIcW0Saluu9A8RRPao6wKQMsOwUCLYi6W+3wh81+PExovpZF9221K6ihF1+QHzNlW7/7I/4EoN7JVdL96seMu5coA/+yunWqa7AQSJEOK3zAuadF2WZFNQZY8RN7MttuUsHaA7GaTg3dGsWVoMXWYXZyQwswq0qeMJCZJJbNGi3hfW95vhuf5Cyam+n72rx/GxydoUWmlncKZzGt7MIvZT4IkcJ/vneyb0rlkojgRoNx/nFmVlwd5/G8fdKGeyFbJ/dp1bNNVhdrVquUmWCWqoPbmsDtoZ6EqSdQfvPhkS69PLevO6StLk82e6ydG7Qk9LGihmYj2sdga951jybkSwz4WhLlRAmyiOgNxJ/kjSX5611Fya5bQaCSu71Pvc09Hc28JY/RDWUdhuI/upO5igfwzXbJjPhxICk9eadVzi5z9hv3cxJLmPEkMI4671gdk3a1xLPZ8anRT3A5IcIw36twIDAQABo1MwUTAdBgNVHQ4EFgQUfiwFAYbamhtr6viC+h+Wje82aXAwHwYDVR0jBBgwFoAUfiwFAYbamhtr6viC+h+Wje82aXAwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAExwIO4uaA1Pa3x7CzuLk1IAo5cHSv0MzkbvaEOGm6KaIACrhXlErj9q3mvHR/4XWmrdgM5r6V94mgVZslGzWsYsJSNngGmqArGdDe4IunD4ZBlokCPbIZKRPig9Z+EzvAOTWBuLz6FzD4CfnCbZ8uWvgnbsaCxuz4DI9f193stft+Do1iMdOmPNc/U2jU3iKPXlkmleyL/cBWlZdNYSzJ9Y+Qb3d66gdIRlK8DKC5ECUdsO80fC4atnMOXzqEGbQlFSDq71b59jpAIMSgzX7KtOzunsv2g1l5Sr9JyQD0A8MvvW7+zLJsXnq1SA3nbCPLGy538ghAa1En1iR9aKjW8Pq0VYZ83lpiw7jzRCb04cggSFTUWEseAq7NOG2Nr82XyPBvTe8oud6IufdQh0qE2nQzmVgZhK44BRiauIzU9WIG9wdnhLSkZTqNv1wqnIWlX5N5QK+kYHNM+OElI20CCwoUKq3sLMuuGayS4zpY7VLINQPLmawWAOiiIShIZwc</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFJzCCA4+gAwIBAgIUSVQzMLFhJz4zPOgE2ZISSW/LluMwDQYJKoZIhvcNAQELBQAwgaExCzAJBgNVBAYTAkxWMRMwEQYDVQQIDApTb21lLVN0YXRlMQ0wCwYDVQQHDARSaWdhMRkwFwYDVQQKDBBMYWlmZSBGZWRlcmF0aW9uMR0wGwYDVQQLDBRMYWlmZSBGZWRlcmF0aW9uIEh1YjEVMBMGA1UEAwwMaWRwLmxhaWZlLmx2MR0wGwYJKoZIhvcNAQkBFg5hYnVzZUBsYWlmZS5sdjAgFw0yMzA1MjkxMjMxNDNaGA8yMDUzMDUyMTEyMzE0M1owgaExCzAJBgNVBAYTAkxWMRMwEQYDVQQIDApTb21lLVN0YXRlMQ0wCwYDVQQHDARSaWdhMRkwFwYDVQQKDBBMYWlmZSBGZWRlcmF0aW9uMR0wGwYDVQQLDBRMYWlmZSBGZWRlcmF0aW9uIEh1YjEVMBMGA1UEAwwMaWRwLmxhaWZlLmx2MR0wGwYJKoZIhvcNAQkBFg5hYnVzZUBsYWlmZS5sdjCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAK8J+nKK9rvIUxtuW+VIHxZiUTd8tsj7sKj/gY0twEpIcW0Saluu9A8RRPao6wKQMsOwUCLYi6W+3wh81+PExovpZF9221K6ihF1+QHzNlW7/7I/4EoN7JVdL96seMu5coA/+yunWqa7AQSJEOK3zAuadF2WZFNQZY8RN7MttuUsHaA7GaTg3dGsWVoMXWYXZyQwswq0qeMJCZJJbNGi3hfW95vhuf5Cyam+n72rx/GxydoUWmlncKZzGt7MIvZT4IkcJ/vneyb0rlkojgRoNx/nFmVlwd5/G8fdKGeyFbJ/dp1bNNVhdrVquUmWCWqoPbmsDtoZ6EqSdQfvPhkS69PLevO6StLk82e6ydG7Qk9LGihmYj2sdga951jybkSwz4WhLlRAmyiOgNxJ/kjSX5611Fya5bQaCSu71Pvc09Hc28JY/RDWUdhuI/upO5igfwzXbJjPhxICk9eadVzi5z9hv3cxJLmPEkMI4671gdk3a1xLPZ8anRT3A5IcIw36twIDAQABo1MwUTAdBgNVHQ4EFgQUfiwFAYbamhtr6viC+h+Wje82aXAwHwYDVR0jBBgwFoAUfiwFAYbamhtr6viC+h+Wje82aXAwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAExwIO4uaA1Pa3x7CzuLk1IAo5cHSv0MzkbvaEOGm6KaIACrhXlErj9q3mvHR/4XWmrdgM5r6V94mgVZslGzWsYsJSNngGmqArGdDe4IunD4ZBlokCPbIZKRPig9Z+EzvAOTWBuLz6FzD4CfnCbZ8uWvgnbsaCxuz4DI9f193stft+Do1iMdOmPNc/U2jU3iKPXlkmleyL/cBWlZdNYSzJ9Y+Qb3d66gdIRlK8DKC5ECUdsO80fC4atnMOXzqEGbQlFSDq71b59jpAIMSgzX7KtOzunsv2g1l5Sr9JyQD0A8MvvW7+zLJsXnq1SA3nbCPLGy538ghAa1En1iR9aKjW8Pq0VYZ83lpiw7jzRCb04cggSFTUWEseAq7NOG2Nr82XyPBvTe8oud6IufdQh0qE2nQzmVgZhK44BRiauIzU9WIG9wdnhLSkZTqNv1wqnIWlX5N5QK+kYHNM+OElI20CCwoUKq3sLMuuGayS4zpY7VLINQPLmawWAOiiIShIZwc</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.laife.lv/simplesaml/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.laife.lv/simplesaml/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">LAIFE (Latvian academic identity federation)</md:OrganizationName>
+      <md:OrganizationName xml:lang="lv">LAIFE (Latvijas akadēmiskās identitātes federācija)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">LAIFE (Academic access in Latvia)</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="lv">LAIFE (Akadēmiskā piekļuve Latvijā)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://idp.laife.lv</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="lv">https://idp.laife.lv</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:Company>Higher Education and Science Information Technology Shared Service Centre (VPC)</md:Company>
+      <md:GivenName>Support</md:GivenName>
+      <md:SurName>Team</md:SurName>
+      <md:EmailAddress>mailto:support@laife.lv</md:EmailAddress>
+      <md:TelephoneNumber>+37167969581</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Security</md:GivenName>
+      <md:SurName>Team</md:SurName>
+      <md:EmailAddress>mailto:support@laife.lv</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Operation Team</md:GivenName>
+      <md:EmailAddress>mailto:support@vpc.lv</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

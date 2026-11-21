@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://idp.dkut.ac.ke/saml2/sso">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://rafiki.ke" registrationInstant="2025-03-24T12:23:00Z" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Dedan Kimathi University of Technology</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for use by DKUT</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.dkut.ac.ke</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.dkut.ac.ke/index.php/data-privacy-statement</mdui:PrivacyStatementURL>
+          <mdui:Logo height="16" width="16">https://www.dkut.ac.ke/images/logo.png</mdui:Logo>
+          <mdui:Logo height="60" width="80">https://www.dkut.ac.ke/images/logo.png</mdui:Logo>
+          <mdui:Logo height="60" width="80">https://www.dkut.ac.ke/images/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>dkut.ac.ke</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIE6zCCA1OgAwIBAgIUZJehIYmA1rsgW6qUFkxn6OeUOtUwDQYJKoZIhvcNAQEL
+BQAwgYQxCzAJBgNVBAYTAktFMRMwEQYDVQQIDApTb21lLVN0YXRlMQ4wDAYDVQQH
+DAVOeWVyaTENMAsGA1UECgwEREtVVDEXMBUGA1UEAwwOaWRwLmRrdXQuYWMua2Ux
+KDAmBgkqhkiG9w0BCQEWGWJvbmlmYWNlLmthbWF1QGRrdXQuYWMua2UwHhcNMjUw
+MzEzMDkyMzU3WhcNMzUwMzEzMDkyMzU3WjCBhDELMAkGA1UEBhMCS0UxEzARBgNV
+BAgMClNvbWUtU3RhdGUxDjAMBgNVBAcMBU55ZXJpMQ0wCwYDVQQKDARES1VUMRcw
+FQYDVQQDDA5pZHAuZGt1dC5hYy5rZTEoMCYGCSqGSIb3DQEJARYZYm9uaWZhY2Uu
+a2FtYXVAZGt1dC5hYy5rZTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGB
+AKgX49JJ+lUR5SUnhNsa1cYBl8i20d7XPIWorJR/oOoNxrat2zQrjcNXXWkwEfXc
+cq1fG5jEfGy/oz4oEQ1Sd3P+TQO5FM6wKh1AKAU5yLiFWuiwgoGGzWejYgZBN8UU
+U1LgJ14Yqha5ALGxwTtaOf+C4c2+1Djz1IZHzqGbD0o33RfDnEjZvrMcTvQaPyrY
+PwFibQYJ2Xo18MBXhIauUjt8F17/5xQxYOO1w7Co+pXglTUtg1+q8nEhyjFIIFu3
+0ZGBzsTVqUuXj7Q0+ajQuNulRkCKPbRJgc4GBKLcET4HyvgUZWdyvc/LaE7w64Rz
+6ZvIjA1rzgZugDDxBlLINdW8iS/7Mo8zXaJHyxlanM5ELoWPQ8Sb/+t+KfRhRc5C
+Lpu/pKCTOLXaZ6jEsOLSuqwAuLY2l+Ks/I0htEunFe2sMgLTL4CfHbymnqI/IMDD
+er+DWPo8805pToXl1vAIFndu6j0WfBUQTEBIxyAxcimRBqVjTbzhJ31ap8Pffxq0
+swIDAQABo1MwUTAdBgNVHQ4EFgQUfBvrPkhx4LuUc2O1WBYAI9roOMYwHwYDVR0j
+BBgwFoAUfBvrPkhx4LuUc2O1WBYAI9roOMYwDwYDVR0TAQH/BAUwAwEB/zANBgkq
+hkiG9w0BAQsFAAOCAYEAPS/NpmSocSLQ6rl/T6xLQRUsMW/UuLUF/Fa6z80OXznf
+q13qdpj99Fp9mSy2mlAW4HYyZfZShJQLDjng6RLyqGelhaqLhxjwggIqViAL+squ
+g4L+sd6tBCNY5b5+KCTkzN2dyZ9l3l2anZHceyaHWG2OrjpWzwqPxthx2l7/otTD
+0tXlP0wG9hkRUVc8iVOPkaPopJ0XbrY04rvUKWGZBGd39vZNAUfWLAX8gnJEZX+F
+Dz1OokTCpZvT8Sph9ZYjE0+ndAdqLV2ssVxlh+x22TfWXnwjJ+wT6wVnC8l43j9A
+Cj7l41AnFenABExtf3onAgZANMdTxrihShREuJ1SZP6kQu/C4L8cY1QA+Y21ij7s
+pK3Fux2zDowONM1oVyabrc1rbWNWL7/as031FRmYRoU8Kb59dKJsS29a5sXF+kwX
+NHZJGNHtN98cw8kTwso7uK+G77CyqLSXbNGZYaop6rjGLnrJFSjZFEfAfhtBDQFe
+joWrmp2Vh5QfdECkBRQ5
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIE6zCCA1OgAwIBAgIUZJehIYmA1rsgW6qUFkxn6OeUOtUwDQYJKoZIhvcNAQEL
+BQAwgYQxCzAJBgNVBAYTAktFMRMwEQYDVQQIDApTb21lLVN0YXRlMQ4wDAYDVQQH
+DAVOeWVyaTENMAsGA1UECgwEREtVVDEXMBUGA1UEAwwOaWRwLmRrdXQuYWMua2Ux
+KDAmBgkqhkiG9w0BCQEWGWJvbmlmYWNlLmthbWF1QGRrdXQuYWMua2UwHhcNMjUw
+MzEzMDkyMzU3WhcNMzUwMzEzMDkyMzU3WjCBhDELMAkGA1UEBhMCS0UxEzARBgNV
+BAgMClNvbWUtU3RhdGUxDjAMBgNVBAcMBU55ZXJpMQ0wCwYDVQQKDARES1VUMRcw
+FQYDVQQDDA5pZHAuZGt1dC5hYy5rZTEoMCYGCSqGSIb3DQEJARYZYm9uaWZhY2Uu
+a2FtYXVAZGt1dC5hYy5rZTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGB
+AKgX49JJ+lUR5SUnhNsa1cYBl8i20d7XPIWorJR/oOoNxrat2zQrjcNXXWkwEfXc
+cq1fG5jEfGy/oz4oEQ1Sd3P+TQO5FM6wKh1AKAU5yLiFWuiwgoGGzWejYgZBN8UU
+U1LgJ14Yqha5ALGxwTtaOf+C4c2+1Djz1IZHzqGbD0o33RfDnEjZvrMcTvQaPyrY
+PwFibQYJ2Xo18MBXhIauUjt8F17/5xQxYOO1w7Co+pXglTUtg1+q8nEhyjFIIFu3
+0ZGBzsTVqUuXj7Q0+ajQuNulRkCKPbRJgc4GBKLcET4HyvgUZWdyvc/LaE7w64Rz
+6ZvIjA1rzgZugDDxBlLINdW8iS/7Mo8zXaJHyxlanM5ELoWPQ8Sb/+t+KfRhRc5C
+Lpu/pKCTOLXaZ6jEsOLSuqwAuLY2l+Ks/I0htEunFe2sMgLTL4CfHbymnqI/IMDD
+er+DWPo8805pToXl1vAIFndu6j0WfBUQTEBIxyAxcimRBqVjTbzhJ31ap8Pffxq0
+swIDAQABo1MwUTAdBgNVHQ4EFgQUfBvrPkhx4LuUc2O1WBYAI9roOMYwHwYDVR0j
+BBgwFoAUfBvrPkhx4LuUc2O1WBYAI9roOMYwDwYDVR0TAQH/BAUwAwEB/zANBgkq
+hkiG9w0BAQsFAAOCAYEAPS/NpmSocSLQ6rl/T6xLQRUsMW/UuLUF/Fa6z80OXznf
+q13qdpj99Fp9mSy2mlAW4HYyZfZShJQLDjng6RLyqGelhaqLhxjwggIqViAL+squ
+g4L+sd6tBCNY5b5+KCTkzN2dyZ9l3l2anZHceyaHWG2OrjpWzwqPxthx2l7/otTD
+0tXlP0wG9hkRUVc8iVOPkaPopJ0XbrY04rvUKWGZBGd39vZNAUfWLAX8gnJEZX+F
+Dz1OokTCpZvT8Sph9ZYjE0+ndAdqLV2ssVxlh+x22TfWXnwjJ+wT6wVnC8l43j9A
+Cj7l41AnFenABExtf3onAgZANMdTxrihShREuJ1SZP6kQu/C4L8cY1QA+Y21ij7s
+pK3Fux2zDowONM1oVyabrc1rbWNWL7/as031FRmYRoU8Kb59dKJsS29a5sXF+kwX
+NHZJGNHtN98cw8kTwso7uK+G77CyqLSXbNGZYaop6rjGLnrJFSjZFEfAfhtBDQFe
+joWrmp2Vh5QfdECkBRQ5
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dkut.ac.ke/module.php/saml/idp/singleLogout" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dkut.ac.ke/module.php/saml/idp/singleLogout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dkut.ac.ke/module.php/saml/idp/singleSignOnService" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Dedan Kimathi University of Technology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Dedan Kimathi University of Technology</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.dkut.ac.ke</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>DKUT Help Desk</md:GivenName>
+      <md:EmailAddress>mailto:ict@dkut.ac.ke</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>DeKUT SSO Admin</md:GivenName>
+      <md:EmailAddress>mailto:boniface.kamau@dkut.ac.ke</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

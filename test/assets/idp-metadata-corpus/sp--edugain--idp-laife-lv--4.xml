@@ -1,0 +1,50 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="http://sts.rsu.lv/adfs/services/trust">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://idp.laife.lv/">
+        <mdrpi:RegistrationPolicy xml:lang="lv">https://vpc.lv/wp-content/uploads/2026/07/eduGAIN_policy_v3LV.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Riga Stradins University</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="lv">Rīgas Stradiņa universitāte</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Riga Stradins University</mdui:Description>
+          <mdui:Description xml:lang="lv">Rīgas Stradiņa universitāte</mdui:Description>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:56.950974,24.116292</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC2DCCAcCgAwIBAgIQRKvBLLhLzIZJ9KYHXFO73jANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDExxBREZTIEVuY3J5cHRpb24gLSBzdHMucnN1Lmx2MCAXDTE1MDYxNjE2MDAyOFoYDzIxMTUwNTIzMTYwMDI4WjAnMSUwIwYDVQQDExxBREZTIEVuY3J5cHRpb24gLSBzdHMucnN1Lmx2MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqz0ooNiWoQ6mZFG+VBRppVfmcX50pvVObHw0IEGf8+k0C3E66zSNPStSCvLrQugOWUp6xGmHR/IAguf68H01Ll87WZ4Jx3Xj5Oo7sTzWFYgIcm1UZBRqllwch/tZYTUTAQZW0Iitf9j+IqVvA+YjBDgAuxW6IEA0oFOSZJ63NgUiqrw1bNUjKZ0Q2SRCYrKiL10jb4b71iacIgusselh1OsHf+QwqQtbp4Qm1xaazCNfVbUZUfACoM8vJIFoqj2aQNEKOQLwNQEkj3R0CZwOSxsQqtfyolnEBFVvCGPMMKser+MDQSobwG//BVLko31nAPEzKfC719jIlKrE5HGeIwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAVMeNXUBnX5XVNyq2I20jkmFhFqPinLvAM8FVeEHaSD276aeBCjN3kMt4I7RU8YmBHcgOWRyYPUIileS0TI0sIynwVEaERJ9JrUrUDba/T5yjMwVW+2WwzMVbWHpFz4vwKepZrNxmvgD4kxOo/cOJYNAKnOGdNrZlQja8WI0aQ2tZ6f9aWTT+64YHXZTRu67pISH6zp37FSALFjdC4JlZNJn9D+vMyksLuyXzEHKGiQiLaKuRsfegJkuw8Zx6c9HOAOUcvA39do9+ayFav7f1px9COuLmMMs+FMKEOXsKp8z1e9b+0Txk53NCHX78Gr2f68IL8ZeGX+x05PRy6WlQd</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC0jCCAbqgAwIBAgIQaMNoAvqo7qJBQ8o1Y85gjzANBgkqhkiG9w0BAQsFADAkMSIwIAYDVQQDExlBREZTIFNpZ25pbmcgLSBzdHMucnN1Lmx2MCAXDTE1MDYxNjE2MDAyOVoYDzIxMTUwNTIzMTYwMDI5WjAkMSIwIAYDVQQDExlBREZTIFNpZ25pbmcgLSBzdHMucnN1Lmx2MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlNjLOaJMm7zQlatw5+qfPwjm2ja/cYfagv+lmiQ/jNUpIAomFdsM+ge1QEYMpIbiPAKkeZ+ECoZ6dIsnXbg/8Ipuhk2Pl93W28ebKzi5JuId7PZi8LTBYylWJytOQOHJi2+Jv6gYw+tAbplizYQ0Mxxb3oB11nFLIfUSB4gI9uUnXSr9xVDxC7Zl7Vr40h/ty9xgRVAsJ2vI7CkLp91uIhayriZnkFdDSA/LWISIFTR2VnLvN0TRCG/qh7M74vh8PzVJimomgLrWPFRG3nO0hXYEM/w2nl1yl16RGT3q0Ptw/Sudf7oS+yqzKX1MnF5DEk61wykP6/LSP06KSffXHQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAjMKGnji4M/VtV5BVQGAtDG36KG+/q38kYvT49fDOp7fPP/G38Uuqd9fZ4uei1VaNd4kO8MqCpQb7e8lu0xCSeocC7gaqQV2ENuuSzOQBH/HrkSo96FSG50+MuybBT/NAqL5mXOjCyTdLTxxGeJNyln0tcX3oXpz6v0tqPd/xDYwCJaleGhV82ZulHQmZfaqZ4QZc8P4FO5+C5K53c8tWUHZURVkB6r8tvixmzBe4QpSpuzMOdnc9RMRjsjemxgt0BbtE2RxgQRTkdZN5N5RrW2AALVGKXzw3aT8vXU9Y2T7ECn1YeKNezoHrpKO1Q1+r6DlHtpna8wlmLzKO8b+gQ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sts.rsu.lv/adfs/ls/" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sts.rsu.lv/adfs/ls/" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sts.rsu.lv/adfs/ls/" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sts.rsu.lv/adfs/ls/" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Riga Stradins University</md:OrganizationName>
+      <md:OrganizationName xml:lang="lv">Rīgas Stradiņa universitāte</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Riga Stradins University</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="lv">Rīgas Stradiņa universitāte</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.rsu.lv/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:EmailAddress>mailto:it@rsu.lc</md:EmailAddress>
+      <md:TelephoneNumber>+37167061515</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,63 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.suni.se/adfs/services/trust" xml:base="swamid-1.0/idp.suni.se.xml">
+  <md:Extensions>
+    <shibmd:Scope regexp="false">suni.se</shibmd:Scope>
+  </md:Extensions>
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:Extensions><shibmd:Scope regexp="false">suni.se</shibmd:Scope></md:Extensions>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC2DCCAcCgAwIBAgIQKSxwshGTtbNJpQPxRideqzANBgkqhkiG9w0BAQsFADAoMSYwJAYDVQQDEx1BREZTIEVuY3J5cHRpb24gLSBpZHAuc3VuaS5zZTAeFw0xMTA1MDQwNzEwMjFaFw0xMjA1MDMwNzEwMjFaMCgxJjAkBgNVBAMTHUFERlMgRW5jcnlwdGlvbiAtIGlkcC5zdW5pLnNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAogDO6Zkij7LcRQvl3Hluje5XStr4/qOiJ9SzB3Mr0Kymrpa4kLf7nK7tn+j0CcJS8f8Fd7lwQrXieeBieFvP1IBQozK6v03+zcjLikV9fpAnTCBsKH0QxLI3E7XyjNq+bdGX/YmtlC0yEN6cxydNQucquRE7lHba5JN54Nc48PdO5Iv3K+3d95VIOaJu/vqDiQxxRVgJSWdaLGhNZHwO7dyA/B3iII3v//JjdlgNu5DL79x6/HKIBnMaleS6tkMupF9mrIifiXz6jVJcpNqeQnejQo8ZWh5te/4j+xMZrd8DYFVnA+Kn/qQ5jq1o5AV7FHLCyVzODf9pAZ8G4gWxPwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBilygqDk0uwL3gTliBXtlhHglzxXL5j/I5QTgzd1iP0IrU0XU05f8OVgLPbf9S5dkC0Gms8vYfeXh4olbuUr78vsz7qZ8OtdqJR5D2pzUPB4jEM1IL/SLDZb6IWZN+8UToMb10HLV271R0ZrNyAml6BGflSj7Hcwyreqskhm3xJM7RJ1xQ2+DvzPjBET5wmz68PKgiKPQN2H7MVpuorNPmq7m+VtIvYEh1Xqa3UjbAwwumz2iIkgkpo6NO0LeDiP8hen/72zSMUwncCPopRmsqEMyEBBddUJzedscS2ZrOdlS2GRCV8p7WEg4PhVr+PPOBSh36qW8L0WVuFypeIK1k</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC0jCCAbqgAwIBAgIQbc63p71DgJtIcuMfcp6iCTANBgkqhkiG9w0BAQsFADAlMSMwIQYDVQQDExpBREZTIFNpZ25pbmcgLSBpZHAuc3VuaS5zZTAeFw0xMTA1MDQwNzEwMjFaFw0xMjA1MDMwNzEwMjFaMCUxIzAhBgNVBAMTGkFERlMgU2lnbmluZyAtIGlkcC5zdW5pLnNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqufdsp6p7BN3GyQnGjq0acqyqhPl+zIametzCLK91fmuP9pNmPhRBct7qzdlRJG4IdF7TXl5I5c4Cz06qus4GO1MxPq4jXilBz88I7nA+h5I1MgLvq9F4AMtKscObzgGFjtMHvZFYYz3Ff4L//djYhVzPlL4VSxRs7Agn+tpozj/M+EC5ryGXQiu2o8QIHRQUKceR0nH3nqrKuSPuBnkrDaKnEpaLIWaUZQ2prVLf3MXPcstQTX83K2tKZhHUXvxHYhBAoxYxH7cbR4BpCiVnjulMPVp9FYN00p1+C2ctY0bwVPoLVxV3Ys7ArqH3pQQdqPKe9h/hDOL0xWI28Sn6QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQCLylrR4j0sDrQIkKkcZq2g/bGiA72F9ZF2QZuRdaIMcwKaJoocPvqxh4I8U31O0mGhcAQKMMlS/tRqE9e5EJcGYmKvjNcgZlyUn9J4BPw0xQ0bDmY8Q5UT6wey80qVuPojuSzdMfx5Y40I3wRqffJ3+JYbpZbEDoy2b9m6Bo8cwDsfg4t9GBfrj3IFmqGHT1k0SIDxiwF3V/NT0EW4vmNvAn199NaQKH4cHGjw67TLiyy54DhOM9ksHTAwZPaa36aJxnS7qRPIsZxPFN/ntSuV3rhYHwHFrS+ACWjx25opdS5Q6mF9no6LlidZJnHHsBWzgeslNHJeA1CpwNn7ECWh</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.suni.se/adfs/ls/" />
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.suni.se/adfs/ls/" />
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.suni.se/adfs/ls/" />
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.suni.se/adfs/ls/" />
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.suni.se/adfs/ls/" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="E-Mail Address" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Given Name" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="UPN" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/CommonName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Common Name" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/EmailAddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="AD FS 1.x E-Mail Address" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/Group" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Group" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/UPN" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="AD FS 1.x UPN" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Role" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Surname" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="PPID" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name ID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication time stamp" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Authentication method" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only group SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only primary SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Deny only primary group SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Group SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Primary group SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Primary SID" />
+    <saml:Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Windows account name" />
+    <saml:Attribute Name="http://schemas.xmlsoap.org/claims/eduPersonScopedAffiliation" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="eduPersonScopedAffiliation" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="sv-SE">Södertörns högskola</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="sv-SE">Södertörns högskola</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="sv-SE">http://www.sh.se/</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="support">
+    <md:GivenName>Tomas</md:GivenName>
+    <md:SurName>Legat</md:SurName>
+    <md:EmailAddress>server@sh.se</md:EmailAddress>
+    <md:TelephoneNumber>+46(0)86084000</md:TelephoneNumber>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

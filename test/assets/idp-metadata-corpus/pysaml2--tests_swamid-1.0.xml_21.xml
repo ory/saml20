@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.hgo.se/idp/shibboleth" xml:base="swamid-1.0/idp.hgo.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hgo.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDWDCCAkCgAwIBAgIES4+8uzANBgkqhkiG9w0BAQUFADBuMQswCQYDVQQGEwJT
+RTEQMA4GA1UECBMHR290bGFuZDEOMAwGA1UEBxMFVmlzYnkxCzAJBgNVBAoTAklU
+MRswGQYDVQQLExJHb3RsYW5kIFVuaXZlcnNpdHkxEzARBgNVBAMTCmlkcC5oZ28u
+c2UwHhcNMTAwMzA0MTM1OTIzWhcNMjAwMzAxMTM1OTIzWjBuMQswCQYDVQQGEwJT
+RTEQMA4GA1UECBMHR290bGFuZDEOMAwGA1UEBxMFVmlzYnkxCzAJBgNVBAoTAklU
+MRswGQYDVQQLExJHb3RsYW5kIFVuaXZlcnNpdHkxEzARBgNVBAMTCmlkcC5oZ28u
+c2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDZMqgS3wqDLOKVwYHG
+5FRrM13gk+lP+Alm45T0pK192Cl3OWildw4qNiMv10oocbZUoE9PFn6PESSwF6Nt
+2nm3um4ePSbzowYwGOuRLQJfXj4FK3Dj2PO1OLD7oK4VXgka+kG93/oyEaeSfe3t
+93eFgp8bb58b42ED/CAcxvGzcHHyG0WzFTtO3hSuscy/6BKEekVefQJfpPnCuuMN
+2NothDvL+IHO7+DXMeHfH56L1P4fLz+jSMCL2hXGuZxc1f/+l9b4VpegUQx9IGk2
+Rspt3CtOHDI7hhUu5xlbxad0uyAu34dMOz/6jB3UDHYTOEoCjBGhf8RE9zeWFT5D
+VXhtAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAIZdx0R84klmPoZq7uMPh1pPJ76X
+2xpmzCoxhRqjq2Uy9HKfiu9pwo21H9w+PvXhUtdsTInAAhPl1khupPzV/uJeCybl
+mbgtQgNr5UnLtfNz7GQD0EXe0UuC+bP+Qrl6NrCke73MCOLITajJ4ggdfdF3C55e
+G1kXEv3DPMpB8tRlcf4W3fT9ZKR+6zzSOkvuMzLIzv1UBTxUas19DYYNzE3+u/9Q
+8IHjPqr0JsKZiNBRofXwLZ6y2xztQqBVDmV4yNoOLNUDDOFHYwiuR1aAJ2rNoOF7
+UTU+mTp7woVtJsWWGJRG1iDB7UxpIHdPwDBDPEfxlw11kdJ+HIyaYCrQL4A=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hgo.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hgo.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hgo.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hgo.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hgo.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hgo.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hgo.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDWDCCAkCgAwIBAgIES4+8uzANBgkqhkiG9w0BAQUFADBuMQswCQYDVQQGEwJT
+RTEQMA4GA1UECBMHR290bGFuZDEOMAwGA1UEBxMFVmlzYnkxCzAJBgNVBAoTAklU
+MRswGQYDVQQLExJHb3RsYW5kIFVuaXZlcnNpdHkxEzARBgNVBAMTCmlkcC5oZ28u
+c2UwHhcNMTAwMzA0MTM1OTIzWhcNMjAwMzAxMTM1OTIzWjBuMQswCQYDVQQGEwJT
+RTEQMA4GA1UECBMHR290bGFuZDEOMAwGA1UEBxMFVmlzYnkxCzAJBgNVBAoTAklU
+MRswGQYDVQQLExJHb3RsYW5kIFVuaXZlcnNpdHkxEzARBgNVBAMTCmlkcC5oZ28u
+c2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDZMqgS3wqDLOKVwYHG
+5FRrM13gk+lP+Alm45T0pK192Cl3OWildw4qNiMv10oocbZUoE9PFn6PESSwF6Nt
+2nm3um4ePSbzowYwGOuRLQJfXj4FK3Dj2PO1OLD7oK4VXgka+kG93/oyEaeSfe3t
+93eFgp8bb58b42ED/CAcxvGzcHHyG0WzFTtO3hSuscy/6BKEekVefQJfpPnCuuMN
+2NothDvL+IHO7+DXMeHfH56L1P4fLz+jSMCL2hXGuZxc1f/+l9b4VpegUQx9IGk2
+Rspt3CtOHDI7hhUu5xlbxad0uyAu34dMOz/6jB3UDHYTOEoCjBGhf8RE9zeWFT5D
+VXhtAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAIZdx0R84klmPoZq7uMPh1pPJ76X
+2xpmzCoxhRqjq2Uy9HKfiu9pwo21H9w+PvXhUtdsTInAAhPl1khupPzV/uJeCybl
+mbgtQgNr5UnLtfNz7GQD0EXe0UuC+bP+Qrl6NrCke73MCOLITajJ4ggdfdF3C55e
+G1kXEv3DPMpB8tRlcf4W3fT9ZKR+6zzSOkvuMzLIzv1UBTxUas19DYYNzE3+u/9Q
+8IHjPqr0JsKZiNBRofXwLZ6y2xztQqBVDmV4yNoOLNUDDOFHYwiuR1aAJ2rNoOF7
+UTU+mTp7woVtJsWWGJRG1iDB7UxpIHdPwDBDPEfxlw11kdJ+HIyaYCrQL4A=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hgo.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hgo.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+    <md:OrganizationName xml:lang="en">HGO</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Högskolan på Gotland</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.hgo.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Joacim</md:GivenName>
+    <md:SurName>Breiler</md:SurName>
+    <md:EmailAddress>joacim.breiler@hgo.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

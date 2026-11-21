@@ -1,0 +1,142 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://filesender.somaliren.org.so/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://somaliren.org" registrationInstant="2022-05-10T19:10:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://somaliren.org/sif/SomaliREN_MRPS-SIF.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/sirtfi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">SomaliREN Filesender</mdui:DisplayName>
+          <mdui:Description xml:lang="en">SomaliREN FileSender is an installation of the FileSender project (filesender.org) which is a web-based application that allows authenticated users to securely and easily send arbitrarily large files to other users.
+
+FileSender is developed to the requirements of the higher education and research community.</mdui:Description>
+          <mdui:Keywords xml:lang="en">Filesender</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://somaliren.org/file-sender/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://somaliren.org</mdui:PrivacyStatementURL>
+          <mdui:Logo height="116" width="209" xml:lang="en">https://somaliren.org/wp-content/uploads/2024/04/file-sender.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFLjCCA5agAwIBAgIJAPHG4UnYyVWrMA0GCSqGSIb3DQEBCwUAMIGrMQswCQYD
+VQQGEwJTTzEQMA4GA1UECAwHQmVuYWRpcjESMBAGA1UEBwwJTW9nYWRpc2h1MRIw
+EAYDVQQKDAlTb21hbGlSRU4xETAPBgNVBAsMCFNlcnZpY2VzMSQwIgYDVQQDDBtm
+aWxlc2VuZGVyLnNvbWFsaXJlbi5vcmcuc28xKTAnBgkqhkiG9w0BCQEWGm1vaGFt
+bWVkLmFsaUBzb21hbGlyZW4ub3JnMB4XDTIyMDUxMDA4Mjk0N1oXDTMyMDUwOTA4
+Mjk0N1owgasxCzAJBgNVBAYTAlNPMRAwDgYDVQQIDAdCZW5hZGlyMRIwEAYDVQQH
+DAlNb2dhZGlzaHUxEjAQBgNVBAoMCVNvbWFsaVJFTjERMA8GA1UECwwIU2Vydmlj
+ZXMxJDAiBgNVBAMMG2ZpbGVzZW5kZXIuc29tYWxpcmVuLm9yZy5zbzEpMCcGCSqG
+SIb3DQEJARYabW9oYW1tZWQuYWxpQHNvbWFsaXJlbi5vcmcwggGiMA0GCSqGSIb3
+DQEBAQUAA4IBjwAwggGKAoIBgQDMusANMDxGhnyLSE+5lGW3MsaAaR9mp2XJ6YFV
+pBJLEaSS1O9MlOCAUdOnYRA7LU4NQqyJ8pX+SgDk4klai5mJzhkw0/RHyP9oDztq
+KR413e7H4nK63xHv2W7myar7DaePayIVIDwQt3GxGssX0Jp0J/lBB71if51Sg257
+3ohkg5CCZOJRqhVTvNwCpK4oQYgnY57uPqKqxUPdsgsM6QwP4pJ79l/pCVi83p6r
+XlWGaEAq6q9ZKTxG8iOJNrY4z/j21hb7zuH6Cv10qlAt0XNpVw56jKQrOJrKfhnE
+sSihgsX0l2tZQtA3o1STx4QM9WopfXFMCj7T/0sESbrGfBHCnp+srBAZaTM0TIvp
+P89dzvdMHRoRYxLU42mKQ0GyL/MhbiLGCe9c33Qmsh67hmn+7BZ7aU4sVIcxdVZi
+SBoTrGNLWNgW0QlNnvuT6R1G4/V44h3+2u51r6n+LBMaovb1TP2WpK2I0qtvw7CY
+Mbm3qDd6r3iuX5RS+QC2UrgCzykCAwEAAaNTMFEwHQYDVR0OBBYEFM3qEVPvn6i6
+Dxxux7vqcVZ3wCihMB8GA1UdIwQYMBaAFM3qEVPvn6i6Dxxux7vqcVZ3wCihMA8G
+A1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADWz+kNoTjogJ80e3kqg
+waOs/zHfNCi6IejTmbwpRSXNq6YaPfJ5oyP29jTIlekF604JzXrybGLTMZfUugP5
+KtM9k5viu6BwnCjZNghsYdszvZllAxDsZ9p4+dzrQ4FxQBDSA52/OgYYBXWfD4a+
+Xx5BfO4lAUcgDNkO5LZBSd2vNwvs7wz8XUByOZVpu+LvYkUBukiGiLXTJ48OGuC3
+woh+ozG+jg2hfEqL0N1XwD6ZLXMrxBbMYaHSCx9LtdQg0Mrja+JSOlZ5k+5m0qhW
+5f8fvQvOzH7mhwDbQzanxFmmA9gjX3w24I04wNv3zEqJwLrcEezqAXW+ylTKsw8e
+BvaRHHTjOMVOJz7X2C4lwiGnFiIzeziFMNnmpBR+eYv7N0h7NWO/7f6z3sd9LRc1
+ZsKiffflhVPSNNf6FR0rD/E10wO5RPxeiqpeOVguOM3HOQ6PuamV+Nzbyf2UvN62
+9InsveN8SjLGRGe72jX5fszbcUkqtOSx20+dh6FxpJZsjg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFLjCCA5agAwIBAgIJAPHG4UnYyVWrMA0GCSqGSIb3DQEBCwUAMIGrMQswCQYD
+VQQGEwJTTzEQMA4GA1UECAwHQmVuYWRpcjESMBAGA1UEBwwJTW9nYWRpc2h1MRIw
+EAYDVQQKDAlTb21hbGlSRU4xETAPBgNVBAsMCFNlcnZpY2VzMSQwIgYDVQQDDBtm
+aWxlc2VuZGVyLnNvbWFsaXJlbi5vcmcuc28xKTAnBgkqhkiG9w0BCQEWGm1vaGFt
+bWVkLmFsaUBzb21hbGlyZW4ub3JnMB4XDTIyMDUxMDA4Mjk0N1oXDTMyMDUwOTA4
+Mjk0N1owgasxCzAJBgNVBAYTAlNPMRAwDgYDVQQIDAdCZW5hZGlyMRIwEAYDVQQH
+DAlNb2dhZGlzaHUxEjAQBgNVBAoMCVNvbWFsaVJFTjERMA8GA1UECwwIU2Vydmlj
+ZXMxJDAiBgNVBAMMG2ZpbGVzZW5kZXIuc29tYWxpcmVuLm9yZy5zbzEpMCcGCSqG
+SIb3DQEJARYabW9oYW1tZWQuYWxpQHNvbWFsaXJlbi5vcmcwggGiMA0GCSqGSIb3
+DQEBAQUAA4IBjwAwggGKAoIBgQDMusANMDxGhnyLSE+5lGW3MsaAaR9mp2XJ6YFV
+pBJLEaSS1O9MlOCAUdOnYRA7LU4NQqyJ8pX+SgDk4klai5mJzhkw0/RHyP9oDztq
+KR413e7H4nK63xHv2W7myar7DaePayIVIDwQt3GxGssX0Jp0J/lBB71if51Sg257
+3ohkg5CCZOJRqhVTvNwCpK4oQYgnY57uPqKqxUPdsgsM6QwP4pJ79l/pCVi83p6r
+XlWGaEAq6q9ZKTxG8iOJNrY4z/j21hb7zuH6Cv10qlAt0XNpVw56jKQrOJrKfhnE
+sSihgsX0l2tZQtA3o1STx4QM9WopfXFMCj7T/0sESbrGfBHCnp+srBAZaTM0TIvp
+P89dzvdMHRoRYxLU42mKQ0GyL/MhbiLGCe9c33Qmsh67hmn+7BZ7aU4sVIcxdVZi
+SBoTrGNLWNgW0QlNnvuT6R1G4/V44h3+2u51r6n+LBMaovb1TP2WpK2I0qtvw7CY
+Mbm3qDd6r3iuX5RS+QC2UrgCzykCAwEAAaNTMFEwHQYDVR0OBBYEFM3qEVPvn6i6
+Dxxux7vqcVZ3wCihMB8GA1UdIwQYMBaAFM3qEVPvn6i6Dxxux7vqcVZ3wCihMA8G
+A1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADWz+kNoTjogJ80e3kqg
+waOs/zHfNCi6IejTmbwpRSXNq6YaPfJ5oyP29jTIlekF604JzXrybGLTMZfUugP5
+KtM9k5viu6BwnCjZNghsYdszvZllAxDsZ9p4+dzrQ4FxQBDSA52/OgYYBXWfD4a+
+Xx5BfO4lAUcgDNkO5LZBSd2vNwvs7wz8XUByOZVpu+LvYkUBukiGiLXTJ48OGuC3
+woh+ozG+jg2hfEqL0N1XwD6ZLXMrxBbMYaHSCx9LtdQg0Mrja+JSOlZ5k+5m0qhW
+5f8fvQvOzH7mhwDbQzanxFmmA9gjX3w24I04wNv3zEqJwLrcEezqAXW+ylTKsw8e
+BvaRHHTjOMVOJz7X2C4lwiGnFiIzeziFMNnmpBR+eYv7N0h7NWO/7f6z3sd9LRc1
+ZsKiffflhVPSNNf6FR0rD/E10wO5RPxeiqpeOVguOM3HOQ6PuamV+Nzbyf2UvN62
+9InsveN8SjLGRGe72jX5fszbcUkqtOSx20+dh6FxpJZsjg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.somaliren.org.so/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.somaliren.org.so/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://filesender.somaliren.org.so/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.somaliren.org.so/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://filesender.somaliren.org.so/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">SomaliREN Filesender</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">SomaliREN FileSender is an installation of the FileSender project (filesender.org) which is a web-based application that allows authenticated users to securely and easily send arbitrarily large files to other users.
+
+FileSender is developed to the requirements of the higher education and research community.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="uid" Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">SomaliREN</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">SomaliREN</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://somaliren.org/about/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Mohamed Ali</md:GivenName>
+      <md:SurName>Ahmed</md:SurName>
+      <md:EmailAddress>mailto:mohammed.ali@somaliren.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Zakarie Mohamed</md:GivenName>
+      <md:SurName>Isak</md:SurName>
+      <md:EmailAddress>mailto:zakarie.mohamed@somaliren.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Sharaf Ahmed</md:GivenName>
+      <md:SurName>Roble</md:SurName>
+      <md:EmailAddress>mailto:sharaf.roble@somaliren.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SomaliREN</md:GivenName>
+      <md:SurName>Support</md:SurName>
+      <md:EmailAddress>mailto:helpdesk@somaliren.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

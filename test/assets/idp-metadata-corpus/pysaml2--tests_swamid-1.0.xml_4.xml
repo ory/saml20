@@ -1,0 +1,38 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.umu.se/saml2/idp/metadata.php" xml:base="swamid-1.0/idp.umu.se-saml2.xml">
+  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <shibmd:Scope regexp="false">umu.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEmzCCA4OgAwIBAgILAQAAAAABH0aCSWowDQYJKoZIhvcNAQEFBQAwXzELMAkGA1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlvbmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA5MDIwNTExNTU1NloXDTEyMDIwNTExNTU1NlowTDELMAkGA1UEBhMCU0UxDTALBgNVBAcTBFVtZWExGTAXBgNVBAoTEFVtZWEgdW5pdmVyc2l0ZXQxEzARBgNVBAMTCmlkcC51bXUuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDTVztW5Apmw/AKx1SCpyKwGlkz89avgV9fkEwb6IANRMhcI3ftUOJ5BUVD3tsgyzGgZYNGgzYoGHvE3uvUGUHSGObLQv5Wy4a4yN36a2UCgGsaDxXBdAZDT6W9NOLDI86WbIQbKRSWZaeRPSWNkn46q3hE4q6NGh1b2ZY04y9VdvuDSqk3+8Z6w4wC+S2VPAG6hHbbG4gaEakCv/i4hA2haAI9vUP2RVu6aAdydoZR/DdI/GvIwHJsHl1QvmE9tkkAHmNwYhmykIFsMrOeQ8CCZbRswkemiuCWa0d0KyxH2eoJrVo6aAFIdz5yTALHsIli7n6YgSP/PC9TMAobUVU/AgMBAAGjggFpMIIBZTBQBgNVHSAESTBHMEUGByqGSLE+AQAwOjA4BggrBgEFBQcCARYsaHR0cDovL3d3dy5nbG9iYWxzaWduLm5ldC9yZXBvc2l0b3J5L2Nwcy5jZm0wDgYDVR0PAQH/BAQDAgWgMB8GA1UdIwQYMBaAFGVloz3XOxGjCgclN8lCSlt2d1DhMB0GA1UdDgQWBBQ44Zw5BzMzy6v5KrfuIjONSiDc8DA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLmdsb2JhbHNpZ24ubmV0L2VkdWNhdGlvbmFsLmNybDBPBggrBgEFBQcBAQRDMEEwPwYIKwYBBQUHMAKGM2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5uZXQvY2FjZXJ0L2VkdWNhdGlvbmFsLmNydDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwFQYDVR0RBA4wDIIKaWRwLnVtdS5zZTANBgkqhkiG9w0BAQUFAAOCAQEAXNruvuq2mX23lgcwb7FoQXC9RGMkLnvU2+LF3QXZeGDg7VSzrfxFDEHPX6FuVH8E9KSfCemmkh/rb52oa/YXP97nLWf6tLAB6LHYp34Lx8z6FPWXi93X0vgRKrAkr8fCwk6kNO3yTyvBC8hxPX+zkMcB2Xxh281CjOE8WLTG5ORLC8Em/o4/DC+d1pu1aj24MmVdGcCKsfzXaVFiKhaB+1S8fJi539X0A/R0ig7lqzs46QzaimgcnbcFBIE4lxI0YLfl2YcOyI87jm7SPuBjDjEmNUhONbm896M82PMG4enEh47q76YYkei9ozIynoQ5kefpeSt6ru9GsnScD4eAdA==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEmzCCA4OgAwIBAgILAQAAAAABH0aCSWowDQYJKoZIhvcNAQEFBQAwXzELMAkGA1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlvbmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA5MDIwNTExNTU1NloXDTEyMDIwNTExNTU1NlowTDELMAkGA1UEBhMCU0UxDTALBgNVBAcTBFVtZWExGTAXBgNVBAoTEFVtZWEgdW5pdmVyc2l0ZXQxEzARBgNVBAMTCmlkcC51bXUuc2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDTVztW5Apmw/AKx1SCpyKwGlkz89avgV9fkEwb6IANRMhcI3ftUOJ5BUVD3tsgyzGgZYNGgzYoGHvE3uvUGUHSGObLQv5Wy4a4yN36a2UCgGsaDxXBdAZDT6W9NOLDI86WbIQbKRSWZaeRPSWNkn46q3hE4q6NGh1b2ZY04y9VdvuDSqk3+8Z6w4wC+S2VPAG6hHbbG4gaEakCv/i4hA2haAI9vUP2RVu6aAdydoZR/DdI/GvIwHJsHl1QvmE9tkkAHmNwYhmykIFsMrOeQ8CCZbRswkemiuCWa0d0KyxH2eoJrVo6aAFIdz5yTALHsIli7n6YgSP/PC9TMAobUVU/AgMBAAGjggFpMIIBZTBQBgNVHSAESTBHMEUGByqGSLE+AQAwOjA4BggrBgEFBQcCARYsaHR0cDovL3d3dy5nbG9iYWxzaWduLm5ldC9yZXBvc2l0b3J5L2Nwcy5jZm0wDgYDVR0PAQH/BAQDAgWgMB8GA1UdIwQYMBaAFGVloz3XOxGjCgclN8lCSlt2d1DhMB0GA1UdDgQWBBQ44Zw5BzMzy6v5KrfuIjONSiDc8DA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLmdsb2JhbHNpZ24ubmV0L2VkdWNhdGlvbmFsLmNybDBPBggrBgEFBQcBAQRDMEEwPwYIKwYBBQUHMAKGM2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5uZXQvY2FjZXJ0L2VkdWNhdGlvbmFsLmNydDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwFQYDVR0RBA4wDIIKaWRwLnVtdS5zZTANBgkqhkiG9w0BAQUFAAOCAQEAXNruvuq2mX23lgcwb7FoQXC9RGMkLnvU2+LF3QXZeGDg7VSzrfxFDEHPX6FuVH8E9KSfCemmkh/rb52oa/YXP97nLWf6tLAB6LHYp34Lx8z6FPWXi93X0vgRKrAkr8fCwk6kNO3yTyvBC8hxPX+zkMcB2Xxh281CjOE8WLTG5ORLC8Em/o4/DC+d1pu1aj24MmVdGcCKsfzXaVFiKhaB+1S8fJi539X0A/R0ig7lqzs46QzaimgcnbcFBIE4lxI0YLfl2YcOyI87jm7SPuBjDjEmNUhONbm896M82PMG4enEh47q76YYkei9ozIynoQ5kefpeSt6ru9GsnScD4eAdA==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.umu.se/saml2/idp/ArtifactResolutionService.php" index="0" />
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.umu.se/saml2/idp/SingleLogoutService.php" />
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.umu.se/saml2/idp/SSOService.php" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">UmU</md:OrganizationName>
+    <md:OrganizationName xml:lang="se">UmU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Umeå University (SAML2)</md:OrganizationDisplayName>
+    <md:OrganizationDisplayName xml:lang="se">Umeå universitet (SAML2)</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.umu.se/english</md:OrganizationURL>
+    <md:OrganizationURL xml:lang="se">http://www.umu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:SurName>Datordrift</md:SurName>
+    <md:EmailAddress>datordrift@umdac.umu.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

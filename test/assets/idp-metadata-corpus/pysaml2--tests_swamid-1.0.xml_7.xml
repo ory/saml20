@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://samlidp.ki.se/idp/shibboleth" xml:base="swamid-1.0/samlidp.ki.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">ki.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDIDCCAgigAwIBAgIVAJRIfZUHqE36X1wo3nmAK7/a0GBrMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDXNhbWxpZHAua2kuc2UwHhcNMDkwNzE1MDkxNjEwWhcN
+MjkwNzE1MDkxNjEwWjAYMRYwFAYDVQQDEw1zYW1saWRwLmtpLnNlMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAndLAX/sAb7KLdWo9SO4Xh3+TvCNZ/IoJ
+Cbzn68TtEYJ80JJI0HedJRb0b7BvpZuBGFzml7TRVbRNmiXIKNpabhiVzDUKfRoJ
+wloFtyI5k3EvunGwxE9kvkTbMRutsclF1eCYAOGLxH8kyBbvAU9S3ouxJ+1BxeSi
+g2OM1dtUXVHKOAesJ+OaLc76HsrBaeLEEJlquDM5BUR9vIlqVswK9rqcJGkXVoyP
+vbTwj1y2GAwIuXo2JnJ5YQYiPHxBl4T/+jLasDC5bpxTd5G/z16tYuhtafy5hYr+
+elqBJUnANL+W1fYzlC9uzRtTYHqBT6VjrK0gji8toaiVr0oSeh6pxQIDAQABo2Ew
+XzA+BgNVHREENzA1gg1zYW1saWRwLmtpLnNlhiRodHRwczovL3NhbWxpZHAua2ku
+c2UvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFC0rBm/3TPyAM04dzkXTF/iDFeHL
+MA0GCSqGSIb3DQEBBQUAA4IBAQCVEBymTnCX9oJtcbzKBE91s84dvllXnVVYxoZe
+foKBs+1z/9vNV2YC+3jS6G2Ws5NH7MNx8uhHHNcEzpoqol8fkrhtKRr1rmEjrZHj
+hJ1+DLCDLV6/rvh9/Qw1OoozKGbERMczImkB65LddYJn/HqkJNbOio2nQe1yFuxD
+e2uMNb5IldFcRQ2O1p2slZhmR8h25g64mB9xzLso7+Y+zLoGYuIild2zlQ6QOcAP
+ZHbViHEq6MAKR86+yiVaEalpQOsUOILf21GWsZiTjT70uAMx84RzjVMS0LhgxJu5
+KgetXg7iTjcWRVve8lVZNG2foRZdbmOXow95IEKdfewtfiYR
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://samlidp.ki.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://samlidp.ki.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://samlidp.ki.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://samlidp.ki.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://samlidp.ki.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://samlidp.ki.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">ki.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDIDCCAgigAwIBAgIVAJRIfZUHqE36X1wo3nmAK7/a0GBrMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDXNhbWxpZHAua2kuc2UwHhcNMDkwNzE1MDkxNjEwWhcN
+MjkwNzE1MDkxNjEwWjAYMRYwFAYDVQQDEw1zYW1saWRwLmtpLnNlMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAndLAX/sAb7KLdWo9SO4Xh3+TvCNZ/IoJ
+Cbzn68TtEYJ80JJI0HedJRb0b7BvpZuBGFzml7TRVbRNmiXIKNpabhiVzDUKfRoJ
+wloFtyI5k3EvunGwxE9kvkTbMRutsclF1eCYAOGLxH8kyBbvAU9S3ouxJ+1BxeSi
+g2OM1dtUXVHKOAesJ+OaLc76HsrBaeLEEJlquDM5BUR9vIlqVswK9rqcJGkXVoyP
+vbTwj1y2GAwIuXo2JnJ5YQYiPHxBl4T/+jLasDC5bpxTd5G/z16tYuhtafy5hYr+
+elqBJUnANL+W1fYzlC9uzRtTYHqBT6VjrK0gji8toaiVr0oSeh6pxQIDAQABo2Ew
+XzA+BgNVHREENzA1gg1zYW1saWRwLmtpLnNlhiRodHRwczovL3NhbWxpZHAua2ku
+c2UvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFC0rBm/3TPyAM04dzkXTF/iDFeHL
+MA0GCSqGSIb3DQEBBQUAA4IBAQCVEBymTnCX9oJtcbzKBE91s84dvllXnVVYxoZe
+foKBs+1z/9vNV2YC+3jS6G2Ws5NH7MNx8uhHHNcEzpoqol8fkrhtKRr1rmEjrZHj
+hJ1+DLCDLV6/rvh9/Qw1OoozKGbERMczImkB65LddYJn/HqkJNbOio2nQe1yFuxD
+e2uMNb5IldFcRQ2O1p2slZhmR8h25g64mB9xzLso7+Y+zLoGYuIild2zlQ6QOcAP
+ZHbViHEq6MAKR86+yiVaEalpQOsUOILf21GWsZiTjT70uAMx84RzjVMS0LhgxJu5
+KgetXg7iTjcWRVve8lVZNG2foRZdbmOXow95IEKdfewtfiYR
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://samlidp.ki.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://samlidp.ki.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">KIOLD</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Karolinska Institutet (TEST)</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.ki.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Karolinska Institutet</md:Company>
+    <md:EmailAddress>it-support@ki.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

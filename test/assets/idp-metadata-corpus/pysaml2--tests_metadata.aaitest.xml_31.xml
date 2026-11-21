@@ -1,0 +1,50 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="urn:mace:switch.ch:eduport.co.uk">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">
+                    authenticate.eduport.co.uk
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+
+                <ds:KeyInfo>
+                    <ds:KeyName>authenticate.eduport.co.uk</ds:KeyName>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://authenticate.eduport.co.uk/aselectserver/server/sso" />
+        </md:IDPSSODescriptor>
+
+
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+
+            <md:Extensions>
+                <shibmd:Scope regexp="false">
+                    authenticate.eduport.co.uk
+                </shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:KeyName>authenticate.eduport.co.uk</ds:KeyName>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://authenticate.eduport.co.uk/aselectserver/server/artifact" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">eduport.co.uk</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">eduport.co.uk
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://eduport.co.uk
+            </md:OrganizationURL>
+        </md:Organization>
+
+        <md:ContactPerson contactType="technical">
+            <md:SurName>siennax (www.edupoort.nl)</md:SurName>
+            <md:EmailAddress>mailto:ben.heesen@siennax.com</md:EmailAddress>
+        </md:ContactPerson>
+    </md:EntityDescriptor>
+
+    
+    

@@ -1,0 +1,133 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" entityID="https://shibboleth.thieme.de/login/shibboleth/callback">
+    <md:Extensions>
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2023-08-21T11:46:01Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Thieme Shibboleth (new)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Thieme is an international medical and science publisher serving health professionals and students. Thieme promotes the latest advancements in clinical practice, publishes the latest research findings, advocates medical education and is known for the high quality and didactic nature of its books, journals, and electronic products.</mdui:Description>
+          <mdui:Logo height="44" width="150">https://www.thieme.de/statics/bilder/thieme/final/de/bilder/sw_thieme-connect/2009_Thieme_RGB.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth.thieme.de/requestInitiator" />
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						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
+						P+//Q3nE1dmPHYMiRBQ=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						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
+						P+//Q3nE1dmPHYMiRBQ=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.thieme.de/login/shibboleth/callback?logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.thieme.de/login/shibboleth/callback?logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.thieme.de/login/shibboleth/callback?logoutendpoint=true" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.thieme.de/login/shibboleth/callback?logoutendpoint=true" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.thieme.de/login/shibboleth/callback" index="0" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Georg Thieme Verlag KG</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Georg Thieme Verlag KG</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.thieme.de/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Carmen</md:GivenName>
+      <md:SurName>Krenz</md:SurName>
+      <md:EmailAddress>mailto:access@thieme.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tech Team</md:GivenName>
+      <md:EmailAddress>mailto:taal@thieme.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Ralph</md:GivenName>
+      <md:SurName>Kogelheide</md:SurName>
+      <md:EmailAddress>mailto:taal@thieme.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

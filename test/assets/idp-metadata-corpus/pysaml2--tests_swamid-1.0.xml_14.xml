@@ -1,0 +1,121 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://hbidp.hb.se/idp/shibboleth" xml:base="swamid-1.0/hbidp.hb.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hb.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIEfjCCA2agAwIBAgIQQh0tAUo8tbGvjLhvMULUFjANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTA5MTAwMTAwMDAwMFoXDTEyMDkzMDIzNTk1OVowTjELMAkGA1UE
+BhMCU0UxHDAaBgNVBAoME0jDtmdza29sYW4gaSBCb3LDpXMxCzAJBgNVBAsTAklU
+MRQwEgYDVQQDEwtoYmlkcC5oYi5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBANmhPsWXpER8PlBGqHtoR1hsTeLWqTRGhaFm9Vuc57qf7xd328jkwZ3C
+tyBL65rNHYI/EVrsiA5nNAm/NLuPl5Wh8IOztI26XcHgNhYgqe6Tlpw5kN4pn0ME
++KAMAGKh1PAaKP2E3sHN2k3QdqHU0hesmaFHRAm+9JqcP++Frkdr1WVIcxYniOBa
+dorbeA+Mui3WaMsUm/tkYTOOQ3QCHi2VT9U6JOIVyuyIjX6slHhS2LkCSAKn4sKD
+DUVaeSyTxWrH12Dx/mMd8BfXV8XkjBbDNzfFizxTzHsdrj8K8y9ggGiv5+g1Mmsf
+2ehMfEhN0TNtVLaiw9Br2N7XSLLGuaMCAwEAAaOCAW4wggFqMB8GA1UdIwQYMBaA
+FAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRNDaiYtvTh/NO79ufN3n7k
+Zx6CjjAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggr
+BgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNV
+HR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+TENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQu
+dGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRw
+Oi8vb2NzcC50Y3MudGVyZW5hLm9yZzAmBgNVHREEHzAdggtoYmlkcC5oYi5zZYIO
+dm0taGJpZHAuaGIuc2UwDQYJKoZIhvcNAQEFBQADggEBACUT4mjeYXLYfWz4oKhH
+ou/S52jlhiVtskXArO7Ntxk0Oy6tpSkRYgyBN4NDuaFfS//69Et4kQWfxpe7tS8X
+t2cEEtTRhYhwBpBHCMnixRxcoYyeH60fnHoeCn+w7HmD+ffyRojbtcE86O+7bRTP
+J2xZfZxoRzyEYBVfLBEcBSOYTQrlIBtZmZS/w4whSQs5ruf5X9Wj7BrFLjo8nnli
+rA6Msf8vaeuR1RNKQFHIx/vX3Aj+s2E4rq+L9O3BDAyfc1vKiNy8LLhlvYUFl9If
+NtlzTU8oxWfErMa+Y2BMXWIALruQgeQrFxbO/k4RoPBHRvCul0uUsxak1IFtfT0x
+9Ks=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://hbidp.hb.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://hbidp.hb.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://hbidp.hb.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hbidp.hb.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://hbidp.hb.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://hbidp.hb.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">hb.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIEfjCCA2agAwIBAgIQQh0tAUo8tbGvjLhvMULUFjANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTA5MTAwMTAwMDAwMFoXDTEyMDkzMDIzNTk1OVowTjELMAkGA1UE
+BhMCU0UxHDAaBgNVBAoME0jDtmdza29sYW4gaSBCb3LDpXMxCzAJBgNVBAsTAklU
+MRQwEgYDVQQDEwtoYmlkcC5oYi5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBANmhPsWXpER8PlBGqHtoR1hsTeLWqTRGhaFm9Vuc57qf7xd328jkwZ3C
+tyBL65rNHYI/EVrsiA5nNAm/NLuPl5Wh8IOztI26XcHgNhYgqe6Tlpw5kN4pn0ME
++KAMAGKh1PAaKP2E3sHN2k3QdqHU0hesmaFHRAm+9JqcP++Frkdr1WVIcxYniOBa
+dorbeA+Mui3WaMsUm/tkYTOOQ3QCHi2VT9U6JOIVyuyIjX6slHhS2LkCSAKn4sKD
+DUVaeSyTxWrH12Dx/mMd8BfXV8XkjBbDNzfFizxTzHsdrj8K8y9ggGiv5+g1Mmsf
+2ehMfEhN0TNtVLaiw9Br2N7XSLLGuaMCAwEAAaOCAW4wggFqMB8GA1UdIwQYMBaA
+FAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRNDaiYtvTh/NO79ufN3n7k
+Zx6CjjAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggr
+BgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNV
+HR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+TENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQu
+dGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRw
+Oi8vb2NzcC50Y3MudGVyZW5hLm9yZzAmBgNVHREEHzAdggtoYmlkcC5oYi5zZYIO
+dm0taGJpZHAuaGIuc2UwDQYJKoZIhvcNAQEFBQADggEBACUT4mjeYXLYfWz4oKhH
+ou/S52jlhiVtskXArO7Ntxk0Oy6tpSkRYgyBN4NDuaFfS//69Et4kQWfxpe7tS8X
+t2cEEtTRhYhwBpBHCMnixRxcoYyeH60fnHoeCn+w7HmD+ffyRojbtcE86O+7bRTP
+J2xZfZxoRzyEYBVfLBEcBSOYTQrlIBtZmZS/w4whSQs5ruf5X9Wj7BrFLjo8nnli
+rA6Msf8vaeuR1RNKQFHIx/vX3Aj+s2E4rq+L9O3BDAyfc1vKiNy8LLhlvYUFl9If
+NtlzTU8oxWfErMa+Y2BMXWIALruQgeQrFxbO/k4RoPBHRvCul0uUsxak1IFtfT0x
+9Ks=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://hbidp.hb.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://hbidp.hb.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+    
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">HB</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Högskolan i Borås</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.hb.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Högskolan i Borås</md:Company>
+    <md:EmailAddress>mikael.furth@hb.se</md:EmailAddress>
+  </md:ContactPerson>
+    
+</md:EntityDescriptor>
+  

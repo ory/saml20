@@ -1,0 +1,55 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://keycloak.k8s.prf.jcu.cz:8443/realms/jcu">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2025-08-11T13:33:27Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Aplikace PRF JU</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Aplikace PRF JU</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Aplikace PRF JU</mdui:Description>
+          <mdui:Description xml:lang="cs">Aplikace PRF JU</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://edu-apps.k8s.prf.jcu.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">https://edu-apps.k8s.prf.jcu.cz/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>v7RwaQD6BplnW7MgElBOaIjuNs0nLF0u7WqMn1hA9z0</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIClTCCAX0CBgGYhFz/5zANBgkqhkiG9w0BAQsFADAOMQwwCgYDVQQDDANqY3UwHhcNMjUwODA3MTE0NzI0WhcNMzUwODA3MTE0OTA0WjAOMQwwCgYDVQQDDANqY3UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDM0WgbxgUHLwAr0X/IPOx8lHU48M8HTxsHWDrGzhU/0D87RlM+rLWAPDDtW35nVvTSY5yG2L3zD5t1VU3o2Z2FBMcClxjviw2t+WTNc+csmKJPtrco2EEk8LNQqcIc2iTy3wuDO6ZwVLIrhpIcJERA7IgAyVnjbhefa9INthnGyB18UQJuWr1XHOgpiJ/ZVL3Z/9QVGZeCfQpxKuulWj71csxoOipAUHDUsONGYFRyv/gCI3AWZxhYIhRK6Q3hm38mSxGr/0ZcwFHE+7kbfvCQfuSxA8pml5Ri6QtYQrqMmhygD0YeeMehWj9l3+jqk8EHLXPsU8dxs9i/8uwGYGuJAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAHMiEjuP3E/NjH7LWjt/RyJiR9/6wE6OsRD/6ge/ukzytHedsLbJmhvvLJ5YVXUZBS8wx1GKAfbC/Jf65hH+hfRC5aP+l+v2tbPTNBhje2vOPnEe0GSe4kDjWriIqvECs6XQ3ugwL2NK6AOFnxznHMx19HI7fH9fdHA0iFIorhduksKBfa+kp5QSng0cXBE672JDc1re638a6LzpWjk3Wlwno9w5Y4cx+5NYzFq/FVHqvT+xQYzna0Ap9EC8bboZjUeUqYuEeDxaXibSqCVYmu++na/oYQhad5iPhLmioX0g9IQmatAKK74fw27v840ii1nQzggFqJFBzJaSkI1kiy4=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>uxYnXYXQG3s77otIYBgclCsM2jcOU4rfOl3gYsFCzLE</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIClTCCAX0CBgGYhF0AgDANBgkqhkiG9w0BAQsFADAOMQwwCgYDVQQDDANqY3UwHhcNMjUwODA3MTE0NzI0WhcNMzUwODA3MTE0OTA0WjAOMQwwCgYDVQQDDANqY3UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCVwkkYjKfqjWSaeGRzk/oL5t9yZJC7gXLXq10EWWL5/exi48/kbpJb/YcmNfVgzW3jQRdEX86Pl/AJOw0OprASO2eeJS/dzdFLbP1SsqMXYZH+UolYjt4anUdnOk6eG4MoBPsIwtmjypKyL5DlN74gjdEry6YLuqOCkfb0ov6Mm2GmMeo0Pc2OKQKinHybJUxOriZ4yfzIary+aPHRTlFLeSn9oZUB3/aGKBP5Lh18vWoPnZsHtSM9wNMQ4ZJhIQNptdsJwL47/4/8kJZgSH566IDfbnXMxFl+iuiG0mp2v80SUopyAL0v/qyqWiY6ylVkweJY6sDS8SAF3tIuqmc5AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAGltdz6FWDfGMDoKVJucqS/KhOvzPKc+NjebMAvxvb7W5veJa4oPCv98dMOgQ+OmpLwLW0sjBN9AczGelSKUMCIvxDjBk/ozkluyW8mqrc+TU9GTR7r79gpNhXQUOrWwd6+frGC6XjaSjzyETWL6Q7Bw6Ws6TnLk6ZmWp2TRNwXE4TwykONgkXoWZrMDa8JQLyXTflB592vAMggueoldKzCHuAFGFJr9K6kuWHC9QM6aPWIc9eMi9XDAPi88sa2k1/t8+xkzxgnc6+E71FzGK5KRUgokSyNE/oJD5zWgkfjweps8AAY68x7ZRFQuqMzLs70pe9ZVupEx8QA6OvJO3Ho=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep" />
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://keycloak.k8s.prf.jcu.cz:8443/realms/jcu/broker/edu/endpoint" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://keycloak.k8s.prf.jcu.cz:8443/realms/jcu/broker/edu/endpoint" index="1" isDefault="true" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">JCU</md:OrganizationName>
+      <md:OrganizationName xml:lang="cs">JCU</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of South Bohemia in České Budějovice</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">Jihočeská univerzita v Českých Budějovicích</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.jcu.cz/en/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">https://www.jcu.cz/cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jakub</md:GivenName>
+      <md:SurName>Sojka</md:SurName>
+      <md:EmailAddress>mailto:sojkaj00@prf.jcu.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

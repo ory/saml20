@@ -1,0 +1,72 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://gitmilab.redclara.net">
+    <md:Extensions>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <mdrpi:RegistrationInfo registrationAuthority="https://mds.redclara.net/" registrationInstant="2023-02-17T11:28:03Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">
+                https://www.redclara.net/index.php/en/servicios-rc/federaciones-de-identidad</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="es">
+                https://www.redclara.net/index.php/es/servicios-rc/federaciones-de-identidad</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">gitMiLab (MiLab)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">gitMiLab (MiLab)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">gitMiLab (MiLab) Service</mdui:Description>
+          <mdui:Description xml:lang="es">Servicio gitMiLab (MiLab)</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.redclara.net/index.php?lang=en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="es">http://www.redclara.net/index.php?lang=es</mdui:InformationURL>
+          <mdui:Logo height="80" width="80">
+                    https://gitmilab.redclara.net/uploads/-/system/appearance/logo/1/g-lab.svg</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://dataverse.redclara.net/Shibboleth.sso/Login" />
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+                        MIIDgTCCAmigAwIBAgIBADANBgkqhkiG9w0BAQ0FADBaMQswCQYDVQQGEwJjbzESMBAGA1UECAwJU2FudGFuZGVyMQ4wDAYDVQQKDAVNaUxhYjEnMCUGA1UEAwweaHR0cHM6Ly9naXRtaWxhYi5yZWRjbGFyYS5uZXQvMB4XDTIzMDUyNDE5MzIyMVoXDTI0MDUyMzE5MzIyMVowWjELMAkGA1UEBhMCY28xEjAQBgNVBAgMCVNhbnRhbmRlcjEOMAwGA1UECgwFTWlMYWIxJzAlBgNVBAMMHmh0dHBzOi8vZ2l0bWlsYWIucmVkY2xhcmEubmV0LzCCASMwDQYJKoZIhvcNAQEBBQADggEQADCCAQsCggECAL1t9Mdl/kd3aNCllz2rDxLr1OaQVoDZC6SxlbIDbCDejwrwTWnhFvNj+vdp9PPd0xkQjfiURK8OU6E17IsBCQZ/5kz0/cXXGMlG/KIdhVEmgPnl3/KpP3oQfbUceLPv6/j5cV4bafguqCPnjpE8zzzpY6qgtTQ8rWowwkBg1pMJqcrMYxva68f4lSE2Zsla0tTtil/XWqoHmGj4PGMy4kcIlbMxF6kpmNF/R6Lb4RBVgSbEsvC/jxJ3QLaw8MFr+Eg98P90HIhCCJYEOEsFvS4mlm+7qKLKn+EaCjV5g+bWLJyTL387d8qYQxuVO3vPcAewRrzNHm21PBX1ISeTqqT7AgMBAAGjUDBOMB0GA1UdDgQWBBSlApHZYOf95dlK/4sw2YgGMyVL6jAfBgNVHSMEGDAWgBSlApHZYOf95dlK/4sw2YgGMyVL6jAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBDQUAA4IBAgC4Ue5KdI3rxslsQYlYRjpT32LcqqU95Yl9O9g4B+8ceLv1H84wrTxUgbSIYgOMTSylfYKbspZAjwNn7mlGWRBrLxWEHrvmyvP84cN/u3yag80J99rT49CtMJzRyuDph6TO2v+10xqAtEzbM1HZy8Dvh3gS5rYa3mN/dQ0QHaQs3lNwqLQbbyNeA3w/WiDQYmRm2A0J8aL7STsWLsB4gCanKGRwe6Ms4r4lPkmL9GPvcGAiKz4Fi/6G1Y6rtHd5Cx1aFJsx322p1Kry+S5AKgN1CfFeQuMfGayTPRdJNPc0qW1/B6MfHO056ftmPjMSnDg0liFoWHt1XfDN1y9+Cb7QyA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gitmilab.redclara.net/users/auth/saml/callback" index="0" isDefault="true" />
+      <md:AttributeConsumingService index="1" isDefault="true">
+        <md:ServiceName xml:lang="en">Required attributes</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="Email address" Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="Full name" Name="name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="Given name" Name="first_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false" />
+        <md:RequestedAttribute FriendlyName="Family name" Name="last_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RedCLARA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">RedCLARA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.redclara.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Authentication Support</md:GivenName>
+      <md:EmailAddress>mailto:vsog@redclara.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:vsog@redclara.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

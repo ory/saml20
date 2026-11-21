@@ -4,6 +4,7 @@
 import fs from 'fs';
 import { promisify } from 'util';
 import * as xmlenc from 'xml-encryption';
+import type { EncryptionAlgorithm } from 'xml-encryption';
 import { sign } from '../../lib/sign';
 
 export const testIdpCert = fs.readFileSync('./test/assets/certificates/testIdpCert.crt').toString();
@@ -62,11 +63,15 @@ export const buildResponse = (inner: string, status = 'urn:oasis:names:tc:SAML:2
   inner +
   '</samlp:Response>';
 
-export const encryptAssertion = async (assertion: string) => {
+export const encryptAssertion = async (
+  assertion: string,
+  encryptionAlgorithm: EncryptionAlgorithm = 'http://www.w3.org/2009/xmlenc11#aes256-gcm'
+) => {
   const encrypted = await promisify(xmlenc.encrypt)(assertion, {
     rsa_pub: testIdpCert,
     pem: testIdpCert,
-    encryptionAlgorithm: 'http://www.w3.org/2009/xmlenc11#aes256-gcm',
+    encryptionAlgorithm,
+    disallowEncryptionWithInsecureAlgorithm: false,
     keyEncryptionAlgorithm: 'http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p',
   });
   return `<saml:EncryptedAssertion>${encrypted}</saml:EncryptedAssertion>`;

@@ -1,0 +1,179 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://sso.unisza.edu.my/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://sifulan.my" registrationInstant="2019-11-08T22:36:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://sifulan.my/sifulan-mrps-v1-2/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unisza.edu.my</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Universiti Sultan Zainal Abidin</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Universiti Sultan Zainal Abidin</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.unisza.edu.my</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.unisza.edu.my/index.php?option=com_content&amp;view=article&amp;id=532&amp;Itemid=88&amp;lang=ms</mdui:PrivacyStatementURL>
+          <mdui:Logo height="111" width="295" xml:lang="en">https://sso.unisza.edu.my/idp/images/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEMDCCApigAwIBAgIVAISgOghQjtpUQz9WvoxmpGBnsOfOMA0GCSqGSIb3DQEB
+CwUAMBwxGjAYBgNVBAMMEXNzby51bmlzemEuZWR1Lm15MB4XDTE5MTEwNzEyMDEw
+M1oXDTM5MTEwNzEyMDEwM1owHDEaMBgGA1UEAwwRc3NvLnVuaXN6YS5lZHUubXkw
+ggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCSD36hB+1a49VQSper/9xS
+TiQehERo/JZtqFYH01+T6pp1Lfu3yAFnvTCcOj6gZfA3mU9B8fcG9JN/Ie8Nevkr
+qPZrXTyK3njf4VUghkxFrG11NFGYm0Op8lR0+rTJbYrwAyn/4hdiLK6XnBvtxEfo
+0tPc5zPjwATWWTgaqwcYDxbVk0yv9wKx+ER35+AktZuL45YOHi5k3/6mrPOUss+Q
+BH5X0IhakN0cpIQ9eF90tKF9qVnHZiUKpkWm694x4uo98rnfHz9qOr4sQplEyyFg
+w7x3QdTNBDDVvz5rFO77kcgyiZMx400qcnwjMaLvZUWIjxkHZztatSDST5oAUmCA
+QjNisFG8NlKUANsdQDdjEWz5UzX1cmznQTyAl/R1djq//qPWb64tSo/R2xQsK+mq
+yCqFEji1n0dWw11an9i/s5tK7Lu3RQ/0njfxhWNVH9IyoBmUaDqCif8coyZ5mkBf
+O8iXkcgQCVwtAyGpUd+VXepkcCBT6MIssNdLIny2wIECAwEAAaNpMGcwHQYDVR0O
+BBYEFNBqXzTXghkSe9W+bA5R67kFiZnlMEYGA1UdEQQ/MD2CEXNzby51bmlzemEu
+ZWR1Lm15hihodHRwczovL3Nzby51bmlzemEuZWR1Lm15L2lkcC9zaGliYm9sZXRo
+MA0GCSqGSIb3DQEBCwUAA4IBgQAWd/ruvoIk/UUsE54DH3BYxxmLRPl575GVBb29
+HCMJ2BhL1DQ50DnP8el3jMcO+ToBiBx1uIoJ+B80c00I0x1h5oB8ynTtos3FriAi
+RnC+fbbiIAd13m38lzwwnKZLT6hlgDZQK/EaGWNx5l34M/pB+bTy2TjmHLOQvYb+
+SedpGdjOrMKCQ92G+QaKiwhfDmyQeMGu1LdQaZLzB6k87N/8GYRVyR6403gJxwqR
+xn4ZKLdhn1lW+uQsSwLWgL/SHAqZeuMwsHuxjZgyy/q4CIORYFMt67i1EWOJZ2wf
+9JohTvn2sazK2DSbeeQ2+PE6t18WDNr8o1Awb/Rfcq7wC79rFTYKSNk0Lo2PewBn
+o3rSLHEyis8uWxK8Ej7PRBFbnkMWteXJQ20Z8AJsANG5La8H6chjwz+38goX1+Cy
+Z8gMYmmThuc66jm4Kj2RwqaxQpvaM3KTNuigfewh7E04KkfPMZJmOw394fGRXGp4
+Oum6iZowCQWrj6Jk4FQQwDPcBPA=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIELzCCApegAwIBAgIUPB6DihH7C63nmmDeR2USCktjX3owDQYJKoZIhvcNAQEL
+BQAwHDEaMBgGA1UEAwwRc3NvLnVuaXN6YS5lZHUubXkwHhcNMTkxMTA3MTIwMTA0
+WhcNMzkxMTA3MTIwMTA0WjAcMRowGAYDVQQDDBFzc28udW5pc3phLmVkdS5teTCC
+AaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAIVHKb/7O8QFhoww8i4pmrPB
+ce/NdzrFiLZqgBepZxvWCAvGj6kd53JlLgbMcY38fKCcDkkR8FDBcrmI44D4cgDw
+nMmQeEAmEf/7t2dYhEVWl9KjbYBYQ8uMys/eTCPobfeP8Svmhb5t4PSuM+aErda+
+SAmtFCAKaii7kkYgYR3c+wLamSDUGh/H7L5Qf7r+SUZSRZo275cSamsR3I82akAG
+CyFs0mbmPxPFH0F3FgdZp1102mx9snWntI5BoYnA6mf1+W3YolEkGtSUWzN880C+
+vQeeAuhK1mlnh8a1a0/YQYRB5apU4v1637XBY2xfA0VYqXRd1Lsiijr1gfEHzmZc
+1Z+IzDZsOkHBx9jQUGMTt83+7oCu0ATcoFj8f0W+cctwCM3iLogO/L6vK+OsnhQe
+Iyect5b3G1PmzSRVV1RwmTItmT0QkdnAenWA7DkzTtvNE4kjOkKKeFJpDZ81bvVT
+hWgTG97sB1J9qmZ3iRgzOllQa2PiqOL7/W40SshCXQIDAQABo2kwZzAdBgNVHQ4E
+FgQUF0C1daT2kB39BgaRu+FoVTqLKbIwRgYDVR0RBD8wPYIRc3NvLnVuaXN6YS5l
+ZHUubXmGKGh0dHBzOi8vc3NvLnVuaXN6YS5lZHUubXkvaWRwL3NoaWJib2xldGgw
+DQYJKoZIhvcNAQELBQADggGBAG17OM5CH/TtdoPwl3VPq5Ke8zf5LEoRn8GL5DPu
+P0SDdye6w410b5vNH+FaVzkx4nMd/PpFveoygQPZRt4a2wcZ4/dERXNFN2EsBScS
+VmIGPAwqMcPANzLttjBMPo5mhvz06+jKZS58236YKU5Nmh3tgOfcZ0WuD+myq0FZ
+sBtDJ/qUSyo9lMD0OgNTeqUje5MOKlTtZdmeoIWr+EOIeMwjnT2blkls5xs3FPwm
+5vn1e2qBfQ+4Vn+LSIxqCnCDiyfO1ubBYX2UPoPowq7wgOU0G48LCL57zd2b1jKL
+D99YZEXQKyU5FfjchjFetPUyHUQCkEsdoN07Wtd7eOhb1bRNJR+4m6o4uuusyxhs
+yFXEHj8YCPS24O38d1v9eNpB0VAJ6Apx7hIUchlvA7BpIueUpQqdbjgSwpjGE+Tw
+wAd1xNMUvOJUTIuja7eog+qvEQWsE6/yom+6alpby5bQwpT4VVkMqV5gsclMkIV0
+wbj+GnhfBYxnNwOqOxIPxERYWQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sso.unisza.edu.my/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.unisza.edu.my/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.unisza.edu.my/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.unisza.edu.my/idp/profile/SAML2/POST/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.unisza.edu.my/idp/profile/SAML2/SOAP/SLO" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sso.unisza.edu.my/idp/profile/Shibboleth/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.unisza.edu.my/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso.unisza.edu.my/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.unisza.edu.my/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unisza.edu.my</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEMDCCApigAwIBAgIVAISgOghQjtpUQz9WvoxmpGBnsOfOMA0GCSqGSIb3DQEB
+CwUAMBwxGjAYBgNVBAMMEXNzby51bmlzemEuZWR1Lm15MB4XDTE5MTEwNzEyMDEw
+M1oXDTM5MTEwNzEyMDEwM1owHDEaMBgGA1UEAwwRc3NvLnVuaXN6YS5lZHUubXkw
+ggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCSD36hB+1a49VQSper/9xS
+TiQehERo/JZtqFYH01+T6pp1Lfu3yAFnvTCcOj6gZfA3mU9B8fcG9JN/Ie8Nevkr
+qPZrXTyK3njf4VUghkxFrG11NFGYm0Op8lR0+rTJbYrwAyn/4hdiLK6XnBvtxEfo
+0tPc5zPjwATWWTgaqwcYDxbVk0yv9wKx+ER35+AktZuL45YOHi5k3/6mrPOUss+Q
+BH5X0IhakN0cpIQ9eF90tKF9qVnHZiUKpkWm694x4uo98rnfHz9qOr4sQplEyyFg
+w7x3QdTNBDDVvz5rFO77kcgyiZMx400qcnwjMaLvZUWIjxkHZztatSDST5oAUmCA
+QjNisFG8NlKUANsdQDdjEWz5UzX1cmznQTyAl/R1djq//qPWb64tSo/R2xQsK+mq
+yCqFEji1n0dWw11an9i/s5tK7Lu3RQ/0njfxhWNVH9IyoBmUaDqCif8coyZ5mkBf
+O8iXkcgQCVwtAyGpUd+VXepkcCBT6MIssNdLIny2wIECAwEAAaNpMGcwHQYDVR0O
+BBYEFNBqXzTXghkSe9W+bA5R67kFiZnlMEYGA1UdEQQ/MD2CEXNzby51bmlzemEu
+ZWR1Lm15hihodHRwczovL3Nzby51bmlzemEuZWR1Lm15L2lkcC9zaGliYm9sZXRo
+MA0GCSqGSIb3DQEBCwUAA4IBgQAWd/ruvoIk/UUsE54DH3BYxxmLRPl575GVBb29
+HCMJ2BhL1DQ50DnP8el3jMcO+ToBiBx1uIoJ+B80c00I0x1h5oB8ynTtos3FriAi
+RnC+fbbiIAd13m38lzwwnKZLT6hlgDZQK/EaGWNx5l34M/pB+bTy2TjmHLOQvYb+
+SedpGdjOrMKCQ92G+QaKiwhfDmyQeMGu1LdQaZLzB6k87N/8GYRVyR6403gJxwqR
+xn4ZKLdhn1lW+uQsSwLWgL/SHAqZeuMwsHuxjZgyy/q4CIORYFMt67i1EWOJZ2wf
+9JohTvn2sazK2DSbeeQ2+PE6t18WDNr8o1Awb/Rfcq7wC79rFTYKSNk0Lo2PewBn
+o3rSLHEyis8uWxK8Ej7PRBFbnkMWteXJQ20Z8AJsANG5La8H6chjwz+38goX1+Cy
+Z8gMYmmThuc66jm4Kj2RwqaxQpvaM3KTNuigfewh7E04KkfPMZJmOw394fGRXGp4
+Oum6iZowCQWrj6Jk4FQQwDPcBPA=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIELzCCApegAwIBAgIUPB6DihH7C63nmmDeR2USCktjX3owDQYJKoZIhvcNAQEL
+BQAwHDEaMBgGA1UEAwwRc3NvLnVuaXN6YS5lZHUubXkwHhcNMTkxMTA3MTIwMTA0
+WhcNMzkxMTA3MTIwMTA0WjAcMRowGAYDVQQDDBFzc28udW5pc3phLmVkdS5teTCC
+AaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAIVHKb/7O8QFhoww8i4pmrPB
+ce/NdzrFiLZqgBepZxvWCAvGj6kd53JlLgbMcY38fKCcDkkR8FDBcrmI44D4cgDw
+nMmQeEAmEf/7t2dYhEVWl9KjbYBYQ8uMys/eTCPobfeP8Svmhb5t4PSuM+aErda+
+SAmtFCAKaii7kkYgYR3c+wLamSDUGh/H7L5Qf7r+SUZSRZo275cSamsR3I82akAG
+CyFs0mbmPxPFH0F3FgdZp1102mx9snWntI5BoYnA6mf1+W3YolEkGtSUWzN880C+
+vQeeAuhK1mlnh8a1a0/YQYRB5apU4v1637XBY2xfA0VYqXRd1Lsiijr1gfEHzmZc
+1Z+IzDZsOkHBx9jQUGMTt83+7oCu0ATcoFj8f0W+cctwCM3iLogO/L6vK+OsnhQe
+Iyect5b3G1PmzSRVV1RwmTItmT0QkdnAenWA7DkzTtvNE4kjOkKKeFJpDZ81bvVT
+hWgTG97sB1J9qmZ3iRgzOllQa2PiqOL7/W40SshCXQIDAQABo2kwZzAdBgNVHQ4E
+FgQUF0C1daT2kB39BgaRu+FoVTqLKbIwRgYDVR0RBD8wPYIRc3NvLnVuaXN6YS5l
+ZHUubXmGKGh0dHBzOi8vc3NvLnVuaXN6YS5lZHUubXkvaWRwL3NoaWJib2xldGgw
+DQYJKoZIhvcNAQELBQADggGBAG17OM5CH/TtdoPwl3VPq5Ke8zf5LEoRn8GL5DPu
+P0SDdye6w410b5vNH+FaVzkx4nMd/PpFveoygQPZRt4a2wcZ4/dERXNFN2EsBScS
+VmIGPAwqMcPANzLttjBMPo5mhvz06+jKZS58236YKU5Nmh3tgOfcZ0WuD+myq0FZ
+sBtDJ/qUSyo9lMD0OgNTeqUje5MOKlTtZdmeoIWr+EOIeMwjnT2blkls5xs3FPwm
+5vn1e2qBfQ+4Vn+LSIxqCnCDiyfO1ubBYX2UPoPowq7wgOU0G48LCL57zd2b1jKL
+D99YZEXQKyU5FfjchjFetPUyHUQCkEsdoN07Wtd7eOhb1bRNJR+4m6o4uuusyxhs
+yFXEHj8YCPS24O38d1v9eNpB0VAJ6Apx7hIUchlvA7BpIueUpQqdbjgSwpjGE+Tw
+wAd1xNMUvOJUTIuja7eog+qvEQWsE6/yom+6alpby5bQwpT4VVkMqV5gsclMkIV0
+wbj+GnhfBYxnNwOqOxIPxERYWQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sso.unisza.edu.my/idp/profile/SAML1/SOAP/AttributeQuery" />
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.unisza.edu.my/idp/profile/SAML2/SOAP/AttributeQuery" />
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Universiti Sultan Zainal Abidin</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Universiti Sultan Zainal Abidin</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.unisza.edu.my</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Infra</md:GivenName>
+      <md:SurName>PPIR</md:SurName>
+      <md:EmailAddress>mailto:ppir_rpd@unisza.edu.my</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

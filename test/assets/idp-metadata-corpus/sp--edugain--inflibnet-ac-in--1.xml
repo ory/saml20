@@ -1,0 +1,123 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://shibboleth-sp.jgatenext.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://inflibnet.ac.in" registrationInstant="2024-10-29T08:13:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://parichay.inflibnet.ac.in/documents/rules_of_membership.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Informatics Publishing Limited</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Informatics Journals is an online publishing platform where authors can submit manuscripts and track their progress. Peer reviewers review submissions to ensure quality, and Informatics Publishing Limited collaborates with scholarly societies to publish indexed journals.</mdui:Description>
+          <mdui:Logo height="389" width="2048">https://www.informaticsglobal.ai/wp-content/uploads/2023/04/Informatics-Logo1-2048x389.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIGkzCCBXugAwIBAgIIWaRPzFLyru0wDQYJKoZIhvcNAQELBQAwgbQxCzAJBgNV
+BAYTAlVTMRAwDgYDVQQIEwdBcml6b25hMRMwEQYDVQQHEwpTY290dHNkYWxlMRow
+GAYDVQQKExFHb0RhZGR5LmNvbSwgSW5jLjEtMCsGA1UECxMkaHR0cDovL2NlcnRz
+LmdvZGFkZHkuY29tL3JlcG9zaXRvcnkvMTMwMQYDVQQDEypHbyBEYWRkeSBTZWN1
+cmUgQ2VydGlmaWNhdGUgQXV0aG9yaXR5IC0gRzIwHhcNMjQwNDAxMTIzNzE3WhcN
+MjUwNTAzMTIzNzE3WjAaMRgwFgYDVQQDDA8qLmpnYXRlbmV4dC5jb20wggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDXpHfKW+W8Tk+vmDUqvKVZ3MhCAjF5
+j/rO9onmpVtPpdDWuUQCNo13/24oxWgnKTJgVIztltdSSVeKo0JgBlpv0Y8CGyTR
+RwDdYZVSWuXzOgLa3hKoEMJ0D7gwjD0ld4qCFZCCu0Qk5dXjKd1Mn3gNg0CO8xqn
+L8rprgFpT3hJAD1nloLYUvJXnhPiWc1mxOixfYNz9MWD4xOSTyFk5IdpKc2XJMEH
+Gdt2qHyZJ0Q1Byp6v++RXCPXuU48WSfeRIlV5I+2qnN/8Ua4+f0enQARooq6i5AI
+nO7ZWuz49lylo1KQ/Fnj7mcKi3AiZY7B5OZfv8NRWDIZbZJQvNOjKDBVAgMBAAGj
+ggNAMIIDPDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+BQcDAjAOBgNVHQ8BAf8EBAMCBaAwOQYDVR0fBDIwMDAuoCygKoYoaHR0cDovL2Ny
+bC5nb2RhZGR5LmNvbS9nZGlnMnMxLTE5NDA5LmNybDBdBgNVHSAEVjBUMEgGC2CG
+SAGG/W0BBxcBMDkwNwYIKwYBBQUHAgEWK2h0dHA6Ly9jZXJ0aWZpY2F0ZXMuZ29k
+YWRkeS5jb20vcmVwb3NpdG9yeS8wCAYGZ4EMAQIBMHYGCCsGAQUFBwEBBGowaDAk
+BggrBgEFBQcwAYYYaHR0cDovL29jc3AuZ29kYWRkeS5jb20vMEAGCCsGAQUFBzAC
+hjRodHRwOi8vY2VydGlmaWNhdGVzLmdvZGFkZHkuY29tL3JlcG9zaXRvcnkvZ2Rp
+ZzIuY3J0MB8GA1UdIwQYMBaAFEDCvSeOzDSDMKIz1/tss/C0LIDOMCkGA1UdEQQi
+MCCCDyouamdhdGVuZXh0LmNvbYINamdhdGVuZXh0LmNvbTAdBgNVHQ4EFgQUe4BZ
+7sGb9Qgj3yTLkk6XZ+3tIoMwggF+BgorBgEEAdZ5AgQCBIIBbgSCAWoBaAB2AE51
+oydcmhDDOFts1N8/Uusd8OCOG41pwLH6ZLFimjnfAAABjpmp/eIAAAQDAEcwRQIg
+OyThXYM6BHz/crdHuxSXINEd91a2IAIW0VdJqpkOn/gCIQDnDTwa7n1oX7ilhEn/
+KcVrbxLqoVZm6Q+UT88chkDgGQB2AH1ZHhLheCp7HGFnfF79+NCHXBSgTpWeuQMv
+2Q6MLnm4AAABjpmp/oIAAAQDAEcwRQIhAOMiYSU4sanTtaufW9mhqqraLabyx2z0
+KNfdIe48uHu3AiB51uWF0pNy2NjT5daSX0AGaUlzimIQeGaxY/ndOQlAmQB2AMz7
+D2qFcQll/pWbU87psnwi6YVcDZeNtql+VMD+TA2wAAABjpmp/6oAAAQDAEcwRQIh
+AO0ypUdVFTrJbuZ/tbrGoGCt95POK+94QE4TC3Hf8IlsAiBJVGv4xgE2dVJMgsUV
+fJ/CUHJB5AquWVXQNg/suKR6uTANBgkqhkiG9w0BAQsFAAOCAQEATsVuDQC2m3g2
+tdxt5bQI0InvfHYenKS5eXiaVx2fra1hZSXZwZdBU65Uy2V7zUpGxroxQdCZjicD
+Fj0jOuQXfOf105HPBqMnDSWomSntq3jG0uVc1rj4SRKbWJGLPpHrx4e7x7Nnz8Lm
+GLzH5kh2A/1vUZW6DbfYI4+wUXVdVsExISx8/GvDV83wGQjG7hE9/Tqd3FDoTNU8
+xiE3eJprvV8Ld/U1WSJG85vFjuW8cjtLPGG5oeQs/7N9udxppO0V4Rugj71tQPRE
+AWQD85DVxnIg/mP3iIEkmM15CiNaiB+WYQLxsIwtWEjYADskBAIwm8/+Au7FGkQr
+JE2rQ2AZCA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIGkzCCBXugAwIBAgIIWaRPzFLyru0wDQYJKoZIhvcNAQELBQAwgbQxCzAJBgNV
+BAYTAlVTMRAwDgYDVQQIEwdBcml6b25hMRMwEQYDVQQHEwpTY290dHNkYWxlMRow
+GAYDVQQKExFHb0RhZGR5LmNvbSwgSW5jLjEtMCsGA1UECxMkaHR0cDovL2NlcnRz
+LmdvZGFkZHkuY29tL3JlcG9zaXRvcnkvMTMwMQYDVQQDEypHbyBEYWRkeSBTZWN1
+cmUgQ2VydGlmaWNhdGUgQXV0aG9yaXR5IC0gRzIwHhcNMjQwNDAxMTIzNzE3WhcN
+MjUwNTAzMTIzNzE3WjAaMRgwFgYDVQQDDA8qLmpnYXRlbmV4dC5jb20wggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDXpHfKW+W8Tk+vmDUqvKVZ3MhCAjF5
+j/rO9onmpVtPpdDWuUQCNo13/24oxWgnKTJgVIztltdSSVeKo0JgBlpv0Y8CGyTR
+RwDdYZVSWuXzOgLa3hKoEMJ0D7gwjD0ld4qCFZCCu0Qk5dXjKd1Mn3gNg0CO8xqn
+L8rprgFpT3hJAD1nloLYUvJXnhPiWc1mxOixfYNz9MWD4xOSTyFk5IdpKc2XJMEH
+Gdt2qHyZJ0Q1Byp6v++RXCPXuU48WSfeRIlV5I+2qnN/8Ua4+f0enQARooq6i5AI
+nO7ZWuz49lylo1KQ/Fnj7mcKi3AiZY7B5OZfv8NRWDIZbZJQvNOjKDBVAgMBAAGj
+ggNAMIIDPDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+BQcDAjAOBgNVHQ8BAf8EBAMCBaAwOQYDVR0fBDIwMDAuoCygKoYoaHR0cDovL2Ny
+bC5nb2RhZGR5LmNvbS9nZGlnMnMxLTE5NDA5LmNybDBdBgNVHSAEVjBUMEgGC2CG
+SAGG/W0BBxcBMDkwNwYIKwYBBQUHAgEWK2h0dHA6Ly9jZXJ0aWZpY2F0ZXMuZ29k
+YWRkeS5jb20vcmVwb3NpdG9yeS8wCAYGZ4EMAQIBMHYGCCsGAQUFBwEBBGowaDAk
+BggrBgEFBQcwAYYYaHR0cDovL29jc3AuZ29kYWRkeS5jb20vMEAGCCsGAQUFBzAC
+hjRodHRwOi8vY2VydGlmaWNhdGVzLmdvZGFkZHkuY29tL3JlcG9zaXRvcnkvZ2Rp
+ZzIuY3J0MB8GA1UdIwQYMBaAFEDCvSeOzDSDMKIz1/tss/C0LIDOMCkGA1UdEQQi
+MCCCDyouamdhdGVuZXh0LmNvbYINamdhdGVuZXh0LmNvbTAdBgNVHQ4EFgQUe4BZ
+7sGb9Qgj3yTLkk6XZ+3tIoMwggF+BgorBgEEAdZ5AgQCBIIBbgSCAWoBaAB2AE51
+oydcmhDDOFts1N8/Uusd8OCOG41pwLH6ZLFimjnfAAABjpmp/eIAAAQDAEcwRQIg
+OyThXYM6BHz/crdHuxSXINEd91a2IAIW0VdJqpkOn/gCIQDnDTwa7n1oX7ilhEn/
+KcVrbxLqoVZm6Q+UT88chkDgGQB2AH1ZHhLheCp7HGFnfF79+NCHXBSgTpWeuQMv
+2Q6MLnm4AAABjpmp/oIAAAQDAEcwRQIhAOMiYSU4sanTtaufW9mhqqraLabyx2z0
+KNfdIe48uHu3AiB51uWF0pNy2NjT5daSX0AGaUlzimIQeGaxY/ndOQlAmQB2AMz7
+D2qFcQll/pWbU87psnwi6YVcDZeNtql+VMD+TA2wAAABjpmp/6oAAAQDAEcwRQIh
+AO0ypUdVFTrJbuZ/tbrGoGCt95POK+94QE4TC3Hf8IlsAiBJVGv4xgE2dVJMgsUV
+fJ/CUHJB5AquWVXQNg/suKR6uTANBgkqhkiG9w0BAQsFAAOCAQEATsVuDQC2m3g2
+tdxt5bQI0InvfHYenKS5eXiaVx2fra1hZSXZwZdBU65Uy2V7zUpGxroxQdCZjicD
+Fj0jOuQXfOf105HPBqMnDSWomSntq3jG0uVc1rj4SRKbWJGLPpHrx4e7x7Nnz8Lm
+GLzH5kh2A/1vUZW6DbfYI4+wUXVdVsExISx8/GvDV83wGQjG7hE9/Tqd3FDoTNU8
+xiE3eJprvV8Ld/U1WSJG85vFjuW8cjtLPGG5oeQs/7N9udxppO0V4Rugj71tQPRE
+AWQD85DVxnIg/mP3iIEkmM15CiNaiB+WYQLxsIwtWEjYADskBAIwm8/+Au7FGkQr
+JE2rQ2AZCA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-sp.jgatenext.com/saml2/?sls" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-sp.jgatenext.com/saml2/?acs" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Informatics Publishing Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Informatics Publishing Limited</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://informaticsglobal.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>rathnakara</md:GivenName>
+      <md:EmailAddress>mailto:rathnakara@informaticsglobal.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>vamsikrishna.a</md:GivenName>
+      <md:EmailAddress>mailto:vamsikrishna.a@informaticsglobal.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,36 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://filesender.azsciencenet.az/simplesaml/module.php/saml/sp/metadata.php/default-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://edugain.azsciencenet.az" registrationInstant="2024-01-24T18:33:00Z" />
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">FIlesender</mdui:DisplayName>
+          <mdui:Description xml:lang="en">FileSender SP</mdui:Description>
+          <mdui:Keywords xml:lang="en">AzScienceNet, FileSender SP</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://edugain.azsciencenet.az</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.azsciencenet.az/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.azsciencenet.az/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://filesender.azsciencenet.az/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.azsciencenet.az/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://filesender.azsciencenet.az/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">FIlesender</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">FileSender SP</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="uid" Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">AzScienceNet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">AzScienceNet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://edugain.azsciencenet.az</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Samed</md:GivenName>
+      <md:SurName>Dursunov</md:SurName>
+      <md:EmailAddress>mailto:samed@azsciencenet.az</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

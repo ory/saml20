@@ -6,9 +6,8 @@ import * as saml from '../../lib/post';
 // The form's action as an HTML parser (and so a browser) reads it, with
 // character references decoded.
 const parsedAction = (html: string): string => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const doc: any = new DOMParser({ onError: () => undefined }).parseFromString(html, MIME_TYPE.HTML);
-  return doc.getElementsByTagName('form')[0].getAttribute('action');
+  const doc = new DOMParser({ onError: () => undefined }).parseFromString(html, MIME_TYPE.HTML);
+  return doc.getElementsByTagName('form')[0].getAttribute('action') as string;
 };
 
 describe('post.ts', function () {

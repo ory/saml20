@@ -1,0 +1,56 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://filesender.maren.ac.mw/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://maren.ac.mw">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://mif.maren.ac.mw/wp-content/uploads/2024/02/MAREN-Id-Fed-Policy-v1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="true">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">MAREN Filesender</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Malawi Research and Education Network Filesender Service</mdui:Description>
+          <mdui:Logo width="400" height="200" xml:lang="en">https://filesender.maren.ac.mw/images/maren-logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFHTCCA4WgAwIBAgIUX35+d201Zli4dymJvmFqU2oLWGwwDQYJKoZIhvcNAQELBQAwgZ0xCzAJBgNVBAYTAk1XMREwDwYDVQQIDAhCbGFudHlyZTERMA8GA1UEBwwIQmxhbnR5cmUxDjAMBgNVBAoMBU1BUkVOMRAwDgYDVQQLDAdTeXN0ZW1zMR8wHQYDVQQDDBZmaWxlc2VuZGVyLm1hcmVuLmFjLm13MSUwIwYJKoZIhvcNAQkBFhZqLmt1bXdlbmRhQG1hcmVuLmFjLm13MB4XDTI0MDkxMTE1MjM1MVoXDTM0MDkxMTE1MjM1MVowgZ0xCzAJBgNVBAYTAk1XMREwDwYDVQQIDAhCbGFudHlyZTERMA8GA1UEBwwIQmxhbnR5cmUxDjAMBgNVBAoMBU1BUkVOMRAwDgYDVQQLDAdTeXN0ZW1zMR8wHQYDVQQDDBZmaWxlc2VuZGVyLm1hcmVuLmFjLm13MSUwIwYJKoZIhvcNAQkBFhZqLmt1bXdlbmRhQG1hcmVuLmFjLm13MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAp1LSE9qFiVkpS9RCtRX36JyXx+vqxGrjXjk7COcRVBB7HFSGG0MwXn60v91OJC4/x9Ov8lsoWy/iyqos7VZQM7CH/MCS0/HsvIUID0ajIlmq3lDM22wbtoivel761Nl6hDYeOC91n64XTvYeNgQ4M8nlH3W6n1b76FpeAreJ4aevx/by4uHo6W5tW1s8RAdrcmH5x8Zdq4rTiEKk06zHIxw9kfV8Vh1RI8G3q41d1KBoK9w2cpOUb7I4JjfkeMJv15CDiY3x5dLJ7+qXSgfJV4v9Uw2EL+CdzoUPhwpgGv01owwLZwU9dr5KZ1L0QjzmyKWyzvDZ7KMhmbRtKLgVoXRyy7Gt7iEeTGXYHUOOkzpZC3fsV7++jjXUAg2Gr0h4a4L7iPht2wjlV0foTaEsEZnjSGtf9yTaVMbe6sflZ4tCjRnYXD7IRufFGEAVjTFR3O9qlJuDg7QZfUpyPdweog0rj9HXMZnNJStl5aSOBvWISd+tHJqpRHIlLLGygLJFAgMBAAGjUzBRMB0GA1UdDgQWBBT1iYKDEC0szOlXDDbCEHO0istTITAfBgNVHSMEGDAWgBT1iYKDEC0szOlXDDbCEHO0istTITAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQAcW9JX4xP04FMYNQ3MdvxJcqAdhXY9MxoXzVwQKiZ082b1cmW+N29S79WLTpGrZZxGFVtYECzfUGNQURGYxdxf6hg7w1+o/QoK5H3wUHqlV05NU1RlOz8fbuXqpX9MI6FPKnU0OX/P5ZOzCNGfnPaEr7utLVLIblZ3ZBRu9CHimmx8k7VQbyW0u52Vn8osLfAXU2d+fmtkCHp14n+82dmJRUj58frdqbxm+jSPwrpQ8GQ77HxWLUfpYZWFKxiAvg1RJY9P6wpNQflb2q4YF8wOOMVNYo8BvCmDf205HyWxx11aXfdo02ZZeQ5O91df8CFoF/4ZjzRNF9lK7VaGBNYVsmUY8FE94fzTEq11RzHE2/OGsU3yrs49/wGV03sexMDXUWRLlDV/M56z7esM3ICxK7rME3AZ2DtlbGl0F9QeSkb+1CK8vR1JyBTXdk3hTh7tIhrAGK9GSZodNv0R0opRFuXSTTVpcH1XJkuFYmr329e5fCBnyiFr6T9qIBVhuSw=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFHTCCA4WgAwIBAgIUX35+d201Zli4dymJvmFqU2oLWGwwDQYJKoZIhvcNAQELBQAwgZ0xCzAJBgNVBAYTAk1XMREwDwYDVQQIDAhCbGFudHlyZTERMA8GA1UEBwwIQmxhbnR5cmUxDjAMBgNVBAoMBU1BUkVOMRAwDgYDVQQLDAdTeXN0ZW1zMR8wHQYDVQQDDBZmaWxlc2VuZGVyLm1hcmVuLmFjLm13MSUwIwYJKoZIhvcNAQkBFhZqLmt1bXdlbmRhQG1hcmVuLmFjLm13MB4XDTI0MDkxMTE1MjM1MVoXDTM0MDkxMTE1MjM1MVowgZ0xCzAJBgNVBAYTAk1XMREwDwYDVQQIDAhCbGFudHlyZTERMA8GA1UEBwwIQmxhbnR5cmUxDjAMBgNVBAoMBU1BUkVOMRAwDgYDVQQLDAdTeXN0ZW1zMR8wHQYDVQQDDBZmaWxlc2VuZGVyLm1hcmVuLmFjLm13MSUwIwYJKoZIhvcNAQkBFhZqLmt1bXdlbmRhQG1hcmVuLmFjLm13MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAp1LSE9qFiVkpS9RCtRX36JyXx+vqxGrjXjk7COcRVBB7HFSGG0MwXn60v91OJC4/x9Ov8lsoWy/iyqos7VZQM7CH/MCS0/HsvIUID0ajIlmq3lDM22wbtoivel761Nl6hDYeOC91n64XTvYeNgQ4M8nlH3W6n1b76FpeAreJ4aevx/by4uHo6W5tW1s8RAdrcmH5x8Zdq4rTiEKk06zHIxw9kfV8Vh1RI8G3q41d1KBoK9w2cpOUb7I4JjfkeMJv15CDiY3x5dLJ7+qXSgfJV4v9Uw2EL+CdzoUPhwpgGv01owwLZwU9dr5KZ1L0QjzmyKWyzvDZ7KMhmbRtKLgVoXRyy7Gt7iEeTGXYHUOOkzpZC3fsV7++jjXUAg2Gr0h4a4L7iPht2wjlV0foTaEsEZnjSGtf9yTaVMbe6sflZ4tCjRnYXD7IRufFGEAVjTFR3O9qlJuDg7QZfUpyPdweog0rj9HXMZnNJStl5aSOBvWISd+tHJqpRHIlLLGygLJFAgMBAAGjUzBRMB0GA1UdDgQWBBT1iYKDEC0szOlXDDbCEHO0istTITAfBgNVHSMEGDAWgBT1iYKDEC0szOlXDDbCEHO0istTITAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQAcW9JX4xP04FMYNQ3MdvxJcqAdhXY9MxoXzVwQKiZ082b1cmW+N29S79WLTpGrZZxGFVtYECzfUGNQURGYxdxf6hg7w1+o/QoK5H3wUHqlV05NU1RlOz8fbuXqpX9MI6FPKnU0OX/P5ZOzCNGfnPaEr7utLVLIblZ3ZBRu9CHimmx8k7VQbyW0u52Vn8osLfAXU2d+fmtkCHp14n+82dmJRUj58frdqbxm+jSPwrpQ8GQ77HxWLUfpYZWFKxiAvg1RJY9P6wpNQflb2q4YF8wOOMVNYo8BvCmDf205HyWxx11aXfdo02ZZeQ5O91df8CFoF/4ZjzRNF9lK7VaGBNYVsmUY8FE94fzTEq11RzHE2/OGsU3yrs49/wGV03sexMDXUWRLlDV/M56z7esM3ICxK7rME3AZ2DtlbGl0F9QeSkb+1CK8vR1JyBTXdk3hTh7tIhrAGK9GSZodNv0R0opRFuXSTTVpcH1XJkuFYmr329e5fCBnyiFr6T9qIBVhuSw=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.maren.ac.mw/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://filesender.maren.ac.mw/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.maren.ac.mw/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.maren.ac.mw/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="1" />
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">Filesender service</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">MAREN Filesender service</md:ServiceDescription>
+        <md:RequestedAttribute Name="eduPersonPrincipalName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute Name="mail" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute Name="uid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+        <md:RequestedAttribute Name="eduPersonEntitlement" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true" />
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Malawi Research and Education Network</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Malawi Research and Education Network</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://maren.ac.mw</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:EmailAddress>mailto:support@maren.ac.mw</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jones Kumwenda</md:GivenName>
+      <md:EmailAddress>mailto:j.kumwenda@maren.ac.mw</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

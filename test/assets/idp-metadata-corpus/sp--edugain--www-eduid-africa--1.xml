@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://vpn.ubuntunet.net/php-saml-sp/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.eduid.africa/" registrationInstant="2025-09-03T01:15:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.eduid.africa/mprs-v1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UbuntuNet eduVPN</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Eduvpn instance</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://ubuntunet.net/eduvpn</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://vpn.ubuntunet.net/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="62" width="213">https://ubuntunet.net/app/uploads/2022/01/cropped-UbuntuNet-Alliance-1-213x62.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEBjCCAm6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAcMRowGAYDVQQDDBFTQU1M
+IFNQIChzaWduaW5nKTAeFw0yNTA1MjYwMjUzNDJaFw0zNTA1MjQwMjUzNDJaMBwx
+GjAYBgNVBAMMEVNBTUwgU1AgKHNpZ25pbmcpMIIBojANBgkqhkiG9w0BAQEFAAOC
+AY8AMIIBigKCAYEAnum3KkEZ/cmYaQQNIWi6ahWi0DIufC1FDsA0oGeNb5g/ucpX
+ejL2QaHpCMzRAp2C3DuoNSYVaFgaLlEwOVVaQha9qeJyELqaaxgs3z8leAMcUlxW
+zopjXMwJxGPxOJqZljB50mbjFZS4gKlLLmbAbHnFSe5JiAbvZ+JpUHMSAtzRPbpc
+CSMRnoIXsm4gMIaS1P5PhwE8fuU0nwOmY8MwsQXm7GNRBVbMKvnNtA2hNza/K1Te
+1qiMrSIQWCZf96+n3qCfI/Inm0uA6+/FQVjjkt2DqW+M9gBQEa78upFYxF/RV3M2
+SbwC0NfuTEMsD7y7zMpzZ8W5Rv9BdAl2fqHjmDuOjZF/DPefNbZPAPEHQZ4m5GPY
+c+RzIVGJq0nOjGxHH/Qd6PIFGv951xTDAOYRhzr23hh6pGTdDhr4/goyFLSbV42+
+CpobJZnIMiqF5iHNzK4mqnoqCXQS2/8D0YZCXCCHEisPlDbTJZdhxxiNDvDrFQxA
+YDIecze4LfRJHLR5AgMBAAGjUzBRMB0GA1UdDgQWBBRlkvCFD+L0lgq+KAW7DIjj
+GAGtkTAfBgNVHSMEGDAWgBRlkvCFD+L0lgq+KAW7DIjjGAGtkTAPBgNVHRMBAf8E
+BTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQB6ELqrFUPlbhLaj10VsAgZd+C8DTow
+LUqCa/BChkDqe7+ozvYBTLM3lPqTTlhSm0NwOjfW/rOMYqSMtIRVc07GSVbu138N
+ESaiE0N7qePAUznVX3uA6Z1OubwwikQs4OszLIq5b/zXtZraO01MjTU6IT0s2mNl
+Z940B8tz4yb/DPw9yRcUs9nTBBVK95PkcvvIWsUBOwgAxvvLDP1HsB7oPQyTXGIk
+FCILhGVX5pez/iJJD5PVdIuiA4jpbgvyQQNbiUvsJP4hT0aCdcpZ3w4OZ0SycB9r
+bIiwwV0S+2Bt6jYVoscYrDidrFpAsUtKKipm2tCV3iXjQHZLW19C6RYb/PP3Z4b+
+cmLi8SZsd3iOoJ+JXOW4bfjSCtcu3iJxcCoieyTAaDNxdMwoeJkwVJI6m4ye2yI9
+LgLwMhGzPzi+BPk+sK93ibrYDXflayRmknt16AXQWjyWgQS+WkfxjUKE5s9M3hIk
+oF7SRvutC9UjJr0b8FWOM6dazz7omdxV4yk=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEDDCCAnSgAwIBAgIBATANBgkqhkiG9w0BAQsFADAfMR0wGwYDVQQDDBRTQU1M
+IFNQIChlbmNyeXB0aW9uKTAeFw0yNTA1MjYwMjUzNDJaFw0zNTA1MjQwMjUzNDJa
+MB8xHTAbBgNVBAMMFFNBTUwgU1AgKGVuY3J5cHRpb24pMIIBojANBgkqhkiG9w0B
+AQEFAAOCAY8AMIIBigKCAYEAm4MFWti4F+mY6jH7QWqNTa1sGWdom1qF7oFBLXIW
+n7mOERPi40uVxL4B2gUZWjVia0ydQX4niDcnhmsLjJ/W8I1b6PHNtRSbNf3pMP2U
+mBEo9w6KrP1q+gxSxr63I3gmrHr2IY9rDmxzIw2AuNXEbc3kXpSnLbOc/Mq7GcVH
+wRGw9qIHDxCrWcjjmeZxop4LejxK3wvtbY6UERtaCs/a7AtIBjrPlqJwusdAzX3j
+t69O4WKtNpMFTyvGrhIVnfND/5FejrAaYlQH4pzdqpq35zWPCobGcvuzICfIekX1
+WPbYrKORTMJParqKla2D17KmKJACs7obVIYXveHkyqJQRXAXDzq523ycvRPveGce
+H56+Dq1u8lK1v1/lQmkLsIEtahCSjyjo6X/YCvCA3xW4k8xgCuhlVWLdM9k/zwcM
+II5pgjBQ2jFoczCIEDtEoAPTpu1HEQTpMxZAH7VXs15y7ttBE0zhiwbSG6YmGORU
+N+MbQx05hDSU8F/0lkQuQL+TAgMBAAGjUzBRMB0GA1UdDgQWBBRxoYaiIsez0g0z
+UYwdxb+GgVjnZzAfBgNVHSMEGDAWgBRxoYaiIsez0g0zUYwdxb+GgVjnZzAPBgNV
+HRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQANSlHeJBEtwuDemJ6hTBj1
+0Tw1ouecxx4gw9D2WWT8PwoQ68Ug017wsfjuVKh3EwhWqNFRWuR2PhBV0p4324G/
+QK4m2TPwbc3hWxmruzbVOcirKgthu8RW/QuwqhzJyO3R5WeYn2mkRc/wvzZ+vt+Q
+wurQuyznrlygKfbjSCtsJbg4tnUZHLgVY4/QoiOqFBeH6QidW3F3yfbM0/oL9+EO
+DuT7Tc/HfOW2hpaU1RGI9jhP/OL/cK2b5wJ0yucd59Os2rruPB2iiFv3JxFRFZyC
+PWbfYzfwZ6ZtMHeyfr4FAitUFz2JEyDB+OlylQw3KZQ32jkj+2lf4Gf8MdHP16+f
+oT9nb1CITvDJ0ubale716iO+8x+H6dnjSMk1UHgZ+5ds88zP+1E1awTqDJhAAnd6
+yowe3u196O9tFizbIFu6vpLEyLbfVP6MQoPqcE5O+omlC8M6PcUi0iUU69TI/mIa
+grQ+knRCW2X6/kT+UcXjw16I9dENQTtJOF7csq4Ollg=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes128-gcm" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#aes256-gcm" />
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vpn.ubuntunet.net/php-saml-sp/slo" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vpn.ubuntunet.net/php-saml-sp/acs" index="0" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UbuntuNet Alliance</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UbuntuNet Alliance VPN</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://ubuntunet.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Revelation</md:GivenName>
+      <md:SurName>Nyirongo</md:SurName>
+      <md:EmailAddress>mailto:revelation.nyirongo@ubuntunet.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

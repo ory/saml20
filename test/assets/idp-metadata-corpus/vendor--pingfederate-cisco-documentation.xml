@@ -1,0 +1,26 @@
+<md:EntityDescriptor entityID="saml2" cacheDuration="PT1440M"
+ID="OUEOtB9WV9lj-tGu57Lzdbwmah." xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+<md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<md:KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>
+MIICUzAgI0xCzAJBgNVGATL3DQEBBQUA6reRuMA0GCSqGSIbCCAbygAwIBMGBAYTAl
+VTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMREwDwYDVQQHEwhTYW4gSm9zZTEeMBwGA1UE
+ChMVRGln0ZW1zMRYwFAYaNZWRpYSBTeXNDVQQXRhbCBDEw1DaXNjbyBTeXN0ZW1zMB
+4XDTExMTAxMzAwMjgxMloXDTEyMTAxMjAwMjgxMlowbTELMAkGA1UEBhMCVVMxEzAR
+BgNVBAgTCkNhbGlmb3JuaWExETAPBgNVBAcTCFNhbiBKb3NlMR4wHAYDVQQKExVEaW
+dpdGFsIE1lZGlhIFN5c3RlbXMxFjAUBgNVBAMTDUNpc2NvIFN5c3RlbXMwgZ8wDQYJ
+KoZIhvJAoGBALaYHMXD2DcNAQEBBQADgY0AMIGrFA+B1GubRCQIsqtpv0sHHdmLiJ8
+CpuGtIgpHGBYHyKhPPS506YUbpduEViHM4MAqO0c0TKG8JCdhpXgoHI+/suo6zgkm6
+x6UOZsW36+FxlUOgO4hsGG3rpNtgkLSd4YrnlwVCdb0FPgsvE58zbptosAQKF5R8iq
+NLAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAedOWz2UZctWwUxSVhTZ1pE39wDTaf40X
+0yN9vZiV2O3naP7rwkwles1svozpz5Cw/GJITznvRM2ez3agYaOsnz4FuDARjv3/cz
+SED+6uMlv8xsk6gQ1zD3dJmyN2bJL/ENc+6bw8jepPGzyZBv+GwJwLeobKTgcCUI6X
+1rIDn1U=
+</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor>
+<md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+<md:SingleSignOnService Location="https://idp.example.com:9031/idp/SSO.saml2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" />
+<md:SingleSignOnService Location="https://idp.example.com:9031/idp/SSO.saml2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" />
+<md:SingleSignOnService Location="https://idp.example.com:9031/idp/SSO.saml2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" />
+<saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" Name="SAML_AUTHN_CTX" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" />
+<saml:Attribute NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" Name="UID" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" />
+</md:IDPSSODescriptor></md:EntityDescriptor>

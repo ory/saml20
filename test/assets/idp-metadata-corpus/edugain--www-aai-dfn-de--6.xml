@@ -1,0 +1,81 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibboleth.kh-mz.de/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2026-01-23T07:52:40Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/fileadmin/documents/mrps_dfn-aai_1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kh-mz.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Katholische Hochschule Mainz</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Catholic University of Applied Sciences Mainz</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Identity Provider der Katholischen Hochschule Mainz</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider of Catholic University of Applied Sciences Mainz</mdui:Description>
+          <mdui:InformationURL xml:lang="de">https://www.kh-mz.de/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.kh-mz.de/en/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>shibboleth.kh-mz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=shibboleth.kh-mz.de</ds:X509SubjectName>
+            <ds:X509Certificate>MIIECzCCAnOgAwIBAgIUdi9D6GJn69pdO6Z+bWBU/qKhmGwwDQYJKoZIhvcNAQEL
+BQAwHjEcMBoGA1UEAxMTc2hpYmJvbGV0aC5raC1tei5kZTAeFw0yNjAxMTIxMzUw
+NDFaFw0yOTAzMjcxMzUwNDFaMB4xHDAaBgNVBAMTE3NoaWJib2xldGgua2gtbXou
+ZGUwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCr9pdq7igAOAnmOfRl
+UQ780KFTkRhfKES5vKP0GA04SrpdCp6Wo58oPTDvsOYFqY4XuVpLCKqq24Z9jBD6
+M7rOp9+aMPiIsm9/km/DBZa7NvujkFfXzmDNY4mdRVKyLze+iskAakPYhMk7mpoU
+iKJfh81GOl473kRLHnGCA8cM8lDz35GPEtp5qD/G4xD+h4uDpSdf1GTfgEvssJ+w
+DEvzcXYK2BX0HFSPVcSCmbxaFa7OvAt29n1gT8vkB8dxUp9SQ/0VmrBTxvfqypuv
+KRqdqZxN67t7iL3aQXqbLob533EmR723gar28IH0xp2n187VZSMKkbvGRWkhe/n0
+AX0w/RMCze8eSy2WWur2vNINDz2QcJ2JcSg/diIu6EyYiwMYwcNr7xSm9NxaiPCO
+XYC1VmngJLHQ1YMf+mU8E1TeMAiqg40gwAD+AUDr4wjUUroXgo9UooWp7/6FnAME
+CwjXeoJcaa3ky96BO211uT14imL/D68DSYFcWDleUmvqL7cCAwEAAaNBMD8wHgYD
+VR0RBBcwFYITc2hpYmJvbGV0aC5raC1tei5kZTAdBgNVHQ4EFgQUyqIwtsdXJIxH
+kh3hmKiY9b9WqwUwDQYJKoZIhvcNAQELBQADggGBAKdnFE0EhIrWj2hU8xLNq2cm
+xiQ2d5+nGw4mcJaC9pEQJSKhWRM8/ojiGyQA3QkdjzxEYCr6cWH2Oix8UEQNbis4
+7x3ssprLScmVWD1p9scrPRra21LxGAXFXz7PvQG4zHEPaYbutKggmzp690GdulUO
+VRIRXHV9TLWEK2Jbefm6Ejo+zkWWrRObNAkT+tRCVW/UOIpswVIsl7eQv1ymY1XJ
+cQTlRoxqo7uxmoPVYXjLA2EYi5VQM31epSuBjHV6uCUIBp/r9A+gPB7ViNdD26Uo
+HUl6tMlFvYlzAbow8LVtDwJWqUczOSCexRgRBL6IeczzJrq6ro2bSu/I4yh1FnhC
+/uWv5pD+ac7/AgkOTLHLCFGXaEZMbfYC1/oo8QQP4pm6tWX8Jcw87sl2QiuPrXQQ
+Bl4uc7JKVXBFyxBKJ0z8HlwC4yCHOjQuvnkps6paACKDVw5FcSMIizsqJqmN4RDI
+SLZlcwBX2fHg5+YCxZ+9gd2Jm6lm3mKO0ggxBvlj1Q==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.kh-mz.de/idp/profile/SAML2/SOAP/ArtifactResolution" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.kh-mz.de/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.kh-mz.de/idp/profile/SAML2/POST/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.kh-mz.de/idp/profile/SAML2/POST-SimpleSign/SLO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.kh-mz.de/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.kh-mz.de/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.kh-mz.de/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e1163</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e1163</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Katholische Hochschule Mainz</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Katholische Hochschule Mainz</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">https://www.kh-mz.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.kh-mz.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Zdenko</md:GivenName>
+      <md:SurName>Roso</md:SurName>
+      <md:EmailAddress>mailto:Zdenko.Roso@kh-mz.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Zdenko</md:GivenName>
+      <md:SurName>Roso</md:SurName>
+      <md:EmailAddress>mailto:Zdenko.Roso@kh-mz.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Zdenko</md:GivenName>
+      <md:SurName>Roso</md:SurName>
+      <md:EmailAddress>mailto:Zdenko.Roso@kh-mz.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

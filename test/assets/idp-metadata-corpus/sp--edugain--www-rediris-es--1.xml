@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://mobility.fib.upc.edu/sso/saml/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.rediris.es/" registrationInstant="2021-04-12T14:42:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.rediris.es/sir/edugain/SIR_MRPS.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Application Process for Exchange Students at FIB (UPC)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">Formulario de solicitud para estudiantes Erasmus de FIB (UPC)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Application Process for Exchange Students at FIB (UPC)</mdui:Description>
+          <mdui:Keywords xml:lang="en">erasmus, fib, application form</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://mobility.fib.upc.edu</mdui:InformationURL>
+          <mdui:Logo height="150" width="1000" xml:lang="en-gb">https://www.fib.upc.edu/sites/fib/files/images/logo-fib.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEBDCCAuygAwIBAgIJAIupsXkdlvdfMA0GCSqGSIb3DQEBCwUAMIGWMQswCQYD
+VQQGEwJFUzESMBAGA1UECAwJQ2F0YWxvbmlhMRIwEAYDVQQHDAlCYXJjZWxvbmEx
+DDAKBgNVBAoMA1VQQzEMMAoGA1UECwwDRklCMR0wGwYDVQQDDBRtb2JpbGl0eS5m
+aWIudXBjLmVkdTEkMCIGCSqGSIb3DQEJARYVd2VibWFzdGVyQGZpYi51cGMuZWR1
+MB4XDTI1MDMxODE1MzUwNloXDTI2MDMxODE1MzUwNlowgZYxCzAJBgNVBAYTAkVT
+MRIwEAYDVQQIDAlDYXRhbG9uaWExEjAQBgNVBAcMCUJhcmNlbG9uYTEMMAoGA1UE
+CgwDVVBDMQwwCgYDVQQLDANGSUIxHTAbBgNVBAMMFG1vYmlsaXR5LmZpYi51cGMu
+ZWR1MSQwIgYJKoZIhvcNAQkBFhV3ZWJtYXN0ZXJAZmliLnVwYy5lZHUwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9hkhV4HGygP+cChI9jxFMeFSKs4Th
+kLMnSs20k/RHx2QqTafD0SmOvb+DOs51VpprnhcF3KbCPczWTN0MsHOKBeT9nBpA
+nNOCp5yIsDniciF/yLDm8WwWjyr5TzfeUeBYzvlCXSzV7Bdh+D4YKHFzeT6uINEj
+5pK1THLROgB8p4YBopkFGmi6TEgpBqua5CSrOdw+Ztqhwd5HQuf4GVztrBxefUlO
+hB18mpmOXYfWY/WiqsECc/WIWlI+Qyq3r6KM636v+P5ox4hDsCalhWAqFZN+mupD
+4E8zMufY3OI7V+NdS+mzZCd+b2Xq+OU+dOPk6RLno4VBun0WWrjFr6PbAgMBAAGj
+UzBRMB0GA1UdDgQWBBQy6+yPvUcAjVEa33qcGQ2xjAAPoTAfBgNVHSMEGDAWgBQy
+6+yPvUcAjVEa33qcGQ2xjAAPoTAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEB
+CwUAA4IBAQCsT4+RFtmgxji4WvWuPuq0DKsr/Qd3xcFm5aCYKz1MmTACudMG5mog
+5vUXtqbECcMePwFrRF0/375H2zT03eB9P+fAKYoqzdjuhJ9PWhfasoYNeZxjKPp+
+zaezi05/bF5xruUqV26rYhvFWzuox6bJZjTBfmGmhUhl6r9pK1gTYxUlwQqv2/qU
+UMBOGK49JnlmEV0oMQ+1S6qeiENU3rQX8uUO53UWMunsw9/jtYQnl9rmTNh9FfEV
+CZRb1GaPMBKb8Mci/jrthLuKdHJMhxp5u43LKSmj974HTfdwn6b9ceEJRYREMhqO
+F203AgbOyyF9UXLcW97QSxm1vNrt3927
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEBDCCAuygAwIBAgIJAIupsXkdlvdfMA0GCSqGSIb3DQEBCwUAMIGWMQswCQYD
+VQQGEwJFUzESMBAGA1UECAwJQ2F0YWxvbmlhMRIwEAYDVQQHDAlCYXJjZWxvbmEx
+DDAKBgNVBAoMA1VQQzEMMAoGA1UECwwDRklCMR0wGwYDVQQDDBRtb2JpbGl0eS5m
+aWIudXBjLmVkdTEkMCIGCSqGSIb3DQEJARYVd2VibWFzdGVyQGZpYi51cGMuZWR1
+MB4XDTI1MDMxODE1MzUwNloXDTI2MDMxODE1MzUwNlowgZYxCzAJBgNVBAYTAkVT
+MRIwEAYDVQQIDAlDYXRhbG9uaWExEjAQBgNVBAcMCUJhcmNlbG9uYTEMMAoGA1UE
+CgwDVVBDMQwwCgYDVQQLDANGSUIxHTAbBgNVBAMMFG1vYmlsaXR5LmZpYi51cGMu
+ZWR1MSQwIgYJKoZIhvcNAQkBFhV3ZWJtYXN0ZXJAZmliLnVwYy5lZHUwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9hkhV4HGygP+cChI9jxFMeFSKs4Th
+kLMnSs20k/RHx2QqTafD0SmOvb+DOs51VpprnhcF3KbCPczWTN0MsHOKBeT9nBpA
+nNOCp5yIsDniciF/yLDm8WwWjyr5TzfeUeBYzvlCXSzV7Bdh+D4YKHFzeT6uINEj
+5pK1THLROgB8p4YBopkFGmi6TEgpBqua5CSrOdw+Ztqhwd5HQuf4GVztrBxefUlO
+hB18mpmOXYfWY/WiqsECc/WIWlI+Qyq3r6KM636v+P5ox4hDsCalhWAqFZN+mupD
+4E8zMufY3OI7V+NdS+mzZCd+b2Xq+OU+dOPk6RLno4VBun0WWrjFr6PbAgMBAAGj
+UzBRMB0GA1UdDgQWBBQy6+yPvUcAjVEa33qcGQ2xjAAPoTAfBgNVHSMEGDAWgBQy
+6+yPvUcAjVEa33qcGQ2xjAAPoTAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEB
+CwUAA4IBAQCsT4+RFtmgxji4WvWuPuq0DKsr/Qd3xcFm5aCYKz1MmTACudMG5mog
+5vUXtqbECcMePwFrRF0/375H2zT03eB9P+fAKYoqzdjuhJ9PWhfasoYNeZxjKPp+
+zaezi05/bF5xruUqV26rYhvFWzuox6bJZjTBfmGmhUhl6r9pK1gTYxUlwQqv2/qU
+UMBOGK49JnlmEV0oMQ+1S6qeiENU3rQX8uUO53UWMunsw9/jtYQnl9rmTNh9FfEV
+CZRb1GaPMBKb8Mci/jrthLuKdHJMhxp5u43LKSmj974HTfdwn6b9ceEJRYREMhqO
+F203AgbOyyF9UXLcW97QSxm1vNrt3927
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://mobility.fib.upc.edu/saml2/ls/" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mobility.fib.upc.edu/saml2/acs/" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Application Process for Exchange Students at FIB (UPC)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Universitat Politécnica de Catalunya</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://fib.upc.es</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Webmaster</md:GivenName>
+      <md:EmailAddress>mailto:webmaster@fib.upc.edu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

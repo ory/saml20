@@ -1,10 +1,10 @@
 import { describe, it } from 'node:test';
 import { validateSignature, DEFAULT_MAX_SIGNATURE_REFERENCES } from '../../lib/validateSignature';
-import xmlbuilder from 'xmlbuilder';
 
 import crypto from 'crypto';
 import fs from 'fs';
 import { sign } from '../../lib/sign';
+import { buildXml } from '../../lib/xml';
 import { SignedXml } from 'xml-crypto';
 import { certToPEM, PubKeyInfo, stripCertHeaderAndFooter } from '../../lib/cert';
 import { thumbprint } from '../../lib/utils';
@@ -231,8 +231,7 @@ function generateXML({ sign: shouldSign = true } = {}) {
   const id = idPrefix + crypto.randomBytes(10).toString('hex');
   const date = new Date().toISOString();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const samlReq: Record<string, any> = {
+  const samlReq: Record<string, Record<string, unknown>> = {
     'samlp:AuthnRequest': {
       '@xmlns:samlp': 'urn:oasis:names:tc:SAML:2.0:protocol',
       '@ID': id,
@@ -265,7 +264,7 @@ function generateXML({ sign: shouldSign = true } = {}) {
     samlReq['samlp:AuthnRequest']['@ProviderName'] = providerName;
   }
 
-  let xml = xmlbuilder.create(samlReq).end({});
+  let xml = buildXml(samlReq);
   if (shouldSign && signingKey) {
     xml = sign(xml, signingKey, publicKey, authnXPath);
   }
@@ -308,9 +307,9 @@ describe('validateSignature.ts', function () {
   it('validate response signature - no embedded cert, use multikey cert (wrong ones) should not pass', function () {
     try {
       validateSignature(validResponseSigned_noX509, wrongMultiPublicKey, null);
-    } catch (error: any) {
+    } catch (error) {
       assert.equal(
-        error.message,
+        (error as Error).message,
         'invalid signature: Failed to verify signature against all the certificates provided.'
       );
     }
@@ -577,6 +576,8 @@ describe('validateSignature.ts - Reference ceiling (CWE-407)', function () {
   };
 
   const spyCanon = () => {
+    // Spying on a private method of xml-crypto's class.
+    // oxlint-disable-next-line typescript/no-explicit-any
     const proto = SignedXml.prototype as any;
     const original = proto.getCanonReferenceXml;
     let calls = 0;

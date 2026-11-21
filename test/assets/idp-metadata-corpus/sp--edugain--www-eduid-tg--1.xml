@@ -1,0 +1,97 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://proxy.eduid.tg/sp/saml2">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.eduid.tg" registrationInstant="2024-01-10T09:22:37Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.eduid.tg/docs/MRPS-eduid-tg-v1.1.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://proxy.eduid.tg/sp/disco" index="1" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">eduID.tg Federation</mdui:DisplayName>
+          <mdui:Description xml:lang="en">eduID.tg Federation</mdui:Description>
+          <mdui:Keywords xml:lang="se">Satosa SP-SE</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">Satosa SP-EN</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://www.eduid.tg/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.eduid.tg/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="100" width="100">https://www.eduid.tg/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIID8TCCAtmgAwIBAgIUeJ0KCattB1M5Kmc+QqBKnjXwgqEwDQYJKoZIhvcNAQEL
+BQAwgYcxCzAJBgNVBAYTAlRHMQ0wCwYDVQQIDARMT01FMQ0wCwYDVQQHDARMT01F
+MRAwDgYDVQQKDAdUT0dPUkVSMRAwDgYDVQQLDAdUT0dPUkVSMRcwFQYDVQQDDA5w
+cm94eS5lZHVpZC50ZzEdMBsGCSqGSIb3DQEJARYObnNlQHdhY3Jlbi5uZXQwHhcN
+MjMxMjExMTExNjU0WhcNMzMxMjA4MTExNjU0WjCBhzELMAkGA1UEBhMCVEcxDTAL
+BgNVBAgMBExPTUUxDTALBgNVBAcMBExPTUUxEDAOBgNVBAoMB1RPR09SRVIxEDAO
+BgNVBAsMB1RPR09SRVIxFzAVBgNVBAMMDnByb3h5LmVkdWlkLnRnMR0wGwYJKoZI
+hvcNAQkBFg5uc2VAd2FjcmVuLm5ldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALi/e91MgdeEaqgi/hHPdHxIofWMV+cNc3mVuIUWhHnc17Wp7P9eDrsH
+MQoS5pinaYpM+swBOSodb2mGbqVQ/TulIluiWqaFzkXOGDV584zysFk71JqXKJ2/
+442c3rKZfTt7+0tfBnCJcH64NspK7ZfTtTpn/w/QQvAJ10fm89ZbGEaUH6nTPsgv
+W7NepmSxPLrgDnxUhZeQK33F5T6KnFKCkcYtL1xmkUstWRzjpdptgwugOUbt/4IQ
+zWc4QDz7tKMsueEB57a4rhRzwIeypJvAhJME+neBcJ62ki4QmagbAWUHjjEkM9bf
+QkRC+/VZTPki9t9m0PZujECxxJG3ZRsCAwEAAaNTMFEwHQYDVR0OBBYEFFM/hG//
+vpik5Ep91TgyCFwrgYotMB8GA1UdIwQYMBaAFFM/hG//vpik5Ep91TgyCFwrgYot
+MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBACebOyxKiMTF0b75
+fToCRxTY16/ptRUk4R3yIn6oIun+QRxmphT2aBAg70X5VyQF8xMbcITBasjTD1FN
+qE5N9Qb7cz8TznrLjOwlB0FHai7nQvjWBQ70qFYS59ml3a6dnZNCeOlS89Pj8H4N
+/sYOCDPVggNuONRsQj8AcDz7JydoslzBhjfTBXkfSCovMc0cXOkFHzWOGqPCyq3y
+lav+KZveXEbZ7moOXQxiPHgIDocROXTJy+ynUdBnDkrG4mUtYBgwhTxeoWqAUlD7
+FCYKgeQ5d7TNsQv1GNfzkp3RULKnIHx/71BjurVqw8YockwVoTh0ZMx4EEo9+MO+
+OTpMulM=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIID8TCCAtmgAwIBAgIUeJ0KCattB1M5Kmc+QqBKnjXwgqEwDQYJKoZIhvcNAQEL
+BQAwgYcxCzAJBgNVBAYTAlRHMQ0wCwYDVQQIDARMT01FMQ0wCwYDVQQHDARMT01F
+MRAwDgYDVQQKDAdUT0dPUkVSMRAwDgYDVQQLDAdUT0dPUkVSMRcwFQYDVQQDDA5w
+cm94eS5lZHVpZC50ZzEdMBsGCSqGSIb3DQEJARYObnNlQHdhY3Jlbi5uZXQwHhcN
+MjMxMjExMTExNjU0WhcNMzMxMjA4MTExNjU0WjCBhzELMAkGA1UEBhMCVEcxDTAL
+BgNVBAgMBExPTUUxDTALBgNVBAcMBExPTUUxEDAOBgNVBAoMB1RPR09SRVIxEDAO
+BgNVBAsMB1RPR09SRVIxFzAVBgNVBAMMDnByb3h5LmVkdWlkLnRnMR0wGwYJKoZI
+hvcNAQkBFg5uc2VAd2FjcmVuLm5ldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALi/e91MgdeEaqgi/hHPdHxIofWMV+cNc3mVuIUWhHnc17Wp7P9eDrsH
+MQoS5pinaYpM+swBOSodb2mGbqVQ/TulIluiWqaFzkXOGDV584zysFk71JqXKJ2/
+442c3rKZfTt7+0tfBnCJcH64NspK7ZfTtTpn/w/QQvAJ10fm89ZbGEaUH6nTPsgv
+W7NepmSxPLrgDnxUhZeQK33F5T6KnFKCkcYtL1xmkUstWRzjpdptgwugOUbt/4IQ
+zWc4QDz7tKMsueEB57a4rhRzwIeypJvAhJME+neBcJ62ki4QmagbAWUHjjEkM9bf
+QkRC+/VZTPki9t9m0PZujECxxJG3ZRsCAwEAAaNTMFEwHQYDVR0OBBYEFFM/hG//
+vpik5Ep91TgyCFwrgYotMB8GA1UdIwQYMBaAFFM/hG//vpik5Ep91TgyCFwrgYot
+MA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBACebOyxKiMTF0b75
+fToCRxTY16/ptRUk4R3yIn6oIun+QRxmphT2aBAg70X5VyQF8xMbcITBasjTD1FN
+qE5N9Qb7cz8TznrLjOwlB0FHai7nQvjWBQ70qFYS59ml3a6dnZNCeOlS89Pj8H4N
+/sYOCDPVggNuONRsQj8AcDz7JydoslzBhjfTBXkfSCovMc0cXOkFHzWOGqPCyq3y
+lav+KZveXEbZ7moOXQxiPHgIDocROXTJy+ynUdBnDkrG4mUtYBgwhTxeoWqAUlD7
+FCYKgeQ5d7TNsQv1GNfzkp3RULKnIHx/71BjurVqw8YockwVoTh0ZMx4EEo9+MO+
+OTpMulM=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://proxy.eduid.tg/sp/acs/post" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">eduID.tg</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">eduID.tg</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.eduid.tg</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>WACREN eduID Technical</md:GivenName>
+      <md:EmailAddress>mailto:admin@wacren.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>WACREN eduID Support</md:GivenName>
+      <md:EmailAddress>mailto:support@wacren.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

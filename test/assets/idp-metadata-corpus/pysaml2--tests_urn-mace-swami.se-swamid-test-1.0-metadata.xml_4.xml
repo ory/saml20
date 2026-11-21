@@ -1,0 +1,41 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.lhs.se/identity" xml:base="swamid-1.0/idp.lhs.se.xml">
+  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+    <md:Extensions>
+      <shibmd:Scope>lhs.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIByzCCATSgAwIBAgIBADANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQDEwppZHAubGhzLnNlMB4XDTA3MTAwMTExMjExOFoXDTA4MDkzMDExMjExOFowFTETMBEGA1UEAxMKaWRwLmxocy5zZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAtSdeqn5nVMW4+ctoX2rGMh/o62G6qypOuVIWnKLK10B+pZ7bw8bqJ17zjVqjDKxNvX5QyPXD/mp+K1MPjCfw6Hgf6n2acXiXVXOZPQ+858dBmLzIl3fJAh+t7V3mdbT/PcjgMtgbCWZ48N0xquknoXS2KUOru0W7voTuHxqDOMUCAwEAAaMrMCkwJwYDVR0lBCAwHgYIKwYBBQUHAwEGCCsGAQUFBwMCBggrBgEFBQcDBDANBgkqhkiG9w0BAQUFAAOBgQAUAndrDJLIPtAmRnE1PmfQpMkO0Cn2HofaiWmmtG6n/IfGFql1cuyTSl9a2kMkHRNK1POUC7fypNmSFhBBxtvtdohCAJLoSKpZXd9KdE5tN2YgMlUFIfPd+2gVD4adgtKNspWQIp5uo83K5RQqSFdJrtQhmB8GjGbR3lRGzu46lg==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lhs.se:8443/shibboleth-idp/AA" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+  </md:AttributeAuthorityDescriptor>
+  <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+    <md:Extensions>
+      <shibmd:Scope>lhs.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIByzCCATSgAwIBAgIBADANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQDEwppZHAubGhzLnNlMB4XDTA3MTAwMTExMjExOFoXDTA4MDkzMDExMjExOFowFTETMBEGA1UEAxMKaWRwLmxocy5zZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAtSdeqn5nVMW4+ctoX2rGMh/o62G6qypOuVIWnKLK10B+pZ7bw8bqJ17zjVqjDKxNvX5QyPXD/mp+K1MPjCfw6Hgf6n2acXiXVXOZPQ+858dBmLzIl3fJAh+t7V3mdbT/PcjgMtgbCWZ48N0xquknoXS2KUOru0W7voTuHxqDOMUCAwEAAaMrMCkwJwYDVR0lBCAwHgYIKwYBBQUHAwEGCCsGAQUFBwMCBggrBgEFBQcDBDANBgkqhkiG9w0BAQUFAAOBgQAUAndrDJLIPtAmRnE1PmfQpMkO0Cn2HofaiWmmtG6n/IfGFql1cuyTSl9a2kMkHRNK1POUC7fypNmSFhBBxtvtdohCAJLoSKpZXd9KdE5tN2YgMlUFIfPd+2gVD4adgtKNspWQIp5uo83K5RQqSFdJrtQhmB8GjGbR3lRGzu46lg==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lhs.se/shibboleth-idp/Artifact" index="1" isDefault="true" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.lhs.se/shibboleth-idp/SSO" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">LHS</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Lärarhögskolan</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.lhs.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Lärarhögskolan</md:Company>
+    <md:EmailAddress>info@lhs.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

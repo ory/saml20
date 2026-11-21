@@ -1,9 +1,9 @@
-import { getAttribute, thumbprint, containsDoctype, doctypeNotAllowedError } from './utils';
+import { getAttribute, thumbprint } from './utils';
+import { xmlToObject, buildXml } from './xml';
+import type { XmlValue } from './xml';
 import { ensurePemArmor, stripCertHeaderAndFooter } from './cert';
 
 import crypto from 'crypto';
-import xml2js from 'xml2js';
-import xmlbuilder from 'xmlbuilder';
 import { METADATA_NS, PROTOCOL_NS, XMLDSIG_NS } from './constants';
 
 type ParseMetadataOptions = {
@@ -28,22 +28,28 @@ type ParsedMetadata = {
   loginType: 'idp' | 'sp';
 };
 
+// An element with attributes (Go's encoding/xml puts xmlns on every element)
+// is parsed as { $: {...}, _: text } rather than a plain string.
+const elementText = (element: unknown): string | undefined =>
+  typeof element === 'string' ? element : (element as { _?: string } | undefined)?._;
+
+// Child elements under `name` in the uncollapsed tree: always a list there,
+// or nothing.
+const listOf = (node: XmlValue | null | undefined, name: string): XmlValue[] => {
+  const value = getAttribute<XmlValue | undefined>(node, name);
+  return Array.isArray(value) ? value : [];
+};
+
 const parseMetadata = async (
   idpMeta: string,
   validateOpts: ParseMetadataOptions = {}
 ): Promise<ParsedMetadata> => {
   // Some Providers do not escape the & character in the metadata, for now these have been encountered in errorURL
   idpMeta = idpMeta.replace(/errorURL=".*?"/g, '');
-  if (containsDoctype(idpMeta)) {
-    throw doctypeNotAllowedError;
-  }
-  const res = await xml2js.parseStringPromise(idpMeta, {
-    tagNameProcessors: [xml2js.processors.stripPrefix],
-    strict: true,
-  });
+  const res = xmlToObject(idpMeta, { attrkey: '$' });
   // Without this, a document that is not metadata at all (an empty one, a
   // SAML Response, an EntitiesDescriptor aggregate) was reported as missing
-  // its certificate. xml2js yields '' for an empty element, which still counts
+  // its certificate. xmlToObject yields '' for an empty element, which still counts
   // as present.
   if (res?.EntityDescriptor === undefined || res?.EntityDescriptor === null) {
     throw new Error('Invalid metadata: missing EntityDescriptor element.');
@@ -57,21 +63,18 @@ const parseMetadata = async (
   let sloRedirectUrl: string | undefined;
   let sloPostUrl: string | undefined;
 
-  let ssoDes: any = getAttribute(res, 'EntityDescriptor.IDPSSODescriptor', null);
-  if (!ssoDes) {
-    ssoDes = getAttribute(res, 'EntityDescriptor.SPSSODescriptor', []);
+  let ssoDes = listOf(res, 'EntityDescriptor.IDPSSODescriptor');
+  if (ssoDes.length === 0) {
+    ssoDes = listOf(res, 'EntityDescriptor.SPSSODescriptor');
     if (ssoDes.length > 0) {
       loginType = 'sp';
     }
   }
 
   for (const ssoDesRec of ssoDes) {
-    const keyDes = ssoDesRec['KeyDescriptor'] || [];
-    for (const keyDesRec of keyDes) {
-      const ki = keyDesRec['KeyInfo']?.[0];
-      const cd = ki?.['X509Data']?.[0];
-      const x509cert = cd?.['X509Certificate']?.[0];
-      if (keyDesRec['$'] && keyDesRec['$'].use === 'signing') {
+    for (const keyDesRec of listOf(ssoDesRec, 'KeyDescriptor')) {
+      const x509cert = elementText(getAttribute(keyDesRec, 'KeyInfo[0].X509Data[0].X509Certificate[0]'));
+      if (getAttribute(keyDesRec, '$.use') === 'signing') {
         if (x509cert) {
           X509Certificates.push(x509cert);
         }
@@ -82,8 +85,8 @@ const parseMetadata = async (
       }
     }
 
-    const ssoSvc = ssoDesRec['SingleSignOnService'] || ssoDesRec['AssertionConsumerService'] || [];
-    for (const ssoSvcRec of ssoSvc) {
+    const ssoSvc = listOf(ssoDesRec, 'SingleSignOnService');
+    for (const ssoSvcRec of ssoSvc.length > 0 ? ssoSvc : listOf(ssoDesRec, 'AssertionConsumerService')) {
       if (getAttribute(ssoSvcRec, '$.Binding', '').endsWith('HTTP-POST')) {
         ssoPostUrl = getAttribute<string>(ssoSvcRec, '$.Location');
       } else if (getAttribute(ssoSvcRec, '$.Binding', '').endsWith('HTTP-Redirect')) {
@@ -91,8 +94,7 @@ const parseMetadata = async (
       }
     }
 
-    const sloSvc = ssoDesRec['SingleLogoutService'] || [];
-    for (const sloSvcRec of sloSvc) {
+    for (const sloSvcRec of listOf(ssoDesRec, 'SingleLogoutService')) {
       if (getAttribute(sloSvcRec, '$.Binding', '').endsWith('HTTP-Redirect')) {
         sloRedirectUrl = getAttribute<string>(sloSvcRec, '$.Location');
       } else if (getAttribute(sloSvcRec, '$.Binding', '').endsWith('HTTP-POST')) {
@@ -102,8 +104,7 @@ const parseMetadata = async (
 
     if (validateOpts?.validateNameIDFormat) {
       let validNameIDFormat = false;
-      const nameIDFormats = ssoDesRec['NameIDFormat'] || [];
-      for (const nameIDFormat of nameIDFormats) {
+      for (const nameIDFormat of listOf(ssoDesRec, 'NameIDFormat')) {
         if (validateOpts?.validateNameIDFormat === nameIDFormat) {
           validNameIDFormat = true;
         }
@@ -121,7 +122,7 @@ const parseMetadata = async (
     if (X509CertificatesWithoutSigningAttr.length !== 0) {
       X509Certificates = X509CertificatesWithoutSigningAttr;
     } else {
-      throw new Error(`Could not find X509Certificate in the IdP metadata.`);
+      throw new Error(`Could not find X509Certificate in the ${loginType === 'sp' ? 'SP' : 'IdP'} metadata.`);
     }
   }
 
@@ -240,8 +241,15 @@ const createIdPMetadataXML = ({
     },
   };
 
-  return xmlbuilder.create(nodes, { encoding: 'UTF-8', standalone: false }).end({ pretty: true });
+  return buildXml(nodes, { encoding: 'UTF-8', standalone: false, pretty: true });
 };
+
+// Most preferred first. CBC stays for Entra ID, which encrypts with aes256-cbc.
+const SP_ENCRYPTION_ALGORITHMS = [
+  'http://www.w3.org/2009/xmlenc11#aes256-gcm',
+  'http://www.w3.org/2009/xmlenc11#aes128-gcm',
+  'http://www.w3.org/2001/04/xmlenc#aes256-cbc',
+] as const;
 
 const createSPMetadataXML = ({
   entityId,
@@ -261,7 +269,7 @@ const createSPMetadataXML = ({
   const x509cert = stripCertHeaderAndFooter(publicKeyString);
   const today = new Date();
 
-  const keyDescriptor: any[] = [
+  const keyDescriptor: Record<string, unknown>[] = [
     {
       '@use': 'signing',
       'ds:KeyInfo': {
@@ -286,9 +294,7 @@ const createSPMetadataXML = ({
           },
         },
       },
-      'md:EncryptionMethod': {
-        '@Algorithm': 'http://www.w3.org/2001/04/xmlenc#aes256-cbc',
-      },
+      'md:EncryptionMethod': SP_ENCRYPTION_ALGORITHMS.map((algorithm) => ({ '@Algorithm': algorithm })),
     });
   }
 
@@ -313,8 +319,8 @@ const createSPMetadataXML = ({
     },
   };
 
-  return xmlbuilder.create(nodes, { encoding: 'UTF-8', standalone: false }).end({ pretty: true });
+  return buildXml(nodes, { encoding: 'UTF-8', standalone: false, pretty: true });
 };
 
-export { parseMetadata, createIdPMetadataXML, createSPMetadataXML };
+export { parseMetadata, createIdPMetadataXML, createSPMetadataXML, SP_ENCRYPTION_ALGORITHMS };
 export type { ParseMetadataOptions, ParsedMetadata, MetadataEndpoints };

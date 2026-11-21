@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://swamid.shh.se/idp/shibboleth" xml:base="swamid-1.0/swamid.shh.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">sophia.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+
+MIIDBDCCAeygAwIBAgIVAP7XXkV+TswNTiJKpzVkJIej7tfuMA0GCSqGSIb3DQEB
+BQUAMBExDzANBgNVBAMTBnNvcGhpYTAeFw0xMDA4MzExODM5NDFaFw0zMDA4MzEx
+ODM5NDFaMBExDzANBgNVBAMTBnNvcGhpYTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBALP8G2MyQhHuRBSiA1MKQ/4J+gagIazZejH7IfWs/0NOTSBxCpgF
+ccNQTQrUB/NulmNBfIWZK+PRyGByIr5qv0xTwYuR1lWAEJN4Gsm9nTeS1nfeF+2s
+1cyFMBztnydEfwTiNg9ItLoZG5xWfmIDEtfp86nQZe6JV4ABEs2fFrF+U3tonJUF
+1lbi8Eg0d6fXlyqsMdYrwBEc2+Tstu781kqTW2SO8zE7c2Vg+I5AVj7vnP5VgK9t
+O4A99f07xUDiJzZ2UyDrt6PhqShCduJ06lqxNFulKW0HQLshqVmNtwief679WsgG
+OV17QgZbACMzn7+HEHrS113/oDVthwYauRECAwEAAaNTMFEwMAYDVR0RBCkwJ4IG
+c29waGlhhh1odHRwczovL3NvcGhpYS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+pFLAs0tDvPuUE1nZim0KeeqE+SIwDQYJKoZIhvcNAQEFBQADggEBAIpR+W0sqBmk
+uDy0b3sjmsKcozqBJ/axgpUaz2I96mb0melvHBVl6mSHT0M9hzvbR8BDjQcOqm7H
+tXpZI1Uc2FiPK7a2ISnB+Kw3GPoBO/SLRUAT1/bKYOTWxXeOaP6nkOxcQ9Y+Qtb6
+S2ZpDdLxPN4lThceMmYkyc9mAmcrMAEjFbAnaqGYWmLcySJk/O4Vv9I28QK0mNJi
+o9M4aT+5lSHGZoIDMV+69QMHKuXDMBHtniK+PdKl9pbLnfI2CW5/bh4JufrsxBPC
+GOv94FinTmMj7OUnqdHESZ1zpL6NB5KXFAtRXatuzFYE+g8gO1AQg83/kjlbNeM7
+1HVQr72uSGQ=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://swamid.shh.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://swamid.shh.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://swamid.shh.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://swamid.shh.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://swamid.shh.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://swamid.shh.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">sophia.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+
+MIIDBDCCAeygAwIBAgIVAP7XXkV+TswNTiJKpzVkJIej7tfuMA0GCSqGSIb3DQEB
+BQUAMBExDzANBgNVBAMTBnNvcGhpYTAeFw0xMDA4MzExODM5NDFaFw0zMDA4MzEx
+ODM5NDFaMBExDzANBgNVBAMTBnNvcGhpYTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBALP8G2MyQhHuRBSiA1MKQ/4J+gagIazZejH7IfWs/0NOTSBxCpgF
+ccNQTQrUB/NulmNBfIWZK+PRyGByIr5qv0xTwYuR1lWAEJN4Gsm9nTeS1nfeF+2s
+1cyFMBztnydEfwTiNg9ItLoZG5xWfmIDEtfp86nQZe6JV4ABEs2fFrF+U3tonJUF
+1lbi8Eg0d6fXlyqsMdYrwBEc2+Tstu781kqTW2SO8zE7c2Vg+I5AVj7vnP5VgK9t
+O4A99f07xUDiJzZ2UyDrt6PhqShCduJ06lqxNFulKW0HQLshqVmNtwief679WsgG
+OV17QgZbACMzn7+HEHrS113/oDVthwYauRECAwEAAaNTMFEwMAYDVR0RBCkwJ4IG
+c29waGlhhh1odHRwczovL3NvcGhpYS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+pFLAs0tDvPuUE1nZim0KeeqE+SIwDQYJKoZIhvcNAQEFBQADggEBAIpR+W0sqBmk
+uDy0b3sjmsKcozqBJ/axgpUaz2I96mb0melvHBVl6mSHT0M9hzvbR8BDjQcOqm7H
+tXpZI1Uc2FiPK7a2ISnB+Kw3GPoBO/SLRUAT1/bKYOTWxXeOaP6nkOxcQ9Y+Qtb6
+S2ZpDdLxPN4lThceMmYkyc9mAmcrMAEjFbAnaqGYWmLcySJk/O4Vv9I28QK0mNJi
+o9M4aT+5lSHGZoIDMV+69QMHKuXDMBHtniK+PdKl9pbLnfI2CW5/bh4JufrsxBPC
+GOv94FinTmMj7OUnqdHESZ1zpL6NB5KXFAtRXatuzFYE+g8gO1AQg83/kjlbNeM7
+1HVQr72uSGQ=
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://swamid.shh.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://swamid.shh.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+  </md:AttributeAuthorityDescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">SOPHIA</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Sophiahemmets Högskola</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.sophia.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Sophiahemmets Högskola</md:Company>
+    <md:EmailAddress>ragnar.sethson@sophiahemmet.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

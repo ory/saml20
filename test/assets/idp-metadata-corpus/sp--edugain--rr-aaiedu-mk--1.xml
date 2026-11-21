@@ -1,0 +1,55 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://pf.idp-proxy.finki.ukim.mk/module.php/saml/sp/metadata.php/default-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://rr.aaiedu.mk" registrationInstant="2020-03-29T10:49:00Z" />
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Faculty of Law IDP proxy for Office365</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDdTCCAl2gAwIBAgIJAP/MXgoKgSUVMA0GCSqGSIb3DQEBCwUAMFExCzAJBgNV
+BAYTAk1LMQowCAYDVQQIDAEgMQ8wDQYDVQQHDAZTa29wamUxDTALBgNVBAoMBFVL
+SU0xFjAUBgNVBAMMDXNwLnBmLnVraW0ubWswHhcNMjAwMzI4MTMxMzQ5WhcNMzAw
+MzI2MTMxMzQ5WjBRMQswCQYDVQQGEwJNSzEKMAgGA1UECAwBIDEPMA0GA1UEBwwG
+U2tvcGplMQ0wCwYDVQQKDARVS0lNMRYwFAYDVQQDDA1zcC5wZi51a2ltLm1rMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3yq2lfH16Ydw+rYbVCA2NDL9
+Lrcuj5gTcq3qsmBTx2DULRT+KL6SzhH89zqVc6wyMa5NMdum57cHWYsCw5zps3cU
+5o9vWdhnUXkW2PTTYXSAzsn26aSmCaVnNGyBM/lafbheEfzG7SaD9eGpJNqlez3p
+SFdOE8obwffQ03QRhtNO20Hnxs5X16od52kf45z1bUYlJvBM8HM9HF2WiG5FCQBD
+KL4wvKVLXC/EOGXxWeGyaRhrCE+Ptigw9S6MMFHQQxtSdE34+u2eNBM4VVa9da79
+Cn5o7KvhSluRFTGHq7dlES7JtcFb3Q+W8jGSAwn6rRTEn+Sf4daKyEtuMvI7kQID
+AQABo1AwTjAdBgNVHQ4EFgQUCam7m/VUUMrS16K2kZOtPtO4OqAwHwYDVR0jBBgw
+FoAUCam7m/VUUMrS16K2kZOtPtO4OqAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0B
+AQsFAAOCAQEAan01tGToniOFLTduUlHO0MlMKeerBwseYp7HJiI9g2xVZt4sXKIu
+yfA4G2Gd1tdGTrdUKZFQA0V/C2I8xzb6FTc/Fp1TShLMgksYJiVYJYBrrXAjpZ8g
+YUykS8Go1uMpjIGpIu0V4M514cZyl0TbsKoMDr6aeeAFvdE71xvVzmyun1d3gar+
+42IKHJ2+4j7Be/VCbcVpAVCiAlV9aqfLMjpJAcYJYZ7QJEDI3gymliTY/01HQ8+J
+8lQHzu+1yzLRnXpJmehcFY/x6S8IPgFjam2uPM3tRwOC7mKqlGHQ4e8yxhZU57px
+jw6yw4vk3BtMruTJoMJgmu6TydlwmGfPcQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://pf.idp-proxy.finki.ukim.mk/module.php/saml/sp/saml2-logout.php/default-sp" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pf.idp-proxy.finki.ukim.mk/module.php/saml/sp/saml2-acs.php/default-sp" index="0" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://pf.idp-proxy.finki.ukim.mk/module.php/saml/sp/saml1-acs.php/default-sp" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://pf.idp-proxy.finki.ukim.mk/module.php/saml/sp/saml2-acs.php/default-sp" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://pf.idp-proxy.finki.ukim.mk/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Faculty of Law, Ss. Cyril and Methodius University in Skopje</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Faculty of Law, Ss. Cyril and Methodius University in Skopje</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://pf.ukim.edu.mk</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>FINKI</md:GivenName>
+      <md:SurName>FCC</md:SurName>
+      <md:EmailAddress>mailto:fcc@finki.ukim.mk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

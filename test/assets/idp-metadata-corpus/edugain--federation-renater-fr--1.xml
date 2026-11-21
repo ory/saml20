@@ -1,0 +1,43 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://sts.windows.net/413600cf-bd4e-4c7c-8a61-69e73cddf731/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2022-03-31T14:16:02Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/documentation/engagement-conformite/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="https://federation.renater.fr/member-of" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://federation.renater.fr/edugain/</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">efrei.net</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">Efrei</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Efrei</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Site de test de l'Efrei</mdui:Description>
+          <mdui:Description xml:lang="en">Efrei</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC8DCCAdigAwIBAgIQF584QG6fW4RAXkTyH8m67zANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yMjAyMjUxMDIzMjRaFw0yNTAyMjUxMDIzMjRaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqrVw+abZhmXFjJ1b2ueGX6TtsL3bnJQrscvecirlF/YiPDyzXJe/Z3zHH54LRNnHF/07fo8GoCrolP5lRWuPFABbJ5Nf8Xt3NZod68/I43CSf/Zqxj/JBQ86dD/I1fDMT3KvGwXFNHqySIZWw6ZPZa8Zew9Vnloeq7rS7jRxU5ExDPRldFXeVWsO1k9qSRkAi689ZO/6AnP+qtSlBBvSjTt/MoxQtn8hH284EkWkA6WXeGt7m4Tti7Ap5yew/3wp2OEC9iSzkqNb9S49jDJudfpcsE/AD2orxibV0l3S4sWJDcqdcz2W7pQJ5XY/CMqi5wR7Fk45Pi8G5dyLXcjpDQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBH2R3rtR8iRg7xbEiaI7KKoCVPAcDz6mMU3cRTj1CXOBOO8orGE1fPIqVVVICziuaSDj6p87Aq3cxYyQxnb0CDrwaKIE2MHI4lShlezpbGHcCzdOmzIMbVqvAT+jQ6hV6tq7QzwgF9dEIRCCrGv4Eh/mgyueEFESwE5QCLbrqfVOsGpgetaOzclucRCcUj3jkQb8kc7sQFe0Y/Ptjvh8dZOHcx2hNbwYCv2I4TjJvvd9cMf7K5OdKYFZW9ZTLJ9dWVBMNB43E9djlPow6/nBPsDwBCzuvXEzKpYgMl18wyD9c3lvHGDr+7bHyPw3lBKvr8INruwG7p1oxqrBirVltn</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/413600cf-bd4e-4c7c-8a61-69e73cddf731/saml2" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/413600cf-bd4e-4c7c-8a61-69e73cddf731/saml2" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.microsoftonline.com/413600cf-bd4e-4c7c-8a61-69e73cddf731/saml2" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">EFREI Paris</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EFREI Paris</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.efrei.fr/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:gilles-henri.trouquet@efrei.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

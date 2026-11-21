@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://lawu.switch.ch/idp/shibboleth">
+
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">switch.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDJDCCAgygAwIBAgIVAMPPuroelA1yPhs4yNrbfK40rgHmMA0GCSqGSIb3DQEB
+                            BQUAMBkxFzAVBgNVBAMTDmxhd3Uuc3dpdGNoLmNoMB4XDTEwMDkxMDA3MTE0NFoX
+                            DTEzMDkxMDA3MTE0NFowGTEXMBUGA1UEAxMObGF3dS5zd2l0Y2guY2gwggEiMA0G
+                            CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0NMlg2mcjPCv719XdsyeZo8YPxdcD
+                            y5mJp+nhuVtrr3WZ+4hnNMXGrmAs3p4HLmPP/6MEmrKuUe5qCTLooJ77ff20rSu/
+                            rho1AtUGiKCrQRJk94/TdFA5vvObh262pGd8YuKmVYXj759w82nmyrXWe3EGsbrj
+                            sp/1D0dIyS9HXiGbo9KG2exekLMUa7xzP3mFqwded4C4+oGrSzlM1jl+0aclghSD
+                            uouDLx2PNU83ybtkiAlySweMiizd+Btt3JTDsoz2zGVSjzSnR4YJM721+ajotMGP
+                            5hAr4/THNLALQw2W16Lxr+9aOMyEOpHxkNBLOCDMHwKD+m4IAsbArHYTAgMBAAGj
+                            YzBhMEAGA1UdEQQ5MDeCDmxhd3Uuc3dpdGNoLmNohiVodHRwczovL2xhd3Uuc3dp
+                            dGNoLmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSlJkkNbDDEA617vTVGTnlD
+                            cMPsujANBgkqhkiG9w0BAQUFAAOCAQEAApXRVpbqp+4A2kwCVEijalLAvh4UqLg4
+                            X+Pulo/b6mnoGdM6CFDIovZ5lKR4E38Y06X1hSTo9IAkfva+ypnSRJDZWWK8Z21v
+                            8hV7UYh63aAKTbQywa8VB3TE94SDdiXJojr4RohLnrJU5POpLSkWQ3qlVAOfyjAj
+                            pCEJFFQ2AIdecD44QS3TU9ewDVsO/nsZfDdY6mMBfeMXtE1Mf/bHCjcm84yCGB5u
+                            nLoKNYbRhYxN9jCGv51PcPAMRJ2OWLCwj0m7q0Fu1k9Os1GP7m4fXqM7Inv4L0TK
+                            Wp6H9dO5unHvppuThfVwHI8z/tKqIxb6DSr2rI3YIEaz0Wc39SQV8A==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://lawu.switch.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lawu.switch.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://lawu.switch.ch/idp/profile/Shibboleth/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lawu.switch.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://lawu.switch.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://lawu.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+        </md:IDPSSODescriptor>
+
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+            <md:Extensions>
+                <shibmd:Scope regexp="false">switch.ch</shibmd:Scope>
+            </md:Extensions>
+
+            <md:KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDJDCCAgygAwIBAgIVAMPPuroelA1yPhs4yNrbfK40rgHmMA0GCSqGSIb3DQEB
+                            BQUAMBkxFzAVBgNVBAMTDmxhd3Uuc3dpdGNoLmNoMB4XDTEwMDkxMDA3MTE0NFoX
+                            DTEzMDkxMDA3MTE0NFowGTEXMBUGA1UEAxMObGF3dS5zd2l0Y2guY2gwggEiMA0G
+                            CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0NMlg2mcjPCv719XdsyeZo8YPxdcD
+                            y5mJp+nhuVtrr3WZ+4hnNMXGrmAs3p4HLmPP/6MEmrKuUe5qCTLooJ77ff20rSu/
+                            rho1AtUGiKCrQRJk94/TdFA5vvObh262pGd8YuKmVYXj759w82nmyrXWe3EGsbrj
+                            sp/1D0dIyS9HXiGbo9KG2exekLMUa7xzP3mFqwded4C4+oGrSzlM1jl+0aclghSD
+                            uouDLx2PNU83ybtkiAlySweMiizd+Btt3JTDsoz2zGVSjzSnR4YJM721+ajotMGP
+                            5hAr4/THNLALQw2W16Lxr+9aOMyEOpHxkNBLOCDMHwKD+m4IAsbArHYTAgMBAAGj
+                            YzBhMEAGA1UdEQQ5MDeCDmxhd3Uuc3dpdGNoLmNohiVodHRwczovL2xhd3Uuc3dp
+                            dGNoLmNoL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSlJkkNbDDEA617vTVGTnlD
+                            cMPsujANBgkqhkiG9w0BAQUFAAOCAQEAApXRVpbqp+4A2kwCVEijalLAvh4UqLg4
+                            X+Pulo/b6mnoGdM6CFDIovZ5lKR4E38Y06X1hSTo9IAkfva+ypnSRJDZWWK8Z21v
+                            8hV7UYh63aAKTbQywa8VB3TE94SDdiXJojr4RohLnrJU5POpLSkWQ3qlVAOfyjAj
+                            pCEJFFQ2AIdecD44QS3TU9ewDVsO/nsZfDdY6mMBfeMXtE1Mf/bHCjcm84yCGB5u
+                            nLoKNYbRhYxN9jCGv51PcPAMRJ2OWLCwj0m7q0Fu1k9Os1GP7m4fXqM7Inv4L0TK
+                            Wp6H9dO5unHvppuThfVwHI8z/tKqIxb6DSr2rI3YIEaz0Wc39SQV8A==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://lawu.switch.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lawu.switch.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+
+        </md:AttributeAuthorityDescriptor>
+    </md:EntityDescriptor>
+
+
+    
+    
+
+    
+    

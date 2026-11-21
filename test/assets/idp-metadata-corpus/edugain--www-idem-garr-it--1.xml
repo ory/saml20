@@ -1,0 +1,72 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://sns.idp.cineca.it/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2021-07-07T14:58:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/raw/idem-mrps-1.0.md</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sns.it</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Scuola Normale Superiore</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">Scuola Normale Superiore</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity provider for Scuola Normale Superiore user</mdui:Description>
+          <mdui:Description xml:lang="it">Identity provider per gli utenti di Scuola Normale Superiore</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://ict.sns.it/en/idem-information</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="it">https://ict.sns.it/it/idem-info</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://ict.sns.it/en/privacy-policy</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="it">https://ict.sns.it/it/privacy-policy</mdui:PrivacyStatementURL>
+          <mdui:Logo height="300" width="300">https://ict.sns.it/sites/default/files/SNS-orizzontale-favicon.png</mdui:Logo>
+          <mdui:Logo height="263" width="350">https://ict.sns.it/sites/default/files/SNS-orizzontale-80-60.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDCzCCAfOgAwIBAgIJAMWGFctaKuxPMA0GCSqGSIb3DQEBCwUAMBwxGjAYBgNV
+BAMMEXNucy5pZHAuY2luZWNhLml0MB4XDTIxMDIwMjIxNTE1OVoXDTQxMDIwMTIx
+NTE1OVowHDEaMBgGA1UEAwwRc25zLmlkcC5jaW5lY2EuaXQwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQC+90RRv5cL2q5oriL0jaGuAvPgivT4pggkDb6Z
+zRRO/LBtXQBVvFzwNJ/WLTiO2mT7flljo2l1GnBNxpbMCQXudXuqHKP7W40ZFAdT
+QWOAIIHdTp9RgICXD7aoMMk3/CFhYQY4EDb8asqFhp09eOE2WPjB4dTfZircRVB2
+O8II49Xk7iM0BWWUxCKnLVV0mrvOuG52WPl2/W+atiJram0UIa7dDpMYBV6iUUZ7
+o03yEV87Z9Q8VdvIHs2iZSMwR8zwGz7sPEsam+V+1LltpoXLIXH7/jSl8UWjNKrk
+gUYjrKL8wDxcEafY4lloPV7lvkrIRa9tb8Mf+gAzp+ShYLqJAgMBAAGjUDBOMB0G
+A1UdDgQWBBQpnFKNAl43fpiSwy8JkrB8BQh1OjAfBgNVHSMEGDAWgBQpnFKNAl43
+fpiSwy8JkrB8BQh1OjAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQAr
+8MwOQF9fyLR43dtQP6HoV0zXJ8zQP664ZBlIeWWp0w6M8rdRGvQfVbfdG/hWH13S
+EOqtEX9U5y5Yp3tzKYgGoSS+XYiZlFx4tKf00tEAYI7imv2BLcFhfsIoyTGFU8Yo
+aziLnXocjmy9FP2ctRvo2QJUuLbg/4WPN0wcZ7QjLBOFEBBX4lj7tOA83QrXMaUb
+wazn9oFphQK8a2s3zBr5QY0eHViUJigw0kGPktWrSUODIPubqKJbz8Ool/mhEkfk
+8Lee1EZecDbKoJ0zqkAfZOmA5E5bEWTdu1t+pXTosP+xO4hOGjDvw5CWoLrP4RJO
+wzdZDRVAbnk3/wxWj4yW
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sns.idp.cineca.it/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sns.idp.cineca.it/idp/profile/SAML2/POST/SLO" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sns.idp.cineca.it/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sns.idp.cineca.it/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sns.idp.cineca.it/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="it">Scuola Normale Superiore</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Scuola Normale Superiore</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="it">Scuola Normale Superiore</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Scuola Normale Superiore</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="it">https://www.sns.it/it</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.sns.it/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Francesco</md:GivenName>
+      <md:SurName>Laruina</md:SurName>
+      <md:EmailAddress>mailto:idem.ict@sns.it</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:idp-support@cineca.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

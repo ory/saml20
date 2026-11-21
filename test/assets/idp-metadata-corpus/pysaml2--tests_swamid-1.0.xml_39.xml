@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibboleth.vhs.se/idp/shibboleth" xml:base="swamid-1.0/shibboleth.vhs.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">vhs.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+
+MIIDMDCCAhigAwIBAgIVALknzq5mPQ+XhezCaVjhkaQW2ACvMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNoaWJib2xldGgudmhzLnNlMB4XDTExMDEyODE1MTA1
+MVoXDTMxMDEyODE1MTA1MVowHDEaMBgGA1UEAxMRc2hpYmJvbGV0aC52aHMuc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSamx+o+kgrpexxaV3XO0B
+1XPIlbIQCPlcGjRanLat7Tcymm9AWWlY6ol1vshhgzHG2GNs83sW2QRcrjVELRHq
+7W3cl7oBS6lygE8nG443urcewcqMjZwGzzAwl9heR5dytE9GVLVKoycvfZAiaU9O
+QhjrIthv67EScN1BRX7sRtPG5EoVxux3aVV/rhjBc1i7WApibYKc5qd/nr8EhK/q
+dUrGxFL69k3gHw/HQpvYJD3vk0sa1DViDyVWjL0COywxDLOcbSzGAugg8HGZNpmz
+5FnlDFtREU5RlH+uC0abMSG2e/upKDUw7z5Ha3QfLVrorR4uradqbPP8Gyf63Puz
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNoaWJib2xldGgudmhzLnNlhihodHRwczov
+L3NoaWJib2xldGgudmhzLnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRkD6AB
+uGhxJokB4+cmmvefttIlAzANBgkqhkiG9w0BAQUFAAOCAQEAFMG5D1BB6DGYCSU7
+2A3RUSyWSox1TzpBDihHM5O8rnZCMk54/hIgeWFPdZ2ab/ILX05G2UiUlow45mbi
+9WvHXFuzdX7OvsqDO1CxShyLN+TfQGrKOG3aqaMksuz51Xv0XOkzkFxe4BFFX5/w
+cutKMtSUcpsNkhhNkbCmqRv+YcVen6MVcOvEIqfq/9q3qw5vlTGKkvZqd/+7iBcn
+XmU+xtJuKTmec5Jws9A9/pmcLpd9s/XVW1TNItcx4y6hwJ6DvcJ6VL+vujVcU3Zt
+D+gPxV4Sz5H2eUsE6KZ7B77Elq/RA/fAxNIAWBpEnC80KGiXK189dGNp+exhNDPK
+FRFEGQ==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.vhs.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.vhs.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.vhs.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.vhs.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.vhs.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.vhs.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">vhs.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+
+MIIDMDCCAhigAwIBAgIVALknzq5mPQ+XhezCaVjhkaQW2ACvMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNoaWJib2xldGgudmhzLnNlMB4XDTExMDEyODE1MTA1
+MVoXDTMxMDEyODE1MTA1MVowHDEaMBgGA1UEAxMRc2hpYmJvbGV0aC52aHMuc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSamx+o+kgrpexxaV3XO0B
+1XPIlbIQCPlcGjRanLat7Tcymm9AWWlY6ol1vshhgzHG2GNs83sW2QRcrjVELRHq
+7W3cl7oBS6lygE8nG443urcewcqMjZwGzzAwl9heR5dytE9GVLVKoycvfZAiaU9O
+QhjrIthv67EScN1BRX7sRtPG5EoVxux3aVV/rhjBc1i7WApibYKc5qd/nr8EhK/q
+dUrGxFL69k3gHw/HQpvYJD3vk0sa1DViDyVWjL0COywxDLOcbSzGAugg8HGZNpmz
+5FnlDFtREU5RlH+uC0abMSG2e/upKDUw7z5Ha3QfLVrorR4uradqbPP8Gyf63Puz
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNoaWJib2xldGgudmhzLnNlhihodHRwczov
+L3NoaWJib2xldGgudmhzLnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRkD6AB
+uGhxJokB4+cmmvefttIlAzANBgkqhkiG9w0BAQUFAAOCAQEAFMG5D1BB6DGYCSU7
+2A3RUSyWSox1TzpBDihHM5O8rnZCMk54/hIgeWFPdZ2ab/ILX05G2UiUlow45mbi
+9WvHXFuzdX7OvsqDO1CxShyLN+TfQGrKOG3aqaMksuz51Xv0XOkzkFxe4BFFX5/w
+cutKMtSUcpsNkhhNkbCmqRv+YcVen6MVcOvEIqfq/9q3qw5vlTGKkvZqd/+7iBcn
+XmU+xtJuKTmec5Jws9A9/pmcLpd9s/XVW1TNItcx4y6hwJ6DvcJ6VL+vujVcU3Zt
+D+gPxV4Sz5H2eUsE6KZ7B77Elq/RA/fAxNIAWBpEnC80KGiXK189dGNp+exhNDPK
+FRFEGQ==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.vhs.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.vhs.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+    <md:OrganizationName xml:lang="en">VHS</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Verket för Högskoleservice</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.vhs.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>VHS</md:Company>
+    <md:EmailAddress>bjorn.soderstedt@vhs.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

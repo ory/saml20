@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibboleth.net.lu.se/idp/shibboleth" xml:base="swamid-1.0/shibboleth.net.lu.se.xml">
+
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">lu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDOzCCAiOgAwIBAgIUHLaZATm8vxcp1L4T0A9woLa1naIwDQYJKoZIhvcNAQEF
+BQAwHzEdMBsGA1UEAxMUc2hpYmJvbGV0aC5uZXQubHUuc2UwHhcNMDkwOTMwMTE0
+ODIyWhcNMjkwOTMwMTE0ODIyWjAfMR0wGwYDVQQDExRzaGliYm9sZXRoLm5ldC5s
+dS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAI+ayJjc9XUuSABN
+M0X1KTfxv2arrhq8BV59iG1I9x3+Ga8lU0HH6zNNhT+ezRzxpSzeaTZZ+RcMAJS5
+e6whhw4R92Ei25CNYQKalUwfGRP3X3shGttUXG2wdZ+5ruSje7LVBE7bS2Ek05TJ
+fnMc3O+hc5XwbpXBii2KqosrIS7kiR5FuUPOrMWE4Sr1zoE8TFhOOv8zf9AOLE++
+k6aqas7TW9KCT7W8eyHNbcevEW8VhHpM49OGyzsjuJ8X6KkKNm1rSJgLEnnBy5y+
+LuiM4Ad5LjAgcdetxGm5VgpOx8h5prX5H0R0+C8A9Pm50VuNuv9h9iLI0z42Qemm
+3A5vgrUCAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmJvbGV0aC5uZXQubHUuc2WG
+K2h0dHBzOi8vc2hpYmJvbGV0aC5uZXQubHUuc2UvaWRwL3NoaWJib2xldGgwHQYD
+VR0OBBYEFBlhR15/bdMDrBj/juMKUCB6K8TvMA0GCSqGSIb3DQEBBQUAA4IBAQBG
+XWHuslQiZD9yHWuQnMTYiB2cfp+82TNf0CIpoKzNPpcbUg4bX9NF8tyuCMAh6Tvf
+fNrkx++wXnbzjPmNKaryJDQGokz86pZdGRsNTt4dDDJSKCuSWP+kwCHf68/eklc1
+zB0hU4yYhR6vyoNz/UKA/jh6WyNPP6hoeq9XZinU+iMVIdRF5CPHM/tpbcdk6elP
+tJPbWzQInOy+wWmZvFnbN1qwvnlFkYNdH+R0QM2Pvkz7DUG2FqvsbtrKZvj/IHHh
+zlPsVj43MhXLVfk/EtgL8BmxjOW08uY3EDXl3hFwJB/XRURouZC3euoBgE41FMKb
+ADE1bHKRi4qX9DYfBN7g
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.net.lu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1" />
+
+        <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.net.lu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2" />
+                                   
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+
+        <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.net.lu.se/idp/profile/Shibboleth/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.net.lu.se/idp/profile/SAML2/POST/SSO" />
+
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.net.lu.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.net.lu.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <md:Extensions>
+            <shibmd:Scope regexp="false">lu.se</shibmd:Scope>
+        </md:Extensions>
+
+        <md:KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDOzCCAiOgAwIBAgIUHLaZATm8vxcp1L4T0A9woLa1naIwDQYJKoZIhvcNAQEF
+BQAwHzEdMBsGA1UEAxMUc2hpYmJvbGV0aC5uZXQubHUuc2UwHhcNMDkwOTMwMTE0
+ODIyWhcNMjkwOTMwMTE0ODIyWjAfMR0wGwYDVQQDExRzaGliYm9sZXRoLm5ldC5s
+dS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAI+ayJjc9XUuSABN
+M0X1KTfxv2arrhq8BV59iG1I9x3+Ga8lU0HH6zNNhT+ezRzxpSzeaTZZ+RcMAJS5
+e6whhw4R92Ei25CNYQKalUwfGRP3X3shGttUXG2wdZ+5ruSje7LVBE7bS2Ek05TJ
+fnMc3O+hc5XwbpXBii2KqosrIS7kiR5FuUPOrMWE4Sr1zoE8TFhOOv8zf9AOLE++
+k6aqas7TW9KCT7W8eyHNbcevEW8VhHpM49OGyzsjuJ8X6KkKNm1rSJgLEnnBy5y+
+LuiM4Ad5LjAgcdetxGm5VgpOx8h5prX5H0R0+C8A9Pm50VuNuv9h9iLI0z42Qemm
+3A5vgrUCAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmJvbGV0aC5uZXQubHUuc2WG
+K2h0dHBzOi8vc2hpYmJvbGV0aC5uZXQubHUuc2UvaWRwL3NoaWJib2xldGgwHQYD
+VR0OBBYEFBlhR15/bdMDrBj/juMKUCB6K8TvMA0GCSqGSIb3DQEBBQUAA4IBAQBG
+XWHuslQiZD9yHWuQnMTYiB2cfp+82TNf0CIpoKzNPpcbUg4bX9NF8tyuCMAh6Tvf
+fNrkx++wXnbzjPmNKaryJDQGokz86pZdGRsNTt4dDDJSKCuSWP+kwCHf68/eklc1
+zB0hU4yYhR6vyoNz/UKA/jh6WyNPP6hoeq9XZinU+iMVIdRF5CPHM/tpbcdk6elP
+tJPbWzQInOy+wWmZvFnbN1qwvnlFkYNdH+R0QM2Pvkz7DUG2FqvsbtrKZvj/IHHh
+zlPsVj43MhXLVfk/EtgL8BmxjOW08uY3EDXl3hFwJB/XRURouZC3euoBgE41FMKb
+ADE1bHKRi4qX9DYfBN7g
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.net.lu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        
+        <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.net.lu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        
+        <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        
+    </md:AttributeAuthorityDescriptor>
+    
+
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">LU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Lunds universitet</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.lu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Lunds universitet</md:Company>
+    <md:EmailAddress>Marika.Cochinescu@ldc.lu.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

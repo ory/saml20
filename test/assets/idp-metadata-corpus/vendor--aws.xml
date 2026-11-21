@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="urn:amazon:webservices" validUntil="2027-10-30T00:00:00Z">
+  <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" WantAssertionsSigned="true">
+    <KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIDcjCCAlqgAwIBAgIJAPw5lVOvFiiiMA0GCSqGSIb3DQEBCwUAMGcxHzAdBgNV
+BAMTFnVybjphbWF6b246d2Vic2VydmljZXMxIjAgBgNVBAoTGUFtYXpvbiBXZWIg
+U2VydmljZXMsIEluYy4xEzARBgNVBAgTCldhc2hpbmd0b24xCzAJBgNVBAYTAlVT
+MB4XDTI2MTAzMDAwMDAwMFoXDTI3MTAzMDAwMDAwMFowZzEfMB0GA1UEAxMWdXJu
+OmFtYXpvbjp3ZWJzZXJ2aWNlczEiMCAGA1UEChMZQW1hem9uIFdlYiBTZXJ2aWNl
+cywgSW5jLjETMBEGA1UECBMKV2FzaGluZ3RvbjELMAkGA1UEBhMCVVMwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDHEmFLQTQougU/BzPITbccH0lp8ahQ
+hWw3zsiCjVrsyHMIBNA6h0F67x4xqQoADtuFvql9We7+bT59NTwXcV4Kr9kwT86a
+mFA2PHaSmpP/T9O154usj3gVC/ulbG1wZj7nCGQrg0KSW55vOJr10VFfsqy/bZ8U
+KSgeeGCvGkqP46JTRandF3JU/gBwU65DMawSNwN3i5QrJir7R0xrvHmrsrvOnMic
+5octIHx5sAWBjSX9tBHYdMOzQcYz1DvFSHdVosofONfAfE764QJxb8jmnNc7Rr7D
+Y44emCMs2jhQeNCpeUcGyP1fwksb+oStz/mZWdWqhJNNFFKRZj/2/8OVAgMBAAGj
+ITAfMB0GA1UdDgQWBBSJJ0EiP+eSggkfN89paGnc9Nx+vTANBgkqhkiG9w0BAQsF
+AAOCAQEAH1T2cZhL7aKQdXSXY6WpGLz+liX8PsNnVXK0odsRCjQ0pviEXLXXr1gm
+BnuCT9cYnJadjNexSKY+f+SgxL4Y/LxHHRgNace14lGd/uNCcuJo8NE659xpUWdB
+qYKGcvvf+c5O9SYMa0ZsSTFuxKVqtkCd9SyInmywIO2XuuPiyd7bB/blGR0X9/6x
+Tiikg/Uk2mlg85AanwvOGGIVJt+gkEV8Rla+Y13w0gmMf9kLhPQiNNWHE73opuKy
+af4VQ+Sn664zjejJimr8/dAYoq3pTazuI+/37/ewcoVWhcuz5RqRZCvighNqfp/b
+jKBAHdAVzTox0xQ1WS0ytl4+wt76Zw==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:entity</NameIDFormat>
+    <AssertionConsumerService index="1" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="2" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eu-north-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="3" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://me-south-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="4" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-south-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="5" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eu-west-3.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="6" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-southeast-3.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="7" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://us-east-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="8" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://af-south-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="9" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eu-west-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="10" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eu-central-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="11" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sa-east-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="12" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-east-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="13" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-northeast-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="14" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-northeast-3.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="15" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eu-west-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="16" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eu-south-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="17" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-northeast-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="18" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://us-west-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="19" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://us-west-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="20" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-southeast-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="21" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-southeast-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="22" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ca-central-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="23" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://me-central-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="24" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eu-central-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="25" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eu-south-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="26" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-south-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="27" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-southeast-4.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="28" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://il-central-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="29" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ca-west-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="30" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-southeast-5.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="31" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-southeast-7.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="32" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mx-central-1.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="33" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-east-2.signin.aws.amazon.com/saml"/>
+    <AssertionConsumerService index="34" isDefault="false" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ap-southeast-6.signin.aws.amazon.com/saml"/>
+    <AttributeConsumingService index="1">
+      <ServiceName xml:lang="en">AWS Management Console Single Sign-On</ServiceName>
+      <RequestedAttribute isRequired="true" Name="https://aws.amazon.com/SAML/Attributes/Role" FriendlyName="RoleEntitlement"/>
+      <RequestedAttribute isRequired="true" Name="https://aws.amazon.com/SAML/Attributes/RoleSessionName" FriendlyName="RoleSessionName"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" FriendlyName="eduPersonAffiliation"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.2" FriendlyName="eduPersonNickname"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.3" FriendlyName="eduPersonOrgDN"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.4" FriendlyName="eduPersonOrgUnitDN"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.5" FriendlyName="eduPersonPrimaryAffiliation"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" FriendlyName="eduPersonPrincipalName"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" FriendlyName="eduPersonEntitlement"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.8" FriendlyName="eduPersonPrimaryOrgUnitDN"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" FriendlyName="eduPersonScopedAffiliation"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" FriendlyName="eduPersonTargetedID"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.11" FriendlyName="eduPersonAssurance"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.2.1.2" FriendlyName="eduOrgHomePageURI"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.2.1.3" FriendlyName="eduOrgIdentityAuthNPolicyURI"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.2.1.4" FriendlyName="eduOrgLegalName"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.2.1.5" FriendlyName="eduOrgSuperiorURI"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:1.3.6.1.4.1.5923.1.2.1.6" FriendlyName="eduOrgWhitePagesURI"/>
+      <RequestedAttribute isRequired="false" Name="urn:oid:2.5.4.3" FriendlyName="cn"/>
+    </AttributeConsumingService>
+  </SPSSODescriptor>
+  <Organization>
+    <OrganizationName xml:lang="en">Amazon Web Services, Inc.</OrganizationName>
+    <OrganizationDisplayName xml:lang="en">AWS</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">https://aws.amazon.com</OrganizationURL>
+  </Organization>
+</EntityDescriptor>
+

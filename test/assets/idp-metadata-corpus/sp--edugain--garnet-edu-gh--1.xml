@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://identityproxy.garnet.edu.gh/sp/saml2">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://garnet.edu.gh" registrationInstant="2023-12-29T18:40:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://gif.garnet.edu.gh/pdf/metadataregistrationpracticestatement.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://identityproxy.garnet.edu.gh/sp/disco" index="1" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">GARNET IDentity Federation</mdui:DisplayName>
+          <mdui:Description xml:lang="en">GARNET Identity Federation</mdui:Description>
+          <mdui:Keywords xml:lang="se">Satosa SP-SE</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">Satosa SP-EN</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">http://garnet.edu.gh/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://garnet.edu.gh/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="80" width="80">https://wsidp.garnet.edu.gh/idp/images/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEATCCAumgAwIBAgIUS4N+ue40exBaQsY3B6rcNQRcFZAwDQYJKoZIhvcNAQEL
+BQAwgY8xCzAJBgNVBAYTAkdIMQ4wDAYDVQQIDAVHaGFuYTEOMAwGA1UEBwwFQWNj
+cmExDzANBgNVBAoMBkdBUk5FVDEPMA0GA1UECwwGR0FSTkVUMRwwGgYDVQQDDBNw
+cm94eS5nYXJuZXQuZWR1LmdoMSAwHgYJKoZIhvcNAQkBFhFub2NAZ2FybmV0LmVk
+dS5naDAeFw0yNDA4MzExNzIyNDRaFw0yNTA4MzExNzIyNDRaMIGPMQswCQYDVQQG
+EwJHSDEOMAwGA1UECAwFR2hhbmExDjAMBgNVBAcMBUFjY3JhMQ8wDQYDVQQKDAZH
+QVJORVQxDzANBgNVBAsMBkdBUk5FVDEcMBoGA1UEAwwTcHJveHkuZ2FybmV0LmVk
+dS5naDEgMB4GCSqGSIb3DQEJARYRbm9jQGdhcm5ldC5lZHUuZ2gwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCMwnFBOO1iAtGGLiTkflGJL6+jJVnQiOB2
+mnTZJvoMzRrD1PSrnexftZ4HFhZN7+6mqp/KzO4CeVyWILPH8D1s3dOju5pLM1Al
+6PcUDyx3fSHzOTQ2CKIyygapdhlARQ9G4nJCs1ch38szwDOTZlTf5ddAkDCveG6u
+GZKmoBXTMH3Vf2L0VpRA+NBzA6YYPTYBZ/q+rUa/RgqlKsRdHJkw20IEEkweRmcV
+CpRFXeK2oex9Qej9zAgHwHCbBOfcs5B/Z6M5NB6SvS4EFumZVFvGd6o7TnKKjARo
+XhH5bovBIjiQ/+RCAgOoWYR9+8iis2njwqXWSAqcF1phi7R0olSzAgMBAAGjUzBR
+MB0GA1UdDgQWBBSzC8ESDVwCfcONyo+BgdVi74mp3TAfBgNVHSMEGDAWgBSzC8ES
+DVwCfcONyo+BgdVi74mp3TAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUA
+A4IBAQATOEuBFJOPuZwSL1bn+sJnu7vI9RDdn8d6YzydKc/83WmrMfEsN9QLTYr2
+IrBRR5hsFtOucGTgqn+0/fEB5sKCKIM0tsbSJpmx9bG3W6WG5xQ+FiIjRiOa3wdK
+MXMVPlza1zWAGdR39T/acG8Vt7jtpDA436dsZyRAfSDsz3EJHKT6/afDNrIzY/rg
+ofsmgmwUUN0pPni9tGyzGlmC9cBszYFGX16ksRdOuWCvyyw46stYo6pIHGIJqpuG
+vjLEEu/SD3S9BDNCVnU3xCWHAJuiMuWL78nuAYLOnapV9BQ1wfZAPyfrF7BfJQAc
+rCQ5wiQlCiUdMUTWlNVfhJR1n5Pp
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://identityproxy.garnet.edu.gh/sp/acs/post" index="1" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">garnet.edu.gh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">garnet.edu.gh</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://garnet.edu.gh</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>GARNET Technical</md:GivenName>
+      <md:EmailAddress>mailto:admin@garnet.edu.gh</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>GARNET Technical</md:GivenName>
+      <md:EmailAddress>mailto:admin@garnet.edu.gh</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

@@ -1,0 +1,133 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp-test.dlu.switch.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">dlu.switch.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="de">Test-Home-Organisation dlu
+                        (de)
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="en">Test Home Organisation dlu
+                        (en)
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="fr">Organisation d\\\'accueil
+                        (fr)
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="it">Home Organizzazione (it)
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="de">IdP Test-Installation (de)
+                    </mdui:Description>
+                    <mdui:Description xml:lang="en">Test IdP installation (en)
+                    </mdui:Description>
+                    <mdui:Description xml:lang="fr">Installation pour tester IdP
+                        (fr)
+                    </mdui:Description>
+                    <mdui:Description xml:lang="it">Installazzione per testare
+                        IdP (it)
+                    </mdui:Description>
+                    <mdui:InformationURL xml:lang="en">
+                        http://testidp.dlu.switch.ch/idp/information
+                    </mdui:InformationURL>
+                    <mdui:InformationURL xml:lang="de">
+                        http://testidp.dlu.switch.ch/idp/information
+                    </mdui:InformationURL>
+                    <mdui:PrivacyStatementURL xml:lang="en">
+                        http://testidp.dlu.switch.ch/idp/privacy
+                    </mdui:PrivacyStatementURL>
+                    <mdui:PrivacyStatementURL xml:lang="de">
+                        http://testidp.dlu.switch.ch/idp/privacy
+                    </mdui:PrivacyStatementURL>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDODCCAiCgAwIBAgIJAIlTpwJK/vd4MA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+                            BAMTFmlkcC10ZXN0LmRsdS5zd2l0Y2guY2gwHhcNMTIwNTE2MTQxNDQwWhcNMTUw
+                            NTE2MTQxNDQwWjAhMR8wHQYDVQQDExZpZHAtdGVzdC5kbHUuc3dpdGNoLmNoMIIB
+                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyzvwemvuCy2npOXWz2t3JHqo
+                            uqLzwxkvjf6TfEOSrGkDR6IxSRo2nBhtUXfWa27Yz5FFaJ9IFakgiWmomCnOs+WQ
+                            pVQJS2MZoFUgz4Sr+KimJzMTTMxz/2He5oVCvXV1wHzhhqKioGSjFrlpThhQgWKy
+                            Qnqy8gr7LN+j1atZWHQ9T7qh8/Ke3AHgCPGaJvFZNZ7Vqkb9WjwXlooLtZIu+Nrb
+                            PxEOfmdiF1SBAzqo9gsA9cl0RkOnLiAk+3tMmwfMXc556MNe8e4BngVp9qek+nXt
+                            nm7rnpuQx41EaZrv7+XbUS11QNAY1gq7S1OG+/LOyiELwcFd+OXqZqt2QA58AQID
+                            AQABo3MwcTBQBgNVHREESTBHghZpZHAtdGVzdC5kbHUuc3dpdGNoLmNohi1odHRw
+                            czovL2lkcC10ZXN0LmRsdS5zd2l0Y2guY2gvaWRwL3NoaWJib2xldGgwHQYDVR0O
+                            BBYEFE/00hkRnAmt1XV6DMll01EMt/0VMA0GCSqGSIb3DQEBBQUAA4IBAQCNhwUp
+                            5Yc/g3iFldxzM+D22LziWBPdErp3VazrgHO3yRFJ2ARJRELe87OJX/+6L9vNdLu0
+                            9zGkb2c8kYboVofpXXh/iNWOYc3IMJi2uhV8nJwF/YFWeJ703MLNETB8poXRxqRD
+                            sJlXv5Y1J3QvMuEooHqBIUQACWn8NMfqRcHEDM2L5MREd6iGDqhbo1qajOTzxt3g
+                            AXarD5BRQNdd9w8K/oo50ftb/hqtUbSpRV4fYiog5pLdN2aEkpeW8VMpUoTmuiYa
+                            g9agQfMbMWe2oC/a5/7VJG9WXhk2iOYwMr5nv51ILitv58Ts55ZA9SVk1zp4WuNh
+                            rbL4ywVuhNbEc00P
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.dlu.switch.ch/idp/profile/SAML2/SOAP/ArtifactResolution" index="1" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-test.dlu.switch.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-test.dlu.switch.ch/idp/profile/SAML2/POST/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">dlu.switch.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDODCCAiCgAwIBAgIJAIlTpwJK/vd4MA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+                            BAMTFmlkcC10ZXN0LmRsdS5zd2l0Y2guY2gwHhcNMTIwNTE2MTQxNDQwWhcNMTUw
+                            NTE2MTQxNDQwWjAhMR8wHQYDVQQDExZpZHAtdGVzdC5kbHUuc3dpdGNoLmNoMIIB
+                            IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyzvwemvuCy2npOXWz2t3JHqo
+                            uqLzwxkvjf6TfEOSrGkDR6IxSRo2nBhtUXfWa27Yz5FFaJ9IFakgiWmomCnOs+WQ
+                            pVQJS2MZoFUgz4Sr+KimJzMTTMxz/2He5oVCvXV1wHzhhqKioGSjFrlpThhQgWKy
+                            Qnqy8gr7LN+j1atZWHQ9T7qh8/Ke3AHgCPGaJvFZNZ7Vqkb9WjwXlooLtZIu+Nrb
+                            PxEOfmdiF1SBAzqo9gsA9cl0RkOnLiAk+3tMmwfMXc556MNe8e4BngVp9qek+nXt
+                            nm7rnpuQx41EaZrv7+XbUS11QNAY1gq7S1OG+/LOyiELwcFd+OXqZqt2QA58AQID
+                            AQABo3MwcTBQBgNVHREESTBHghZpZHAtdGVzdC5kbHUuc3dpdGNoLmNohi1odHRw
+                            czovL2lkcC10ZXN0LmRsdS5zd2l0Y2guY2gvaWRwL3NoaWJib2xldGgwHQYDVR0O
+                            BBYEFE/00hkRnAmt1XV6DMll01EMt/0VMA0GCSqGSIb3DQEBBQUAA4IBAQCNhwUp
+                            5Yc/g3iFldxzM+D22LziWBPdErp3VazrgHO3yRFJ2ARJRELe87OJX/+6L9vNdLu0
+                            9zGkb2c8kYboVofpXXh/iNWOYc3IMJi2uhV8nJwF/YFWeJ703MLNETB8poXRxqRD
+                            sJlXv5Y1J3QvMuEooHqBIUQACWn8NMfqRcHEDM2L5MREd6iGDqhbo1qajOTzxt3g
+                            AXarD5BRQNdd9w8K/oo50ftb/hqtUbSpRV4fYiog5pLdN2aEkpeW8VMpUoTmuiYa
+                            g9agQfMbMWe2oC/a5/7VJG9WXhk2iOYwMr5nv51ILitv58Ts55ZA9SVk1zp4WuNh
+                            rbL4ywVuhNbEc00P
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.dlu.switch.ch/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">dlu.switch.ch</md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="de">Test-Home-Organisation dlu
+                (de)
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="en">Test Home Organisation dlu
+                (en)
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="fr">Organisation d\\\'accueil
+                (fr)
+            </md:OrganizationDisplayName>
+            <md:OrganizationDisplayName xml:lang="it">Home Organizzazione (it)
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="de">http://www.dlu.switch.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    

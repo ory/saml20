@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" entityID="https://asren-idp.asren.net/auth/realms/asren">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.eduid.africa/" registrationInstant="2024-03-27T10:18:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.eduid.africa/mprs-v1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Arab State Research and Education Network</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">https://asren.net</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://asrenorg.net/?q=content/privacy-policy</mdui:PrivacyStatementURL>
+          <mdui:Logo height="108" width="234" xml:lang="en">https://asrenorg.net/sites/default/files/public/logo_0.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>asren.net</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>dDmyKk00XkmkYaMFrzgs-aTq7VQptsS6mnoqjHUSQgs</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIICmTCCAYECBgGNPH9JDzANBgkqhkiG9w0BAQsFADAQMQ4wDAYDVQQDDAVhc3Jl
+bjAeFw0yNDAxMjQxNzIxMzFaFw0zNDAxMjQxNzIzMTFaMBAxDjAMBgNVBAMMBWFz
+cmVuMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtrW5zE+oOqt9jBQq
+OANMFNf0n+FdhW+7idPtVDXl1VSyD1bKBDsQ0k2mQlG/Bk2ufTtOqs9ByCjULfpo
+EXHVrxyCoNU1qthlNKpJ5W/Zglz6DwPeZmIJWh/ccMD/wWBeh2iR8LtpWoz1dp+a
+NAhdBajr+21JqzSVJw/hsO4J+hny67AzvRbR+ILd6iWTu+m39NsG4n2DBXthli3l
+yQJxb32FT65XRsFVLzbgbBkpfNXKmoep8bC4R1QEVYjHbdrJHd4DnlEOWfbwJIZ7
+wu7RsoOAlu3M/WKkwmofsLNnyIDILHDJx4zRaYpgVwtvTDa8GNuRoLcolae2Pm3i
+hqBWlwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBodlTU0okcGjDkP13wYZV3voHu
+BqVHfQAay6rRBrZ8FPkLE/Wz2XZWhSv4zQxX5XoT0kJV+Ru9vnh98X5aPZ/Kv/js
+sU6xMZBkubAtEFRp3TnzMsuEu3ogGpxPznEZbcnHIp3hi76BGVUbiarj78Zi6yTg
+Z0KhTxdulJTfRFOdFmF0GvwbhhY5IQ5fG6TSmt4P6SVwnamIjW4bXi9ueE2PWZGY
+IFMfmCxSTxCAPDmN5Rv3cXNn674A3rVfElm0pkwxLeMKqcsCNVJ22GHSvqKanKp6
+wL2JyUfvrEO1NOQ9rjTOpn46T7T9L+XW+OipNzHp2bO3/KFp1BuLyJipGN4A
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://asren-idp.asren.net/auth/realms/asren/protocol/saml/resolve" index="0" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://asren-idp.asren.net/auth/realms/asren/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://asren-idp.asren.net/auth/realms/asren/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://asren-idp.asren.net/auth/realms/asren/protocol/saml" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://asren-idp.asren.net/auth/realms/asren/protocol/saml" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://asren-idp.asren.net/auth/realms/asren/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://asren-idp.asren.net/auth/realms/asren/protocol/saml" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://asren-idp.asren.net/auth/realms/asren/protocol/saml" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ASREN</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ASREN</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://asren-iam.asren.org</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>ASREN</md:GivenName>
+      <md:SurName>NOC</md:SurName>
+      <md:EmailAddress>mailto:noc@mail.asren.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

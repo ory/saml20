@@ -2,7 +2,91 @@ import { select } from 'xpath';
 import * as xmlenc from 'xml-encryption';
 import { parseFromString, WrapError } from './utils';
 
-type DecryptOptions = { privateKey?: string };
+type DecryptOptions = { privateKey?: string; reportEncryption?: boolean };
+
+// What the encrypted response shows before decryption, and how many
+// assertions it holds once decrypted.
+export type EncryptedResponse = {
+  dataAlgorithm?: string;
+  keyTransportAlgorithm?: string;
+  // The root element's ID, and whether it carries a signature itself.
+  responseId?: string;
+  responseSigned: boolean;
+  assertionCount: number;
+};
+
+// These lookups mirror xml-encryption's (lib/dom-select.js), so the algorithms
+// reported are those of the EncryptedData and EncryptedKey it decrypted with.
+const elementChildren = (node: Node | null | undefined, localName: string): Element[] => {
+  const found: Element[] = [];
+  for (let n = node?.firstChild; n; n = n.nextSibling) {
+    if (n.nodeType === n.ELEMENT_NODE && (n as Element).localName === localName) {
+      found.push(n as Element);
+    }
+  }
+  return found;
+};
+
+const attempt = <T>(fn: () => T): T | undefined => {
+  try {
+    return fn();
+  } catch {
+    return undefined;
+  }
+};
+
+// Every element of root's subtree, root included, in document order.
+const subtree = (root: Element): Element[] => {
+  const found: Element[] = [];
+  const stack = [root];
+  while (stack.length) {
+    const node = stack.pop()!;
+    found.push(node);
+    for (let n = node.lastChild; n; n = n.previousSibling) {
+      if (n.nodeType === n.ELEMENT_NODE) {
+        stack.push(n as Element);
+      }
+    }
+  }
+  return found;
+};
+
+const encryptedKeyOf = (encryptedData: Element): Element | undefined => {
+  const [keyInfo] = elementChildren(encryptedData, 'KeyInfo');
+  const [nested] = elementChildren(keyInfo, 'EncryptedKey');
+  if (nested) {
+    return nested;
+  }
+  const uri = elementChildren(keyInfo, 'RetrievalMethod')[0]?.getAttribute('URI');
+  if (!uri || uri.charAt(0) !== '#' || uri.length < 2) {
+    return undefined;
+  }
+  const parent = encryptedData.parentNode;
+  const scope = parent && parent.nodeType === parent.ELEMENT_NODE ? (parent as Element) : encryptedData;
+  const matches = subtree(scope).filter(
+    (node) => node.localName === 'EncryptedKey' && node.getAttribute('Id') === uri.substring(1)
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+};
+
+const methodOf = (element: Element | undefined): string | undefined =>
+  elementChildren(element, 'EncryptionMethod')[0]?.getAttribute('Algorithm') ?? undefined;
+
+const describe = (xml: Document, encryptedAssertion: Element): Omit<EncryptedResponse, 'assertionCount'> => {
+  const encryptedData = subtree(encryptedAssertion).find((node) => node.localName === 'EncryptedData');
+  return {
+    dataAlgorithm: methodOf(encryptedData),
+    keyTransportAlgorithm: encryptedData ? methodOf(encryptedKeyOf(encryptedData)) : undefined,
+    responseId: xml.documentElement.getAttribute('ID') ?? undefined,
+    responseSigned: elementChildren(xml.documentElement, 'Signature').length > 0,
+  };
+};
+
+const countAssertions = (xml: Document): number =>
+  subtree(xml.documentElement).filter((node) => node.localName === 'Assertion').length;
+
+// Called through this object so tests can make each step fail.
+export const encryptionReport = { describe, countAssertions };
 
 const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptOptions) => {
   if (!Array.isArray(encryptedAssertions)) {
@@ -43,32 +127,53 @@ const assertion = (xml: Document, encryptedAssertions: Node[], options: DecryptO
     throw new Error('Undefined Encryption Assertion.');
   }
 
+  // The report is telemetry, so failing to produce one never fails decryption.
+  const described = options.reportEncryption
+    ? attempt(() => encryptionReport.describe(xml, encryptedAssertions[0] as Element))
+    : undefined;
   const assertionNode = parseFromString(decrypted);
   xml.documentElement.removeChild(encryptedAssertions[0]);
   // @ts-expect-error missing Node properties are not needed
   xml.documentElement.appendChild(assertionNode!.childNodes[0]);
 
-  return { assertion: xml.toString(), decrypted: true };
+  const encrypted =
+    described &&
+    attempt(() => ({
+      ...described,
+      assertionCount: encryptionReport.countAssertions(xml),
+    }));
+  return { assertion: xml.toString(), decrypted: true, encrypted };
 };
+const encryptedAssertionsOf = (xml: unknown) =>
+  select(
+    "/*[contains(local-name(), 'Response')]/*[local-name(.)='EncryptedAssertion']",
+    // @ts-expect-error missing Node properties are not needed
+    xml
+  ) as Node[];
+
+// `parsed` is entireXML already parsed; it is only read, never changed.
 const decryptXml = (
   entireXML: string,
-  options: DecryptOptions
-): { assertion: string; decrypted: boolean } => {
+  options: DecryptOptions,
+  parsed?: Document
+): { assertion: string; decrypted: boolean; encrypted?: EncryptedResponse } => {
   if (!entireXML) {
     throw new Error('Undefined Assertion.');
   }
 
-  const xml = parseFromString(entireXML);
+  // An EncryptedAssertion element cannot be written without its name: DTDs, and with them entities, are
+  // refused. Text without the name needs no parse to show there is nothing to decrypt.
+  if (!parsed && !entireXML.includes('EncryptedAssertion')) {
+    return { assertion: entireXML, decrypted: false };
+  }
 
-  const encryptedAssertions = select(
-    "/*[contains(local-name(), 'Response')]/*[local-name(.)='EncryptedAssertion']",
-    // @ts-expect-error missing Node properties are not needed
-    xml!
-  ) as Node[];
+  const xml = parsed ?? parseFromString(entireXML);
 
-  if (encryptedAssertions.length >= 1) {
+  if (encryptedAssertionsOf(xml).length >= 1) {
+    // Decryption rewrites the document it is given.
+    const own = parsed ? parseFromString(entireXML) : xml;
     // @ts-expect-error missing Node properties are not needed
-    return assertion(xml!, encryptedAssertions, options);
+    return assertion(own!, encryptedAssertionsOf(own), options);
   }
 
   return { assertion: entireXML, decrypted: false };

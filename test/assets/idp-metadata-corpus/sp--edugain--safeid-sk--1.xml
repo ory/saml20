@@ -1,0 +1,101 @@
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://portal.jfmed.uniba.sk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://safeid.sk" registrationInstant="2013-09-27T08:05:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.safeid.sk/doc/safeID-Metadata-Registration-Practice-Statement-1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.cz/uri/group/mefanet</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <alg:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384" />
+      <alg:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384" />
+      <alg:SigningMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512" />
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/WAYF" />
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/DS" />
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/WAYF" index="1" />
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/DS" index="2" />
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">MEFANET Portal of Comenius University, Jessenius Faculty of Medicine in Martin</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sk">MEFANET Portál Jesseniovej lekárskej fakulty Univerzity Komenského v Martine</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Multimedia support in the education of clinical and health care disciplines</mdui:Description>
+          <mdui:Description xml:lang="sk">Multimediálna podpora výučby klinických a zdravotníckych disciplín</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://portal.jfmed.uniba.sk/index-en.php</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sk">https://portal.jfmed.uniba.sk</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>portal.jfmed.uniba.sk</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDBjCCAe6gAwIBAgIJAIBOEQtd0IG0MA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+BAMTFXBvcnRhbC5qZm1lZC51bmliYS5zazAeFw0xMzA5MjUxMDM5NTNaFw0yMzA5
+MjMxMDM5NTNaMCAxHjAcBgNVBAMTFXBvcnRhbC5qZm1lZC51bmliYS5zazCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjEt91bKewRzChmtKDccOPiLNfI
+0WzNdLlbmNdHPijBGdKdLnZP9DWSokWnTe8zi71XDKoGT6OJagkmLjh1f33lQg2q
+XjzURtsyzuL3rtlzjvyXIo300ZWngf9C7lQvi52pkJgpyi/W1TVj50DicRgnVfmv
+ZCPt+FrZnBnC6EMxIiBcrCWwTYosyyXAHTBLEc0e8n1tF1omMifhwydLvnbAwd5k
+XRUuaOLYxxmNi9EB0BEJFBgWo6qvVPUwm794ygzJbV+oezCUYeJLh8d9h7nOO6uk
+2SdqEbCkbfKUJn3FbwpXrguF6NCaVtHqJjGbCKZCqRFw0REktpcUm+C4YP0CAwEA
+AaNDMEEwIAYDVR0RBBkwF4IVcG9ydGFsLmpmbWVkLnVuaWJhLnNrMB0GA1UdDgQW
+BBQ0eIuYPTRlcEk6F8S3kZ55+HKnjTANBgkqhkiG9w0BAQUFAAOCAQEAlMK/u6Jz
+9beTUi73zX+VZQJcvQaiVE52w3HvSAWdDBZvn2dPsfLXE37SDltwBd5A2uEl2aR8
+TBW3hmD0GMh+pZjisH5QGdak/682kemB3VSDJLEvurUpL4fapwuTDHT+WeSdeqfX
+oo+2Oj4Qx4kWIS4x+vzyMpSVz9VSGHewqhyV1GZu01Q6Nzh+B9mq9kykwpyDOJf6
+izyEUB5jELCbCeUoYZ4GHlr+GzRXLoT1PKxiDpUxJV0CxZ9ZaVM+gjZ9QTx9hUtg
+m6ZYG3uYEzSLRWtlcRxPjBjSEDHglgHbhJMbU6PZ5VjOlpAodUmtGQZ1coWBCK68
+rPROEnhywRsAJg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p" />
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep" />
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/Artifact/SOAP" index="1" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SLO/SOAP" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SLO/Redirect" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SLO/POST" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SLO/Artifact" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SAML2/POST" index="1" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SAML2/Artifact" index="3" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SAML2/ECP" index="4" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SAML/POST" index="5" />
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://portal.jfmed.uniba.sk/Shibboleth.sso/SAML/Artifact" index="6" />
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="sk">Univerzita Komenského v Bratislave - Jesseniova lekárska fakulta v Martine</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Comenius University Bratislava - Jessenius Faculty of Medicine in Martin</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sk">Univerzita Komenského v Bratislave - Jesseniova lekárska fakulta v Martine</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Comenius University Bratislava - Jessenius Faculty of Medicine in Martin</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="sk">https://www.jfmed.uniba.sk</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.jfmed.uniba.sk/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Miro</md:GivenName>
+      <md:SurName>Borik</md:SurName>
+      <md:EmailAddress>mailto:borik@jfmed.uniba.sk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

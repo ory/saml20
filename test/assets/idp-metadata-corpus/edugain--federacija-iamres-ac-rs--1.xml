@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.uns.ac.rs/idp/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federacija.iamres.ac.rs/" registrationInstant="2023-12-20T14:32:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.amres.ac.rs/en/institutions/iamres-identity-federation/mrps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://myacademicid.org/entity-categories/esi</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uns.ac.rs</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Novi Sad</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sr">Univerzitert u Novom Sadu</mdui:DisplayName>
+          <mdui:Description xml:lang="en">University of Novi Sad Single Sign-On Portal</mdui:Description>
+          <mdui:Description xml:lang="sr">Portal za jedinstvenu prijavu Univerziteta u Novom Sadu</mdui:Description>
+          <mdui:Logo height="319" width="300">https://portal.uns.ac.rs/webmail/images/grb-uns.jpg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEFjCCAn6gAwIBAgIUKltnG39K6vnHiaf1SNvw+ALORuIwDQYJKoZIhvcNAQEL
+BQAwGjEYMBYGA1UEAwwPbG9naW4udW5zLmFjLnJzMB4XDTIzMTEzMDAwMDAwMFoX
+DTI0MTEzMDAwMDAwMFowGjEYMBYGA1UEAwwPbG9naW4udW5zLmFjLnJzMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEArW9jnGtYBn+LZQ8rRrUz8o1c/ngs
+jHNjh2C9xRqU7rAZLwO2aQleBGP4plUoBKMrei3o4Pe/85Aw7Y4RH31LUmj9fQn2
+YKGZyGVfzxQGgu6qaUjKdGFqwnF05edM0jubICm4oDmzCRySkBoUJwiXSKuvIiKO
+db1X3so7aDYm8P7W3sChyL1xosZbU18newh4fvY6zOCMhM6UzT/xYaXy6oGMeadf
+NP8hHFmcxIwa5/dSOC3nCuQkn7mUQMt0xXCxTX6z4fGpxYNaXgnVbtXCfovTsr2Y
+S9WF1Y4jTTh19rRPtw1KikGcf/ie+pTnqVJvaCYNDBsKZkVZANjAoGtaMVkP4UVg
+T0o0WAaJFxrH8fIuPJVR5YprQsqXdz+a+i27keEXUSuQrV/iH7BEjlfs0ofrGhu9
+fCG8uL1nzf7IcoMzhY2ASTQHdeo0Vewv1DT3Qpq2WO610npN9Jbv3an86q5JZKZS
+tDN2Mb+SEnZX+9HAqNpACOTE6rBO6JXuAY1pAgMBAAGjVDBSMA4GA1UdDwEB/wQE
+AwIFoDBABgNVHREEOTA3gg9sb2dpbi51bnMuYWMucnOGJGh0dHBzOi8vbG9naW4u
+dW5zLmFjLnJzL2lkcC9tZXRhZGF0YTANBgkqhkiG9w0BAQsFAAOCAYEAGl2TUQg2
+g12GWlHe/UZPynKCDxWjVMmQsGtKkQdSE3FKWXgDY5aGcobw89E7y1xfym3637lT
+SjXhYFMw3Bl29HxXMZz5vO8DHdCLyQY48vxEFO+Ix6EWTCVd768BkFNkDrzup8Wr
+eWeowORroAY2H//pr3YA3npYk/RMBH8exGcc/GO8CfJ0pZBbk7vmhjfdIXnVpQY0
+m+xdqblePwQNrA0QhC5JVZSgAohY8DZPWTm3CGxBxo4+rb/Voztatz9pfz+MEYdJ
+V+LLILXjfFPPiBmSjvch7LjL6hlePQnTRDDNoZfG+L/dxyJgojDJByIfwDuj4Wgm
+VHOZOHoCTygmlhYyTYL34oScYy2g80ZuB2f8gv7RZLNmss4pgtg8VHgo9nlLRQKa
+cIPzYk3LJz4fN7OyHvpnnwkA+/6k2HBNYURXdd+89ZpX/7iASN/DEoySYdt2F8LJ
+XHRVN1n69d0lI6HObzohLkqP47RakirtnX0SmcPMpY6kjR+u1hXx/Nzn
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEFjCCAn6gAwIBAgIUKltnG39K6vnHiaf1SNvw+ALORuIwDQYJKoZIhvcNAQEL
+BQAwGjEYMBYGA1UEAwwPbG9naW4udW5zLmFjLnJzMB4XDTIzMTEzMDAwMDAwMFoX
+DTI0MTEzMDAwMDAwMFowGjEYMBYGA1UEAwwPbG9naW4udW5zLmFjLnJzMIIBojAN
+BgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEArW9jnGtYBn+LZQ8rRrUz8o1c/ngs
+jHNjh2C9xRqU7rAZLwO2aQleBGP4plUoBKMrei3o4Pe/85Aw7Y4RH31LUmj9fQn2
+YKGZyGVfzxQGgu6qaUjKdGFqwnF05edM0jubICm4oDmzCRySkBoUJwiXSKuvIiKO
+db1X3so7aDYm8P7W3sChyL1xosZbU18newh4fvY6zOCMhM6UzT/xYaXy6oGMeadf
+NP8hHFmcxIwa5/dSOC3nCuQkn7mUQMt0xXCxTX6z4fGpxYNaXgnVbtXCfovTsr2Y
+S9WF1Y4jTTh19rRPtw1KikGcf/ie+pTnqVJvaCYNDBsKZkVZANjAoGtaMVkP4UVg
+T0o0WAaJFxrH8fIuPJVR5YprQsqXdz+a+i27keEXUSuQrV/iH7BEjlfs0ofrGhu9
+fCG8uL1nzf7IcoMzhY2ASTQHdeo0Vewv1DT3Qpq2WO610npN9Jbv3an86q5JZKZS
+tDN2Mb+SEnZX+9HAqNpACOTE6rBO6JXuAY1pAgMBAAGjVDBSMA4GA1UdDwEB/wQE
+AwIFoDBABgNVHREEOTA3gg9sb2dpbi51bnMuYWMucnOGJGh0dHBzOi8vbG9naW4u
+dW5zLmFjLnJzL2lkcC9tZXRhZGF0YTANBgkqhkiG9w0BAQsFAAOCAYEAGl2TUQg2
+g12GWlHe/UZPynKCDxWjVMmQsGtKkQdSE3FKWXgDY5aGcobw89E7y1xfym3637lT
+SjXhYFMw3Bl29HxXMZz5vO8DHdCLyQY48vxEFO+Ix6EWTCVd768BkFNkDrzup8Wr
+eWeowORroAY2H//pr3YA3npYk/RMBH8exGcc/GO8CfJ0pZBbk7vmhjfdIXnVpQY0
+m+xdqblePwQNrA0QhC5JVZSgAohY8DZPWTm3CGxBxo4+rb/Voztatz9pfz+MEYdJ
+V+LLILXjfFPPiBmSjvch7LjL6hlePQnTRDDNoZfG+L/dxyJgojDJByIfwDuj4Wgm
+VHOZOHoCTygmlhYyTYL34oScYy2g80ZuB2f8gv7RZLNmss4pgtg8VHgo9nlLRQKa
+cIPzYk3LJz4fN7OyHvpnnwkA+/6k2HBNYURXdd+89ZpX/7iASN/DEoySYdt2F8LJ
+XHRVN1n69d0lI6HObzohLkqP47RakirtnX0SmcPMpY6kjR+u1hXx/Nzn
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.uns.ac.rs/idp/logout" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.uns.ac.rs/idp/login" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="sr">Univerzitet u Novom Sadu</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University of Novi Sad</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sr">Univerzitet u Novom Sadu</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Novi Sad</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="sr">https://www.uns.ac.rs/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.uns.ac.rs/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>CIT-UNS</md:GivenName>
+      <md:EmailAddress>mailto:cit@uns.ac.rs</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>CIT-UNS</md:GivenName>
+      <md:EmailAddress>mailto:cit@uns.ac.rs</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

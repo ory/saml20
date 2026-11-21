@@ -5,7 +5,7 @@
     "correctness": "error"
   },
   "rules": {
-    "typescript/no-explicit-any": "warn"
+    "typescript/no-explicit-any": "error"
   },
   "ignorePatterns": ["dist", "node_modules"]
 }

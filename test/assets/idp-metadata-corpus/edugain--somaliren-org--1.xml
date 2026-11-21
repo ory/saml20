@@ -1,0 +1,158 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.somaliren.org.so/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://somaliren.org" registrationInstant="2021-12-23T00:20:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://somaliren.org/sif/SomaliREN_MRPS-SIF.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">idp.somaliren.org.so</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Somali Research and Education Network</mdui:DisplayName>
+          <mdui:Description xml:lang="en">For Higher Education and Research Community in Somalia</mdui:Description>
+          <mdui:Keywords xml:lang="en">Somali
+Research
+NREN
+SomaliREN
+eduGAIN
+Identity
+SIF</mdui:Keywords>
+          <mdui:InformationURL xml:lang="en">https://somaliren.org/somaliren-identity-federation/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://somaliren.org/</mdui:PrivacyStatementURL>
+          <mdui:Logo height="1673" width="3600" xml:lang="en">https://somaliren.org/wp-content/uploads/2024/08/SomaliREN-Logo-1.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>somaliren.org.so</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIERjCCAq6gAwIBAgIUL1s/feNx6Ax87Qs2ij7/j7KynkkwDQYJKoZIhvcNAQEL
+BQAwHzEdMBsGA1UEAwwUaWRwLnNvbWFsaXJlbi5vcmcuc28wHhcNMjYxMTAxMTEx
+NjIxWhcNNDYxMTAxMTExNjIxWjAfMR0wGwYDVQQDDBRpZHAuc29tYWxpcmVuLm9y
+Zy5zbzCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAMOUML9V5uZJ9cA/
+bhY3LNJzAVCFGjnE0Is79Go4gTEGeIGOaEo73vfXKoDNt89ycqiezN1F1qc9WVf0
+lsNmFw9HloruDGWJoxHopnTnwcnZWUJrGLUnKNThfyXpH+sovE+jGTzd11zcnud9
+cbLgTg2ZnxtG540+OZp/RB52p4MSzsNVOb+fZeY3iSA9iseqbt1vEQ256IDBd92s
+3sDmkYmQowIghaK+3gdSt5UoTp8Y0ZljpzgqlKHFqHBwqajyiZPm/xPcWZlwrE9F
+kUMyru+9sQIsrxo4weyCOnpY8wkkK6souUTHuFo/Z94kqyUYr5oJBcl4tugzXQy8
+X0XcgcurYgKza7sqXtE0YVGegncNRbZ8Yk92KrKFBpmJhNSNMiCtpva/oIi2qanj
+EtgEghp16TX5HmSwcvmYI5cBoc67rUKZOjNjAAmiWlVLX3QFPrzCiohOvbkIJAgm
+y3lU7isG/Aos6lyFjO5IsvLj2qxCtgaEeqqkZkY+IXrCQiIUvQIDAQABo3oweDAd
+BgNVHQ4EFgQUjLBngOnGjsK9WejS4RdK4KK+AfYwTAYDVR0RBEUwQ4IUaWRwLnNv
+bWFsaXJlbi5vcmcuc2+GK2h0dHBzOi8vaWRwLnNvbWFsaXJlbi5vcmcuc28vaWRw
+L3NoaWJib2xldGgwCQYDVR0TBAIwADANBgkqhkiG9w0BAQsFAAOCAYEAlB5niCFc
+0UiCVg6GiC82BPziuFC3Lapi8PNihvMc78zIme+KrKyLcojkxuQhphDSmYbspWjD
+CX/3YWnExmhaSDxOi8PMEOl4yI7rLSXbvH8eGIzVZr01R0FIEfex1ZDuM/ERYuHA
+00dcAxLU4ztzGv9x8l9yIc5cngBMcApCcHbWtQ3VsRTZNeyxs9h03jz94wFwoJah
+CeUgaOHp2DaTReccMbDrkUkpFqPPYHtBIY1gyMfSAgTIqUjb47tywBVECXmUUwnm
+pyzMkHt4DYkp5DoG01JW7xuz2x/5bA0UJsSp+cl2L3FyJXep+3mYpVOeYQvWq8Jf
++yYiExmhWP+jka3FH4KZIq9pRnlFDy3ddJMjcuPLoReKyUqntRpIDvCIhVBjO3We
+uZEzlPMZTAwFupi+BnvAb/px5mrYz3B4PYcryMO0ZKJVp2Gsra3OB9FT6pdSlbkx
+yKVTd3yOAHS+LsTn99Sdn6K8Bil7AtvUUz3GkEkVE5xMxm0rsS9CJT/N
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIERzCCAq+gAwIBAgIVAKQSW4pciUyd/M+DudytbLjCRO2eMA0GCSqGSIb3DQEB
+CwUAMB8xHTAbBgNVBAMMFGlkcC5zb21hbGlyZW4ub3JnLnNvMB4XDTI2MTEwMTEx
+MTYyMFoXDTQ2MTEwMTExMTYyMFowHzEdMBsGA1UEAwwUaWRwLnNvbWFsaXJlbi5v
+cmcuc28wggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCzsxsWXN86KnAy
+0sN0dMZ0pISZq/K9Lj8mr2W++VZdXjC1uZzTUa53yJEh9Qast0rKY/lNdA2ITaDA
+WCdHa4fslGjW0g48JOrZESrtOTotiVx0SW+RFENZVBt5pX/VxzrTYWSYXokG1mJK
+njXG9q9XdiNHHpuxTQ4XM3XY71+kmrU7OLu6qK6fu0akl0KL3yv1ka9xA1Odm9JH
+HI9AWUMh/Ry2EdMHlyX8NNNL6QG0m3udFoxN2jBwLJNS2eaIOR4gzuJ6eZkxK5Me
+Qy7O8Aj2DJjvD+/VS/8TynCtBPpS/40BcRmi4OxKQYhwtDttoKPSiS0lwHt2ZyNg
+KNKo7sM6JgxPWJlupjuSivGnYzb5VWDvV6/heessQgWQp/76j9jlOVjxrc3hN6SC
+xULzQH0w1pH/lS/ZP5v7UsJW8liFK88lmgNZfPMhm+aHf5H44USIWlRoVBrkX8e5
+b8EaECfYscsKHmvI+rZt02fYbrGCYVDrE4jziq8DBAZJQAI8Wd0CAwEAAaN6MHgw
+HQYDVR0OBBYEFIh4QdKHCnjy2B07YZ8oOiVGg/jpMEwGA1UdEQRFMEOCFGlkcC5z
+b21hbGlyZW4ub3JnLnNvhitodHRwczovL2lkcC5zb21hbGlyZW4ub3JnLnNvL2lk
+cC9zaGliYm9sZXRoMAkGA1UdEwQCMAAwDQYJKoZIhvcNAQELBQADggGBAFhwis4A
+bY3dH2ahbaFV4nBIZSjU+rnswLKnsJ0n2XzQnbMPHHA8r4u4GiVzsjo6pWKX0MBF
+1mJI+U7/KTzxNw48EiNVSTvyU/Mhd2vCrUB/WICvVxx8roYuAV182W1zit28yMi5
+Gt09ENv49/6SGf/yKEFiBSAIUtj699df/vj5MRrsm79qAvTVJnfhRsEbQY/fiLlh
+eO2/Ze57ryERra9073RHyAYn+UIj0zoZuq1GRnSydN/NHYiwLOr9T/PtyG0Et2yP
+DypDXXqqkd84lrZ3QmAlTIs15R+5jYg5y1XeVpMdfXLVDs3BbKL18ZPNqZFtUui5
+o3u6rU7Q+97/4KsRCEbgR6rl0F9hnqRf2Ukper6JBapkya39O+fdQAe+coG01yc2
+veiS4ieWVMGtCZ3+GAp3e3+D2dm/n/gur1ZRRCLiOS0C3Ujh/1uw3lPgeA4acZxh
+c4lXYRhLUTmkpiO1NnApGkWF5Nrq0iNHOe3G3DPoyDQHABDjL2M8KkYklA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIERjCCAq6gAwIBAgIUDd1ak3yA6HiYWh4NUhfp7WTd7OcwDQYJKoZIhvcNAQEL
+BQAwHzEdMBsGA1UEAwwUaWRwLnNvbWFsaXJlbi5vcmcuc28wHhcNMjYxMTAxMTEx
+NjIwWhcNNDYxMTAxMTExNjIwWjAfMR0wGwYDVQQDDBRpZHAuc29tYWxpcmVuLm9y
+Zy5zbzCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAJLTkwOZaPqS+K4f
+Gtri3hH59UhlZeqvP3JHOlPjY25gKVUpa3vK/p+7lfZFAzRTLkv0tbAbYO4FgagM
+n/xpKLYWyB+sC4cGvrLEN56uV57/bznfzEeimrOFJgFSTn1q+WQ4o0GsUPoS5upI
+lttCbDSJnlOMoYQwSHhkdRqoOisw09ptVtoPKOCfyv2ObzYYppiRUh73TUTe7R99
+zcbR/CJf1BRw8ovLbIRJDPrLV/na5t1Vww0LCWPskqV1IaPa7HtVLAgC+UxZF2SA
+knZWMiUkfUMV3XtMffoHCkSxOXHySem4g2eeBUQ2PepidpfTqbdmnYqpEboPlPW5
+TwKwUuc+so5OvYmgkTP2QFU778wasjxODCPsIcd8SaSAOwaywi5QDnDhkIZAshOD
+7I64adLI8TJDu2BpOG33ROEHK1rxtvh0OMsSLl2E+xlHH1rRUhSx03NORs0t6p2J
+xqqxhPrNUopr5qHa+X7GYaSj/WbmB+KuC1M0KRA7CBZLwnThFwIDAQABo3oweDAd
+BgNVHQ4EFgQUimK9n/v8/TJgDdUMj+bomH7aftkwTAYDVR0RBEUwQ4IUaWRwLnNv
+bWFsaXJlbi5vcmcuc2+GK2h0dHBzOi8vaWRwLnNvbWFsaXJlbi5vcmcuc28vaWRw
+L3NoaWJib2xldGgwCQYDVR0TBAIwADANBgkqhkiG9w0BAQsFAAOCAYEAGMZwDovC
+yiCKLtTT2mcdO/oJ14RWvu1g8WOXGS+K+9lTp++Al34mJnsjq3BuD0IWYFgSX4VM
+4pBjLKUZAXmB4o7mdmIY0lhJb2OTtbZpUPIzpJARb38O6xhgT8lMV5pfL4jO6qZC
+XHhRja577+A9zWUKMV0bw6nff3WulnttMBRPN5HTdq3hZw1jPGQEoIYrwzTDYE7A
+o2K7VD92UhJxhAb2tyi+nzLkh+XJFi1OrLu0MtP9qpK0EjTsfXMqNr8rgflXsy3u
+o7zfM9BWA+BBuhQMbr3x0x2LhJ5wZcEOxzvK+6uy9q+ZokuxbeG8RjZ3kwu6qe3C
+JvZLzo5p+Zm7iPj25kZy5vUN276KlT6tWMc/9hm5eITaCT4rdD0twiwqvZDhmqtm
+wnBpAcignWqBzQcwyo4frFRlYaZU+GZlaoDvi8jbuqS4ByEqF7uKA0fyBtl3DCPg
+qdHu7aP8XwamR/xJXgm7Tu1nhubiLHDfjbTtxUEQSfSIP/ugvXeNA0ZJ
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.somaliren.org.so/idp/profile/SAML2/SOAP/ArtifactResolution" index="1" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.somaliren.org.so/idp/profile/SAML2/POST-SimpleSign/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.somaliren.org.so/idp/profile/SAML2/SOAP/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.somaliren.org.so/idp/profile/SAML2/POST/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.somaliren.org.so/idp/profile/SAML2/Redirect/SLO" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.somaliren.org.so/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.somaliren.org.so/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.somaliren.org.so/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Somali Research and Education Network</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">SomaliREN</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://somaliren.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Mohamed Ali</md:GivenName>
+      <md:SurName>Ahmed</md:SurName>
+      <md:EmailAddress>mailto:mohamed.ali@somaliren.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Zakarie Mohamed</md:GivenName>
+      <md:SurName>Isak</md:SurName>
+      <md:EmailAddress>mailto:zakarie.mohamed@somaliren.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other">
+      <md:GivenName>Sharaf Ahmed</md:GivenName>
+      <md:SurName>Roble</md:SurName>
+      <md:EmailAddress>mailto:sharaf.roble@somaliren.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SomaliREN</md:GivenName>
+      <md:SurName>Support</md:SurName>
+      <md:EmailAddress>mailto:helpdesk@somaliren.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

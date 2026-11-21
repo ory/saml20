@@ -1,0 +1,42 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibidp.uu.se/identity" xml:base="swamid-1.0/shibidp.uu.se.xml">
+  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+    <md:Extensions>
+      <shibmd:Scope>user.uu.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIB0TCCATqgAwIBAgIBADANBgkqhkiG9w0BAQUFADAYMRYwFAYDVQQDEw1zaGliaWRwLnV1LnNlMB4XDTA3MDUwODEwNDY1MFoXDTA4MDUwNzEwNDY1MFowGDEWMBQGA1UEAxMNc2hpYmlkcC51dS5zZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAzGH4thr/rDNTlJ3TsiWJVn+2iyzT6Up6ovHXYmNvhltZ3+hmrtdnbCqQY4qukpBO88JDZ23PiVLJq4uR0UGwGsyz8Pv9xQo+N9v+LchgL0iGgjdN7ocrNGj4GZjtuJwyzi83QvAct7wVkkXi5aAmF8nJkRSvUTXWqhJxOiFztb8CAwEAAaMrMCkwJwYDVR0lBCAwHgYIKwYBBQUHAwEGCCsGAQUFBwMCBggrBgEFBQcDBDANBgkqhkiG9w0BAQUFAAOBgQCd/cI5uIl8XgRP/dtC5veRO3m7phwQworwQMruTHgWvLL5cJ6Sh18dPOVZmHz/Hcldh0qeqPvL41oXe+84oMdscMHNGIUngj4tLywAwosjQiNGX9yqfxjUKqhuHJUcxZ0tEZHJZB+WEPybvVULvSUXa4ldQaKs4iRDPdCLHwCcQw==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.uu.se:8443/shibboleth-idp/AA" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+  </md:AttributeAuthorityDescriptor>
+  <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+    <md:Extensions>
+      <shibmd:Scope>user.uu.se</shibmd:Scope>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIB0TCCATqgAwIBAgIBADANBgkqhkiG9w0BAQUFADAYMRYwFAYDVQQDEw1zaGliaWRwLnV1LnNlMB4XDTA3MDUwODEwNDY1MFoXDTA4MDUwNzEwNDY1MFowGDEWMBQGA1UEAxMNc2hpYmlkcC51dS5zZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAzGH4thr/rDNTlJ3TsiWJVn+2iyzT6Up6ovHXYmNvhltZ3+hmrtdnbCqQY4qukpBO88JDZ23PiVLJq4uR0UGwGsyz8Pv9xQo+N9v+LchgL0iGgjdN7ocrNGj4GZjtuJwyzi83QvAct7wVkkXi5aAmF8nJkRSvUTXWqhJxOiFztb8CAwEAAaMrMCkwJwYDVR0lBCAwHgYIKwYBBQUHAwEGCCsGAQUFBwMCBggrBgEFBQcDBDANBgkqhkiG9w0BAQUFAAOBgQCd/cI5uIl8XgRP/dtC5veRO3m7phwQworwQMruTHgWvLL5cJ6Sh18dPOVZmHz/Hcldh0qeqPvL41oXe+84oMdscMHNGIUngj4tLywAwosjQiNGX9yqfxjUKqhuHJUcxZ0tEZHJZB+WEPybvVULvSUXa4ldQaKs4iRDPdCLHwCcQw==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.uu.se/shibboleth-idp/Artifact" index="1" isDefault="true" />
+    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibidp.uu.se/shibboleth-idp/SSO" />
+  </md:IDPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">UU</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Uppsala University</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.uu.se</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:Company>Uppsala Universitet</md:Company>
+    <md:SurName>IT Stöd</md:SurName>
+    <md:EmailAddress>shibboleth-datordrift@its.uu.se</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+  

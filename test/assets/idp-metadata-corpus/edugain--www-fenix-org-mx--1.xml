@@ -1,0 +1,49 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.ucol.mx/saml20/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.fenix.org.mx" registrationInstant="2020-06-16T16:28:03Z">
+        <mdrpi:RegistrationPolicy xml:lang="es">http://www.fenix.org.mx/politicas.html</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ucol.mx</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Colima</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">Universidad de Colima</mdui:DisplayName>
+          <mdui:Description xml:lang="en">University of Colima</mdui:Description>
+          <mdui:Description xml:lang="es">Universidad de Colima</mdui:Description>
+          <mdui:Logo width="50" height="50">https://idp.ucol.mx/imglogin/ucol_mini.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDsDCCApgCCQDk7PIOkTY9LTANBgkqhkiG9w0BAQsFADCBmTELMAkGA1UEBhMCTVgxDzANBgNVBAgMBkNPTElNQTEPMA0GA1UEBwwGQ09MSU1BMR4wHAYDVQQKDBVVTklWRVJTSURBRCBERSBDT0xJTUExETAPBgNVBAsMCFNJU1RFTUFTMRQwEgYDVQQDDAtpZHAudWNvbC5teDEfMB0GCSqGSIb3DQEJARYQc2lzdGVtYXNAdWNvbC5teDAeFw0yMDA3MTYyMzAyMDdaFw0zMDA3MTQyMzAyMDdaMIGZMQswCQYDVQQGEwJNWDEPMA0GA1UECAwGQ09MSU1BMQ8wDQYDVQQHDAZDT0xJTUExHjAcBgNVBAoMFVVOSVZFUlNJREFEIERFIENPTElNQTERMA8GA1UECwwIU0lTVEVNQVMxFDASBgNVBAMMC2lkcC51Y29sLm14MR8wHQYJKoZIhvcNAQkBFhBzaXN0ZW1hc0B1Y29sLm14MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt9bKRr3wGMxN4hqJdBLxNE1+wfysxjp4gdTbea8oK5b/VTS6MeZ2ibjiUBnqKK1W3isBpeG/BnY51uZ9gdKAUSMwhfOODzqMTGT9vY7F1u96mwGToRsD7d8mEm7v3z4llu64r3RQL6qo6MNGXAjAr2auwn7iDDktX3pPfQE88y5CZ6ZiAStkFwEMOGaFFee9cLABmvLiLV6U/1vYawAnz5kGXsQHdt4r87lbJyAPJaHeOjbUpv9NiTUZ2tBQfRuTlXsQs3Z/fnPrGLf+mgCXZGS6LCjCP0rUF96Gxz+ykbfzk7IcX/oLL4wfK+OI3+6JDP4dZiHHioi+hvm8fhw8LwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBL10xsNy/NwQdhcJW80q8Pwasf489jw8wMYgM+h9PcjSh3BhIBUHzcfVRcm7s8WdhmA343QFTWpj1i0klfgQW+1aUaPMehuQZO58bS7ubPXOUUTxFaSdM8BHB2EQVLBovUZxIuAkEAfzboCP/6jIeqQMo5ZKjzsD/vOon8mrVc5uQD5nEYyrOyBCmvz2XuZ0QnlSqr2ntvOFzj3FVDNlLM8wQIcw9o9ulVWY0xlFoQkhxMdEYFspZAHqRYjsGBlRVrsNF1SgtZsH8ByPOtCRqzEeJu8CFe3zAMTFgmgxycm+odMSpfJyBH6GCZq0KG+HjNV9uMFJGK0p+ndz68ukqV</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDsDCCApgCCQDk7PIOkTY9LTANBgkqhkiG9w0BAQsFADCBmTELMAkGA1UEBhMCTVgxDzANBgNVBAgMBkNPTElNQTEPMA0GA1UEBwwGQ09MSU1BMR4wHAYDVQQKDBVVTklWRVJTSURBRCBERSBDT0xJTUExETAPBgNVBAsMCFNJU1RFTUFTMRQwEgYDVQQDDAtpZHAudWNvbC5teDEfMB0GCSqGSIb3DQEJARYQc2lzdGVtYXNAdWNvbC5teDAeFw0yMDA3MTYyMzAyMDdaFw0zMDA3MTQyMzAyMDdaMIGZMQswCQYDVQQGEwJNWDEPMA0GA1UECAwGQ09MSU1BMQ8wDQYDVQQHDAZDT0xJTUExHjAcBgNVBAoMFVVOSVZFUlNJREFEIERFIENPTElNQTERMA8GA1UECwwIU0lTVEVNQVMxFDASBgNVBAMMC2lkcC51Y29sLm14MR8wHQYJKoZIhvcNAQkBFhBzaXN0ZW1hc0B1Y29sLm14MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt9bKRr3wGMxN4hqJdBLxNE1+wfysxjp4gdTbea8oK5b/VTS6MeZ2ibjiUBnqKK1W3isBpeG/BnY51uZ9gdKAUSMwhfOODzqMTGT9vY7F1u96mwGToRsD7d8mEm7v3z4llu64r3RQL6qo6MNGXAjAr2auwn7iDDktX3pPfQE88y5CZ6ZiAStkFwEMOGaFFee9cLABmvLiLV6U/1vYawAnz5kGXsQHdt4r87lbJyAPJaHeOjbUpv9NiTUZ2tBQfRuTlXsQs3Z/fnPrGLf+mgCXZGS6LCjCP0rUF96Gxz+ykbfzk7IcX/oLL4wfK+OI3+6JDP4dZiHHioi+hvm8fhw8LwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBL10xsNy/NwQdhcJW80q8Pwasf489jw8wMYgM+h9PcjSh3BhIBUHzcfVRcm7s8WdhmA343QFTWpj1i0klfgQW+1aUaPMehuQZO58bS7ubPXOUUTxFaSdM8BHB2EQVLBovUZxIuAkEAfzboCP/6jIeqQMo5ZKjzsD/vOon8mrVc5uQD5nEYyrOyBCmvz2XuZ0QnlSqr2ntvOFzj3FVDNlLM8wQIcw9o9ulVWY0xlFoQkhxMdEYFspZAHqRYjsGBlRVrsNF1SgtZsH8ByPOtCRqzEeJu8CFe3zAMTFgmgxycm+odMSpfJyBH6GCZq0KG+HjNV9uMFJGK0p+ndz68ukqV</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ucol.mx/saml20/saml2/idp/SingleLogoutService.php" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ucol.mx/saml20/saml2/idp/SSOService.php" />
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Colima</md:OrganizationName>
+      <md:OrganizationName xml:lang="es">Universidad de Colima</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Colima</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="es">Universidad de Colima</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.ucol.mx</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="es">https://www.ucol.mx</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Administrador</md:GivenName>
+      <md:EmailAddress>mailto:sistemas@ucol.mx</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

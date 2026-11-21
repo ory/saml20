@@ -1,0 +1,196 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:remd="http://refeds.org/metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.vrz-nrw.de/nidp/saml2/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2021-10-26T11:26:09Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/fileadmin/documents/mrps_dfn-aai_1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hfm-detmold.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Hochschule für Musik Detmold</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Detmold University of Music</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Hochschule für Musik Detmold</mdui:Description>
+          <mdui:Description xml:lang="en">Detmold University of Music</mdui:Description>
+          <mdui:Logo height="48" width="48">https://www.hfm-detmold.de/favicon.ico</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>login.vrz-nrw.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=login.vrz-nrw.de,O=Technische Hochschule Ostwestfalen-Lippe,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIH7TCCBlWgAwIBAgIQV42SnnEx5RFUd+/qdpYegDANBgkqhkiG9w0BAQsFADBg
+MQswCQYDVQQGEwJHUjE3MDUGA1UECgwuSGVsbGVuaWMgQWNhZGVtaWMgYW5kIFJl
+c2VhcmNoIEluc3RpdHV0aW9ucyBDQTEYMBYGA1UEAwwPR0VBTlQgVExTIFJTQSAx
+MB4XDTI1MTEwMzA3MzEyMloXDTI2MTEwMzA3MzEyMloweTELMAkGA1UEBhMCREUx
+HDAaBgNVBAgME05vcmRyaGVpbi1XZXN0ZmFsZW4xMTAvBgNVBAoMKFRlY2huaXNj
+aGUgSG9jaHNjaHVsZSBPc3R3ZXN0ZmFsZW4tTGlwcGUxGTAXBgNVBAMMEGxvZ2lu
+LnZyei1ucncuZGUwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC6l4kS
+UHX9FKYq/0jKmdJqgJNMUF+vEN2zOOCJ/XHrYATwuxPKWC4qfTcK6JSs1v7goBPM
+Tx0tG7QMYssj52XZpcwvESeicWW2mMpCGlgqMQT9sAUAj8pPmLKOtOl1v+YTXUkj
+8IeEGCVai7+5CydP8Xr/FdBDqjjZZb5Qurf6sVYSG8AaYAgM99KQuDF72hpbVZsS
+Vyr5vQGJkxJqVy81UcDkPfLWOeIpmTHnCxCwJdsaaTRhDQiLvMHz1z0jCF1Qv8yf
+xjyDEZPRC2uA/tN5fpix0rRRDEYdKPtuw8PXnVxPp8SIDjHbGLm8NtfQzDHiNMV1
+KoxlBwJn+9rjLWSOEXdgzqEmMU44o2JSsbTGfUfRntkwVe6ERp5RZGzZIuKMSWzQ
+d+IOoVpptOUhgkfzAMq2/0svrflx2XTOPUGPMIYiDlfouLz6FYY9M8hcNH2ecC5H
+j+fATrcCbey1JLc2Iy0Fmg+fxQwvdcNu/gWatanLtHRl1z6t8d/Dh2ZDwpBSB3b3
+hbzcC695u5J8w6+6sa03bbbV7HIxRdRCOOajCaCEhJ7ID9cRDf7DOMAq/Ks2eEA9
+XUxwwU8jKBIDnoqBHHa612QySQm2UuEA0Y/3sq7PKBRrpbCjKZUVxnpBQDntylTm
+RgvOsbUV2GqN7mIE3ZKRYDAkc/kcVJ5r64U0JwIDAQABo4IDCDCCAwQwHwYDVR0j
+BBgwFoAUhgFyP4ypcOIxBlMWzgFfW3nIPDswbwYIKwYBBQUHAQEEYzBhMDgGCCsG
+AQUFBzAChixodHRwOi8vY3J0LmhhcmljYS5nci9IQVJJQ0EtR0VBTlQtVExTLVIx
+LmNlcjAlBggrBgEFBQcwAYYZaHR0cDovL29jc3AtdGxzLmhhcmljYS5ncjAxBgNV
+HREEKjAoghBsb2dpbi52cnotbnJ3LmRlghR3d3cubG9naW4udnJ6LW5ydy5kZTAt
+BgNVHSAEJjAkMAgGBmeBDAECAjAIBgYEAI96AQcwDgYMKwYBBAGBzxEBAQECMB0G
+A1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATA9BgNVHR8ENjA0MDKgMKAuhixo
+dHRwOi8vY3JsLmhhcmljYS5nci9IQVJJQ0EtR0VBTlQtVExTLVIxLmNybDAdBgNV
+HQ4EFgQUC8hev1a9dULp8Qu9pFCPmmfyzqYwDgYDVR0PAQH/BAQDAgWgMIIBfwYK
+KwYBBAHWeQIEAgSCAW8EggFrAWkAdgCUTkOH+uzB74HzGSQmqBhlAcfTXzgCAT9y
+Z31VNy4Z2AAAAZpIqeEkAAAEAwBHMEUCIQDP3NfKCdP0d599fG3B9T2B/9gc9k/7
+Fcw76u1RksGxjAIgK+UpNCAb2zXtHDYmGE9kaevMlhIB4FB0Lbrd9YhT+akAdgDY
+CVU7lE96/8gWGW+UT4WrsPj8XodVJg8V0S5yu0VLFAAAAZpIqeDzAAAEAwBHMEUC
+IAnxrNt4Qi+MiYndaobOx3F4cdHPhytL2ektDAtB5YnhAiEA+V9bJl6mhYUmfzM7
+AWEwIGq1nwedKDSvFv5uR0GlMo4AdwCsqzBwbOvshDH0E9L0kV8RHkIkQ7HypoxP
+PCs7px4CwwAAAZpIqeEkAAAEAwBIMEYCIQDe/hsUixJmmzJMAYZRdpHBDIXrTfiv
+PEfDqb0krEXjvwIhAIdMUS7QseXOGjiVKUMy6VFTJ1z1PCTALcZ/Qjq3g9qaMA0G
+CSqGSIb3DQEBCwUAA4IBgQAh0CrNwZi1YYWBVrMKgW+j3f9zM01dq1gssJZS4gAG
+e/Zprsku13LRX/x2a7wV5OuyhKx/Ba5fe3reRZ9NRc9niGbS6e+nIda7QETEA1OR
+cwKz1A6hWpHj9ZBcBOb9Ok2T+pDRLFSIFv8JdWL95o9DdvT6o8f/wpA8vKuoQTnl
+hkNvF04cm3H6+BzHeqr3t9HpO7N0CT1Vxec8v1LjK6vOUlJaXzvswLjakxx9X5wW
+VFxcxicS7n0Z2HHFadRvzl1RD54F+J+pwAMucvR4Elf4VKoMmj03+F6udL4oQw7m
+ctbD4rUbke5SHqfvRSawGgVQExv9yeoRVRBsGo2EZ1Y2oSuoGAJYWuN8NW5i+IGg
+bLxvmUaJ0YW0TJB7ESkjd6XyK1IccUEXvfhD/+riXP4s1o+FMmgwZOeBm/iVp8HD
+Sph8MEjIByMq56GFuBHIs3Q1VL0af5tJDNx5DsrhckR9JvczO+1dx6sIOJ6J/SQ8
+39p6ksC10run7KF3khp1pn8=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>login.vrz-nrw.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>C=DE,ST=NRW,L=Lemgo,O=VRZ-NRW,OU=AM,CN=login.vrz-nrw.de</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGZjCCBU6gAwIBAgIUALU7jCSBnmDah1dVCNUXvINzwLQwDQYJKoZIhvcNAQEL
+BQAwMzEaMBgGA1UECxMRT3JnYW5pemF0aW9uYWwgQ0ExFTATBgNVBAoUDFNOSVBF
+MTFfVFJFRTAeFw0yNjA5MjIxMjAwNDdaFw0yODA5MjIxMjAwNDdaMGUxGTAXBgNV
+BAMTEGxvZ2luLnZyei1ucncuZGUxCzAJBgNVBAsTAkFNMRAwDgYDVQQKEwdWUlot
+TlJXMQ4wDAYDVQQHEwVMZW1nbzEMMAoGA1UECBMDTlJXMQswCQYDVQQGEwJERTCC
+AiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBALrHpF24Ld19BdknnRonJtXs
+mu34MIAj8FZl0DIdgqohmlRE9DY3L70Ehd9OOSkdDsvTAQ4Abe0U/ICJ8vmOjYy5
+tqpTuJg09yW5b94AOAihCZDlNEdokVcdVDI9UkVCBCxgr0nmHLEKBmlVyOs1Majy
++PwRrHiJbMq8uwO4/9DiGV/VtRIfKLGUtv3xRmH6theSQQGTrrzPacyH3/hecr+b
+5mrW79UG0i/7mNrdGYLdV3DyLwZ1f8VCqjGIERsD1dpr4UNDzsm5sGOBq/OAX75L
+jBW2mSeRVJOVWtPHPTTa1FivpmDZvN+0jfH7NJZR4UmcCCy17g6a22kkaMYw7Iw5
+Ld8/pi97aSiehhdYoP3yAmRfiPGBPzoxvQpn0GDSi4/OT49WZbFX34A4iyoN41NJ
+h/u+FgHFhxmfqqjw4IJJnMJxArPisd1aVnwLZKtQUyb4PXeQ0ULxF/KU9wq8C+Mz
+/G134yAPwqg435OuDAJ+VTpjdVaBVbjM54MleWOWg+F4C2kJbZbewhoF6BgsjVS3
+tg1R2V2Ti3D+0DKJwkjOEh60JCbdBFhvaq2n3D7vVBJ15CzB12ztnJvXtzXOKP/D
+L7wu9ipcBc1HvKjaUiGQ/qUmNlkcMrFAy2GbBgud4VfSY2CaYo4RI6OJ1FF4yJT7
+ApqSj0/H2pQJRqQaHazPAgMBAAGjggI+MIICOjAdBgNVHQ4EFgQUL0m42hyfwCDg
+V6oU2Ptt747GcYIwHwYDVR0jBBgwFoAUDwnx8afgNGb/EdMqShgRW1NDMscwGwYD
+VR0RBBQwEoIQbG9naW4udnJ6LW5ydy5kZTALBgNVHQ8EBAMCBJAwggHMBgtghkgB
+hvg3AQkEAQSCAbswggG3BAIBAAEB/xMdTm92ZWxsIFNlY3VyaXR5IEF0dHJpYnV0
+ZSh0bSkWQ2h0dHA6Ly9kZXZlbG9wZXIubm92ZWxsLmNvbS9yZXBvc2l0b3J5L2F0
+dHJpYnV0ZXMvY2VydGF0dHJzX3YxMC5odG0wggFIoBoBAQAwCDAGAgEBAgFGMAgw
+BgIBAQIBCgIBaaEaAQEAMAgwBgIBAQIBADAIMAYCAQECAQACAQCiBgIBFwEB/6OC
+AQSgWAIBAgICAP8CAQADDQCAAAAAAAAAAAAAAAADCQCAAAAAAAAAADAYMBACAQAC
+CH//////////AQEAAgQG8N9IMBgwEAIBAAIIf/////////8BAQACBAbw30ihWAIB
+AgICAP8CAQADDQBAAAAAAAAAAAAAAAADCQBAAAAAAAAAADAYMBACAQACCH//////
+////AQEAAgQR/7CdMBgwEAIBAAIIf/////////8BAQACBBH/sJ2iTjBMAgECAgEA
+AgIA/wMNAIAAAAAAAAAAAAAAAAMJAIAAAAAAAAAAMBIwEAIBAAIIf/////////8B
+AQAwEjAQAgEAAgh//////////wEBADANBgkqhkiG9w0BAQsFAAOCAQEADwuFuGZd
+pY/BEhgA3U14LlgCv94txHKnaG/zfiSvZOgTPVJXlQHsW3c53MqmX9LpZVRcKxAq
+P2Vx8HH4pFIuFLOuob14PaPgLJpUtEu92Xq5P3ITAd+cYNNOX1nW8Z6tTviPalel
+t0F72nUtOhR50UGjUG53Mv/giyVFoDKCjviWrdYXSq3C3eNDOs6gr1PGOfax8VNz
+tREv0qMEE2F1WPClRbRxrltlIzzaioi78aqOWinnWwZuuE/dRJcwGh+FPVH4V4/X
+CVQBi5UuYKmxMNHoY+LfPZbtyvcxZG4b3Ik09CzVQpkyE4cOIgwjozQ1Za4vKdJy
+RXgAOVIkUy2dlQ==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.vrz-nrw.de/nidp/saml2/soap" index="0" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.vrz-nrw.de/nidp/saml2/slo" ResponseLocation="https://login.vrz-nrw.de/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.vrz-nrw.de/nidp/saml2/slo" ResponseLocation="https://login.vrz-nrw.de/nidp/saml2/slo_return" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.vrz-nrw.de/nidp/saml2/soap" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.vrz-nrw.de/nidp/saml2/rni" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.vrz-nrw.de/nidp/saml2/rni" />
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.vrz-nrw.de/nidp/saml2/soap" />
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.vrz-nrw.de/nidp/saml2/sso" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.vrz-nrw.de/nidp/saml2/sso" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hfm-detmold.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Hochschule für Musik Detmold</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Detmold University of Music</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Hochschule für Musik Detmold</mdui:Description>
+          <mdui:Description xml:lang="en">Detmold University of Music</mdui:Description>
+          <mdui:Logo height="48" width="48">https://www.hfm-detmold.de/favicon.ico</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>login.vrz-nrw.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=login.vrz-nrw.de</ds:X509SubjectName>
+            <ds:X509Certificate>MIID9zCCAl+gAwIBAgIJAN4hvKE3xxWVMA0GCSqGSIb3DQEBCwUAMBsxGTAXBgNV
+BAMTEGxvZ2luLnZyei1ucncuZGUwHhcNMjUxMDI3MDk0NzE0WhcNMjkwMTA5MDk0
+NzE0WjAbMRkwFwYDVQQDExBsb2dpbi52cnotbnJ3LmRlMIIBojANBgkqhkiG9w0B
+AQEFAAOCAY8AMIIBigKCAYEAsniIfO/1hj8C48apF9VROq5AxRcTBl572kjjNKiz
+VvRrCUZqWdqHaCMlP3TTvgyzIDYWqV9OZtOj4j78WqD4QuiNG4FgV9ygwH5doCEw
+nDiAIADEvHHSQ0F+z4Kk7f+UTRb5wY6JhrVMIOYr77v8+ObFoNVvtDMk0qJkYvhE
+A4CBlbm6RngM5ax2W3+7/aNbDAy6AeHdc79p8QepijxyFZ4U3pQl+8mVt/f0IBTC
+f2ohT+Xr/uTrrPed6yKrWFW9c2KxLR8Dh7scy/IX9GZY0JQ7xDbPbPZEwc5SaAwm
+ZCvbE6bU/HVB/LHfHfGWEumk9+s3Dzmg4K2CtKTOjAiEIQleIYxM7cXjJY5Ug++B
+Wp1hthY8XGy4c8GNFdZG47FXidZb5bdHtE/G7fk12TMASoRXIkxqNzL1AuggkZ0D
+MpFnOzqYBBWGXS+AA+hlkPoXyuqHVzgMcoa/8Ny5U1FkPZbHrFfdYqTTgkCINnHl
+62+HddvonTjh1YWpCKf8V3fXAgMBAAGjPjA8MBsGA1UdEQQUMBKCEGxvZ2luLnZy
+ei1ucncuZGUwHQYDVR0OBBYEFEBxvdi1rqQv5ETeqP868m15/hi4MA0GCSqGSIb3
+DQEBCwUAA4IBgQCIEfZOpSsMdOIfscCpNVj5BaUzGGOxHp9ppYm3+u6xqT9s1kpn
+BqZL9h8fwyVDNmIbmiRpBvqCxaMOGI45M4a5+nV2ILwimrLX/eLwcz3kaLH1s2XY
+eL63M6DqQRE2UfN04PRr3ds1w2QP4xEEEbnyNoysjcSv4yXSNqfpijBNJKacXG7B
+DfrlMnpDqsZ7uJbmNfET5uUk8o6QsVXrptIm2QFBM7JsbyOx8swMTQRuinNo7cnJ
+x9vNnVHLMdnRxhAjA8vnjYrms/72qh/JJ8IMaIqkG0DPgUFrjnxR9o/bkHZkI3K7
+ovrk9oYK+H86SOcuuS4Eto53fRo3EeT6/vFdOml8XH2K3O3vEhVXziLu+5jZULpz
+sTlFu+bEdNMmcTFF2R2ROY/DekMfK/BeartBwCyBSCAWvpvGZttyWD44QT7gMhHL
+e9X9pGVaBQ9mJJ18jETRmsW6+4beEOF44huUfmfZkHgb8ODMnlREg8/YcFoJ15ng
+/xa1xIetPjQVeBo=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.vrz-nrw.de/nidp/saml2/soap" />
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e764</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e764</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Hochschule für Musik Detmold</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Detmold University of Music</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">https://www.hfm-detmold.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.hfm-detmold.de/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Thomas</md:GivenName>
+      <md:SurName>Ziesel</md:SurName>
+      <md:EmailAddress>mailto:thomas.ziesel@hfm-detmold.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="other" remd:contactType="http://refeds.org/metadata/contactType/security">
+      <md:GivenName>Thomas</md:GivenName>
+      <md:SurName>Ziesel</md:SurName>
+      <md:EmailAddress>mailto:aai-admins@hfm-detmold.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Thomas</md:GivenName>
+      <md:SurName>Ziesel</md:SurName>
+      <md:EmailAddress>mailto:aai-admins@hfm-detmold.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Thomas</md:GivenName>
+      <md:SurName>Ziesel</md:SurName>
+      <md:EmailAddress>mailto:aai-admins@hfm-detmold.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

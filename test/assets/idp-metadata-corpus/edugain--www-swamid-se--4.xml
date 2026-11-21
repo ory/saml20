@@ -1,0 +1,154 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.kmh.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/" registrationInstant="2014-06-02T12:04:31Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://swamid.se/policy/mdrps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="urn:oasis:names:tc:SAML:attribute:assurance-certification" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al1</saml:AttributeValue>
+          <saml:AttributeValue>http://www.swamid.se/policy/assurance/al2</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>https://refeds.org/category/anonymous</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>https://myacademicid.org/entity-categories/esi</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/code-of-conduct/v2</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/personalized</saml:AttributeValue>
+          <saml:AttributeValue>https://refeds.org/category/pseudonymous</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" errorURL="https://error.swamid.se/?errorurl_code=ERRORURL_CODE&amp;errorurl_ts=ERRORURL_TS&amp;errorurl_rp=ERRORURL_RP&amp;errorurl_tid=ERRORURL_TID&amp;errorurl_ctx=ERRORURL_CTX&amp;entityid=https://idp.kmh.se/idp/shibboleth">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kmh.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Kungliga Musikhögskolan i Stockholm</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Royal College of Music in Stockholm</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Kungliga Musikhögskolan</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for Royal College of Music in Stockholm</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">https://www.kmh.se/download/18.2aa17d2517d7b88b034b987a/1639133993846/Riktlinjer%20fo%CC%88r%20elektroniska%20identiteter%20bilaga%203.pdf</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.kmh.se/download/18.2aa17d2517d7b88b034b987a/1639133993846/Riktlinjer%20fo%CC%88r%20elektroniska%20identiteter%20bilaga%203.pdf</mdui:InformationURL>
+          <mdui:Logo xml:lang="sv" height="141" width="313">https://idp.kmh.se/idp/images/logo.jpg</mdui:Logo>
+          <mdui:Logo xml:lang="en" height="141" width="313">https://idp.kmh.se/idp/images/logo.jpg</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">kmh kungliga+musikhogskolan royal+college+of+music stockholm kungl.+musikhögskolan+i+stockholm</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">kmh kungliga+musikhogskolan royal+college+of+music stockholm kungl.+musikhögskolan+i+stockholm</mdui:Keywords>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.kmh.se/download/18.2aa17d2517d7b88b034b97f8/1639133766333/Riktlinjer%20f%C3%B6r%20elektroniska%20identiteter%20bilaga%202.pdf</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="sv">https://www.kmh.se/download/18.2aa17d2517d7b88b034b97f8/1639133766333/Riktlinjer%20f%C3%B6r%20elektroniska%20identiteter%20bilaga%202.pdf</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>kmh.se</mdui:DomainHint>
+          <mdui:IPHint>193.10.62.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:59.34474,18.08126</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEsTCCApkCFDc+d16n6M5nXzzPo2qdVaJAaooeMA0GCSqGSIb3DQEBCwUAMBUx
+EzARBgNVBAMMCmlkcC5rbWguc2UwHhcNMjQxMDI0MDgwNDIxWhcNMzQxMDIyMDgw
+NDIxWjAVMRMwEQYDVQQDDAppZHAua21oLnNlMIICIjANBgkqhkiG9w0BAQEFAAOC
+Ag8AMIICCgKCAgEAqHC4icLDKQo0/QSgs6l+A6DUlgN8qNe5VaQ9osi2YPJldvNM
+YExpHSBBS1m0iURNNdjAI3EbkDwhH+zdn188Z+KRCnJ/bOXKfn6t7in22Txckw1h
+DwtVRsLxGILVuxrAkTf/E3bcPfPQai8pLyeKzBykV6oX/Ghy4utMCd9EiY2E1gWj
+EbPMftrIeDFBHZtzXBS0ldmQHQzHPNcYoATAWH/Fjn3qqzzwPfc5/i7qwGYdV3Tn
+/D5X7dXSlQyLOXfZa3JT/Ch6rsY1myuwbXZ8CuWhaI7+trNOLJnekuKtyJxAn5i7
+AXdV1ReV7EOpLdSAN3pKDAc9GPWklSuicdAdkqfY/mMtE6875CcCdXZx7kMDlIhj
+8PGp71wgLzITitkfsBGvHuP4yRRnIIctTNH081aiiiVdWWe12Lo3ano9f/yrYudU
+YKqKQxjBQwk2AyAxsFacVkXm7f5Tk/aoaQRvyV46CwFDb6dbU/nQeGq5jnfoQS8f
+rvLs5F6gJpKsSDWg1Z/nVAAWdEk8GgfEAYXxr0mWJuhPddHBOZixbgHyaZnbNKZe
+cwZKv7SHt+tjnzTgvAJW6QH5hw1K61OyNYdekAKlkFhrxlB4I3dVyD4ZdF2pw9pb
+hkpBLSzDJXvTBmRo03vtNVg7kf7ldeIDi8iniJsj47X12lDPLKEHSStFMDsCAwEA
+ATANBgkqhkiG9w0BAQsFAAOCAgEAFoBPmoDn/zqbNV6PI9S1lEetWL9kUc2/ZrlS
+Miw0VSI9GvbGlsK/UutdlfqAtD0Mk2TH2I7o5dWwzzVbvc8QJ6Asurz2LGHh5U3l
+AJlm8g74svqQtGl8gJ9C5GERruUBBZZnroZLtt12vLfsGYVLxKvgbo5dXRkY55bu
+Rl60N13G4qy34frZHjfAHEcPe1vql07X5THgKPZ8CwXDRMB0utdueMlFI+jkA4in
+0jNi0lIDOvCxZaTIVg4eVrtANPZKpLTT0M/s7iDZ5fNP+kv8NU1Gfw9Ye8RrWuBD
+ixl8SHDihfiyU6Uw0If1jsqF2uaUK0BlmWu2T87b0KNaJK3kbh14+L1JwaZ+FhAR
++q5pDBUlq3KbhnRKQP9806aYq/JFXWS4R6LoXsVf9ddsqxzfVYYvEjzB6FRssLRa
+8mJZO8+gKQ/lGMV4JZwctnSgU/6iLIeKp2kZy8HErHdAFY3hoc6zuSQno4okt15h
+M/JlIA/HRhwr4xbgnQfr8IFRcKYGVb1hhpZUxKHDDlRp9tnT/8aYi6JTninKDfh6
+XcCvD2H3ppIG9dELSp3rBk0VbJQLLgGwAWybNXBf71Cv++bfAVv6XXoK4oPzeUS3
+SklHlpVWkU4PrLk6k1wNaLlRua5p4DQDDzz4pmJ2BagX+3DdJ6H4ZvUySV+EyRhn
+JKjbV/M=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kmh.se/idp/profile/SAML2/SOAP/ArtifactResolution" index="1" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.kmh.se/idp/profile/SAML2/Redirect/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.kmh.se/idp/profile/SAML2/POST/SLO" />
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kmh.se/idp/profile/SAML2/SOAP/SLO" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.kmh.se/idp/profile/SAML2/POST/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.kmh.se/idp/profile/SAML2/POST-SimpleSign/SSO" />
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.kmh.se/idp/profile/SAML2/Redirect/SSO" />
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kmh.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEsTCCApkCFDc+d16n6M5nXzzPo2qdVaJAaooeMA0GCSqGSIb3DQEBCwUAMBUx
+              EzARBgNVBAMMCmlkcC5rbWguc2UwHhcNMjQxMDI0MDgwNDIxWhcNMzQxMDIyMDgw
+              NDIxWjAVMRMwEQYDVQQDDAppZHAua21oLnNlMIICIjANBgkqhkiG9w0BAQEFAAOC
+              Ag8AMIICCgKCAgEAqHC4icLDKQo0/QSgs6l+A6DUlgN8qNe5VaQ9osi2YPJldvNM
+              YExpHSBBS1m0iURNNdjAI3EbkDwhH+zdn188Z+KRCnJ/bOXKfn6t7in22Txckw1h
+              DwtVRsLxGILVuxrAkTf/E3bcPfPQai8pLyeKzBykV6oX/Ghy4utMCd9EiY2E1gWj
+              EbPMftrIeDFBHZtzXBS0ldmQHQzHPNcYoATAWH/Fjn3qqzzwPfc5/i7qwGYdV3Tn
+              /D5X7dXSlQyLOXfZa3JT/Ch6rsY1myuwbXZ8CuWhaI7+trNOLJnekuKtyJxAn5i7
+              AXdV1ReV7EOpLdSAN3pKDAc9GPWklSuicdAdkqfY/mMtE6875CcCdXZx7kMDlIhj
+              8PGp71wgLzITitkfsBGvHuP4yRRnIIctTNH081aiiiVdWWe12Lo3ano9f/yrYudU
+              YKqKQxjBQwk2AyAxsFacVkXm7f5Tk/aoaQRvyV46CwFDb6dbU/nQeGq5jnfoQS8f
+              rvLs5F6gJpKsSDWg1Z/nVAAWdEk8GgfEAYXxr0mWJuhPddHBOZixbgHyaZnbNKZe
+              cwZKv7SHt+tjnzTgvAJW6QH5hw1K61OyNYdekAKlkFhrxlB4I3dVyD4ZdF2pw9pb
+              hkpBLSzDJXvTBmRo03vtNVg7kf7ldeIDi8iniJsj47X12lDPLKEHSStFMDsCAwEA
+              ATANBgkqhkiG9w0BAQsFAAOCAgEAFoBPmoDn/zqbNV6PI9S1lEetWL9kUc2/ZrlS
+              Miw0VSI9GvbGlsK/UutdlfqAtD0Mk2TH2I7o5dWwzzVbvc8QJ6Asurz2LGHh5U3l
+              AJlm8g74svqQtGl8gJ9C5GERruUBBZZnroZLtt12vLfsGYVLxKvgbo5dXRkY55bu
+              Rl60N13G4qy34frZHjfAHEcPe1vql07X5THgKPZ8CwXDRMB0utdueMlFI+jkA4in
+              0jNi0lIDOvCxZaTIVg4eVrtANPZKpLTT0M/s7iDZ5fNP+kv8NU1Gfw9Ye8RrWuBD
+              ixl8SHDihfiyU6Uw0If1jsqF2uaUK0BlmWu2T87b0KNaJK3kbh14+L1JwaZ+FhAR
+              +q5pDBUlq3KbhnRKQP9806aYq/JFXWS4R6LoXsVf9ddsqxzfVYYvEjzB6FRssLRa
+              8mJZO8+gKQ/lGMV4JZwctnSgU/6iLIeKp2kZy8HErHdAFY3hoc6zuSQno4okt15h
+              M/JlIA/HRhwr4xbgnQfr8IFRcKYGVb1hhpZUxKHDDlRp9tnT/8aYi6JTninKDfh6
+              XcCvD2H3ppIG9dELSp3rBk0VbJQLLgGwAWybNXBf71Cv++bfAVv6XXoK4oPzeUS3
+              SklHlpVWkU4PrLk6k1wNaLlRua5p4DQDDzz4pmJ2BagX+3DdJ6H4ZvUySV+EyRhn
+              JKjbV/M=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kmh.se/idp/profile/SAML2/SOAP/AttributeQuery" />
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Royal College of Music in Stockholm</md:OrganizationName>
+      <md:OrganizationName xml:lang="sv">Kungliga Musikhögskolan i Stockholm</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Kungliga Musikhögskolan i Stockholm</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Royal College of Music in Stockholm</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kmh.se</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sv">http://www.kmh.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Royal College of Music</md:Company>
+      <md:SurName>KMH IT-avdelningen</md:SurName>
+      <md:EmailAddress>mailto:swamid@kmh.se</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Royal College of Music</md:Company>
+      <md:SurName>KMH IT-avdelningen</md:SurName>
+      <md:EmailAddress>mailto:swamid@kmh.se</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Royal College of Music</md:Company>
+      <md:SurName>KMH Servicedesk</md:SurName>
+      <md:EmailAddress>mailto:servicedesk@kmh.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 57210600</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
+  

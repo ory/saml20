@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp-dev.graduateinstitute.ch/idp/shibboleth">
+        <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">graduateinstitute.ch</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">Test IdP of the Graduate
+                        Institute
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Test IdP of the Graduate
+                        Institute
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                </mdui:DiscoHints>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDUDCCAjigAwIBAgIJAPUDVr6Jd2nyMA0GCSqGSIb3DQEBBQUAMCcxJTAjBgNV
+                            BAMTHGlkcC1kZXYuZ3JhZHVhdGVpbnN0aXR1dGUuY2gwHhcNMTMwODE0MTE0MjM0
+                            WhcNMTYwODE0MTE0MjM0WjAnMSUwIwYDVQQDExxpZHAtZGV2LmdyYWR1YXRlaW5z
+                            dGl0dXRlLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyU4mujtL
+                            BxvC64M54NVmWS4jFIYj03IrngjNvn7YzY9i4OCG+z91rpQK7mLD22KcDRuYDMfC
+                            V2RNUp3CIkEFxG92MS2wVddwfXL0oQo0ZdhXb7TUSNZmAfs1vrpKD2F4RUOL5NzT
+                            79KQqr8tQlvrNR6jws2VxrUgn/50GvaLKp1V8IU3WkdYWzfVGyQ9l6rUzpG/b9Si
+                            p2Tp7n01gK6KQxFHyV1gAMkis4hqkeBz1Npm0JLYmqXPr8yCHMzruT5vKgavv+Ms
+                            QNXNUqh5ze6tZgtyKI++oJ0DbOJP/UQGOrFSI5XT2LwOe36T6KHfsCOTaZFt/UQd
+                            Qh6dLcjfCkjqYQIDAQABo38wfTBcBgNVHREEVTBTghxpZHAtZGV2LmdyYWR1YXRl
+                            aW5zdGl0dXRlLmNohjNodHRwczovL2lkcC1kZXYuZ3JhZHVhdGVpbnN0aXR1dGUu
+                            Y2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFFAh+0LgcbUS3OYeJDwRmyU53yfA
+                            MA0GCSqGSIb3DQEBBQUAA4IBAQBCST3nwNcF8/lGRgd2l0G7PLabNMbZSKK0kPrE
+                            nOHkzUPikMNoXoyNCC7rMBBZvLJo6ezzY0RbXc7PpFbZ61sDRBbEJY1Jad6S2KnE
+                            K+SE/PmqEaM3CiCKHbC5pogSlt/zfiRi7T7u7V+fVQfDt+5FJu4dJq4lIoI/n+9m
+                            SwSPl5E+sQtbva+WV+0TyKlVna8LdKxXvZEypl1MOrxOTcIf3RDrXpxkXXVQZnNi
+                            SF9hEFcrZGYJh9tVLdn8Ak7Zcy8emN5nTQLnQjnj9ca4KQeksPHsdfVfEZPLcQq3
+                            9omthxKfwQoliMVgNwz74qW679XYAPgE6dlu+Xy8OCqCYfNm
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-dev.graduateinstitute.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="1" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-dev.graduateinstitute.ch/idp/profile/SAML2/Redirect/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-dev.graduateinstitute.ch/idp/profile/SAML2/POST/SSO" />
+            <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp-dev.graduateinstitute.ch/idp/profile/SAML2/POST-SimpleSign/SSO" />
+        </md:IDPSSODescriptor>
+        <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+            <md:Extensions>
+                <shibmd:Scope regexp="false">graduateinstitute.ch</shibmd:Scope>
+            </md:Extensions>
+            <md:KeyDescriptor use="signing">
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDUDCCAjigAwIBAgIJAPUDVr6Jd2nyMA0GCSqGSIb3DQEBBQUAMCcxJTAjBgNV
+                            BAMTHGlkcC1kZXYuZ3JhZHVhdGVpbnN0aXR1dGUuY2gwHhcNMTMwODE0MTE0MjM0
+                            WhcNMTYwODE0MTE0MjM0WjAnMSUwIwYDVQQDExxpZHAtZGV2LmdyYWR1YXRlaW5z
+                            dGl0dXRlLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyU4mujtL
+                            BxvC64M54NVmWS4jFIYj03IrngjNvn7YzY9i4OCG+z91rpQK7mLD22KcDRuYDMfC
+                            V2RNUp3CIkEFxG92MS2wVddwfXL0oQo0ZdhXb7TUSNZmAfs1vrpKD2F4RUOL5NzT
+                            79KQqr8tQlvrNR6jws2VxrUgn/50GvaLKp1V8IU3WkdYWzfVGyQ9l6rUzpG/b9Si
+                            p2Tp7n01gK6KQxFHyV1gAMkis4hqkeBz1Npm0JLYmqXPr8yCHMzruT5vKgavv+Ms
+                            QNXNUqh5ze6tZgtyKI++oJ0DbOJP/UQGOrFSI5XT2LwOe36T6KHfsCOTaZFt/UQd
+                            Qh6dLcjfCkjqYQIDAQABo38wfTBcBgNVHREEVTBTghxpZHAtZGV2LmdyYWR1YXRl
+                            aW5zdGl0dXRlLmNohjNodHRwczovL2lkcC1kZXYuZ3JhZHVhdGVpbnN0aXR1dGUu
+                            Y2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFFAh+0LgcbUS3OYeJDwRmyU53yfA
+                            MA0GCSqGSIb3DQEBBQUAA4IBAQBCST3nwNcF8/lGRgd2l0G7PLabNMbZSKK0kPrE
+                            nOHkzUPikMNoXoyNCC7rMBBZvLJo6ezzY0RbXc7PpFbZ61sDRBbEJY1Jad6S2KnE
+                            K+SE/PmqEaM3CiCKHbC5pogSlt/zfiRi7T7u7V+fVQfDt+5FJu4dJq4lIoI/n+9m
+                            SwSPl5E+sQtbva+WV+0TyKlVna8LdKxXvZEypl1MOrxOTcIf3RDrXpxkXXVQZnNi
+                            SF9hEFcrZGYJh9tVLdn8Ak7Zcy8emN5nTQLnQjnj9ca4KQeksPHsdfVfEZPLcQq3
+                            9omthxKfwQoliMVgNwz74qW679XYAPgE6dlu+Xy8OCqCYfNm
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </md:KeyDescriptor>
+            <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-dev.graduateinstitute.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+            </md:NameIDFormat>
+            <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+        </md:AttributeAuthorityDescriptor>
+        <md:Organization>
+            <md:OrganizationName xml:lang="en">graduateinstitute.ch
+            </md:OrganizationName>
+            <md:OrganizationDisplayName xml:lang="en">Test IdP of the Graduate
+                Institute
+            </md:OrganizationDisplayName>
+            <md:OrganizationURL xml:lang="en">http://www.graduateinstitute.ch/
+            </md:OrganizationURL>
+        </md:Organization>
+    </md:EntityDescriptor>
+
+    
+    
