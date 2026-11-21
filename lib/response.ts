@@ -513,6 +513,10 @@ const createSAMLResponse = async ({
   // sent as unspecified.
   nameId?: AssertedNameID;
 }): Promise<string> => {
+  if (nameId && (typeof nameId.value !== 'string' || nameId.value.trim() === '')) {
+    throw new Error('Invalid nameId: value must be a non-empty string.');
+  }
+
   const clockSkewToleranceMinutes = 5;
   const authDate = new Date();
   const authTimestamp = authDate.toISOString();

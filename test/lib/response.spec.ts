@@ -445,6 +445,14 @@ describe('response.ts', function () {
 
     assert.doesNotMatch(response, /NameQualifier/);
   });
+
+  it('Should reject a given NameID without a value', async function () {
+    for (const value of ['', ' \n', undefined as unknown as string]) {
+      await assert.rejects(createSAMLResponse({ ...responseInput, nameId: { ...persistentNameId, value } }), {
+        message: 'Invalid nameId: value must be a non-empty string.',
+      });
+    }
+  });
 });
 it('parseIssuer should return the correct issuer value', async function () {
   const rawAssertion = fs.readFileSync('./test/assets/saml20.validResponse.xml').toString();
