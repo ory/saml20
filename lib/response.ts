@@ -1,4 +1,4 @@
-import type { AssertionEncryption, SAMLProfile, ValidateOptions } from './typings';
+import type { AssertedNameID, AssertionEncryption, SAMLProfile, ValidateOptions } from './typings';
 import { getVersion } from './getVersion';
 import { verifySignature, verifyRootSignature, sanitizeXML } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
@@ -508,9 +508,10 @@ const createSAMLResponse = async ({
   // The AuthnStatement SessionIndex, which an SP sends back in its LogoutRequest
   // to name the session to end. Defaults to requestId.
   sessionIndex?: string;
-  // The Subject NameID. Defaults to claims.email in the emailAddress format;
-  // a value given without a format is sent as unspecified.
-  nameId?: { value: string; format?: string };
+  // The Subject NameID, in the shape validate() returns it. Defaults to
+  // claims.email in the emailAddress format; a value given without a format is
+  // sent as unspecified.
+  nameId?: AssertedNameID;
 }): Promise<string> => {
   const clockSkewToleranceMinutes = 5;
   const authDate = new Date();
@@ -555,6 +556,8 @@ const createSAMLResponse = async ({
         'saml:Subject': {
           '@xmlns:saml': ASSERTION_NS,
           'saml:NameID': {
+            ...(nameId?.nameQualifier && { '@NameQualifier': nameId.nameQualifier }),
+            ...(nameId?.spNameQualifier && { '@SPNameQualifier': nameId.spNameQualifier }),
             '@Format': nameId
               ? nameId.format || 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'
               : 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
