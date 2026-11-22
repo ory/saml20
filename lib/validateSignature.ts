@@ -220,7 +220,8 @@ const hasValidSignature = (
         break;
       }
     }
-    if (!valid) {
+    // A digest mismatch returns null, as with a single certificate, so validate() can retry the encrypted XML.
+    if (valid === undefined) {
       throw new Error('invalid signature: Failed to verify signature against all the certificates provided.');
     }
   } else {

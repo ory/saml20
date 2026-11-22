@@ -596,6 +596,49 @@ describe('validate() with an assertion encrypted before the Response was signed'
     await assert.rejects(validate(signedEncrypted, options({ publicKey: certificate })), /Invalid assertion/);
   });
 
+  for (const [label, publicKey] of [
+    ['active certificate first', [testIdpCert, certificate].join(',')],
+    ['active certificate last', [certificate, testIdpCert].join(',')],
+    ['duplicate certificates', [testIdpCert, testIdpCert].join(',')],
+  ]) {
+    it(`accepts the encrypted Response with ${label}`, async function () {
+      const profile = await validate(signedEncrypted, options({ publicKey }));
+      assert.deepStrictEqual(profile, await validate(signedEncrypted, options()));
+    });
+
+    it(`rejects a tampered encrypted Response with ${label}`, async function () {
+      const tampered = signedEncrypted.replace(
+        `Destination="${ACS}"`,
+        'Destination="https://evil.example.com/acs"'
+      );
+      assert.notStrictEqual(tampered, signedEncrypted);
+      await assert.rejects(validate(tampered, options({ publicKey })), {
+        message: 'Invalid assertion signature.',
+      });
+    });
+
+    it(`still checks the audience with ${label}`, async function () {
+      await assert.rejects(
+        validate(signedEncrypted, options({ publicKey, audience: 'https://wrong.example.com' })),
+        /Invalid audience/
+      );
+    });
+
+    it(`still checks request correlation with ${label}`, async function () {
+      await assert.rejects(
+        validate(signedEncrypted, options({ publicKey, inResponseTo: '_wrong-request' })),
+        /Invalid InResponseTo/
+      );
+    });
+  }
+
+  it('rejects the encrypted Response when none of the certificates is trusted', async function () {
+    await assert.rejects(
+      validate(signedEncrypted, options({ publicKey: [certificate, certificate].join(',') })),
+      /Invalid assertion/
+    );
+  });
+
   it('rejects it when no decryption key is supplied', async function () {
     await assert.rejects(validate(signedEncrypted, options({ privateKey: undefined })), {
       message: 'Exception of Assertion Decryption.',

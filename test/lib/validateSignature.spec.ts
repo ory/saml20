@@ -416,6 +416,13 @@ describe('validateSignature() failure mode', function () {
       message: 'invalid signature: the signature does not verify',
     });
   });
+
+  it('reports a digest mismatch the same way with multiple certificates', function () {
+    const tampered = signed().replace('jo@example.com', 'eve@example.com');
+    assert.throws(() => validateSignature(tampered, [testIdpCert, testIdpCert].join(','), null), {
+      message: 'invalid signature: the signature does not verify',
+    });
+  });
 });
 
 describe('validateSignature.ts - algorithm allowlists', function () {
