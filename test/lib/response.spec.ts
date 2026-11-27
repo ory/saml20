@@ -377,6 +377,82 @@ describe('response.ts', function () {
 
     assert.strictEqual(parsed.sessionIndex, json.sessionIndex);
   });
+
+  const responseInput = {
+    audience: 'http://sp.example.com/demo1/metadata.php',
+    issuer: 'http://idp.example.com/metadata.php',
+    acsUrl: 'http://sp.example.com/demo1/index.php?acs',
+    claims: { email: 'jackson@example.com', raw: {} },
+    requestId: 'ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685',
+    privateKey: testIdpPrivateKey,
+    publicKey: testIdpPublicKey,
+  };
+  const persistentNameId = {
+    value: '_a3f1c0de9b8e4f7d',
+    format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
+  };
+  const assertedNameId = async (input: Parameters<typeof createSAMLResponse>[0]) => {
+    const parsed = await validate(await createSAMLResponse(input), {
+      audience: input.audience,
+      publicKey: testIdpPublicKey,
+    });
+    return parsed.nameId;
+  };
+
+  it('Should create a SAML response with an emailAddress NameID by default', async function () {
+    assert.deepStrictEqual(await assertedNameId(responseInput), {
+      value: 'jackson@example.com',
+      format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+    });
+  });
+
+  it('Should create a SAML response with the given NameID and format', async function () {
+    assert.deepStrictEqual(
+      await assertedNameId({ ...responseInput, nameId: persistentNameId }),
+      persistentNameId
+    );
+  });
+
+  it('Should send a NameID given without a format as unspecified', async function () {
+    assert.deepStrictEqual(await assertedNameId({ ...responseInput, nameId: { value: 'jackson' } }), {
+      value: 'jackson',
+      format: 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
+    });
+  });
+
+  it('Should use the given NameID when claims.email is omitted', async function () {
+    assert.deepStrictEqual(
+      await assertedNameId({ ...responseInput, claims: { raw: {} }, nameId: persistentNameId }),
+      persistentNameId
+    );
+  });
+
+  it('Should send the NameQualifier and SPNameQualifier of the given NameID', async function () {
+    const nameId = {
+      ...persistentNameId,
+      nameQualifier: 'http://idp.example.com/metadata.php',
+      spNameQualifier: 'http://sp.example.com/demo1/metadata.php',
+    };
+
+    assert.deepStrictEqual(await assertedNameId({ ...responseInput, nameId }), nameId);
+  });
+
+  it('Should leave out the qualifiers a given NameID does not have', async function () {
+    const response = await createSAMLResponse({
+      ...responseInput,
+      nameId: { value: '_a3f1c0de9b8e4f7d', nameQualifier: '', spNameQualifier: undefined },
+    });
+
+    assert.doesNotMatch(response, /NameQualifier/);
+  });
+
+  it('Should reject a given NameID without a value', async function () {
+    for (const value of ['', ' \n', undefined as unknown as string]) {
+      await assert.rejects(createSAMLResponse({ ...responseInput, nameId: { ...persistentNameId, value } }), {
+        message: 'Invalid nameId: value must be a non-empty string.',
+      });
+    }
+  });
 });
 it('parseIssuer should return the correct issuer value', async function () {
   const rawAssertion = fs.readFileSync('./test/assets/saml20.validResponse.xml').toString();

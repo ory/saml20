@@ -1,4 +1,4 @@
-import type { AssertionEncryption, SAMLProfile, ValidateOptions } from './typings';
+import type { AssertedNameID, AssertionEncryption, SAMLProfile, ValidateOptions } from './typings';
 import { getVersion } from './getVersion';
 import { verifySignature, verifyRootSignature, sanitizeXML } from './validateSignature';
 import type { ValidateSignatureOptions } from './validateSignature';
@@ -493,6 +493,7 @@ const createSAMLResponse = async ({
   flattenArray = false,
   ttlInMinutes,
   sessionIndex,
+  nameId,
 }: {
   audience: string;
   issuer: string;
@@ -507,7 +508,15 @@ const createSAMLResponse = async ({
   // The AuthnStatement SessionIndex, which an SP sends back in its LogoutRequest
   // to name the session to end. Defaults to requestId.
   sessionIndex?: string;
+  // The Subject NameID, in the shape validate() returns it. Defaults to
+  // claims.email in the emailAddress format; a value given without a format is
+  // sent as unspecified.
+  nameId?: AssertedNameID;
 }): Promise<string> => {
+  if (nameId && (typeof nameId.value !== 'string' || nameId.value.trim() === '')) {
+    throw new Error('Invalid nameId: value must be a non-empty string.');
+  }
+
   const clockSkewToleranceMinutes = 5;
   const authDate = new Date();
   const authTimestamp = authDate.toISOString();
@@ -551,8 +560,12 @@ const createSAMLResponse = async ({
         'saml:Subject': {
           '@xmlns:saml': ASSERTION_NS,
           'saml:NameID': {
-            '@Format': 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-            '#text': claims.email,
+            ...(nameId?.nameQualifier && { '@NameQualifier': nameId.nameQualifier }),
+            ...(nameId?.spNameQualifier && { '@SPNameQualifier': nameId.spNameQualifier }),
+            '@Format': nameId
+              ? nameId.format || 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified'
+              : 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+            '#text': nameId ? nameId.value : claims.email,
           },
           'saml:SubjectConfirmation': {
             '@Method': 'urn:oasis:names:tc:SAML:2.0:cm:bearer',
